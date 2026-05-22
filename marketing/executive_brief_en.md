@@ -2,6 +2,12 @@
 
 > **Patented Sewage Sludge & Organic Waste Carbonization (HTC) for Municipalities and Industry**
 
+> [!TIP]
+> **Printable PDF Version:**
+> A clean, formatted 3-page A4 PDF version of this document is ready for distribution: 
+> * **Project Workspace Link:** [marketing/executive_brief_en.pdf](file:///Users/max/Waste/marketing/executive_brief_en.pdf)
+> * **Printable HTML Page:** [marketing/executive_brief_en.html](file:///Users/max/Waste/marketing/executive_brief_en.html)
+
 ---
 
 ## 🌐 1. Executive Summary
