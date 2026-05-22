@@ -196,20 +196,74 @@ document.addEventListener('DOMContentLoaded', () => {
     if (recommendedModel) {
       recommendedModel.textContent = t.modelText[modelName] || modelName;
     }
+    const lpRecModel = document.getElementById('model-recommendation');
+    if (lpRecModel) {
+      lpRecModel.textContent = t.modelText[modelName] || modelName;
+    }
+
     if (wetInputVal) {
       wetInputVal.textContent = `${wetInputYear.toLocaleString(t.locale)} ${t.wetInputLabel}`;
     }
+    const lpWetInput = document.getElementById('wet-input-output');
+    if (lpWetInput) {
+      lpWetInput.textContent = `${wetInputYear.toLocaleString(t.locale)} ${t.wetInputLabel}`;
+    }
+
     if (hydrocharVal) {
       hydrocharVal.textContent = `${hydrocharYear.toLocaleString(t.locale)} ${t.hydrocharLabel}`;
     }
+    const lpHydrochar = document.getElementById('hydrochar-output');
+    if (lpHydrochar) {
+      lpHydrochar.textContent = `${hydrocharYear.toLocaleString(t.locale)} ${t.hydrocharLabel}`;
+    }
+
     if (energyVal) {
       energyVal.textContent = `${energyYear.toLocaleString(t.locale)} ${t.energyLabel}`;
     }
+    const lpEnergy = document.getElementById('energy-output');
+    if (lpEnergy) {
+      lpEnergy.textContent = `${energyYear.toLocaleString(t.locale)} ${t.energyLabel}`;
+    }
+
     if (co2Val) {
       co2Val.textContent = `~${co2Year.toLocaleString(t.locale)} ${t.co2Label}`;
     }
+    const lpCo2 = document.getElementById('co2-output');
+    if (lpCo2) {
+      lpCo2.textContent = `~${co2Year.toLocaleString(t.locale)} ${t.co2Label}`;
+    }
+
     if (preselectedModelInput) {
       preselectedModelInput.value = modelName;
+    }
+
+    // Update hidden inputs for landing page
+    const formRecModel = document.getElementById('form-rec-model');
+    if (formRecModel) {
+      formRecModel.value = modelName;
+    }
+
+    const formCalcLoad = document.getElementById('form-calc-load');
+    if (formCalcLoad) {
+      let loadText = "";
+      if (mode === 'rlm' && rlmCount) {
+        loadText = `${parseInt(rlmCount.value).toLocaleString(t.locale)} ${t.rlmUnit}`;
+      } else if (tonsCount) {
+        loadText = `${parseFloat(tonsCount.value).toLocaleString(t.locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ${t.tonsUnit}`;
+      }
+      formCalcLoad.value = loadText;
+    }
+
+    // Dynamic message update for landing page form
+    const lpMessage = document.getElementById('contact-message');
+    if (lpMessage) {
+      let loadText = "";
+      if (mode === 'rlm' && rlmCount) {
+        loadText = `${parseInt(rlmCount.value).toLocaleString(t.locale)} ${t.rlmUnit}`;
+      } else if (tonsCount) {
+        loadText = `${parseFloat(tonsCount.value).toLocaleString(t.locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 })} ${t.tonsUnit}`;
+      }
+      lpMessage.value = t.calcMessage(modelName, loadText);
     }
   }
 
@@ -296,6 +350,35 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // --- 6b. Alternative LP Showroom Tabs ---
+  const lpTabButtons = document.querySelectorAll('.tab-header .tab-btn');
+  const lpTabContents = document.querySelectorAll('.tab-content-wrapper .tab-content');
+
+  if (lpTabButtons.length > 0 && lpTabContents.length > 0) {
+    lpTabButtons.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Deactivate all LP tabs
+        lpTabButtons.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        // Hide all LP contents
+        lpTabContents.forEach(c => c.classList.add('hidden'));
+
+        // Activate clicked tab
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        // Show target content
+        const targetId = tab.getAttribute('data-tab');
+        const targetContent = document.getElementById(targetId);
+        if (targetContent) {
+          targetContent.classList.remove('hidden');
+        }
+      });
+    });
+  }
 
   // --- 7. Form Validation & AJAX Mocking ---
   const rfqForm = document.getElementById('rfq-form');
