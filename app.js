@@ -527,7 +527,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- 8. Dynamic Clean-Tech Background Animation (Fluid Flow, Mass Decay & Swirling Vortexes) ---
+  // --- 8. Dynamic Clean-Tech Background Animation (Ultra-Optimized Fluid Flow) ---
   const canvas = document.getElementById('bg-canvas');
   if (canvas) {
     const ctx = canvas.getContext('2d');
@@ -537,12 +537,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let dpr = 1;
     let particles = [];
     let vortices = [];
+    let isLooping = false;
 
     // Detect user preferences for motion
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     function resizeCanvas() {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      dpr = Math.min(window.devicePixelRatio || 1, 1.5); // Cap DPR at 1.5 for performance
       width = window.innerWidth;
       height = window.innerHeight;
       
@@ -550,19 +551,21 @@ document.addEventListener('DOMContentLoaded', () => {
       canvas.height = height * dpr;
       ctx.scale(dpr, dpr);
 
-      // Define static processing reactor zones (vortices) where particles swirl and dissolve
+      // Define static processing reactor zones (vortices)
       vortices = [
         {
           x: width * 0.30,
           y: height * 0.40,
+          radiusSq: Math.pow(Math.min(width * 0.22, 280), 2), // Pre-calculate squared radius to avoid Math.sqrt
           radius: Math.min(width * 0.22, 280),
-          strength: 1.4
+          strength: 1.2
         },
         {
           x: width * 0.65,
           y: height * 0.48,
+          radiusSq: Math.pow(Math.min(width * 0.22, 280), 2),
           radius: Math.min(width * 0.22, 280),
-          strength: 1.6
+          strength: 1.4
         }
       ];
 
@@ -571,34 +574,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function initParticles() {
       particles = [];
-      // Adaptive density: more particles on desktop, fewer on mobile
-      const particleCount = Math.min(Math.round((width * height) / 10000), 160);
+      // Low particle count for extreme CPU efficiency (max 50 on desktop, 15 on mobile)
+      const particleCount = Math.min(Math.round((width * height) / 25000), 50);
       
       for (let i = 0; i < particleCount; i++) {
-        // Distribute initial positions randomly across the viewport
         particles.push(createParticle(Math.random() * width, true));
       }
     }
 
     function createParticle(startX, randomY = false) {
-      const initialMass = 1.0 + Math.random() * 2.0; // Mass between 1.0 (light) and 3.0 (heavy)
+      const initialMass = 1.0 + Math.random() * 2.0;
       return {
         x: startX,
         y: randomY 
           ? height * 0.5 + Math.random() * height * 0.45 
-          : height * 0.65 + (Math.random() * height * 0.3), // Spawn lower in the sludge stream
-        vx: (0.5 + Math.random() * 0.8), // Initial left-to-right velocity
+          : height * 0.65 + (Math.random() * height * 0.3),
+        vx: 0.4 + Math.random() * 0.6, // Flow left-to-right
         vy: 0,
         mass: initialMass,
-        maxMass: initialMass,
         alpha: 1.0,
-        size: 1.2 + Math.random() * 1.8,
-        noiseSeed: Math.random() * 100,
-        swirling: false
+        size: 1.5 + Math.random() * 1.5,
+        noiseSeed: Math.random() * 100
       };
     }
 
     function draw() {
+      // Pause animation if user has scrolled past the Hero section (0% CPU when reading page content)
+      if (window.scrollY > height) {
+        stopLoop();
+        return;
+      }
+
       ctx.clearRect(0, 0, width, height);
 
       const time = Date.now() * 0.001;
@@ -607,158 +613,137 @@ document.addEventListener('DOMContentLoaded', () => {
       for (let i = 0; i < len; i++) {
         const p = particles[i];
 
-        // 1. DYNAMIC MASS DECAY
-        // As particles flow, they undergo organic breakdown (mass reduces)
-        p.mass -= 0.0018; 
+        // 1. MASS DECAY
+        p.mass -= 0.0022; 
         
-        // 2. PHYSICS & FORCES
-        // Damping/friction to prevent infinite acceleration
-        p.vx *= 0.97;
-        p.vy *= 0.97;
+        // 2. DAMPING & FORCES
+        p.vx *= 0.96;
+        p.vy *= 0.96;
 
-        // Base flow force carrying particles from Left to Right (vx is positive)
-        // Lighter particles are swept faster by the flow, heavy ones move slower
-        p.vx += 0.05 * (3.0 / p.mass);
+        // Flow force (left-to-right)
+        p.vx += 0.04 * (3.0 / p.mass);
 
-        // Gravity pull: Heavier particles settle down towards the bottom
-        p.vy += 0.02 * p.mass;
+        // Gravity pull settled sludge down
+        p.vy += 0.015 * p.mass;
 
-        // Sinusoidal water wave updraft (lifts particles based on wave crests)
-        // -time makes the wave propagate from left to right
-        const wavePhase = Math.sin(p.x * 0.004 - time * 1.8);
-        if (wavePhase > 0.2) {
-          // Lighter particles are lifted much higher by the wave flow
-          p.vy -= wavePhase * 0.08 * (3.0 / p.mass);
+        // Wave updraft crests
+        const wavePhase = Math.sin(p.x * 0.004 - time * 1.5);
+        if (wavePhase > 0.3) {
+          p.vy -= wavePhase * 0.06 * (3.0 / p.mass);
         }
 
-        // Swirl behavior near reactor vortices (filtration/processing nodes)
-        p.swirling = false;
+        // Swirl behavior in reactors
         for (let j = 0; j < vortices.length; j++) {
           const v = vortices[j];
           const dx = p.x - v.x;
           const dy = p.y - v.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+          const distSq = dx * dx + dy * dy;
 
-          if (dist < v.radius) {
-            p.swirling = true;
-            const factor = 1 - dist / v.radius; // 1 at center, 0 at boundary
+          if (distSq < v.radiusSq) {
+            const dist = Math.sqrt(distSq); // Only calculate sqrt if inside radius
+            const factor = 1 - dist / v.radius;
             
-            // Tangential swirl vectors (counter-clockwise rotation)
+            // Clockwise/counter-clockwise swirl
             const swirlX = -dy / dist;
             const swirlY = dx / dist;
 
-            // Apply swirl velocities (stronger swirl effect on lighter particles)
-            p.vx += swirlX * factor * v.strength * 1.6 * (1.5 / p.mass);
-            p.vy += swirlY * factor * v.strength * 1.6 * (1.5 / p.mass);
+            p.vx += swirlX * factor * v.strength * 1.2 * (1.5 / p.mass);
+            p.vy += swirlY * factor * v.strength * 1.2 * (1.5 / p.mass);
 
-            // Pull upwards and towards center representing lifting vortex flow
-            p.vy -= factor * 0.4 * (1.5 / p.mass);
-            p.vx -= (dx / dist) * factor * 0.15;
-            p.vy -= (dy / dist) * factor * 0.15;
+            // Reactor suction
+            p.vy -= factor * 0.3 * (1.5 / p.mass);
+            p.vx -= (dx / dist) * factor * 0.1;
+            p.vy -= (dy / dist) * factor * 0.1;
 
-            // Accelerated mass decay in the reactor vortex zones
-            p.mass -= 0.0012;
+            p.mass -= 0.0015;
           }
         }
 
-        // Apply velocities to coordinates
         p.x += p.vx;
         p.y += p.vy;
 
-        // 3. DISSOLVING & RECYCLING
-        // Lighter particles dissolve (alpha decays to 0)
+        // Recycle conditions
         if (p.mass < 0.6) {
-          p.alpha -= 0.007;
+          p.alpha -= 0.009;
         }
-        // If they float too high (escape the stream), they dissolve/evaporate
         if (p.y < height * 0.15) {
-          p.alpha -= 0.012;
+          p.alpha -= 0.015;
         }
 
-        // Recycle if completely dissolved or pushed off the right screen border
         if (p.alpha <= 0 || p.x > width + 20) {
           particles[i] = createParticle(-20);
           continue;
         }
 
-        // 4. COLOR TENSION MAPPED TO VELOCITY
-        // Calculate velocity magnitude (speed)
-        const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
-        
-        // Map speed to normalized scale: 0.4 (slow) to 3.0 (fast)
-        const normSpeed = Math.min(1, Math.max(0, (speed - 0.4) / 2.6));
+        // 3. MOTION MAPPED COLOR (Avoid Math.sqrt by using velocity squared)
+        const speedSq = p.vx * p.vx + p.vy * p.vy;
+        const normSpeed = Math.min(1, Math.max(0, (speedSq - 0.16) / 6.0));
 
-        // HSL mapping:
-        // Slow particles -> Dark, muted, grayish slate (raw organic sludge)
-        // Fast/swirling particles -> Bright, saturated glowing royal blue/teal (clean energy/purified water)
         let hue, sat, light;
-
         if (normSpeed < 0.5) {
           const ratio = normSpeed / 0.5;
-          hue = 212; // Slate/Blue hue
-          sat = 15 + ratio * 60; // 15% (muted gray) to 75% (blue)
-          light = 18 + ratio * 20; // 18% (dark slate) to 38% (medium blue)
+          hue = 212;
+          sat = 15 + ratio * 60;
+          light = 20 + ratio * 18;
         } else {
           const ratio = (normSpeed - 0.5) / 0.5;
-          hue = 212 - ratio * 38; // Transition from Royal Blue (212) to Eco Teal (174)
-          sat = 75 + ratio * 20; // 75% to 95%
-          light = 38 + ratio * 16; // 38% to 54% (bright glow)
+          hue = 212 - ratio * 38;
+          sat = 75 + ratio * 20;
+          light = 38 + ratio * 14;
         }
 
-        // Dynamic size based on mass (heavy sludge particles are slightly larger, light pure ones are small)
-        const currentSize = p.size * (0.6 + p.mass / 3.0);
+        const renderAlpha = p.alpha * (0.15 + normSpeed * 0.25);
+        const currentSize = p.size * (0.7 + p.mass / 3.0);
 
-        // Core particle opacity
-        const renderAlpha = p.alpha * (0.15 + normSpeed * 0.28);
-
-        // Draw core particle dot
+        // 4. ULTRA-FAST RENDERING (Using fillRect instead of arc path creation)
         ctx.fillStyle = `hsla(${Math.round(hue)}, ${Math.round(sat)}%, ${Math.round(light)}%, ${renderAlpha})`;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, currentSize, 0, Math.PI * 2);
-        ctx.fill();
-
-        // 5. MOTION-ACTIVATED GLOW EFFECT
-        // Faster/swirling particles project an ambient glow aura
-        if (normSpeed > 0.45) {
-          ctx.fillStyle = `hsla(${Math.round(hue)}, ${Math.round(sat)}%, ${Math.round(light)}%, ${renderAlpha * 0.35})`;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, currentSize * 2.5, 0, Math.PI * 2);
-          ctx.fill();
-        }
+        // fillRect is hardware-accelerated and takes ~0% CPU compared to ctx.arc path rendering
+        ctx.fillRect(p.x - currentSize, p.y - currentSize, currentSize * 2, currentSize * 2);
       }
 
-      if (!motionQuery.matches && document.visibilityState === 'visible') {
+      if (!motionQuery.matches && document.visibilityState === 'visible' && isLooping) {
         animationFrameId = requestAnimationFrame(draw);
       }
     }
 
     function startLoop() {
-      if (!animationFrameId && !motionQuery.matches) {
+      if (!isLooping && !motionQuery.matches) {
+        isLooping = true;
         animationFrameId = requestAnimationFrame(draw);
       }
     }
 
     function stopLoop() {
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-        animationFrameId = null;
+      if (isLooping) {
+        isLooping = false;
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+          animationFrameId = null;
+        }
       }
     }
 
-    // Initialize canvas properties and listeners
+    // Scroll listener to resume when Hero is visible, and pause when scrolled down
+    window.addEventListener('scroll', () => {
+      if (window.scrollY < height) {
+        startLoop();
+      } else {
+        stopLoop();
+      }
+    }, { passive: true }); // passive listener for high scroll performance
+
+    // Initialize
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Watch visibility change for optimization
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'visible') {
-        startLoop();
+        if (window.scrollY < height) startLoop();
       } else {
         stopLoop();
       }
     });
 
-    // Handle user prefers-reduced-motion queries
     motionQuery.addEventListener('change', (e) => {
       if (e.matches) {
         stopLoop();
