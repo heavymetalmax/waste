@@ -697,8 +697,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 4. ULTRA-FAST RENDERING (Using fillRect instead of arc path creation)
         ctx.fillStyle = `hsla(${Math.round(hue)}, ${Math.round(sat)}%, ${Math.round(light)}%, ${renderAlpha})`;
-        // fillRect is hardware-accelerated and takes ~0% CPU compared to ctx.arc path rendering
-        ctx.fillRect(p.x - currentSize, p.y - currentSize, currentSize * 2, currentSize * 2);
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, currentSize, 0, Math.PI * 2);
+        ctx.fill();
       }
 
       if (!motionQuery.matches && document.visibilityState === 'visible' && isLooping) {
