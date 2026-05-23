@@ -17,6 +17,9 @@
 </head>
 <body>
 
+  <!-- Dynamic Purification Waves Background -->
+  <canvas id="bg-canvas"></canvas>
+
   <!-- Background Ambient Glows (Light Clean-Tech Version) -->
   <div class="blur-orb orb-1"></div>
   <div class="blur-orb orb-2"></div>
@@ -27,7 +30,10 @@
     <div class="header-container">
       <a href="#" class="logo" aria-label="Головна BTC Consulting">
         <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z" fill="url(#logo-grad)"/>
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#logo-grad)"/>
+          <path d="M12 8V18" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M12 11C13.8 9.5 15.8 10.2 15.8 11.5" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M12 13.8C10.2 12.3 8.2 13 8.2 14.3" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
           <defs>
             <linearGradient id="logo-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
               <stop stop-color="#046BD2"/>
@@ -136,29 +142,68 @@
         <div class="hero-visual">
           <div class="glass-card tech-card animate-pulse">
             <div class="card-header">
-              <div class="orange-dot"></div>
-              <span>Установка молекулярного компонування BioTC</span>
+              <div class="glow-dot-container">
+                <span class="glow-dot"></span>
+              </div>
+              <span class="header-title">Установка молекулярного компонування BioTC</span>
             </div>
             <div class="card-body">
               <div class="flow-chart">
-                <div class="flow-node node-in">Сировина (80%)</div>
-                <div class="flow-arrow">&#x27A4;</div>
-                <div class="flow-node node-core">Установка BioTC</div>
-                <div class="flow-arrow">&#x27A4;</div>
-                <div class="flow-node node-out">Ековугілля</div>
+                <div class="flow-node node-in">
+                  <span class="node-label">Сировина</span>
+                  <span class="node-sub">80% вл.</span>
+                </div>
+                
+                <svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+                
+                <div class="flow-node node-core">
+                  <span class="node-label">Установка</span>
+                  <span class="node-sub">BioTC</span>
+                </div>
+                
+                <svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+                
+                <div class="flow-node node-out">
+                  <span class="node-label">Ековугілля</span>
+                  <span class="node-sub">&lt;10% вл.</span>
+                </div>
               </div>
+              
               <div class="telemetry">
                 <div class="telemetry-item">
-                  <span class="t-label">Зменшення об'єму</span>
+                  <div class="t-left">
+                    <svg class="t-icon icon-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 14h6v6H4zm10-10h6v6h-6zm0 10h6v6h-6zM4 4h6v6H4z"/>
+                      <path d="M12 2v20M2 12h20"/>
+                    </svg>
+                    <span class="t-label">Зменшення об'єму</span>
+                  </div>
                   <span class="t-value text-orange">-75%</span>
                 </div>
+                
                 <div class="telemetry-item">
-                  <span class="t-label">Деструкція PFAS & пластику</span>
+                  <div class="t-left">
+                    <svg class="t-icon icon-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                      <path d="m9 11 2 2 4-4"/>
+                    </svg>
+                    <span class="t-label">Деструкція PFAS & пластику</span>
+                  </div>
                   <span class="t-value text-teal">Повна (100%)</span>
                 </div>
+                
                 <div class="telemetry-item">
-                  <span class="t-label">Кінцева вологість</span>
-                  <span class="t-value">&lt; 10% (ековугілля)</span>
+                  <div class="t-left">
+                    <svg class="t-icon icon-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-11-7-11S5 10.7 5 15a7 7 0 0 0 7 7z"/>
+                    </svg>
+                    <span class="t-label">Кінцева вологість</span>
+                  </div>
+                  <span class="t-value text-blue">&lt; 10% <span class="t-val-sub">(вугілля)</span></span>
                 </div>
               </div>
             </div>
