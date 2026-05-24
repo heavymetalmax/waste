@@ -752,3 +752,177 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+document.addEventListener('DOMContentLoaded', () => {
+  // Mode Switcher
+  const modeBtns = document.querySelectorAll('.mode-btn');
+  const inputGroups = document.querySelectorAll('.mode-inputs-group');
+  const outputGroups = document.querySelectorAll('.mode-outputs-group');
+
+  modeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const mode = btn.dataset.mode;
+      
+      modeBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      inputGroups.forEach(g => g.classList.remove('active'));
+      document.getElementById(`mode-${mode}-inputs`).classList.add('active');
+
+      outputGroups.forEach(g => g.classList.remove('active'));
+      document.getElementById(`mode-${mode}-outputs`).classList.add('active');
+      
+      calculateAll();
+    });
+  });
+
+  // Mayor Elements
+  const rlmInput = document.getElementById('mayor-rlm-input');
+  const costInput = document.getElementById('mayor-cost-input');
+  
+  // Engineer Elements
+  const tonInput = document.getElementById('eng-tonnage');
+  const dsInput = document.getElementById('eng-ds');
+  const vsInput = document.getElementById('eng-vs');
+  
+  // Event Listeners for inputs
+  const inputs = [rlmInput, costInput, tonInput, dsInput, vsInput];
+  inputs.forEach(input => {
+    if(input) input.addEventListener('input', calculateAll);
+  });
+
+  // Form Submit
+  const form = document.getElementById('lead-gen-form');
+  if(form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      form.classList.add('hidden');
+      document.getElementById('lead-success-msg').classList.remove('hidden');
+    });
+  }
+
+  function formatNumber(num) {
+    return new Intl.NumberFormat('en-US').format(Math.round(num));
+  }
+
+  function calculateAll() {
+    const isMayor = document.querySelector('.mode-btn.active').dataset.mode === 'mayor';
+    
+    // Derived Base Tonnage (tons per day)
+    let tonsPerDay = 15;
+    let costPerTon = 80;
+    
+    if (isMayor) {
+      const rlm = parseInt(rlmInput.value);
+      costPerTon = parseFloat(costInput.value) || 0;
+      document.getElementById('mayor-rlm-val').innerText = formatNumber(rlm);
+      document.getElementById('mayor-cost-val').innerText = costPerTon;
+      tonsPerDay = rlm * 0.0003; // Approx 300 kg per 1000 PE per day
+    } else {
+      tonsPerDay = parseFloat(tonInput.value) || 0;
+      const dispCostInput = document.getElementById('eng-disp-cost');
+      costPerTon = dispCostInput ? (parseFloat(dispCostInput.value) || 80) : 80;
+      document.getElementById('eng-ds-val').innerText = dsInput.value + '%';
+      document.getElementById('eng-vs-val').innerText = vsInput.value + '%';
+    }
+
+    const tonsPerYear = tonsPerDay * 365;
+    
+    // SYSTEM CONSTANTS
+    const Y_mass = 0.65;
+    const DS_char = 0.60;
+    const E_elec = 45; // kWh/ton wet
+    const E_heat = 120; // kWh/ton wet
+    const HHV_factor = 23; // MJ/kg
+    
+    // STEP 1: Baseline
+    const costBaseline = tonsPerYear * costPerTon;
+    const ds = (parseFloat(dsInput.value) || 20) / 100;
+    const vs = (parseFloat(vsInput.value) || 65) / 100;
+    const massDryIn = tonsPerYear * ds;
+    
+    // STEP 2: Mass Balance
+    const charDry = massDryIn * Y_mass;
+    const charWet = charDry / DS_char;
+    const volReduction = 100 - ((charWet / tonsPerYear) * 100);
+    
+    
+    
+    // Toxic Debt (PFAS)
+    const pfasDebt = (tonsPerYear / 1000) * 1.2 * 10;
+    const pfasEl = document.getElementById('pfas-val');
+    if(pfasEl) pfasEl.innerText = pfasDebt.toFixed(1);
+
+    const path = window.location.pathname;
+    let lang = 'ua';
+    if (path.includes('/eu/')) lang = 'en';
+    if (path.includes('/pl/')) lang = 'pl';
+
+    if (isMayor) {
+      // Mayor outputs
+      const reducedTonsPerYear = charWet;
+      const newCost = reducedTonsPerYear * costPerTon; 
+      const savings = costBaseline - newCost; // Just transport savings roughly
+      const trucksSaved = Math.round((tonsPerYear - reducedTonsPerYear) / 20);
+      const landSaved = (tonsPerYear / 10000) * 2;
+      const homesPowered = Math.round(tonsPerDay * 10);
+
+      const labels = {
+        ua: { trucks: ' вантажівок', ha: ' Га', homes: ' будинків' },
+        en: { trucks: ' trucks', ha: ' Ha', homes: ' homes' },
+        pl: { trucks: ' ciężarówek', ha: ' Ha', homes: ' domów' }
+      };
+
+      document.getElementById('out-mayor-savings').innerText = '€ ' + formatNumber(savings);
+      document.getElementById('out-mayor-trucks').innerText = '- ' + formatNumber(trucksSaved) + labels[lang].trucks;
+      document.getElementById('out-mayor-land').innerText = landSaved.toFixed(1) + labels[lang].ha;
+      document.getElementById('out-mayor-energy').innerText = '~' + formatNumber(homesPowered) + labels[lang].homes;
+      
+    } else {
+      // Engineer outputs
+      const cElec = parseFloat(document.getElementById('eng-power-cost')?.value) || 0.15;
+      const cHeat = parseFloat(document.getElementById('eng-heat-cost')?.value) || 0.08;
+      const hasAd = document.getElementById('eng-has-ad')?.checked || false;
+      
+      // STEP 3: Energy
+      const hhvChar = vs * HHV_factor;
+      const energyProducedGJ = charDry * hhvChar;
+      const energyProducedMWh = energyProducedGJ / 3.6;
+      const energyConsumedMWh = (tonsPerYear * E_elec + tonsPerYear * E_heat) / 1000;
+      
+      // STEP 4: OPEX
+      const opexElec = tonsPerYear * E_elec * cElec;
+      const opexHeat = tonsPerYear * E_heat * cHeat;
+      const opexTotal = opexElec + opexHeat;
+      
+      // STEP 5: Savings
+      const netSavings = costBaseline - opexTotal;
+      
+      const tonsYr = { ua: ' т/рік', en: ' tons/yr', pl: ' ton/rok' };
+
+      // Update Dashboard
+      if (document.getElementById('dash-mass-in')) {
+        document.getElementById('dash-mass-in').innerText = formatNumber(tonsPerYear) + tonsYr[lang];
+        document.getElementById('dash-mass-out').innerText = formatNumber(charWet) + tonsYr[lang];
+        document.getElementById('dash-mass-red').innerText = volReduction.toFixed(1) + '%';
+        
+        document.getElementById('dash-en-hhv').innerText = hhvChar.toFixed(1) + ' MJ/kg';
+        document.getElementById('dash-en-prod').innerText = formatNumber(energyProducedMWh) + ' MWh';
+        document.getElementById('dash-en-cons').innerText = formatNumber(energyConsumedMWh) + ' MWh';
+        
+        document.getElementById('dash-eco-base').innerText = formatNumber(costBaseline) + ' €';
+        document.getElementById('dash-eco-opex').innerText = formatNumber(opexTotal) + ' €';
+        document.getElementById('dash-eco-save').innerText = formatNumber(netSavings) + ' €';
+        
+        if (hasAd) {
+           document.getElementById('dash-ad-row').style.display = 'flex';
+           const biogas = massDryIn * 150;
+           document.getElementById('dash-ad-boost').innerText = '+ ' + formatNumber(biogas) + ' m³';
+        } else {
+           document.getElementById('dash-ad-row').style.display = 'none';
+        }
+      }
+    }
+  }
+  // Initial calc
+  calculateAll();
+});
