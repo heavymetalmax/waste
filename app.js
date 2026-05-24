@@ -534,29 +534,57 @@ document.addEventListener('DOMContentLoaded', () => {
     let animationFrameId = null;
     let width = 0;
     let height = 0;
+    let lastKnownWidth = 0;
     let dpr = 1;
     let particles = [];
     let vortices = [];
     let isLooping = false;
+    let resizeTimer = null;
 
     // Detect user preferences for motion
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+    function getViewportSize() {
+      // visualViewport gives stable dimensions on mobile (not affected by pinch zoom)
+      const vv = window.visualViewport;
+      if (vv) {
+        return { w: vv.width, h: vv.height };
+      }
+      return { w: window.innerWidth, h: window.innerHeight };
+    }
+
     function resizeCanvas() {
+      const viewport = getViewportSize();
+      const newWidth = Math.round(viewport.w);
+
+      // On mobile, skip resize if only height changed (address bar show/hide)
+      if (lastKnownWidth > 0 && newWidth === lastKnownWidth) {
+        // Only update the logical height for scroll-boundary checks
+        height = Math.round(viewport.h);
+        return;
+      }
+
+      lastKnownWidth = newWidth;
       dpr = Math.min(window.devicePixelRatio || 1, 1.5); // Cap DPR at 1.5 for performance
-      width = window.innerWidth;
-      height = window.innerHeight;
-      
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
-      ctx.scale(dpr, dpr);
+      width = newWidth;
+      height = Math.round(viewport.h);
+
+      // Cap canvas buffer resolution (max ~1.5M pixels) to prevent GPU memory spikes
+      const maxBuf = 1500000;
+      const bufW = width * dpr;
+      const bufH = height * dpr;
+      const bufScale = (bufW * bufH > maxBuf) ? Math.sqrt(maxBuf / (bufW * bufH)) : 1;
+
+      canvas.width = Math.round(bufW * bufScale);
+      canvas.height = Math.round(bufH * bufScale);
+      ctx.setTransform(dpr * bufScale, 0, 0, dpr * bufScale, 0, 0);
 
       // Define static processing reactor zones (vortices)
       vortices = [
         {
           x: width * 0.30,
           y: height * 0.40,
-          radiusSq: Math.pow(Math.min(width * 0.22, 280), 2), // Pre-calculate squared radius to avoid Math.sqrt
+          radiusSq: Math.pow(Math.min(width * 0.22, 280), 2),
           radius: Math.min(width * 0.22, 280),
           strength: 1.2
         },
@@ -735,7 +763,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+
+    // Debounced resize to prevent layout thrashing on mobile (address bar hide/show)
+    function debouncedResize() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(resizeCanvas, 150);
+    }
+    window.addEventListener('resize', debouncedResize);
+    // Also listen to visualViewport resize for better mobile support
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', debouncedResize);
+    }
 
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'visible') {
