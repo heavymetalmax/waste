@@ -1930,13 +1930,29 @@ section {
 /* Tech Steps (Timeline style) */
 .tech-steps {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
 }
 
+@media (max-width: 1200px) {
+  .tech-steps {
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    justify-content: center;
+  }
+}
+
+@media (max-width: 680px) {
+  .tech-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
 .tech-step-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
 }
 
 .step-num {
