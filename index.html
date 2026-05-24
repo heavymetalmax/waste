@@ -23,9 +23,6 @@
 </head>
 <body>
 
-  <!-- Dynamic Purification Waves Background -->
-  <canvas id="bg-canvas"></canvas>
-
   <!-- Background Ambient Glows (Light Clean-Tech Version) -->
   <div class="blur-orb orb-1"></div>
   <div class="blur-orb orb-2"></div>
@@ -37,9 +34,6 @@
       <a href="#" class="logo" aria-label="Головна BTC Consulting">
         <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#logo-grad)"/>
-          <path d="M12 8V18" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
-          <path d="M12 11C13.8 9.5 15.8 10.2 15.8 11.5" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M12 13.8C10.2 12.3 8.2 13 8.2 14.3" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
           <defs>
             <linearGradient id="logo-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
               <stop stop-color="#046BD2"/>
@@ -53,7 +47,7 @@
       <!-- Desktop Navigation -->
       <nav class="nav-desktop" aria-label="Основне menu">
         <ul>
-          <li><a href="#calculator">Калькулятор BioTC</a></li>
+          <li><a href="#calculator" class="btn btn-outline">Калькулятор BioTC</a></li>
           <li><a href="#showroom">Установки</a></li>
           <li><a href="#tech">Технологія</a></li>
           <li><a href="#comparison">Ековугілля</a></li>
@@ -81,7 +75,10 @@
           </ul>
         </div>
 
-        <a href="#calculator" class="btn btn-outline nav-cta-btn">Розрахунок BioTC</a>
+        <a href="tel:+48608003458" class="header-phone" aria-label="Зателефонувати">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>+48 608 003 458</span>
+        </a>
         <!-- Mobile Menu Toggle -->
         <button class="mobile-toggle" aria-label="Відкрити меню" aria-expanded="false" aria-controls="mobile-nav">
           <span class="bar"></span>
@@ -95,7 +92,7 @@
   <!-- Mobile Navigation Overlay -->
   <nav class="mobile-nav" id="mobile-nav" aria-label="Мобільне меню" aria-hidden="true">
     <ul>
-      <li><a href="#calculator">Калькулятор BioTC</a></li>
+      <li><a href="#calculator" class="btn btn-primary" style="margin-bottom: 1rem; display: block; text-align: center;">Калькулятор BioTC</a></li>
       <li><a href="#showroom">Установки</a></li>
       <li><a href="#tech">Технологія</a></li>
       <li><a href="#comparison">Ековугілля</a></li>
@@ -119,7 +116,7 @@
       <div class="container hero-grid">
         <div class="hero-content">
           <div class="hero-badge-row">
-            <div class="badge">🇵🇱 Польські Clean-Tech Технології в Україні</div>
+            <div class="badge">🇵🇱 Інновації, що випереджають європейські стандарти</div>
           </div>
           <h1>Екологічна модернізація очисних споруд</h1>
           <p class="hero-desc">
@@ -145,71 +142,75 @@
           </div>
         </div>
         <div class="hero-visual">
-          <div class="glass-card tech-card animate-pulse">
-            <div class="card-header">
-              <div class="glow-dot-container">
-                <span class="glow-dot"></span>
-              </div>
-              <span class="header-title">Установка молекулярного компонування BioTC</span>
+          <div class="process-dashboard">
+            <div class="pd-header">
+              <span class="glow-dot"></span>
+              <span class="pd-title">Процес BioTC · В режимі реального часу</span>
             </div>
-            <div class="card-body">
-              <div class="flow-chart">
-                <div class="flow-node node-in">
-                  <span class="node-label">Сировина</span>
-                  <span class="node-sub">80% вл.</span>
+            <div class="pd-compare">
+              <div class="pd-compare-label">
+                <span>Вхід</span><span>Вихід</span>
+              </div>
+              <div class="pd-bar-track">
+                <div class="pd-bar-before">
+                  <span class="pd-bar-tag">100% об'єму · 80% вл.</span>
                 </div>
-                
-                <svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-                
-                <div class="flow-node node-core">
-                  <span class="node-label">Установка</span>
-                  <span class="node-sub">BioTC</span>
-                </div>
-                
-                <svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-                
-                <div class="flow-node node-out">
-                  <span class="node-label">Ековугілля</span>
-                  <span class="node-sub">&lt;10% вл.</span>
+                <div class="pd-bar-after">
+                  <span class="pd-bar-tag">25% · &lt;10% вл.</span>
                 </div>
               </div>
-              
-              <div class="telemetry">
-                <div class="telemetry-item">
-                  <div class="t-left">
-                    <svg class="t-icon icon-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M4 14h6v6H4zm10-10h6v6h-6zm0 10h6v6h-6zM4 4h6v6H4z"/>
-                      <path d="M12 2v20M2 12h20"/>
-                    </svg>
-                    <span class="t-label">Зменшення об'єму</span>
-                  </div>
-                  <span class="t-value text-orange">-75%</span>
+              <div class="pd-bar-legend">
+                <span class="pd-legend-dot dot-teal"></span><span>Сировина</span>
+                <span class="pd-legend-dot dot-orange"></span><span>Ековугілля</span>
+              </div>
+            </div>
+            <div class="pd-steps">
+              <div class="pd-step step-input">
+                <div class="pd-step-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-11-7-11S5 10.7 5 15a7 7 0 0 0 7 7z"/></svg>
                 </div>
-                
-                <div class="telemetry-item">
-                  <div class="t-left">
-                    <svg class="t-icon icon-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                      <path d="m9 11 2 2 4-4"/>
-                    </svg>
-                    <span class="t-label">Деструкція PFAS & пластику</span>
-                  </div>
-                  <span class="t-value text-teal">Повна (100%)</span>
+                <div class="pd-step-info">
+                  <span class="pd-step-name">Сировина</span>
+                  <span class="pd-step-val">Вологість 80%</span>
                 </div>
-                
-                <div class="telemetry-item">
-                  <div class="t-left">
-                    <svg class="t-icon icon-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-11-7-11S5 10.7 5 15a7 7 0 0 0 7 7z"/>
-                    </svg>
-                    <span class="t-label">Кінцева вологість</span>
-                  </div>
-                  <span class="t-value text-blue">&lt; 10% <span class="t-val-sub">(вугілля)</span></span>
+              </div>
+              <div class="pd-step-connector">
+                <div class="pd-connector-line">
+                  <div class="pd-connector-dot"></div>
+                  <div class="pd-connector-dot"></div>
+                  <div class="pd-connector-dot"></div>
                 </div>
+                <div class="pd-process-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                  TH-AD-HTC
+                </div>
+              </div>
+              <div class="pd-step step-output">
+                <div class="pd-step-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div class="pd-step-info">
+                  <span class="pd-step-name">Ековугілля</span>
+                  <span class="pd-step-val">20–25 МДж/кг</span>
+                </div>
+              </div>
+            </div>
+            <div class="pd-metrics">
+              <div class="pd-metric">
+                <span class="pd-metric-val text-orange">−75%</span>
+                <span class="pd-metric-label">Об'єм осаду</span>
+              </div>
+              <div class="pd-metric">
+                <span class="pd-metric-val text-teal">100%</span>
+                <span class="pd-metric-label">PFAS знешкоджено</span>
+              </div>
+              <div class="pd-metric">
+                <span class="pd-metric-val text-blue">&lt;10%</span>
+                <span class="pd-metric-label">Вологість вугілля</span>
+              </div>
+              <div class="pd-metric">
+                <span class="pd-metric-val" style="color:#8b5cf6">100%</span>
+                <span class="pd-metric-label">Стерильний продукт</span>
               </div>
             </div>
           </div>
@@ -588,6 +589,62 @@
             <span class="proof-badge-text">Масштаб підряду</span>
             <h3>Індустріальний інжиніринг</h3>
             <p>Усі проектування, монтажні роботи та пусконалагодження промислових систем BioTC здійснюються під ключ консорціумом <strong>INTROL Group S.A.</strong> — великим польським холдингом, що котирується на Варшавській фондовій біржі.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" id="team">
+      <div class="container">
+        <div class="section-header">
+          <span class="sub-title">Люди за технологією</span>
+          <h2>Наша Команда</h2>
+        </div>
+        <div class="team-grid">
+          <!-- Team Member 1 -->
+          <div class="team-card">
+            <div class="team-img-wrapper">
+              <img src="https://biotc.pl/wp-content/uploads/2026/05/20230912_111445-scaled.jpg" alt="Dr inż. Eugeniusz Krop" loading="lazy">
+            </div>
+            <div class="team-info">
+              <span class="team-role role-tech">Технічний Директор</span>
+              <h3>Dr inż. Eugeniusz Krop</h3>
+              <p>Науковець і видатний практик інженерії. Має за плечима понад 28 масштабних впроваджень еко-інсталяцій для лідерів ринку (наприклад, ORLEN).</p>
+            </div>
+          </div>
+          <!-- Team Member 2 -->
+          <div class="team-card">
+            <div class="team-img-wrapper">
+              <img src="https://biotc.pl/wp-content/uploads/2026/05/ciocia-1.jpg" alt="Dr hab. inż. Małgorzata Wilk" loading="lazy">
+            </div>
+            <div class="team-info">
+              <span class="team-role role-sci">Експерт з R&D</span>
+              <h3>Dr hab. inż. Małgorzata Wilk</h3>
+              <p>Завідувачка кафедри AGH, експертка з термічної конверсії біомаси. Входить до престижного списку World's TOP 2% Scientists за версією Stanford University.</p>
+            </div>
+          </div>
+          <!-- Team Member 3 -->
+          <div class="team-card">
+            <div class="team-img-wrapper">
+              <img src="https://media.licdn.com/dms/image/v2/C5603AQFBqTBrQWvBUQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1516905054648?e=1781136000&v=beta&t=Z9esZhhXLhtMpgOCmoNsJSfjMho-Ondf9YXCTeeCSg8" alt="Andrzej Krop" loading="lazy">
+            </div>
+            <div class="team-info">
+              <span class="team-role role-org">Управління Проєктами</span>
+              <h3>Andrzej Krop</h3>
+              <p>Бізнес-фундамент команди. Екс-CEO міжнародних корпорацій, який переносить найвищі стандарти управління та гарантує виконання проєктів у строк.</p>
+            </div>
+          </div>
+          <!-- Team Member 4 -->
+          <div class="team-card">
+            <div class="team-img-wrapper">
+              <img src="https://media.licdn.com/dms/image/v2/D4E03AQGpaqOp_pzu4w/profile-displayphoto-crop_800_800/B4EZmPV6TIIMAI-/0/1759046510675?e=1781136000&v=beta&t=9qYH2lZDmFsaQyVqUfmPcsnnl3bNC8TIPY8nAb1dlDY" alt="Max" loading="lazy">
+            </div>
+            <div class="team-info">
+              <span class="team-role role-org">Маркетинг</span>
+              <h3>Max</h3>
+              <p>Експерт з B2B-маркетингу та цифрових стратегій. Відповідає за позиціонування бренду, генерацію лідів та просування технологій BioTC на нові ринки.</p>
+            </div>
           </div>
         </div>
       </div>

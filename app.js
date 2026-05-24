@@ -602,154 +602,82 @@ document.addEventListener("DOMContentLoaded", () => {
       canvas.height = Math.round(bufH * bufScale);
       ctx.setTransform(dpr * bufScale, 0, 0, dpr * bufScale, 0, 0);
 
-      // Define static processing reactor zones (vortices)
-      vortices = [
-        {
-          x: width * 0.30,
-          y: height * 0.40,
-          radiusSq: Math.pow(Math.min(width * 0.22, 280), 2),
-          radius: Math.min(width * 0.22, 280),
-          strength: 1.2
-        },
-        {
-          x: width * 0.65,
-          y: height * 0.48,
-          radiusSq: Math.pow(Math.min(width * 0.22, 280), 2),
-          radius: Math.min(width * 0.22, 280),
-          strength: 1.4
-        }
-      ];
-
       initParticles();
     }
 
     function initParticles() {
       particles = [];
-      // Low particle count for extreme CPU efficiency (max 50 on desktop, 15 on mobile)
-      const particleCount = Math.min(Math.round((width * height) / 25000), 50);
-      
+      const particleCount = Math.min(Math.round((width * height) / 12000), 100);
       for (let i = 0; i < particleCount; i++) {
-        particles.push(createParticle(Math.random() * width, true));
+        particles.push(createParticle(true));
       }
     }
 
-    function createParticle(startX, randomY = false) {
-      const initialMass = 1.0 + Math.random() * 2.0;
+    function createParticle(randomY = false) {
       return {
-        x: startX,
-        y: randomY 
-          ? height * 0.5 + Math.random() * height * 0.45 
-          : height * 0.65 + (Math.random() * height * 0.3),
-        vx: 0.4 + Math.random() * 0.6, // Flow left-to-right
-        vy: 0,
-        mass: initialMass,
-        alpha: 1.0,
-        size: 1.5 + Math.random() * 1.5,
-        noiseSeed: Math.random() * 100
+        x: Math.random() * width,
+        y: randomY ? Math.random() * height : -20,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: 1 + Math.random() * 1.5,
+        size: 3 + Math.random() * 3,
+        state: randomY ? (Math.random() > 0.5 ? 'falling' : 'rising') : 'falling',
+        restTime: 100 + Math.random() * 150,
+        alpha: 0.7 + Math.random() * 0.3,
+        lightness: 10,
+        seed: Math.random() * 100
       };
     }
 
     function draw() {
-      // Pause animation if user has scrolled past the Hero section (0% CPU when reading page content)
       if (window.scrollY > height) {
         stopLoop();
         return;
       }
 
       ctx.clearRect(0, 0, width, height);
-
       const time = Date.now() * 0.001;
       const len = particles.length;
 
       for (let i = 0; i < len; i++) {
         const p = particles[i];
 
-        // 1. MASS DECAY
-        p.mass -= 0.0022; 
-        
-        // 2. DAMPING & FORCES
-        p.vx *= 0.96;
-        p.vy *= 0.96;
-
-        // Flow force (left-to-right)
-        p.vx += 0.04 * (3.0 / p.mass);
-
-        // Gravity pull settled sludge down
-        p.vy += 0.015 * p.mass;
-
-        // Wave updraft crests
-        const wavePhase = Math.sin(p.x * 0.004 - time * 1.5);
-        if (wavePhase > 0.3) {
-          p.vy -= wavePhase * 0.06 * (3.0 / p.mass);
-        }
-
-        // Swirl behavior in reactors
-        for (let j = 0; j < vortices.length; j++) {
-          const v = vortices[j];
-          const dx = p.x - v.x;
-          const dy = p.y - v.y;
-          const distSq = dx * dx + dy * dy;
-
-          if (distSq < v.radiusSq) {
-            const dist = Math.sqrt(distSq); // Only calculate sqrt if inside radius
-            const factor = 1 - dist / v.radius;
-            
-            // Clockwise/counter-clockwise swirl
-            const swirlX = -dy / dist;
-            const swirlY = dx / dist;
-
-            p.vx += swirlX * factor * v.strength * 1.2 * (1.5 / p.mass);
-            p.vy += swirlY * factor * v.strength * 1.2 * (1.5 / p.mass);
-
-            // Reactor suction
-            p.vy -= factor * 0.3 * (1.5 / p.mass);
-            p.vx -= (dx / dist) * factor * 0.1;
-            p.vy -= (dy / dist) * factor * 0.1;
-
-            p.mass -= 0.0015;
+        if (p.state === 'falling') {
+          p.y += p.vy;
+          p.x += Math.sin(time + p.seed) * 0.3;
+          if (p.lightness < 30) p.lightness += 0.05;
+          
+          if (p.y > height - 20 - Math.random() * 100) {
+            p.state = 'resting';
+            p.vy = 0;
+          }
+        } else if (p.state === 'resting') {
+          p.restTime--;
+          p.x += Math.sin(time * 2 + p.seed) * 0.1;
+          if (p.lightness < 50) p.lightness += 0.1;
+          
+          if (p.restTime <= 0) {
+            p.state = 'rising';
+            p.vy = -1 - Math.random() * 1.5;
+          }
+        } else if (p.state === 'rising') {
+          p.y += p.vy;
+          p.x += Math.sin(time + p.seed) * 0.5;
+          if (p.lightness < 95) p.lightness += 0.2;
+          if (p.size > 0.5) p.size -= 0.015;
+          
+          if (p.y < height * 0.35) {
+            p.alpha -= 0.008;
           }
         }
 
-        p.x += p.vx;
-        p.y += p.vy;
-
-        // Recycle conditions
-        if (p.mass < 0.6) {
-          p.alpha -= 0.009;
-        }
-        if (p.y < height * 0.15) {
-          p.alpha -= 0.015;
-        }
-
-        if (p.alpha <= 0 || p.x > width + 20) {
-          particles[i] = createParticle(-20);
+        if (p.alpha <= 0 || p.y < -50 || p.x < -50 || p.x > width + 50) {
+          particles[i] = createParticle();
           continue;
         }
 
-        // 3. MOTION MAPPED COLOR (Avoid Math.sqrt by using velocity squared)
-        const speedSq = p.vx * p.vx + p.vy * p.vy;
-        const normSpeed = Math.min(1, Math.max(0, (speedSq - 0.16) / 6.0));
-
-        let hue, sat, light;
-        if (normSpeed < 0.5) {
-          const ratio = normSpeed / 0.5;
-          hue = 212;
-          sat = 15 + ratio * 60;
-          light = 20 + ratio * 18;
-        } else {
-          const ratio = (normSpeed - 0.5) / 0.5;
-          hue = 212 - ratio * 38;
-          sat = 75 + ratio * 20;
-          light = 38 + ratio * 14;
-        }
-
-        const renderAlpha = p.alpha * (0.15 + normSpeed * 0.25);
-        const currentSize = p.size * (0.7 + p.mass / 3.0);
-
-        // 4. ULTRA-FAST RENDERING (Using fillRect instead of arc path creation)
-        ctx.fillStyle = `hsla(${Math.round(hue)}, ${Math.round(sat)}%, ${Math.round(light)}%, ${renderAlpha})`;
+        ctx.fillStyle = `hsla(210, 80%, ${Math.round(p.lightness)}%, ${p.alpha})`;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, currentSize, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
       }
 
