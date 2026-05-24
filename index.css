@@ -2181,12 +2181,32 @@ section {
 @media (max-width: 1200px) {
   .header-container {
     padding-inline: 1rem;
+    gap: 1rem;
   }
   .nav-desktop ul {
     gap: 1rem;
   }
   .header-actions {
     gap: 0.75rem;
+  }
+  .logo-text {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header-container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .header-actions {
+    gap: 0.5rem;
+    min-width: 0;
+  }
+  .header-phone {
+    display: none;
   }
 }
 
