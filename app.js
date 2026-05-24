@@ -347,32 +347,39 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- 6. Interactive Product Showroom Tabs ---
-  const tabs = document.querySelectorAll('.tab-btn');
-  const panels = document.querySelectorAll('.tab-panel');
+  // Use event delegation on the tabs container for robustness
+  (function() {
+    const tabsContainer = document.querySelector('.showroom-tabs');
+    const panels = document.querySelectorAll('.tab-panel');
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      // Deactivate all tabs
-      tabs.forEach(t => {
+    if (!tabsContainer || panels.length === 0) return;
+
+    tabsContainer.addEventListener('click', (e) => {
+      const btn = e.target.closest('.tab-btn');
+      if (!btn || !tabsContainer.contains(btn)) return;
+
+      // Deactivate all tabs inside this container
+      const localTabs = tabsContainer.querySelectorAll('.tab-btn');
+      localTabs.forEach(t => {
         t.classList.remove('active');
         t.setAttribute('aria-selected', 'false');
       });
 
-      // Hide all panels
+      // Hide all panels (global panels selection to support multiple layouts)
       panels.forEach(p => p.classList.add('hidden'));
 
       // Activate clicked tab
-      tab.classList.add('active');
-      tab.setAttribute('aria-selected', 'true');
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
 
-      // Show associated panel
-      const targetId = tab.getAttribute('aria-controls');
-      const targetPanel = document.getElementById(targetId);
-      if (targetPanel) {
-        targetPanel.classList.remove('hidden');
+      // Show associated panel (aria-controls points to panel id)
+      const targetId = btn.getAttribute('aria-controls') || btn.getAttribute('data-tab');
+      if (targetId) {
+        const targetPanel = document.getElementById(targetId);
+        if (targetPanel) targetPanel.classList.remove('hidden');
       }
     });
-  });
+  })();
 
   // --- 6b. Alternative LP Showroom Tabs ---
   const lpTabButtons = document.querySelectorAll('.tab-header .tab-btn');
