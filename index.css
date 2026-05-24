@@ -1829,13 +1829,14 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 .product-card {
   position: relative;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .prod-badge {
