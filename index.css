@@ -45,6 +45,11 @@ body {
   overflow-x: hidden;
 }
 
+/* Utility: hide elements (used by JS to toggle panels) */
+.hidden {
+  display: none !important;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
