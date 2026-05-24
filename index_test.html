@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Відновлення ресурсів очисних споруд | BioTC | BTC Consulting</title>
+  <title>Відновлення ресурсів очисних споруд | BioTC | BTC Consulting (Test)</title>
   <meta name="description" content="BTC Consulting впроваджує інноваційну технологію органічного компонування BioTC (TH-AD-HTC) в Україні. Зменшення об'єму вихідної сировини на 75% та генерація ековугілля.">
   <meta name="keywords" content="утилізація осадів стічних вод, переробка мулу очисних споруд, гідротермальна карбонізація, ековугілля, BioTC Україна, BTC Consulting, молекулярне рекомбінування">
   
@@ -14,14 +14,10 @@
   
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="index.css">
-
-  <!-- Hreflang Tags for SEO -->
-  <link rel="alternate" hreflang="uk-UA" href="https://biotc.com.ua/" />
-  <link rel="alternate" hreflang="en" href="https://biotc.com.ua/eu/" />
-  <link rel="alternate" hreflang="pl-PL" href="https://biotc.com.ua/pl/" />
-  <link rel="alternate" hreflang="x-default" href="https://biotc.com.ua/" />
+  <!-- Test Images Enhancement Styles -->
+  <link rel="stylesheet" href="test_images.css">
 </head>
-<body>
+<body class="has-images">
 
   <!-- Dynamic Purification Waves Background -->
   <canvas id="bg-canvas"></canvas>
@@ -66,18 +62,14 @@
       <div class="header-actions">
         <!-- Language Switcher Dropdown -->
         <div class="lang-switcher">
-          <button class="lang-btn" aria-haspopup="true" aria-expanded="false" title="Change Language">
-            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="globe-icon">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="2" y1="12" x2="22" y2="12"></line>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-            </svg>
+          <button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Вибір мови">
+            <span>UA</span>
             <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <ul class="lang-dropdown">
-            <li><a href="eu/index.html" onclick="localStorage.setItem('userLang', 'eu')">🇪🇺 English (EU)</a></li>
-            <li><a href="pl/index.html" onclick="localStorage.setItem('userLang', 'pl')">🇵🇱 Polski</a></li>
-            <li><a href="index.html" class="active">🇺🇦 Українська</a></li>
+            <li><a href="index.html" class="active">Українська</a></li>
+            <li><a href="index_en.html">English</a></li>
+            <li><a href="index_pl.html">Polski</a></li>
           </ul>
         </div>
 
@@ -104,9 +96,9 @@
       <li><a href="#calculator" class="btn btn-primary" style="margin-top: 1rem; display: block; text-align: center;">Розрахувати RLM</a></li>
       <!-- Mobile Language Links -->
       <li class="mobile-lang-switcher">
-        <a href="eu/index.html" onclick="localStorage.setItem('userLang', 'eu')">🇪🇺 EU</a>
-        <a href="pl/index.html" onclick="localStorage.setItem('userLang', 'pl')">🇵🇱 PL</a>
-        <a href="index.html" class="active">🇺🇦 UA</a>
+        <a href="index.html" class="active">UA</a>
+        <a href="index_en.html">EN</a>
+        <a href="index_pl.html">PL</a>
       </li>
     </ul>
   </nav>
@@ -114,12 +106,17 @@
   <!-- Main Content -->
   <main>
     
-    <!-- Hero Section -->
+    <!-- Hero Section (Background image applied via test_images.css on .hero-section) -->
     <section class="hero-section" id="hero">
       <div class="container hero-grid">
         <div class="hero-content">
           <div class="hero-badge-row">
             <div class="badge">🇵🇱 Польські Clean-Tech Технології в Україні</div>
+            <div class="hero-lang-switcher">
+              <a href="index.html" class="hero-flag-link active" title="Українська">🇺🇦</a>
+              <a href="index_en.html" class="hero-flag-link" title="English">🇬🇧</a>
+              <a href="index_pl.html" class="hero-flag-link" title="Polski">🇵🇱</a>
+            </div>
           </div>
           <h1>Екологічна модернізація очисних споруд</h1>
           <p class="hero-desc">
@@ -321,6 +318,15 @@
     <!-- Product Showroom Section -->
     <section class="showroom-section" id="showroom">
       <div class="container">
+        <!-- Showroom Image Banner Strip -->
+        <div class="showroom-banner img-reveal">
+          <img src="https://images.pexels.com/photos/33514501/pexels-photo-33514501.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+               alt="Industrial stainless steel machinery"
+               loading="lazy"
+               width="1200"
+               height="627">
+        </div>
+
         <div class="section-header text-center">
           <span class="sub-title">Варіанти Установок</span>
           <h2>Специфікації Інсталяцій BioTC</h2>
@@ -449,24 +455,48 @@
           <!-- Step 1 -->
           <div class="tech-step-card glass-card">
             <div class="step-num">01</div>
+            <img class="tech-step-img img-reveal"
+                 src="https://images.pexels.com/photos/7937300/pexels-photo-7937300.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+                 alt="Pressure gauges and pipes — попередній підігрів сировини"
+                 loading="lazy"
+                 width="1200"
+                 height="627">
             <h3>Попередній підігрів</h3>
             <p>Зневоднена органічна сировина (вологість ~80%) подається в систему та підігрівається за рахунок рекуперації тепла відхідних ліній, що забезпечує мінімальне зовнішнє енергоспоживання.</p>
           </div>
           <!-- Step 2 -->
           <div class="tech-step-card glass-card border-blue">
             <div class="step-num text-blue">02</div>
+            <img class="tech-step-img img-reveal"
+                 src="https://images.pexels.com/photos/10040001/pexels-photo-10040001.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+                 alt="Industrial reactor tanks — реакція молекулярного компонування"
+                 loading="lazy"
+                 width="1200"
+                 height="627">
             <h3>Реакція молекулярного компонування</h3>
             <p>Суміш піддається нагріву до 180-220°C під автогенним тиском 15-25 бар. Вода залишається у рідкому стані, а клітинна структура мікроорганізмів руйнується, виділяючи зв'язану вологу.</p>
           </div>
           <!-- Step 3 -->
           <div class="tech-step-card glass-card">
             <div class="step-num">03</div>
+            <img class="tech-step-img img-reveal"
+                 src="https://images.pexels.com/photos/261403/pexels-photo-261403.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+                 alt="Clean water — механічне зневоднення"
+                 loading="lazy"
+                 width="1200"
+                 height="627">
             <h3>Механічне зневоднення</h3>
             <p>Карбонізована вугільна суспензія легко віддає воду. Вона подається на фільтр-прес, де вологість знижується з 80% до 35-40% без додавання дорогих коагулянтів.</p>
           </div>
           <!-- Step 4 -->
           <div class="tech-step-card glass-card">
             <div class="step-num">04</div>
+            <img class="tech-step-img img-reveal"
+                 src="https://images.pexels.com/photos/36221361/pexels-photo-36221361.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+                 alt="Charcoal biochar — сушіння та грануляція ековугілля"
+                 loading="lazy"
+                 width="1200"
+                 height="627">
             <h3>Сушіння та грануляція</h3>
             <p>Зневоднене ековугілля досушується низькопотенційним теплом до залишкової вологості &lt;10%. Кінцевий продукт — екологічно чисте ековугілля (Eco-Coal), готове до спалювання чи продажу.</p>
           </div>
@@ -616,6 +646,14 @@
               <span>ul. Daszyńskiego 34/3, 44-100 Gliwice, Polska</span>
             </div>
           </div>
+
+          <!-- Engineer Image — Desktop Only -->
+          <img class="contact-engineer-img img-reveal"
+               src="https://images.pexels.com/photos/2760241/pexels-photo-2760241.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+               alt="Engineer inspecting machinery"
+               loading="lazy"
+               width="1200"
+               height="627">
         </div>
 
         <!-- Form Block -->
@@ -700,11 +738,38 @@
       </div>
       <div class="footer-copy">
         <p>&copy; 2026 BTC Consulting Sp. z o.o. Впровадження технології BioTC. Усі права захищено. Обладнання відповідає екологічним регламентам ЄС.</p>
+        <p class="pexels-credit">Photos by <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a></p>
       </div>
     </div>
   </footer>
 
   <!-- Script File -->
   <script src="app.js"></script>
+
+  <!-- Scroll Reveal Observer for Image Animations -->
+  <script>
+    (function () {
+      const revealEls = document.querySelectorAll('.img-reveal');
+      if (!revealEls.length) return;
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+        );
+        revealEls.forEach((el) => observer.observe(el));
+      } else {
+        // Fallback: show all immediately
+        revealEls.forEach((el) => el.classList.add('is-visible'));
+      }
+    })();
+  </script>
 </body>
 </html>

@@ -1,4 +1,27 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
+  // --- 0. Auto Language Detection & Redirect ---
+  (function() {
+    const savedLang = localStorage.getItem('userLang');
+    const path = window.location.pathname;
+    // Check if we are on the root site (not inside /eu/ or /pl/)
+    const isRoot = !path.includes('/eu/') && !path.includes('/pl/');
+    
+    if (!savedLang && isRoot) {
+      const userLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+      
+      if (userLang.startsWith('pl')) {
+        localStorage.setItem('userLang', 'pl');
+        window.location.href = 'pl/index.html';
+      } else if (!userLang.startsWith('uk') && !userLang.startsWith('ru')) {
+        // Any other language defaults to EU English
+        localStorage.setItem('userLang', 'eu');
+        window.location.href = 'eu/index.html';
+      } else {
+        // Ukrainian and Russian speakers stay on the root Ukrainian version
+        localStorage.setItem('userLang', 'uk');
+      }
+    }
+  })();
 
   // --- 1. Language Detection & Translations ---
   const lang = document.documentElement.lang || 'uk';
