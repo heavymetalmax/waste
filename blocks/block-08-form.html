@@ -1,0 +1,83 @@
+<!-- BLOCK 08: Contact Form -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Left: Info -->
+      <div class="contact-text">
+        <p class="section-label">Контакт</p>
+        <h2>Перший крок — безкоштовна інженерна оцінка об'єкта.</h2>
+        <p>Надішліть заявку. Наші інженери проаналізують вхідні дані та протягом 30-хвилинного дзвінка повідомлять: чи підходить ваш об'єкт для регіонального хабу та яке грантове фінансування доступне.</p>
+
+        <div class="contact-info-list">
+          <div class="info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>+48 608 003 458</span>
+          </div>
+          <div class="info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>andrzej.krop@biotc.pl</span>
+          </div>
+          <div class="info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>ul. Daszyńskiego 34/3, 44-100 Gliwice, Polska</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="glass-card contact-form-card">
+        <form id="rfq-form" action="#" method="POST" novalidate>
+          <fieldset class="form-fieldset">
+
+            <!-- Honeypot -->
+            <div class="visually-hidden" aria-hidden="true">
+              <label for="honeypot">Не заповнюйте</label>
+              <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
+            </div>
+
+            <!-- Name -->
+            <div class="form-group">
+              <input type="text" id="user-name" name="name" placeholder=" " required minlength="2" autocomplete="name" aria-describedby="name-error">
+              <label for="user-name" class="floating-label">Ім'я та посада *</label>
+              <span id="name-error" class="error-msg" role="alert">Будь ласка, вкажіть ім'я</span>
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group">
+              <input type="tel" id="user-phone" name="phone" placeholder=" " required autocomplete="tel" inputmode="tel" aria-describedby="phone-error">
+              <label for="user-phone" class="floating-label">Контактний телефон *</label>
+              <span id="phone-error" class="error-msg" role="alert">Будь ласка, вкажіть телефон</span>
+            </div>
+
+            <!-- Company -->
+            <div class="form-group">
+              <input type="text" id="user-company" name="company" placeholder=" " required autocomplete="organization" aria-describedby="company-error">
+              <label for="user-company" class="floating-label">Місто / назва підприємства *</label>
+              <span id="company-error" class="error-msg" role="alert">Будь ласка, вкажіть назву</span>
+            </div>
+
+            <!-- Object Type -->
+            <div class="form-group">
+              <select id="user-type" name="object_type">
+                <option value="" disabled selected></option>
+                <option value="waterutil">Регіональний водоканал (50k+)</option>
+                <option value="community">Громада (від 10k)</option>
+                <option value="agro">Агропромислове підприємство</option>
+                <option value="other">Інше</option>
+              </select>
+              <label for="user-type" class="floating-label">Тип об'єкта</label>
+            </div>
+
+            <button type="submit" id="form-submit-btn" class="btn btn-primary btn-block">Надіслати заявку на розгляд</button>
+            <p class="form-micro-text">Відповідь протягом 1 робочого дня. Без зобов'язань.</p>
+
+          </fieldset>
+        </form>
+
+        <div id="form-status" class="form-status-container hidden" tabindex="-1" role="status" aria-live="polite"></div>
+      </div>
+
+    </div>
+  </div>
+</section>

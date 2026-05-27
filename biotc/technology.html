@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Технологія HTC · TH-AD-HTC | BioTC | BTC Consulting</title>
+  <meta name="description" content="Гідротермальна карбонізація (HTC) — 200°C, 20 бар, 2 години. Три конфігурації під будь-який об'єкт: від HTC Standalone до повної петлі TH-AD-HTC з +60% виходу біогазу.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="prefetch" href="index.html">
+
+  <link rel="alternate" hreflang="uk-UA" href="https://biotc.com.ua/technology" />
+  <link rel="alternate" hreflang="x-default" href="https://biotc.com.ua/technology" />
+</head>
+<body>
+
+
+
+  <div class="blur-orb orb-1"></div>
+  <div class="blur-orb orb-2"></div>
+  <div class="blur-orb orb-3"></div>
+
+  <!-- ============================================================ -->
+  <!-- HEADER                                                        -->
+  <!-- ============================================================ -->
+  <header class="main-header" id="header">
+    <div class="header-container">
+      <a href="index.html" class="logo" aria-label="Головна BTC Consulting">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#logo-grad-t)"/>
+          <path d="M12 8V18" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M12 11C13.8 9.5 15.8 10.2 15.8 11.5" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M12 13.8C10.2 12.3 8.2 13 8.2 14.3" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="logo-grad-t" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#046BD2"/>
+              <stop offset="1" stop-color="#0D9488"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="logo-text"><span class="logo-btc">BTC</span> Consulting</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Основне меню">
+        <ul>
+          <li><a href="technology.html" class="active">Технологія</a></li>
+          <li><a href="calculator.html">Розрахунки</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switcher">
+          <a href="index.html" class="lang-flag active" title="Українська">🇺🇦</a>
+          <a href="../pl/index.html" class="lang-flag" title="Polski">🇵🇱</a>
+          <a href="../eu/index.html" class="lang-flag" title="English (EU)">🇪🇺</a>
+        </div>
+        <a href="#contact" class="btn btn-primary nav-cta-btn">Аудит об'єкта</a>
+        <button class="mobile-toggle" aria-label="Відкрити меню" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Мобільне меню" aria-hidden="true">
+    <ul>
+      <li><a href="technology.html" class="active">Технологія</a></li>
+      <li><a href="calculator.html">Розрахунки</a></li>
+      <li><a href="#contact" class="btn btn-primary" style="margin-top: 1rem; display: block; text-align: center;">Аудит об'єкта</a></li>
+      <li class="mobile-lang-switcher">
+        <a href="index.html" class="lang-flag active" title="Українська">🇺🇦</a>
+        <a href="../pl/index.html" class="lang-flag" title="Polski">🇵🇱</a>
+        <a href="../eu/index.html" class="lang-flag" title="English (EU)">🇪🇺</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ============================================================ -->
+    <!-- BLOCK TECH-01: Hero                                           -->
+    <!-- ============================================================ -->
+    <section id="tech-hero" class="tech-hero-section">
+
+      <div class="tech-hero-bg-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M12 17l-2 2l2 2"/>
+          <path d="M10 19h9a2 2 0 0 0 1.75 -2.75l-.55 -1"/>
+          <path d="M8.536 11l-.732 -2.732l-2.732 .732"/>
+          <path d="M7.804 8.268l-4.5 7.794a2 2 0 0 0 1.506 2.89l1.141 .024"/>
+          <path d="M15.464 11l2.732 .732l.732 -2.732"/>
+          <path d="M18.196 11.732l-4.5 -7.794a2 2 0 0 0 -3.256 -.14l-.591 .976"/>
+        </svg>
+      </div>
+
+      <div class="container">
+        <div class="tech-hero-grid">
+
+          <div class="tech-hero-content">
+            <span class="badge">Гідротермальна карбонізація · TH · AD · HTC</span>
+            <h1>Від небезпечного мулу до <span class="h1-solution">гідровугілля лише за 2 години.</span></h1>
+            <p class="hero-desc">Гідротермальна карбонізація не є експериментом. Природа використовує цей процес мільйони років. Ми відтворюємо його у закритому реакторі — без викидів, без запаху, без залишків PFAS. Один процес, кілька конфігурацій — під будь-який об'єкт.</p>
+            <div class="hero-actions">
+              <a href="#configurations" class="btn btn-primary">Конфігурації під ваш об'єкт</a>
+              <a href="#contact" class="btn btn-secondary">Аудит об'єкта →</a>
+            </div>
+          </div>
+
+          <div class="tech-stat-panel">
+            <div class="tech-stat-grid">
+              <div class="tech-stat">
+                <span class="tech-stat-val">200°C</span>
+                <span class="tech-stat-label">Температура реакції</span>
+              </div>
+              <div class="tech-stat">
+                <span class="tech-stat-val">20 бар</span>
+                <span class="tech-stat-label">Тиск у реакторі</span>
+              </div>
+              <div class="tech-stat">
+                <span class="tech-stat-val">2 год</span>
+                <span class="tech-stat-label">Повний цикл трансформації</span>
+              </div>
+              <div class="tech-stat">
+                <span class="tech-stat-val">−80%</span>
+                <span class="tech-stat-label">Скорочення об'єму осаду</span>
+              </div>
+              <div class="tech-stat">
+                <span class="tech-stat-val">20–25<small> МДж/кг</small></span>
+                <span class="tech-stat-label">Теплотворність гідровугілля</span>
+              </div>
+              <div class="tech-stat">
+                <span class="tech-stat-val">100%</span>
+                <span class="tech-stat-label">Знищення PFAS і патогенів</span>
+              </div>
+            </div>
+            <p class="tech-stat-note">Параметри верифіковані AGH Kraków та WikiChar Hydrochar Network</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- BLOCK TECH-02: Що таке HTC                                    -->
+    <!-- ============================================================ -->
+    <section id="what-is-htc" class="htc-section">
+
+      <div class="htc-bg-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M12 8l0 4l2 2"/>
+          <path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5"/>
+        </svg>
+      </div>
+
+      <div class="container">
+        <p class="section-label">Принцип роботи</p>
+        <h2>Те, що природа робить за мільйони років — ми повторюємо за 2 години.</h2>
+        <p class="section-desc">Кам'яне вугілля утворилося з органіки під тиском і температурою протягом геологічних ер. Гідротермальна карбонізація (HTC) відтворює цей фізичний процес у закритому апараті — без горіння, без хімікатів, без зовнішніх викидів.</p>
+
+        <div class="process-flow" role="list">
+
+          <div class="process-step glass-card" role="listitem">
+            <div class="process-step-num">01</div>
+            <div class="card-icon" style="color: var(--color-text-muted);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M4 7h16"/>
+                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/>
+                <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/>
+                <path d="M10 12l4 4m0 -4l-4 4"/>
+              </svg>
+            </div>
+            <h3>Подача сировини</h3>
+            <p>Зневоднений мул (~80% вологості) завантажується в герметичний реактор. Запах, патогени та PFAS — усе залишається всередині замкнутого контуру.</p>
+            <div class="process-step-spec">Вологість вхідного матеріалу: 70–85%</div>
+          </div>
+
+          <div class="process-connector" aria-hidden="true">
+            <svg viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 12 L30 12 M22 5 L30 12 L22 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="process-step glass-card" role="listitem">
+            <div class="process-step-num" style="color: var(--color-accent); opacity: 1;">02</div>
+            <div class="card-icon" style="color: var(--color-accent);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M8 13.5a4 4 0 1 0 4 0v-8.5a2 2 0 0 0 -4 0v8.5"/>
+                <path d="M8 9l4 0"/>
+                <path d="M16 9l6 0"/>
+                <path d="M19 6l0 6"/>
+              </svg>
+            </div>
+            <h3>Реакція під тиском</h3>
+            <p>200°C і 20 бар. Молекули органічної речовини руйнуються та переформовуються. Реакція тривала 2 години — повністю автономна, без зовнішніх хімікатів.</p>
+            <div class="process-step-spec" style="color: var(--color-accent);">200°C · 20 бар · 2 години · нуль викидів</div>
+          </div>
+
+          <div class="process-connector" aria-hidden="true">
+            <svg viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 12 L30 12 M22 5 L30 12 L22 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="process-step glass-card" role="listitem">
+            <div class="process-step-num" style="color: var(--color-teal); opacity: 1;">03</div>
+            <div class="card-icon" style="color: var(--color-teal);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M14 4h6v6h-6l0 -6"/>
+                <path d="M4 14h6v6h-6l0 -6"/>
+                <path d="M14 17a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/>
+                <path d="M4 7a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/>
+              </svg>
+            </div>
+            <h3>Продукт та вода</h3>
+            <p>Гідровугілля виходить гранулами — стерильне, без запаху. Технологічна вода повертається у цикл або очищується до скиду. Ніяких відвалів, ніяких звалищ.</p>
+            <div class="process-step-spec" style="color: var(--color-teal);">20–25 МДж/кг · 100% стерильність · −80% об'єму</div>
+          </div>
+
+        </div>
+
+        <div class="glass-card callout-box" style="margin-block-start: var(--space-lg); border-color: var(--color-accent);">
+          <h3>Чому замкнутий контур — це принципово</h3>
+          <p>Традиційні технології (сушіння, компостування, інсинерація) мають відкриті точки викиду: запах, дим, перетікання через ґрунт. HTC-реактор — це повністю закрите середовище під надлишковим тиском. Будь-яке просочення неможливе фізично: тиск усередині вищий за зовнішній. Це не маркетинг — це термодинаміка.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- BLOCK TECH-03: Конфігурації                                   -->
+    <!-- ============================================================ -->
+    <section id="configurations" class="configs-section">
+
+      <div class="configs-bg-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M11.992 21c-.728 -.003 -1.455 -.442 -1.667 -1.317a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c.882 .214 1.32 .95 1.317 1.684"/>
+          <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/>
+          <path d="M19 22.5a4.75 4.75 0 0 1 3.5 -3.5a4.75 4.75 0 0 1 -3.5 -3.5a4.75 4.75 0 0 1 -3.5 3.5a4.75 4.75 0 0 1 3.5 3.5"/>
+        </svg>
+      </div>
+
+      <div class="container">
+        <p class="section-label">Конфігурації</p>
+        <h2>Одна технологія — три конфігурації. Залежить від вашої інфраструктури.</h2>
+        <p class="section-desc">HTC — це ядро. Навколо нього будується конфігурація під конкретний об'єкт: чи є метантенки, який обсяг осаду, чи можна залучити сусідні громади. Три сценарії — від мінімального входу до максимальної енергетичної незалежності.</p>
+
+        <div class="config-carousel-wrapper">
+        <div class="config-cards" id="config-carousel">
+
+          <!-- Config A -->
+          <div class="glass-card config-card is-side" data-cidx="0">
+            <span class="scenario-badge">Конфігурація А</span>
+            <h3>HTC Standalone</h3>
+            <p class="scenario-for">Для об'єктів без метантенків: невеликі ОС, промпідприємства, агрокомплекси</p>
+
+            <div class="config-flow">
+              <div class="flow-stage">
+                <span class="flow-stage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a3 7 0 1 0 6 0a3 7 0 1 0 -6 0"/><path d="M21 10c0 -3.866 -1.343 -7 -3 -7"/><path d="M6 3h12"/><path d="M21 10v10l-3 -1l-3 2l-3 -3l-3 2v-10"/><path d="M6 10h.01"/></svg></span>
+                <span>Мул</span>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-stage">
+                <span class="flow-stage-icon" style="color: var(--color-accent);"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6a8 3 0 1 0 16 0a8 3 0 1 0 -16 0"/><path d="M4 6v6a8 3 0 0 0 16 0v-6"/><path d="M4 12v6a8 3 0 0 0 16 0v-6"/></svg></span>
+                <span style="color: var(--color-accent);">HTC</span>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-stage">
+                <span class="flow-stage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 4h6v6h-6l0 -6"/><path d="M4 14h6v6h-6l0 -6"/><path d="M14 17a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M4 7a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/></svg></span>
+                <span>Гідровугілля</span>
+              </div>
+            </div>
+
+            <ul class="scenario-benefits">
+              <li>Найшвидший старт — мінімум передумов</li>
+              <li>Не потребує реконструкції існуючої схеми</li>
+              <li>Готовність за 14 днів (блочно-модульна поставка)</li>
+              <li>Може обслуговувати кілька сусідніх об'єктів</li>
+            </ul>
+
+            <div class="scenario-targets">
+              Моделі: HTC-S 5 · HTC-S 15 · HTC-D 30
+            </div>
+          </div>
+
+          <!-- Config B -->
+          <div class="glass-card config-card is-active" data-cidx="1">
+            <span class="scenario-badge scenario-badge--teal">Конфігурація Б</span>
+            <h3>TH-бустер до існуючого AD</h3>
+            <p class="scenario-for">Для об'єктів з діючим анаеробним зброджуванням — суттєво збільшує вихід біогазу без будівництва нового метантенку</p>
+
+            <div class="config-flow">
+              <div class="flow-stage">
+                <span class="flow-stage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a3 7 0 1 0 6 0a3 7 0 1 0 -6 0"/><path d="M21 10c0 -3.866 -1.343 -7 -3 -7"/><path d="M6 3h12"/><path d="M21 10v10l-3 -1l-3 2l-3 -3l-3 2v-10"/><path d="M6 10h.01"/></svg></span>
+                <span>Мул</span>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-stage">
+                <span class="flow-stage-icon" style="color:var(--color-teal)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 13.5a4 4 0 1 0 4 0v-8.5a2 2 0 0 0 -4 0v8.5"/><path d="M8 9l4 0"/><path d="M16 9l6 0"/><path d="M19 6l0 6"/></svg></span>
+                <span style="color:var(--color-teal)">TH</span>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-stage">
+                <span class="flow-stage-icon" style="color:var(--color-teal)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 6a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v12a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3v-12"/><path d="M6 12a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"/></svg></span>
+                <span style="color:var(--color-teal)">AD</span>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-stage">
+                <span class="flow-stage-icon" style="color:var(--color-accent)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6a8 3 0 1 0 16 0a8 3 0 1 0 -16 0"/><path d="M4 6v6a8 3 0 0 0 16 0v-6"/><path d="M4 12v6a8 3 0 0 0 16 0v-6"/></svg></span>
+                <span style="color:var(--color-accent)">HTC</span>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-stage">
+                <span class="flow-stage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 4h6v6h-6l0 -6"/><path d="M4 14h6v6h-6l0 -6"/><path d="M14 17a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M4 7a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/></svg></span>
+                <span>Гідровугілля</span>
+              </div>
+            </div>
+            <div class="config-loop-note" style="color: var(--color-teal);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.27"/></svg>
+              Ліквор HTC рециркулює назад у метантенк → додаткова стимуляція
+            </div>
+
+            <ul class="scenario-benefits">
+              <li>+60% виходу біогазу без нового метантенку</li>
+              <li>TH руйнує клітинні стінки — бактерії отримують легкодоступну органіку</li>
+              <li>Ліквор HTC повертається в AD — замкнутий цикл стимуляції</li>
+              <li>Окупність за рахунок надлишку біогазу</li>
+            </ul>
+
+            <div class="scenario-targets">
+              ОС від 80 000 РЛМ · Діючий AD · Кастомне проєктування
+            </div>
+          </div>
+
+          <!-- Config C -->
+          <div class="glass-card config-card is-side" data-cidx="2">
+            <span class="scenario-badge scenario-badge--teal">Конфігурація В</span>
+            <h3>Повна петля TH-AD-HTC</h3>
+            <p class="scenario-for">Для великих ОС або регіональних хабів — greenfield або повна реконструкція з метою енергетичної незалежності</p>
+
+            <div class="config-flow">
+              <div class="flow-stage">
+                <span class="flow-stage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a3 7 0 1 0 6 0a3 7 0 1 0 -6 0"/><path d="M21 10c0 -3.866 -1.343 -7 -3 -7"/><path d="M6 3h12"/><path d="M21 10v10l-3 -1l-3 2l-3 -3l-3 2v-10"/><path d="M6 10h.01"/></svg></span>
+                <span>Мул</span>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-stage">
+                <span class="flow-stage-icon" style="color:var(--color-teal)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 13.5a4 4 0 1 0 4 0v-8.5a2 2 0 0 0 -4 0v8.5"/><path d="M8 9l4 0"/><path d="M16 9l6 0"/><path d="M19 6l0 6"/></svg></span>
+                <span style="color:var(--color-teal)">TH</span>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-stage">
+                <span class="flow-stage-icon" style="color:var(--color-teal)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 6a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v12a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3v-12"/><path d="M6 12a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"/></svg></span>
+                <span style="color:var(--color-teal)">Новий AD</span>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-stage">
+                <span class="flow-stage-icon" style="color:var(--color-accent)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6a8 3 0 1 0 16 0a8 3 0 1 0 -16 0"/><path d="M4 6v6a8 3 0 0 0 16 0v-6"/><path d="M4 12v6a8 3 0 0 0 16 0v-6"/></svg></span>
+                <span style="color:var(--color-accent)">HTC</span>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-stage">
+                <span class="flow-stage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 4h6v6h-6l0 -6"/><path d="M4 14h6v6h-6l0 -6"/><path d="M14 17a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M4 7a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/></svg></span>
+                <span>Гідровугілля</span>
+              </div>
+            </div>
+            <div class="config-loop-note">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              Біогаз → CHP-когенерація → власна електрика + тепло для реакторів
+            </div>
+
+            <ul class="scenario-benefits">
+              <li>Енергопозитивний баланс: система виробляє більше, ніж споживає</li>
+              <li>CHP-когенерація: власна електрика та тепло для реакторів</li>
+              <li>Максимальна незалежність від зовнішніх постачальників</li>
+              <li>Найкращий ROI на масштабі: 4–6 років окупності</li>
+            </ul>
+
+            <div class="scenario-targets">
+              ОС від 200 000 РЛМ · Регіональний Hub & Spoke · Кастомне проєктування
+            </div>
+          </div>
+
+        </div><!-- /.config-cards -->
+
+
+        </div><!-- /.config-carousel-wrapper -->
+
+        <!-- Decision table -->
+        <div class="table-responsive">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Параметр</th>
+                <th>Конф. А — HTC Standalone</th>
+                <th class="col-hub">Конф. Б — TH + AD + HTC</th>
+                <th class="col-hub">Конф. В — Повна петля</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Мінімальний розмір об'єкта</td>
+                <td>від 5 т/добу мулу</td>
+                <td class="col-hub">від 80 000 РЛМ</td>
+                <td class="col-hub">від 200 000 РЛМ</td>
+              </tr>
+              <tr>
+                <td>Потрібен діючий метантенк</td>
+                <td>Ні</td>
+                <td class="col-hub">Так (існуючий)</td>
+                <td class="col-hub">Будується новий</td>
+              </tr>
+              <tr>
+                <td>Приріст виходу біогазу</td>
+                <td>—</td>
+                <td class="col-hub">+60%</td>
+                <td class="col-hub">+60% + CHP-генерація</td>
+              </tr>
+              <tr>
+                <td>Енергетичний профіль</td>
+                <td>Нейтральний</td>
+                <td class="col-hub">Позитивний</td>
+                <td class="col-hub">Енергопозитивний</td>
+              </tr>
+              <tr>
+                <td>Строк реалізації</td>
+                <td>3–6 місяців</td>
+                <td class="col-hub">12–18 місяців</td>
+                <td class="col-hub">18–30 місяців</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- BLOCK TECH-04: Гідровугілля                                   -->
+    <!-- ============================================================ -->
+    <section id="hydrochar" class="hydrochar-section">
+
+      <div class="hydrochar-bg-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3 21l18 0"/>
+          <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4"/>
+          <path d="M5 21l0 -10.15"/>
+          <path d="M19 21l0 -10.15"/>
+          <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"/>
+        </svg>
+      </div>
+
+      <div class="container">
+        <p class="section-label">Продукт</p>
+        <h2>Гідровугілля — не відхід. Це товар зі статусом End-of-Waste.</h2>
+        <p class="section-desc">HTC перетворює мул з юридично небезпечного відходу на сертифікований продукт. Після проходження процесу гідровугілля (Eco-Coal) класифікується за EU End-of-Waste criteria — його можна продавати, використовувати в промисловості та зараховувати у вуглецеву звітність.</p>
+
+        <div class="hydrochar-grid">
+
+          <div class="glass-card hydrochar-specs-card">
+            <h3>Технічні характеристики</h3>
+            <ul class="hydrochar-spec-list">
+              <li>
+                <span class="spec-key">Теплотворна здатність</span>
+                <span class="spec-val spec-val--accent">20–25 МДж/кг</span>
+              </li>
+              <li>
+                <span class="spec-key">Скорочення об'єму відносно сировини</span>
+                <span class="spec-val">−75 — −80%</span>
+              </li>
+              <li>
+                <span class="spec-key">Вологість кінцевого продукту</span>
+                <span class="spec-val">&lt;15%</span>
+              </li>
+              <li>
+                <span class="spec-key">Патогени (Salmonella, E. coli)</span>
+                <span class="spec-val spec-val--teal">100% знищення</span>
+              </li>
+              <li>
+                <span class="spec-key">PFAS та мікропластик</span>
+                <span class="spec-val spec-val--teal">100% деструкція</span>
+              </li>
+              <li>
+                <span class="spec-key">Важкі метали</span>
+                <span class="spec-val">Іммобілізовані у матриці</span>
+              </li>
+              <li>
+                <span class="spec-key">Форм-фактор</span>
+                <span class="spec-val">Гранули або порошок</span>
+              </li>
+              <li>
+                <span class="spec-key">Правовий статус ЄС</span>
+                <span class="spec-val spec-val--accent">End-of-Waste (товар)</span>
+              </li>
+            </ul>
+            <p class="tech-stat-note" style="margin-block-start: var(--space-md);">Для порівняння: бурий вугіль — 8–15 МДж/кг · Деревна тріска — 15–17 МДж/кг · Антрацит — 30–33 МДж/кг</p>
+          </div>
+
+          <div class="hydrochar-uses">
+            <h3>Де застосовується</h3>
+            <div class="use-cards">
+
+              <div class="glass-card use-card">
+                <div class="card-icon" style="color: var(--color-accent);">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M13.58 13.79c.27 .68 .42 1.43 .42 2.21c0 1.77 -.77 3.37 -2 4.46a5.93 5.93 0 0 1 -4 1.54c-3.31 0 -6 -2.69 -6 -6c0 -2.76 1.88 -5.1 4.42 -5.79"/>
+                    <path d="M17.58 10.21c2.54 .69 4.42 3.03 4.42 5.79c0 3.31 -2.69 6 -6 6a5.93 5.93 0 0 1 -4 -1.54"/>
+                    <path d="M6 8a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"/>
+                  </svg>
+                </div>
+                <h4>Тверде паливо для котелень</h4>
+                <p>Пряма заміна вугілля або біомаси. Підходить для промислових котлів та когенерацій. Теплотворність у діапазоні бурого вугілля — але з нульовим CO₂-слідом.</p>
+              </div>
+
+              <div class="glass-card use-card">
+                <div class="card-icon" style="color: var(--color-teal);">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M14.42 9.058l-5.362 5.363a1.978 1.978 0 0 1 -3.275 -.773l-2.682 -8.044a1.978 1.978 0 0 1 2.502 -2.502l8.045 2.682a1.978 1.978 0 0 1 .773 3.274"/>
+                    <path d="M10 10l6.5 6.5"/>
+                    <path d="M19.347 16.575l1.08 1.079a1.96 1.96 0 0 1 -2.773 2.772l-1.08 -1.079a1.96 1.96 0 0 1 2.773 -2.772"/>
+                  </svg>
+                </div>
+                <h4>Добавка до цементу та бетону</h4>
+                <p>Часткова заміна клінкеру. Цементні заводи зацікавлені в гідровугіллі з гарантованим складом. Ринок забезпечений директивою ЄС щодо декарбонізації промисловості.</p>
+              </div>
+
+              <div class="glass-card use-card">
+                <div class="card-icon" style="color: var(--color-teal);">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M12 10a6 6 0 0 0 -6 -6h-3v2a6 6 0 0 0 6 6h3"/>
+                    <path d="M12 14a6 6 0 0 1 6 -6h3v1a6 6 0 0 1 -6 6h-3"/>
+                    <path d="M12 20l0 -10"/>
+                  </svg>
+                </div>
+                <h4>Ґрунтопокращувач (biochar)</h4>
+                <p>Збагачення деградованих ґрунтів: вологоємність та поживність. Кваліфікується як carbon removal за методологіями VCS/Gold Standard.</p>
+              </div>
+
+              <div class="glass-card use-card">
+                <div class="card-icon" style="color: var(--color-accent);">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M10.07 15.34c1.115 .88 2.74 .88 3.855 0c1.115 -.88 1.398 -2.388 .671 -3.575l-2.596 -3.765l-2.602 3.765c-.726 1.187 -.443 2.694 .672 3.575"/>
+                    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/>
+                  </svg>
+                </div>
+                <h4>Активоване вугілля (після активації)</h4>
+                <p>Після парової активації — адсорбент для очищення води та повітря. Преміальний ринок. Потребує додаткового кроку, але додає вартість у 5–8 разів.</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- BLOCK TECH-05: Порівняння                                     -->
+    <!-- ============================================================ -->
+    <section id="contrast" class="contrast-section">
+
+      <div class="contrast-bg-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M7 20l10 0"/>
+          <path d="M6 6l6 -1l6 1"/>
+          <path d="M12 3l0 17"/>
+          <path d="M9 12l-3 -6l-3 6a3 3 0 0 0 6 0"/>
+          <path d="M21 12l-3 -6l-3 6a3 3 0 0 0 6 0"/>
+        </svg>
+      </div>
+
+      <div class="container">
+        <p class="section-label">Порівняння</p>
+        <h2>BioTC не конкурує з ринком. BioTC вирішує проблему, яку ринок не вирішив.</h2>
+        <p class="section-desc">Традиційні технології вирішують задачу наполовину. Або зменшують об'єм, або виробляють газ, або знищують патогени — але не все разом. BioTC-петля TH-AD-HTC — єдина конфігурація, яка замикає всі потоки в один енергопозитивний цикл.</p>
+
+        <div class="table-responsive">
+          <table class="comparison-table contrast-table-tech">
+            <thead>
+              <tr>
+                <th>Показник</th>
+                <th>Звалище / мулові поля</th>
+                <th>Інсинерація</th>
+                <th>THP конкуренти<br><small style="font-weight:400;font-size:0.75em;">(Cambi, TerraNova)</small></th>
+                <th class="col-hub">BioTC — TH-AD-HTC<br><small style="font-weight:400;font-size:0.75em;">Запатентована петля</small></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Скорочення об'єму осаду</td>
+                <td>0%</td>
+                <td>~70% (зола — відхід)</td>
+                <td>до 50%</td>
+                <td class="col-hub">до 80%</td>
+              </tr>
+              <tr>
+                <td>Знищення PFAS</td>
+                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:#f87171"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg> Відсутнє</td>
+                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:#fbbf24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 9v4"/><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0"/><path d="M12 16h.01"/></svg> Часткове</td>
+                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:#fbbf24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 9v4"/><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0"/><path d="M12 16h.01"/></svg> Часткове</td>
+                <td class="col-hub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:var(--color-teal)"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg> 100% деструкція</td>
+              </tr>
+              <tr>
+                <td>Знищення патогенів</td>
+                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:#f87171"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg> Відсутнє</td>
+                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:var(--color-teal)"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg> 100%</td>
+                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:var(--color-teal)"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg> 100%</td>
+                <td class="col-hub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:var(--color-teal)"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg> 100%</td>
+              </tr>
+              <tr>
+                <td>Корисний продукт на виході</td>
+                <td>Немає</td>
+                <td>Токсична зола (відхід)</td>
+                <td>Дигестат (обмежений ринок)</td>
+                <td class="col-hub">Гідровугілля — End-of-Waste</td>
+              </tr>
+              <tr>
+                <td>Збільшення виходу біогазу</td>
+                <td>—</td>
+                <td>—</td>
+                <td>+30%</td>
+                <td class="col-hub">+60% (рециркуляція ліквору)</td>
+              </tr>
+              <tr>
+                <td>Енергетичний профіль</td>
+                <td>Постійні витрати</td>
+                <td>Споживає енергію</td>
+                <td>Самоспоживання</td>
+                <td class="col-hub">Енергопозитивний</td>
+              </tr>
+              <tr>
+                <td>Відповідність UWWTD ЄС</td>
+                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:#f87171"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg> Штрафи</td>
+                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:#fbbf24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 9v4"/><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0"/><path d="M12 16h.01"/></svg> Умовно</td>
+                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:var(--color-teal)"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg> Так</td>
+                <td class="col-hub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:var(--color-teal)"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg> Повна відповідність</td>
+              </tr>
+              <tr>
+                <td>Окупність</td>
+                <td>Ніколи</td>
+                <td>Рідко &lt;10 років</td>
+                <td>8–12 років</td>
+                <td class="col-hub">4–6 років</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="glass-card callout-box" style="border-color: var(--color-teal);">
+          <h3>Чому ліквор HTC у метантенку — це ключовий диференціатор</h3>
+          <p>Конкуренти реалізують термічний гідроліз (TH) як самостійну стадію перед AD. Вони не мають HTC-реактора в ланцюжку. BioTC додає HTC після AD, і ліквор — рідка фракція після HTC — повертається назад у метантенк, стимулюючи додаткове бродіння. Саме це дає +60% замість +30% конкурентів. Це запатентовано.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- BLOCK TECH-06: Лінійка моделей                                -->
+    <!-- ============================================================ -->
+    <section id="models" class="models-section">
+
+      <div class="models-bg-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6 -6a6 6 0 0 1 -8 -8l3.5 3.5"/>
+        </svg>
+      </div>
+
+      <div class="container">
+        <p class="section-label">Лінійка установок</p>
+        <h2>Чотири моделі. Від компактного контейнера до регіонального хабу.</h2>
+        <p class="section-desc">Всі стандартні моделі поставляються у вигляді готових блочно-модульних установок. Підключення за 14–21 день без капітального будівництва. Кастомна конфігурація TH+HTC проєктується індивідуально.</p>
+
+        <div class="model-cards">
+
+          <div class="glass-card model-card">
+            <div class="model-card-header">
+              <span class="scenario-badge">HTC-S 5</span>
+              <span class="model-capacity">5 т/добу</span>
+            </div>
+            <h3>Для малих об'єктів</h3>
+            <p class="scenario-for">ОС, промпідприємства, агрокомплекси до ~30 000 РЛМ</p>
+            <ul class="model-spec-list">
+              <li><span>Добова продуктивність</span><strong>до 5 т мулу (~80% вол.)</strong></li>
+              <li><span>Річна пропускна здатність</span><strong>до 1 800 т/рік</strong></li>
+              <li><span>Виробництво Eco-Coal</span><strong>350–400 т/рік</strong></li>
+              <li><span>Площа розміщення</span><strong>~120 м²</strong></li>
+              <li><span>Готовність до роботи</span><strong>14 днів</strong></li>
+            </ul>
+            <div class="model-energy-badge">Автогенне виділення тепла</div>
+          </div>
+
+          <div class="glass-card model-card model-card--featured">
+            <div class="model-card-header">
+              <span class="scenario-badge">HTC-S 15</span>
+              <span class="model-capacity">15 т/добу</span>
+            </div>
+            <h3>Для середніх міст</h3>
+            <p class="scenario-for">ОС від 80 000 до 150 000 РЛМ — найпоширеніший типорозмір</p>
+            <ul class="model-spec-list">
+              <li><span>Добова продуктивність</span><strong>до 15 т мулу</strong></li>
+              <li><span>Річна пропускна здатність</span><strong>до 5 500 т/рік</strong></li>
+              <li><span>Виробництво Eco-Coal</span><strong>1 100–1 200 т/рік</strong></li>
+              <li><span>Система управління</span><strong>SCADA-автоматизація</strong></li>
+              <li><span>Рекуперація тепла</span><strong>Повна (пар → підігрів)</strong></li>
+            </ul>
+            <div class="model-energy-badge" style="color: var(--color-teal); background: var(--color-teal-glow);">Позитивний тепловий баланс</div>
+          </div>
+
+          <div class="glass-card model-card">
+            <div class="model-card-header">
+              <span class="scenario-badge">HTC-D 30</span>
+              <span class="model-capacity">30 т/добу</span>
+            </div>
+            <h3>Регіональний хаб</h3>
+            <p class="scenario-for">Великі муніципальні ОС або Hub & Spoke від 200 000 РЛМ</p>
+            <ul class="model-spec-list">
+              <li><span>Добова продуктивність</span><strong>до 30 т мулу</strong></li>
+              <li><span>Річна пропускна здатність</span><strong>до 11 000 т/рік</strong></li>
+              <li><span>Виробництво Eco-Coal</span><strong>2 200–2 400 т/рік</strong></li>
+              <li><span>Дублювання ліній</span><strong>100% гарячий резерв</strong></li>
+              <li><span>Автономність</span><strong>Повна (без зовн. газу)</strong></li>
+            </ul>
+            <div class="model-energy-badge" style="color: var(--color-teal); background: var(--color-teal-glow);">Повна енергонезалежність</div>
+          </div>
+
+          <div class="glass-card model-card model-card--custom">
+            <div class="model-card-header">
+              <span class="scenario-badge scenario-badge--teal">TH + HTC</span>
+              <span class="model-capacity">30+ т/добу</span>
+            </div>
+            <h3>Кастомна петля</h3>
+            <p class="scenario-for">Інтегрована TH-AD-HTC для ОС від 200 000 РЛМ або регіональних хабів</p>
+            <ul class="model-spec-list">
+              <li><span>Продуктивність</span><strong>Від 30 т/добу та вище</strong></li>
+              <li><span>Приріст біогазу</span><strong>+60% (рецикл ліквору)</strong></li>
+              <li><span>Когенерація (CHP)</span><strong>Власна електрика + тепло</strong></li>
+              <li><span>Рециркуляція ліквору</span><strong>Назад у метантенк</strong></li>
+              <li><span>Проєктування</span><strong>Індивідуальне</strong></li>
+            </ul>
+            <div class="model-energy-badge" style="color: var(--color-teal); background: var(--color-teal-glow);">Енергопозитивний цикл · CHP</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- BLOCK TECH-07: CTA                                            -->
+    <!-- ============================================================ -->
+    <section id="contact">
+
+      <div class="contact-bg-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M12 11v.01"/><path d="M8 11v.01"/><path d="M16 11v.01"/>
+          <path d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3l12 0"/>
+        </svg>
+      </div>
+
+      <div class="container">
+        <div class="contact-grid">
+
+          <div class="contact-text">
+            <p class="section-label">Контакт</p>
+            <h2>Перший крок — безкоштовна інженерна оцінка об'єкта.</h2>
+            <p class="section-desc">Надішліть заявку. Наші інженери проаналізують вхідні дані та протягом 30-хвилинного дзвінка розкажуть: який сценарій оптимальний для вашого об'єкта — монозадачна станція або кластер Hub &amp; Spoke — та яке грантове фінансування доступне.</p>
+
+            <div class="contact-info-list">
+              <div class="info-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>+48 608 003 458</span>
+              </div>
+              <div class="info-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span>andrzej.krop@biotc.pl</span>
+              </div>
+              <div class="info-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>ul. Daszyńskiego 34/3, 44-100 Gliwice, Polska</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card contact-form-card">
+            <form id="rfq-form" action="#" method="POST" novalidate>
+              <fieldset class="form-fieldset">
+
+                <div class="visually-hidden" aria-hidden="true">
+                  <label for="honeypot">Не заповнюйте</label>
+                  <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                  <input type="text" id="user-name" name="name" placeholder=" " required minlength="2" autocomplete="name" aria-describedby="name-error">
+                  <label for="user-name" class="floating-label">Ім'я та посада *</label>
+                  <span id="name-error" class="error-msg" role="alert">Будь ласка, вкажіть ім'я</span>
+                </div>
+
+                <div class="form-group">
+                  <input type="tel" id="user-phone" name="phone" placeholder=" " required autocomplete="tel" inputmode="tel" aria-describedby="phone-error">
+                  <label for="user-phone" class="floating-label">Контактний телефон *</label>
+                  <span id="phone-error" class="error-msg" role="alert">Будь ласка, вкажіть телефон</span>
+                </div>
+
+                <div class="form-group">
+                  <input type="text" id="user-company" name="company" placeholder=" " required autocomplete="organization" aria-describedby="company-error">
+                  <label for="user-company" class="floating-label">Місто / назва підприємства *</label>
+                  <span id="company-error" class="error-msg" role="alert">Будь ласка, вкажіть назву</span>
+                </div>
+
+                <div class="form-group">
+                  <select id="user-type" name="object_type">
+                    <option value="" disabled selected></option>
+                    <option value="waterutil">Регіональний водоканал (50k+)</option>
+                    <option value="community">Громада (від 10k)</option>
+                    <option value="agro">Агропромислове підприємство</option>
+                    <option value="other">Інше</option>
+                  </select>
+                  <label for="user-type" class="floating-label">Тип об'єкта</label>
+                </div>
+
+                <button type="submit" id="form-submit-btn" class="btn btn-primary btn-block">Надіслати заявку на розгляд</button>
+                <p class="form-micro-text">Відповідь протягом 1 робочого дня. Без зобов'язань.</p>
+
+              </fieldset>
+            </form>
+
+            <div id="form-status" class="form-status-container hidden" tabindex="-1" role="status" aria-live="polite"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER                                                        -->
+  <!-- ============================================================ -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo-text"><span class="logo-btc">BTC</span> Consulting</span>
+          <p>Інженерні хаби для безпечної утилізації осадів стічних вод. Технологія TH-AD-HTC. Гранти ЄС до 90% CapEx.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Навігація</h4>
+          <ul>
+            <li><a href="technology.html">Технологія</a></li>
+            <li><a href="calculator.html">Розрахунки</a></li>
+            <li><a href="#contact">Контакт</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2025 BTC Consulting. Всі права захищено.</p>
+    </div>
+  </footer>
+
+  <script src="../app.js"></script>
+
+  <!-- Config carousel — auto-rotate, click to pause & read -->
+  <script>
+  (function () {
+    var cards   = Array.from(document.querySelectorAll('#config-carousel .config-card'));
+    var active  = 1;      // Config B visible first
+    var AUTO_MS = 6000;   // seconds per card in auto-mode
+    var READ_MS = 10000;  // pause after manual click — enough to read
+    var timer   = null;
+
+    function goTo(idx, delay) {
+      active = ((idx % cards.length) + cards.length) % cards.length;
+      var dur = delay !== undefined ? delay : AUTO_MS;
+      cards.forEach(function (c, i) {
+        c.classList.toggle('is-active', i === active);
+        c.classList.toggle('is-side',   i !== active);
+      });
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        goTo(active + 1, AUTO_MS);
+      }, dur);
+    }
+
+    // Click on a side card → bring it forward, pause for reading
+    cards.forEach(function (card, i) {
+      card.addEventListener('click', function () {
+        if (i !== active) goTo(i, READ_MS);
+      });
+    });
+
+    // Kick off rotation after the first display period
+    timer = setTimeout(function () { goTo(active + 1, AUTO_MS); }, AUTO_MS);
+  })();
+  </script>
+
+  <!-- Parallax background icons -->
+  <script>
+  (function () {
+    var MAX_OPACITY = 0.13;
+    var RANGE       = 180;  /* px vertical travel */
+
+    var pairs = [
+      ['#tech-hero',     '.tech-hero-bg-icon'],
+      ['#what-is-htc',   '.htc-bg-icon'],
+      ['#configurations','.configs-bg-icon'],
+      ['#hydrochar',     '.hydrochar-bg-icon'],
+      ['#contrast',      '.contrast-bg-icon'],
+      ['#models',        '.models-bg-icon'],
+      ['#contact',       '.contact-bg-icon'],
+    ].map(function (p) {
+      return {
+        section: document.querySelector(p[0]),
+        icon:    document.querySelector(p[1]),
+      };
+    }).filter(function (p) { return p.section && p.icon; });
+
+    var ticking = false;
+
+    function update() {
+      var wh = window.innerHeight;
+      pairs.forEach(function (p) {
+        var r  = p.section.getBoundingClientRect();
+        var sh = r.height;
+        var progress = (wh - r.top) / (wh + sh);
+        progress = Math.max(0, Math.min(1, progress));
+        var sine    = Math.sin(progress * Math.PI);
+        var opacity = sine * MAX_OPACITY;
+        var yShift  = (progress - 0.5) * RANGE;
+        var scale   = 0.82 + sine * 0.18;   /* 0.82 → 1.0 at centre */
+        p.icon.style.opacity   = opacity;
+        p.icon.style.transform = 'translateY(calc(-50% + ' + yShift.toFixed(2) + 'px)) scale(' + scale.toFixed(3) + ')';
+      });
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', update,   { passive: true });
+    update();
+  })();
+  </script>
+
+</body>
+</html>
