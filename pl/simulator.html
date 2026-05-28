@@ -796,8 +796,8 @@
 
     /* Formatters */
     function fmtEur(v)  { return (!isFinite(v)||v<0) ? '—' : '€ '+Math.round(v).toLocaleString(); }
-    function fmtCost(v) { return (!isFinite(v)||v<=0) ? '—' : '− € '+Math.round(v).toLocaleString(); }
-    function fmtGain(v) { return (!isFinite(v)||v<=0) ? '—' : '+ € '+Math.round(v).toLocaleString(); }
+    function fmtCost(v) { return (!isFinite(v)||v<=0) ? '—' : '(€ '+Math.round(v).toLocaleString()+')'; }
+    function fmtGain(v) { return (!isFinite(v)||v<=0) ? '—' : '€ '+Math.round(v).toLocaleString(); }
     function fmtNum(n) { return (!isFinite(n)||n<0) ? '—' : Math.round(n).toLocaleString(); }
     function fmtHa(m2) {
       if (!isFinite(m2)||m2<=0) return '—';
