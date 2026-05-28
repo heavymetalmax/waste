@@ -197,27 +197,34 @@
           <div class="srp-results">
             <h2 class="srp-section-h">{{sim.result.label}}</h2>
 
-            <!-- K1: Directive / UWWTD -->
-            <div class="srcard srcard--danger" id="k1">
-              <div class="srcard-title">{{sim.k1.title}}</div>
-              <div class="srcard-value" id="k1-val">2036</div>
-              <div class="srcard-sub" id="k1-sub"></div>
-              <div class="srcard-pe" id="k1-pe"></div>
-            </div>
+            <!-- K1 + K2: highlighted gradient-border group -->
+            <div class="srp-hl-group">
+              <div class="srp-hl-inner">
 
-            <!-- K2: CapEx -->
-            <div class="srcard srcard--primary" id="k2">
-              <div class="srcard-title">{{sim.k2.title}}</div>
-              <div class="srcard-value" id="k2-total"></div>
-              <div class="srcard-rows">
-                <div class="srcard-row">
-                  <span>{{sim.k2.grant}}</span>
-                  <span class="srcard-row-val text-teal" id="k2-grant"></span>
+                <!-- K1: Directive / UWWTD -->
+                <div class="srcard srcard--danger" id="k1">
+                  <div class="srcard-title">{{sim.k1.title}}</div>
+                  <div class="srcard-value" id="k1-val">2036</div>
+                  <div class="srcard-sub" id="k1-sub"></div>
+                  <div class="srcard-pe" id="k1-pe"></div>
                 </div>
-                <div class="srcard-row srcard-row--bold">
-                  <span>{{sim.k2.city}}</span>
-                  <span class="srcard-row-val text-accent" id="k2-city"></span>
+
+                <!-- K2: CapEx -->
+                <div class="srcard srcard--primary" id="k2">
+                  <div class="srcard-title">{{sim.k2.title}}</div>
+                  <div class="srcard-value" id="k2-total"></div>
+                  <div class="srcard-rows">
+                    <div class="srcard-row">
+                      <span>{{sim.k2.grant}}</span>
+                      <span class="srcard-row-val text-teal" id="k2-grant"></span>
+                    </div>
+                    <div class="srcard-row srcard-row--bold">
+                      <span>{{sim.k2.city}}</span>
+                      <span class="srcard-row-val text-accent" id="k2-city"></span>
+                    </div>
+                  </div>
                 </div>
+
               </div>
             </div>
 

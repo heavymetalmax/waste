@@ -2776,6 +2776,32 @@ section {
 }
 
 
+/* ── K1+K2 gradient-border highlight group ───────────────────────────────── */
+@keyframes srp-hl-flow {
+  0%   { background-position: 0% 50%;   }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%;   }
+}
+
+.srp-hl-group {
+  background: linear-gradient(135deg,
+    #046BD2 0%, #0D9488 35%, #5bc4be 55%, #046BD2 80%, #0D9488 100%);
+  background-size: 250% 250%;
+  animation: srp-hl-flow 5s ease infinite;
+  border-radius: 14px;
+  padding: 2.5px;
+  box-shadow: 0 6px 28px rgba(4,107,210,0.18), 0 2px 8px rgba(13,148,136,0.12);
+}
+
+.srp-hl-inner {
+  background: var(--color-bg);
+  border-radius: 12px;
+  padding: 0.55rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
 /* ── Results panel ───────────────────────────────────────────────────────── */
 .srp-results {
   display: flex;
