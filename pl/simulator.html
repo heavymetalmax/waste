@@ -104,13 +104,13 @@
           <div class="srp-panel">
             <h2 class="srp-section-h">1. Parametry obiektu</h2>
 
-            <!-- Volume group: tons ↔ або ↔ р.е. (gradient highlight) -->
+            <!-- Volume group (gradient highlight, always visible) -->
             <div class="srp-hl-group">
             <div class="srp-hl-inner srp-vol-group">
               <div class="srp-field">
                 <label class="srp-label">Wydajność (tony / rok)</label>
                 <div class="srp-stepper">
-                  <button type="button" class="srp-btn-step" data-for="srp-vol-ty" data-dir="-1">−</button>
+                  <button type="button" class="srp-btn-step" data-for="srp-vol-ty" data-dir="-1">&#8722;</button>
                   <input type="number" id="srp-vol-ty" value="20000" min="0" max="200000" step="1000" inputmode="numeric" autocomplete="off">
                   <button type="button" class="srp-btn-step" data-for="srp-vol-ty" data-dir="1">+</button>
                 </div>
@@ -125,7 +125,7 @@
               <div class="srp-field">
                 <label class="srp-label">Równoważnik mieszkańców (RLM)</label>
                 <div class="srp-stepper">
-                  <button type="button" class="srp-btn-step" data-for="srp-vol-pe" data-dir="-1">−</button>
+                  <button type="button" class="srp-btn-step" data-for="srp-vol-pe" data-dir="-1">&#8722;</button>
                   <input type="number" id="srp-vol-pe" value="200000" min="0" max="2000000" step="10000" inputmode="numeric" autocomplete="off">
                   <button type="button" class="srp-btn-step" data-for="srp-vol-pe" data-dir="1">+</button>
                 </div>
@@ -134,62 +134,61 @@
             </div><!-- /.srp-hl-inner -->
             </div><!-- /.srp-hl-group -->
 
-            <!-- WKF boolean stepper -->
-            <div class="srp-field">
-              <label class="srp-label">Obecność komory fermentacyjnej (WKF)</label>
-              <div class="srp-stepper srp-stepper--bool">
-                <button type="button" class="srp-btn-step" id="srp-wkf-minus">−</button>
-                <span class="srp-bool-val" id="srp-wkf-display">Tak</span>
-                <button type="button" class="srp-btn-step" id="srp-wkf-plus">+</button>
-              </div>
+            <!-- Scenario tabs -->
+            <div class="srp-sc-tabs" role="tablist" aria-label="Rodzaj postępowania z osadem">
+              <button type="button" class="srp-sc-tab active" data-sc="fields"     role="tab">Pola osadowe</button>
+              <button type="button" class="srp-sc-tab"        data-sc="agro"       role="tab">Wirówki + Agro</button>
+              <button type="button" class="srp-sc-tab"        data-sc="compost"    role="tab">Kompostowanie</button>
+              <button type="button" class="srp-sc-tab"        data-sc="incinerate" role="tab">Suszenie + Spalanie</button>
+              <button type="button" class="srp-sc-tab"        data-sc="landfill"   role="tab">Składowisko</button>
             </div>
 
-            <!-- Grant % stepper -->
-            <div class="srp-field">
-              <label class="srp-label">Dofinansowanie UE</label>
+            <!-- f1: scenario primary cost (always) -->
+            <div class="srp-field" id="srp-f1-wrap">
+              <label class="srp-label" id="srp-f1-label"></label>
               <div class="srp-stepper">
-                <button type="button" class="srp-btn-step" data-for="srp-grant" data-dir="-1">−</button>
-                <input type="number" id="srp-grant" value="75" min="0" max="90" step="5" inputmode="numeric" autocomplete="off">
-                <span class="srp-stepper-unit srp-stepper-unit--pct">%</span>
-                <button type="button" class="srp-btn-step" data-for="srp-grant" data-dir="1">+</button>
+                <button type="button" class="srp-btn-step" data-for="srp-f1" data-dir="-1">&#8722;</button>
+                <input type="number" id="srp-f1" value="60" min="0" step="5" inputmode="numeric" autocomplete="off">
+                <span class="srp-stepper-unit" id="srp-f1-unit">&#x20AC;/&#x442;</span>
+                <button type="button" class="srp-btn-step" data-for="srp-f1" data-dir="1">+</button>
               </div>
-              <p class="srp-hint">Udział CapEx pokrywany przez grant EU LIFE / Horizon</p>
+              <p class="srp-hint" id="srp-f1-hint"></p>
             </div>
 
-            <!-- Cost disp stepper -->
-            <div class="srp-field">
-              <label class="srp-label">Koszt utylizacji 1 tony (€)</label>
+            <!-- f2: scenario secondary cost (conditional) -->
+            <div class="srp-field" id="srp-f2-wrap">
+              <label class="srp-label" id="srp-f2-label"></label>
               <div class="srp-stepper">
-                <button type="button" class="srp-btn-step" data-for="srp-cost-disp" data-dir="-1">−</button>
-                <input type="number" id="srp-cost-disp" value="60" min="0" max="500" step="5" inputmode="numeric" autocomplete="off">
-                <span class="srp-stepper-unit">€/t</span>
-                <button type="button" class="srp-btn-step" data-for="srp-cost-disp" data-dir="1">+</button>
+                <button type="button" class="srp-btn-step" data-for="srp-f2" data-dir="-1">&#8722;</button>
+                <input type="number" id="srp-f2" value="30" min="0" step="5" inputmode="numeric" autocomplete="off">
+                <span class="srp-stepper-unit" id="srp-f2-unit">&#x20AC;/&#x442;</span>
+                <button type="button" class="srp-btn-step" data-for="srp-f2" data-dir="1">+</button>
               </div>
-              <p class="srp-hint">Bieżąca cena wywozu / utylizacji osadów</p>
+              <p class="srp-hint" id="srp-f2-hint"></p>
             </div>
 
-            <!-- Tariff stepper -->
-            <div class="srp-field">
-              <label class="srp-label">Taryfa energii elektrycznej (€/MWh)</label>
-              <div class="srp-stepper">
-                <button type="button" class="srp-btn-step" data-for="srp-tariff" data-dir="-1">−</button>
-                <input type="number" id="srp-tariff" value="160" min="0" max="600" step="10" inputmode="numeric" autocomplete="off">
-                <span class="srp-stepper-unit">€/MWh</span>
-                <button type="button" class="srp-btn-step" data-for="srp-tariff" data-dir="1">+</button>
-              </div>
-              <p class="srp-hint">Zakupowa taryfa energii elektrycznej</p>
-            </div>
-
-            <!-- Land price stepper -->
-            <div class="srp-field">
+            <!-- Land price (only for Mudovi polia scenario) -->
+            <div class="srp-field" id="srp-land-wrap" style="display:none">
               <label class="srp-label">Cena 1 ha gruntu komunalnego (€)</label>
               <div class="srp-stepper">
-                <button type="button" class="srp-btn-step" data-for="srp-land" data-dir="-1">−</button>
+                <button type="button" class="srp-btn-step" data-for="srp-land" data-dir="-1">&#8722;</button>
                 <input type="number" id="srp-land" value="500000" min="0" step="25000" inputmode="numeric" autocomplete="off">
                 <span class="srp-stepper-unit">€/ha</span>
                 <button type="button" class="srp-btn-step" data-for="srp-land" data-dir="1">+</button>
               </div>
               <p class="srp-hint">Rynkowa cena działki przemysłowej w regionie</p>
+            </div>
+
+            <!-- Grant % (always visible) -->
+            <div class="srp-field">
+              <label class="srp-label">Dofinansowanie UE</label>
+              <div class="srp-stepper">
+                <button type="button" class="srp-btn-step" data-for="srp-grant" data-dir="-1">&#8722;</button>
+                <input type="number" id="srp-grant" value="75" min="0" max="90" step="5" inputmode="numeric" autocomplete="off">
+                <span class="srp-stepper-unit srp-stepper-unit--pct">%</span>
+                <button type="button" class="srp-btn-step" data-for="srp-grant" data-dir="1">+</button>
+              </div>
+              <p class="srp-hint">Udział CapEx pokrywany przez grant EU LIFE / Horizon</p>
             </div>
           </div>
           <!-- ── end LEFT ────────────────────────────────────────── -->
@@ -223,18 +222,22 @@
               </div>
             </div>
 
-            <!-- K3: Annual savings -->
+            <!-- K3: Avoided costs (scenario-adaptive) -->
             <div class="srcard srcard--success" id="k3">
-              <div class="srcard-title">Roczne oszczędności (Utylizacja + Energia)</div>
+              <div class="srcard-title" id="k3-title">Roczne oszczędności (Utylizacja + Energia)</div>
               <div class="srcard-value" id="k3-cf"></div>
               <div class="srcard-rows">
                 <div class="srcard-row">
-                  <span>Utylizacja osadów</span>
+                  <span id="k3-row1-label">Utylizacja osadów</span>
                   <span class="srcard-row-val" id="k3-disp"></span>
                 </div>
-                <div class="srcard-row" id="k3-energy-row">
-                  <span>Sprzedaż energii elektrycznej</span>
+                <div class="srcard-row" id="k3-row2">
+                  <span id="k3-row2-label">Sprzedaż energii elektrycznej</span>
                   <span class="srcard-row-val" id="k3-energy"></span>
+                </div>
+                <div class="srcard-row" id="k3-row3" style="display:none">
+                  <span id="k3-row3-label">Biogaz → energia el. (€160/MWh)</span>
+                  <span class="srcard-row-val text-teal" id="k3-energy3"></span>
                 </div>
               </div>
               <div class="srcard-sub" id="k3-energy-status"></div>
@@ -382,196 +385,260 @@
 
   <script src="../app.js"></script>
 
-  <!-- ── Simulator logic ──────────────────────────────────────── -->
+  <!-- ── Simulator logic ──────────────────────────────────────────── -->
   <script>
   (function () {
-    /* Translation strings replaced at build time */
+    /* Build-time translation strings */
     var K1_SUB_A    = 'Krytycznie: oczyszczanie czwartorzędowe do 2033 r.';
     var K1_SUB_B    = 'Uwaga: zintegrowany plan zarządzania do 2033 r.';
     var K1_SUB_C    = 'Wymóg: oczyszczanie trzeciorzędowe do 2036–2039 r.';
     var K1_SUB_D    = 'Oczyszczanie wtórne ścieków do 2035 r.';
     var K1_EXEMPT   = 'Poza dyrektywą';
     var K1_EX_NOTE  = '< 1 000 RLM — dyrektywa nie ma zastosowania';
-    var K3_WKF_YES  = '100% Autonomia (lekvat pokrywa ciepło i generuje przychód)';
-    var K3_WKF_NO   = 'Deficyt: wymagany moduł WKF lub zewnętrzny gaz';
     var K4_AREA_TPL = 'Uwolniono powierzchni: {n} ha';
+    var K4_NO_LAND  = 'Pola osadowe nie są uwalniane';
     var K5_NOTE     = 'Z uwzględnieniem kapitalizacji gruntu i dofinansowania';
     var K5_INSTANT  = 'Natychmiastowy!';
     var K5_IN_NOTE  = 'Wartość uwolnionego gruntu w pełni pokrywa udział własny miasta w CapEx.';
     var K5_UNIT     = 'l.';
     var K1_PE_TPL   = 'Równoważnik mieszkańców: {n} RLM';
-    var WKF_YES     = 'Tak';
-    var WKF_NO      = 'Nie';
 
-    var hasWKF = true;
+    /* Scenario definitions */
+    var SC = {
+      fields: {
+        f1: { label:'Utylizacja i wywóz osadu', unit:'€/t', hint:'Bieżące koszty: polimery, transport, dalsza utylizacja', def:60,  step:5  },
+        f2: { label:'Rekultywacja pól osadowych', unit:'€/t', hint:'Koszty przywrócenia i zwrotu terenu do użytkowania', def:30,  step:5,  show:true },
+        land: true,
+        k3title: 'Uniknięte koszty bieżące',
+        k3status: 'Osad zagęszczony 5× · Pola osadowe uwolnione',
+        calc: function(v, f1, f2, land, grant) {
+          var f1s = v * f1, f2s = v * f2;
+          var lv  = (v * 1.5) * (land / 10000);
+          return { save:f1s+f2s, landVal:lv, capex:v*250*(1-grant/100), f1s:f1s, f2s:f2s, f3s:0 };
+        }
+      },
+      agro: {
+        f1: { label:'Flokulanty / chemia', unit:'€/t', hint:'Koszty polielektrolitów do odwadniania wirówkami', def:40, step:5 },
+        f2: { label:'Logistyka na pola', unit:'€/t', hint:'Transport + opłaty dla rolników. Oszczędność ×0.8 od redukcji masy HTC', def:30, step:5, show:true },
+        land: false,
+        k3title: 'Uniknięte koszty bieżące',
+        k3status: 'Masa zredukowana o 80% · Wyeliminowane opłaty dla rolników',
+        calc: function(v, f1, f2, land, grant) {
+          var f1s = v * f1, f2s = v * 0.8 * f2;
+          return { save:f1s+f2s, landVal:0, capex:v*250*(1-grant/100), f1s:f1s, f2s:f2s, f3s:0 };
+        }
+      },
+      compost: {
+        f1: { label:'Zrębki / strukturyzator', unit:'€/t', hint:'Cena zrębków drzewnych lub innego strukturyzatora', def:35, step:5 },
+        f2: { label:'Koszty operacyjne', unit:'€/t', hint:'Paliwo, maszyny, 6 mies. obsługi placu', def:20, step:5, show:true },
+        land: false,
+        k3title: 'Uniknięte koszty bieżące',
+        k3status: '2 godz. zamiast 6 mies. · Detoksykacja mikroplastiku',
+        calc: function(v, f1, f2, land, grant) {
+          var f1s = v * f1, f2s = v * f2;
+          return { save:f1s+f2s, landVal:0, capex:v*250*(1-grant/100), f1s:f1s, f2s:f2s, f3s:0 };
+        }
+      },
+      incinerate: {
+        f1: { label:'Gaz / energia do suszarki', unit:'€/t', hint:'Koszt gazu lub energii el. do suszarki do ≥85% SM', def:80,  step:10 },
+        f2: { label:'Gate Fee spalarni', unit:'€/t such.', hint:'Opłata zakładu za przyjęcie. Masa suchej pozostałości = M×0.2', def:120, step:10, show:true },
+        f3label: 'Biogaz → energia el. (€160/MWh)',
+        land: false,
+        k3title: 'Uniknięte koszty + przychód z energii',
+        k3status: 'BTC HTC-likvat = 3× szybszy metanogeneza',
+        calc: function(v, f1, f2, land, grant) {
+          var f1s = v * f1;
+          var f2s = v * 0.2 * f2;   /* dry mass = M_in x 0.2 */
+          var f3s = v * 0.1 * 160;  /* embedded biogas->elec at 160 EUR/MWh */
+          return { save:f1s+f2s+f3s, landVal:0, capex:v*250*(1-grant/100), f1s:f1s, f2s:f2s, f3s:f3s };
+        }
+      },
+      landfill: {
+        f1: { label:'Podatek ekologiczny', unit:'€/t', hint:'Stawka opłaty / kary za składowanie. Uwzględnij wzrost stawek', def:50, step:10 },
+        f2: { show:false },
+        land: false,
+        k3title: 'Uniknięte sankcje i kary',
+        k3status: 'Certyfikat End-of-Waste · Ochrona prawna',
+        calc: function(v, f1, f2, land, grant) {
+          var f1s = v * f1;
+          return { save:f1s, landVal:0, capex:v*250*(1-grant/100), f1s:f1s, f2s:0, f3s:0 };
+        }
+      }
+    };
+
+    var currentSC = 'fields';
     var shadowTimer;
 
-    /* ── Formatters ── */
-    function fmtEur(v) {
-      if (!isFinite(v) || v < 0) return '—';
-      return '€ ' + Math.round(v).toLocaleString();
-    }
-    function fmtNum(n) {
-      if (!isFinite(n) || n < 0) return '—';
-      return Math.round(n).toLocaleString();
-    }
+    /* Formatters */
+    function fmtEur(v) { return (!isFinite(v)||v<0) ? '—' : '€ '+Math.round(v).toLocaleString(); }
+    function fmtNum(n) { return (!isFinite(n)||n<0) ? '—' : Math.round(n).toLocaleString(); }
     function fmtHa(m2) {
-      if (!isFinite(m2) || m2 <= 0) return '—';
-      return (m2 / 10000).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      if (!isFinite(m2)||m2<=0) return '—';
+      return (m2/10000).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
     }
 
-    /* ── Main calculation ── */
+    /* Volume sync */
+    function syncVolume(id, val) {
+      if (id==='srp-vol-ty') document.getElementById('srp-vol-pe').value = Math.round(val*10);
+      else if (id==='srp-vol-pe') document.getElementById('srp-vol-ty').value = Math.round(val*0.1);
+    }
+
+    /* Apply scenario: update labels, visibility, defaults */
+    function applyScenario(name) {
+      var sc = SC[name];
+
+      /* f1 */
+      document.getElementById('srp-f1-label').textContent = sc.f1.label;
+      document.getElementById('srp-f1-unit').textContent  = sc.f1.unit;
+      document.getElementById('srp-f1-hint').textContent  = sc.f1.hint;
+      var f1el = document.getElementById('srp-f1');
+      f1el.value = sc.f1.def; f1el.step = sc.f1.step;
+
+      /* f2 */
+      var f2wrap = document.getElementById('srp-f2-wrap');
+      if (sc.f2 && sc.f2.show !== false) {
+        f2wrap.style.display = '';
+        document.getElementById('srp-f2-label').textContent = sc.f2.label;
+        document.getElementById('srp-f2-unit').textContent  = sc.f2.unit;
+        document.getElementById('srp-f2-hint').textContent  = sc.f2.hint;
+        var f2el = document.getElementById('srp-f2');
+        f2el.value = sc.f2.def; f2el.step = sc.f2.step;
+      } else { f2wrap.style.display = 'none'; }
+
+      /* land */
+      document.getElementById('srp-land-wrap').style.display = sc.land ? '' : 'none';
+
+      /* K3 title + row labels */
+      document.getElementById('k3-title').textContent      = sc.k3title;
+      document.getElementById('k3-row1-label').textContent = sc.f1.label;
+      var row2 = document.getElementById('k3-row2');
+      if (sc.f2 && sc.f2.show !== false) {
+        row2.style.display = '';
+        document.getElementById('k3-row2-label').textContent = sc.f2.label;
+      } else { row2.style.display = 'none'; }
+      var row3 = document.getElementById('k3-row3');
+      if (sc.f3label) {
+        row3.style.display = '';
+        document.getElementById('k3-row3-label').textContent = sc.f3label;
+      } else { row3.style.display = 'none'; }
+
+      currentSC = name;
+      calc();
+    }
+
+    /* Main calculation */
     function calc() {
-      var Volume   = parseFloat(document.getElementById('srp-vol-ty').value)    || 0;
-      var PE       = parseFloat(document.getElementById('srp-vol-pe').value)    || 0;
-      var grant    = parseFloat(document.getElementById('srp-grant').value)     || 0;
-      var costDisp = parseFloat(document.getElementById('srp-cost-disp').value) || 0;
-      var tariff   = parseFloat(document.getElementById('srp-tariff').value)    || 0;
-      var landPxHa = parseFloat(document.getElementById('srp-land').value)      || 0;
+      var Volume = parseFloat(document.getElementById('srp-vol-ty').value) || 0;
+      var PE     = parseFloat(document.getElementById('srp-vol-pe').value) || 0;
+      var grant  = parseFloat(document.getElementById('srp-grant').value)  || 0;
+      var f1     = parseFloat(document.getElementById('srp-f1').value)     || 0;
+      var f2wrap = document.getElementById('srp-f2-wrap');
+      var f2     = f2wrap.style.display!=='none' ? (parseFloat(document.getElementById('srp-f2').value)||0) : 0;
+      var lWrap  = document.getElementById('srp-land-wrap');
+      var land   = lWrap.style.display!=='none'  ? (parseFloat(document.getElementById('srp-land').value)||0) : 0;
 
-      /* Core formulas */
+      var sc  = SC[currentSC];
+      var res = sc.calc(Volume, f1, f2, land, grant);
+
+      /* K1 UWWTD */
+      var k1El = document.getElementById('k1');
+      k1El.querySelector('.srcard-pe').textContent = K1_PE_TPL.replace('{n}', fmtNum(PE));
+      if (PE>0 && PE<=1000) {
+        k1El.className='srcard srcard--success';
+        k1El.querySelector('.srcard-value').textContent = K1_EXEMPT;
+        k1El.querySelector('.srcard-sub').textContent   = K1_EX_NOTE;
+      } else {
+        k1El.className='srcard srcard--danger';
+        k1El.querySelector('.srcard-value').textContent = PE>150000?'2033':(PE>10000?'2036':'2039');
+        k1El.querySelector('.srcard-sub').textContent   = PE>150000?K1_SUB_A:(PE>100000?K1_SUB_B:(PE>10000?K1_SUB_C:K1_SUB_D));
+      }
+
+      /* K2 CapEx */
       var capexTotal = Volume * 250;
-      var capexCity  = capexTotal * (1 - grant / 100);
-      var saveDisp   = Volume * costDisp;
-      var saveEnergy = hasWKF ? (Volume * 0.1 * tariff) : 0;
-      var cfAnnual   = saveDisp + saveEnergy;
-      var landM2     = Volume * 1.5;
-      var landValue  = landM2 * (landPxHa / 10000);
-
-      /* K1 — UWWTD directive */
-      var k1ValEl  = document.getElementById('k1-val');
-      var k1SubEl  = document.getElementById('k1-sub');
-      var k1PeEl   = document.getElementById('k1-pe');
-      var k1El     = document.getElementById('k1');
-
-      k1PeEl.textContent = K1_PE_TPL.replace('{n}', fmtNum(PE));
-
-      if (PE > 0 && PE <= 1000) {
-        k1El.className = 'srcard srcard--success';
-        k1ValEl.textContent = K1_EXEMPT;
-        k1SubEl.textContent = K1_EX_NOTE;
-      } else {
-        k1El.className = 'srcard srcard--danger';
-        var year = PE > 150000 ? '2033' : (PE > 10000 ? '2036' : '2039');
-        k1ValEl.textContent = year;
-        k1SubEl.textContent = PE > 150000 ? K1_SUB_A : (PE > 100000 ? K1_SUB_B : (PE > 10000 ? K1_SUB_C : K1_SUB_D));
-      }
-
-      /* K2 — CapEx */
       document.getElementById('k2-total').textContent = fmtEur(capexTotal);
-      document.getElementById('k2-grant').textContent = fmtEur(capexTotal - capexCity);
-      document.getElementById('k2-city').textContent  = fmtEur(capexCity);
+      document.getElementById('k2-grant').textContent = fmtEur(capexTotal - res.capex);
+      document.getElementById('k2-city').textContent  = fmtEur(res.capex);
 
-      /* K3 — Savings */
-      document.getElementById('k3-cf').textContent     = fmtEur(cfAnnual);
-      document.getElementById('k3-disp').textContent   = fmtEur(saveDisp);
-      document.getElementById('k3-energy').textContent = fmtEur(saveEnergy);
-      document.getElementById('k3-energy-row').style.opacity = hasWKF ? '1' : '0.4';
-      document.getElementById('k3-energy-status').textContent = hasWKF ? K3_WKF_YES : K3_WKF_NO;
+      /* K3 Savings */
+      document.getElementById('k3-cf').textContent      = fmtEur(res.save);
+      document.getElementById('k3-disp').textContent    = fmtEur(res.f1s);
+      document.getElementById('k3-energy').textContent  = fmtEur(res.f2s);
+      document.getElementById('k3-energy3').textContent = fmtEur(res.f3s);
+      document.getElementById('k3-energy-status').textContent = sc.k3status;
 
-      /* K4 — Land asset */
-      document.getElementById('k4-value').textContent = fmtEur(landValue);
-      document.getElementById('k4-area').textContent  = K4_AREA_TPL.replace('{n}', fmtHa(landM2));
+      /* K4 Land (always shown) */
+      document.getElementById('k4-value').textContent = fmtEur(res.landVal);
+      document.getElementById('k4-area').textContent  = res.landVal>0
+        ? K4_AREA_TPL.replace('{n}', fmtHa(Volume*1.5))
+        : K4_NO_LAND;
 
-      /* K5 — ROI */
-      var k5El     = document.getElementById('k5');
-      var k5ValEl  = document.getElementById('k5-val');
-      var k5NoteEl = document.getElementById('k5-note');
-      var roiNet   = capexCity - landValue;
-      var roiYears = cfAnnual > 0 ? roiNet / cfAnnual : Infinity;
-
-      if (cfAnnual <= 0 || roiYears <= 0) {
-        k5El.className      = 'srcard srcard--instant';
-        k5ValEl.textContent  = K5_INSTANT;
-        k5NoteEl.textContent = K5_IN_NOTE;
+      /* K5 ROI */
+      var k5El = document.getElementById('k5');
+      var roiYears = res.save>0 ? (res.capex-res.landVal)/res.save : Infinity;
+      if (res.save<=0 || roiYears<=0) {
+        k5El.className='srcard srcard--instant';
+        k5El.querySelector('.srcard-value').textContent = K5_INSTANT;
+        k5El.querySelector('.srcard-sub').textContent   = K5_IN_NOTE;
       } else {
-        k5El.className      = 'srcard srcard--accent';
-        k5ValEl.textContent  = roiYears.toLocaleString(undefined, { maximumFractionDigits: 1 }) + ' ' + K5_UNIT;
-        k5NoteEl.textContent = K5_NOTE;
+        k5El.className='srcard srcard--accent';
+        k5El.querySelector('.srcard-value').textContent = roiYears.toLocaleString(undefined,{maximumFractionDigits:1})+' '+K5_UNIT;
+        k5El.querySelector('.srcard-sub').textContent   = K5_NOTE;
       }
 
-      /* Shadow lead debounce */
       clearTimeout(shadowTimer);
-      shadowTimer = setTimeout(function () { saveShadowLead(); }, 2000);
+      shadowTimer = setTimeout(saveShadowLead, 2000);
     }
 
-    /* ── Volume sync helper ── */
-    function syncVolume(changedId, val) {
-      if (changedId === 'srp-vol-ty') {
-        document.getElementById('srp-vol-pe').value = Math.round(val * 10);
-      } else if (changedId === 'srp-vol-pe') {
-        document.getElementById('srp-vol-ty').value = Math.round(val * 0.1);
-      }
-    }
+    /* Scenario tabs */
+    document.querySelectorAll('.srp-sc-tab').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.srp-sc-tab').forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        applyScenario(btn.dataset.sc);
+      });
+    });
 
-    /* ── Stepper buttons (numeric inputs) ── */
-    document.querySelectorAll('.srp-btn-step[data-for]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
+    /* Stepper buttons */
+    document.querySelectorAll('.srp-btn-step[data-for]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
         var el   = document.getElementById(btn.dataset.for);
         var dir  = parseFloat(btn.dataset.dir);
-        var step = parseFloat(el.getAttribute('step')) || 1;
-        var minA = el.getAttribute('min'); var maxA = el.getAttribute('max');
-        var min  = minA !== null ? parseFloat(minA) : -Infinity;
-        var max  = maxA !== null ? parseFloat(maxA) :  Infinity;
-        var val  = Math.max(min, Math.min(max, (parseFloat(el.value) || 0) + dir * step));
+        var step = parseFloat(el.getAttribute('step'))||1;
+        var min  = el.getAttribute('min')!==null ? parseFloat(el.getAttribute('min')) : -Infinity;
+        var max  = el.getAttribute('max')!==null ? parseFloat(el.getAttribute('max')) :  Infinity;
+        var val  = Math.max(min, Math.min(max, (parseFloat(el.value)||0)+dir*step));
         el.value = val;
         syncVolume(el.id, val);
         calc();
       });
     });
 
-    /* ── Direct typing in stepper inputs ── */
-    ['srp-vol-ty','srp-vol-pe','srp-grant','srp-cost-disp','srp-tariff','srp-land'].forEach(function (id) {
-      document.getElementById(id).addEventListener('input', function () {
-        syncVolume(id, parseFloat(this.value) || 0);
-        calc();
-      });
+    /* Direct input */
+    ['srp-vol-ty','srp-vol-pe','srp-grant','srp-f1','srp-f2','srp-land'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('input', function(){ syncVolume(id,parseFloat(this.value)||0); calc(); });
     });
 
-    /* ── WKF boolean stepper ── */
-    var wkfDisplay = document.getElementById('srp-wkf-display');
-    document.getElementById('srp-wkf-plus').addEventListener('click', function () {
-      hasWKF = true;
-      wkfDisplay.textContent = WKF_YES;
-      wkfDisplay.classList.remove('srp-bool-no');
-      calc();
-    });
-    document.getElementById('srp-wkf-minus').addEventListener('click', function () {
-      hasWKF = false;
-      wkfDisplay.textContent = WKF_NO;
-      wkfDisplay.classList.add('srp-bool-no');
-      calc();
-    });
-
-    /* ── Shadow leads ── */
+    /* Shadow leads */
     function getSessionId() {
-      var sid = localStorage.getItem('btc_sid');
-      if (!sid) { sid = 'sid_' + Math.random().toString(36).substr(2,9) + '_' + Date.now(); localStorage.setItem('btc_sid', sid); }
-      return sid;
+      var s = localStorage.getItem('btc_sid');
+      if (!s) { s='sid_'+Math.random().toString(36).substr(2,9)+'_'+Date.now(); localStorage.setItem('btc_sid',s); }
+      return s;
     }
     function saveShadowLead() {
-      var payload = {
-        session_id: getSessionId(),
-        ts:         new Date().toISOString(),
-        vol_ty:     document.getElementById('srp-vol-ty').value,
-        vol_pe:     document.getElementById('srp-vol-pe').value,
-        wkf:        hasWKF,
-        grant:      document.getElementById('srp-grant').value,
-        cost_disp:  document.getElementById('srp-cost-disp').value,
-        tariff:     document.getElementById('srp-tariff').value,
-        land_ha:    document.getElementById('srp-land').value
-      };
-      /* fetch('https://YOUR-API/save-calc', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) }); */
-      console.log('BTC shadow lead:', payload);
+      var p = { session_id:getSessionId(), ts:new Date().toISOString(), scenario:currentSC,
+                vol_ty:document.getElementById('srp-vol-ty').value,
+                vol_pe:document.getElementById('srp-vol-pe').value,
+                grant:document.getElementById('srp-grant').value,
+                f1:document.getElementById('srp-f1').value,
+                f2:document.getElementById('srp-f2').value };
+      console.log('BTC shadow lead:', p);
     }
 
-    /* ── CTA modal stub ── */
-    window.openLeadModal = function () {
-      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-    };
+    window.openLeadModal = function(){ document.getElementById('contact').scrollIntoView({behavior:'smooth'}); };
 
-    /* ── Init ── */
-    calc();
+    /* Init */
+    applyScenario('fields');
   })();
   </script>
 
