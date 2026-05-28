@@ -843,8 +843,7 @@
   <!-- Parallax background icons -->
   <script>
   (function () {
-    var MAX_OPACITY = 0.13;
-    var RANGE       = 180;  /* px vertical travel */
+    var RANGE = 120;  /* px — icon drifts this far down as section scrolls through */
 
     var pairs = [
       ['#problem',        '.problem-bg-icon'],
@@ -868,17 +867,12 @@
       pairs.forEach(function (p) {
         var r  = p.section.getBoundingClientRect();
         var sh = r.height;
-        /* progress 0 → section top at viewport bottom; 1 → section bottom at viewport top */
+        /* progress: 0 when section top hits viewport bottom → 1 when section bottom hits viewport top */
         var progress = (wh - r.top) / (wh + sh);
         progress = Math.max(0, Math.min(1, progress));
-
-        var sine    = Math.sin(progress * Math.PI);
-        var opacity = sine * MAX_OPACITY;
-        var yShift  = (progress - 0.5) * RANGE;
-        var scale   = 0.82 + sine * 0.18;   /* 0.82 → 1.0 at centre */
-
-        p.icon.style.opacity   = opacity;
-        p.icon.style.transform = 'translateY(calc(-50% + ' + yShift.toFixed(2) + 'px)) scale(' + scale.toFixed(3) + ')';
+        /* Icon starts at top of section, drifts down as user scrolls */
+        var yShift = progress * RANGE;
+        p.icon.style.transform = 'translateY(' + yShift.toFixed(1) + 'px)';
       });
       ticking = false;
     }

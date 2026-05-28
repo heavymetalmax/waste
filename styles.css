@@ -920,14 +920,13 @@ section {
 .problem-bg-icon {
   position: absolute;
   right: -4%;
-  top: 50%;
+  top: 0;
   width: min(580px, 60vw);
   height: min(580px, 60vw);
   color: var(--color-accent);
   pointer-events: none;
-  opacity: 0;
-  transform: translateY(-50%);
-  will-change: transform, opacity;
+  opacity: 0.12;
+  will-change: transform;
 }
 
 
@@ -992,14 +991,13 @@ section {
 .solution-bg-icon {
   position: absolute;
   left: -4%;
-  top: 50%;
+  top: 0;
   width: min(580px, 60vw);
   height: min(580px, 60vw);
   color: var(--color-accent);
   pointer-events: none;
-  opacity: 0;
-  transform: translateY(-50%);
-  will-change: transform, opacity;
+  opacity: 0.12;
+  will-change: transform;
 }
 
 .solution-bg-icon svg {
@@ -1012,14 +1010,13 @@ section {
 .calc-bg-icon {
   position: absolute;
   right: -4%;
-  top: 50%;
+  top: 0;
   width: min(580px, 60vw);
   height: min(580px, 60vw);
   color: var(--color-accent);
   pointer-events: none;
-  opacity: 0;
-  transform: translateY(-50%);
-  will-change: transform, opacity;
+  opacity: 0.12;
+  will-change: transform;
 }
 .calc-bg-icon svg {
   width: 100%;
@@ -1031,14 +1028,13 @@ section {
 .trust-bg-icon {
   position: absolute;
   left: -4%;
-  top: 50%;
+  top: 0;
   width: min(580px, 60vw);
   height: min(580px, 60vw);
   color: var(--color-accent);
   pointer-events: none;
-  opacity: 0;
-  transform: translateY(-50%);
-  will-change: transform, opacity;
+  opacity: 0.12;
+  will-change: transform;
 }
 .trust-bg-icon svg {
   width: 100%;
@@ -1050,14 +1046,13 @@ section {
 .team-bg-icon {
   position: absolute;
   right: -4%;
-  top: 50%;
+  top: 0;
   width: min(580px, 60vw);
   height: min(580px, 60vw);
   color: var(--color-accent);
   pointer-events: none;
-  opacity: 0;
-  transform: translateY(-50%);
-  will-change: transform, opacity;
+  opacity: 0.12;
+  will-change: transform;
 }
 .team-bg-icon svg {
   width: 100%;
@@ -1069,14 +1064,13 @@ section {
 .grants-bg-icon {
   position: absolute;
   left: -4%;
-  top: 50%;
+  top: 0;
   width: min(580px, 60vw);
   height: min(580px, 60vw);
   color: var(--color-accent);
   pointer-events: none;
-  opacity: 0;
-  transform: translateY(-50%);
-  will-change: transform, opacity;
+  opacity: 0.12;
+  will-change: transform;
 }
 .grants-bg-icon svg {
   width: 100%;
@@ -1088,14 +1082,13 @@ section {
 .contact-bg-icon {
   position: absolute;
   right: -4%;
-  top: 50%;
+  top: 0;
   width: min(580px, 60vw);
   height: min(580px, 60vw);
   color: var(--color-accent);
   pointer-events: none;
-  opacity: 0;
-  transform: translateY(-50%);
-  will-change: transform, opacity;
+  opacity: 0.12;
+  will-change: transform;
 }
 .contact-bg-icon svg {
   width: 100%;
@@ -2203,14 +2196,13 @@ section {
 .models-bg-icon,
 .cta-bg-icon {
   position: absolute;
-  top: 50%;
+  top: 0;
   width: min(520px, 55vw);
   height: min(520px, 55vw);
   color: var(--color-accent);
   pointer-events: none;
-  opacity: 0;
-  transform: translateY(-50%);
-  will-change: transform, opacity;
+  opacity: 0.12;
+  will-change: transform;
 }
 
 .htc-bg-icon       { left: -4%; }
@@ -2220,7 +2212,7 @@ section {
 .models-bg-icon    { left: -4%; color: var(--color-teal); }
 .cta-bg-icon       { left: -4%; color: var(--color-accent); }
 
-.tech-hero-bg-icon { right: -6%; top: 54%; color: var(--color-teal); width: min(1040px, 100vw); height: min(1040px, 100vw); }
+.tech-hero-bg-icon { right: -6%; top: 0; color: var(--color-teal); width: min(1040px, 100vw); height: min(1040px, 100vw); }
 
 .tech-hero-bg-icon svg,
 .htc-bg-icon svg,

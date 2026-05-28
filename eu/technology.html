@@ -885,8 +885,7 @@
   <!-- Parallax background icons -->
   <script>
   (function () {
-    var MAX_OPACITY = 0.13;
-    var RANGE       = 180;  /* px vertical travel */
+    var RANGE = 120;  /* px — icon drifts down as section scrolls through */
 
     var pairs = [
       ['#tech-hero',     '.tech-hero-bg-icon'],
@@ -912,12 +911,8 @@
         var sh = r.height;
         var progress = (wh - r.top) / (wh + sh);
         progress = Math.max(0, Math.min(1, progress));
-        var sine    = Math.sin(progress * Math.PI);
-        var opacity = sine * MAX_OPACITY;
-        var yShift  = (progress - 0.5) * RANGE;
-        var scale   = 0.82 + sine * 0.18;   /* 0.82 → 1.0 at centre */
-        p.icon.style.opacity   = opacity;
-        p.icon.style.transform = 'translateY(calc(-50% + ' + yShift.toFixed(2) + 'px)) scale(' + scale.toFixed(3) + ')';
+        var yShift = progress * RANGE;
+        p.icon.style.transform = 'translateY(' + yShift.toFixed(1) + 'px)';
       });
       ticking = false;
     }
