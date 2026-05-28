@@ -576,6 +576,12 @@ section {
   align-items: center;
 }
 
+/* Grid children: allow shrinking below min-content (prevents column blowout on mobile) */
+.hero-content,
+.hero-stage {
+  min-width: 0;
+}
+
 /* ── Hero Stage Ticker ─────────────────────────────────────────── */
 .hero-stage {
   position: relative;
@@ -1761,9 +1767,14 @@ section {
     padding-block-start: calc(70px + var(--space-lg));
   }
 
-  h1 { font-size: clamp(2rem, 6vw, 2.75rem); }
+  /* Reduce from 2rem (32px) — uppercase weighted text needs more room to breathe */
+  h1 { font-size: clamp(1.5rem, 5.5vw, 2.75rem); }
 
   /* ── Hero: static stacked list instead of ticker ── */
+  /* Reset order: on phones show headline first, stats below (not above) */
+  .hero-stage { order: 1; }
+  .hero-content { order: 0; }
+
   .hero-stage {
     min-height: unset;
     position: relative;
@@ -2358,6 +2369,16 @@ section {
 @media (max-width: 1024px) {
   .model-cards { grid-template-columns: repeat(2, 1fr); }
   .config-cards { grid-template-columns: 1fr; }
+
+  /* Disable carousel focus/blur effect — show all 3 cards equally in a flat list */
+  .config-card.is-side,
+  .config-card.is-active {
+    transform: none;
+    opacity: 1;
+    box-shadow: var(--shadow-card);
+    border-color: var(--color-border);
+    cursor: default;
+  }
 }
 
 @media (max-width: 768px) {
