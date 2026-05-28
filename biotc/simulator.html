@@ -104,25 +104,32 @@
           <div class="srp-panel">
             <h2 class="srp-section-h">{{sim.input.section.num}} {{sim.input.label}}</h2>
 
-            <!-- Volume — tons (auto-linked to р.е.) -->
-            <div class="srp-field">
-              <label class="srp-label">{{sim.input.volume.pe.label}}</label>
-              <div class="srp-stepper">
-                <button type="button" class="srp-btn-step" data-for="srp-vol-ty" data-dir="-1">−</button>
-                <input type="number" id="srp-vol-ty" value="20000" min="0" max="200000" step="1000" inputmode="numeric" autocomplete="off">
-                <button type="button" class="srp-btn-step" data-for="srp-vol-ty" data-dir="1">+</button>
+            <!-- Volume group: tons ↔ або ↔ р.е. -->
+            <div class="srp-vol-group">
+              <div class="srp-field">
+                <label class="srp-label">{{sim.input.volume.pe.label}}</label>
+                <div class="srp-stepper">
+                  <button type="button" class="srp-btn-step" data-for="srp-vol-ty" data-dir="-1">−</button>
+                  <input type="number" id="srp-vol-ty" value="20000" min="0" max="200000" step="1000" inputmode="numeric" autocomplete="off">
+                  <button type="button" class="srp-btn-step" data-for="srp-vol-ty" data-dir="1">+</button>
+                </div>
               </div>
-            </div>
 
-            <!-- Volume — р.е. (auto-linked to tons) -->
-            <div class="srp-field">
-              <label class="srp-label">{{sim.input.volume.ty.label}}</label>
-              <div class="srp-stepper">
-                <button type="button" class="srp-btn-step" data-for="srp-vol-pe" data-dir="-1">−</button>
-                <input type="number" id="srp-vol-pe" value="200000" min="0" max="2000000" step="10000" inputmode="numeric" autocomplete="off">
-                <button type="button" class="srp-btn-step" data-for="srp-vol-pe" data-dir="1">+</button>
+              <div class="srp-vol-or" aria-hidden="true">
+                <span class="srp-or-line"></span>
+                <span class="srp-or-text">{{sim.vol.or}}</span>
+                <span class="srp-or-line"></span>
               </div>
-              <p class="srp-hint">{{sim.input.volume.hint}}</p>
+
+              <div class="srp-field">
+                <label class="srp-label">{{sim.input.volume.ty.label}}</label>
+                <div class="srp-stepper">
+                  <button type="button" class="srp-btn-step" data-for="srp-vol-pe" data-dir="-1">−</button>
+                  <input type="number" id="srp-vol-pe" value="200000" min="0" max="2000000" step="10000" inputmode="numeric" autocomplete="off">
+                  <button type="button" class="srp-btn-step" data-for="srp-vol-pe" data-dir="1">+</button>
+                </div>
+                <p class="srp-hint">{{sim.input.volume.hint}}</p>
+              </div>
             </div>
 
             <!-- WKF boolean stepper -->
@@ -141,7 +148,7 @@
               <div class="srp-stepper">
                 <button type="button" class="srp-btn-step" data-for="srp-grant" data-dir="-1">−</button>
                 <input type="number" id="srp-grant" value="75" min="0" max="90" step="5" inputmode="numeric" autocomplete="off">
-                <span class="srp-stepper-unit">%</span>
+                <span class="srp-stepper-unit srp-stepper-unit--pct">%</span>
                 <button type="button" class="srp-btn-step" data-for="srp-grant" data-dir="1">+</button>
               </div>
               <p class="srp-hint">{{sim.input.grant.hint}}</p>

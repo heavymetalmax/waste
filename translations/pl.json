@@ -466,6 +466,7 @@
   "sim.vol.conv.pe": "RLM",
   "sim.vol.conv.ty": "t/rok",
   "sim.vol.conv.ha": "ha",
+  "sim.vol.or":      "lub",
 
   "sim.cta.btn":    "Zapisz TEO i zamów raport PDF →",
 
