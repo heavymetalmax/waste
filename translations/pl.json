@@ -412,6 +412,8 @@
   "sim.input.wkf.label":        "Obecność komory fermentacyjnej (WKF)",
   "sim.input.wkf.yes":          "Jest komora fermentacyjna — wytwarzanie biogazu",
   "sim.input.wkf.no":           "Brak komory fermentacyjnej",
+  "sim.input.wkf.val.yes":      "Tak",
+  "sim.input.wkf.val.no":       "Nie",
   "sim.input.grant.label":      "Dofinansowanie UE",
   "sim.input.grant.hint":       "Udział CapEx pokrywany przez grant EU LIFE / Horizon",
   "sim.input.cost_disp.label":  "Koszt utylizacji 1 tony (€)",

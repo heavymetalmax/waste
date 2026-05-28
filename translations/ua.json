@@ -414,6 +414,8 @@
   "sim.input.wkf.label":        "Наявність метантанка (WKF)",
   "sim.input.wkf.yes":          "Є метантанк — генерація біогазу",
   "sim.input.wkf.no":           "Немає метантанка",
+  "sim.input.wkf.val.yes":      "Так",
+  "sim.input.wkf.val.no":       "Ні",
   "sim.input.grant.label":      "Грантове покриття ЄС",
   "sim.input.grant.hint":       "Частка CapEx, яку покриває грант EU LIFE / Horizon",
   "sim.input.cost_disp.label":  "Вартість утилізації 1 тонни (€)",

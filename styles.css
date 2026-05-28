@@ -2661,6 +2661,79 @@ section {
 .srp-panel input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
 .srp-panel input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
 
+/* ── Stepper input (pill: [−] [value] [unit] [+]) ──────────────────────────── */
+.srp-stepper {
+  display: flex;
+  align-items: center;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: 50px;
+  height: 52px;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+.srp-stepper:focus-within {
+  border-color: var(--color-border-focus);
+}
+.srp-btn-step {
+  width: 48px;
+  height: 52px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--color-accent);
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.12s;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.srp-btn-step:hover  { background: var(--color-accent-glow); }
+.srp-btn-step:active { background: rgba(4,107,210,0.14); }
+.srp-stepper input[type="number"] {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  min-width: 0;
+  padding: 0;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.srp-stepper input[type="number"]::-webkit-inner-spin-button,
+.srp-stepper input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
+.srp-stepper input[type="number"]:focus { outline: none; }
+.srp-stepper-unit {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  padding-right: 0.25rem;
+  flex-shrink: 0;
+}
+/* WKF boolean display */
+.srp-stepper--bool .srp-bool-val {
+  flex: 1;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-teal);
+  font-family: var(--font-display);
+  transition: color 0.15s;
+}
+.srp-stepper--bool .srp-bool-val.srp-bool-no {
+  color: var(--color-orange);
+}
+
 
 /* ── Results panel ───────────────────────────────────────────────────────── */
 .srp-results {

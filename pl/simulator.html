@@ -104,77 +104,81 @@
           <div class="srp-panel">
             <h2 class="srp-section-h">1. Parametry obiektu</h2>
 
-            <!-- Unit radio -->
+            <!-- Volume — tons (auto-linked to р.е.) -->
             <div class="srp-field">
-              <label class="srp-label">Jednostka miary</label>
-              <div class="srp-radio-group">
-                <label class="srp-radio">
-                  <input type="radio" name="srp-unit" value="pe" checked>
-                  <span>Tony suchych osadów / rok</span>
-                </label>
-                <label class="srp-radio">
-                  <input type="radio" name="srp-unit" value="ty">
-                  <span>Równoważnik mieszkańców (RLM)</span>
-                </label>
+              <label class="srp-label">Wydajność (tony / rok)</label>
+              <div class="srp-stepper">
+                <button type="button" class="srp-btn-step" data-for="srp-vol-ty" data-dir="-1">−</button>
+                <input type="number" id="srp-vol-ty" value="20000" min="0" max="200000" step="1000" inputmode="numeric" autocomplete="off">
+                <button type="button" class="srp-btn-step" data-for="srp-vol-ty" data-dir="1">+</button>
               </div>
             </div>
 
-            <!-- Volume number -->
+            <!-- Volume — р.е. (auto-linked to tons) -->
             <div class="srp-field">
-              <label class="srp-label" for="srp-volume" id="srp-volume-label">Wydajność (tony / rok)</label>
-              <div class="srp-vol-row">
-                <input type="number" id="srp-volume" value="50000" min="1" max="2000000" step="1000" inputmode="numeric" autocomplete="off">
-                <span class="srp-converted" id="srp-converted"></span>
+              <label class="srp-label">Równoważnik mieszkańców (RLM)</label>
+              <div class="srp-stepper">
+                <button type="button" class="srp-btn-step" data-for="srp-vol-pe" data-dir="-1">−</button>
+                <input type="number" id="srp-vol-pe" value="200000" min="0" max="2000000" step="10000" inputmode="numeric" autocomplete="off">
+                <button type="button" class="srp-btn-step" data-for="srp-vol-pe" data-dir="1">+</button>
               </div>
               <p class="srp-hint">1 RLM = 0,1 t suchych osadów rocznie</p>
             </div>
 
-            <!-- WKF select -->
+            <!-- WKF boolean stepper -->
             <div class="srp-field">
-              <label class="srp-label" for="srp-wkf">Obecność komory fermentacyjnej (WKF)</label>
-              <select id="srp-wkf" class="srp-select">
-                <option value="yes">Jest komora fermentacyjna — wytwarzanie biogazu</option>
-                <option value="no">Brak komory fermentacyjnej</option>
-              </select>
+              <label class="srp-label">Obecność komory fermentacyjnej (WKF)</label>
+              <div class="srp-stepper srp-stepper--bool">
+                <button type="button" class="srp-btn-step" id="srp-wkf-minus">−</button>
+                <span class="srp-bool-val" id="srp-wkf-display">Tak</span>
+                <button type="button" class="srp-btn-step" id="srp-wkf-plus">+</button>
+              </div>
             </div>
 
-            <!-- Grant % slider -->
+            <!-- Grant % stepper -->
             <div class="srp-field">
-              <div class="srp-field-hdr">
-                <label class="srp-label" for="srp-grant">Dofinansowanie UE</label>
-                <span class="srp-val-pill" id="srp-grant-display">75%</span>
+              <label class="srp-label">Dofinansowanie UE</label>
+              <div class="srp-stepper">
+                <button type="button" class="srp-btn-step" data-for="srp-grant" data-dir="-1">−</button>
+                <input type="number" id="srp-grant" value="75" min="0" max="90" step="5" inputmode="numeric" autocomplete="off">
+                <span class="srp-stepper-unit">%</span>
+                <button type="button" class="srp-btn-step" data-for="srp-grant" data-dir="1">+</button>
               </div>
-              <input type="range" id="srp-grant" min="0" max="90" step="5" value="75" class="srp-range">
-              <div class="srp-range-labels"><span>0%</span><span>90%</span></div>
               <p class="srp-hint">Udział CapEx pokrywany przez grant EU LIFE / Horizon</p>
             </div>
 
-            <!-- Cost disp + Tariff -->
-            <div class="srp-field-2col">
-              <div class="srp-field">
-                <label class="srp-label" for="srp-cost-disp">Koszt utylizacji 1 tony (€)</label>
-                <div class="srp-num-unit">
-                  <input type="number" id="srp-cost-disp" value="60" min="1" max="500" step="5" inputmode="numeric" autocomplete="off">
-                  <span>€/t</span>
-                </div>
-                <p class="srp-hint">Bieżąca cena wywozu / utylizacji osadów</p>
+            <!-- Cost disp stepper -->
+            <div class="srp-field">
+              <label class="srp-label">Koszt utylizacji 1 tony (€)</label>
+              <div class="srp-stepper">
+                <button type="button" class="srp-btn-step" data-for="srp-cost-disp" data-dir="-1">−</button>
+                <input type="number" id="srp-cost-disp" value="60" min="0" max="500" step="5" inputmode="numeric" autocomplete="off">
+                <span class="srp-stepper-unit">€/t</span>
+                <button type="button" class="srp-btn-step" data-for="srp-cost-disp" data-dir="1">+</button>
               </div>
-              <div class="srp-field">
-                <label class="srp-label" for="srp-tariff">Taryfa energii elektrycznej (€/MWh)</label>
-                <div class="srp-num-unit">
-                  <input type="number" id="srp-tariff" value="160" min="1" max="600" step="5" inputmode="numeric" autocomplete="off">
-                  <span>€/MWh</span>
-                </div>
-                <p class="srp-hint">Zakupowa taryfa energii elektrycznej</p>
-              </div>
+              <p class="srp-hint">Bieżąca cena wywozu / utylizacji osadów</p>
             </div>
 
-            <!-- Land price -->
+            <!-- Tariff stepper -->
             <div class="srp-field">
-              <label class="srp-label" for="srp-land">Cena 1 ha gruntu komunalnego (€)</label>
-              <div class="srp-num-unit">
-                <input type="number" id="srp-land" value="500000" min="1000" max="50000000" step="10000" inputmode="numeric" autocomplete="off">
-                <span>€/ha</span>
+              <label class="srp-label">Taryfa energii elektrycznej (€/MWh)</label>
+              <div class="srp-stepper">
+                <button type="button" class="srp-btn-step" data-for="srp-tariff" data-dir="-1">−</button>
+                <input type="number" id="srp-tariff" value="160" min="0" max="600" step="10" inputmode="numeric" autocomplete="off">
+                <span class="srp-stepper-unit">€/MWh</span>
+                <button type="button" class="srp-btn-step" data-for="srp-tariff" data-dir="1">+</button>
+              </div>
+              <p class="srp-hint">Zakupowa taryfa energii elektrycznej</p>
+            </div>
+
+            <!-- Land price stepper -->
+            <div class="srp-field">
+              <label class="srp-label">Cena 1 ha gruntu komunalnego (€)</label>
+              <div class="srp-stepper">
+                <button type="button" class="srp-btn-step" data-for="srp-land" data-dir="-1">−</button>
+                <input type="number" id="srp-land" value="500000" min="0" step="25000" inputmode="numeric" autocomplete="off">
+                <span class="srp-stepper-unit">€/ha</span>
+                <button type="button" class="srp-btn-step" data-for="srp-land" data-dir="1">+</button>
               </div>
               <p class="srp-hint">Rynkowa cena działki przemysłowej w regionie</p>
             </div>
@@ -373,26 +377,24 @@
   <script>
   (function () {
     /* Translation strings replaced at build time */
-    var K1_SUB_A     = 'Krytycznie: oczyszczanie czwartorzędowe do 2033 r.';   /* >150k */
-    var K1_SUB_B     = 'Uwaga: zintegrowany plan zarządzania do 2033 r.';   /* >100k */
-    var K1_SUB_C     = 'Wymóg: oczyszczanie trzeciorzędowe do 2036–2039 r.';   /* >10k  */
-    var K1_SUB_D     = 'Oczyszczanie wtórne ścieków do 2035 r.';   /* <10k  */
-    var K1_EXEMPT    = 'Poza dyrektywą';
-    var K1_EX_NOTE   = '< 1 000 RLM — dyrektywa nie ma zastosowania';
-    var K3_WKF_YES   = '100% Autonomia (lekvat pokrywa ciepło i generuje przychód)';
-    var K3_WKF_NO    = 'Deficyt: wymagany moduł WKF lub zewnętrzny gaz';
-    var K4_AREA_TPL  = 'Uwolniono powierzchni: {n} ha'; /* e.g. "Звільнено: {n} га" — {n} replaced in JS */
-    var K5_NOTE      = 'Z uwzględnieniem kapitalizacji gruntu i dofinansowania';
-    var K5_INSTANT   = 'Natychmiastowy!';
-    var K5_IN_NOTE   = 'Wartość uwolnionego gruntu w pełni pokrywa udział własny miasta w CapEx.';
-    var K5_UNIT      = 'l.';
-    var CONV_TY      = 't/rok';
-    var CONV_PE      = 'RLM';
-    var VOL_PE_LABEL = 'Wydajność (tony / rok)';
-    var VOL_TY_LABEL = 'Równoważnik mieszkańców (RLM)';
-    var K1_PE_TPL    = 'Równoważnik mieszkańców: {n} RLM'; /* e.g. "Еквівалент населення: {n} р.е." */
+    var K1_SUB_A    = 'Krytycznie: oczyszczanie czwartorzędowe do 2033 r.';
+    var K1_SUB_B    = 'Uwaga: zintegrowany plan zarządzania do 2033 r.';
+    var K1_SUB_C    = 'Wymóg: oczyszczanie trzeciorzędowe do 2036–2039 r.';
+    var K1_SUB_D    = 'Oczyszczanie wtórne ścieków do 2035 r.';
+    var K1_EXEMPT   = 'Poza dyrektywą';
+    var K1_EX_NOTE  = '< 1 000 RLM — dyrektywa nie ma zastosowania';
+    var K3_WKF_YES  = '100% Autonomia (lekvat pokrywa ciepło i generuje przychód)';
+    var K3_WKF_NO   = 'Deficyt: wymagany moduł WKF lub zewnętrzny gaz';
+    var K4_AREA_TPL = 'Uwolniono powierzchni: {n} ha';
+    var K5_NOTE     = 'Z uwzględnieniem kapitalizacji gruntu i dofinansowania';
+    var K5_INSTANT  = 'Natychmiastowy!';
+    var K5_IN_NOTE  = 'Wartość uwolnionego gruntu w pełni pokrywa udział własny miasta w CapEx.';
+    var K5_UNIT     = 'l.';
+    var K1_PE_TPL   = 'Równoważnik mieszkańców: {n} RLM';
+    var WKF_YES     = 'Tak';
+    var WKF_NO      = 'Nie';
 
-    var currentUnit = 'pe';
+    var hasWKF = true;
     var shadowTimer;
 
     /* ── Formatters ── */
@@ -411,22 +413,12 @@
 
     /* ── Main calculation ── */
     function calc() {
-      var rawVal   = parseFloat(document.getElementById('srp-volume').value)    || 0;
-      var hasWKF   = document.getElementById('srp-wkf').value === 'yes';
+      var Volume   = parseFloat(document.getElementById('srp-vol-ty').value)    || 0;
+      var PE       = parseFloat(document.getElementById('srp-vol-pe').value)    || 0;
       var grant    = parseFloat(document.getElementById('srp-grant').value)     || 0;
       var costDisp = parseFloat(document.getElementById('srp-cost-disp').value) || 0;
       var tariff   = parseFloat(document.getElementById('srp-tariff').value)    || 0;
-      var landPxHa = parseFloat(document.getElementById('srp-land').value)      || 0; /* €/га */
-
-      var PE, Volume;
-      if (currentUnit === 'pe') { PE = rawVal; Volume = PE * 0.1; }
-      else                      { Volume = rawVal; PE = Volume / 0.1; }
-
-      /* Conversion label */
-      var convEl = document.getElementById('srp-converted');
-      convEl.textContent = Volume > 0
-        ? (currentUnit === 'pe' ? ('= ' + fmtNum(Volume) + ' ' + CONV_TY) : ('= ' + fmtNum(PE) + ' ' + CONV_PE))
-        : '';
+      var landPxHa = parseFloat(document.getElementById('srp-land').value)      || 0;
 
       /* Core formulas */
       var capexTotal = Volume * 250;
@@ -435,7 +427,7 @@
       var saveEnergy = hasWKF ? (Volume * 0.1 * tariff) : 0;
       var cfAnnual   = saveDisp + saveEnergy;
       var landM2     = Volume * 1.5;
-      var landValue  = landM2 * (landPxHa / 10000); /* convert €/га → €/м² */
+      var landValue  = landM2 * (landPxHa / 10000);
 
       /* K1 — UWWTD directive */
       var k1ValEl  = document.getElementById('k1-val');
@@ -494,37 +486,52 @@
       shadowTimer = setTimeout(function () { saveShadowLead(); }, 2000);
     }
 
-    /* ── Unit radio ── */
-    document.querySelectorAll('input[name="srp-unit"]').forEach(function (r) {
-      r.addEventListener('change', function () {
-        var newUnit = r.value;
-        if (newUnit === currentUnit) return;
-        var volEl  = document.getElementById('srp-volume');
-        var label  = document.getElementById('srp-volume-label');
-        var oldVal = parseFloat(volEl.value) || 0;
-        if (newUnit === 'ty') {
-          volEl.value = Math.round(oldVal * 0.1) || 1;
-          volEl.step  = '100'; volEl.max = '200000';
-          label.textContent = VOL_TY_LABEL;
-        } else {
-          volEl.value = Math.round(oldVal * 10) || 1000;
-          volEl.step  = '1000'; volEl.max = '2000000';
-          label.textContent = VOL_PE_LABEL;
-        }
-        currentUnit = newUnit;
+    /* ── Volume sync helper ── */
+    function syncVolume(changedId, val) {
+      if (changedId === 'srp-vol-ty') {
+        document.getElementById('srp-vol-pe').value = Math.round(val * 10);
+      } else if (changedId === 'srp-vol-pe') {
+        document.getElementById('srp-vol-ty').value = Math.round(val * 0.1);
+      }
+    }
+
+    /* ── Stepper buttons (numeric inputs) ── */
+    document.querySelectorAll('.srp-btn-step[data-for]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var el   = document.getElementById(btn.dataset.for);
+        var dir  = parseFloat(btn.dataset.dir);
+        var step = parseFloat(el.getAttribute('step')) || 1;
+        var minA = el.getAttribute('min'); var maxA = el.getAttribute('max');
+        var min  = minA !== null ? parseFloat(minA) : -Infinity;
+        var max  = maxA !== null ? parseFloat(maxA) :  Infinity;
+        var val  = Math.max(min, Math.min(max, (parseFloat(el.value) || 0) + dir * step));
+        el.value = val;
+        syncVolume(el.id, val);
         calc();
       });
     });
 
-    /* ── Grant slider ── */
-    document.getElementById('srp-grant').addEventListener('input', function () {
-      document.getElementById('srp-grant-display').textContent = this.value + '%';
-      calc();
+    /* ── Direct typing in stepper inputs ── */
+    ['srp-vol-ty','srp-vol-pe','srp-grant','srp-cost-disp','srp-tariff','srp-land'].forEach(function (id) {
+      document.getElementById(id).addEventListener('input', function () {
+        syncVolume(id, parseFloat(this.value) || 0);
+        calc();
+      });
     });
 
-    /* ── All other inputs ── */
-    ['srp-volume','srp-wkf','srp-cost-disp','srp-tariff','srp-land'].forEach(function (id) {
-      document.getElementById(id).addEventListener('input', calc);
+    /* ── WKF boolean stepper ── */
+    var wkfDisplay = document.getElementById('srp-wkf-display');
+    document.getElementById('srp-wkf-plus').addEventListener('click', function () {
+      hasWKF = true;
+      wkfDisplay.textContent = WKF_YES;
+      wkfDisplay.classList.remove('srp-bool-no');
+      calc();
+    });
+    document.getElementById('srp-wkf-minus').addEventListener('click', function () {
+      hasWKF = false;
+      wkfDisplay.textContent = WKF_NO;
+      wkfDisplay.classList.add('srp-bool-no');
+      calc();
     });
 
     /* ── Shadow leads ── */
@@ -536,14 +543,14 @@
     function saveShadowLead() {
       var payload = {
         session_id: getSessionId(),
-        ts: new Date().toISOString(),
-        unit: currentUnit,
-        volume: document.getElementById('srp-volume').value,
-        wkf: document.getElementById('srp-wkf').value,
-        grant: document.getElementById('srp-grant').value,
-        cost_disp: document.getElementById('srp-cost-disp').value,
-        tariff: document.getElementById('srp-tariff').value,
-        land_ha: document.getElementById('srp-land').value
+        ts:         new Date().toISOString(),
+        vol_ty:     document.getElementById('srp-vol-ty').value,
+        vol_pe:     document.getElementById('srp-vol-pe').value,
+        wkf:        hasWKF,
+        grant:      document.getElementById('srp-grant').value,
+        cost_disp:  document.getElementById('srp-cost-disp').value,
+        tariff:     document.getElementById('srp-tariff').value,
+        land_ha:    document.getElementById('srp-land').value
       };
       /* fetch('https://YOUR-API/save-calc', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) }); */
       console.log('BTC shadow lead:', payload);
