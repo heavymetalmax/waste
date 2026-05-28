@@ -59,9 +59,7 @@
         </div>
         <a href="#contact" class="btn btn-primary nav-cta-btn">Audyt obiektu</a>
         <button class="mobile-toggle" aria-label="Otwórz menu" aria-expanded="false" aria-controls="mobile-nav">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
         </button>
       </div>
     </div>
@@ -71,7 +69,7 @@
     <ul>
       <li><a href="technology.html">Technologia</a></li>
       <li><a href="simulator.html" class="active">Kalkulator</a></li>
-      <li><a href="#contact" class="btn btn-primary" style="margin-top: 1rem; display: block; text-align: center;">Audyt obiektu</a></li>
+      <li><a href="#contact" class="btn btn-primary" style="margin-top:1rem;display:block;text-align:center;">Audyt obiektu</a></li>
       <li class="mobile-lang-switcher">
         <a href="../ua/simulator.html" class="lang-flag " title="Українська">🇺🇦</a>
         <a href="simulator.html" class="lang-flag active" title="Polski">🇵🇱</a>
@@ -83,14 +81,14 @@
   <main>
 
     <!-- ============================================================ -->
-    <!-- BLOCK 1: Hero                                                 -->
+    <!-- BLOCK 1: Compact hero banner                                  -->
     <!-- ============================================================ -->
-    <section id="sim-hero" class="sim-hero-section">
+    <section class="sim-hero-section">
       <div class="container">
         <div class="sim-hero-content">
           <span class="badge">Model unikniętych kosztów · Avoided Costs Model</span>
           <h1>Oblicz zwrot z inwestycji <span class="h1-solution">dla swojego obiektu w 60 sekund.</span></h1>
-          <p class="section-desc text-center" style="margin-block-start: var(--space-sm); margin-inline: auto;">Podaj wolumen osadów i parametry obiektu — symulator natychmiast pokaże CapEx, roczne oszczędności, wartość gruntu i okres zwrotu po dofinansowaniu.</p>
+          <p class="sim-hero-desc">Podaj wolumen osadów i parametry obiektu — symulator natychmiast pokaże CapEx, roczne oszczędności, wartość gruntu i okres zwrotu po dofinansowaniu.</p>
         </div>
       </div>
     </section>
@@ -98,23 +96,32 @@
     <!-- ============================================================ -->
     <!-- BLOCK 2: Simulator                                            -->
     <!-- ============================================================ -->
-    <section id="simulator" style="padding-block-start: 0;">
+    <section id="simulator" class="sim-section">
       <div class="container">
         <div class="srp-grid">
 
-          <!-- ── INPUT PANEL ──────────────────────────────────────── -->
-          <div class="srp-panel glass-card">
-            <p class="section-label" style="margin-block-end: var(--space-sm);">Parametry</p>
+          <!-- ── LEFT: Inputs ───────────────────────────────────── -->
+          <div class="srp-panel">
+            <h2 class="srp-section-h">1. Parametry obiektu</h2>
 
-            <!-- Volume + unit toggle -->
+            <!-- Unit radio -->
             <div class="srp-field">
-              <div class="srp-field-hdr">
-                <label class="srp-label" for="srp-volume">Wolumen osadów</label>
-                <div class="srp-toggle" id="srp-unit-toggle" role="group">
-                  <button class="srp-toggle-btn srp-active" data-unit="pe" type="button">RLM</button>
-                  <button class="srp-toggle-btn" data-unit="ty" type="button">t/rok</button>
-                </div>
+              <label class="srp-label">Jednostka miary</label>
+              <div class="srp-radio-group">
+                <label class="srp-radio">
+                  <input type="radio" name="srp-unit" value="pe" checked>
+                  <span>Tony suchych osadów / rok</span>
+                </label>
+                <label class="srp-radio">
+                  <input type="radio" name="srp-unit" value="ty">
+                  <span>Równoważnik mieszkańców (RLM)</span>
+                </label>
               </div>
+            </div>
+
+            <!-- Volume number -->
+            <div class="srp-field">
+              <label class="srp-label" for="srp-volume" id="srp-volume-label">Wydajność (tony / rok)</label>
               <div class="srp-vol-row">
                 <input type="number" id="srp-volume" value="50000" min="1" max="2000000" step="1000" inputmode="numeric" autocomplete="off">
                 <span class="srp-converted" id="srp-converted"></span>
@@ -122,29 +129,38 @@
               <p class="srp-hint">1 RLM = 0,1 t suchych osadów rocznie</p>
             </div>
 
+            <!-- WKF select -->
+            <div class="srp-field">
+              <label class="srp-label" for="srp-wkf">Obecność komory fermentacyjnej (WKF)</label>
+              <select id="srp-wkf" class="srp-select">
+                <option value="yes">Jest komora fermentacyjna — wytwarzanie biogazu</option>
+                <option value="no">Brak komory fermentacyjnej</option>
+              </select>
+            </div>
+
             <!-- Grant % slider -->
             <div class="srp-field">
               <div class="srp-field-hdr">
-                <label class="srp-label" for="srp-grant">Dofinansowanie</label>
+                <label class="srp-label" for="srp-grant">Dofinansowanie UE</label>
                 <span class="srp-val-pill" id="srp-grant-display">75%</span>
               </div>
               <input type="range" id="srp-grant" min="0" max="90" step="5" value="75" class="srp-range">
               <div class="srp-range-labels"><span>0%</span><span>90%</span></div>
-              <p class="srp-hint">Udział CapEx pokrywany przez grant UE</p>
+              <p class="srp-hint">Udział CapEx pokrywany przez grant EU LIFE / Horizon</p>
             </div>
 
             <!-- Cost disp + Tariff -->
             <div class="srp-field-2col">
               <div class="srp-field">
-                <label class="srp-label" for="srp-cost-disp">Koszt utylizacji</label>
+                <label class="srp-label" for="srp-cost-disp">Koszt utylizacji 1 tony (€)</label>
                 <div class="srp-num-unit">
                   <input type="number" id="srp-cost-disp" value="60" min="1" max="500" step="5" inputmode="numeric" autocomplete="off">
                   <span>€/t</span>
                 </div>
-                <p class="srp-hint">Bieżąca cena wywozu osadów</p>
+                <p class="srp-hint">Bieżąca cena wywozu / utylizacji osadów</p>
               </div>
               <div class="srp-field">
-                <label class="srp-label" for="srp-tariff">Taryfa energii</label>
+                <label class="srp-label" for="srp-tariff">Taryfa energii elektrycznej (€/MWh)</label>
                 <div class="srp-num-unit">
                   <input type="number" id="srp-tariff" value="160" min="1" max="600" step="5" inputmode="numeric" autocomplete="off">
                   <span>€/MWh</span>
@@ -155,124 +171,89 @@
 
             <!-- Land price -->
             <div class="srp-field">
-              <label class="srp-label" for="srp-land">Cena gruntu</label>
+              <label class="srp-label" for="srp-land">Cena 1 ha gruntu komunalnego (€)</label>
               <div class="srp-num-unit">
-                <input type="number" id="srp-land" value="50" min="1" max="5000" step="5" inputmode="numeric" autocomplete="off">
-                <span>€/m²</span>
+                <input type="number" id="srp-land" value="500000" min="1000" max="50000000" step="10000" inputmode="numeric" autocomplete="off">
+                <span>€/ha</span>
               </div>
               <p class="srp-hint">Rynkowa cena działki przemysłowej w regionie</p>
             </div>
           </div>
-          <!-- ── end INPUT PANEL ──────────────────────────────────── -->
+          <!-- ── end LEFT ────────────────────────────────────────── -->
 
 
-          <!-- ── RESULTS PANEL ────────────────────────────────────── -->
+          <!-- ── RIGHT: Results ─────────────────────────────────── -->
           <div class="srp-results">
-            <p class="section-label" style="margin-block-end: var(--space-sm);">Wyniki</p>
+            <h2 class="srp-section-h">Twoje TEO (Regionalny Hub)</h2>
 
-            <!-- K1: UWWTD Deadline -->
-            <div class="srcard" id="k1">
-              <div class="srcard-hdr">
-                <div class="srcard-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                </div>
-                <h3 class="srcard-title">Termin UWWTD</h3>
-              </div>
-              <div class="srcard-kpi-main" id="k1-val">2036</div>
-              <div class="srcard-note" id="k1-note">termin wdrożenia dyrektywy</div>
+            <!-- K1: Directive / UWWTD -->
+            <div class="srcard srcard--danger" id="k1">
+              <div class="srcard-title">Dyrektywa (UE) 2024/3019 UWWTD</div>
+              <div class="srcard-value" id="k1-val">2036</div>
+              <div class="srcard-sub" id="k1-sub"></div>
+              <div class="srcard-pe" id="k1-pe"></div>
             </div>
 
             <!-- K2: CapEx -->
-            <div class="srcard" id="k2">
-              <div class="srcard-hdr">
-                <div class="srcard-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                </div>
-                <h3 class="srcard-title">Nakłady inwestycyjne</h3>
-                <span class="srcard-tag">€ 250 / t·rok — wskaźnik bazowy</span>
-              </div>
+            <div class="srcard srcard--primary" id="k2">
+              <div class="srcard-title">Nakłady inwestycyjne</div>
+              <div class="srcard-value" id="k2-total"></div>
               <div class="srcard-rows">
                 <div class="srcard-row">
-                  <span>Pełny CapEx</span>
-                  <span class="srcard-val" id="k2-total"></span>
-                </div>
-                <div class="srcard-row srcard-row--green">
                   <span>Pokryje grant</span>
-                  <span class="srcard-val" id="k2-grant"></span>
+                  <span class="srcard-row-val text-teal" id="k2-grant"></span>
                 </div>
-                <div class="srcard-row srcard-row--blue srcard-row--bold">
+                <div class="srcard-row srcard-row--bold">
                   <span>Pozostaje miastu</span>
-                  <span class="srcard-val" id="k2-city"></span>
+                  <span class="srcard-row-val text-accent" id="k2-city"></span>
                 </div>
               </div>
             </div>
 
             <!-- K3: Annual savings -->
-            <div class="srcard" id="k3">
-              <div class="srcard-hdr">
-                <div class="srcard-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-                </div>
-                <h3 class="srcard-title">Roczne oszczędności</h3>
-                <span class="srcard-tag">0,1 MWh/t · taryfa</span>
-              </div>
+            <div class="srcard srcard--success" id="k3">
+              <div class="srcard-title">Roczne oszczędności (Utylizacja + Energia)</div>
+              <div class="srcard-value" id="k3-cf"></div>
               <div class="srcard-rows">
                 <div class="srcard-row">
                   <span>Utylizacja osadów</span>
-                  <span class="srcard-val" id="k3-disp"></span>
+                  <span class="srcard-row-val" id="k3-disp"></span>
                 </div>
-                <div class="srcard-row">
+                <div class="srcard-row" id="k3-energy-row">
                   <span>Sprzedaż energii elektrycznej</span>
-                  <span class="srcard-val" id="k3-energy"></span>
-                </div>
-                <div class="srcard-row srcard-row--green srcard-row--bold">
-                  <span>Łączny przepływ pieniężny</span>
-                  <span class="srcard-val" id="k3-cf"></span>
+                  <span class="srcard-row-val" id="k3-energy"></span>
                 </div>
               </div>
+              <div class="srcard-sub" id="k3-energy-status"></div>
             </div>
 
             <!-- K4: Land asset -->
-            <div class="srcard" id="k4">
-              <div class="srcard-hdr">
-                <div class="srcard-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
-                </div>
-                <h3 class="srcard-title">Aktywo gruntowe</h3>
-              </div>
-              <div class="srcard-rows">
-                <div class="srcard-row">
-                  <span>Powierzchnia działki</span>
-                  <span class="srcard-val" id="k4-area"></span>
-                </div>
-                <div class="srcard-row srcard-row--blue">
-                  <span>Wartość rynkowa</span>
-                  <span class="srcard-val" id="k4-value"></span>
-                </div>
-              </div>
-              <p class="srcard-footnote">1,5 m²/t: warstwy suszenia, drogi, strefy sanitarne</p>
+            <div class="srcard srcard--primary" id="k4">
+              <div class="srcard-title">Uwolniony aktyw (Zamknięcie składowisk osadów)</div>
+              <div class="srcard-value" id="k4-value"></div>
+              <div class="srcard-sub" id="k4-area"></div>
+              <p class="srcard-footnote">1,5 m²/t: warstwy suszenia, drogi dojazdowe, strefy sanitarne</p>
             </div>
 
             <!-- K5: ROI -->
-            <div class="srcard srcard--roi" id="k5">
-              <div class="srcard-hdr">
-                <div class="srcard-icon srcard-icon--blue">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                </div>
-                <h3 class="srcard-title">Zwrot z inwestycji</h3>
-              </div>
-              <div class="srcard-kpi-main srcard-kpi-main--blue" id="k5-val"></div>
-              <div class="srcard-note" id="k5-note"></div>
+            <div class="srcard srcard--accent" id="k5">
+              <div class="srcard-title">Okres zwrotu dla miasta (ROI)</div>
+              <div class="srcard-value" id="k5-val"></div>
+              <div class="srcard-sub" id="k5-note"></div>
             </div>
 
+            <!-- CTA -->
+            <button class="srp-cta-btn" id="srp-cta-btn" onclick="openLeadModal()">
+              Zapisz TEO i zamów raport PDF →
+            </button>
+
           </div>
-          <!-- ── end RESULTS PANEL ────────────────────────────────── -->
+          <!-- ── end RIGHT ───────────────────────────────────────── -->
 
         </div><!-- .srp-grid -->
 
         <p class="srp-disclaimer">Obliczenia mają charakter orientacyjny i opierają się na branżowych wartościach średnich. Aby uzyskać dokładne uzasadnienie techniczno-ekonomiczne, zamów bezpłatną ocenę inżynierską.</p>
-
-      </div><!-- .container -->
+      </div>
     </section>
 
 
@@ -306,7 +287,7 @@
               </div>
               <div class="info-item">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>ul. Dąbrowskiego 441, 60-451 Poznań, Polska</span>
+                <span>ul. Daszyńskiego 34/3, 44-100 Gliwice, Polska</span>
               </div>
             </div>
           </div>
@@ -354,7 +335,6 @@
 
               </fieldset>
             </form>
-
             <div id="form-status" class="form-status-container hidden" tabindex="-1" role="status" aria-live="polite"></div>
           </div>
 
@@ -392,185 +372,213 @@
   <!-- ── Simulator logic ──────────────────────────────────────── -->
   <script>
   (function () {
-    /* Translation strings — replaced by build.py at build time */
-    var K1_NOTE    = 'termin wdrożenia dyrektywy';
-    var K1_EXEMPT  = 'Poza dyrektywą';
-    var K1_EX_NOTE = '< 1 000 RLM — dyrektywa nie ma zastosowania';
-    var K5_NOTE    = 'po dofinansowaniu i aktywie gruntowym';
-    var K5_INSTANT = 'Natychmiastowy';
-    var K5_IN_NOTE = 'Wartość gruntu przekracza wkład własny miasta';
-    var K5_UNIT    = 'l.';
-    var CONV_TY    = 't/rok';
-    var CONV_PE    = 'RLM';
-    var AREA_UNIT  = 'ha';
+    /* Translation strings replaced at build time */
+    var K1_SUB_A     = 'Krytycznie: oczyszczanie czwartorzędowe do 2033 r.';   /* >150k */
+    var K1_SUB_B     = 'Uwaga: zintegrowany plan zarządzania do 2033 r.';   /* >100k */
+    var K1_SUB_C     = 'Wymóg: oczyszczanie trzeciorzędowe do 2036–2039 r.';   /* >10k  */
+    var K1_SUB_D     = 'Oczyszczanie wtórne ścieków do 2035 r.';   /* <10k  */
+    var K1_EXEMPT    = 'Poza dyrektywą';
+    var K1_EX_NOTE   = '< 1 000 RLM — dyrektywa nie ma zastosowania';
+    var K3_WKF_YES   = '100% Autonomia (lekvat pokrywa ciepło i generuje przychód)';
+    var K3_WKF_NO    = 'Deficyt: wymagany moduł WKF lub zewnętrzny gaz';
+    var K4_AREA_TPL  = 'Uwolniono powierzchni: {n} ha'; /* e.g. "Звільнено: {n} га" — {n} replaced in JS */
+    var K5_NOTE      = 'Z uwzględnieniem kapitalizacji gruntu i dofinansowania';
+    var K5_INSTANT   = 'Natychmiastowy!';
+    var K5_IN_NOTE   = 'Wartość uwolnionego gruntu w pełni pokrywa udział własny miasta w CapEx.';
+    var K5_UNIT      = 'l.';
+    var CONV_TY      = 't/rok';
+    var CONV_PE      = 'RLM';
+    var VOL_PE_LABEL = 'Wydajność (tony / rok)';
+    var VOL_TY_LABEL = 'Równoważnik mieszkańców (RLM)';
+    var K1_PE_TPL    = 'Równoważnik mieszkańców: {n} RLM'; /* e.g. "Еквівалент населення: {n} р.е." */
 
-    var currentUnit = 'pe'; /* 'pe' | 'ty' */
+    var currentUnit = 'pe';
+    var shadowTimer;
 
     /* ── Formatters ── */
     function fmtEur(v) {
       if (!isFinite(v) || v < 0) return '—';
       return '€ ' + Math.round(v).toLocaleString();
     }
-
-    function fmtArea(m2) {
-      if (!isFinite(m2) || m2 <= 0) return '—';
-      var ha = m2 / 10000;
-      return ha.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ' + AREA_UNIT;
-    }
-
     function fmtNum(n) {
       if (!isFinite(n) || n < 0) return '—';
       return Math.round(n).toLocaleString();
+    }
+    function fmtHa(m2) {
+      if (!isFinite(m2) || m2 <= 0) return '—';
+      return (m2 / 10000).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
 
     /* ── Main calculation ── */
     function calc() {
       var rawVal   = parseFloat(document.getElementById('srp-volume').value)    || 0;
+      var hasWKF   = document.getElementById('srp-wkf').value === 'yes';
       var grant    = parseFloat(document.getElementById('srp-grant').value)     || 0;
       var costDisp = parseFloat(document.getElementById('srp-cost-disp').value) || 0;
       var tariff   = parseFloat(document.getElementById('srp-tariff').value)    || 0;
-      var landPx   = parseFloat(document.getElementById('srp-land').value)      || 0;
+      var landPxHa = parseFloat(document.getElementById('srp-land').value)      || 0; /* €/га */
 
       var PE, Volume;
-      if (currentUnit === 'pe') {
-        PE     = rawVal;
-        Volume = PE * 0.1;
-      } else {
-        Volume = rawVal;
-        PE     = Volume / 0.1;
-      }
+      if (currentUnit === 'pe') { PE = rawVal; Volume = PE * 0.1; }
+      else                      { Volume = rawVal; PE = Volume / 0.1; }
 
-      /* Conversion display */
+      /* Conversion label */
       var convEl = document.getElementById('srp-converted');
-      if (Volume > 0) {
-        convEl.textContent = currentUnit === 'pe'
-          ? ('= ' + fmtNum(Volume) + ' ' + CONV_TY)
-          : ('= ' + fmtNum(PE)     + ' ' + CONV_PE);
-      } else {
-        convEl.textContent = '';
-      }
+      convEl.textContent = Volume > 0
+        ? (currentUnit === 'pe' ? ('= ' + fmtNum(Volume) + ' ' + CONV_TY) : ('= ' + fmtNum(PE) + ' ' + CONV_PE))
+        : '';
 
       /* Core formulas */
       var capexTotal = Volume * 250;
       var capexCity  = capexTotal * (1 - grant / 100);
       var saveDisp   = Volume * costDisp;
-      var saveEnergy = Volume * 0.1 * tariff;
+      var saveEnergy = hasWKF ? (Volume * 0.1 * tariff) : 0;
       var cfAnnual   = saveDisp + saveEnergy;
-      var landM2     = Volume * 1.5;          /* 0.00015 ha/t × 10 000 m²/ha = 1.5 m²/t */
-      var landValue  = landM2 * landPx;
+      var landM2     = Volume * 1.5;
+      var landValue  = landM2 * (landPxHa / 10000); /* convert €/га → €/м² */
 
-      /* K1 — UWWTD deadline */
-      var k1El      = document.getElementById('k1');
-      var k1ValEl   = document.getElementById('k1-val');
-      var k1NoteEl  = document.getElementById('k1-note');
-      var k1Exempt  = (PE > 0 && PE <= 1000);
-      var k1Year    = PE > 150000 ? '2033' : (PE > 10000 ? '2036' : '2039');
+      /* K1 — UWWTD directive */
+      var k1ValEl  = document.getElementById('k1-val');
+      var k1SubEl  = document.getElementById('k1-sub');
+      var k1PeEl   = document.getElementById('k1-pe');
+      var k1El     = document.getElementById('k1');
 
-      k1El.className   = 'srcard' + (k1Exempt ? ' srcard--exempt' : ' srcard--deadline');
-      k1ValEl.textContent  = k1Exempt ? K1_EXEMPT : k1Year;
-      k1NoteEl.textContent = k1Exempt ? K1_EX_NOTE : K1_NOTE;
+      k1PeEl.textContent = K1_PE_TPL.replace('{n}', fmtNum(PE));
+
+      if (PE > 0 && PE <= 1000) {
+        k1El.className = 'srcard srcard--success';
+        k1ValEl.textContent = K1_EXEMPT;
+        k1SubEl.textContent = K1_EX_NOTE;
+      } else {
+        k1El.className = 'srcard srcard--danger';
+        var year = PE > 150000 ? '2033' : (PE > 10000 ? '2036' : '2039');
+        k1ValEl.textContent = year;
+        k1SubEl.textContent = PE > 150000 ? K1_SUB_A : (PE > 100000 ? K1_SUB_B : (PE > 10000 ? K1_SUB_C : K1_SUB_D));
+      }
 
       /* K2 — CapEx */
       document.getElementById('k2-total').textContent = fmtEur(capexTotal);
       document.getElementById('k2-grant').textContent = fmtEur(capexTotal - capexCity);
       document.getElementById('k2-city').textContent  = fmtEur(capexCity);
 
-      /* K3 — Annual savings */
+      /* K3 — Savings */
+      document.getElementById('k3-cf').textContent     = fmtEur(cfAnnual);
       document.getElementById('k3-disp').textContent   = fmtEur(saveDisp);
       document.getElementById('k3-energy').textContent = fmtEur(saveEnergy);
-      document.getElementById('k3-cf').textContent     = fmtEur(cfAnnual);
+      document.getElementById('k3-energy-row').style.opacity = hasWKF ? '1' : '0.4';
+      document.getElementById('k3-energy-status').textContent = hasWKF ? K3_WKF_YES : K3_WKF_NO;
 
       /* K4 — Land asset */
-      document.getElementById('k4-area').textContent  = fmtArea(landM2);
       document.getElementById('k4-value').textContent = fmtEur(landValue);
+      document.getElementById('k4-area').textContent  = K4_AREA_TPL.replace('{n}', fmtHa(landM2));
 
       /* K5 — ROI */
-      var k5El      = document.getElementById('k5');
-      var k5ValEl   = document.getElementById('k5-val');
-      var k5NoteEl  = document.getElementById('k5-note');
-      var roiNet    = capexCity - landValue;
-      var roiYears  = (cfAnnual > 0) ? roiNet / cfAnnual : Infinity;
+      var k5El     = document.getElementById('k5');
+      var k5ValEl  = document.getElementById('k5-val');
+      var k5NoteEl = document.getElementById('k5-note');
+      var roiNet   = capexCity - landValue;
+      var roiYears = cfAnnual > 0 ? roiNet / cfAnnual : Infinity;
 
       if (cfAnnual <= 0 || roiYears <= 0) {
-        k5El.className      = 'srcard srcard--roi srcard--instant';
+        k5El.className      = 'srcard srcard--instant';
         k5ValEl.textContent  = K5_INSTANT;
         k5NoteEl.textContent = K5_IN_NOTE;
       } else {
-        k5El.className      = 'srcard srcard--roi';
+        k5El.className      = 'srcard srcard--accent';
         k5ValEl.textContent  = roiYears.toLocaleString(undefined, { maximumFractionDigits: 1 }) + ' ' + K5_UNIT;
         k5NoteEl.textContent = K5_NOTE;
       }
+
+      /* Shadow lead debounce */
+      clearTimeout(shadowTimer);
+      shadowTimer = setTimeout(function () { saveShadowLead(); }, 2000);
     }
 
-    /* ── Unit toggle ── */
-    document.querySelectorAll('.srp-toggle-btn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var newUnit = btn.getAttribute('data-unit');
+    /* ── Unit radio ── */
+    document.querySelectorAll('input[name="srp-unit"]').forEach(function (r) {
+      r.addEventListener('change', function () {
+        var newUnit = r.value;
         if (newUnit === currentUnit) return;
-
         var volEl  = document.getElementById('srp-volume');
+        var label  = document.getElementById('srp-volume-label');
         var oldVal = parseFloat(volEl.value) || 0;
-
         if (newUnit === 'ty') {
           volEl.value = Math.round(oldVal * 0.1) || 1;
-          volEl.step  = '100';
-          volEl.max   = '200000';
+          volEl.step  = '100'; volEl.max = '200000';
+          label.textContent = VOL_TY_LABEL;
         } else {
           volEl.value = Math.round(oldVal * 10) || 1000;
-          volEl.step  = '1000';
-          volEl.max   = '2000000';
+          volEl.step  = '1000'; volEl.max = '2000000';
+          label.textContent = VOL_PE_LABEL;
         }
-
         currentUnit = newUnit;
-
-        document.querySelectorAll('.srp-toggle-btn').forEach(function (b) {
-          b.classList.toggle('srp-active', b.getAttribute('data-unit') === newUnit);
-        });
-
         calc();
       });
     });
 
-    /* ── Grant slider live display ── */
+    /* ── Grant slider ── */
     document.getElementById('srp-grant').addEventListener('input', function () {
       document.getElementById('srp-grant-display').textContent = this.value + '%';
       calc();
     });
 
-    /* ── All other numeric inputs ── */
-    ['srp-volume', 'srp-cost-disp', 'srp-tariff', 'srp-land'].forEach(function (id) {
+    /* ── All other inputs ── */
+    ['srp-volume','srp-wkf','srp-cost-disp','srp-tariff','srp-land'].forEach(function (id) {
       document.getElementById(id).addEventListener('input', calc);
     });
 
-    /* ── Initial run ── */
+    /* ── Shadow leads ── */
+    function getSessionId() {
+      var sid = localStorage.getItem('btc_sid');
+      if (!sid) { sid = 'sid_' + Math.random().toString(36).substr(2,9) + '_' + Date.now(); localStorage.setItem('btc_sid', sid); }
+      return sid;
+    }
+    function saveShadowLead() {
+      var payload = {
+        session_id: getSessionId(),
+        ts: new Date().toISOString(),
+        unit: currentUnit,
+        volume: document.getElementById('srp-volume').value,
+        wkf: document.getElementById('srp-wkf').value,
+        grant: document.getElementById('srp-grant').value,
+        cost_disp: document.getElementById('srp-cost-disp').value,
+        tariff: document.getElementById('srp-tariff').value,
+        land_ha: document.getElementById('srp-land').value
+      };
+      /* fetch('https://YOUR-API/save-calc', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) }); */
+      console.log('BTC shadow lead:', payload);
+    }
+
+    /* ── CTA modal stub ── */
+    window.openLeadModal = function () {
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    };
+
+    /* ── Init ── */
     calc();
   })();
   </script>
 
-  <!-- ── Parallax background icon ────────────────────────────── -->
+  <!-- ── Parallax contact bg icon ────────────────────────────── -->
   <script>
   (function () {
     var RANGE = 120;
-    var pairs = [
-      ['#contact', '.contact-bg-icon'],
-    ].map(function (p) {
+    var pairs = [['#contact','.contact-bg-icon']].map(function(p){
       return { section: document.querySelector(p[0]), icon: document.querySelector(p[1]) };
-    }).filter(function (p) { return p.section && p.icon; });
-
+    }).filter(function(p){ return p.section && p.icon; });
     var ticking = false;
     function update() {
       var wh = window.innerHeight;
-      pairs.forEach(function (p) {
-        var r        = p.section.getBoundingClientRect();
-        var progress = (wh - r.top) / (wh + r.height);
-        progress     = Math.max(0, Math.min(1, progress));
-        p.icon.style.transform = 'translateY(' + (progress * RANGE).toFixed(1) + 'px)';
+      pairs.forEach(function(p){
+        var r = p.section.getBoundingClientRect();
+        var prog = Math.max(0, Math.min(1, (wh - r.top)/(wh + r.height)));
+        p.icon.style.transform = 'translateY(' + (prog*RANGE).toFixed(1) + 'px)';
       });
       ticking = false;
     }
-    function onScroll() { if (!ticking) { requestAnimationFrame(update); ticking = true; } }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', update,   { passive: true });
+    function onScroll(){ if(!ticking){ requestAnimationFrame(update); ticking=true; } }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', update, {passive:true});
     update();
   })();
   </script>
