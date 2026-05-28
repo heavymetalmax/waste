@@ -517,5 +517,19 @@
   "sim.method.land.title": "Aktywo gruntowe",
   "sim.method.land.text": "1,5 m² na 1 t/rok mocy (poletka osadowe + strefa sanitarna). Po zamknięciu pól osadowych grunt wraca do gospodarczego użytkowania i zaliczany jest do bilansu projektu.",
   "sim.method.data.title": "Stawki bazowe i źródła",
-  "sim.method.data.text": "Koszty utylizacji — branżowe średnie z polskich przetargów 2022–2024. Taryfa biogaz — EU ETS mid-price. Normatyw osadu — BREF FDM 2019 (JRC). Wszystkie wartości edytowalne w kalkulatorze."
+  "sim.method.data.text": "Koszty utylizacji — branżowe średnie z polskich przetargów 2022–2024. Taryfa biogaz — EU ETS mid-price. Normatyw osadu — BREF FDM 2019 (JRC). Wszystkie wartości edytowalne w kalkulatorze.",
+  "sim.method.concept.intro": "Tradycyjne modele zwrotu dla nowych technologii opierają się na potencjalnym przychodzie ze sprzedaży produktu — hydrocharu, energii, nawozów. Celowo NIE stosujemy tego podejścia.",
+  "sim.method.compare.before.title": "Teraz Twój obiekt PŁACI co roku",
+  "sim.method.compare.before.1": "Polimery do odwadniania: €40–80/t",
+  "sim.method.compare.before.2": "Transport do miejsca utylizacji: €20–50/t",
+  "sim.method.compare.before.3": "Gate Fee składowiska lub spalarni: €60–160/t",
+  "sim.method.compare.before.4": "Opłata ekologiczna / kary za składowanie: €40–120/t",
+  "sim.method.compare.before.5": "Rekultywacja pól osadowych: €20–50/t",
+  "sim.method.compare.before.6": "→ i te kwoty rosną co roku przez EU ETS i UWWTD",
+  "sim.method.compare.after.title": "Po BTC — jednorazowa inwestycja zastępuje wieczne płatności",
+  "sim.method.compare.after.text": "Wszystkie te pozycje znikają z budżetu operacyjnego. Po zwrocie 100% byłych kosztów staje się czystym zyskiem — na zawsze, co roku, dopóki instalacja pracuje.",
+  "sim.method.concept.why.title": "Dlaczego ten model jest pewniejszy niż prognoza przychodów?",
+  "sim.method.concept.why.text": "Bieżące koszty utylizacji to audytowalne pozycje w Twoim budżecie. Nie trzeba ich prognozować — już istnieją. Rynek hydrocharu jest w trakcie formowania i zależy od koniunktury. Model unikniętych kosztów nie zależy od ceny sprzedaży, popytu ani zmian regulacyjnych. Dlatego łatwiej przechodzi przez rady miejskie, komitety grantowe i scoring bankowy przy kredytowaniu EBRD / EIB.",
+  "sim.method.concept.bonus.title": "Dodatkowo — ale NIE w bazowym obliczeniu",
+  "sim.method.concept.bonus.text": "Potencjalne przychody ze sprzedaży hydrocharu (substytut węgla, dodatki glebowe) i kredyty węglowe istnieją, ale rynek jest niestabilny. Symulator pokazuje najgorszy scenariusz — aby każda realna liczba była miłą niespodzianką."
 }

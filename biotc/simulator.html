@@ -98,7 +98,37 @@
 
             <div class="sim-method-card sim-method-card--wide">
               <div class="sim-method-card-title">{{sim.method.concept.title}}</div>
-              <p>{{sim.method.concept.text}}</p>
+              <p class="sim-method-intro">{{sim.method.concept.intro}}</p>
+
+              <div class="sim-method-compare">
+                <div class="sim-method-compare-col">
+                  <div class="sim-method-compare-head sim-method-compare-head--before">{{sim.method.compare.before.title}}</div>
+                  <ul class="sim-method-compare-list">
+                    <li>{{sim.method.compare.before.1}}</li>
+                    <li>{{sim.method.compare.before.2}}</li>
+                    <li>{{sim.method.compare.before.3}}</li>
+                    <li>{{sim.method.compare.before.4}}</li>
+                    <li>{{sim.method.compare.before.5}}</li>
+                    <li class="sim-method-compare-note">{{sim.method.compare.before.6}}</li>
+                  </ul>
+                </div>
+                <div class="sim-method-compare-arrow" aria-hidden="true">&#8594;</div>
+                <div class="sim-method-compare-col sim-method-compare-col--after">
+                  <div class="sim-method-compare-head sim-method-compare-head--after">{{sim.method.compare.after.title}}</div>
+                  <p class="sim-method-compare-text">{{sim.method.compare.after.text}}</p>
+                </div>
+              </div>
+
+              <div class="sim-method-why-row">
+                <div class="sim-method-why">
+                  <div class="sim-method-sub-title">{{sim.method.concept.why.title}}</div>
+                  <p>{{sim.method.concept.why.text}}</p>
+                </div>
+                <div class="sim-method-bonus">
+                  <div class="sim-method-sub-title sim-method-sub-title--bonus">{{sim.method.concept.bonus.title}}</div>
+                  <p>{{sim.method.concept.bonus.text}}</p>
+                </div>
+              </div>
             </div>
 
             <div class="sim-method-grid">
