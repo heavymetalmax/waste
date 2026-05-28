@@ -104,8 +104,9 @@
           <div class="srp-panel">
             <h2 class="srp-section-h">1. Parametry obiektu</h2>
 
-            <!-- Volume group: tons ↔ або ↔ р.е. -->
-            <div class="srp-vol-group">
+            <!-- Volume group: tons ↔ або ↔ р.е. (gradient highlight) -->
+            <div class="srp-hl-group">
+            <div class="srp-hl-inner srp-vol-group">
               <div class="srp-field">
                 <label class="srp-label">Wydajność (tony / rok)</label>
                 <div class="srp-stepper">
@@ -130,7 +131,8 @@
                 </div>
                 <p class="srp-hint">1 RLM = 0,1 t suchych osadów rocznie</p>
               </div>
-            </div>
+            </div><!-- /.srp-hl-inner -->
+            </div><!-- /.srp-hl-group -->
 
             <!-- WKF boolean stepper -->
             <div class="srp-field">
@@ -197,34 +199,27 @@
           <div class="srp-results">
             <h2 class="srp-section-h">Twoje TEO (Regionalny Hub)</h2>
 
-            <!-- K1 + K2: highlighted gradient-border group -->
-            <div class="srp-hl-group">
-              <div class="srp-hl-inner">
+            <!-- K1: Directive / UWWTD -->
+            <div class="srcard srcard--danger" id="k1">
+              <div class="srcard-title">Dyrektywa (UE) 2024/3019 UWWTD</div>
+              <div class="srcard-value" id="k1-val">2036</div>
+              <div class="srcard-sub" id="k1-sub"></div>
+              <div class="srcard-pe" id="k1-pe"></div>
+            </div>
 
-                <!-- K1: Directive / UWWTD -->
-                <div class="srcard srcard--danger" id="k1">
-                  <div class="srcard-title">Dyrektywa (UE) 2024/3019 UWWTD</div>
-                  <div class="srcard-value" id="k1-val">2036</div>
-                  <div class="srcard-sub" id="k1-sub"></div>
-                  <div class="srcard-pe" id="k1-pe"></div>
+            <!-- K2: CapEx -->
+            <div class="srcard srcard--primary" id="k2">
+              <div class="srcard-title">Nakłady inwestycyjne</div>
+              <div class="srcard-value" id="k2-total"></div>
+              <div class="srcard-rows">
+                <div class="srcard-row">
+                  <span>Pokryje grant</span>
+                  <span class="srcard-row-val text-teal" id="k2-grant"></span>
                 </div>
-
-                <!-- K2: CapEx -->
-                <div class="srcard srcard--primary" id="k2">
-                  <div class="srcard-title">Nakłady inwestycyjne</div>
-                  <div class="srcard-value" id="k2-total"></div>
-                  <div class="srcard-rows">
-                    <div class="srcard-row">
-                      <span>Pokryje grant</span>
-                      <span class="srcard-row-val text-teal" id="k2-grant"></span>
-                    </div>
-                    <div class="srcard-row srcard-row--bold">
-                      <span>Pozostaje miastu</span>
-                      <span class="srcard-row-val text-accent" id="k2-city"></span>
-                    </div>
-                  </div>
+                <div class="srcard-row srcard-row--bold">
+                  <span>Pozostaje miastu</span>
+                  <span class="srcard-row-val text-accent" id="k2-city"></span>
                 </div>
-
               </div>
             </div>
 
