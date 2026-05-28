@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Відновлення ресурсів очисних споруд | BioTC | BTC Consulting</title>
+  <meta name="description" content="BTC Consulting проєктує регіональні інженерні хаби, які перетворюють токсичний осад стічних вод на ековугілля. Гранти ЄС до 90% CapEx. Технологія TH-AD-HTC.">
+  <meta name="keywords" content="утилізація осадів стічних вод, переробка мулу очисних споруд, гідротермальна карбонізація, ековугілля, BioTC, BTC Consulting, регіональний хаб, UWWTD, гранти ЄС, End-of-Waste">
+
+  <!-- Google Fonts: Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="index.css">
+
+  <!-- Hreflang Tags for SEO -->
+  <link rel="alternate" hreflang="uk-UA" href="https://biotc.com.ua/" />
+  <link rel="alternate" hreflang="en" href="https://biotc.com.ua/eu/" />
+  <link rel="alternate" hreflang="pl-PL" href="https://biotc.com.ua/pl/" />
+  <link rel="alternate" hreflang="x-default" href="https://biotc.com.ua/" />
+</head>
+<body>
+
+  <!-- Dynamic Purification Waves Background -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Background Ambient Glows (Light Clean-Tech Version) -->
+  <div class="blur-orb orb-1"></div>
+  <div class="blur-orb orb-2"></div>
+  <div class="blur-orb orb-3"></div>
+
+  <!-- Header Section -->
+  <header class="main-header" id="header">
+    <div class="header-container">
+      <a href="index.html" class="logo" aria-label="Головна BTC Consulting">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#logo-grad)"/>
+          <path d="M12 8V18" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M12 11C13.8 9.5 15.8 10.2 15.8 11.5" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M12 13.8C10.2 12.3 8.2 13 8.2 14.3" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="logo-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#046BD2"/>
+              <stop offset="1" stop-color="#0D9488"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="logo-text">BTC<span>Consulting</span></span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-desktop" aria-label="Основне меню">
+        <ul>
+          <li><a href="technology.html">Технологія</a></li>
+          <li><a href="simulator.html">Симулятор</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+        <!-- Language Switcher -->
+        <div class="lang-switcher">
+          <button class="lang-btn" aria-haspopup="true" aria-expanded="false" title="Змінити мову">
+            🇺🇦
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="lang-dropdown">
+            <li><a href="eu/index.html" onclick="localStorage.setItem('userLang', 'eu')">🇪🇺 English (EU)</a></li>
+            <li><a href="pl/index.html" onclick="localStorage.setItem('userLang', 'pl')">🇵🇱 Polski</a></li>
+            <li><a href="index.html" class="active">🇺🇦 Українська</a></li>
+          </ul>
+        </div>
+
+        <a href="#contact" class="btn btn-primary nav-cta-btn">Аудит об'єкта</a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle" aria-label="Відкрити меню" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Мобільне меню" aria-hidden="true">
+    <ul>
+      <li><a href="technology.html">Технологія</a></li>
+      <li><a href="simulator.html">Симулятор</a></li>
+      <li><a href="#contact" class="btn btn-primary" style="margin-top: 1rem; display: block; text-align: center;">Аудит об'єкта</a></li>
+      <!-- Mobile Language Links -->
+      <li class="mobile-lang-switcher">
+        <a href="index.html" class="active">🇺🇦 UA</a>
+        <a href="eu/index.html" onclick="localStorage.setItem('userLang', 'eu')">🇪🇺 EU</a>
+        <a href="pl/index.html" onclick="localStorage.setItem('userLang', 'pl')">🇵🇱 PL</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- ============================================ -->
+    <!-- BLOCK 1: Hero Section                        -->
+    <!-- ============================================ -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge-row">
+            <div class="badge">ДИРЕКТИВА ЄС UWWTD · ОНОВЛЕННЯ 2026</div>
+          </div>
+          <h1>Ваше місто платить за мул.<br>Незабаром — платитиме штрафи.</h1>
+          <p class="hero-desc">BTC Consulting проєктує регіональні інженерні хаби, які перетворюють токсичний осад стічних вод на ековугілля. Без субсидування з міського бюджету — завдяки грантам ЄС до 90% CapEx.</p>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-num">×5</span>
+              <span class="stat-label">Скорочення об'єму відходів</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">до 90%</span>
+              <span class="stat-label">CapEx покривають гранти ЄС</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">MPWiK Lubin</span>
+              <span class="stat-label">Перший комерційний муніципальний кейс у Польщі, жовтень 2025</span>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <a href="#simulator-cta" class="btn btn-primary">Розрахувати вартість проблеми вашого регіону</a>
+          </div>
+          <p class="micro-text">Громада від 10 тис. мешканців або агропідприємство? Дізнайтесь, чи може ваш об'єкт стати ядром регіонального хабу →</p>
+        </div>
+        <div class="hero-visual">
+          <div class="glass-card tech-card">
+            <div class="card-header">
+              <div class="glow-dot-container">
+                <span class="glow-dot"></span>
+              </div>
+              <span class="header-title">Установка молекулярного компонування BioTC</span>
+            </div>
+            <div class="card-body">
+              <div class="flow-chart">
+                <div class="flow-node node-in">
+                  <span class="node-label">Сировина</span>
+                  <span class="node-sub">80% вл.</span>
+                </div>
+
+                <svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+
+                <div class="flow-node node-core">
+                  <span class="node-label">Установка</span>
+                  <span class="node-sub">BioTC</span>
+                </div>
+
+                <svg class="flow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+
+                <div class="flow-node node-out">
+                  <span class="node-label">Ековугілля</span>
+                  <span class="node-sub">&lt;10% вл.</span>
+                </div>
+              </div>
+
+              <div class="telemetry">
+                <div class="telemetry-item">
+                  <div class="t-left">
+                    <svg class="t-icon icon-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 14h6v6H4zm10-10h6v6h-6zm0 10h6v6h-6zM4 4h6v6H4z"/>
+                      <path d="M12 2v20M2 12h20"/>
+                    </svg>
+                    <span class="t-label">Зменшення об'єму</span>
+                  </div>
+                  <span class="t-value text-orange">-75%</span>
+                </div>
+
+                <div class="telemetry-item">
+                  <div class="t-left">
+                    <svg class="t-icon icon-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                      <path d="m9 11 2 2 4-4"/>
+                    </svg>
+                    <span class="t-label">Деструкція PFAS &amp; пластику</span>
+                  </div>
+                  <span class="t-value text-teal">Повна (100%)</span>
+                </div>
+
+                <div class="telemetry-item">
+                  <div class="t-left">
+                    <svg class="t-icon icon-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-11-7-11S5 10.7 5 15a7 7 0 0 0 7 7z"/>
+                    </svg>
+                    <span class="t-label">Кінцева вологість</span>
+                  </div>
+                  <span class="t-value text-blue">&lt; 10% <span class="t-val-sub">(вугілля)</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BLOCK 2: Problem Section                     -->
+    <!-- ============================================ -->
+    <section class="problem-section" id="problem">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2>Традиційна утилізація мулу вмирає. Не метафорично — фінансово та юридично.</h2>
+        </div>
+
+        <div class="problem-grid">
+          <div class="glass-card">
+            <div class="card-icon">🔥</div>
+            <h3>Сушіння мулу з'їдає бюджет</h3>
+            <p>Термічне сушіння потребує 800–1000 кВт·год тепла на кожну тонну випареної води. Будь-який стрибок тарифів на газ перетворює очисні споруди на збиткове підприємство. Це вже відбувається.</p>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-icon">🚫</div>
+            <h3>Нікуди везти</h3>
+            <p>У Польщі лише 11 інсинераторів для спалювання мулу на всю країну. Черги, залежність від однієї труби, ризик зупинки — це не гіпотетичний сценарій. Це поточна реальність для десятків муніципалітетів.</p>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-icon">⚖️</div>
+            <h3>Директива ЄС закриває старі виходи</h3>
+            <p>PFAS, мікропластик та важкі метали у традиційному мулі роблять його використання в сільському господарстві нелегальним. Оновлена UWWTD та регламент ЄС щодо добрив — це не майбутнє. Штрафи вже нараховуються.</p>
+          </div>
+        </div>
+
+        <div class="section-link-row text-center">
+          <a href="technology.html" class="section-link">Як це вирішується технологічно →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BLOCK 3: Solution Section                    -->
+    <!-- ============================================ -->
+    <section class="solution-section" id="solution">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2>Ми не продаємо реактори. Ми проєктуємо інфраструктуру регіону.</h2>
+          <p class="section-desc">Один регіональний хаб для конгломерації ~100 000 мешканців — це не велика установка. Це інша економічна модель.</p>
+        </div>
+
+        <!-- Hub & Spoke Diagram -->
+        <div class="hub-spoke-diagram" aria-label="Схема регіонального хабу BioTC">
+          <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Діаграма Hub and Spoke: Регіональний хаб BioTC з підключеними містами та підприємствами">
+            <defs>
+              <linearGradient id="hub-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#046BD2"/>
+                <stop offset="100%" stop-color="#0D9488"/>
+              </linearGradient>
+              <filter id="hub-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#046BD2" flood-opacity="0.2"/>
+              </filter>
+            </defs>
+
+            <!-- Connection Lines -->
+            <line x1="300" y1="200" x2="120" y2="80" stroke="#046BD2" stroke-width="2" stroke-dasharray="6,4" opacity="0.4"/>
+            <line x1="300" y1="200" x2="480" y2="80" stroke="#046BD2" stroke-width="2" stroke-dasharray="6,4" opacity="0.4"/>
+            <line x1="300" y1="200" x2="80" y2="280" stroke="#046BD2" stroke-width="2" stroke-dasharray="6,4" opacity="0.4"/>
+            <line x1="300" y1="200" x2="520" y2="280" stroke="#046BD2" stroke-width="2" stroke-dasharray="6,4" opacity="0.4"/>
+            <line x1="300" y1="200" x2="300" y2="50" stroke="#046BD2" stroke-width="2" stroke-dasharray="6,4" opacity="0.4"/>
+
+            <!-- Output Arrows -->
+            <line x1="300" y1="260" x2="180" y2="360" stroke="#D35400" stroke-width="2.5" opacity="0.6"/>
+            <polygon points="176,356 184,364 188,354" fill="#D35400" opacity="0.8"/>
+            <line x1="300" y1="260" x2="300" y2="370" stroke="#0D9488" stroke-width="2.5" opacity="0.6"/>
+            <polygon points="296,366 304,366 300,376" fill="#0D9488" opacity="0.8"/>
+            <line x1="300" y1="260" x2="420" y2="360" stroke="#046BD2" stroke-width="2.5" opacity="0.6"/>
+            <polygon points="416,354 420,364 428,356" fill="#046BD2" opacity="0.8"/>
+
+            <!-- Satellite Nodes -->
+            <!-- Місто 1 -->
+            <circle cx="120" cy="80" r="32" fill="#FFFFFF" stroke="#046BD2" stroke-width="2"/>
+            <text x="120" y="76" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="600" fill="#0F172A">Місто 1</text>
+            <text x="120" y="90" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#475569">25k</text>
+
+            <!-- Місто 2 -->
+            <circle cx="480" cy="80" r="32" fill="#FFFFFF" stroke="#046BD2" stroke-width="2"/>
+            <text x="480" y="76" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="600" fill="#0F172A">Місто 2</text>
+            <text x="480" y="90" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#475569">30k</text>
+
+            <!-- Місто 3 -->
+            <circle cx="300" cy="50" r="32" fill="#FFFFFF" stroke="#046BD2" stroke-width="2"/>
+            <text x="300" y="46" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="600" fill="#0F172A">Місто 3</text>
+            <text x="300" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#475569">15k</text>
+
+            <!-- ОТГ -->
+            <circle cx="80" cy="280" r="32" fill="#FFFFFF" stroke="#0D9488" stroke-width="2"/>
+            <text x="80" y="278" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="600" fill="#0F172A">ОТГ</text>
+            <text x="80" y="292" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#475569">10k</text>
+
+            <!-- Агрохолдинг -->
+            <circle cx="520" cy="280" r="38" fill="#FFFFFF" stroke="#D35400" stroke-width="2"/>
+            <text x="520" y="274" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" font-weight="600" fill="#0F172A">Агро-</text>
+            <text x="520" y="288" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" font-weight="600" fill="#0F172A">холдинг</text>
+
+            <!-- Central Hub -->
+            <circle cx="300" cy="200" r="60" fill="url(#hub-grad)" filter="url(#hub-shadow)"/>
+            <text x="300" y="190" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">Регіональний</text>
+            <text x="300" y="205" text-anchor="middle" font-family="Outfit, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">ХАБ BioTC</text>
+            <text x="300" y="220" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="rgba(255,255,255,0.8)">~100k мешканців</text>
+
+            <!-- Output Labels -->
+            <text x="168" y="385" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12" font-weight="600" fill="#D35400">Ековугілля</text>
+            <text x="300" y="395" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12" font-weight="600" fill="#0D9488">Біогаз</text>
+            <text x="432" y="385" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12" font-weight="600" fill="#046BD2">Ліквор</text>
+          </svg>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="glass-card comparison-table">
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Параметр</th>
+                  <th>Мала установка для міста</th>
+                  <th>Регіональний хаб BioTC</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>CapEx на одиницю потужності</strong></td>
+                  <td class="text-red">Максимальний</td>
+                  <td class="text-teal font-bold">Оптимізований</td>
+                </tr>
+                <tr>
+                  <td><strong>Доступ до грантів ЄС</strong></td>
+                  <td class="text-red">Обмежений</td>
+                  <td class="text-teal font-bold">До 90% покриття</td>
+                </tr>
+                <tr>
+                  <td><strong>Окупність</strong></td>
+                  <td>4–5 років</td>
+                  <td class="text-teal font-bold">3–3.5 роки</td>
+                </tr>
+                <tr>
+                  <td><strong>Масштабованість</strong></td>
+                  <td>Фіксована</td>
+                  <td class="text-teal font-bold">Модульна</td>
+                </tr>
+                <tr>
+                  <td><strong>Юридичний статус продукту</strong></td>
+                  <td class="text-red">Відходи</td>
+                  <td class="text-teal font-bold">End-of-Waste (товар)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Callout Box -->
+        <div class="callout-box glass-card">
+          <h3>Шукаємо якірних партнерів</h3>
+          <p>Для запуску регіонального хабу потрібна точка опори. Громада від 10 000 мешканців або великий агрохолдинг можуть стати першопрохідцями — і отримати пріоритетний доступ до грантового фінансування та інженерного проєктування.</p>
+          <a href="#contact" class="btn btn-outline">Дізнатись умови партнерства →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BLOCK 4: Simulator Banner Section            -->
+    <!-- ============================================ -->
+    <section class="simulator-section" id="simulator-cta">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2>Завантажте звіт вашого водоканалу. Отримайте попередні розрахунки за 60 секунд.</h2>
+          <p class="section-desc">AI розпізнає параметри з вашого лабораторного звіту і розраховує потенціал об'єкта: вихід ековугілля, енергобаланс, клас хабу.</p>
+        </div>
+
+        <div class="simulator-banner glass-card">
+          <div class="simulator-columns">
+            <div class="simulator-col">
+              <h3 class="simulator-col-title">Миттєво, без реєстрації:</h3>
+              <ul class="simulator-checklist">
+                <li><span class="check-icon">✓</span> Вихід ековугілля (т/добу)</li>
+                <li><span class="check-icon">✓</span> Скорочення об'єму відходів (%)</li>
+                <li><span class="check-icon">✓</span> Клас об'єкта: малий / середній / хаб</li>
+              </ul>
+            </div>
+            <div class="simulator-col">
+              <h3 class="simulator-col-title">Після контакту з інженером:</h3>
+              <ul class="simulator-checklist">
+                <li><span class="check-icon">✓</span> Повний енергобаланс та біогаз</li>
+                <li><span class="check-icon">✓</span> Орієнтовна окупність (роки)</li>
+                <li><span class="check-icon">✓</span> Відповідність критеріям грантів ЄС</li>
+                <li><span class="check-icon">✓</span> Рекомендована конфігурація хабу</li>
+              </ul>
+            </div>
+          </div>
+          <div class="simulator-cta-row">
+            <a href="simulator.html" class="btn btn-primary btn-block">Запустити симулятор →</a>
+            <p class="micro-text">PDF, Excel або скан лабораторного звіту — AI зчитає все</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BLOCK 5: Trust Center Section                -->
+    <!-- ============================================ -->
+    <section class="proof-section" id="trust">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2>Технологія підтверджена комерційно, науково та індустріально.</h2>
+        </div>
+
+        <div class="proof-grid">
+          <!-- Card 1: MPWiK Lubin -->
+          <div class="glass-card proof-card">
+            <span class="proof-badge-text">Комерційний кейс</span>
+            <div class="proof-logo-wrapper">
+              <svg class="brand-logo-svg" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo MPWiK Lubin">
+                <path d="M10 20C10 14.48 14.48 10 20 10C25.52 10 30 14.48 30 20C30 25.52 25.52 30 20 30C14.48 30 10 25.52 10 20Z" fill="#046BD2" fill-opacity="0.2"/>
+                <path d="M20 5C11.72 5 5 11.72 5 20C5 28.28 11.72 35 20 35C28.28 35 35 28.28 35 20C35 11.72 28.28 5 20 5ZM20 28C15.58 28 12 24.42 12 20C12 15.58 15.58 12 20 12C24.42 12 28 15.58 28 20C28 24.42 24.42 28 20 28Z" fill="#046BD2"/>
+                <path d="M20 15L23 20H17L20 15Z" fill="#0D9488"/>
+                <text x="45" y="25" fill="#0F172A" font-family="Outfit" font-size="16" font-weight="800">MPWiK LUBIN</text>
+              </svg>
+            </div>
+            <h3>Перша комерційна угода</h3>
+            <p>Жовтень 2025. Муніципальне підприємство MPWiK Lubin офіційно викупило авторські права на концепцію TH-AD-HTC від BTC Consulting для модернізації очисних споруд міста Люблін. Це не пілот. Це комерційна угода з муніципалітетом.</p>
+          </div>
+
+          <!-- Card 2: AGH Kraków -->
+          <div class="glass-card proof-card">
+            <span class="proof-badge-text">Наукова база</span>
+            <div class="proof-logo-wrapper">
+              <svg class="brand-logo-svg" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo AGH Kraków">
+                <rect width="32" height="32" rx="4" fill="#0F172A"/>
+                <path d="M16 6L24 22H8L16 6Z" fill="#D35400"/>
+                <circle cx="16" cy="16" r="3" fill="#FFFFFF"/>
+                <text x="42" y="25" fill="#0F172A" font-family="Outfit" font-size="18" font-weight="800">AGH KRAKÓW</text>
+              </svg>
+            </div>
+            <h3>Академічна верифікація</h3>
+            <p>Дослідження ведуться разом із кафедрою теплоенергетики AGH Kraków. Dr hab. inż. Małgorzata Wilk входить до TOP 2% вчених світу за версією Stanford University. Фізика процесу підтверджена міжнародною базою WikiChar Hydrochar Network.</p>
+          </div>
+
+          <!-- Card 3: INTROL Group -->
+          <div class="glass-card proof-card">
+            <span class="proof-badge-text">Індустріальний масштаб</span>
+            <div class="proof-logo-wrapper">
+              <svg class="brand-logo-svg" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo INTROL Group">
+                <rect x="5" y="8" width="10" height="24" fill="#046BD2"/>
+                <rect x="20" y="8" width="10" height="24" fill="#0D9488"/>
+                <rect x="35" y="8" width="10" height="24" fill="#D35400"/>
+                <text x="55" y="26" fill="#0F172A" font-family="Outfit" font-size="18" font-weight="800">INTROL GROUP</text>
+              </svg>
+            </div>
+            <h3>Публічний генпідрядник</h3>
+            <p>Всі монтажні роботи та пусконалагодження виконує INTROL Group S.A. — великий польський холдинг, що котирується на Варшавській фондовій біржі. Це не субпідряд невідомої компанії. Це публічна корпоративна відповідальність.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BLOCK 6: Team Section                        -->
+    <!-- ============================================ -->
+    <section class="team-section" id="team">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2>Люди, які несуть персональну відповідальність за кожен проєкт.</h2>
+        </div>
+
+        <div class="team-grid">
+          <!-- Team Member 1 -->
+          <div class="team-card">
+            <div class="team-avatar" aria-hidden="true">ЄК</div>
+            <h3>Dr inż. Eugeniusz Krop</h3>
+            <span class="team-role">Технічний директор</span>
+            <p>28 масштабних промислових впроваджень. Серед клієнтів — ORLEN. Якщо технологія не працює в полі — він знає чому і як виправити.</p>
+          </div>
+
+          <!-- Team Member 2 -->
+          <div class="team-card">
+            <div class="team-avatar" aria-hidden="true">МВ</div>
+            <h3>Dr hab. inż. Małgorzata Wilk</h3>
+            <span class="team-role">R&amp;D та наукова верифікація</span>
+            <p>Завідувачка кафедри AGH Kraków. TOP 2% вчених світу (Stanford, 2024). Кожна цифра на цьому сайті пройшла через її лабораторію.</p>
+          </div>
+
+          <!-- Team Member 3 -->
+          <div class="team-card">
+            <div class="team-avatar" aria-hidden="true">АК</div>
+            <h3>Andrzej Krop</h3>
+            <span class="team-role">Управління проєктами</span>
+            <p>Екс-CEO міжнародних корпорацій. Гарантує, що проєкт завершується у строк та бюджет — не на папері, а в реальності.</p>
+          </div>
+
+          <!-- Team Member 4 -->
+          <div class="team-card">
+            <div class="team-avatar" aria-hidden="true">МК</div>
+            <h3>Max Koval</h3>
+            <span class="team-role">Міжнародний маркетинг</span>
+            <p>B2B-стратегія та позиціонування BioTC на ринках ЄС. Відповідає за те, щоб правильні люди знайшли цей сайт.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BLOCK 7: EU Grants Section                   -->
+    <!-- ============================================ -->
+    <section class="grants-section" id="grants">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2>До 90% вартості пілотного хабу — не з міського бюджету.</h2>
+          <p class="section-desc">Страх великих капітальних витрат — головна причина, чому муніципалітети відкладають рішення. Ми усуваємо цей страх конкретними інструментами.</p>
+        </div>
+
+        <div class="grants-list">
+          <div class="glass-card grant-item">
+            <div class="grant-number">01</div>
+            <div class="grant-content">
+              <h3>Програма EU LIFE</h3>
+              <p>Цільова грантова програма ЄС для екологічних інфраструктурних проєктів. Покриває до 90% CapEx на пілотні об'єкти. Ми знаємо критерії відбору — і проєктуємо хаби так, щоб під них підпадати.</p>
+            </div>
+          </div>
+
+          <div class="glass-card grant-item">
+            <div class="grant-number">02</div>
+            <div class="grant-content">
+              <h3>Академічне лобіювання через AGH</h3>
+              <p>Партнерство з університетом — це не лише наука. Це офіційний канал для подачі заявок на дослідницькі та інфраструктурні гранти ЄС, недоступні комерційним компаніям напряму.</p>
+            </div>
+          </div>
+
+          <div class="glass-card grant-item">
+            <div class="grant-number">03</div>
+            <div class="grant-content">
+              <h3>Грантова документація під ключ</h3>
+              <p>Розробка повного пакету грантової документації входить у вартість інженерного проєкту. Ви не шукаєте юристів та консультантів окремо.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-cta-row text-center">
+          <a href="#contact" class="btn btn-outline">Перевірити відповідність вашого об'єкта критеріям →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BLOCK 8: Contact Form Section                -->
+    <!-- ============================================ -->
+    <section class="contact-section" id="contact">
+      <div class="container contact-grid">
+        <!-- Text Block -->
+        <div class="contact-text">
+          <h2>Перший крок — безкоштовна інженерна оцінка об'єкта.</h2>
+          <p>Надішліть заявку. Наші інженери проаналізують вхідні дані та протягом 30-хвилинного дзвінка повідомлять: чи підходить ваш об'єкт для регіонального хабу та яке грантове фінансування доступне.</p>
+
+          <div class="contact-info-list">
+            <div class="info-item">
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="#0D9488" stroke-width="2" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span><a href="tel:+48608003458" style="color: inherit; text-decoration: none;">+48 608 003 458</a></span>
+            </div>
+            <div class="info-item">
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="#0D9488" stroke-width="2" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span><a href="mailto:andrzej.krop@biotc.pl" style="color: inherit; text-decoration: none;">andrzej.krop@biotc.pl</a></span>
+            </div>
+            <div class="info-item">
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="#0D9488" stroke-width="2" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>ul. Daszyńskiego 34/3, 44-100 Gliwice, Polska</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Block -->
+        <div class="glass-card contact-form-card">
+          <form id="rfq-form" action="#" method="POST" class="rfq-form-element" aria-describedby="form-status">
+            <!-- Honeypot spam prevention -->
+            <div class="visually-hidden">
+              <label for="honeypot">Не заповнюйте це поле, якщо ви людина:</label>
+              <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
+            </div>
+
+            <fieldset class="form-fieldset">
+              <legend class="visually-hidden">Контактні дані</legend>
+
+              <!-- Name Input -->
+              <div class="form-group">
+                <label for="user-name" class="floating-label">Ім'я та посада *</label>
+                <input type="text" id="user-name" name="name" required minlength="2" maxlength="100" autocomplete="name" placeholder=" ">
+                <span class="error-msg" id="name-error" aria-live="polite">Будь ласка, введіть ваше ім'я та посаду (мінімум 2 символи).</span>
+              </div>
+
+              <!-- Phone Input -->
+              <div class="form-group">
+                <label for="user-phone" class="floating-label">Контактний телефон *</label>
+                <input type="tel" id="user-phone" name="phone" required autocomplete="tel" inputmode="tel" pattern="^\+?[0-9\s\-()]{10,20}$" placeholder=" ">
+                <span class="error-msg" id="phone-error" aria-live="polite">Будь ласка, введіть дійсний номер телефону (наприклад: +380671234567).</span>
+              </div>
+
+              <!-- Company Input -->
+              <div class="form-group">
+                <label for="user-company" class="floating-label">Місто / назва підприємства *</label>
+                <input type="text" id="user-company" name="company" required minlength="2" placeholder=" ">
+                <span class="error-msg" id="company-error" aria-live="polite">Вкажіть назву підприємства чи населеного пункту.</span>
+              </div>
+
+              <!-- Select Dropdown -->
+              <div class="form-group">
+                <label for="object-type" class="floating-label">Тип об'єкта</label>
+                <select id="object-type" name="object_type">
+                  <option value="regional-utility">Регіональний водоканал (50k+)</option>
+                  <option value="community">Громада (від 10k)</option>
+                  <option value="agro">Агропромислове підприємство</option>
+                  <option value="other">Інше</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" id="form-submit-btn">Надіслати заявку на розгляд</button>
+              <p class="micro-text">Відповідь протягом 1 робочого дня. Без зобов'язань.</p>
+            </fieldset>
+
+            <!-- Success/Feedback Message -->
+            <div id="form-status" class="form-status-container hidden" role="status" aria-live="assertive"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="main-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="logo-text">BTC<span>Consulting</span></span>
+        <p>Комплексні clean-tech інженерні рішення у сфері водопостачання та переробки відходів очисних споруд. Проєктування регіональних хабів з грантовим фінансуванням ЄС.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Навігація</h4>
+        <ul>
+          <li><a href="technology.html">Технологія</a></li>
+          <li><a href="simulator.html">Симулятор</a></li>
+          <li><a href="#contact">Контакти</a></li>
+        </ul>
+      </div>
+      <div class="footer-copy">
+        <p>&copy; 2026 BTC Consulting Sp. z o.o. Усі права захищено.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script File -->
+  <script src="app.js"></script>
+</body>
+</html>

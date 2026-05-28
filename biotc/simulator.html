@@ -692,7 +692,6 @@
     var K5_IN_NOTE  = '{{sim.k5.instant.note}}';
     var K5_UNIT     = '{{sim.k5.unit}}';
     var K1_PE_TPL   = '{{sim.k1.pe.tpl}}';
-    var CURRENCY    = '{{sim.currency.symbol}}';
 
     /* Scenario definitions */
     var SC = {
@@ -761,7 +760,7 @@
     var shadowTimer;
 
     /* Formatters */
-    function fmtEur(v) { return (!isFinite(v)||v<0) ? '—' : Math.round(v).toLocaleString()+' '+CURRENCY; }
+    function fmtEur(v) { return (!isFinite(v)||v<0) ? '—' : '€ '+Math.round(v).toLocaleString(); }
     function fmtNum(n) { return (!isFinite(n)||n<0) ? '—' : Math.round(n).toLocaleString(); }
     function fmtHa(m2) {
       if (!isFinite(m2)||m2<=0) return '—';
