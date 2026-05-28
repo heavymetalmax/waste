@@ -14,6 +14,8 @@
   "lang.eu.tech.class": "",
   "img.team": "../img/team/",
 
+  "ui.rotate.hint": "Obróć telefon poziomo, aby wyświetlić tabelę",
+
   "header.logo.aria":       "Strona główna BTC Consulting",
   "header.nav.aria":        "Menu główne",
   "header.mobile.nav.aria": "Menu mobilne",

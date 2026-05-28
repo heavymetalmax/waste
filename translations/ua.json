@@ -16,6 +16,8 @@
   "lang.eu.tech.class": "",
   "img.team": "../img/team/",
 
+  "ui.rotate.hint": "Поверніть телефон горизонтально для перегляду таблиці",
+
   "header.logo.aria":       "Головна BTC Consulting",
   "header.nav.aria":        "Основне меню",
   "header.mobile.nav.aria": "Мобільне меню",
