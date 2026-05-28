@@ -2966,7 +2966,7 @@ section {
   margin-inline: -0.25rem;
   padding-inline: 0.25rem;
   padding-block: 0.15rem;
-  margin-block: 0.5rem 0.75rem;
+  margin-block: 0 0.8rem;
 }
 .srp-sc-tabs::-webkit-scrollbar { display: none; }
 

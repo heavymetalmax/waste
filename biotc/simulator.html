@@ -123,6 +123,16 @@
             <!-- Volume group (gradient highlight, always visible) -->
             <div class="srp-hl-group">
             <div class="srp-hl-inner srp-vol-group">
+
+              <!-- Scenario tabs (top of highlighted block) -->
+              <div class="srp-sc-tabs" role="tablist" aria-label="{{sim.sc.aria}}">
+                <button type="button" class="srp-sc-tab active" data-sc="fields"     role="tab">{{sim.sc.fields.tab}}</button>
+                <button type="button" class="srp-sc-tab"        data-sc="agro"       role="tab">{{sim.sc.agro.tab}}</button>
+                <button type="button" class="srp-sc-tab"        data-sc="compost"    role="tab">{{sim.sc.compost.tab}}</button>
+                <button type="button" class="srp-sc-tab"        data-sc="incinerate" role="tab">{{sim.sc.incinerate.tab}}</button>
+                <button type="button" class="srp-sc-tab"        data-sc="landfill"   role="tab">{{sim.sc.landfill.tab}}</button>
+              </div>
+
               <div class="srp-field">
                 <label class="srp-label">{{sim.input.volume.pe.label}}</label>
                 <div class="srp-stepper">
@@ -149,15 +159,6 @@
               </div>
             </div><!-- /.srp-hl-inner -->
             </div><!-- /.srp-hl-group -->
-
-            <!-- Scenario tabs -->
-            <div class="srp-sc-tabs" role="tablist" aria-label="{{sim.sc.aria}}">
-              <button type="button" class="srp-sc-tab active" data-sc="fields"     role="tab">{{sim.sc.fields.tab}}</button>
-              <button type="button" class="srp-sc-tab"        data-sc="agro"       role="tab">{{sim.sc.agro.tab}}</button>
-              <button type="button" class="srp-sc-tab"        data-sc="compost"    role="tab">{{sim.sc.compost.tab}}</button>
-              <button type="button" class="srp-sc-tab"        data-sc="incinerate" role="tab">{{sim.sc.incinerate.tab}}</button>
-              <button type="button" class="srp-sc-tab"        data-sc="landfill"   role="tab">{{sim.sc.landfill.tab}}</button>
-            </div>
 
             <!-- f1: scenario primary cost (always) -->
             <div class="srp-field" id="srp-f1-wrap">
