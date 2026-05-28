@@ -1835,30 +1835,6 @@ section {
      horizontal bleed from tech-hero-bg-icon is clipped by html{overflow-x:hidden} */
 }
 
-/* --- Rotating recycling icon (tech hero ↔ block-2 boundary) ----------- */
-.hero-recycle-wrap {
-  position: absolute;
-  right: 8%;
-  bottom: -80px;          /* center sits ~70px above section bottom */
-  width: min(300px, 42vw);
-  height: min(300px, 42vw);
-  pointer-events: none;
-}
-
-.hero-recycle-spin {
-  width: 100%;
-  height: 100%;
-  color: var(--color-teal);
-  opacity: 0.14;
-  animation: spin-slow 38s linear infinite;
-}
-
-.hero-recycle-spin svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
 @keyframes spin-slow {
   to { transform: rotate(360deg); }
 }
@@ -2241,7 +2217,15 @@ section {
 .models-bg-icon    { left: -4%; color: var(--color-teal); }
 .cta-bg-icon       { left: -4%; color: var(--color-accent); }
 
-.tech-hero-bg-icon { right: -6%; top: 0; color: var(--color-teal); width: min(1040px, 100vw); height: min(1040px, 100vw); }
+.tech-hero-bg-icon {
+  right: -6%;
+  top: 0;
+  color: var(--color-teal);
+  width: min(1040px, 100vw);
+  height: min(1040px, 100vw);
+  animation: spin-slow 38s linear infinite;
+  transform-origin: center center;
+}
 
 .tech-hero-bg-icon svg,
 .htc-bg-icon svg,
