@@ -3123,6 +3123,7 @@ section {
 }
 .rpt-dim   { color: var(--color-text-muted); font-weight: 400; }
 .rpt-teal  { color: var(--color-teal); }
+.rpt-neg   { color: var(--color-orange); }
 .src-val--warn { color: var(--color-orange); }
 .src-val--ok   { color: var(--color-teal); }
 

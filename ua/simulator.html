@@ -332,11 +332,11 @@
                   <span class="rpt-num rpt-dim" id="k2-total">—</span>
                 </div>
                 <div class="rpt-row">
-                  <span>Покриє грант</span>
+                  <span>Грант ЄС</span>
                   <span class="rpt-num rpt-dim" id="k2-grant">—</span>
                 </div>
                 <div class="rpt-row rpt-row--sum">
-                  <span>Залишається місту</span>
+                  <span>Власний внесок</span>
                   <span class="rpt-num" id="k2-city">—</span>
                 </div>
               </div>
@@ -357,7 +357,7 @@
                   <span class="rpt-num rpt-dim" id="k3-energy3">—</span>
                 </div>
                 <div class="rpt-row rpt-row--sum">
-                  <span>Загальний грошовий потік</span>
+                  <span>Разом / рік</span>
                   <span class="rpt-num rpt-teal" id="k3-cf">—</span>
                 </div>
                 <div class="rpt-row rpt-row--sub" id="k3-energy-status"></div>
@@ -795,7 +795,9 @@
     var shadowTimer;
 
     /* Formatters */
-    function fmtEur(v) { return (!isFinite(v)||v<0) ? '—' : '€ '+Math.round(v).toLocaleString(); }
+    function fmtEur(v)  { return (!isFinite(v)||v<0) ? '—' : '€ '+Math.round(v).toLocaleString(); }
+    function fmtCost(v) { return (!isFinite(v)||v<=0) ? '—' : '− € '+Math.round(v).toLocaleString(); }
+    function fmtGain(v) { return (!isFinite(v)||v<=0) ? '—' : '+ € '+Math.round(v).toLocaleString(); }
     function fmtNum(n) { return (!isFinite(n)||n<0) ? '—' : Math.round(n).toLocaleString(); }
     function fmtHa(m2) {
       if (!isFinite(m2)||m2<=0) return '—';
@@ -882,19 +884,27 @@
 
       /* K2 CapEx */
       var capexTotal = Volume * 250;
-      document.getElementById('k2-total').textContent = fmtEur(capexTotal);
-      document.getElementById('k2-grant').textContent = fmtEur(capexTotal - res.capex);
-      document.getElementById('k2-city').textContent  = fmtEur(res.capex);
+      var k2TotalEl = document.getElementById('k2-total');
+      k2TotalEl.textContent = fmtCost(capexTotal);
+      k2TotalEl.className = 'rpt-num rpt-dim';
+      var k2GrantEl = document.getElementById('k2-grant');
+      k2GrantEl.textContent = fmtGain(capexTotal - res.capex);
+      k2GrantEl.className = 'rpt-num rpt-teal';
+      var k2CityEl = document.getElementById('k2-city');
+      k2CityEl.textContent = fmtCost(res.capex);
+      k2CityEl.className = 'rpt-num rpt-neg';
 
       /* K3 Savings */
-      document.getElementById('k3-cf').textContent      = fmtEur(res.save);
-      document.getElementById('k3-disp').textContent    = fmtEur(res.f1s);
-      document.getElementById('k3-energy').textContent  = fmtEur(res.f2s);
-      document.getElementById('k3-energy3').textContent = fmtEur(res.f3s);
+      document.getElementById('k3-cf').textContent      = fmtGain(res.save);
+      document.getElementById('k3-disp').textContent    = fmtGain(res.f1s);
+      document.getElementById('k3-energy').textContent  = fmtGain(res.f2s);
+      document.getElementById('k3-energy3').textContent = fmtGain(res.f3s);
       document.getElementById('k3-energy-status').textContent = sc.k3status;
 
       /* K4 Land (always shown) */
-      document.getElementById('k4-value').textContent = fmtEur(res.landVal);
+      var k4ValEl = document.getElementById('k4-value');
+      k4ValEl.textContent = res.landVal > 0 ? fmtGain(res.landVal) : '—';
+      k4ValEl.className = res.landVal > 0 ? 'rpt-num rpt-teal' : 'rpt-num rpt-dim';
       document.getElementById('k4-area').textContent  = res.landVal>0
         ? K4_AREA_TPL.replace('{n}', fmtHa(Volume*1.5))
         : K4_NO_LAND;
