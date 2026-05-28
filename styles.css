@@ -1764,7 +1764,7 @@ section {
   .grid-4 { grid-template-columns: 1fr; }
 
   .hero-section {
-    padding-block-start: calc(70px + var(--space-lg));
+    padding-block-start: calc(70px + 3.5rem); /* ~126px total — was 110px, gives badge more room under header */
   }
 
   /* Reduce from 2rem (32px) — uppercase weighted text needs more room to breathe */
