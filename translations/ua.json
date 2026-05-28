@@ -492,5 +492,10 @@
   "sim.preset.label": "Приклад:",
   "sim.preset.gmina": "Містечко · 20к р.е.",
   "sim.preset.city": "Місто · 100к р.е.",
-  "sim.preset.aglo": "Агломерація · 300к р.е."
+  "sim.preset.aglo": "Агломерація · 300к р.е.",
+  "sim.preset.muni.label": "Комунальні:",
+  "sim.preset.ind.label": "Промислові:",
+  "sim.preset.brewery": "Пивзавод · 60к р.е.",
+  "sim.preset.sugar": "Цукрозавод · 25к р.е.",
+  "sim.preset.agro": "Агрохолдинг · 50к р.е."
 }

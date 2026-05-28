@@ -491,5 +491,10 @@
   "sim.preset.label": "Przykład:",
   "sim.preset.gmina": "Gmina · 20k r.e.",
   "sim.preset.city": "Miasto · 100k r.e.",
-  "sim.preset.aglo": "Aglomeracja · 300k r.e."
+  "sim.preset.aglo": "Aglomeracja · 300k r.e.",
+  "sim.preset.muni.label": "Komunalne:",
+  "sim.preset.ind.label": "Przemysłowe:",
+  "sim.preset.brewery": "Browar · 60k r.e.",
+  "sim.preset.sugar": "Cukrownia · 25k r.e.",
+  "sim.preset.agro": "Agroprzed. · 50k r.e."
 }
