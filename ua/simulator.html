@@ -180,7 +180,7 @@
 
           <!-- ── LEFT: Inputs ───────────────────────────────────── -->
           <div class="srp-panel">
-            <h2 class="srp-section-h">1. Параметри об'єкта</h2>
+            <p class="section-label">Параметри об'єкта</p>
 
             <!-- Quick presets -->
             <div class="srp-presets-wrap">
@@ -270,7 +270,7 @@
             <div class="srp-field" id="srp-land-wrap" style="display:none">
               <div class="srp-label-row">
                 <label class="srp-label">Ціна 1 сотки земельної ділянки</label>
-                <span class="srp-label-unit">€/сот.</span>
+                <span class="srp-label-unit">Кошти/сот.</span>
               </div>
               <div class="srp-stepper">
                 <button type="button" class="srp-btn-step" data-for="srp-land" data-dir="-1">&#8722;</button>
@@ -299,7 +299,7 @@
 
           <!-- ── RIGHT: Results ─────────────────────────────────── -->
           <div class="srp-results">
-            <h2 class="srp-section-h">Результати</h2>
+            <p class="section-label">Результати</p>
 
             <!-- Unified results card -->
             <div class="src-card">
@@ -702,12 +702,13 @@
     var K5_IN_NOTE  = 'Вартість звільненої землі повністю покриває частку міста у CapEx.';
     var K5_UNIT     = 'р.';
     var K1_PE_TPL   = 'Еквівалент населення: {n} р.е.';
+    var CURRENCY    = 'Кошти';
 
     /* Scenario definitions */
     var SC = {
       fields: {
-        f1: { label:'Утилізація та вивіз мулу', unit:'€/т', hint:'Поточна вартість: полімери, транспорт, подальша утилізація', def:60,  step:5  },
-        f2: { label:'Рекультивація майданчиків', unit:'€/т', hint:'Витрати на відновлення і повернення площ у використання', def:30,  step:5,  show:true },
+        f1: { label:'Утилізація та вивіз мулу', unit:'Кошти/т', hint:'Поточна вартість: полімери, транспорт, подальша утилізація', def:60,  step:5  },
+        f2: { label:'Рекультивація майданчиків', unit:'Кошти/т', hint:'Витрати на відновлення і повернення площ у використання', def:30,  step:5,  show:true },
         land: true,
         k3title: 'Уникнуті поточні витрати',
         k3status: 'Мул ущільнено у 5 разів · Майданчики вивільнено',
@@ -718,8 +719,8 @@
         }
       },
       agro: {
-        f1: { label:'Флокулянти / хімія', unit:'€/т', hint:'Витрати на поліелектроліти для зневоднення центрифугами', def:40, step:5 },
-        f2: { label:'Логістика на поля', unit:'€/т', hint:'Транспорт + плата фермерам. Економія ×0.8 від скорочення маси HTC', def:30, step:5, show:true },
+        f1: { label:'Флокулянти / хімія', unit:'Кошти/т', hint:'Витрати на поліелектроліти для зневоднення центрифугами', def:40, step:5 },
+        f2: { label:'Логістика на поля', unit:'Кошти/т', hint:'Транспорт + плата фермерам. Економія ×0.8 від скорочення маси HTC', def:30, step:5, show:true },
         land: false,
         k3title: 'Уникнуті поточні витрати',
         k3status: 'Маса скорочена на 80% · Усунені виплати фермерам',
@@ -729,8 +730,8 @@
         }
       },
       compost: {
-        f1: { label:'Тріска / структуроутворювач', unit:'€/т', hint:'Ціна деревної тріски або іншого структуроутворювача', def:35, step:5 },
-        f2: { label:'Операційні витрати', unit:'€/т', hint:'Паливо, техніка, 6 міс. обслуговування майданчика', def:20, step:5, show:true },
+        f1: { label:'Тріска / структуроутворювач', unit:'Кошти/т', hint:'Ціна деревної тріски або іншого структуроутворювача', def:35, step:5 },
+        f2: { label:'Операційні витрати', unit:'Кошти/т', hint:'Паливо, техніка, 6 міс. обслуговування майданчика', def:20, step:5, show:true },
         land: false,
         k3title: 'Уникнуті поточні витрати',
         k3status: '2 год замість 6 міс. · Детоксикація мікропластику',
@@ -740,8 +741,8 @@
         }
       },
       incinerate: {
-        f1: { label:'Газ / енергія для сушарки', unit:'€/т', hint:'Вартість газу або ел. енергії для сушарки до ≥85% СР', def:80,  step:10 },
-        f2: { label:'Gate Fee інсинератора', unit:'€/т сух.', hint:'Плата заводу за прийом. Маса сухого залишку = M×0.2', def:120, step:10, show:true },
+        f1: { label:'Газ / енергія для сушарки', unit:'Кошти/т', hint:'Вартість газу або ел. енергії для сушарки до ≥85% СР', def:80,  step:10 },
+        f2: { label:'Gate Fee інсинератора', unit:'Кошти/т сух.', hint:'Плата заводу за прийом. Маса сухого залишку = M×0.2', def:120, step:10, show:true },
         f3label: 'Біогаз → електроенергія (€160/МВт·год)',
         land: false,
         k3title: 'Уникнуті витрати + дохід від енергії',
@@ -754,7 +755,7 @@
         }
       },
       landfill: {
-        f1: { label:'Екологічний податок', unit:'€/т', hint:'Ставка екоподатку / штрафи за захоронення. Враховуйте зростання', def:50, step:10 },
+        f1: { label:'Екологічний податок', unit:'Кошти/т', hint:'Ставка екоподатку / штрафи за захоронення. Враховуйте зростання', def:50, step:10 },
         f2: { show:false },
         land: false,
         k3title: 'Уникнуті санкції та штрафи',
@@ -770,7 +771,7 @@
     var shadowTimer;
 
     /* Formatters */
-    function fmtEur(v) { return (!isFinite(v)||v<0) ? '—' : '€ '+Math.round(v).toLocaleString(); }
+    function fmtEur(v) { return (!isFinite(v)||v<0) ? '—' : Math.round(v).toLocaleString()+' '+CURRENCY; }
     function fmtNum(n) { return (!isFinite(n)||n<0) ? '—' : Math.round(n).toLocaleString(); }
     function fmtHa(m2) {
       if (!isFinite(m2)||m2<=0) return '—';
