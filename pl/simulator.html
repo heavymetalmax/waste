@@ -304,61 +304,82 @@
           <p class="section-label">Wyniki</p>
           <div class="srp-results">
 
-            <!-- Unified results card -->
-            <div class="src-card">
+            <!-- Results card — financial report style -->
+            <div class="rpt-card">
 
-              <!-- Hero: ROI -->
-              <div class="src-hero">
-                <div class="src-hero-lbl">Okres zwrotu dla miasta (ROI)</div>
-                <div class="src-hero-val" id="k5-val">—</div>
-                <div class="src-hero-note" id="k5-note"></div>
+              <!-- ROI headline -->
+              <div class="rpt-kpi">
+                <span class="rpt-kpi-lbl">Okres zwrotu dla miasta (ROI)</span>
+                <span class="rpt-kpi-val" id="k5-val">—</span>
               </div>
+              <p class="rpt-kpi-note" id="k5-note"></p>
 
               <!-- UWWTD -->
-              <div class="src-block">
-                <div class="src-block-head">Dyrektywa (UE) 2024/3019 UWWTD</div>
-                <div class="src-block-val src-val--warn" id="k1-val">—</div>
-                <div class="src-block-sub" id="k1-sub"></div>
-                <div class="src-block-note" id="k1-pe"></div>
+              <div class="rpt-section">
+                <div class="rpt-sh">Dyrektywa (UE) 2024/3019 UWWTD</div>
+                <div class="rpt-row">
+                  <span id="k1-sub"></span>
+                  <span class="rpt-num src-val--warn" id="k1-val">—</span>
+                </div>
+                <div class="rpt-row rpt-row--sub" id="k1-pe"></div>
               </div>
 
               <!-- CapEx -->
-              <div class="src-block">
-                <div class="src-block-head">Nakłady inwestycyjne</div>
-                <div class="src-block-val" id="k2-total"></div>
-                <div class="src-rows">
-                  <div class="src-row"><span>Pokryje grant</span><span class="text-teal" id="k2-grant"></span></div>
-                  <div class="src-row src-row--bold"><span>Pozostaje miastu</span><span class="text-accent" id="k2-city"></span></div>
+              <div class="rpt-section">
+                <div class="rpt-sh">Nakłady inwestycyjne</div>
+                <div class="rpt-row">
+                  <span>Pełny CapEx</span>
+                  <span class="rpt-num rpt-dim" id="k2-total">—</span>
+                </div>
+                <div class="rpt-row">
+                  <span>Pokryje grant</span>
+                  <span class="rpt-num rpt-dim" id="k2-grant">—</span>
+                </div>
+                <div class="rpt-row rpt-row--sum">
+                  <span>Pozostaje miastu</span>
+                  <span class="rpt-num" id="k2-city">—</span>
                 </div>
               </div>
 
-              <!-- Savings (scenario-adaptive) -->
-              <div class="src-block">
-                <div class="src-block-head" id="k3-title">Roczne oszczędności (Utylizacja + Energia)</div>
-                <div class="src-block-val text-teal" id="k3-cf"></div>
-                <div class="src-rows">
-                  <div class="src-row"><span id="k3-row1-label">Utylizacja osadów</span><span id="k3-disp"></span></div>
-                  <div class="src-row" id="k3-row2"><span id="k3-row2-label">Sprzedaż energii elektrycznej</span><span id="k3-energy"></span></div>
-                  <div class="src-row" id="k3-row3" style="display:none"><span id="k3-row3-label">Biogaz → energia el. (€160/MWh)</span><span class="text-teal" id="k3-energy3"></span></div>
+              <!-- Savings -->
+              <div class="rpt-section">
+                <div class="rpt-sh" id="k3-title">Roczne oszczędności (Utylizacja + Energia)</div>
+                <div class="rpt-row">
+                  <span id="k3-row1-label">Utylizacja osadów</span>
+                  <span class="rpt-num rpt-dim" id="k3-disp">—</span>
                 </div>
-                <div class="src-block-note" id="k3-energy-status"></div>
+                <div class="rpt-row" id="k3-row2">
+                  <span id="k3-row2-label">Sprzedaż energii elektrycznej</span>
+                  <span class="rpt-num rpt-dim" id="k3-energy">—</span>
+                </div>
+                <div class="rpt-row" id="k3-row3" style="display:none">
+                  <span id="k3-row3-label">Biogaz → energia el. (€160/MWh)</span>
+                  <span class="rpt-num rpt-dim" id="k3-energy3">—</span>
+                </div>
+                <div class="rpt-row rpt-row--sum">
+                  <span>Łączny przepływ pieniężny</span>
+                  <span class="rpt-num rpt-teal" id="k3-cf">—</span>
+                </div>
+                <div class="rpt-row rpt-row--sub" id="k3-energy-status"></div>
               </div>
 
               <!-- Land asset -->
-              <div class="src-block">
-                <div class="src-block-head">Uwolniony aktyw (Zamknięcie składowisk osadów)</div>
-                <div class="src-block-val" id="k4-value"></div>
-                <div class="src-block-note" id="k4-area"></div>
+              <div class="rpt-section">
+                <div class="rpt-sh">Uwolniony aktyw (Zamknięcie składowisk osadów)</div>
+                <div class="rpt-row">
+                  <span>Wartość rynkowa</span>
+                  <span class="rpt-num" id="k4-value">—</span>
+                </div>
+                <div class="rpt-row rpt-row--sub" id="k4-area"></div>
               </div>
 
               <!-- Conclusion -->
-              <div class="src-sep"></div>
-              <div class="src-conclusion">
-                <div class="src-concl-head">Wniosek i rekomendacje</div>
-                <p class="src-concl-text" id="src-conclusion"></p>
+              <div class="rpt-conclusion">
+                <div class="rpt-sh">Wniosek i rekomendacje</div>
+                <p class="rpt-conclusion-body" id="src-conclusion"></p>
               </div>
 
-            </div><!-- /.src-card -->
+            </div><!-- /.rpt-card -->
 
             <!-- CTA -->
             <button class="srp-cta-btn" id="srp-cta-btn" onclick="openLeadModal()">
@@ -850,11 +871,11 @@
       var k1ValEl = document.getElementById('k1-val');
       document.getElementById('k1-pe').textContent = K1_PE_TPL.replace('{n}', fmtNum(PE));
       if (PE>0 && PE<=1000) {
-        k1ValEl.className = 'src-block-val src-val--ok';
+        k1ValEl.className = 'rpt-num src-val--ok';
         k1ValEl.textContent = K1_EXEMPT;
         document.getElementById('k1-sub').textContent = K1_EX_NOTE;
       } else {
-        k1ValEl.className = 'src-block-val src-val--warn';
+        k1ValEl.className = 'rpt-num src-val--warn';
         k1ValEl.textContent = PE>150000?'2033':(PE>10000?'2036':'2039');
         document.getElementById('k1-sub').textContent = PE>150000?K1_SUB_A:(PE>100000?K1_SUB_B:(PE>10000?K1_SUB_C:K1_SUB_D));
       }
@@ -883,11 +904,11 @@
       var k5ValEl  = document.getElementById('k5-val');
       var k5NoteEl = document.getElementById('k5-note');
       if (res.save<=0 || roiYears<=0) {
-        k5ValEl.className  = 'src-hero-val src-val--ok';
+        k5ValEl.className  = 'rpt-kpi-val src-val--ok';
         k5ValEl.textContent  = K5_INSTANT;
         k5NoteEl.textContent = K5_IN_NOTE;
       } else {
-        k5ValEl.className  = 'src-hero-val';
+        k5ValEl.className  = 'rpt-kpi-val';
         k5ValEl.textContent  = roiYears.toLocaleString(undefined,{maximumFractionDigits:1})+' '+K5_UNIT;
         k5NoteEl.textContent = K5_NOTE;
       }
