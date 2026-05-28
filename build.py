@@ -11,7 +11,7 @@ import json, re, sys, pathlib, shutil
 ROOT  = pathlib.Path(__file__).parent
 TDIR  = ROOT / "translations"
 TMPL  = ROOT / "biotc"             # source templates
-PAGES = ["index.html", "technology.html"]
+PAGES = ["index.html", "technology.html", "simulator.html"]
 LANGS = ["ua", "pl", "eu"]
 
 CHECK_ONLY = "--check" in sys.argv
@@ -29,6 +29,8 @@ ROUTING_KEYS = {
     "lang.ua.class", "lang.pl.class", "lang.eu.class",
     "lang.ua.tech.url", "lang.pl.tech.url", "lang.eu.tech.url",
     "lang.ua.tech.class", "lang.pl.tech.class", "lang.eu.tech.class",
+    "lang.ua.sim.url", "lang.pl.sim.url", "lang.eu.sim.url",
+    "lang.ua.sim.class", "lang.pl.sim.class", "lang.eu.sim.class",
 }
 
 def merge(lang):

@@ -12,6 +12,12 @@
   "lang.ua.tech.class": "",
   "lang.pl.tech.class": "active",
   "lang.eu.tech.class": "",
+  "lang.ua.sim.url":   "../ua/simulator.html",
+  "lang.pl.sim.url":   "simulator.html",
+  "lang.eu.sim.url":   "../eu/simulator.html",
+  "lang.ua.sim.class": "",
+  "lang.pl.sim.class": "active",
+  "lang.eu.sim.class": "",
   "img.team": "../img/team/",
 
   "ui.rotate.hint": "Obróć telefon poziomo, aby wyświetlić tabelę",
@@ -386,5 +392,68 @@
   "tech.models.m4.spec4.v":  "Z powrotem do komory fermentacyjnej",
   "tech.models.m4.spec5.l":  "Projektowanie",
   "tech.models.m4.spec5.v":  "Indywidualne",
-  "tech.models.m4.badge":    "Cykl energetycznie dodatni · CHP"
+  "tech.models.m4.badge":    "Cykl energetycznie dodatni · CHP",
+
+  "sim.meta.title": "Symulator zwrotu z inwestycji BioTC | BTC Consulting",
+  "sim.meta.desc":  "Oblicz zwrot z inwestycji BioTC w 60 sekund: CapEx, terminy UWWTD, roczne oszczędności i wartość gruntu dla Twojego obiektu.",
+
+  "sim.hero.badge": "Model unikniętych kosztów · Avoided Costs Model",
+  "sim.hero.h1":    "Oblicz zwrot z inwestycji <span class=\"h1-solution\">dla swojego obiektu w 60 sekund.</span>",
+  "sim.hero.desc":  "Podaj wolumen osadów i parametry obiektu — symulator natychmiast pokaże CapEx, roczne oszczędności, wartość gruntu i okres zwrotu po dofinansowaniu.",
+
+  "sim.input.label":           "Parametry",
+  "sim.input.volume.label":    "Wolumen osadów",
+  "sim.input.unit.pe":         "RLM",
+  "sim.input.unit.ty":         "t/rok",
+  "sim.input.volume.hint":     "1 RLM = 0,1 t suchych osadów rocznie",
+  "sim.input.grant.label":     "Dofinansowanie",
+  "sim.input.grant.hint":      "Udział CapEx pokrywany przez grant UE",
+  "sim.input.cost_disp.label": "Koszt utylizacji",
+  "sim.input.cost_disp.unit":  "€/t",
+  "sim.input.cost_disp.hint":  "Bieżąca cena wywozu osadów",
+  "sim.input.tariff.label":    "Taryfa energii",
+  "sim.input.tariff.unit":     "€/MWh",
+  "sim.input.tariff.hint":     "Zakupowa taryfa energii elektrycznej",
+  "sim.input.land.label":      "Cena gruntu",
+  "sim.input.land.unit":       "€/m²",
+  "sim.input.land.hint":       "Rynkowa cena działki przemysłowej w regionie",
+
+  "sim.result.label": "Wyniki",
+
+  "sim.k1.title":       "Termin UWWTD",
+  "sim.k1.note":        "termin wdrożenia dyrektywy",
+  "sim.k1.exempt":      "Poza dyrektywą",
+  "sim.k1.exempt.note": "< 1 000 RLM — dyrektywa nie ma zastosowania",
+
+  "sim.k2.title": "Nakłady inwestycyjne",
+  "sim.k2.total": "Pełny CapEx",
+  "sim.k2.grant": "Pokryje grant",
+  "sim.k2.city":  "Pozostaje miastu",
+  "sim.k2.note":  "€ 250 / t·rok — wskaźnik bazowy",
+
+  "sim.k3.title":  "Roczne oszczędności",
+  "sim.k3.disp":   "Utylizacja osadów",
+  "sim.k3.energy": "Sprzedaż energii elektrycznej",
+  "sim.k3.cf":     "Łączny przepływ pieniężny",
+  "sim.k3.note":   "0,1 MWh/t · taryfa",
+
+  "sim.k4.title": "Aktywo gruntowe",
+  "sim.k4.area":  "Powierzchnia działki",
+  "sim.k4.value": "Wartość rynkowa",
+  "sim.k4.note":  "1,5 m²/t: warstwy suszenia, drogi, strefy sanitarne",
+
+  "sim.k5.title":        "Zwrot z inwestycji",
+  "sim.k5.note":         "po dofinansowaniu i aktywie gruntowym",
+  "sim.k5.instant":      "Natychmiastowy",
+  "sim.k5.instant.note": "Wartość gruntu przekracza wkład własny miasta",
+  "sim.k5.unit":         "l.",
+
+  "sim.vol.conv.pe": "RLM",
+  "sim.vol.conv.ty": "t/rok",
+  "sim.vol.conv.ha": "ha",
+
+  "sim.disclaimer": "Obliczenia mają charakter orientacyjny i opierają się na branżowych wartościach średnich. Aby uzyskać dokładne uzasadnienie techniczno-ekonomiczne, zamów bezpłatną ocenę inżynierską.",
+  "sim.cta.label":  "Następny krok",
+  "sim.cta.h2":     "Uzyskaj dokładny rachunek dla swojego obiektu.",
+  "sim.cta.p":      "Symulator pokazuje ogólny obraz. Nasi inżynierowie uszczegółowią parametry konkretnego obiektu i przygotują kompletny pakiet dokumentacji grantowej."
 }

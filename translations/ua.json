@@ -14,6 +14,12 @@
   "lang.ua.tech.class": "active",
   "lang.pl.tech.class": "",
   "lang.eu.tech.class": "",
+  "lang.ua.sim.url":   "simulator.html",
+  "lang.pl.sim.url":   "../pl/simulator.html",
+  "lang.eu.sim.url":   "../eu/simulator.html",
+  "lang.ua.sim.class": "active",
+  "lang.pl.sim.class": "",
+  "lang.eu.sim.class": "",
   "img.team": "../img/team/",
 
   "ui.rotate.hint": "Поверніть телефон горизонтально для перегляду таблиці",
@@ -388,5 +394,68 @@
   "tech.models.m4.spec4.v":  "Назад у метантенк",
   "tech.models.m4.spec5.l":  "Проєктування",
   "tech.models.m4.spec5.v":  "Індивідуальне",
-  "tech.models.m4.badge":    "Енергопозитивний цикл · CHP"
+  "tech.models.m4.badge":    "Енергопозитивний цикл · CHP",
+
+  "sim.meta.title": "Симулятор окупності BioTC | BTC Consulting",
+  "sim.meta.desc":  "Розрахуйте окупність BioTC за 60 секунд: CapEx, дедлайни UWWTD, щорічна економія та земельний актив для вашого об'єкта.",
+
+  "sim.hero.badge": "Модель уникнутих витрат · Avoided Costs Model",
+  "sim.hero.h1":    "Розрахуйте окупність <span class=\"h1-solution\">вашого об'єкта за 60 секунд.</span>",
+  "sim.hero.desc":  "Вкажіть обсяг мулу та параметри — симулятор миттєво покаже CapEx, щорічну економію, земельний актив і термін окупності після гранту.",
+
+  "sim.input.label":           "Параметри",
+  "sim.input.volume.label":    "Обсяг мулу",
+  "sim.input.unit.pe":         "p.e. (РЛМ)",
+  "sim.input.unit.ty":         "т/рік",
+  "sim.input.volume.hint":     "1 р.е. = 0,1 т сухого мулу на рік",
+  "sim.input.grant.label":     "Грантове покриття",
+  "sim.input.grant.hint":      "Частка CapEx, яку покриває грант ЄС",
+  "sim.input.cost_disp.label": "Вартість утилізації",
+  "sim.input.cost_disp.unit":  "€/т",
+  "sim.input.cost_disp.hint":  "Поточна ціна вивезення мулу",
+  "sim.input.tariff.label":    "Тариф електроенергії",
+  "sim.input.tariff.unit":     "€/МВт·год",
+  "sim.input.tariff.hint":     "Закупівельний тариф на ел. енергію",
+  "sim.input.land.label":      "Ціна землі",
+  "sim.input.land.unit":       "€/м²",
+  "sim.input.land.hint":       "Ринкова ціна промділянки в регіоні",
+
+  "sim.result.label": "Результати",
+
+  "sim.k1.title":       "Дедлайн UWWTD",
+  "sim.k1.note":        "дедлайн для впровадження директиви",
+  "sim.k1.exempt":      "Поза директивою",
+  "sim.k1.exempt.note": "< 1 000 р.е. — директива не застосовується",
+
+  "sim.k2.title": "Капітальні витрати",
+  "sim.k2.total": "Повний CapEx",
+  "sim.k2.grant": "Покриє грант",
+  "sim.k2.city":  "Залишається місту",
+  "sim.k2.note":  "€ 250 / т·рік — базовий індекс",
+
+  "sim.k3.title":  "Щорічна економія",
+  "sim.k3.disp":   "Утилізація мулу",
+  "sim.k3.energy": "Продаж електроенергії",
+  "sim.k3.cf":     "Загальний грошовий потік",
+  "sim.k3.note":   "0,1 МВт·год/т · тариф",
+
+  "sim.k4.title": "Земельний актив",
+  "sim.k4.area":  "Площа ділянки",
+  "sim.k4.value": "Ринкова вартість",
+  "sim.k4.note":  "1,5 м²/т: шари сушіння, дороги, санзони",
+
+  "sim.k5.title":        "Окупність",
+  "sim.k5.note":         "після гранту та земельного активу",
+  "sim.k5.instant":      "Миттєва",
+  "sim.k5.instant.note": "Земельний актив перевищує внесок міста",
+  "sim.k5.unit":         "р.",
+
+  "sim.vol.conv.pe": "р.е.",
+  "sim.vol.conv.ty": "т/рік",
+  "sim.vol.conv.ha": "га",
+
+  "sim.disclaimer": "Розрахунки є орієнтовними на основі галузевих середніх. Для точного техніко-економічного обґрунтування — замовте безкоштовну інженерну оцінку.",
+  "sim.cta.label":  "Наступний крок",
+  "sim.cta.h2":     "Отримайте точний розрахунок під ваш об'єкт.",
+  "sim.cta.p":      "Симулятор показує загальну картину. Наші інженери уточнять параметри по конкретному об'єкту та підготують повний пакет грантової документації."
 }
