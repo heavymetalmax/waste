@@ -179,8 +179,9 @@
         <div class="srp-grid">
 
           <!-- ── LEFT: Inputs ───────────────────────────────────── -->
+          <div class="srp-col">
+          <p class="section-label">{{sim.input.label}}</p>
           <div class="srp-panel">
-            <p class="section-label">{{sim.input.label}}</p>
 
             <!-- Quick presets -->
             <div class="srp-presets-wrap">
@@ -294,12 +295,14 @@
               <p class="srp-hint">{{sim.input.grant.hint}}</p>
             </div>
           </div>
+          </div><!-- /.srp-col -->
           <!-- ── end LEFT ────────────────────────────────────────── -->
 
 
           <!-- ── RIGHT: Results ─────────────────────────────────── -->
+          <div class="srp-col">
+          <p class="section-label">{{sim.result.label}}</p>
           <div class="srp-results">
-            <p class="section-label">{{sim.result.label}}</p>
 
             <!-- Unified results card -->
             <div class="src-card">
@@ -363,6 +366,7 @@
             </button>
 
           </div>
+          </div><!-- /.srp-results-col -->
           <!-- ── end RIGHT ───────────────────────────────────────── -->
 
         </div><!-- .srp-grid -->

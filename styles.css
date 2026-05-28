@@ -2447,6 +2447,13 @@ section {
 }
 
 
+/* ── Column wrappers (label above card) ─────────────────────────────────── */
+.srp-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
 /* ── Input panel ─────────────────────────────────────────────────────────── */
 .srp-panel {
   position: sticky;
