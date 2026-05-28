@@ -3018,6 +3018,24 @@ section {
   min-height: 1.8em;
 }
 
+
+/* ── Field label row (label + inline unit) ──────────────────────────────── */
+.srp-label-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.srp-label-unit {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 /* ── CTA button ──────────────────────────────────────────────────────────── */
 .srp-cta-btn {
   width: 100%;

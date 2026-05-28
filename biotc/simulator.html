@@ -162,11 +162,13 @@
 
             <!-- f1: scenario primary cost (always) -->
             <div class="srp-field" id="srp-f1-wrap">
-              <label class="srp-label" id="srp-f1-label"></label>
+              <div class="srp-label-row">
+                <label class="srp-label" id="srp-f1-label"></label>
+                <span class="srp-label-unit" id="srp-f1-unit"></span>
+              </div>
               <div class="srp-stepper">
                 <button type="button" class="srp-btn-step" data-for="srp-f1" data-dir="-1">&#8722;</button>
                 <input type="number" id="srp-f1" value="60" min="0" step="5" inputmode="numeric" autocomplete="off">
-                <span class="srp-stepper-unit" id="srp-f1-unit">&#x20AC;/&#x442;</span>
                 <button type="button" class="srp-btn-step" data-for="srp-f1" data-dir="1">+</button>
               </div>
               <p class="srp-hint" id="srp-f1-hint"></p>
@@ -174,11 +176,13 @@
 
             <!-- f2: scenario secondary cost (conditional) -->
             <div class="srp-field" id="srp-f2-wrap">
-              <label class="srp-label" id="srp-f2-label"></label>
+              <div class="srp-label-row">
+                <label class="srp-label" id="srp-f2-label"></label>
+                <span class="srp-label-unit" id="srp-f2-unit"></span>
+              </div>
               <div class="srp-stepper">
                 <button type="button" class="srp-btn-step" data-for="srp-f2" data-dir="-1">&#8722;</button>
                 <input type="number" id="srp-f2" value="30" min="0" step="5" inputmode="numeric" autocomplete="off">
-                <span class="srp-stepper-unit" id="srp-f2-unit">&#x20AC;/&#x442;</span>
                 <button type="button" class="srp-btn-step" data-for="srp-f2" data-dir="1">+</button>
               </div>
               <p class="srp-hint" id="srp-f2-hint"></p>
@@ -186,11 +190,13 @@
 
             <!-- Land price (only for Mudovi polia scenario) -->
             <div class="srp-field" id="srp-land-wrap" style="display:none">
-              <label class="srp-label">{{sim.input.land.label}}</label>
+              <div class="srp-label-row">
+                <label class="srp-label">{{sim.input.land.label}}</label>
+                <span class="srp-label-unit">{{sim.input.land.unit}}</span>
+              </div>
               <div class="srp-stepper">
                 <button type="button" class="srp-btn-step" data-for="srp-land" data-dir="-1">&#8722;</button>
-                <input type="number" id="srp-land" value="500000" min="0" step="25000" inputmode="numeric" autocomplete="off">
-                <span class="srp-stepper-unit">{{sim.input.land.unit}}</span>
+                <input type="number" id="srp-land" value="5000" min="0" step="250" inputmode="numeric" autocomplete="off">
                 <button type="button" class="srp-btn-step" data-for="srp-land" data-dir="1">+</button>
               </div>
               <p class="srp-hint">{{sim.input.land.hint}}</p>
@@ -430,7 +436,7 @@
         k3status: '{{sim.sc.fields.k3.status}}',
         calc: function(v, f1, f2, land, grant) {
           var f1s = v * f1, f2s = v * f2;
-          var lv  = (v * 1.5) * (land / 10000);
+          var lv  = (v * 1.5) * (land / 100);
           return { save:f1s+f2s, landVal:lv, capex:v*250*(1-grant/100), f1s:f1s, f2s:f2s, f3s:0 };
         }
       },
@@ -491,7 +497,7 @@
     function fmtNum(n) { return (!isFinite(n)||n<0) ? '—' : Math.round(n).toLocaleString(); }
     function fmtHa(m2) {
       if (!isFinite(m2)||m2<=0) return '—';
-      return (m2/10000).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
+      return (m2/100).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1});
     }
 
     /* Volume sync */
