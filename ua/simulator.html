@@ -204,11 +204,13 @@
 
             <!-- Grant % (always visible) -->
             <div class="srp-field">
-              <label class="srp-label">Грантове покриття ЄС</label>
+              <div class="srp-label-row">
+                <label class="srp-label">Грантове покриття ЄС</label>
+                <span class="srp-label-unit">%</span>
+              </div>
               <div class="srp-stepper">
                 <button type="button" class="srp-btn-step" data-for="srp-grant" data-dir="-1">&#8722;</button>
                 <input type="number" id="srp-grant" value="75" min="0" max="90" step="5" inputmode="numeric" autocomplete="off">
-                <span class="srp-stepper-unit srp-stepper-unit--pct">%</span>
                 <button type="button" class="srp-btn-step" data-for="srp-grant" data-dir="1">+</button>
               </div>
               <p class="srp-hint">Частка CapEx, яку покриває грант EU LIFE / Horizon</p>

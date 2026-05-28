@@ -3023,8 +3023,7 @@ section {
 .srp-label-row {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
-  gap: 0.5rem;
+  gap: 0.35rem;
 }
 
 .srp-label-unit {
