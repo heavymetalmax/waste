@@ -1995,28 +1995,7 @@ section {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
-  cursor: pointer;
-  transform-origin: top center;
   position: relative;
-  transition:
-    transform      0.45s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity        0.45s ease,
-    box-shadow     0.45s ease,
-    border-color   0.3s ease;
-}
-
-.config-card.is-side {
-  transform: scale(0.86) translateY(18px);
-  opacity: 0.52;
-}
-
-.config-card.is-active {
-  transform: scale(1.04);
-  opacity: 1;
-  box-shadow: 0 24px 64px rgba(4, 107, 210, 0.18);
-  border-color: var(--color-accent);
-  cursor: default;
-  z-index: 1;
 }
 
 
@@ -2406,15 +2385,6 @@ section {
   .model-cards { grid-template-columns: repeat(2, 1fr); }
   .config-cards { grid-template-columns: 1fr; }
 
-  /* Disable carousel focus/blur effect — show all 3 cards equally in a flat list */
-  .config-card.is-side,
-  .config-card.is-active {
-    transform: none;
-    opacity: 1;
-    box-shadow: var(--shadow-card);
-    border-color: var(--color-border);
-    cursor: default;
-  }
 }
 
 @media (max-width: 768px) {

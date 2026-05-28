@@ -262,7 +262,7 @@
         <div class="config-cards" id="config-carousel">
 
           <!-- Config A -->
-          <div class="glass-card config-card is-side" data-cidx="0">
+          <div class="glass-card config-card" data-cidx="0">
             <span class="scenario-badge">{{tech.configs.a.badge}}</span>
             <h3>{{tech.configs.a.h3}}</h3>
             <p class="scenario-for">{{tech.configs.a.for}}</p>
@@ -295,7 +295,7 @@
           </div>
 
           <!-- Config B -->
-          <div class="glass-card config-card is-active" data-cidx="1">
+          <div class="glass-card config-card" data-cidx="1">
             <span class="scenario-badge scenario-badge--teal">{{tech.configs.b.badge}}</span>
             <h3>{{tech.configs.b.h3}}</h3>
             <p class="scenario-for">{{tech.configs.b.for}}</p>
@@ -342,7 +342,7 @@
           </div>
 
           <!-- Config C -->
-          <div class="glass-card config-card is-side" data-cidx="2">
+          <div class="glass-card config-card" data-cidx="2">
             <span class="scenario-badge scenario-badge--teal">{{tech.configs.c.badge}}</span>
             <h3>{{tech.configs.c.h3}}</h3>
             <p class="scenario-for">{{tech.configs.c.for}}</p>
@@ -855,40 +855,6 @@
   </footer>
 
   <script src="../app.js"></script>
-
-  <!-- Config carousel — auto-rotate, click to pause & read -->
-  <script>
-  (function () {
-    var cards   = Array.from(document.querySelectorAll('#config-carousel .config-card'));
-    var active  = 1;      // Config B visible first
-    var AUTO_MS = 6000;   // seconds per card in auto-mode
-    var READ_MS = 10000;  // pause after manual click — enough to read
-    var timer   = null;
-
-    function goTo(idx, delay) {
-      active = ((idx % cards.length) + cards.length) % cards.length;
-      var dur = delay !== undefined ? delay : AUTO_MS;
-      cards.forEach(function (c, i) {
-        c.classList.toggle('is-active', i === active);
-        c.classList.toggle('is-side',   i !== active);
-      });
-      clearTimeout(timer);
-      timer = setTimeout(function () {
-        goTo(active + 1, AUTO_MS);
-      }, dur);
-    }
-
-    // Click on a side card → bring it forward, pause for reading
-    cards.forEach(function (card, i) {
-      card.addEventListener('click', function () {
-        if (i !== active) goTo(i, READ_MS);
-      });
-    });
-
-    // Kick off rotation after the first display period
-    timer = setTimeout(function () { goTo(active + 1, AUTO_MS); }, AUTO_MS);
-  })();
-  </script>
 
   <!-- Parallax background icons -->
   <script>
