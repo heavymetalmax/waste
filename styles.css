@@ -64,6 +64,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden; /* prevent horizontal scroll on iOS Safari (body alone is not enough) */
 }
 
 body {
@@ -489,12 +490,21 @@ section {
   background: var(--color-bg);
   z-index: 99;
   padding: var(--space-lg);
-  transform: translateX(100%);
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Use translateY (not translateX) — translateX on position:fixed breaks
+     viewport clipping on iOS Safari and causes horizontal scroll */
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.35s ease,
+              visibility 0s 0.35s;
 }
 
 .mobile-nav.active {
-  transform: translateX(0);
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
 }
 
 .mobile-nav ul {
@@ -1709,6 +1719,9 @@ section {
   .mobile-toggle { display: flex; }
   .nav-desktop, .nav-cta-btn { display: none; }
   .mobile-nav { display: block; }
+  /* Orbs use position:fixed + transform animation → iOS Safari clips them
+     outside the viewport, causing horizontal scroll. Hide on touch screens. */
+  .blur-orb { display: none; }
 
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
@@ -2195,7 +2208,7 @@ section {
 .models-bg-icon    { left: -4%; color: var(--color-teal); }
 .cta-bg-icon       { left: -4%; color: var(--color-accent); }
 
-.tech-hero-bg-icon { right: -6%; top: 54%; color: var(--color-teal); width: min(1040px, 110vw); height: min(1040px, 110vw); }
+.tech-hero-bg-icon { right: -6%; top: 54%; color: var(--color-teal); width: min(1040px, 100vw); height: min(1040px, 100vw); }
 
 .tech-hero-bg-icon svg,
 .htc-bg-icon svg,
