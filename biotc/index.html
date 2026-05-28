@@ -687,7 +687,13 @@
           </ul>
         </div>
       </div>
-      <p class="footer-copy">{{footer.copy}}</p>
+      <p class="footer-copy">{{footer.copy}} &nbsp;·&nbsp; <button class="footer-privacy-btn" onclick="document.getElementById('privacy-modal').showModal()">{{footer.privacy.link}}</button></p>
+
+      <dialog class="privacy-modal" id="privacy-modal">
+        <h3>{{footer.privacy.title}}</h3>
+        <p>{{footer.privacy.text}}</p>
+        <button class="privacy-close" onclick="document.getElementById('privacy-modal').close()">{{footer.privacy.close}}</button>
+      </dialog>
     </div>
   </footer>
 
