@@ -186,12 +186,55 @@ End-of-Waste. BTC/HTC — єдина технологія що одночасн�
   andrzej.krop@biotc.pl | +48 608 003 458
 `.trim();
 
+// ── CSV helpers ───────────────────────────────────────────────────────────────
+const CSV_HEADER = 'ts,session_id,scenario,vol_ty,vol_pe,grant,f1,f2,capex_total,capex_city,savings,land,roi\n';
+
+function leadToRow(d) {
+  return [d.ts, d.session_id, d.scenario, d.vol_ty, d.vol_pe, d.grant,
+          d.f1, d.f2, d.capex_total, d.capex_city, d.savings, d.land, d.roi]
+    .map(v => (String(v ?? '').includes(',') ? `"${v}"` : (v ?? '')))
+    .join(',') + '\n';
+}
+
 // ── Main handler ─────────────────────────────────────────────────────────────
 export default {
   async fetch(request, env) {
+    const url = new URL(request.url);
+
     // Pre-flight
     if (request.method === 'OPTIONS') {
       return new Response(null, { status: 204, headers: CORS });
+    }
+
+    // ── POST /lead — save simulator input silently ────────────────────────────
+    if (request.method === 'POST' && url.pathname === '/lead') {
+      let lead;
+      try { lead = await request.json(); } catch { return json({ error: 'bad json' }, 400); }
+      if (env.LEADS) {
+        const key = `lead:${lead.ts || Date.now()}:${Math.random().toString(36).slice(2)}`;
+        await env.LEADS.put(key, JSON.stringify(lead));
+      }
+      return json({ ok: true });
+    }
+
+    // ── GET /leads.csv — download all leads (protected by token) ─────────────
+    if (request.method === 'GET' && url.pathname === '/leads.csv') {
+      const token = url.searchParams.get('token');
+      if (!env.LEADS_TOKEN || token !== env.LEADS_TOKEN) {
+        return new Response('Unauthorized', { status: 401 });
+      }
+      const list = await env.LEADS.list({ prefix: 'lead:' });
+      let csv = CSV_HEADER;
+      for (const key of list.keys) {
+        const raw = await env.LEADS.get(key.name);
+        if (raw) {
+          try { csv += leadToRow(JSON.parse(raw)); } catch {}
+        }
+      }
+      return new Response(csv, {
+        headers: { 'content-type': 'text/csv; charset=utf-8',
+                   'content-disposition': 'attachment; filename="btc-leads.csv"', ...CORS },
+      });
     }
 
     if (request.method !== 'POST') {

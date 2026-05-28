@@ -1010,13 +1010,36 @@
       return s;
     }
     function saveShadowLead() {
-      var p = { session_id:getSessionId(), ts:new Date().toISOString(), scenario:currentSC,
-                vol_ty:document.getElementById('srp-vol-ty').value,
-                vol_pe:document.getElementById('srp-vol-pe').value,
-                grant:document.getElementById('srp-grant').value,
-                f1:document.getElementById('srp-f1').value,
-                f2:document.getElementById('srp-f2').value };
-      console.log('BTC shadow lead:', p);
+      var sc  = SC[currentSC];
+      var vol = parseFloat(document.getElementById('srp-vol-ty').value) || 0;
+      var gr  = parseFloat(document.getElementById('srp-grant').value)  || 0;
+      var f1  = parseFloat(document.getElementById('srp-f1').value)     || 0;
+      var f2wrap = document.getElementById('srp-f2-wrap');
+      var f2  = f2wrap.style.display !== 'none' ? (parseFloat(document.getElementById('srp-f2').value) || 0) : 0;
+      var lWrap = document.getElementById('srp-land-wrap');
+      var land  = lWrap.style.display !== 'none' ? (parseFloat(document.getElementById('srp-land').value) || 0) : 0;
+      var res = sc.calc(vol, f1, f2, land, gr);
+      var roi = res.save > 0 ? ((res.capex - res.landVal) / res.save) : null;
+      var p = {
+        session_id:  getSessionId(),
+        ts:          new Date().toISOString(),
+        scenario:    currentSC,
+        vol_ty:      vol,
+        vol_pe:      document.getElementById('srp-vol-pe').value,
+        grant:       gr,
+        f1:          f1,
+        f2:          f2,
+        capex_total: Math.round(vol * 250),
+        capex_city:  Math.round(res.capex),
+        savings:     Math.round(res.save),
+        land:        Math.round(res.landVal),
+        roi:         roi !== null ? Math.round(roi * 10) / 10 : null,
+      };
+      if (AGENT_ENDPOINT.indexOf('CHANGE_ME') === -1) {
+        var endpoint = AGENT_ENDPOINT.replace('/chat', '/lead');
+        fetch(endpoint, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(p) })
+          .catch(function(){});
+      }
     }
 
     window.openLeadModal = function(){ document.getElementById('contact').scrollIntoView({behavior:'smooth'}); };
