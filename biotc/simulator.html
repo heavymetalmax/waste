@@ -104,6 +104,14 @@
           <div class="srp-panel">
             <h2 class="srp-section-h">{{sim.input.section.num}} {{sim.input.label}}</h2>
 
+            <!-- Quick presets -->
+            <div class="srp-presets">
+              <span class="srp-presets-lbl">{{sim.preset.label}}</span>
+              <button type="button" class="srp-preset-btn" data-pe="20000"  data-ty="2000">{{sim.preset.gmina}}</button>
+              <button type="button" class="srp-preset-btn" data-pe="100000" data-ty="10000">{{sim.preset.city}}</button>
+              <button type="button" class="srp-preset-btn" data-pe="300000" data-ty="30000">{{sim.preset.aglo}}</button>
+            </div>
+
             <!-- Volume group (gradient highlight, always visible) -->
             <div class="srp-hl-group">
             <div class="srp-hl-inner srp-vol-group">
@@ -479,6 +487,8 @@
 
     /* Volume sync */
     function syncVolume(id, val) {
+      // Clear preset highlights when user types manually
+      document.querySelectorAll('.srp-preset-btn').forEach(function(b){ b.classList.remove('active'); });
       if (id==='srp-vol-ty') document.getElementById('srp-vol-pe').value = Math.round(val*10);
       else if (id==='srp-vol-pe') document.getElementById('srp-vol-ty').value = Math.round(val*0.1);
     }
@@ -595,6 +605,17 @@
         document.querySelectorAll('.srp-sc-tab').forEach(function(b){ b.classList.remove('active'); });
         btn.classList.add('active');
         applyScenario(btn.dataset.sc);
+      });
+    });
+
+    /* Preset buttons */
+    document.querySelectorAll('.srp-preset-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.getElementById('srp-vol-pe').value = parseFloat(btn.dataset.pe);
+        document.getElementById('srp-vol-ty').value  = parseFloat(btn.dataset.ty);
+        document.querySelectorAll('.srp-preset-btn').forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        calc();
       });
     });
 

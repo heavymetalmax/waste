@@ -488,5 +488,9 @@
   "sim.sc.landfill.f1.unit": "€/т",
   "sim.sc.landfill.f1.hint": "Ставка екоподатку / штрафи за захоронення. Враховуйте зростання",
   "sim.sc.landfill.k3.title": "Уникнуті санкції та штрафи",
-  "sim.sc.landfill.k3.status": "Сертифікат End-of-Waste · Юридична броня"
+  "sim.sc.landfill.k3.status": "Сертифікат End-of-Waste · Юридична броня",
+  "sim.preset.label": "Приклад:",
+  "sim.preset.gmina": "Містечко · 20к р.е.",
+  "sim.preset.city": "Місто · 100к р.е.",
+  "sim.preset.aglo": "Агломерація · 300к р.е."
 }

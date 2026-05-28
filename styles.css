@@ -2907,6 +2907,49 @@ section {
 }
 
 
+
+/* ── Quick presets ───────────────────────────────────────────────────────── */
+.srp-presets {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-block-end: 0.6rem;
+}
+
+.srp-presets-lbl {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  margin-inline-end: 0.1rem;
+}
+
+.srp-preset-btn {
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  border: 1.5px solid var(--color-border);
+  background: transparent;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+.srp-preset-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+.srp-preset-btn.active {
+  background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
 /* ── Scenario tabs ───────────────────────────────────────────────────────── */
 .srp-sc-tabs {
   display: flex;

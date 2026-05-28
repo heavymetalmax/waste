@@ -487,5 +487,9 @@
   "sim.sc.landfill.f1.unit": "€/t",
   "sim.sc.landfill.f1.hint": "Stawka opłaty / kary za składowanie. Uwzględnij wzrost stawek",
   "sim.sc.landfill.k3.title": "Uniknięte sankcje i kary",
-  "sim.sc.landfill.k3.status": "Certyfikat End-of-Waste · Ochrona prawna"
+  "sim.sc.landfill.k3.status": "Certyfikat End-of-Waste · Ochrona prawna",
+  "sim.preset.label": "Przykład:",
+  "sim.preset.gmina": "Gmina · 20k r.e.",
+  "sim.preset.city": "Miasto · 100k r.e.",
+  "sim.preset.aglo": "Aglomeracja · 300k r.e."
 }
