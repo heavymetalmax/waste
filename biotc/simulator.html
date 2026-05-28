@@ -294,6 +294,207 @@
     </section>
 
 
+
+
+    <!-- ============================================================ -->
+    <!-- BLOCK 2b: AI Agent Chat                                       -->
+    <!-- ============================================================ -->
+    <section class="srp-chat-section" id="ai-agent">
+      <div class="container">
+
+        <div class="srp-chat-intro">
+          <p class="section-label">{{chat.label}}</p>
+          <h2>{{chat.h2}}</h2>
+          <p class="section-desc">{{chat.desc}}</p>
+        </div>
+
+        <div class="srp-chat-widget">
+
+          <!-- Messages -->
+          <div class="srp-chat-msgs" id="srp-chat-msgs" role="log" aria-live="polite">
+            <div class="srp-chat-msg srp-chat-msg--bot">
+              <div class="srp-chat-avatar" aria-hidden="true">AI</div>
+              <div class="srp-chat-bubble" id="srp-chat-welcome">{{chat.welcome}}</div>
+            </div>
+          </div>
+
+          <!-- File preview -->
+          <div class="srp-chat-file-bar" id="srp-chat-file-bar" style="display:none">
+            <span id="srp-chat-file-name"></span>
+            <button class="srp-chat-file-clear" id="srp-chat-file-clear" aria-label="Remove file">&times;</button>
+          </div>
+
+          <!-- Input row -->
+          <div class="srp-chat-input-row">
+            <label class="srp-chat-attach" for="srp-chat-file" title="{{chat.attach.title}}">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+              <input type="file" id="srp-chat-file" accept=".pdf,.xlsx,.xls,.docx,.csv,.txt" style="display:none">
+            </label>
+            <textarea id="srp-chat-input" class="srp-chat-textarea" placeholder="{{chat.placeholder}}" rows="1" maxlength="4000"></textarea>
+            <button class="srp-chat-send" id="srp-chat-send" aria-label="{{chat.send}}">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </div>
+
+        </div><!-- /.srp-chat-widget -->
+
+      </div>
+    </section>
+
+    <script>
+    (function(){
+      // ── Config ────────────────────────────────────────────────────
+      // Set AGENT_ENDPOINT after deploying the Cloudflare Worker:
+      //   wrangler secret put ANTHROPIC_API_KEY
+      //   wrangler deploy  →  copy the workers.dev URL here
+      var AGENT_ENDPOINT = 'https://btc-agent.CHANGE_ME.workers.dev/chat';
+      var DEMO_MODE = AGENT_ENDPOINT.indexOf('CHANGE_ME') !== -1;
+
+      // ── State ─────────────────────────────────────────────────────
+      var history   = [];   // [{role:'user'|'assistant', content:'...'}]
+      var pendingFile = null; // {name, type, data (base64)}
+      var isStreaming = false;
+
+      // ── DOM refs ──────────────────────────────────────────────────
+      var msgsEl   = document.getElementById('srp-chat-msgs');
+      var inputEl  = document.getElementById('srp-chat-input');
+      var sendBtn  = document.getElementById('srp-chat-send');
+      var fileEl   = document.getElementById('srp-chat-file');
+      var fileBar  = document.getElementById('srp-chat-file-bar');
+      var fileName = document.getElementById('srp-chat-file-name');
+      var fileClear= document.getElementById('srp-chat-file-clear');
+
+      // ── Auto-grow textarea ────────────────────────────────────────
+      inputEl.addEventListener('input', function(){
+        this.style.height = 'auto';
+        this.style.height = Math.min(this.scrollHeight, 140) + 'px';
+      });
+      inputEl.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); send(); }
+      });
+
+      // ── File handling ─────────────────────────────────────────────
+      fileEl.addEventListener('change', function(){
+        var f = this.files[0];
+        if (!f) return;
+        if (f.size > 5 * 1024 * 1024) { alert('Файл > 5 МБ'); return; }
+        var reader = new FileReader();
+        reader.onload = function(ev){
+          pendingFile = { name: f.name, type: f.type, data: ev.target.result.split(',')[1] };
+          fileName.textContent = f.name;
+          fileBar.style.display = '';
+        };
+        reader.readAsDataURL(f);
+      });
+      fileClear.addEventListener('click', function(){
+        pendingFile = null; fileBar.style.display = 'none'; fileEl.value = '';
+      });
+      sendBtn.addEventListener('click', send);
+
+      // ── Send ──────────────────────────────────────────────────────
+      function send() {
+        if (isStreaming) return;
+        var text = inputEl.value.trim();
+        if (!text && !pendingFile) return;
+
+        var msgText = text || ('(файл: ' + (pendingFile ? pendingFile.name : '') + ')');
+        addMsg('user', msgText);
+        history.push({ role: 'user', content: text || 'Проаналізуй завантажений файл.' });
+
+        inputEl.value = '';
+        inputEl.style.height = 'auto';
+
+        var file = pendingFile;
+        pendingFile = null; fileBar.style.display = 'none'; fileEl.value = '';
+
+        if (DEMO_MODE) {
+          simulateDemo();
+          return;
+        }
+
+        isStreaming = true;
+        sendBtn.disabled = true;
+        var botBubble = addMsg('bot', '', true);
+
+        fetch(AGENT_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: history, file: file }),
+        })
+        .then(function(resp){
+          if (!resp.ok) throw new Error('HTTP ' + resp.status);
+          var reader = resp.body.getReader();
+          var dec = new TextDecoder();
+          var buf = '';
+          var full = '';
+
+          function pump(){
+            return reader.read().then(function(r){
+              if (r.done){
+                history.push({ role: 'assistant', content: full });
+                isStreaming = false;
+                sendBtn.disabled = false;
+                return;
+              }
+              buf += dec.decode(r.value, { stream: true });
+              var lines = buf.split('\n');
+              buf = lines.pop();
+              lines.forEach(function(line){
+                if (!line.startsWith('data:')) return;
+                var raw = line.slice(5).trim();
+                if (raw === '[DONE]') return;
+                try {
+                  var ev = JSON.parse(raw);
+                  if (ev.type === 'content_block_delta' && ev.delta && ev.delta.text) {
+                    full += ev.delta.text;
+                    botBubble.textContent = full;
+                    msgsEl.scrollTop = msgsEl.scrollHeight;
+                  }
+                } catch(e){}
+              });
+              return pump();
+            });
+          }
+          return pump();
+        })
+        .catch(function(err){
+          botBubble.textContent = 'Помилка з\'єднання. Спробуйте ще раз або зв\'яжіться з нами: andrzej.krop@biotc.pl';
+          isStreaming = false;
+          sendBtn.disabled = false;
+        });
+      }
+
+      function simulateDemo(){
+        var botBubble = addMsg('bot', '', true);
+        var msg = 'AI-консультант підключено! Щоб активувати, розгорніть Cloudflare Worker (worker/index.js) та замініть AGENT_ENDPOINT у коді. Поки що — зв\'яжіться з нами напряму: andrzej.krop@biotc.pl або +48 608 003 458.';
+        var i = 0;
+        var iv = setInterval(function(){
+          botBubble.textContent = msg.slice(0, ++i);
+          msgsEl.scrollTop = msgsEl.scrollHeight;
+          if (i >= msg.length){ clearInterval(iv); history.push({ role: 'assistant', content: msg }); }
+        }, 18);
+      }
+
+      // ── Helpers ───────────────────────────────────────────────────
+      function addMsg(role, text, empty) {
+        var wrap = document.createElement('div');
+        wrap.className = 'srp-chat-msg srp-chat-msg--' + (role==='user'?'user':'bot');
+        if (role === 'bot') {
+          var av = document.createElement('div');
+          av.className = 'srp-chat-avatar'; av.textContent = 'AI';
+          wrap.appendChild(av);
+        }
+        var bubble = document.createElement('div');
+        bubble.className = 'srp-chat-bubble' + (empty?' srp-chat-bubble--typing':'');
+        if (!empty) bubble.textContent = text;
+        wrap.appendChild(bubble);
+        msgsEl.appendChild(wrap);
+        msgsEl.scrollTop = msgsEl.scrollHeight;
+        return bubble;
+      }
+    })();
+    </script>
+
     <!-- ============================================================ -->
     <!-- BLOCK 3: Contact Form                                         -->
     <!-- ============================================================ -->

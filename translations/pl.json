@@ -497,5 +497,12 @@
   "sim.preset.brewery": "Browar · 60k r.e.",
   "sim.preset.sugar": "Cukrownia · 25k r.e.",
   "sim.preset.agro": "Agroprzed. · 50k r.e.",
-  "sim.conclusion.label": "Wniosek i rekomendacje"
+  "sim.conclusion.label": "Wniosek i rekomendacje",
+  "chat.label": "Asystent AI",
+  "chat.h2": "Opisz obiekt słowami lub prześlij dokumentację",
+  "chat.desc": "Opowiedz o swojej oczyszczalni lub zakładzie — ile osadu, jak jest utylizowany, jaki budżet. Możesz przesłać raport PDF, arkusz XLSX lub specyfikację techniczną.",
+  "chat.welcome": "Witaj! Jestem asystentem technicznym BTC Consulting. Opowiedz o swoim obiekcie: ile osadu rocznie (ton lub RLM), jak jest teraz utylizowany i jakie są główne problemy. Możesz też od razu przesłać dokumentację projektową — przeanalizuję i podam konkretne liczby.",
+  "chat.placeholder": "Np.: Oczyszczalnia 150 000 RLM, osad wywozimy na składowisko za 80 €/t...",
+  "chat.attach.title": "Dołącz plik (PDF, XLSX, DOCX)",
+  "chat.send": "Wyślij"
 }
