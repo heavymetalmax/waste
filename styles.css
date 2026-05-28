@@ -1831,7 +1831,36 @@ section {
 .tech-hero-section {
   padding-block-start: calc(80px + var(--space-2xl));
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden removed — rotating icon straddles section boundary;
+     horizontal bleed from tech-hero-bg-icon is clipped by html{overflow-x:hidden} */
+}
+
+/* --- Rotating recycling icon (tech hero ↔ block-2 boundary) ----------- */
+.hero-recycle-wrap {
+  position: absolute;
+  right: 8%;
+  bottom: -80px;          /* center sits ~70px above section bottom */
+  width: min(300px, 42vw);
+  height: min(300px, 42vw);
+  pointer-events: none;
+}
+
+.hero-recycle-spin {
+  width: 100%;
+  height: 100%;
+  color: var(--color-teal);
+  opacity: 0.14;
+  animation: spin-slow 38s linear infinite;
+}
+
+.hero-recycle-spin svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
 }
 
 .tech-hero-grid {
