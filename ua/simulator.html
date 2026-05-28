@@ -221,67 +221,63 @@
 
           <!-- ── RIGHT: Results ─────────────────────────────────── -->
           <div class="srp-results">
-            <h2 class="srp-section-h">Ваше ТЕО (Регіональний Хаб)</h2>
+            <h2 class="srp-section-h">Результати</h2>
 
-            <!-- K1: Directive / UWWTD -->
-            <div class="srcard srcard--danger" id="k1">
-              <div class="srcard-title">Директива (ЄС) 2024/3019 UWWTD</div>
-              <div class="srcard-value" id="k1-val">2036</div>
-              <div class="srcard-sub" id="k1-sub"></div>
-              <div class="srcard-pe" id="k1-pe"></div>
-            </div>
+            <!-- Unified results card -->
+            <div class="src-card">
 
-            <!-- K2: CapEx -->
-            <div class="srcard srcard--primary" id="k2">
-              <div class="srcard-title">Капітальні витрати</div>
-              <div class="srcard-value" id="k2-total"></div>
-              <div class="srcard-rows">
-                <div class="srcard-row">
-                  <span>Покриє грант</span>
-                  <span class="srcard-row-val text-teal" id="k2-grant"></span>
-                </div>
-                <div class="srcard-row srcard-row--bold">
-                  <span>Залишається місту</span>
-                  <span class="srcard-row-val text-accent" id="k2-city"></span>
+              <!-- Hero: ROI -->
+              <div class="src-hero">
+                <div class="src-hero-lbl">Термін окупності для міста (ROI)</div>
+                <div class="src-hero-val" id="k5-val">—</div>
+                <div class="src-hero-note" id="k5-note"></div>
+              </div>
+
+              <!-- UWWTD -->
+              <div class="src-block">
+                <div class="src-block-head">Директива (ЄС) 2024/3019 UWWTD</div>
+                <div class="src-block-val src-val--warn" id="k1-val">—</div>
+                <div class="src-block-sub" id="k1-sub"></div>
+                <div class="src-block-note" id="k1-pe"></div>
+              </div>
+
+              <!-- CapEx -->
+              <div class="src-block">
+                <div class="src-block-head">Капітальні витрати</div>
+                <div class="src-block-val" id="k2-total"></div>
+                <div class="src-rows">
+                  <div class="src-row"><span>Покриє грант</span><span class="text-teal" id="k2-grant"></span></div>
+                  <div class="src-row src-row--bold"><span>Залишається місту</span><span class="text-accent" id="k2-city"></span></div>
                 </div>
               </div>
-            </div>
 
-            <!-- K3: Avoided costs (scenario-adaptive) -->
-            <div class="srcard srcard--success" id="k3">
-              <div class="srcard-title" id="k3-title">Щорічна економія (Утилізація + Енергія)</div>
-              <div class="srcard-value" id="k3-cf"></div>
-              <div class="srcard-rows">
-                <div class="srcard-row">
-                  <span id="k3-row1-label">Утилізація мулу</span>
-                  <span class="srcard-row-val" id="k3-disp"></span>
+              <!-- Savings (scenario-adaptive) -->
+              <div class="src-block">
+                <div class="src-block-head" id="k3-title">Щорічна економія (Утилізація + Енергія)</div>
+                <div class="src-block-val text-teal" id="k3-cf"></div>
+                <div class="src-rows">
+                  <div class="src-row"><span id="k3-row1-label">Утилізація мулу</span><span id="k3-disp"></span></div>
+                  <div class="src-row" id="k3-row2"><span id="k3-row2-label">Продаж електроенергії</span><span id="k3-energy"></span></div>
+                  <div class="src-row" id="k3-row3" style="display:none"><span id="k3-row3-label">Біогаз → електроенергія (€160/МВт·год)</span><span class="text-teal" id="k3-energy3"></span></div>
                 </div>
-                <div class="srcard-row" id="k3-row2">
-                  <span id="k3-row2-label">Продаж електроенергії</span>
-                  <span class="srcard-row-val" id="k3-energy"></span>
-                </div>
-                <div class="srcard-row" id="k3-row3" style="display:none">
-                  <span id="k3-row3-label">Біогаз → електроенергія (€160/МВт·год)</span>
-                  <span class="srcard-row-val text-teal" id="k3-energy3"></span>
-                </div>
+                <div class="src-block-note" id="k3-energy-status"></div>
               </div>
-              <div class="srcard-sub" id="k3-energy-status"></div>
-            </div>
 
-            <!-- K4: Land asset -->
-            <div class="srcard srcard--primary" id="k4">
-              <div class="srcard-title">Звільнений актив (Закриття мулових майданчиків)</div>
-              <div class="srcard-value" id="k4-value"></div>
-              <div class="srcard-sub" id="k4-area"></div>
-              <p class="srcard-footnote">1,5 м²/т: шари сушіння, під'їзні шляхи, санітарні зони</p>
-            </div>
+              <!-- Land asset -->
+              <div class="src-block">
+                <div class="src-block-head">Звільнений актив (Закриття мулових майданчиків)</div>
+                <div class="src-block-val" id="k4-value"></div>
+                <div class="src-block-note" id="k4-area"></div>
+              </div>
 
-            <!-- K5: ROI -->
-            <div class="srcard srcard--accent" id="k5">
-              <div class="srcard-title">Термін окупності для міста (ROI)</div>
-              <div class="srcard-value" id="k5-val"></div>
-              <div class="srcard-sub" id="k5-note"></div>
-            </div>
+              <!-- Conclusion -->
+              <div class="src-sep"></div>
+              <div class="src-conclusion">
+                <div class="src-concl-head">Висновок та рекомендації</div>
+                <p class="src-concl-text" id="src-conclusion"></p>
+              </div>
+
+            </div><!-- /.src-card -->
 
             <!-- CTA -->
             <button class="srp-cta-btn" id="srp-cta-btn" onclick="openLeadModal()">
@@ -568,16 +564,16 @@
       var res = sc.calc(Volume, f1, f2, land, grant);
 
       /* K1 UWWTD */
-      var k1El = document.getElementById('k1');
-      k1El.querySelector('.srcard-pe').textContent = K1_PE_TPL.replace('{n}', fmtNum(PE));
+      var k1ValEl = document.getElementById('k1-val');
+      document.getElementById('k1-pe').textContent = K1_PE_TPL.replace('{n}', fmtNum(PE));
       if (PE>0 && PE<=1000) {
-        k1El.className='srcard srcard--success';
-        k1El.querySelector('.srcard-value').textContent = K1_EXEMPT;
-        k1El.querySelector('.srcard-sub').textContent   = K1_EX_NOTE;
+        k1ValEl.className = 'src-block-val src-val--ok';
+        k1ValEl.textContent = K1_EXEMPT;
+        document.getElementById('k1-sub').textContent = K1_EX_NOTE;
       } else {
-        k1El.className='srcard srcard--danger';
-        k1El.querySelector('.srcard-value').textContent = PE>150000?'2033':(PE>10000?'2036':'2039');
-        k1El.querySelector('.srcard-sub').textContent   = PE>150000?K1_SUB_A:(PE>100000?K1_SUB_B:(PE>10000?K1_SUB_C:K1_SUB_D));
+        k1ValEl.className = 'src-block-val src-val--warn';
+        k1ValEl.textContent = PE>150000?'2033':(PE>10000?'2036':'2039');
+        document.getElementById('k1-sub').textContent = PE>150000?K1_SUB_A:(PE>100000?K1_SUB_B:(PE>10000?K1_SUB_C:K1_SUB_D));
       }
 
       /* K2 CapEx */
@@ -600,20 +596,56 @@
         : K4_NO_LAND;
 
       /* K5 ROI */
-      var k5El = document.getElementById('k5');
       var roiYears = res.save>0 ? (res.capex-res.landVal)/res.save : Infinity;
+      var k5ValEl  = document.getElementById('k5-val');
+      var k5NoteEl = document.getElementById('k5-note');
       if (res.save<=0 || roiYears<=0) {
-        k5El.className='srcard srcard--instant';
-        k5El.querySelector('.srcard-value').textContent = K5_INSTANT;
-        k5El.querySelector('.srcard-sub').textContent   = K5_IN_NOTE;
+        k5ValEl.className  = 'src-hero-val src-val--ok';
+        k5ValEl.textContent  = K5_INSTANT;
+        k5NoteEl.textContent = K5_IN_NOTE;
       } else {
-        k5El.className='srcard srcard--accent';
-        k5El.querySelector('.srcard-value').textContent = roiYears.toLocaleString(undefined,{maximumFractionDigits:1})+' '+K5_UNIT;
-        k5El.querySelector('.srcard-sub').textContent   = K5_NOTE;
+        k5ValEl.className  = 'src-hero-val';
+        k5ValEl.textContent  = roiYears.toLocaleString(undefined,{maximumFractionDigits:1})+' '+K5_UNIT;
+        k5NoteEl.textContent = K5_NOTE;
       }
+
+      /* Conclusion */
+      document.getElementById('src-conclusion').textContent = buildConclusion(PE, roiYears, res, grant, currentSC, Volume);
 
       clearTimeout(shadowTimer);
       shadowTimer = setTimeout(saveShadowLead, 2000);
+    }
+
+    /* ── Conclusion generator ───────────────────────────────────────────── */
+    function buildConclusion(PE, roi, res, grant, sc, vol) {
+      var city   = fmtEur(res.capex);
+      var saveS  = fmtEur(res.save);
+      var landS  = fmtEur(res.landVal);
+      var year   = PE>150000?'2033':(PE>10000?'2036':'2039');
+      var roiStr = (isFinite(roi) && roi>0) ? roi.toLocaleString(undefined,{maximumFractionDigits:1}) : null;
+
+      var landLine = res.landVal>0
+        ? ' Земельний актив '+landS+' (звільнено '+fmtHa(vol*1.5)+' соток) покращує загальний баланс.'
+        : '';
+
+      var scLine = '';
+      if (sc==='incinerate') scLine = ' Вбудований дохід від біогазу додатково підвищує рентабельність.';
+      if (sc==='landfill') scLine = ' Уникнення екоподатку забезпечує юридичну стабільність підприємства.';
+      if (sc==='fields' && res.landVal>0) scLine = ' Закриття мулових майданчиків — унікальна можливість повернути землю у господарський обіг.';
+
+      if (PE>0 && PE<=1000)
+        return 'Обʼєкт не підпадає під обовʼязкові норми UWWTD (≤ 1000 р.е.). Проте технологія BTC залишається економічно обгрунтованою при наявності поточних витрат на мул.';
+
+      if (!isFinite(roi) || roi<=0)
+        return 'Земельний актив '+landS+' перевищує частку міста у CapEx — проект фактично самоокупний до введення в дію. Щорічна економія '+saveS+' формує стабільний грошовий потік.'+scLine;
+
+      if (roi<3)
+        return 'Виняткова економіка: окупність '+roiStr+' р. при частці міста лише '+city+' після гранту '+grant+'%. Дедлайн UWWTD '+year+' залишає час для технічної підготовки — рекомендуємо запустити ТЕО у 2025–2026 рр.'+landLine+scLine;
+
+      if (roi<7)
+        return 'Надійна інвестиція: окупність '+roiStr+' р. і щорічна економія '+saveS+'. Грант '+grant+'% знижує навантаження на бюджет до '+city+'. Дедлайн '+year+'.'+landLine+scLine+' Радимо подати заявку на грант паралельно з ТЕО.';
+
+      return 'При поточних параметрах окупність '+roiStr+' р. Збільшення гранту або зростання тарифів на утилізацію прискорить показник.'+landLine+scLine+' Розгляньте кредитування ЄБРР / КЕБ з відстрочкою платежу.';
     }
 
     /* Scenario tabs */
