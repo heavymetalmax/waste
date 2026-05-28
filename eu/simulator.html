@@ -90,6 +90,44 @@
           <h1>Розрахуйте окупність <span class="h1-solution">вашого об'єкта за 60 секунд.</span></h1>
           <p class="sim-hero-desc">Вкажіть обсяг мулу та параметри — симулятор миттєво покаже CapEx, щорічну економію, земельний актив і термін окупності після гранту.</p>
         </div>
+
+        <!-- Methodology accordion -->
+        <details class="sim-method">
+          <summary class="sim-method-toggle">Як ми рахуємо → методика</summary>
+          <div class="sim-method-body">
+
+            <div class="sim-method-card sim-method-card--wide">
+              <div class="sim-method-card-title">Модель уникнутих витрат</div>
+              <p>Ми не рахуємо дохід від продажу гідровугілля — ми рахуємо скільки ви ПЕРЕСТАЄТЕ ПЛАТИТИ. Кожна гривня/злотий, яку ваш об'єкт зараз витрачає на утилізацію мулу (транспорт, полімери, полігон, рекультивація) — це уникнута витрата після встановлення BTC.</p>
+            </div>
+
+            <div class="sim-method-grid">
+              <div class="sim-method-card">
+                <div class="sim-method-card-title">CapEx</div>
+                <p>~€250 на 1 т/рік продуктивності. Модульна конструкція — ціна масштабується лінійно. Після гранту ЄС 75% реальна частка міста — близько €62/т.</p>
+              </div>
+              <div class="sim-method-card">
+                <div class="sim-method-card-title">Гранти</div>
+                <p>EU LIFE / Horizon Europe / KRPOiŚ (PL) / UA Recovery Fund — до 60–85% CapEx. У моделі за замовчуванням 75% — консервативна оцінка.</p>
+              </div>
+              <div class="sim-method-card">
+                <div class="sim-method-card-title">Формула ROI</div>
+                <p class="sim-method-formula">(CapEx після гранту − Земельний актив) ÷ Щорічна економія</p>
+              </div>
+              <div class="sim-method-card">
+                <div class="sim-method-card-title">Земельний актив</div>
+                <p>1,5 м² на 1 т/рік потужності (шари сушіння + санітарна зона). Після закриття мулових майданчиків ця земля повертається у господарський обіг і зараховується у баланс проекту.</p>
+              </div>
+            </div>
+
+            <div class="sim-method-card sim-method-card--wide sim-method-card--muted">
+              <div class="sim-method-card-title">Базові ставки та джерела</div>
+              <p>Витрати на утилізацію — галузеві середні за польськими тендерами 2022–2024 та українськими тарифами. Тариф на біогаз — EU ETS mid-price. Норматив осаду — BREF FDM 2019 (JRC). Усі значення редагуються вручну в калькуляторі.</p>
+            </div>
+
+          </div>
+        </details>
+
       </div>
     </section>
 

@@ -504,5 +504,18 @@
   "chat.welcome": "Witaj! Jestem asystentem technicznym BTC Consulting. Opowiedz o swoim obiekcie: ile osadu rocznie (ton lub RLM), jak jest teraz utylizowany i jakie są główne problemy. Możesz też od razu przesłać dokumentację projektową — przeanalizuję i podam konkretne liczby.",
   "chat.placeholder": "Np.: Oczyszczalnia 150 000 RLM, osad wywozimy na składowisko za 80 €/t...",
   "chat.attach.title": "Dołącz plik (PDF, XLSX, DOCX)",
-  "chat.send": "Wyślij"
+  "chat.send": "Wyślij",
+  "sim.method.toggle": "Jak liczymy → metodyka",
+  "sim.method.concept.title": "Model unikniętych kosztów",
+  "sim.method.concept.text": "Nie liczymy przychodu ze sprzedaży hydrocharu — liczymy ile PRZESTAJESZ PŁACIĆ. Każda złotówka/euro, którą Twój obiekt teraz wydaje na utylizację osadu (transport, polimery, składowisko, rekultywacja) — to uniknięty koszt po instalacji BTC.",
+  "sim.method.capex.title": "CapEx",
+  "sim.method.capex.text": "~€250 na 1 t/rok wydajności. Konstrukcja modułowa — cena skaluje się liniowo. Po dotacji UE 75% realny udział miasta — ok. €62/t.",
+  "sim.method.grant.title": "Dotacje",
+  "sim.method.grant.text": "EU LIFE / Horizon Europe / KRPOiŚ / Fundusz Odbudowy UA — do 60–85% CapEx. W modelu domyślnie 75% — konserwatywna ocena.",
+  "sim.method.roi.title": "Wzór ROI",
+  "sim.method.roi.text": "(CapEx po dotacji − Aktywo gruntowe) ÷ Roczne oszczędności",
+  "sim.method.land.title": "Aktywo gruntowe",
+  "sim.method.land.text": "1,5 m² na 1 t/rok mocy (poletka osadowe + strefa sanitarna). Po zamknięciu pól osadowych grunt wraca do gospodarczego użytkowania i zaliczany jest do bilansu projektu.",
+  "sim.method.data.title": "Stawki bazowe i źródła",
+  "sim.method.data.text": "Koszty utylizacji — branżowe średnie z polskich przetargów 2022–2024. Taryfa biogaz — EU ETS mid-price. Normatyw osadu — BREF FDM 2019 (JRC). Wszystkie wartości edytowalne w kalkulatorze."
 }

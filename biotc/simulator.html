@@ -90,6 +90,44 @@
           <h1>{{sim.hero.h1}}</h1>
           <p class="sim-hero-desc">{{sim.hero.desc}}</p>
         </div>
+
+        <!-- Methodology accordion -->
+        <details class="sim-method">
+          <summary class="sim-method-toggle">{{sim.method.toggle}}</summary>
+          <div class="sim-method-body">
+
+            <div class="sim-method-card sim-method-card--wide">
+              <div class="sim-method-card-title">{{sim.method.concept.title}}</div>
+              <p>{{sim.method.concept.text}}</p>
+            </div>
+
+            <div class="sim-method-grid">
+              <div class="sim-method-card">
+                <div class="sim-method-card-title">{{sim.method.capex.title}}</div>
+                <p>{{sim.method.capex.text}}</p>
+              </div>
+              <div class="sim-method-card">
+                <div class="sim-method-card-title">{{sim.method.grant.title}}</div>
+                <p>{{sim.method.grant.text}}</p>
+              </div>
+              <div class="sim-method-card">
+                <div class="sim-method-card-title">{{sim.method.roi.title}}</div>
+                <p class="sim-method-formula">{{sim.method.roi.text}}</p>
+              </div>
+              <div class="sim-method-card">
+                <div class="sim-method-card-title">{{sim.method.land.title}}</div>
+                <p>{{sim.method.land.text}}</p>
+              </div>
+            </div>
+
+            <div class="sim-method-card sim-method-card--wide sim-method-card--muted">
+              <div class="sim-method-card-title">{{sim.method.data.title}}</div>
+              <p>{{sim.method.data.text}}</p>
+            </div>
+
+          </div>
+        </details>
+
       </div>
     </section>
 

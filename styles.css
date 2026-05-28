@@ -3185,6 +3185,102 @@ section {
 }
 
 
+
+/* ── Methodology accordion ───────────────────────────────────────────────── */
+.sim-method {
+  max-width: 860px;
+  margin-block-start: 1.5rem;
+}
+
+.sim-method-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-accent);
+  cursor: pointer;
+  list-style: none;
+  padding: 0.45rem 0.9rem;
+  border: 1.5px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+  border-radius: 20px;
+  transition: background 0.15s, border-color 0.15s;
+  user-select: none;
+}
+.sim-method-toggle::-webkit-details-marker { display: none; }
+.sim-method-toggle::after {
+  content: '▾';
+  font-size: 0.75rem;
+  transition: transform 0.2s;
+}
+.sim-method[open] .sim-method-toggle {
+  background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+}
+.sim-method[open] .sim-method-toggle::after {
+  transform: rotate(-180deg);
+}
+
+.sim-method-body {
+  margin-block-start: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  animation: sim-method-in 0.2s ease;
+}
+@keyframes sim-method-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.sim-method-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 0.6rem;
+}
+
+.sim-method-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: 0.75rem 0.9rem;
+}
+.sim-method-card--wide {
+  grid-column: 1 / -1;
+}
+.sim-method-card--muted {
+  background: var(--color-bg);
+}
+.sim-method-card--muted p {
+  color: var(--color-text-muted);
+}
+
+.sim-method-card-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-accent);
+  margin-block-end: 0.35rem;
+}
+
+.sim-method-card p {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.sim-method-formula {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem !important;
+  color: var(--color-text) !important;
+  background: var(--color-bg);
+  border-radius: 0.4rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--color-border);
+}
+
 /* ══════════════════════════════════════════════════════════════════════════ */
 /* AI Chat Widget                                                             */
 /* ══════════════════════════════════════════════════════════════════════════ */

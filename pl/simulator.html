@@ -90,6 +90,44 @@
           <h1>Oblicz zwrot z inwestycji <span class="h1-solution">dla swojego obiektu w 60 sekund.</span></h1>
           <p class="sim-hero-desc">Podaj wolumen osadów i parametry obiektu — symulator natychmiast pokaże CapEx, roczne oszczędności, wartość gruntu i okres zwrotu po dofinansowaniu.</p>
         </div>
+
+        <!-- Methodology accordion -->
+        <details class="sim-method">
+          <summary class="sim-method-toggle">Jak liczymy → metodyka</summary>
+          <div class="sim-method-body">
+
+            <div class="sim-method-card sim-method-card--wide">
+              <div class="sim-method-card-title">Model unikniętych kosztów</div>
+              <p>Nie liczymy przychodu ze sprzedaży hydrocharu — liczymy ile PRZESTAJESZ PŁACIĆ. Każda złotówka/euro, którą Twój obiekt teraz wydaje na utylizację osadu (transport, polimery, składowisko, rekultywacja) — to uniknięty koszt po instalacji BTC.</p>
+            </div>
+
+            <div class="sim-method-grid">
+              <div class="sim-method-card">
+                <div class="sim-method-card-title">CapEx</div>
+                <p>~€250 na 1 t/rok wydajności. Konstrukcja modułowa — cena skaluje się liniowo. Po dotacji UE 75% realny udział miasta — ok. €62/t.</p>
+              </div>
+              <div class="sim-method-card">
+                <div class="sim-method-card-title">Dotacje</div>
+                <p>EU LIFE / Horizon Europe / KRPOiŚ / Fundusz Odbudowy UA — do 60–85% CapEx. W modelu domyślnie 75% — konserwatywna ocena.</p>
+              </div>
+              <div class="sim-method-card">
+                <div class="sim-method-card-title">Wzór ROI</div>
+                <p class="sim-method-formula">(CapEx po dotacji − Aktywo gruntowe) ÷ Roczne oszczędności</p>
+              </div>
+              <div class="sim-method-card">
+                <div class="sim-method-card-title">Aktywo gruntowe</div>
+                <p>1,5 m² na 1 t/rok mocy (poletka osadowe + strefa sanitarna). Po zamknięciu pól osadowych grunt wraca do gospodarczego użytkowania i zaliczany jest do bilansu projektu.</p>
+              </div>
+            </div>
+
+            <div class="sim-method-card sim-method-card--wide sim-method-card--muted">
+              <div class="sim-method-card-title">Stawki bazowe i źródła</div>
+              <p>Koszty utylizacji — branżowe średnie z polskich przetargów 2022–2024. Taryfa biogaz — EU ETS mid-price. Normatyw osadu — BREF FDM 2019 (JRC). Wszystkie wartości edytowalne w kalkulatorze.</p>
+            </div>
+
+          </div>
+        </details>
+
       </div>
     </section>
 
