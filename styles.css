@@ -4422,3 +4422,21 @@ section {
   /* Preset buttons — smaller text */
   .srp-preset-btn { font-size: 0.65rem; padding: 0.25rem 0.5rem; }
 }
+
+/* Chat input row — sticky above keyboard on mobile */
+@media (max-width: 640px) {
+  .srp-chat-widget {
+    display: flex;
+    flex-direction: column;
+  }
+  .srp-chat-msgs {
+    flex: 1;
+  }
+  .srp-chat-input-row {
+    position: sticky;
+    bottom: 0;
+    background: #fff;
+    z-index: 2;
+    border-top: 1px solid var(--color-border);
+  }
+}

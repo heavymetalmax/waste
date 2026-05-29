@@ -412,4 +412,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+
+  // --- Chat input: follow keyboard on iOS (visualViewport) ---
+  const chatTextarea = document.getElementById('srp-chat-input');
+  const chatMsgs     = document.getElementById('srp-chat-msgs');
+  if (chatTextarea && window.visualViewport) {
+    const keepInputVisible = () => {
+      if (document.activeElement !== chatTextarea) return;
+      // Scroll the page so the input row is just above the keyboard
+      chatTextarea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      if (chatMsgs) chatMsgs.scrollTop = chatMsgs.scrollHeight;
+    };
+    window.visualViewport.addEventListener('resize', keepInputVisible);
+    chatTextarea.addEventListener('focus', () => {
+      setTimeout(keepInputVisible, 350); // wait for keyboard to fully open
+    });
+  }
+
 });
