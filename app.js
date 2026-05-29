@@ -448,4 +448,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // --- Mobile: tap chat widget → open chat page ---
+  if (window.matchMedia('(max-width: 640px)').matches) {
+    const chatWidget = document.querySelector('.srp-chat-section .srp-chat-widget');
+    if (chatWidget) {
+      chatWidget.addEventListener('pointerdown', () => {
+        window.location.href = 'chat.html';
+      });
+    }
+  }
+
 });
