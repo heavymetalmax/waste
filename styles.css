@@ -4654,3 +4654,12 @@ section {
     text-align: center;
   }
 }
+
+.callout-inline-link {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.callout-inline-link:hover { text-decoration: underline; }
