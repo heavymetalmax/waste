@@ -3037,11 +3037,13 @@ section {
 .rpt-card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-card);
+  border-radius: var(--radius-card, 1rem);
   overflow: hidden;
   box-shadow: var(--shadow-card);
   font-size: 0.875rem;
   color: var(--color-text);
+  position: relative;
+  z-index: 1;
 }
 
 /* ROI headline */
@@ -3752,4 +3754,6 @@ section {
   max-width: none;
   width: 100%;
   background: #fff;
+  position: relative;
+  z-index: 1;
 }
