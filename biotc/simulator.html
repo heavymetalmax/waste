@@ -105,66 +105,57 @@
         <details class="sim-method">
           <summary class="sim-method-toggle">{{sim.method.toggle}}</summary>
           <div class="sim-method-body">
+            <div class="sim-article">
 
-            <div class="sim-method-card sim-method-card--wide">
-              <div class="sim-method-card-title">{{sim.method.concept.title}}</div>
-              <p class="sim-method-intro">{{sim.method.concept.intro}}</p>
+              <!-- Lead paragraph — full width -->
+              <p class="sim-article-lead">{{sim.method.concept.intro}}</p>
+              <p class="sim-article-lead">{{sim.method.concept.text}}</p>
 
-              <div class="sim-method-compare">
-                <div class="sim-method-compare-col">
-                  <div class="sim-method-compare-head sim-method-compare-head--before">{{sim.method.compare.before.title}}</div>
-                  <ul class="sim-method-compare-list">
+              <!-- Two-column body -->
+              <div class="sim-article-cols">
+
+                <!-- LEFT: rationale -->
+                <div class="sim-article-col">
+                  <h4 class="sim-article-h4">{{sim.method.compare.before.title}}</h4>
+                  <ul class="sim-article-list">
                     <li>{{sim.method.compare.before.1}}</li>
                     <li>{{sim.method.compare.before.2}}</li>
                     <li>{{sim.method.compare.before.3}}</li>
                     <li>{{sim.method.compare.before.4}}</li>
                     <li>{{sim.method.compare.before.5}}</li>
-                    <li class="sim-method-compare-note">{{sim.method.compare.before.6}}</li>
                   </ul>
-                </div>
-                <div class="sim-method-compare-arrow" aria-hidden="true">&#8594;</div>
-                <div class="sim-method-compare-col sim-method-compare-col--after">
-                  <div class="sim-method-compare-head sim-method-compare-head--after">{{sim.method.compare.after.title}}</div>
-                  <p class="sim-method-compare-text">{{sim.method.compare.after.text}}</p>
-                </div>
-              </div>
+                  <p class="sim-article-note">{{sim.method.compare.before.6}}</p>
 
-              <div class="sim-method-why-row">
-                <div class="sim-method-why">
-                  <div class="sim-method-sub-title">{{sim.method.concept.why.title}}</div>
+                  <h4 class="sim-article-h4">{{sim.method.compare.after.title}}</h4>
+                  <p>{{sim.method.compare.after.text}}</p>
+
+                  <h4 class="sim-article-h4">{{sim.method.concept.why.title}}</h4>
                   <p>{{sim.method.concept.why.text}}</p>
-                </div>
-                <div class="sim-method-bonus">
-                  <div class="sim-method-sub-title sim-method-sub-title--bonus">{{sim.method.concept.bonus.title}}</div>
+
+                  <h4 class="sim-article-h4">{{sim.method.concept.bonus.title}}</h4>
                   <p>{{sim.method.concept.bonus.text}}</p>
                 </div>
-              </div>
-            </div>
 
-            <div class="sim-method-grid">
-              <div class="sim-method-card">
-                <div class="sim-method-card-title">{{sim.method.capex.title}}</div>
-                <p>{{sim.method.capex.text}}</p>
-              </div>
-              <div class="sim-method-card">
-                <div class="sim-method-card-title">{{sim.method.grant.title}}</div>
-                <p>{{sim.method.grant.text}}</p>
-              </div>
-              <div class="sim-method-card">
-                <div class="sim-method-card-title">{{sim.method.roi.title}}</div>
-                <p class="sim-method-formula">{{sim.method.roi.text}}</p>
-              </div>
-              <div class="sim-method-card">
-                <div class="sim-method-card-title">{{sim.method.land.title}}</div>
-                <p>{{sim.method.land.text}}</p>
-              </div>
-            </div>
+                <!-- RIGHT: formulas & data -->
+                <div class="sim-article-col">
+                  <h4 class="sim-article-h4">{{sim.method.capex.title}}</h4>
+                  <p>{{sim.method.capex.text}}</p>
 
-            <div class="sim-method-card sim-method-card--wide sim-method-card--muted">
-              <div class="sim-method-card-title">{{sim.method.data.title}}</div>
-              <p>{{sim.method.data.text}}</p>
-            </div>
+                  <h4 class="sim-article-h4">{{sim.method.grant.title}}</h4>
+                  <p>{{sim.method.grant.text}}</p>
 
+                  <h4 class="sim-article-h4">{{sim.method.roi.title}}</h4>
+                  <code class="sim-article-formula">{{sim.method.roi.text}}</code>
+
+                  <h4 class="sim-article-h4">{{sim.method.land.title}}</h4>
+                  <p>{{sim.method.land.text}}</p>
+
+                  <h4 class="sim-article-h4">{{sim.method.data.title}}</h4>
+                  <p>{{sim.method.data.text}}</p>
+                </div>
+
+              </div><!-- /.sim-article-cols -->
+            </div><!-- /.sim-article -->
           </div>
         </details>
 

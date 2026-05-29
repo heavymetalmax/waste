@@ -105,66 +105,57 @@
         <details class="sim-method">
           <summary class="sim-method-toggle">Як ми рахуємо → методика</summary>
           <div class="sim-method-body">
+            <div class="sim-article">
 
-            <div class="sim-method-card sim-method-card--wide">
-              <div class="sim-method-card-title">Модель уникнутих витрат</div>
-              <p class="sim-method-intro">Традиційні моделі окупності для нових технологій будуються на потенційному доході від продажу продукту — гідровугілля, енергії, добрив. Ми навмисно НЕ використовуємо цей підхід.</p>
+              <!-- Lead paragraph — full width -->
+              <p class="sim-article-lead">Традиційні моделі окупності для нових технологій будуються на потенційному доході від продажу продукту — гідровугілля, енергії, добрив. Ми навмисно НЕ використовуємо цей підхід.</p>
+              <p class="sim-article-lead">Ми не рахуємо дохід від продажу гідровугілля — ми рахуємо скільки ви ПЕРЕСТАЄТЕ ПЛАТИТИ. Кошти, які ваш об'єкт зараз витрачає на утилізацію мулу (транспорт, полімери, полігон, рекультивація) — це уникнута витрата після встановлення BTC.</p>
 
-              <div class="sim-method-compare">
-                <div class="sim-method-compare-col">
-                  <div class="sim-method-compare-head sim-method-compare-head--before">Зараз ваш об'єкт ПЛАТИТЬ щороку</div>
-                  <ul class="sim-method-compare-list">
+              <!-- Two-column body -->
+              <div class="sim-article-cols">
+
+                <!-- LEFT: rationale -->
+                <div class="sim-article-col">
+                  <h4 class="sim-article-h4">Зараз ваш об'єкт ПЛАТИТЬ щороку</h4>
+                  <ul class="sim-article-list">
                     <li>Полімери для зневоднення: €40–80/т</li>
                     <li>Транспорт до місця утилізації: €20–50/т</li>
                     <li>Gate Fee полігону або інсинератора: €60–160/т</li>
                     <li>Екоподаток / штрафи за захоронення: €40–120/т</li>
                     <li>Рекультивація мулових полів: €20–50/т</li>
-                    <li class="sim-method-compare-note">→ і ці суми щороку зростають через EU ETS та UWWTD</li>
                   </ul>
-                </div>
-                <div class="sim-method-compare-arrow" aria-hidden="true">&#8594;</div>
-                <div class="sim-method-compare-col sim-method-compare-col--after">
-                  <div class="sim-method-compare-head sim-method-compare-head--after">Після BTC — одноразова інвестиція замінює нескінченні платежі</div>
-                  <p class="sim-method-compare-text">Усі ті рядки вище зникають із операційного бюджету. Після окупності 100% колишніх витрат стають чистим виграшем — назавжди, щороку, поки працює установка.</p>
-                </div>
-              </div>
+                  <p class="sim-article-note">→ і ці суми щороку зростають через EU ETS та UWWTD</p>
 
-              <div class="sim-method-why-row">
-                <div class="sim-method-why">
-                  <div class="sim-method-sub-title">Чому ця модель надійніша за прогноз доходу?</div>
+                  <h4 class="sim-article-h4">Після BTC — одноразова інвестиція замінює нескінченні платежі</h4>
+                  <p>Усі ті рядки вище зникають із операційного бюджету. Після окупності 100% колишніх витрат стають чистим виграшем — назавжди, щороку, поки працює установка.</p>
+
+                  <h4 class="sim-article-h4">Чому ця модель надійніша за прогноз доходу?</h4>
                   <p>Поточні витрати на утилізацію — це аудитовані рядки у вашому бюджеті. Їх не потрібно прогнозувати — вони вже є. Ринок гідровугілля, навпаки, ще формується і залежить від кон'юнктури. Модель уникнутих витрат не залежить від ціни продажу, ринкового попиту чи регуляторних змін. Саме тому вона легше проходить через муніципальні ради, грантові комітети та банківський скоринг при кредитуванні ЄБРР / КЕБ.</p>
-                </div>
-                <div class="sim-method-bonus">
-                  <div class="sim-method-sub-title sim-method-sub-title--bonus">Додатково — але НЕ в базовому розрахунку</div>
+
+                  <h4 class="sim-article-h4">Додатково — але НЕ в базовому розрахунку</h4>
                   <p>Потенційні доходи від реалізації гідровугілля (замінник вугілля, ґрунтові добавки) та вуглецеві кредити (Carbon Credits) існують, але ринок нестабільний. Симулятор показує найгірший сценарій — щоб будь-яка реальна цифра була приємним сюрпризом.</p>
                 </div>
-              </div>
-            </div>
 
-            <div class="sim-method-grid">
-              <div class="sim-method-card">
-                <div class="sim-method-card-title">CapEx</div>
-                <p>~€250 на 1 т/рік продуктивності. Модульна конструкція — ціна масштабується лінійно. Після гранту ЄС 75% реальна частка міста — близько €62/т.</p>
-              </div>
-              <div class="sim-method-card">
-                <div class="sim-method-card-title">Гранти</div>
-                <p>EU LIFE / Horizon Europe / KRPOiŚ (PL) / UA Recovery Fund — до 60–85% CapEx. У моделі за замовчуванням 75% — консервативна оцінка.</p>
-              </div>
-              <div class="sim-method-card">
-                <div class="sim-method-card-title">Формула ROI</div>
-                <p class="sim-method-formula">(CapEx після гранту − Земельний актив) ÷ Щорічна економія</p>
-              </div>
-              <div class="sim-method-card">
-                <div class="sim-method-card-title">Земельний актив</div>
-                <p>1,5 м² на 1 т/рік потужності (шари сушіння + санітарна зона). Після закриття мулових майданчиків ця земля повертається у господарський обіг і зараховується у баланс проекту.</p>
-              </div>
-            </div>
+                <!-- RIGHT: formulas & data -->
+                <div class="sim-article-col">
+                  <h4 class="sim-article-h4">CapEx</h4>
+                  <p>~€250 на 1 т/рік продуктивності. Модульна конструкція — ціна масштабується лінійно. Після гранту ЄС 75% реальна частка міста — близько €62/т.</p>
 
-            <div class="sim-method-card sim-method-card--wide sim-method-card--muted">
-              <div class="sim-method-card-title">Базові ставки та джерела</div>
-              <p>Витрати на утилізацію — галузеві середні за польськими тендерами 2022–2024 та українськими тарифами. Тариф на біогаз — EU ETS mid-price. Норматив осаду — BREF FDM 2019 (JRC). Усі значення редагуються вручну в калькуляторі.</p>
-            </div>
+                  <h4 class="sim-article-h4">Гранти</h4>
+                  <p>EU LIFE / Horizon Europe / KRPOiŚ (PL) / UA Recovery Fund — до 60–85% CapEx. У моделі за замовчуванням 75% — консервативна оцінка.</p>
 
+                  <h4 class="sim-article-h4">Формула ROI</h4>
+                  <code class="sim-article-formula">(CapEx після гранту − Земельний актив) ÷ Щорічна економія</code>
+
+                  <h4 class="sim-article-h4">Земельний актив</h4>
+                  <p>1,5 м² на 1 т/рік потужності (шари сушіння + санітарна зона). Після закриття мулових майданчиків ця земля повертається у господарський обіг і зараховується у баланс проекту.</p>
+
+                  <h4 class="sim-article-h4">Базові ставки та джерела</h4>
+                  <p>Витрати на утилізацію — галузеві середні за польськими тендерами 2022–2024 та українськими тарифами. Тариф на біогаз — EU ETS mid-price. Норматив осаду — BREF FDM 2019 (JRC). Усі значення редагуються вручну в калькуляторі.</p>
+                </div>
+
+              </div><!-- /.sim-article-cols -->
+            </div><!-- /.sim-article -->
           </div>
         </details>
 
