@@ -4369,9 +4369,9 @@ section {
   .header-actions { grid-column: 3; justify-self: end; }
   .nav-desktop  { display: none; }
 
-  /* Hamburger always visible on mobile */
+  /* Hamburger hidden at top, appears on scroll */
   .mobile-toggle {
-    display: flex;
+    display: none;
     grid-column: 2;
     grid-row: 1;
     justify-self: center;
@@ -4384,6 +4384,9 @@ section {
     max-width: 200px;
     overflow: hidden;
     white-space: nowrap;
+  }
+  .main-header.shrink .mobile-toggle {
+    display: flex;
   }
   .main-header.shrink .logo-text {
     opacity: 0;
