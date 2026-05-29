@@ -4399,6 +4399,13 @@ section {
   /* Prevent grid overflow — key fix for card clipping */
   .srp-col, .srp-results, .htc-results { min-width: 0; }
 
+  /* Scenario + source tabs: wrap to multiple lines on mobile */
+  .srp-sc-tabs {
+    overflow-x: visible;
+    flex-wrap: wrap;
+    margin-block: 0 0.4rem;
+  }
+
   /* Compact input panel */
   .srp-panel {
     padding: 1rem;
