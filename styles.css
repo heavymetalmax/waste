@@ -1963,10 +1963,10 @@ section {
     pointer-events: auto;
     padding-inline-start: 0;
     justify-content: flex-start;
-    align-items: flex-start;  /* override back to left on mobile */
+    align-items: center;
   }
 
-  .stage-text-wrap { text-align: left; }
+  .stage-text-wrap { text-align: center; }
 
   .stage-num { font-size: clamp(3rem, 18vw, 5.5rem); }
 
