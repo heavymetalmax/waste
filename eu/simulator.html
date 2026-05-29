@@ -400,6 +400,240 @@
 
 
     <!-- ============================================================ -->
+    <!-- BLOCK 2a: HTC Chemical Simulator                              -->
+    <!-- ============================================================ -->
+    <section class="htc-section" id="htc-simulator">
+      <div class="container">
+
+        <div class="srp-chat-intro">
+          <p class="section-label">Product chemical analysis</p>
+          <h2>Hydrochar composition and market route</h2>
+          <p class="section-desc">Select the sludge profile — the simulator calculates the product composition and identifies the legal disposal route under EU directives.</p>
+        </div>
+
+        <div class="htc-grid">
+
+          <!-- LEFT: inputs ───────────────────────────────────────── -->
+          <div class="srp-col">
+          <p class="section-label">Параметри об'єкта</p>
+          <div class="srp-panel">
+
+            <div class="srp-field">
+              <label class="srp-label">Wastewater source</label>
+              <div class="htc-select-wrap">
+                <select id="htc-source" class="htc-select">
+                  <option value="municipal">Municipal wastewater treatment</option>
+                  <option value="food">Food industry</option>
+                  <option value="agro">Agro-industrial</option>
+                  <option value="industrial">Heavy / Chemical industry</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="srp-field">
+              <label class="srp-label">HTC integration scheme</label>
+              <div class="htc-select-wrap">
+                <select id="htc-reactor" class="htc-select">
+                  <option value="before">Before digester (Raw sludge)</option>
+                  <option value="after">After digester (Digested sludge)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="srp-field">
+              <div class="srp-label-row">
+                <label class="srp-label">Organic matter (dry weight)</label>
+                <span class="srp-label-unit">%</span>
+              </div>
+              <div class="srp-stepper">
+                <button type="button" class="srp-btn-step" data-for="htc-organic" data-dir="-1">&#8722;</button>
+                <input type="number" id="htc-organic" value="70" min="10" max="95" step="5" inputmode="numeric" autocomplete="off">
+                <button type="button" class="srp-btn-step" data-for="htc-organic" data-dir="1">+</button>
+              </div>
+            </div>
+
+            <div class="srp-field">
+              <div class="srp-label-row">
+                <label class="srp-label">Ash content</label>
+                <span class="srp-label-unit">%</span>
+              </div>
+              <div class="htc-ash-row"><span id="htc-ash-val">30</span>%</div>
+            </div>
+
+            <div class="htc-badges">
+              <span class="htc-badge htc-badge--warn" id="htc-badge-metals"></span>
+              <span class="htc-badge htc-badge--warn" id="htc-badge-plastics"></span>
+            </div>
+
+          </div>
+          </div><!-- /.srp-col left -->
+
+          <!-- RIGHT: results ─────────────────────────────────────── -->
+          <div class="srp-col">
+          <p class="section-label">Результати</p>
+          <div class="htc-results">
+
+            <!-- Card 1: Hydrochar passport -->
+            <div class="rpt-card">
+              <div class="rpt-section">
+                <div class="rpt-sh">Hydrochar passport</div>
+                <div class="rpt-row">
+                  <span>Mass yield (from 1 t d.m.)</span>
+                  <span class="rpt-num rpt-teal" id="htc-char-mass">&#8212;</span>
+                </div>
+                <div class="rpt-row">
+                  <span>Carbon content (C)</span>
+                  <span class="rpt-num" id="htc-char-carbon">&#8212;</span>
+                </div>
+                <div class="rpt-row">
+                  <span>Ash content</span>
+                  <span class="rpt-num rpt-dim" id="htc-char-ash">&#8212;</span>
+                </div>
+                <div class="rpt-row rpt-row--sum">
+                  <span>Calorific value</span>
+                  <span class="rpt-num rpt-teal" id="htc-calorific">&#8212;</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Liquor to digester -->
+            <div class="rpt-card">
+              <div class="rpt-section">
+                <div class="rpt-sh">Organics → Digester</div>
+                <div class="rpt-row rpt-row--sum">
+                  <span>Directed to liquor</span>
+                  <span class="rpt-num rpt-teal" id="htc-liquor-carbon">&#8212;</span>
+                </div>
+              </div>
+              <div class="rpt-conclusion">
+                <p class="rpt-conclusion-body">Dissolved carbon generates biogas 3× faster than raw sludge — the reactor supplies its own energy.</p>
+              </div>
+            </div>
+
+            <!-- Card 3: Market route (colour changes per route) -->
+            <div class="rpt-card htc-route-card" id="htc-route-card">
+              <div class="rpt-section">
+                <div class="rpt-sh">Legal disposal route (EU)</div>
+                <div class="rpt-row rpt-row--sum">
+                  <span id="htc-route-name">&#8212;</span>
+                </div>
+              </div>
+              <div class="rpt-conclusion">
+                <p class="rpt-conclusion-body" id="htc-route-text"></p>
+                <p class="htc-toxic-warning" id="htc-toxic-warning" style="display:none"></p>
+              </div>
+            </div>
+
+          </div>
+          </div><!-- /.srp-col right -->
+
+        </div><!-- /.htc-grid -->
+
+      </div>
+    </section>
+
+    <!-- HTC simulator logic -->
+    <script>
+    (function(){
+      var ROUTE_AGRO         = 'Agriculture — Fertiliser / Soil amendment';
+      var ROUTE_FUEL         = 'Energy — Alternative fuel SRF/RDF';
+      var ROUTE_CONSTRUCTION = 'Construction — Inert filler';
+      var ROUTE_TEXT_AGRO    = 'Absence of toxins enables legal soil application. The hydrochar retains moisture and returns nutrients to the soil.';
+      var ROUTE_TEXT_FUEL    = 'Microplastics destroyed, heavy metals securely sealed in the carbon matrix. High calorific value allows sale to cement plants.';
+      var ROUTE_TEXT_CONST   = 'High ash content blocks efficient combustion. The only legal route under EU norms — safe encapsulation of toxins in concrete or asphalt.';
+      var TOXIC_WARNING      = '⚠ HTC immobilises {metals} in the carbon matrix and reduces {plastics} to <0.01 mm.';
+      var BADGE_METALS       = 'Heavy metals';
+      var BADGE_PLASTICS     = 'Microplastics';
+      var UNIT_KG            = 'kg';
+      var UNIT_MJKG          = 'MJ/kg';
+
+      var PRESETS = {
+        municipal:  { organic: 70, metals: 'Exceeds limits',  plastics: 'Critical level',  toxic: true  },
+        food:       { organic: 85, metals: 'Within limits',       plastics: 'None',       toxic: false },
+        agro:       { organic: 75, metals: 'Within limits',       plastics: 'None',       toxic: false },
+        industrial: { organic: 25, metals: 'Extremely high', plastics: 'Specific', toxic: true  }
+      };
+
+      var sourceEl  = document.getElementById('htc-source');
+      var reactorEl = document.getElementById('htc-reactor');
+      var organicEl = document.getElementById('htc-organic');
+
+      function htcCalc() {
+        var organic = Math.max(10, Math.min(95, parseFloat(organicEl.value) || 70));
+        var reactor = reactorEl.value;
+        var preset  = PRESETS[sourceEl.value] || PRESETS.municipal;
+
+        document.getElementById('htc-ash-val').textContent = (100 - organic).toFixed(0);
+
+        /* Badges */
+        var badgeMet = document.getElementById('htc-badge-metals');
+        var badgePls = document.getElementById('htc-badge-plastics');
+        badgeMet.textContent = BADGE_METALS + ': ' + preset.metals;
+        badgePls.textContent = BADGE_PLASTICS + ': ' + preset.plastics;
+        var metSev = preset.toxic ? (sourceEl.value === 'industrial' ? 'bad' : 'warn') : 'ok';
+        var plsSev = preset.toxic ? 'warn' : 'ok';
+        badgeMet.className = 'htc-badge htc-badge--' + metSev;
+        badgePls.className = 'htc-badge htc-badge--' + plsSev;
+
+        /* Chemistry — basis: 1000 kg dry matter */
+        var inputOrganicMass  = 1000 * (organic / 100);
+        var inputAshMass      = 1000 - inputOrganicMass;
+        var inputCarbonMass   = inputOrganicMass * 0.55;
+        var otherOrganicsMass = inputOrganicMass - inputCarbonMass;
+        var c_retention       = reactor === 'after' ? 0.85 : 0.70;
+        var charCarbonMass    = inputCarbonMass * c_retention;
+        var liquorCarbonMass  = inputCarbonMass - charCarbonMass;
+        var charOtherOrganics = otherOrganicsMass * 0.40;
+        var totalCharMass     = charCarbonMass + inputAshMass + charOtherOrganics;
+        var newCarbonPct      = (charCarbonMass / totalCharMass) * 100;
+        var newAshPct         = (inputAshMass   / totalCharMass) * 100;
+        var calorific         = newCarbonPct * 0.35;
+
+        /* Card 1 */
+        document.getElementById('htc-char-mass').textContent    = Math.round(totalCharMass) + ' ' + UNIT_KG;
+        document.getElementById('htc-char-carbon').textContent  = newCarbonPct.toFixed(1) + '%';
+        document.getElementById('htc-char-ash').textContent     = newAshPct.toFixed(1) + '%';
+        document.getElementById('htc-calorific').textContent    = calorific.toFixed(1) + ' ' + UNIT_MJKG;
+
+        /* Card 2 */
+        document.getElementById('htc-liquor-carbon').textContent = Math.round(liquorCarbonMass) + ' ' + UNIT_KG;
+
+        /* Card 3 — market route */
+        var route = !preset.toxic ? 'agro' : (calorific >= 12 ? 'fuel' : 'construction');
+        document.getElementById('htc-route-card').className = 'rpt-card htc-route-card htc-route-card--' + route;
+        var names = { agro: ROUTE_AGRO, fuel: ROUTE_FUEL, construction: ROUTE_CONSTRUCTION };
+        var texts = { agro: ROUTE_TEXT_AGRO, fuel: ROUTE_TEXT_FUEL, construction: ROUTE_TEXT_CONST };
+        document.getElementById('htc-route-name').textContent = names[route];
+        document.getElementById('htc-route-text').textContent = texts[route];
+        var warnEl = document.getElementById('htc-toxic-warning');
+        if (preset.toxic) {
+          warnEl.style.display = '';
+          warnEl.textContent = TOXIC_WARNING
+            .replace('{metals}', preset.metals)
+            .replace('{plastics}', preset.plastics);
+        } else {
+          warnEl.style.display = 'none';
+        }
+      }
+
+      sourceEl.addEventListener('change', function() {
+        var p = PRESETS[this.value] || PRESETS.municipal;
+        organicEl.value = p.organic;
+        htcCalc();
+      });
+      reactorEl.addEventListener('change', htcCalc);
+      organicEl.addEventListener('input', htcCalc);
+      /* also fires after the global stepper handler updates el.value */
+      document.querySelectorAll('.srp-btn-step[data-for="htc-organic"]').forEach(function(b){
+        b.addEventListener('click', htcCalc);
+      });
+
+      htcCalc();
+    })();
+    </script>
+
+
+    <!-- ============================================================ -->
     <!-- BLOCK 2b: AI Agent Chat                                       -->
     <!-- ============================================================ -->
     <section class="srp-chat-section" id="ai-agent">
