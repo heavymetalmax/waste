@@ -4479,6 +4479,7 @@ section {
     z-index: 2;
     border-top: 1px solid var(--color-border);
   }
+  .srp-chat-textarea { font-size: 1rem; } /* prevent iOS zoom on focus */
 }
 
 /* ==========================================================================
