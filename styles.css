@@ -2295,13 +2295,7 @@ section {
 .cta-bg-icon       { left: -4%; color: var(--color-accent); }
 
 .tech-hero-bg-icon {
-  right: -6%;
-  top: 0;
-  color: var(--color-teal);
-  width: min(1040px, 100vw);
-  height: min(1040px, 100vw);
-  animation: none; /* disabled */
-  transform-origin: center center;
+  display: none;
 }
 
 .tech-hero-bg-icon svg,
