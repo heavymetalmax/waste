@@ -4445,3 +4445,50 @@ section {
     border-top: 1px solid var(--color-border);
   }
 }
+
+/* ==========================================================================
+   Calculator + Results — mobile fixes (≤640px)
+   ========================================================================== */
+@media (max-width: 640px) {
+
+  /* Volume input: stretch full width */
+  .srp-vol-row input[type="number"] { width: 100%; flex: 1; }
+  .srp-converted                    { white-space: normal; }
+
+  /* Result card rows: smaller gap, label can wrap */
+  .rpt-row {
+    gap: 0.5rem;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+  .rpt-row > span:first-child {
+    flex: 1;
+    min-width: 0;
+    word-break: break-word;
+  }
+
+  /* Smaller ROI headline on phones */
+  .rpt-kpi-val   { font-size: 1.2rem; }
+  .rpt-kpi-lbl   { font-size: 0.6rem; }
+  .rpt-kpi-note  { font-size: 0.68rem; }
+
+  /* Tighter row padding inside card */
+  .rpt-row       { font-size: 0.8rem; }
+  .rpt-row--sub  { font-size: 0.68rem; }
+  .rpt-sh        { font-size: 0.58rem; }
+
+  /* Section header in k3/k4 can be long — allow wrap */
+  #k3-title, #k1-sub { white-space: normal; word-break: break-word; }
+
+  /* Stepper: full width on mobile */
+  .srp-stepper { width: 100%; }
+
+  /* Grant % highlight group */
+  .srp-hl-inner { padding: 0.4rem; gap: 0.4rem; }
+
+  /* CTA button */
+  .srp-cta-btn { font-size: 0.875rem; }
+
+  /* Disclaimer */
+  .sim-disclaimer { font-size: 0.72rem; }
+}
