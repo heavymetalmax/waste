@@ -3692,6 +3692,10 @@ section {
   opacity: 0.10;
   will-change: transform;
 }
+.htc-bg-icon {
+  left: auto;
+  right: -4%;
+}
 
 .sim-bg-icon svg,
 .htc-bg-icon svg,
