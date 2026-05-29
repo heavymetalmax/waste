@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (rfqStatus) {
           rfqStatus.className = res.ok ? 'form-status-container success' : 'form-status-container error';
           rfqStatus.innerHTML = res.ok
-            ? '<strong>Дякуємо! Ми зв'яжемося з вами протягом 1 робочого дня.</strong>'
+            ? "<strong>Дякуємо! Ми зв'яжемося з вами протягом 1 робочого дня.</strong>"
             : '<strong>Помилка. Зателефонуйте: +48 608 003 458</strong>';
           rfqStatus.classList.remove('hidden');
         }
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } catch {
         if (rfqStatus) {
           rfqStatus.className = 'form-status-container error';
-          rfqStatus.innerHTML = '<strong>Немає зв'язку. Зателефонуйте: +48 608 003 458</strong>';
+          rfqStatus.innerHTML = "<strong>Немає зв'язку. Зателефонуйте: +48 608 003 458</strong>";
           rfqStatus.classList.remove('hidden');
         }
       } finally {
@@ -385,8 +385,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { passive: true });
   })();
 
-}
-
   // --- Popover callback form ---
   const popoverPhone   = document.getElementById('popover-phone');
   const popoverCbBtn   = document.getElementById('popover-callback-btn');
@@ -437,8 +435,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'URL:https://biotc.pl',
         'ADR;TYPE=WORK:;;ul. Daszynskiego 34/3;Gliwice;;44-100;Poland',
         'END:VCARD'
-      ].join('
-');
+      ].join('\r\n');
       const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
       const url  = URL.createObjectURL(blob);
       const a    = document.createElement('a');
