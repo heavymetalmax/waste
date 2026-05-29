@@ -4405,11 +4405,19 @@ section {
    ========================================================================== */
 @media (max-width: 640px) {
 
+  /* Prevent grid overflow — key fix for card clipping */
+  .srp-col, .srp-results, .htc-results { min-width: 0; }
+
   /* Compact input panel */
   .srp-panel {
     padding: 1rem;
     gap: 0.9rem;
+    max-width: 100%;
+    box-sizing: border-box;
   }
+
+  /* Gradient-border volume group */
+  .srp-hl-group, .srp-hl-inner { max-width: 100%; box-sizing: border-box; }
 
   /* Tighter sim hero */
   .sim-hero-section {
