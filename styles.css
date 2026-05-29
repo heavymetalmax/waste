@@ -3923,12 +3923,11 @@ section {
 .privacy-strip-close:hover { background: rgba(255, 255, 255, 0.28); }
 
 /* Orbital rings around tech hero stat panel */
-.tech-stat-panel {
+.tech-stat-grid {
   position: relative;
 }
 
-.tech-stat-grid,
-.tech-stat-note {
+.tech-stat-grid > *:not(.tech-orbital-rings) {
   position: relative;
   z-index: 1;
 }
