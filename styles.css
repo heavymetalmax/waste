@@ -4580,7 +4580,7 @@ section {
    ========================================================================== */
 
 .chat-mobile-preview {
-  display: none;
+  display: none !important;
   text-decoration: none;
   color: inherit;
 }
