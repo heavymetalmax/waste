@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{lang.code}}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -118,7 +118,7 @@
   <!-- Site header -->
   <header class="main-header" id="header">
     <div class="header-container">
-      <a href="index.html" class="logo" aria-label="BTC Consulting Home">
+      <a href="index.html" class="logo" aria-label="{{header.logo.aria}}">
         <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="logo-grad-m1" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
@@ -141,11 +141,11 @@
         <span class="logo-text"><span class="logo-btc">BTC</span> Consulting</span>
       </a>
 
-      <nav class="nav-desktop" aria-label="Main Menu">
+      <nav class="nav-desktop" aria-label="{{header.nav.aria}}">
         <ul>
-          <li><a href="index.html">Solutions</a></li>
-          <li><a href="technology.html">Technology</a></li>
-          <li><a href="simulator.html">Calculations</a></li>
+          <li><a href="index.html">{{header.nav.home}}</a></li>
+          <li><a href="technology.html">{{header.nav.technology}}</a></li>
+          <li><a href="simulator.html">{{header.nav.calculator}}</a></li>
         </ul>
       </nav>
 
@@ -156,46 +156,46 @@
             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
           </svg>
         </button>
-        <button class="nav-fab" id="nav-fab" aria-label="Audit Facility">
+        <button class="nav-fab" id="nav-fab" aria-label="{{header.nav.cta}}">
           <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 12 19.79 19.79 0 0 1 1.08 3.38 2 2 0 0 1 3.07 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
         </button>
       </div>
-      <button class="mobile-toggle" aria-label="Open Menu" aria-expanded="false" aria-controls="nav-mobile-strip">
+      <button class="mobile-toggle" aria-label="{{header.mobile.toggle}}" aria-expanded="false" aria-controls="nav-mobile-strip">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
     </div>
     <div class="lang-strip" id="lang-strip" aria-hidden="true">
       <div class="lang-strip-inner">
-        <a href="../pl/index.html" class="lang-strip-item ">&#x1F1F5;&#x1F1F1; Polski</a>
-        <a href="index.html" class="lang-strip-item active">&#x1F1EA;&#x1F1FA; English</a>
-        <a href="../ua/index.html" class="lang-strip-item ">&#x1F1FA;&#x1F1E6; Українська</a>
+        <a href="{{lang.pl.url}}" class="lang-strip-item {{lang.pl.class}}">&#x1F1F5;&#x1F1F1; Polski</a>
+        <a href="{{lang.eu.url}}" class="lang-strip-item {{lang.eu.class}}">&#x1F1EA;&#x1F1FA; English</a>
+        <a href="{{lang.ua.url}}" class="lang-strip-item {{lang.ua.class}}">&#x1F1FA;&#x1F1E6; Українська</a>
       </div>
     </div>
     <div class="nav-mobile-strip" id="nav-mobile-strip" aria-hidden="true">
       <div class="nav-mobile-strip-inner">
         <ul>
-          <li><a href="index.html">Solutions</a></li>
-          <li><a href="technology.html">Technology</a></li>
-          <li><a href="simulator.html">Calculations</a></li>
+          <li><a href="index.html">{{header.nav.home}}</a></li>
+          <li><a href="technology.html">{{header.nav.technology}}</a></li>
+          <li><a href="simulator.html">{{header.nav.calculator}}</a></li>
         </ul>
       </div>
     </div>
     <!-- Privacy & Contact -->
     <div class="contact-popover-overlay" id="contact-popover-overlay" aria-hidden="true"></div>
-    <div class="contact-popover" id="contact-popover" aria-hidden="true" role="dialog" aria-label="Quick Contact">
+    <div class="contact-popover" id="contact-popover" aria-hidden="true" role="dialog" aria-label="{{contact.popover.title}}">
       <div class="popover-arrow" aria-hidden="true"></div>
       <div class="popover-header">
-        <h4>Quick Contact</h4>
+        <h4>{{contact.popover.title}}</h4>
         <button class="popover-close" id="popover-close" aria-label="Close">&times;</button>
       </div>
       <div class="popover-body">
         <div class="popover-contact-card">
-          <div class="popover-avatar"><img src="../img/team/krop-a.jpg" alt="Andrzej Krop"></div>
+          <div class="popover-avatar"><img src="{{img.team}}krop-a.jpg" alt="Andrzej Krop"></div>
           <div class="popover-info">
             <div class="popover-name">Andrzej Krop</div>
-            <div class="popover-role">Project Management</div>
+            <div class="popover-role">{{home.team.krop_a.role}}</div>
           </div>
         </div>
         <div class="popover-actions-grid">
@@ -213,17 +213,17 @@
           </a>
           <button id="vcard-download-btn" class="popover-action-btn border-orange">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/></svg>
-            <strong>Add contact</strong>
+            <strong>{{contact.vcard.btn}}</strong>
           </button>
         </div>
-        <div class="popover-divider"><span>or</span></div>
+        <div class="popover-divider"><span>{{contact.popover.or}}</span></div>
         <div class="popover-callback-wrap">
           <div class="callback-row">
-            <input type="tel" id="popover-phone" placeholder="Contact Phone *" inputmode="tel" autocomplete="tel">
-            <button type="button" class="btn btn-primary callback-btn" id="popover-callback-btn" data-label="Call me back">Call me back</button>
+            <input type="tel" id="popover-phone" placeholder="{{form.phone.label}}" inputmode="tel" autocomplete="tel">
+            <button type="button" class="btn btn-primary callback-btn" id="popover-callback-btn" data-label="{{form.callback.btn}}">{{form.callback.btn}}</button>
           </div>
-          <p id="popover-callback-error" class="error-msg" style="display:none">Please enter a valid phone number</p>
-          <p class="form-micro-text" style="margin-block-start:0.4rem;">Response within 1 business day. No obligations.</p>
+          <p id="popover-callback-error" class="error-msg" style="display:none">{{form.callback.error}}</p>
+          <p class="form-micro-text" style="margin-block-start:0.4rem;">{{form.micro}}</p>
         </div>
       </div>
     </div>
@@ -297,10 +297,10 @@
   <div class="privacy-strip" id="privacy-strip" aria-hidden="true">
     <div class="privacy-strip-inner">
       <div class="privacy-strip-body">
-        <strong>About Data Collection</strong>
-        <p>When using the calculator, we anonymously store the entered parameters (sludge volume, scenario, grant percentage) and the calculated results. Personal data (name, email, IP address) is not collected or shared with third parties. Data is used solely for demand analysis and service improvement.</p>
+        <strong>{{footer.privacy.title}}</strong>
+        <p>{{footer.privacy.text}}</p>
       </div>
-      <button class="privacy-strip-close" id="privacy-strip-close" aria-label="I understand">&#x2715;</button>
+      <button class="privacy-strip-close" id="privacy-strip-close" aria-label="{{footer.privacy.close}}">&#x2715;</button>
     </div>
   </div>
 
