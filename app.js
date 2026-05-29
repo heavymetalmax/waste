@@ -425,4 +425,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2500);
   }
 
+
+  // --- Globe language strip toggle ---
+  const globeBtn = document.getElementById('lang-globe-btn');
+  const langStrip = document.getElementById('lang-strip');
+  if (globeBtn && langStrip) {
+    globeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = langStrip.classList.toggle('open');
+      langStrip.setAttribute('aria-hidden', String(!open));
+      globeBtn.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click', () => {
+      langStrip.classList.remove('open');
+      langStrip.setAttribute('aria-hidden', 'true');
+      globeBtn.setAttribute('aria-expanded', 'false');
+    });
+  }
+
 });
