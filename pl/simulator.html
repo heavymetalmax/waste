@@ -854,10 +854,33 @@
           var buf = '';
           var full = '';
 
+
+      function md2html(t) {
+        var s = t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        s = s.replace(/\*\*([^*
+]+)\*\*/g, '<strong>$1</strong>');
+        var lines = s.split('
+'), out = [], ul = false;
+        lines.forEach(function(l) {
+          if (/^[-*] /.test(l)) {
+            if (!ul) { out.push('<ul>'); ul = true; }
+            out.push('<li>' + l.slice(2) + '</li>');
+          } else {
+            if (ul) { out.push('</ul>'); ul = false; }
+            out.push(l === '' ? '' : '<p>' + l + '</p>');
+          }
+        });
+        if (ul) out.push('</ul>');
+        return out.join('');
+      }
+
           function pump(){
             return reader.read().then(function(r){
               if (r.done){
                 history.push({ role: 'assistant', content: full });
+                botBubble.classList.remove('srp-chat-bubble--typing');
+                botBubble.innerHTML = md2html(full);
+                msgsEl.scrollTop = msgsEl.scrollHeight;
                 isStreaming = false;
                 sendBtn.disabled = false;
                 return;
