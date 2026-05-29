@@ -397,4 +397,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+
+  // --- Cycling FAB (phone / mail / chat) ---
+  const fab = document.getElementById('nav-fab');
+  if (fab) {
+    // Navigate to contact section or contact page
+    fab.addEventListener('click', () => {
+      const contact = document.getElementById('contact');
+      if (contact) {
+        contact.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.location.href = 'index.html#contact';
+      }
+    });
+    // Cycle icons
+    const fabIcons = fab.querySelectorAll('.nav-fab-icon');
+    let fabIdx = 0;
+    setInterval(() => {
+      fabIcons[fabIdx].style.opacity = '0';
+      setTimeout(() => {
+        fabIcons[fabIdx].style.display = 'none';
+        fabIdx = (fabIdx + 1) % fabIcons.length;
+        fabIcons[fabIdx].style.display = '';
+        fabIcons[fabIdx].style.opacity = '0';
+        requestAnimationFrame(() => { fabIcons[fabIdx].style.opacity = '1'; });
+      }, 250);
+    }, 2500);
+  }
+
 });
