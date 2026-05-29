@@ -3247,8 +3247,6 @@ section {
   letter-spacing: 0.1em;
   color: var(--color-text-muted);
   margin-block: 1.4rem 0.5rem;
-  padding-block-end: 0.3rem;
-  border-bottom: 1px solid var(--color-border);
 }
 
 .sim-article-col > .sim-article-h4:first-child { margin-block-start: 0; }
@@ -3667,7 +3665,7 @@ section {
 /* Shared bg icon rules */
 .sim-bg-icon, .htc-bg-icon, .chat-bg-icon {
   position: absolute;
-  right: -4%;
+  left: -4%;
   top: 0;
   width: min(520px, 56vw);
   height: min(520px, 56vw);
