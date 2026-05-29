@@ -3365,7 +3365,6 @@ section {
 /* ══════════════════════════════════════════════════════════════════════════ */
 .srp-chat-section {
   padding-block: var(--space-xl);
-  background: var(--color-bg);
 }
 
 .srp-chat-intro {
@@ -3617,7 +3616,6 @@ section {
 
 #htc-simulator {
   padding-block: var(--space-xl);
-  background: var(--color-bg);
 }
 
 .htc-grid {
