@@ -418,28 +418,27 @@
           <p class="section-label">Параметри об'єкта</p>
           <div class="srp-panel">
 
+            <!-- Source type — bubble tabs -->
             <div class="srp-field">
               <label class="srp-label">Джерело стічних вод</label>
-              <div class="htc-select-wrap">
-                <select id="htc-source" class="htc-select">
-                  <option value="municipal">Міські очисні споруди</option>
-                  <option value="food">Харчова промисловість</option>
-                  <option value="agro">Агропромисловість</option>
-                  <option value="industrial">Важка / Хімічна промисловість</option>
-                </select>
+              <div class="srp-sc-tabs" role="tablist">
+                <button type="button" class="srp-sc-tab active" data-source="municipal"  role="tab">Міські</button>
+                <button type="button" class="srp-sc-tab"        data-source="food"       role="tab">Харчова</button>
+                <button type="button" class="srp-sc-tab"        data-source="agro"       role="tab">Агро</button>
+                <button type="button" class="srp-sc-tab"        data-source="industrial" role="tab">Хімічна</button>
               </div>
             </div>
 
+            <!-- Reactor position — bubble toggle -->
             <div class="srp-field">
               <label class="srp-label">Схема інтеграції HTC</label>
-              <div class="htc-select-wrap">
-                <select id="htc-reactor" class="htc-select">
-                  <option value="before">Перед метантанком (Сирий осад)</option>
-                  <option value="after">Після метантанка (Зброджений осад)</option>
-                </select>
+              <div class="srp-sc-tabs" role="tablist">
+                <button type="button" class="srp-sc-tab active" data-reactor="before" role="tab">Сирий осад</button>
+                <button type="button" class="srp-sc-tab"        data-reactor="after"  role="tab">Зброджений</button>
               </div>
             </div>
 
+            <!-- Organic % stepper -->
             <div class="srp-field">
               <div class="srp-label-row">
                 <label class="srp-label">Органічна речовина (суха маса)</label>
@@ -452,6 +451,7 @@
               </div>
             </div>
 
+            <!-- Ash (derived, read-only) -->
             <div class="srp-field">
               <div class="srp-label-row">
                 <label class="srp-label">Зольність</label>
@@ -460,6 +460,7 @@
               <div class="htc-ash-row"><span id="htc-ash-val">30</span>%</div>
             </div>
 
+            <!-- Contaminant badges -->
             <div class="htc-badges">
               <span class="htc-badge htc-badge--warn" id="htc-badge-metals"></span>
               <span class="htc-badge htc-badge--warn" id="htc-badge-plastics"></span>
@@ -468,13 +469,21 @@
           </div>
           </div><!-- /.srp-col left -->
 
-          <!-- RIGHT: results ─────────────────────────────────────── -->
+          <!-- RIGHT: single rpt-card (same pattern as economics results) -->
           <div class="srp-col">
           <p class="section-label">Результати</p>
           <div class="htc-results">
 
-            <!-- Card 1: Hydrochar passport -->
-            <div class="rpt-card">
+            <div class="rpt-card" id="htc-route-card">
+
+              <!-- Route headline — mirrors ROI kpi row -->
+              <div class="rpt-kpi">
+                <span class="rpt-kpi-lbl">Легальний шлях утилізації (ЄС)</span>
+                <span class="rpt-kpi-val" id="htc-kpi-route">&#8212;</span>
+              </div>
+              <p class="rpt-kpi-note" id="htc-route-long"></p>
+
+              <!-- Hydrochar passport -->
               <div class="rpt-section">
                 <div class="rpt-sh">Паспорт гідровугілля</div>
                 <div class="rpt-row">
@@ -494,35 +503,25 @@
                   <span class="rpt-num rpt-teal" id="htc-calorific">&#8212;</span>
                 </div>
               </div>
-            </div>
 
-            <!-- Card 2: Liquor to digester -->
-            <div class="rpt-card">
+              <!-- Liquor to digester -->
               <div class="rpt-section">
                 <div class="rpt-sh">Органіка → Метантанк</div>
                 <div class="rpt-row rpt-row--sum">
                   <span>Направлено в ліквор</span>
                   <span class="rpt-num rpt-teal" id="htc-liquor-carbon">&#8212;</span>
                 </div>
+                <div class="rpt-row rpt-row--sub">Розчинений вуглець генерує біогаз у 3× швидше за сирий осад — реактор забезпечує себе власною енергією.</div>
               </div>
-              <div class="rpt-conclusion">
-                <p class="rpt-conclusion-body">Розчинений вуглець генерує біогаз у 3× швидше за сирий осад — реактор забезпечує себе власною енергією.</p>
-              </div>
-            </div>
 
-            <!-- Card 3: Market route (colour changes per route) -->
-            <div class="rpt-card htc-route-card" id="htc-route-card">
-              <div class="rpt-section">
-                <div class="rpt-sh">Легальний шлях утилізації (ЄС)</div>
-                <div class="rpt-row rpt-row--sum">
-                  <span id="htc-route-name">&#8212;</span>
-                </div>
-              </div>
+              <!-- Conclusion: route description + toxic warning -->
               <div class="rpt-conclusion">
+                <div class="rpt-sh">Висновок та рекомендації</div>
                 <p class="rpt-conclusion-body" id="htc-route-text"></p>
                 <p class="htc-toxic-warning" id="htc-toxic-warning" style="display:none"></p>
               </div>
-            </div>
+
+            </div><!-- /.rpt-card -->
 
           </div>
           </div><!-- /.srp-col right -->
@@ -535,17 +534,20 @@
     <!-- HTC simulator logic -->
     <script>
     (function(){
-      var ROUTE_AGRO         = 'Сільське господарство — Добриво / Покращувач ґрунту';
-      var ROUTE_FUEL         = 'Енергетика — Альтернативне паливо SRF/RDF';
-      var ROUTE_CONSTRUCTION = 'Будівництво — Інертний наповнювач';
-      var ROUTE_TEXT_AGRO    = 'Відсутність токсинів дозволяє легально вносити продукт у ґрунт. Гідровугілля утримуватиме вологу та повертатиме поживні речовини.';
-      var ROUTE_TEXT_FUEL    = 'Мікропластик знищено, важкі метали надійно запечатані у вуглецевій матриці. Висока калорійність дозволяє продавати продукт на цементні заводи.';
-      var ROUTE_TEXT_CONST   = 'Висока зольність блокує ефективне спалювання. Єдиний легальний шлях утилізації за нормами ЄС — безпечна інкапсуляція токсинів у бетоні або асфальті.';
-      var TOXIC_WARNING      = '⚠ HTC іммобілізує {metals} у вуглецевій матриці та зменшує {plastics} до розміру <0.01 мм.';
-      var BADGE_METALS       = 'Важкі метали';
-      var BADGE_PLASTICS     = 'Мікропластик';
-      var UNIT_KG            = 'кг';
-      var UNIT_MJKG          = 'МДж/кг';
+      var ROUTE_AGRO_SHORT  = 'Агро';
+      var ROUTE_FUEL_SHORT  = 'SRF/RDF';
+      var ROUTE_CONST_SHORT = 'Будівництво';
+      var ROUTE_AGRO_LONG   = 'Сільське господарство — Добриво / Покращувач ґрунту';
+      var ROUTE_FUEL_LONG   = 'Енергетика — Альтернативне паливо SRF/RDF';
+      var ROUTE_CONST_LONG  = 'Будівництво — Інертний наповнювач';
+      var ROUTE_TEXT_AGRO   = 'Відсутність токсинів дозволяє легально вносити продукт у ґрунт. Гідровугілля утримуватиме вологу та повертатиме поживні речовини.';
+      var ROUTE_TEXT_FUEL   = 'Мікропластик знищено, важкі метали надійно запечатані у вуглецевій матриці. Висока калорійність дозволяє продавати продукт на цементні заводи.';
+      var ROUTE_TEXT_CONST  = 'Висока зольність блокує ефективне спалювання. Єдиний легальний шлях утилізації за нормами ЄС — безпечна інкапсуляція токсинів у бетоні або асфальті.';
+      var TOXIC_WARNING     = '⚠ HTC іммобілізує {metals} у вуглецевій матриці та зменшує {plastics} до розміру <0.01 мм.';
+      var BADGE_METALS      = 'Важкі метали';
+      var BADGE_PLASTICS    = 'Мікропластик';
+      var UNIT_KG           = 'кг';
+      var UNIT_MJKG         = 'МДж/кг';
 
       var PRESETS = {
         municipal:  { organic: 70, metals: 'Перевищення норм',  plastics: 'Критичний рівень',  toxic: true  },
@@ -554,33 +556,30 @@
         industrial: { organic: 25, metals: 'Екстремально високі', plastics: 'Специфічні', toxic: true  }
       };
 
-      var sourceEl  = document.getElementById('htc-source');
-      var reactorEl = document.getElementById('htc-reactor');
+      var currentSource  = 'municipal';
+      var currentReactor = 'before';
       var organicEl = document.getElementById('htc-organic');
 
       function htcCalc() {
         var organic = Math.max(10, Math.min(95, parseFloat(organicEl.value) || 70));
-        var reactor = reactorEl.value;
-        var preset  = PRESETS[sourceEl.value] || PRESETS.municipal;
+        var preset  = PRESETS[currentSource] || PRESETS.municipal;
 
         document.getElementById('htc-ash-val').textContent = (100 - organic).toFixed(0);
 
-        /* Badges */
+        /* Contaminant badges */
         var badgeMet = document.getElementById('htc-badge-metals');
         var badgePls = document.getElementById('htc-badge-plastics');
         badgeMet.textContent = BADGE_METALS + ': ' + preset.metals;
         badgePls.textContent = BADGE_PLASTICS + ': ' + preset.plastics;
-        var metSev = preset.toxic ? (sourceEl.value === 'industrial' ? 'bad' : 'warn') : 'ok';
-        var plsSev = preset.toxic ? 'warn' : 'ok';
-        badgeMet.className = 'htc-badge htc-badge--' + metSev;
-        badgePls.className = 'htc-badge htc-badge--' + plsSev;
+        badgeMet.className = 'htc-badge htc-badge--' + (preset.toxic ? (currentSource === 'industrial' ? 'bad' : 'warn') : 'ok');
+        badgePls.className = 'htc-badge htc-badge--' + (preset.toxic ? 'warn' : 'ok');
 
         /* Chemistry — basis: 1000 kg dry matter */
         var inputOrganicMass  = 1000 * (organic / 100);
         var inputAshMass      = 1000 - inputOrganicMass;
         var inputCarbonMass   = inputOrganicMass * 0.55;
         var otherOrganicsMass = inputOrganicMass - inputCarbonMass;
-        var c_retention       = reactor === 'after' ? 0.85 : 0.70;
+        var c_retention       = currentReactor === 'after' ? 0.85 : 0.70;
         var charCarbonMass    = inputCarbonMass * c_retention;
         var liquorCarbonMass  = inputCarbonMass - charCarbonMass;
         var charOtherOrganics = otherOrganicsMass * 0.40;
@@ -589,44 +588,57 @@
         var newAshPct         = (inputAshMass   / totalCharMass) * 100;
         var calorific         = newCarbonPct * 0.35;
 
-        /* Card 1 */
-        document.getElementById('htc-char-mass').textContent    = Math.round(totalCharMass) + ' ' + UNIT_KG;
-        document.getElementById('htc-char-carbon').textContent  = newCarbonPct.toFixed(1) + '%';
-        document.getElementById('htc-char-ash').textContent     = newAshPct.toFixed(1) + '%';
-        document.getElementById('htc-calorific').textContent    = calorific.toFixed(1) + ' ' + UNIT_MJKG;
+        /* Passport rows */
+        document.getElementById('htc-char-mass').textContent     = Math.round(totalCharMass) + ' ' + UNIT_KG;
+        document.getElementById('htc-char-carbon').textContent   = newCarbonPct.toFixed(1) + '%';
+        document.getElementById('htc-char-ash').textContent      = newAshPct.toFixed(1) + '%';
+        document.getElementById('htc-calorific').textContent     = calorific.toFixed(1) + ' ' + UNIT_MJKG;
+        document.getElementById('htc-liquor-carbon').textContent = Math.round(liquorCarbonMass) + ' ' + UNIT_KG;
 
-        /* Card 2 */
-        document.getElementById('htc-liquor-carbon').textContent = Math.round(liquorCarbonMass) + ' ' + UNIT_KG;
+        /* Route headline */
+        var route  = !preset.toxic ? 'agro' : (calorific >= 12 ? 'fuel' : 'construction');
+        var kpiEl  = document.getElementById('htc-kpi-route');
+        kpiEl.textContent = { agro: ROUTE_AGRO_SHORT, fuel: ROUTE_FUEL_SHORT, construction: ROUTE_CONST_SHORT }[route];
+        kpiEl.className   = 'rpt-kpi-val htc-route--' + route;
+        document.getElementById('htc-route-long').textContent  = { agro: ROUTE_AGRO_LONG, fuel: ROUTE_FUEL_LONG,  construction: ROUTE_CONST_LONG  }[route];
+        document.getElementById('htc-route-text').textContent  = { agro: ROUTE_TEXT_AGRO, fuel: ROUTE_TEXT_FUEL,  construction: ROUTE_TEXT_CONST  }[route];
 
-        /* Card 3 — market route */
-        var route = !preset.toxic ? 'agro' : (calorific >= 12 ? 'fuel' : 'construction');
-        document.getElementById('htc-route-card').className = 'rpt-card htc-route-card htc-route-card--' + route;
-        var names = { agro: ROUTE_AGRO, fuel: ROUTE_FUEL, construction: ROUTE_CONSTRUCTION };
-        var texts = { agro: ROUTE_TEXT_AGRO, fuel: ROUTE_TEXT_FUEL, construction: ROUTE_TEXT_CONST };
-        document.getElementById('htc-route-name').textContent = names[route];
-        document.getElementById('htc-route-text').textContent = texts[route];
+        /* Toxic warning */
         var warnEl = document.getElementById('htc-toxic-warning');
         if (preset.toxic) {
           warnEl.style.display = '';
-          warnEl.textContent = TOXIC_WARNING
-            .replace('{metals}', preset.metals)
-            .replace('{plastics}', preset.plastics);
+          warnEl.textContent = TOXIC_WARNING.replace('{metals}', preset.metals).replace('{plastics}', preset.plastics);
         } else {
           warnEl.style.display = 'none';
         }
       }
 
-      sourceEl.addEventListener('change', function() {
-        var p = PRESETS[this.value] || PRESETS.municipal;
-        organicEl.value = p.organic;
-        htcCalc();
+      /* Source tabs */
+      document.querySelectorAll('.srp-sc-tab[data-source]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.srp-sc-tab[data-source]').forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          currentSource = btn.dataset.source;
+          organicEl.value = (PRESETS[currentSource] || PRESETS.municipal).organic;
+          htcCalc();
+        });
       });
-      reactorEl.addEventListener('change', htcCalc);
-      organicEl.addEventListener('input', htcCalc);
-      /* also fires after the global stepper handler updates el.value */
+
+      /* Reactor tabs */
+      document.querySelectorAll('.srp-sc-tab[data-reactor]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.srp-sc-tab[data-reactor]').forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          currentReactor = btn.dataset.reactor;
+          htcCalc();
+        });
+      });
+
+      /* Organic stepper — click fires after global handler updates el.value */
       document.querySelectorAll('.srp-btn-step[data-for="htc-organic"]').forEach(function(b){
         b.addEventListener('click', htcCalc);
       });
+      organicEl.addEventListener('input', htcCalc);
 
       htcCalc();
     })();

@@ -3705,3 +3705,8 @@ section {
   border-top: 1px solid var(--color-border);
   line-height: 1.5;
 }
+
+/* HTC route kpi colour variants */
+.rpt-kpi-val.htc-route--agro         { color: var(--color-teal); }
+.rpt-kpi-val.htc-route--fuel         { color: #b45309; }
+.rpt-kpi-val.htc-route--construction { color: #64748b; }
