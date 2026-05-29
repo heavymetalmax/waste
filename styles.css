@@ -3509,18 +3509,21 @@ section {
 /* Avatar */
 .srp-chat-avatar {
   flex-shrink: 0;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: var(--color-teal);
-  color: #fff;
-  font-size: 0.6rem;
-  font-weight: 800;
+  background: #fff;
+  border: 1.5px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  letter-spacing: 0;
   margin-block-start: 2px;
+  overflow: hidden;
+}
+.srp-chat-avatar svg {
+  width: 70%;
+  height: 70%;
+  display: block;
 }
 
 /* Bubble */
