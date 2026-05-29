@@ -3092,7 +3092,7 @@ section {
   align-items: baseline;
   gap: 1rem;
   padding: 1.1rem 1.25rem 0.3rem;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px dotted var(--color-border);
 }
 .rpt-kpi-lbl {
   font-size: 0.65rem;
@@ -3115,13 +3115,13 @@ section {
   font-size: 0.72rem;
   color: var(--color-text-muted);
   margin: 0;
-  border-bottom: 2px solid var(--color-border);
+  border-bottom: 1px dotted var(--color-border);
 }
 
 /* Sections */
 .rpt-section {
   padding: 0.65rem 1.25rem 0.6rem;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px dotted var(--color-border);
 }
 .rpt-sh {
   font-size: 0.62rem;
@@ -3144,7 +3144,7 @@ section {
 }
 .rpt-row--sum {
   font-weight: 600;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px dotted var(--color-border);
   padding-top: 0.3rem;
   margin-top: 0.2rem;
 }
