@@ -39,6 +39,14 @@
       line-height: 1.15;
       margin: 0;
     }
+    .doc-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      margin-block-end: 2rem;
+      padding-block-end: 1.5rem;
+      border-bottom: 1px solid rgba(4,107,210,0.15);
+    }
     .doc-card {
       background: #fff;
       border: 1.5px solid #046BD2;
@@ -46,7 +54,15 @@
       padding: 2.5rem 3rem;
     }
     @media (max-width: 640px) {
-      .doc-card { padding: 1.5rem 1.25rem; }
+      .doc-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      margin-block-end: 2rem;
+      padding-block-end: 1.5rem;
+      border-bottom: 1px solid rgba(4,107,210,0.15);
+    }
+    .doc-card { padding: 1.5rem 1.25rem; }
     }
     .doc-card h2 {
       font-family: var(--font-display);
@@ -109,7 +125,15 @@
       body { background: #fff; }
       .main-header, .doc-actions { display: none !important; }
       .doc-wrap { margin-top: 1cm; padding: 0 1cm; }
-      .doc-card { border: 1.5px solid #046BD2; box-shadow: none; }
+      .doc-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      margin-block-end: 2rem;
+      padding-block-end: 1.5rem;
+      border-bottom: 1px solid rgba(4,107,210,0.15);
+    }
+    .doc-card { border: 1.5px solid #046BD2; box-shadow: none; }
     }
   </style>
 </head>
@@ -232,8 +256,8 @@
   <!-- Document body -->
   <div class="doc-wrap">
 
-    <!-- Doc header: logo + divider + title -->
-    <div class="doc-header">
+    <!-- doc-header moved inside card -->
+    <div class="doc-header" style="display:none">
       <svg class="doc-logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="dh-g1" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
@@ -259,6 +283,31 @@
 
     <!-- Content -->
     <div class="doc-card">
+
+      <!-- Card header: logo + divider + title -->
+      <div class="doc-card-header">
+        <svg class="doc-logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="ch-g1" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+              <stop offset="0%" stop-color="#046BD2"/>
+              <stop offset="100%" stop-color="#0D9488"/>
+            </linearGradient>
+            <linearGradient id="ch-g2" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+              <stop offset="0%" stop-color="#38BDF8"/>
+              <stop offset="100%" stop-color="#2DD4BF"/>
+            </linearGradient>
+          </defs>
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#ch-g1)"/>
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z"
+                fill="url(#ch-g2)" stroke="white" stroke-width="1.5" vector-effect="non-scaling-stroke"
+                transform="translate(12,13) scale(0.62) translate(-12,-13)"/>
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z"
+                fill="white" opacity="0.92"
+                transform="translate(12,13) scale(0.33) translate(-12,-13)"/>
+        </svg>
+        <div class="doc-vline"></div>
+        <h1 class="doc-title">Our<br>Mission</h1>
+      </div>
 
       <h2>What Matters to Us and How We Think</h2>
 
