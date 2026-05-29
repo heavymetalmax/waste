@@ -413,11 +413,17 @@ section {
 }
 
 /* Desktop Nav — pill style */
+.nav-desktop {
+  display: flex;
+  justify-content: center;
+}
+
 .nav-desktop ul {
   display: flex;
   gap: 0.2rem;
   align-items: center;
   list-style: none;
+  border: 1.5px solid rgba(4, 107, 210, 0.28);
   border-radius: 9999px;
   padding: 0.3rem;
 }
