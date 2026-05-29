@@ -2300,7 +2300,7 @@ section {
   color: var(--color-teal);
   width: min(1040px, 100vw);
   height: min(1040px, 100vw);
-  animation: spin-slow 38s linear infinite;
+  animation: spin-slow 300s linear infinite;
   transform-origin: center center;
 }
 
