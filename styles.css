@@ -3167,6 +3167,7 @@ section {
 /* ── Methodology accordion ───────────────────────────────────────────────── */
 .sim-method {
   max-width: 860px;
+  margin-inline: auto;
   margin-block-start: 1.5rem;
   text-align: center;
 }
