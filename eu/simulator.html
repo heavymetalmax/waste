@@ -957,47 +957,17 @@
           </div>
 
           <div class="glass-card contact-form-card">
-            <form id="rfq-form" action="#" method="POST" novalidate>
-              <fieldset class="form-fieldset">
-
-                <div class="visually-hidden" aria-hidden="true">
-                  <label for="honeypot">Не заповнюйте</label>
-                  <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
-                </div>
-
-                <div class="form-group">
-                  <input type="text" id="user-name" name="name" placeholder=" " required minlength="2" autocomplete="name" aria-describedby="name-error">
-                  <label for="user-name" class="floating-label">Name & Position *</label>
-                  <span id="name-error" class="error-msg" role="alert">Please enter a name</span>
-                </div>
-
-                <div class="form-group">
-                  <input type="tel" id="user-phone" name="phone" placeholder=" " required autocomplete="tel" inputmode="tel" aria-describedby="phone-error">
-                  <label for="user-phone" class="floating-label">Contact Phone *</label>
-                  <span id="phone-error" class="error-msg" role="alert">Please enter a phone number</span>
-                </div>
-
-                <div class="form-group">
-                  <input type="text" id="user-company" name="company" placeholder=" " required autocomplete="organization" aria-describedby="company-error">
-                  <label for="user-company" class="floating-label">City / Company Name *</label>
-                  <span id="company-error" class="error-msg" role="alert">Please enter a name</span>
-                </div>
-
-                <div class="form-group">
-                  <select id="user-type" name="object_type">
-                    <option value="" disabled selected></option>
-                    <option value="waterutil">Regional Water Utility (50k+)</option>
-                    <option value="community">Community (from 10k)</option>
-                    <option value="agro">Agro-industrial Enterprise</option>
-                    <option value="other">Other</option>
-                  </select>
-                  <label for="user-type" class="floating-label">Facility Type</label>
-                </div>
-
-                <button type="submit" id="form-submit-btn" class="btn btn-primary btn-block">Submit Application for Review</button>
-                <p class="form-micro-text">Response within 1 business day. No obligations.</p>
-
-              </fieldset>
+            <form id="callback-form" novalidate>
+              <p class="callback-label">Leave your number and we will call you back</p>
+              <div class="callback-row">
+                <input type="tel" id="callback-phone" name="phone"
+                       placeholder="Contact Phone *"
+                       inputmode="tel" autocomplete="tel"
+                       aria-describedby="callback-error">
+                <button type="submit" class="btn btn-primary callback-btn">Call me back</button>
+              </div>
+              <p id="callback-error" class="error-msg" role="alert" style="display:none">Please enter a valid phone number</p>
+              <p class="form-micro-text">Response within 1 business day. No obligations.</p>
             </form>
             <div id="form-status" class="form-status-container hidden" tabindex="-1" role="status" aria-live="polite"></div>
           </div>

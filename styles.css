@@ -4695,3 +4695,38 @@ section {
   letter-spacing: 0.01em;
 }
 .callout-inline-link:hover { text-decoration: underline; }
+
+/* Callback "Call me back" form */
+.callback-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-block-end: 0.85rem;
+}
+
+.callback-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.callback-row input[type="tel"] {
+  flex: 1;
+  min-width: 140px;
+  padding: 0.7rem 1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  transition: border-color 0.15s;
+}
+
+.callback-row input[type="tel"]:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.callback-btn { white-space: nowrap; }

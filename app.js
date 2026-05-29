@@ -54,118 +54,49 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- 4. Form Validation & Submission ---
-  const rfqForm = document.getElementById('rfq-form');
-  const formSubmitBtn = document.getElementById('form-submit-btn');
-  const formStatus = document.getElementById('form-status');
+  // --- Callback form: передзвоніть мені ---
+  const callbackForm  = document.getElementById('callback-form');
+  const callbackPhone = document.getElementById('callback-phone');
+  const callbackError = document.getElementById('callback-error');
+  const formStatusEl  = document.getElementById('form-status');
 
-  const userName = document.getElementById('user-name');
-  const userPhone = document.getElementById('user-phone');
-  const userCompany = document.getElementById('user-company');
-
-  function validateField(input, errorId) {
-    const errorMsg = document.getElementById(errorId);
-    if (input && !input.checkValidity() && input.value.trim() !== "") {
-      if (errorMsg) errorMsg.style.display = 'block';
-    } else {
-      if (errorMsg) errorMsg.style.display = 'none';
-    }
-  }
-
-  const syncAria = (el) => {
-    if (el && el.setAttribute) {
-      try {
-        el.setAttribute('aria-invalid', el.matches(':user-invalid') ? 'true' : 'false');
-      } catch (e) {
-        // :user-invalid not supported in all browsers
-      }
-    }
-  };
-
-  // Validation listeners
-  if (userName) {
-    userName.addEventListener('blur', () => { validateField(userName, 'name-error'); syncAria(userName); });
-    userName.addEventListener('input', () => {
-      const errorMsg = document.getElementById('name-error');
-      if (userName.checkValidity() && errorMsg) errorMsg.style.display = 'none';
-      syncAria(userName);
+  if (callbackForm && callbackPhone) {
+    callbackPhone.addEventListener('input', () => {
+      if (callbackError) callbackError.style.display = 'none';
     });
-  }
 
-  if (userPhone) {
-    userPhone.addEventListener('blur', () => { validateField(userPhone, 'phone-error'); syncAria(userPhone); });
-    userPhone.addEventListener('input', () => {
-      const errorMsg = document.getElementById('phone-error');
-      if (userPhone.checkValidity() && errorMsg) errorMsg.style.display = 'none';
-      syncAria(userPhone);
-    });
-  }
-
-  if (userCompany) {
-    userCompany.addEventListener('blur', () => { validateField(userCompany, 'company-error'); syncAria(userCompany); });
-    userCompany.addEventListener('input', () => {
-      const errorMsg = document.getElementById('company-error');
-      if (userCompany.checkValidity() && errorMsg) errorMsg.style.display = 'none';
-      syncAria(userCompany);
-    });
-  }
-
-  // Submit handler
-  if (rfqForm) {
-    rfqForm.addEventListener('submit', (e) => {
+    callbackForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      const phone  = callbackPhone.value.trim();
+      const digits = phone.replace(/\D/g, '');
 
-      // Check honeypot
-      const honeypot = document.getElementById('honeypot');
-      if (honeypot && honeypot.value !== "") {
-        console.warn("Spam detected.");
-        showFormSuccess();
-        rfqForm.reset();
+      if (digits.length < 7) {
+        if (callbackError) {
+          callbackError.style.display = 'block';
+          callbackError.textContent = callbackError.textContent || 'Введіть коректний номер';
+        }
+        callbackPhone.focus();
         return;
       }
 
-      // Final validation check
-      if (!rfqForm.checkValidity()) {
-        validateField(userName, 'name-error');
-        validateField(userPhone, 'phone-error');
-        validateField(userCompany, 'company-error');
+      // Open email client pre-filled
+      const subj = encodeURIComponent('Передзвоніть мені — BTC Consulting');
+      const body = encodeURIComponent(
+        'Будь ласка, передзвоніть мені.\n\nТелефон: ' + phone +
+        '\n\nНадіслано з сайту BTC Consulting'
+      );
+      window.open('mailto:contact@biotc.pl?subject=' + subj + '&body=' + body);
 
-        const firstInvalid = rfqForm.querySelector(':invalid');
-        if (firstInvalid) firstInvalid.focus();
-        return;
+      if (formStatusEl) {
+        formStatusEl.className = 'form-status-container success';
+        formStatusEl.innerHTML = '<strong>Дякуємо! Натисніть \"Надіслати\" у поштовому клієнті.</strong>';
+        formStatusEl.classList.remove('hidden');
       }
-
-      // Simulate submission
-      if (formSubmitBtn) {
-        formSubmitBtn.disabled = true;
-        formSubmitBtn.textContent = 'Надсилання запиту...';
-      }
-      if (formStatus) formStatus.classList.add('hidden');
-
-      setTimeout(() => {
-        showFormSuccess();
-        rfqForm.reset();
-      }, 1500);
+      callbackForm.reset();
     });
   }
 
-  function showFormSuccess() {
-    if (formSubmitBtn) {
-      formSubmitBtn.disabled = false;
-      formSubmitBtn.textContent = 'Надіслати заявку на розгляд';
-    }
-
-    if (formStatus) {
-      formStatus.className = "form-status-container success";
-      formStatus.innerHTML = `
-        <strong>Дякуємо! Заявку успішно надіслано.</strong><br>
-        Наші інженери опрацюють ваші дані та зв'яжуться з вами протягом 1 робочого дня.
-      `;
-      formStatus.classList.remove('hidden');
-      formStatus.focus();
-    }
-  }
-
-  // --- 5. Dynamic Clean-Tech Background Animation (Disabled) ---
+    // --- 5. Dynamic Clean-Tech Background Animation (Disabled) ---
   const canvas = document.getElementById('bg-canvas');
   if (canvas) {
     canvas.remove();

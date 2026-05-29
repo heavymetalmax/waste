@@ -957,47 +957,17 @@
           </div>
 
           <div class="glass-card contact-form-card">
-            <form id="rfq-form" action="#" method="POST" novalidate>
-              <fieldset class="form-fieldset">
-
-                <div class="visually-hidden" aria-hidden="true">
-                  <label for="honeypot">Не заповнюйте</label>
-                  <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
-                </div>
-
-                <div class="form-group">
-                  <input type="text" id="user-name" name="name" placeholder=" " required minlength="2" autocomplete="name" aria-describedby="name-error">
-                  <label for="user-name" class="floating-label">Ім'я та посада *</label>
-                  <span id="name-error" class="error-msg" role="alert">Будь ласка, вкажіть ім'я</span>
-                </div>
-
-                <div class="form-group">
-                  <input type="tel" id="user-phone" name="phone" placeholder=" " required autocomplete="tel" inputmode="tel" aria-describedby="phone-error">
-                  <label for="user-phone" class="floating-label">Контактний телефон *</label>
-                  <span id="phone-error" class="error-msg" role="alert">Будь ласка, вкажіть телефон</span>
-                </div>
-
-                <div class="form-group">
-                  <input type="text" id="user-company" name="company" placeholder=" " required autocomplete="organization" aria-describedby="company-error">
-                  <label for="user-company" class="floating-label">Місто / назва підприємства *</label>
-                  <span id="company-error" class="error-msg" role="alert">Будь ласка, вкажіть назву</span>
-                </div>
-
-                <div class="form-group">
-                  <select id="user-type" name="object_type">
-                    <option value="" disabled selected></option>
-                    <option value="waterutil">Регіональний водоканал (50k+)</option>
-                    <option value="community">Громада (від 10k)</option>
-                    <option value="agro">Агропромислове підприємство</option>
-                    <option value="other">Інше</option>
-                  </select>
-                  <label for="user-type" class="floating-label">Тип об'єкта</label>
-                </div>
-
-                <button type="submit" id="form-submit-btn" class="btn btn-primary btn-block">Надіслати заявку на розгляд</button>
-                <p class="form-micro-text">Відповідь протягом 1 робочого дня. Без зобов'язань.</p>
-
-              </fieldset>
+            <form id="callback-form" novalidate>
+              <p class="callback-label">Залиште номер, і ми передзвонимо</p>
+              <div class="callback-row">
+                <input type="tel" id="callback-phone" name="phone"
+                       placeholder="Контактний телефон *"
+                       inputmode="tel" autocomplete="tel"
+                       aria-describedby="callback-error">
+                <button type="submit" class="btn btn-primary callback-btn">Передзвоніть мені</button>
+              </div>
+              <p id="callback-error" class="error-msg" role="alert" style="display:none">Введіть коректний номер телефону</p>
+              <p class="form-micro-text">Відповідь протягом 1 робочого дня. Без зобов'язань.</p>
             </form>
             <div id="form-status" class="form-status-container hidden" tabindex="-1" role="status" aria-live="polite"></div>
           </div>
