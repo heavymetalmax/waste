@@ -4361,6 +4361,11 @@ section {
 
 /* Center hamburger on mobile */
 @media (max-width: 640px) {
+  /* logo takes its natural width, burger gets remaining space centered,
+     actions sit on the right — no overlap */
+  .header-container {
+    grid-template-columns: auto 1fr auto;
+  }
   .mobile-toggle {
     display: flex;
     grid-column: 2;
