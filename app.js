@@ -429,4 +429,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+
+  // --- Mobile: tap chat widget → open full-screen chat page ---
+  if (window.matchMedia('(max-width: 640px)').matches) {
+    var chatWidget = document.querySelector('.srp-chat-section .srp-chat-widget');
+    if (chatWidget) {
+      chatWidget.addEventListener('pointerdown', function() {
+        window.location.href = 'chat.html';
+      });
+    }
+  }
+
 });

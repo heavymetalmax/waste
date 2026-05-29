@@ -4409,6 +4409,7 @@ section {
   /* Chat: hide intro text, show only widget */
   .srp-chat-section .srp-col:has(.srp-chat-intro) { display: none; }
   .srp-chat-section .srp-col:has(.srp-chat-widget) { width: 100%; }
+  .srp-chat-section .srp-chat-widget { cursor: pointer; }
 
   /* Shorter chat messages area on phones */
   .srp-chat-msgs {
