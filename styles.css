@@ -3710,3 +3710,44 @@ section {
 .rpt-kpi-val.htc-route--agro         { color: var(--color-teal); }
 .rpt-kpi-val.htc-route--fuel         { color: #b45309; }
 .rpt-kpi-val.htc-route--construction { color: #64748b; }
+
+
+/* ==========================================================================
+   Section background icons + AI-chat two-column layout
+   ========================================================================== */
+
+/* Positioned context for bg icons */
+#simulator   { position: relative; overflow: hidden; }
+#ai-agent    { position: relative; overflow: hidden; }
+
+/* Shared bg icon rules */
+.sim-bg-icon, .htc-bg-icon, .chat-bg-icon {
+  position: absolute;
+  right: -4%;
+  top: 0;
+  width: min(520px, 56vw);
+  height: min(520px, 56vw);
+  color: var(--color-accent);
+  pointer-events: none;
+  opacity: 0.10;
+  will-change: transform;
+}
+
+.sim-bg-icon svg,
+.htc-bg-icon svg,
+.chat-bg-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* AI-chat: widget fills right column */
+.srp-chat-section .srp-chat-intro {
+  max-width: none;
+  margin-block-end: 0;
+}
+
+.srp-chat-section .srp-chat-widget {
+  max-width: none;
+  width: 100%;
+}
