@@ -4369,3 +4369,56 @@ section {
   .nav-desktop { display: none; }
   .header-actions { grid-column: 3; }
 }
+
+/* ==========================================================================
+   Simulator — mobile (≤640px)
+   ========================================================================== */
+@media (max-width: 640px) {
+
+  /* Compact input panel */
+  .srp-panel {
+    padding: 1rem;
+    gap: 0.9rem;
+  }
+
+  /* Tighter sim hero */
+  .sim-hero-section {
+    padding-block-start: calc(70px + var(--space-md));
+    padding-block-end: var(--space-md);
+  }
+
+  .sim-section {
+    padding-block-start: var(--space-md);
+    padding-block-end: var(--space-xl);
+  }
+
+  /* Methodology lead — left-align on narrow screens */
+  .sim-article-lead { text-align: left; }
+
+  /* Chat: hide intro text, show only widget */
+  .srp-chat-section .srp-col:has(.srp-chat-intro) { display: none; }
+  .srp-chat-section .srp-col:has(.srp-chat-widget) { width: 100%; }
+
+  /* Shorter chat messages area on phones */
+  .srp-chat-msgs {
+    min-height: 300px;
+    max-height: 420px;
+  }
+
+  /* rpt-card: slightly less horizontal padding */
+  .rpt-kpi           { padding-inline: 1rem; }
+  .rpt-section       { padding-inline: 1rem; }
+  .rpt-conclusion    { padding-inline: 1rem; }
+  .rpt-kpi-note      { padding-inline: 1rem; }
+
+  /* Inset separators follow new padding */
+  .rpt-kpi::after,
+  .rpt-kpi-note::after,
+  .rpt-section::after {
+    left: 1rem;
+    right: 1rem;
+  }
+
+  /* Preset buttons — smaller text */
+  .srp-preset-btn { font-size: 0.65rem; padding: 0.25rem 0.5rem; }
+}
