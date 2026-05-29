@@ -3751,4 +3751,5 @@ section {
 .srp-chat-section .srp-chat-widget {
   max-width: none;
   width: 100%;
+  background: #fff;
 }
