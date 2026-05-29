@@ -4730,3 +4730,26 @@ section {
 }
 
 .callback-btn { white-space: nowrap; }
+
+/* Add contact vCard button */
+.contact-vcard-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-block-start: 1.1rem;
+  padding: 0.55rem 1.1rem;
+  border: 1.5px solid var(--color-accent);
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--color-accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.contact-vcard-btn:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+.contact-vcard-btn svg { flex-shrink: 0; }

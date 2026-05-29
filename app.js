@@ -297,4 +297,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { passive: true });
   })();
 
+}
+  // --- Add contact (vCard download) ---
+  const vcardBtn = document.getElementById('vcard-btn');
+  if (vcardBtn) {
+    vcardBtn.addEventListener('click', () => {
+      const vcard = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        'FN:BTC Consulting',
+        'ORG:BTC Consulting',
+        'TEL;TYPE=WORK,VOICE:+48608003458',
+        'EMAIL;TYPE=WORK:contact@biotc.pl',
+        'URL:https://biotc.pl',
+        'ADR;TYPE=WORK:;;ul. Daszynskiego 34/3;Gliwice;;44-100;Poland',
+        'END:VCARD'
+      ].join('
+');
+      const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+      const url  = URL.createObjectURL(blob);
+      const a    = document.createElement('a');
+      a.href     = url;
+      a.download = 'BTC-Consulting.vcf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+  }
+
 });
