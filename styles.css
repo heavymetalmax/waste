@@ -4407,7 +4407,7 @@ section {
   .sim-article-lead { text-align: left; }
 
   /* Chat: hide intro text, show only widget */
-  .srp-chat-section .srp-col:has(.srp-chat-intro) { display: none; }
+  .srp-chat-section .srp-col:has(.srp-chat-intro) { display: block; }
   .srp-chat-section .srp-col:has(.srp-chat-widget) { width: 100%; }
   .srp-chat-section .srp-chat-widget { cursor: pointer; }
 
