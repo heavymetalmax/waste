@@ -863,24 +863,43 @@
                 <span>ul. Daszyńskiego 34/3, 44-100 Gliwice, Polska</span>
               </div>
             </div>
-            <button class="contact-vcard-btn" id="vcard-btn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M20 6v12a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2"/><path d="M10 16h6"/><path d="M11 11a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M4 8h3"/><path d="M4 12h3"/><path d="M4 16h3"/></svg>
-              Add contact
-            </button>
           </div>
 
           <div class="glass-card contact-form-card">
-            <form id="callback-form" novalidate>
-              <p class="callback-label">Leave your number and we will call you back</p>
-              <div class="callback-row">
-                <input type="tel" id="callback-phone" name="phone"
-                       placeholder="Contact Phone *"
-                       inputmode="tel" autocomplete="tel"
-                       aria-describedby="callback-error">
-                <button type="submit" class="btn btn-primary callback-btn" data-label="Call me back">Call me back</button>
-              </div>
-              <p id="callback-error" class="error-msg" role="alert" style="display:none">Please enter a valid phone number</p>
-              <p class="form-micro-text">Response within 1 business day. No obligations.</p>
+            <form id="rfq-form" action="#" method="POST" novalidate>
+              <fieldset class="form-fieldset">
+                <div class="visually-hidden" aria-hidden="true">
+                  <label for="honeypot">Не заповнюйте</label>
+                  <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
+                </div>
+                <div class="form-group">
+                  <input type="text" id="user-name" name="name" placeholder=" " required minlength="2" autocomplete="name" aria-describedby="name-error">
+                  <label for="user-name" class="floating-label">Name & Position *</label>
+                  <span id="name-error" class="error-msg" role="alert">Please enter a name</span>
+                </div>
+                <div class="form-group">
+                  <input type="tel" id="user-phone" name="phone" placeholder=" " required autocomplete="tel" inputmode="tel" aria-describedby="phone-error">
+                  <label for="user-phone" class="floating-label">Contact Phone *</label>
+                  <span id="phone-error" class="error-msg" role="alert">Please enter a phone number</span>
+                </div>
+                <div class="form-group">
+                  <input type="text" id="user-company" name="company" placeholder=" " required autocomplete="organization" aria-describedby="company-error">
+                  <label for="user-company" class="floating-label">City / Company Name *</label>
+                  <span id="company-error" class="error-msg" role="alert">Please enter a name</span>
+                </div>
+                <div class="form-group">
+                  <select id="user-type" name="object_type">
+                    <option value="" disabled selected></option>
+                    <option value="waterutil">Regional Water Utility (50k+)</option>
+                    <option value="community">Community (from 10k)</option>
+                    <option value="agro">Agro-industrial Enterprise</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <label for="user-type" class="floating-label">Facility Type</label>
+                </div>
+                <button type="submit" id="form-submit-btn" class="btn btn-primary btn-block">Submit Application for Review</button>
+                <p class="form-micro-text">Response within 1 business day. No obligations.</p>
+              </fieldset>
             </form>
             <div id="form-status" class="form-status-container hidden" tabindex="-1" role="status" aria-live="polite"></div>
           </div>
@@ -1010,18 +1029,24 @@
             <span>WhatsApp Chat</span>
           </a>
           <button id="vcard-download-btn" class="popover-action-btn border-orange">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
-            <strong>Save Contact</strong>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M20 6v12a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2"/><path d="M10 16h6"/><path d="M11 11a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M4 8h3"/><path d="M4 12h3"/><path d="M4 16h3"/></svg>
+            <strong>Add contact</strong>
           </button>
         </div>
 
-        <div class="popover-divider">
-          <span>or</span>
-        </div>
 
-        <a href="#contact" id="popover-form-link" class="btn btn-primary btn-block popover-form-btn">
-          Contact Form
-        </a>
+        <div class="popover-divider"><span>or</span></div>
+        <div class="popover-callback-wrap">
+          <p class="callback-label" style="margin-block-end:0.6rem;font-size:0.85rem;">Leave your number and we will call you back</p>
+          <div class="callback-row">
+            <input type="tel" id="popover-phone" placeholder="Contact Phone *"
+                   inputmode="tel" autocomplete="tel">
+            <button type="button" class="btn btn-primary callback-btn" id="popover-callback-btn"
+                    data-label="Call me back">Call me back</button>
+          </div>
+          <p id="popover-callback-error" class="error-msg" style="display:none">Please enter a valid phone number</p>
+          <p class="form-micro-text" style="margin-block-start:0.4rem;">Response within 1 business day. No obligations.</p>
+        </div>
       </div>
     </div>
 </body>

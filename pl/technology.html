@@ -863,24 +863,43 @@
                 <span>ul. Daszyńskiego 34/3, 44-100 Gliwice, Polska</span>
               </div>
             </div>
-            <button class="contact-vcard-btn" id="vcard-btn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M20 6v12a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2"/><path d="M10 16h6"/><path d="M11 11a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M4 8h3"/><path d="M4 12h3"/><path d="M4 16h3"/></svg>
-              Dodaj kontakt
-            </button>
           </div>
 
           <div class="glass-card contact-form-card">
-            <form id="callback-form" novalidate>
-              <p class="callback-label">Zostaw numer, a oddzwonimy</p>
-              <div class="callback-row">
-                <input type="tel" id="callback-phone" name="phone"
-                       placeholder="Telefon kontaktowy *"
-                       inputmode="tel" autocomplete="tel"
-                       aria-describedby="callback-error">
-                <button type="submit" class="btn btn-primary callback-btn" data-label="Oddzwoń do mnie">Oddzwoń do mnie</button>
-              </div>
-              <p id="callback-error" class="error-msg" role="alert" style="display:none">Podaj poprawny numer telefonu</p>
-              <p class="form-micro-text">Odpowiedź w ciągu 1 dnia roboczego. Bez zobowiązań.</p>
+            <form id="rfq-form" action="#" method="POST" novalidate>
+              <fieldset class="form-fieldset">
+                <div class="visually-hidden" aria-hidden="true">
+                  <label for="honeypot">Не заповнюйте</label>
+                  <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
+                </div>
+                <div class="form-group">
+                  <input type="text" id="user-name" name="name" placeholder=" " required minlength="2" autocomplete="name" aria-describedby="name-error">
+                  <label for="user-name" class="floating-label">Imię i nazwisko / stanowisko *</label>
+                  <span id="name-error" class="error-msg" role="alert">Proszę podać imię i nazwisko</span>
+                </div>
+                <div class="form-group">
+                  <input type="tel" id="user-phone" name="phone" placeholder=" " required autocomplete="tel" inputmode="tel" aria-describedby="phone-error">
+                  <label for="user-phone" class="floating-label">Telefon kontaktowy *</label>
+                  <span id="phone-error" class="error-msg" role="alert">Proszę podać numer telefonu</span>
+                </div>
+                <div class="form-group">
+                  <input type="text" id="user-company" name="company" placeholder=" " required autocomplete="organization" aria-describedby="company-error">
+                  <label for="user-company" class="floating-label">Miasto / nazwa przedsiębiorstwa *</label>
+                  <span id="company-error" class="error-msg" role="alert">Proszę podać nazwę</span>
+                </div>
+                <div class="form-group">
+                  <select id="user-type" name="object_type">
+                    <option value="" disabled selected></option>
+                    <option value="waterutil">Regionalne przedsiębiorstwo wodociągowe (50k+)</option>
+                    <option value="community">Gmina (od 10k)</option>
+                    <option value="agro">Przedsiębiorstwo rolno-spożywcze</option>
+                    <option value="other">Inne</option>
+                  </select>
+                  <label for="user-type" class="floating-label">Typ obiektu</label>
+                </div>
+                <button type="submit" id="form-submit-btn" class="btn btn-primary btn-block">Wyślij zgłoszenie</button>
+                <p class="form-micro-text">Odpowiedź w ciągu 1 dnia roboczego. Bez zobowiązań.</p>
+              </fieldset>
             </form>
             <div id="form-status" class="form-status-container hidden" tabindex="-1" role="status" aria-live="polite"></div>
           </div>
@@ -1010,18 +1029,24 @@
             <span>WhatsApp Chat</span>
           </a>
           <button id="vcard-download-btn" class="popover-action-btn border-orange">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
-            <strong>Zapisz kontakt</strong>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M20 6v12a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2"/><path d="M10 16h6"/><path d="M11 11a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M4 8h3"/><path d="M4 12h3"/><path d="M4 16h3"/></svg>
+            <strong>Dodaj kontakt</strong>
           </button>
         </div>
 
-        <div class="popover-divider">
-          <span>lub</span>
-        </div>
 
-        <a href="#contact" id="popover-form-link" class="btn btn-primary btn-block popover-form-btn">
-          Formularz kontaktowy
-        </a>
+        <div class="popover-divider"><span>lub</span></div>
+        <div class="popover-callback-wrap">
+          <p class="callback-label" style="margin-block-end:0.6rem;font-size:0.85rem;">Zostaw numer, a oddzwonimy</p>
+          <div class="callback-row">
+            <input type="tel" id="popover-phone" placeholder="Telefon kontaktowy *"
+                   inputmode="tel" autocomplete="tel">
+            <button type="button" class="btn btn-primary callback-btn" id="popover-callback-btn"
+                    data-label="Oddzwoń do mnie">Oddzwoń do mnie</button>
+          </div>
+          <p id="popover-callback-error" class="error-msg" style="display:none">Podaj poprawny numer telefonu</p>
+          <p class="form-micro-text" style="margin-block-start:0.4rem;">Odpowiedź w ciągu 1 dnia roboczego. Bez zobowiązań.</p>
+        </div>
       </div>
     </div>
 </body>

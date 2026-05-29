@@ -96,12 +96,100 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-    // --- 5. Dynamic Clean-Tech Background Animation (Disabled) ---
+  
+  // --- Mobile nav strip ---
+  const mobileToggle2 = document.querySelector('.mobile-toggle');
+  const mobileStrip   = document.getElementById('nav-mobile-strip');
+
+  function closeStrip() {
+    if (!mobileStrip) return;
+    mobileStrip.classList.remove('open');
+    mobileStrip.setAttribute('aria-hidden', 'true');
+    if (mobileToggle2) mobileToggle2.setAttribute('aria-expanded', 'false');
+  }
+
+  if (mobileToggle2 && mobileStrip) {
+    mobileToggle2.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = mobileStrip.classList.contains('open');
+      if (isOpen) { closeStrip(); } else {
+        mobileStrip.classList.add('open');
+        mobileStrip.setAttribute('aria-hidden', 'false');
+        mobileToggle2.setAttribute('aria-expanded', 'true');
+      }
+    });
+    mobileStrip.querySelectorAll('a').forEach(a => a.addEventListener('click', closeStrip));
+    document.addEventListener('click', closeStrip);
+    window.addEventListener('scroll', closeStrip, { passive: true });
+  }
+
+  // --- 5. Dynamic Clean-Tech Background Animation (Disabled) ---
   const canvas = document.getElementById('bg-canvas');
   if (canvas) {
     canvas.remove();
   }
 
+
+
+  // --- Contact form (rfq-form) ---
+  const rfqForm      = document.getElementById('rfq-form');
+  const formSubmitBtn= document.getElementById('form-submit-btn');
+  const rfqStatus    = document.getElementById('form-status');
+  const userName     = document.getElementById('user-name');
+  const userPhone    = document.getElementById('user-phone');
+  const userCompany  = document.getElementById('user-company');
+
+  function validateField(input, errorId) {
+    const em = document.getElementById(errorId);
+    if (input && !input.checkValidity() && input.value.trim()) {
+      if (em) em.style.display = 'block';
+    } else { if (em) em.style.display = 'none'; }
+  }
+
+  if (userName)    userName.addEventListener('blur',  () => validateField(userName,   'name-error'));
+  if (userPhone)   userPhone.addEventListener('blur',  () => validateField(userPhone,  'phone-error'));
+  if (userCompany) userCompany.addEventListener('blur', () => validateField(userCompany,'company-error'));
+
+  if (rfqForm) {
+    rfqForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const honeypot = document.getElementById('honeypot');
+      if (honeypot && honeypot.value) { rfqForm.reset(); return; }
+      if (!rfqForm.checkValidity()) {
+        validateField(userName, 'name-error');
+        validateField(userPhone, 'phone-error');
+        validateField(userCompany, 'company-error');
+        rfqForm.querySelector(':invalid')?.focus();
+        return;
+      }
+      if (formSubmitBtn) { formSubmitBtn.disabled = true; formSubmitBtn.textContent = '...'; }
+      try {
+        const data = new FormData(rfqForm);
+        data.append('_subject', 'Нова заявка — BTC Consulting');
+        data.append('_captcha', 'false');
+        data.append('_template', 'basic');
+        const res = await fetch('https://formsubmit.co/ajax/contact@biotc.pl', {
+          method: 'POST', headers: { 'Accept': 'application/json' }, body: data,
+        });
+        if (rfqStatus) {
+          rfqStatus.className = res.ok ? 'form-status-container success' : 'form-status-container error';
+          rfqStatus.innerHTML = res.ok
+            ? '<strong>Дякуємо! Ми зв'яжемося з вами протягом 1 робочого дня.</strong>'
+            : '<strong>Помилка. Зателефонуйте: +48 608 003 458</strong>';
+          rfqStatus.classList.remove('hidden');
+        }
+        if (res.ok) rfqForm.reset();
+      } catch {
+        if (rfqStatus) {
+          rfqStatus.className = 'form-status-container error';
+          rfqStatus.innerHTML = '<strong>Немає зв'язку. Зателефонуйте: +48 608 003 458</strong>';
+          rfqStatus.classList.remove('hidden');
+        }
+      } finally {
+        if (formSubmitBtn) { formSubmitBtn.disabled = false; formSubmitBtn.textContent = '{{form.submit}}'; }
+      }
+    });
+  }
 
   // --- Cycling FAB & Contact Popover (phone / mail / chat) ---
   const fab = document.getElementById('nav-fab');
@@ -298,6 +386,43 @@ document.addEventListener("DOMContentLoaded", () => {
   })();
 
 }
+
+  // --- Popover callback form ---
+  const popoverPhone   = document.getElementById('popover-phone');
+  const popoverCbBtn   = document.getElementById('popover-callback-btn');
+  const popoverCbError = document.getElementById('popover-callback-error');
+
+  if (popoverCbBtn && popoverPhone) {
+    popoverPhone.addEventListener('input', () => {
+      if (popoverCbError) popoverCbError.style.display = 'none';
+    });
+    popoverCbBtn.addEventListener('click', async () => {
+      const phone  = popoverPhone.value.trim();
+      const digits = phone.replace(/\D/g, '');
+      if (digits.length < 7) {
+        if (popoverCbError) popoverCbError.style.display = 'block';
+        popoverPhone.focus();
+        return;
+      }
+      const orig = popoverCbBtn.textContent;
+      popoverCbBtn.disabled = true; popoverCbBtn.textContent = '...';
+      try {
+        const data = new FormData();
+        data.append('phone', phone);
+        data.append('_subject', 'Передзвоніть мені — BTC Consulting');
+        data.append('_captcha', 'false');
+        const res = await fetch('https://formsubmit.co/ajax/contact@biotc.pl', {
+          method: 'POST', headers: { 'Accept': 'application/json' }, body: data,
+        });
+        popoverCbBtn.textContent = res.ok ? '✓ Дякуємо!' : orig;
+        if (res.ok) popoverPhone.value = '';
+        setTimeout(() => { popoverCbBtn.textContent = orig; }, 3000);
+      } catch {
+        popoverCbBtn.textContent = orig;
+      } finally { popoverCbBtn.disabled = false; }
+    });
+  }
+
   // --- Add contact (vCard download) ---
   const vcardBtn = document.getElementById('vcard-btn');
   if (vcardBtn) {
