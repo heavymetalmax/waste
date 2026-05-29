@@ -407,12 +407,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (mobileToggle2 && mobileStrip) {
-    // Open on tap
+    // Toggle on tap
     mobileToggle2.addEventListener('click', (e) => {
       e.stopPropagation();
-      mobileStrip.classList.add('open');
-      mobileStrip.setAttribute('aria-hidden', 'false');
-      mobileToggle2.setAttribute('aria-expanded', 'true');
+      const isOpen = mobileStrip.classList.contains('open');
+      if (isOpen) {
+        closeStrip();
+      } else {
+        mobileStrip.classList.add('open');
+        mobileStrip.setAttribute('aria-hidden', 'false');
+        mobileToggle2.setAttribute('aria-expanded', 'true');
+      }
     });
 
     // Close on link tap
