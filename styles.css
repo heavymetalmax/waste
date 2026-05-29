@@ -3276,7 +3276,7 @@ section {
 }
 
 .sim-article-list li::before {
-  content: '—';
+  content: '·';
   position: absolute;
   inset-inline-start: 0;
   color: var(--color-text-muted);
