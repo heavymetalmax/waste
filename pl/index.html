@@ -12,7 +12,7 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
-  <link rel="stylesheet" href="../styles.css?v=7">
+  <link rel="stylesheet" href="../styles.css?v=8">
   <link rel="prefetch" href="technology.html">
 
   <link rel="alternate" hreflang="uk-UA" href="https://biotc.com.ua/" />
@@ -21,8 +21,6 @@
   <link rel="alternate" hreflang="x-default" href="https://biotc.com.ua/" />
 </head>
 <body>
-
-  <canvas id="bg-canvas"></canvas>
 
   <div class="blur-orb orb-1"></div>
   <div class="blur-orb orb-2"></div>
@@ -77,11 +75,6 @@
           <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
         </button>
-        <button class="mobile-toggle" aria-label="Otwórz menu" aria-expanded="false" aria-controls="mobile-nav">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
       </div>
     </div>
 
@@ -90,6 +83,18 @@
         <a href="index.html" class="lang-strip-item active">&#x1F1F5;&#x1F1F1; Polski</a>
         <a href="../eu/index.html" class="lang-strip-item ">&#x1F1EA;&#x1F1FA; English</a>
         <a href="../ua/index.html" class="lang-strip-item ">&#x1F1FA;&#x1F1E6; Українська</a>
+      </div>
+        <button class="mobile-toggle" aria-label="Otwórz menu" aria-expanded="false" aria-controls="nav-mobile-strip">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+    </div>
+    <div class="nav-mobile-strip" id="nav-mobile-strip" aria-hidden="true">
+      <div class="nav-mobile-strip-inner">
+        <ul>
+          <li><a href="index.html" class="active">Rozwiązania</a></li>
+          <li><a href="technology.html">Technologia</a></li>
+          <li><a href="simulator.html">Kalkulator</a></li>
+        </ul>
       </div>
     </div>
   </header>
@@ -113,13 +118,50 @@
     <!-- BLOCK 1: Hero                                                 -->
     <!-- ============================================================ -->
     <section id="hero" class="hero-section">
+      <div class="hero-waves-bg">
+        <svg viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Wave 1 (Accent Blue) -->
+          <path fill="rgba(4, 107, 210, 0.035)">
+            <animate attributeName="d"
+                     dur="22s"
+                     repeatCount="indefinite"
+                     values="
+                       M0,180 C320,290 640,110 960,250 C1280,390 1360,200 1440,240 L1440,400 L0,400 Z;
+                       M0,230 C240,130 560,290 880,190 C1200,90 1320,310 1440,210 L1440,400 L0,400 Z;
+                       M0,180 C320,290 640,110 960,250 C1280,390 1360,200 1440,240 L1440,400 L0,400 Z
+                     " />
+          </path>
+          <!-- Wave 2 (Teal) -->
+          <path fill="rgba(13, 148, 136, 0.025)">
+            <animate attributeName="d"
+                     dur="28s"
+                     repeatCount="indefinite"
+                     values="
+                       M0,220 C360,110 720,270 1080,160 C1280,240 1360,140 1440,190 L1440,400 L0,400 Z;
+                       M0,170 C300,280 600,120 900,260 C1200,320 1320,180 1440,240 L1440,400 L0,400 Z;
+                       M0,220 C360,110 720,270 1080,160 C1280,240 1360,140 1440,190 L1440,400 L0,400 Z
+                     " />
+          </path>
+          <!-- Wave 3 (Light Blue) -->
+          <path fill="rgba(56, 189, 248, 0.02)">
+            <animate attributeName="d"
+                     dur="34s"
+                     repeatCount="indefinite"
+                     values="
+                       M0,250 C280,320 560,180 840,290 C1120,380 1280,220 1440,270 L1440,400 L0,400 Z;
+                       M0,290 C320,190 640,310 960,210 C1280,120 1360,280 1440,230 L1440,400 L0,400 Z;
+                       M0,250 C280,320 560,180 840,290 C1120,380 1280,220 1440,270 L1440,400 L0,400 Z
+                     " />
+          </path>
+        </svg>
+      </div>
       <div class="container">
         <div class="hero-grid">
 
           <div class="hero-content">
             <span class="badge">🇪🇺 Nowa dyrektywa UE UWWTD · 12.2024</span>
 
-            <h1>Ściskamy wszystkie <span class="h1-problem">ogromne&nbsp;problemy</span> z osadem w <span class="h1-solution">kompaktowy i bezpieczny hydrowęgiel.</span></h1>
+            <h1>Kondensujemy wszystkie <span class="h1-problem">ogromne&nbsp;problemy</span> z osadami w <span class="h1-solution">kompaktowy i bezpieczny hydrowęgiel.</span></h1>
 
             <p class="hero-desc">Na zawsze rozwiązujemy problem utylizacji osadu. Optymalizujemy koszty (CapEx i OpEx) i tworzymy kompleksowe rozwiązania inżynieryjne dla gmin, miast i przedsiębiorstw.</p>
 
@@ -128,7 +170,7 @@
               <a href="#problem" class="btn btn-secondary">Ekonomika procesu</a>
             </div>
 
-            <p class="hero-micro-text">Gmina od 10 tys. mieszkańców lub przedsiębiorstwo rolnicze? Sprawdź, czy Twój obiekt może stać się rdzeniem regionalnego hubu →</p>
+            <p class="hero-micro-text">Gmina od 10 tys. mieszkańców lub przedsiębiorstwo rolne? Sprawdź, czy Twój obiekt może stać się sercem regionalnego hubu →</p>
           </div>
 
           <div class="hero-stage" id="hero-stage">
@@ -139,7 +181,7 @@
               <div class="stage-num-wrap">
                 <span class="stage-num">
                   <span class="sn-pre">do</span>
-                  <span class="sn-val">×5</span>
+                  <span class="sn-val">x5</span>
                 </span>
               </div>
               <div class="stage-text-wrap">
@@ -212,7 +254,7 @@
               </svg>
             </div>
             <h3>Suszenie osadu pożera budżet</h3>
-            <p>94% oczyszczalni w Polsce nie posiada komór fermentacyjnych. Susząc osad na zakupionej energii — gazie lub prądzie — zużywają 1200–1300 Wh na każdy kilogram. Miasta do 100 000 mieszkańców płacą za każdy kilowat z budżetu.</p>
+            <p>94% oczyszczalni w Polsce nie posiada komór fermentacyjnych. Susząc osad przy użyciu zakupionej energii — gazu lub prądu — zużywają 1200–1300 Wh na każdy kilogram. Miasta do 100 000 mieszkańców pokrywają te koszty bezpośrednio z budżetu.</p>
           </div>
 
           <div class="glass-card problem-card">
@@ -227,7 +269,7 @@
               </svg>
             </div>
             <h3>Nie ma gdzie wieźć</h3>
-            <p>W Polsce działa tylko 11 spalarni osadów na cały kraj. Kolejki, uzależnienie od jednej drogi, ryzyko zatrzymania — to nie hipotetyczny scenariusz. To bieżąca rzeczywistość dziesiątek gmin.</p>
+            <p>W Polsce działa tylko 11 spalarni osadów ściekowych. Kolejki, uzależnienie od jednego odbiorcy, ryzyko przestoju — to nie jest hipotetyczny scenariusz. To codzienność dziesiątek gmin.</p>
           </div>
 
           <div class="glass-card problem-card">
@@ -343,8 +385,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr><td>Minimalny wolumen osadu</td><td>Od ~50 000 m³/rok</td><td class="col-hub">Od ~10 000 m³/rok</td></tr>
-              <tr><td>Uzależnienie od operatorów</td><td>Zerowe</td><td class="col-hub">Minimalne</td></tr>
+              <tr><td>Minimalny roczny strumień osadów</td><td>Od ~50 000 m³/rok</td><td class="col-hub">Od ~10 000 m³/rok</td></tr>
+              <tr><td>Zależność od zewnętrznych operatorów</td><td>Zerowe</td><td class="col-hub">Minimalne</td></tr>
               <tr><td>Dostęp do dotacji UE</td><td>Do 75%</td><td class="col-hub">Do 90%</td></tr>
               <tr><td>Zwrot z inwestycji</td><td>3–4 lata</td><td class="col-hub">3–3,5 roku</td></tr>
               <tr><td>Skalowalność</td><td>Stała</td><td class="col-hub">Modułowa</td></tr>
@@ -353,8 +395,13 @@
           </table>
         </div>
 
-        <div class="glass-card callout-box">
-          <h3>Nie wiesz, który scenariusz pasuje?</h3>
+        <div class="section-label" style="margin-block-start: var(--space-lg); margin-block-end: 0.5rem; display: flex; align-items: center;">
+          <span class="callout-icon" style="display: inline-block;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-bell-ringing" style="vertical-align: middle; display: block;"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" /><path d="M9 17v1a3 3 0 0 0 6 0v-1" /><path d="M21 6.727a11.05 11.05 0 0 0 -2.794 -3.727" /><path d="M3 6.727a11.05 11.05 0 0 1 2.792 -3.727" /></svg>
+          </span>
+        </div>
+        <div class="glass-card callout-box callout-box--accent" style="margin-top: 0;">
+          <h3 style="margin-block-end: var(--space-xs);">Nie wiesz, który scenariusz pasuje?</h3>
           <p>Bezpłatna ocena inżynieryjna określi optymalną architekturę dla Twojego wolumenu osadu i budżetu — bez zobowiązań.</p>
           <a href="#contact" class="btn btn-outline">Uzyskaj ocenę →</a>
         </div>
@@ -376,23 +423,21 @@
         </svg>
       </div>
       <div class="container">
-        <div class="text-center">
-          <p class="section-label">Kalkulator</p>
-          <h2>Prześlij raport swojej oczyszczalni. Uzyskaj wstępne wyliczenia w 60 sekund.</h2>
-          <p class="section-desc">AI odczyta parametry z Twojego dokumentu laboratoryjnego i obliczy potencjał obiektu: wydajność hydrowęgla, bilans energetyczny, klasę hubu.</p>
-        </div>
+        <p class="section-label">Kalkulator</p>
+        <h2>Prześlij raport swojej oczyszczalni. Uzyskaj wstępne wyliczenia w 60 sekund.</h2>
+        <p class="section-desc">AI odczyta parametry z Twojego dokumentu laboratoryjnego i obliczy potencjał obiektu: wydajność hydrowęgla, bilans energetyczny, klasę hubu.</p>
 
-        <div class="glass-card sim-banner" style="margin-block-start: var(--space-lg)">
-          <div class="sim-col">
-            <h3>Od razu <span class="tag tag-teal">bez rejestracji</span></h3>
+        <div class="sim-banner-grid" style="margin-block-start: var(--space-lg)">
+          <div class="glass-card">
+            <h3 style="font-size: var(--text-lg); margin-block-end: var(--space-sm);">Od razu <span class="tag tag-teal">bez rejestracji</span></h3>
             <ul class="sim-feature-list">
               <li>Wydajność hydrowęgla (t/dobę)</li>
               <li>Redukcja objętości odpadów (%)</li>
               <li>Klasa obiektu: mały / średni / hub</li>
             </ul>
           </div>
-          <div class="sim-col">
-            <h3>Po kontakcie</h3>
+          <div class="glass-card glass-card--gradient-border">
+            <h3 style="font-size: var(--text-lg); margin-block-end: var(--space-sm);">Po kontakcie</h3>
             <ul class="sim-feature-list">
               <li>Pełny bilans energetyczny i biogaz</li>
               <li>Orientacyjny zwrot z inwestycji (lata)</li>
@@ -575,7 +620,7 @@
             <div class="grant-num">2</div>
             <div class="grant-content">
               <h3>Lobbing akademicki przez AGH</h3>
-              <p>Partnerstwo z uczelnią to oficjalny kanał składania wniosków o granty badawcze i infrastrukturalne UE, niedostępne bezpośrednio dla firm komercyjnych.</p>
+              <p>Partnerstwo z uczelnią stanowi oficjalny kanał składania wniosków o granty badawcze i infrastrukturalne UE, niedostępne bezpośrednio dla podmiotów komercyjnych.</p>
             </div>
           </div>
 
@@ -736,7 +781,7 @@
     var MID_R      = 255;    // centre of breathing range
     var BREATH_AMP = 120;    // ± px: ring between ~135 and ~375 px radius
     var BREATH_MS  = 3200;   // one full inhale+exhale cycle
-    var ROT_MS     = 8000;   // one full rotation
+    var ROT_MS     = 16000;  // one full rotation
     var APPEAR_MS  = 900;    // initial fade-in
 
     /* ── Phase-lock sync points (within one BREATH_MS cycle) ──────
@@ -805,17 +850,7 @@
       var alpha       = ramp * (0.50 + 0.38 * Math.sin(breathPhase));
 
       ctx.clearRect(0, 0, CW, CH);
-      for (var i = 0; i < N_DOTS; i++) {
-        var theta = (i / N_DOTS) * Math.PI * 2 + rotAngle;
-        ctx.beginPath();
-        ctx.arc(
-          cx + radius * Math.cos(theta),
-          cy + radius * Math.sin(theta),
-          dotR, 0, Math.PI * 2
-        );
-        ctx.fillStyle = 'rgba(4,107,210,' + alpha.toFixed(3) + ')';
-        ctx.fill();
-      }
+      // Dot ring drawing disabled for a cleaner, less distracting UI
 
       /* ── Phase-locked ticker ──
            Wait one full cycle before first swap — gives the initial stat
@@ -930,6 +965,53 @@
           <p>Podczas korzystania z kalkulatora anonimowo zapisujemy wprowadzone parametry (objętość osadu, scenariusz, procent dotacji) oraz wyniki obliczeń. Dane osobowe (imię, e-mail, adres IP) nie są zbierane ani przekazywane osobom trzecim. Dane służą wyłącznie do analizy popytu i ulepszania serwisu.</p>
         </div>
         <button class="privacy-strip-close" id="privacy-strip-close" aria-label="Rozumiem">&#x2715;</button>
+      </div>
+    </div>
+    <!-- Contact Popover / Modal -->
+    <div class="contact-popover-overlay" id="contact-popover-overlay" aria-hidden="true"></div>
+    <div class="contact-popover" id="contact-popover" aria-hidden="true" role="dialog" aria-label="Szybki kontakt">
+      <div class="popover-arrow" aria-hidden="true"></div>
+      <div class="popover-header">
+        <h4>Szybki kontakt</h4>
+        <button class="popover-close" id="popover-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="popover-body">
+        <div class="popover-contact-card">
+          <div class="popover-avatar">
+            <img src="../img/team/krop-a.jpg" alt="Andrzej Krop">
+          </div>
+          <div class="popover-info">
+            <div class="popover-name">Andrzej Krop</div>
+            <div class="popover-role">Zarządzanie projektami</div>
+          </div>
+        </div>
+        
+        <div class="popover-actions-grid">
+          <a href="tel:+48608003458" class="popover-action-btn border-teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>+48 608 003 458</span>
+          </a>
+          <a href="mailto:contact@biotc.pl" class="popover-action-btn border-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>contact@biotc.pl</span>
+          </a>
+          <a href="https://wa.me/48608003458" target="_blank" rel="noopener" class="popover-action-btn border-teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <span>WhatsApp Chat</span>
+          </a>
+          <button id="vcard-download-btn" class="popover-action-btn border-orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            <strong>Zapisz kontakt</strong>
+          </button>
+        </div>
+
+        <div class="popover-divider">
+          <span>lub</span>
+        </div>
+
+        <a href="#contact" id="popover-form-link" class="btn btn-primary btn-block popover-form-btn">
+          Formularz kontaktowy
+        </a>
       </div>
     </div>
 </body>

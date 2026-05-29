@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  let isNavigatingToContact = false;
 
   // --- 1. Shrinking Header on Scroll ---
   const header = document.getElementById('header');
@@ -164,252 +165,123 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // --- 5. Dynamic Clean-Tech Background Animation ---
+  // --- 5. Dynamic Clean-Tech Background Animation (Disabled) ---
   const canvas = document.getElementById('bg-canvas');
   if (canvas) {
-    const ctx = canvas.getContext('2d');
-    let animationFrameId = null;
-    let width = 0;
-    let height = 0;
-    let lastKnownWidth = 0;
-    let dpr = 1;
-    let particles = [];
-    let vortices = [];
-    let isLooping = false;
-    let resizeTimer = null;
-
-    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-    function getViewportSize() {
-      const vv = window.visualViewport;
-      if (vv) return { w: vv.width, h: vv.height };
-      return { w: window.innerWidth, h: window.innerHeight };
-    }
-
-    function resizeCanvas() {
-      const viewport = getViewportSize();
-      const newWidth = Math.round(viewport.w);
-
-      if (lastKnownWidth > 0 && newWidth === lastKnownWidth) {
-        height = Math.round(viewport.h);
-        return;
-      }
-
-      lastKnownWidth = newWidth;
-      dpr = 1; /* cap at 1× — decorative bg, no need for retina resolution */
-      width = newWidth;
-      height = Math.round(viewport.h);
-
-      const maxBuf = 1500000;
-      const bufW = width * dpr;
-      const bufH = height * dpr;
-      const bufScale = (bufW * bufH > maxBuf) ? Math.sqrt(maxBuf / (bufW * bufH)) : 1;
-
-      canvas.width = Math.round(bufW * bufScale);
-      canvas.height = Math.round(bufH * bufScale);
-      ctx.setTransform(dpr * bufScale, 0, 0, dpr * bufScale, 0, 0);
-
-      vortices = [
-        {
-          x: width * 0.30, y: height * 0.40,
-          radiusSq: Math.pow(Math.min(width * 0.22, 280), 2),
-          radius: Math.min(width * 0.22, 280),
-          strength: 1.2
-        },
-        {
-          x: width * 0.65, y: height * 0.48,
-          radiusSq: Math.pow(Math.min(width * 0.22, 280), 2),
-          radius: Math.min(width * 0.22, 280),
-          strength: 1.4
-        }
-      ];
-
-      initParticles();
-    }
-
-    function initParticles() {
-      particles = [];
-      const particleCount = Math.min(Math.round((width * height) / 35000), 30);
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(createParticle(Math.random() * width, true));
-      }
-    }
-
-    function createParticle(startX, randomY = false) {
-      const initialMass = 1.0 + Math.random() * 2.0;
-      return {
-        x: startX,
-        y: randomY
-          ? height * 0.5 + Math.random() * height * 0.45
-          : height * 0.65 + (Math.random() * height * 0.3),
-        vx: 0.4 + Math.random() * 0.6,
-        vy: 0,
-        mass: initialMass,
-        alpha: 1.0,
-        size: 1.5 + Math.random() * 1.5,
-        noiseSeed: Math.random() * 100
-      };
-    }
-
-    function draw() {
-      if (window.scrollY > height) {
-        stopLoop();
-        return;
-      }
-
-      ctx.clearRect(0, 0, width, height);
-      const time = Date.now() * 0.001;
-      const len = particles.length;
-
-      for (let i = 0; i < len; i++) {
-        const p = particles[i];
-
-        p.mass -= 0.0022;
-        p.vx *= 0.96;
-        p.vy *= 0.96;
-        p.vx += 0.04 * (3.0 / p.mass);
-        p.vy += 0.015 * p.mass;
-
-        const wavePhase = Math.sin(p.x * 0.004 - time * 1.5);
-        if (wavePhase > 0.3) {
-          p.vy -= wavePhase * 0.06 * (3.0 / p.mass);
-        }
-
-        for (let j = 0; j < vortices.length; j++) {
-          const v = vortices[j];
-          const dx = p.x - v.x;
-          const dy = p.y - v.y;
-          const distSq = dx * dx + dy * dy;
-
-          if (distSq < v.radiusSq) {
-            const dist = Math.sqrt(distSq);
-            const factor = 1 - dist / v.radius;
-            const swirlX = -dy / dist;
-            const swirlY = dx / dist;
-
-            p.vx += swirlX * factor * v.strength * 1.2 * (1.5 / p.mass);
-            p.vy += swirlY * factor * v.strength * 1.2 * (1.5 / p.mass);
-            p.vy -= factor * 0.3 * (1.5 / p.mass);
-            p.vx -= (dx / dist) * factor * 0.1;
-            p.vy -= (dy / dist) * factor * 0.1;
-            p.mass -= 0.0015;
-          }
-        }
-
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.mass < 0.6) p.alpha -= 0.009;
-        if (p.y < height * 0.15) p.alpha -= 0.015;
-
-        if (p.alpha <= 0 || p.x > width + 20) {
-          particles[i] = createParticle(-20);
-          continue;
-        }
-
-        const speedSq = p.vx * p.vx + p.vy * p.vy;
-        const normSpeed = Math.min(1, Math.max(0, (speedSq - 0.16) / 6.0));
-
-        let hue, sat, light;
-        if (normSpeed < 0.5) {
-          const ratio = normSpeed / 0.5;
-          hue = 212;
-          sat = 15 + ratio * 60;
-          light = 20 + ratio * 18;
-        } else {
-          const ratio = (normSpeed - 0.5) / 0.5;
-          hue = 212 - ratio * 38;
-          sat = 75 + ratio * 20;
-          light = 38 + ratio * 14;
-        }
-
-        const renderAlpha = p.alpha * (0.15 + normSpeed * 0.25);
-        const currentSize = p.size * (0.7 + p.mass / 3.0);
-
-        ctx.fillStyle = `hsla(${Math.round(hue)}, ${Math.round(sat)}%, ${Math.round(light)}%, ${renderAlpha})`;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, currentSize, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      if (!motionQuery.matches && document.visibilityState === 'visible' && isLooping) {
-        animationFrameId = requestAnimationFrame(draw);
-      }
-    }
-
-    function startLoop() {
-      if (!isLooping && !motionQuery.matches) {
-        isLooping = true;
-        animationFrameId = requestAnimationFrame(draw);
-      }
-    }
-
-    function stopLoop() {
-      if (isLooping) {
-        isLooping = false;
-        if (animationFrameId) {
-          cancelAnimationFrame(animationFrameId);
-          animationFrameId = null;
-        }
-      }
-    }
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY < height) {
-        startLoop();
-      } else {
-        stopLoop();
-      }
-    }, { passive: true });
-
-    resizeCanvas();
-
-    function debouncedResize() {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(resizeCanvas, 150);
-    }
-    window.addEventListener('resize', debouncedResize);
-    if (window.visualViewport) {
-      window.visualViewport.addEventListener('resize', debouncedResize);
-    }
-
-    document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'visible') {
-        if (window.scrollY < height) startLoop();
-      } else {
-        stopLoop();
-      }
-    });
-
-    motionQuery.addEventListener('change', (e) => {
-      if (e.matches) {
-        stopLoop();
-        draw();
-      } else {
-        startLoop();
-      }
-    });
-
-    if (motionQuery.matches) {
-      draw();
-    } else {
-      startLoop();
-    }
+    canvas.remove();
   }
 
 
-  // --- Cycling FAB (phone / mail / chat) ---
+  // --- Cycling FAB & Contact Popover (phone / mail / chat) ---
   const fab = document.getElementById('nav-fab');
-  if (fab) {
-    // Navigate to contact section or contact page
-    fab.addEventListener('click', () => {
-      const contact = document.getElementById('contact');
-      if (contact) {
-        contact.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        window.location.href = 'index.html#contact';
+  const contactPopover = document.getElementById('contact-popover');
+  const popoverOverlay = document.getElementById('contact-popover-overlay');
+  const popoverClose   = document.getElementById('popover-close');
+  const downloadBtn    = document.getElementById('vcard-download-btn');
+  const popoverFormLink = document.getElementById('popover-form-link');
+
+  if (fab && contactPopover) {
+    fab.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const isOpen = contactPopover.classList.toggle('open');
+      contactPopover.setAttribute('aria-hidden', String(!isOpen));
+      fab.setAttribute('aria-expanded', String(isOpen));
+      
+      if (popoverOverlay) {
+        popoverOverlay.classList.toggle('open', isOpen);
+        popoverOverlay.setAttribute('aria-hidden', String(!isOpen));
+      }
+      
+      if (window.innerWidth > 768) {
+        const rect = fab.getBoundingClientRect();
+        contactPopover.style.top = (rect.bottom + 10) + 'px';
+        contactPopover.style.left = (rect.left - 260) + 'px';
       }
     });
+
+    const closePopover = () => {
+      contactPopover.classList.remove('open');
+      contactPopover.setAttribute('aria-hidden', 'true');
+      fab.setAttribute('aria-expanded', 'false');
+      if (popoverOverlay) {
+        popoverOverlay.classList.remove('open');
+        popoverOverlay.setAttribute('aria-hidden', 'true');
+      }
+    };
+
+    if (popoverClose) {
+      popoverClose.addEventListener('click', closePopover);
+    }
+    if (popoverOverlay) {
+      popoverOverlay.addEventListener('click', closePopover);
+    }
+
+    document.addEventListener('click', (e) => {
+      if (!contactPopover.contains(e.target) && !fab.contains(e.target)) {
+        closePopover();
+      }
+    });
+
+    if (popoverFormLink) {
+      popoverFormLink.addEventListener('click', (e) => {
+        closePopover();
+        const contactSec = document.getElementById('contact');
+        if (contactSec) {
+          e.preventDefault();
+          isNavigatingToContact = true;
+          contactSec.scrollIntoView({ behavior: 'smooth' });
+          setTimeout(() => {
+            isNavigatingToContact = false;
+          }, 1200); // Reset after smooth scroll completes
+        }
+      });
+    }
+
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        let base64Photo = "";
+        try {
+          const imgUrl = "../img/team/krop-a.jpg";
+          const response = await fetch(imgUrl);
+          const blob = await response.blob();
+          base64Photo = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result.split(',')[1]);
+            reader.readAsDataURL(blob);
+          });
+        } catch (err) {
+          console.error("Failed to load Andrzej Krop photo", err);
+        }
+
+        const vcardContent = [
+          "BEGIN:VCARD",
+          "VERSION:3.0",
+          "FN:Andrzej Krop",
+          "ORG:BTC Consulting",
+          "TITLE:Project Manager",
+          "TEL;TYPE=WORK,VOICE:+48608003458",
+          "EMAIL;TYPE=PREF,INTERNET:contact@biotc.pl",
+          "URL:https://biotc.pl",
+          base64Photo ? `PHOTO;TYPE=JPEG;ENCODING=b:${base64Photo}` : "",
+          "END:VCARD"
+        ].filter(Boolean).join("\r\n");
+
+        const blob = new Blob([vcardContent], { type: "text/vcard;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "Andrzej_Krop_BTC.vcf";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+    }
     // Cycle icons
     const fabIcons = fab.querySelectorAll('.nav-fab-icon');
     let fabIdx = 0;
@@ -449,18 +321,95 @@ document.addEventListener("DOMContentLoaded", () => {
   const privacyStrip   = document.getElementById('privacy-strip');
   const privacyClose   = document.getElementById('privacy-strip-close');
   if (privacyTrigger && privacyStrip) {
-    privacyTrigger.addEventListener('click', () => {
+    let autoCloseTimeout = null;
+    let canTrigger = true;
+
+    function showPrivacyStrip() {
+      if (privacyStrip.classList.contains('open') || !canTrigger) return;
       privacyStrip.classList.add('open');
       privacyStrip.setAttribute('aria-hidden', 'false');
-      document.body.style.paddingBottom = privacyStrip.offsetHeight + 'px';
+      canTrigger = false; // Prevent auto-triggering again until user scrolls up
+
+      // Scroll smoothly to reveal the drawer from under the footer
+      setTimeout(() => {
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: 'smooth'
+        });
+      }, 100);
+
+      // Auto close after 12 seconds (sufficient time to read)
+      if (autoCloseTimeout) clearTimeout(autoCloseTimeout);
+      autoCloseTimeout = setTimeout(() => {
+        hidePrivacyStrip();
+      }, 12000);
+    }
+
+    function hidePrivacyStrip() {
+      if (!privacyStrip.classList.contains('open')) return;
+      privacyStrip.classList.remove('open');
+      privacyStrip.setAttribute('aria-hidden', 'true');
+      if (autoCloseTimeout) clearTimeout(autoCloseTimeout);
+    }
+
+    // Trigger on clicking footer link
+    privacyTrigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      canTrigger = true; // Always allow manual trigger on click
+      showPrivacyStrip();
     });
+
     if (privacyClose) {
-      privacyClose.addEventListener('click', () => {
-        privacyStrip.classList.remove('open');
-        privacyStrip.setAttribute('aria-hidden', 'true');
-        document.body.style.paddingBottom = '';
+      privacyClose.addEventListener('click', (e) => {
+        e.preventDefault();
+        hidePrivacyStrip();
       });
     }
+
+    // Trigger on scrolling to the absolute bottom, close when scrolling up
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+      const isScrollingUp = currentScrollY < lastScrollY;
+      const scrollHeight = document.body.scrollHeight;
+      const viewportHeight = window.innerHeight;
+
+      if (privacyStrip.classList.contains('open') && isScrollingUp) {
+        hidePrivacyStrip();
+      }
+
+      // Reset the trigger permission ONLY if user scrolls up away from bottom
+      const distanceFromBottom = scrollHeight - (viewportHeight + currentScrollY);
+      if (distanceFromBottom > 120) {
+        canTrigger = true;
+      }
+
+      // Check if reached absolute bottom (and not scrolling up, and trigger is active)
+      const isAtBottom = (viewportHeight + currentScrollY) >= (scrollHeight - 25);
+      if (isAtBottom && !isScrollingUp && canTrigger && !isNavigatingToContact) {
+        showPrivacyStrip();
+      }
+
+      lastScrollY = currentScrollY;
+    }, { passive: true });
+  }
+
+
+  // --- Mobile nav strip (replaces full-screen overlay) ---
+  const mobileToggle2 = document.querySelector('.mobile-toggle');
+  const mobileStrip   = document.getElementById('nav-mobile-strip');
+  if (mobileToggle2 && mobileStrip) {
+    mobileToggle2.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = mobileStrip.classList.toggle('open');
+      mobileStrip.setAttribute('aria-hidden', String(!open));
+      mobileToggle2.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click', () => {
+      mobileStrip.classList.remove('open');
+      mobileStrip.setAttribute('aria-hidden', 'true');
+      mobileToggle2.setAttribute('aria-expanded', 'false');
+    });
   }
 
 });
