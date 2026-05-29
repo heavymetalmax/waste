@@ -3092,7 +3092,7 @@ section {
   align-items: baseline;
   gap: 1rem;
   padding: 1.1rem 1.25rem 0.3rem;
-  border-bottom: 1px dotted var(--color-border);
+  position: relative;
 }
 .rpt-kpi-lbl {
   font-size: 0.65rem;
@@ -3115,13 +3115,13 @@ section {
   font-size: 0.72rem;
   color: var(--color-text-muted);
   margin: 0;
-  border-bottom: 1px dotted var(--color-border);
+  position: relative;
 }
 
 /* Sections */
 .rpt-section {
   padding: 0.65rem 1.25rem 0.6rem;
-  border-bottom: 1px dotted var(--color-border);
+  position: relative;
 }
 .rpt-sh {
   font-size: 0.62rem;
@@ -3130,6 +3130,18 @@ section {
   letter-spacing: 0.08em;
   color: var(--color-text-muted);
   margin-block-end: 0.4rem;
+}
+
+/* Inset dotted separators — do not cross card edges */
+.rpt-kpi::after,
+.rpt-kpi-note::after,
+.rpt-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1.25rem;
+  right: 1.25rem;
+  border-bottom: 1px dotted var(--color-border);
 }
 
 /* Rows */
