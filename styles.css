@@ -3416,7 +3416,7 @@ section {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: var(--color-accent);
+  background: var(--color-teal);
   color: #fff;
   font-size: 0.6rem;
   font-weight: 800;
@@ -3438,8 +3438,8 @@ section {
   word-break: break-word;
 }
 .srp-chat-msg--bot .srp-chat-bubble {
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
+  background: rgba(13, 148, 136, 0.09);
+  border: 1px solid rgba(13, 148, 136, 0.22);
   border-bottom-left-radius: 0.25rem;
   color: var(--color-text);
 }
