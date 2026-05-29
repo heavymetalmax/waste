@@ -395,21 +395,36 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // --- Mobile nav strip (replaces full-screen overlay) ---
+  // --- Mobile nav strip ---
   const mobileToggle2 = document.querySelector('.mobile-toggle');
   const mobileStrip   = document.getElementById('nav-mobile-strip');
+
+  function closeStrip() {
+    if (!mobileStrip) return;
+    mobileStrip.classList.remove('open');
+    mobileStrip.setAttribute('aria-hidden', 'true');
+    if (mobileToggle2) mobileToggle2.setAttribute('aria-expanded', 'false');
+  }
+
   if (mobileToggle2 && mobileStrip) {
+    // Open on tap
     mobileToggle2.addEventListener('click', (e) => {
       e.stopPropagation();
-      const open = mobileStrip.classList.toggle('open');
-      mobileStrip.setAttribute('aria-hidden', String(!open));
-      mobileToggle2.setAttribute('aria-expanded', String(open));
+      mobileStrip.classList.add('open');
+      mobileStrip.setAttribute('aria-hidden', 'false');
+      mobileToggle2.setAttribute('aria-expanded', 'true');
     });
-    document.addEventListener('click', () => {
-      mobileStrip.classList.remove('open');
-      mobileStrip.setAttribute('aria-hidden', 'true');
-      mobileToggle2.setAttribute('aria-expanded', 'false');
+
+    // Close on link tap
+    mobileStrip.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', closeStrip);
     });
+
+    // Close on tap outside
+    document.addEventListener('click', closeStrip);
+
+    // Close on scroll
+    window.addEventListener('scroll', closeStrip, { passive: true });
   }
 
 

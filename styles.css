@@ -504,15 +504,7 @@ section {
   transform-origin: center;
 }
 
-.mobile-toggle[aria-expanded="true"] .bar:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-.mobile-toggle[aria-expanded="true"] .bar:nth-child(2) {
-  opacity: 0;
-}
-.mobile-toggle[aria-expanded="true"] .bar:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
+
 
 /* Mobile Nav */
 .mobile-nav {
@@ -4368,21 +4360,20 @@ section {
 /* Mobile header: scroll-reveal hamburger */
 @media (max-width: 640px) {
   .header-container {
-    grid-template-columns: auto 1fr auto;
+    position: relative;
   }
   .nav-desktop { display: none; }
-  .header-actions { grid-column: 3; }
 
-  /* At top of page: no hamburger, full logo visible */
+  /* At top: hamburger hidden, full logo */
   .mobile-toggle {
     display: none;
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: center;
-    align-self: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
-  /* Logo text fades smoothly */
+  /* Logo text fades on scroll */
   .logo-text {
     transition: opacity 0.2s ease, max-width 0.2s ease;
     max-width: 200px;
