@@ -316,191 +316,53 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // --- Privacy bottom strip ---
-  const privacyTrigger = document.getElementById('privacy-strip-trigger');
-  const privacyStrip   = document.getElementById('privacy-strip');
-  const privacyClose   = document.getElementById('privacy-strip-close');
-  if (privacyTrigger && privacyStrip) {
-    let autoCloseTimeout = null;
-    let canTrigger = true;
-
-    function showPrivacyStrip() {
-      if (privacyStrip.classList.contains('open') || !canTrigger) return;
-      privacyStrip.classList.add('open');
-      privacyStrip.setAttribute('aria-hidden', 'false');
-      canTrigger = false; // Prevent auto-triggering again until user scrolls up
-
-      // Scroll smoothly to reveal the drawer from under the footer
-      setTimeout(() => {
-        window.scrollTo({
-          top: document.body.scrollHeight,
-          behavior: 'smooth'
-        });
-      }, 100);
-
-      // Auto close after 12 seconds (sufficient time to read)
-      if (autoCloseTimeout) clearTimeout(autoCloseTimeout);
-      autoCloseTimeout = setTimeout(() => {
-        hidePrivacyStrip();
-      }, 12000);
-    }
-
-    function hidePrivacyStrip() {
-      if (!privacyStrip.classList.contains('open')) return;
-      privacyStrip.classList.remove('open');
-      privacyStrip.setAttribute('aria-hidden', 'true');
-      if (autoCloseTimeout) clearTimeout(autoCloseTimeout);
-    }
-
-    // Trigger on clicking footer link
-    privacyTrigger.addEventListener('click', (e) => {
-      e.preventDefault();
-      canTrigger = true; // Always allow manual trigger on click
-      showPrivacyStrip();
-    });
-
-    if (privacyClose) {
-      privacyClose.addEventListener('click', (e) => {
-        e.preventDefault();
-        hidePrivacyStrip();
-      });
-    }
-
-    // Trigger on scrolling to the absolute bottom, close when scrolling up
-    let lastScrollY = window.scrollY;
-    window.addEventListener('scroll', () => {
-      const currentScrollY = window.scrollY;
-      const isScrollingUp = currentScrollY < lastScrollY;
-      const scrollHeight = document.body.scrollHeight;
-      const viewportHeight = window.innerHeight;
-
-      if (privacyStrip.classList.contains('open') && isScrollingUp) {
-        hidePrivacyStrip();
-      }
-
-      // Reset the trigger permission ONLY if user scrolls up away from bottom
-      const distanceFromBottom = scrollHeight - (viewportHeight + currentScrollY);
-      if (distanceFromBottom > 120) {
-        canTrigger = true;
-      }
-
-      // Check if reached absolute bottom (and not scrolling up, and trigger is active)
-      const isAtBottom = (viewportHeight + currentScrollY) >= (scrollHeight - 25);
-      if (isAtBottom && !isScrollingUp && canTrigger && !isNavigatingToContact) {
-        showPrivacyStrip();
-      }
-
-      lastScrollY = currentScrollY;
-    }, { passive: true });
-  }
-
-
-  // --- Mobile nav strip ---
-  const mobileToggle2 = document.querySelector('.mobile-toggle');
-  const mobileStrip   = document.getElementById('nav-mobile-strip');
-
-  function closeStrip() {
-    if (!mobileStrip) return;
-    mobileStrip.classList.remove('open');
-    mobileStrip.setAttribute('aria-hidden', 'true');
-    if (mobileToggle2) mobileToggle2.setAttribute('aria-expanded', 'false');
-  }
-
-  if (mobileToggle2 && mobileStrip) {
-    // Toggle on tap
-    mobileToggle2.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = mobileStrip.classList.contains('open');
-      if (isOpen) {
-        closeStrip();
-      } else {
-        mobileStrip.classList.add('open');
-        mobileStrip.setAttribute('aria-hidden', 'false');
-        mobileToggle2.setAttribute('aria-expanded', 'true');
-      }
-    });
-
-    // Close on link tap
-    mobileStrip.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', closeStrip);
-    });
-
-    // Close on tap outside
-    document.addEventListener('click', closeStrip);
-
-    // Close on scroll
-    window.addEventListener('scroll', closeStrip, { passive: true });
-  }
-
-
-  // --- Chat input: follow keyboard on iOS (visualViewport) ---
-  const chatTextarea = document.getElementById('srp-chat-input');
-  const chatMsgs     = document.getElementById('srp-chat-msgs');
-  if (chatTextarea && window.visualViewport) {
-    const keepInputVisible = () => {
-      if (document.activeElement !== chatTextarea) return;
-      // Scroll the page so the input row is just above the keyboard
-      chatTextarea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      if (chatMsgs) chatMsgs.scrollTop = chatMsgs.scrollHeight;
-    };
-    window.visualViewport.addEventListener('resize', keepInputVisible);
-    chatTextarea.addEventListener('focus', () => {
-      setTimeout(keepInputVisible, 350); // wait for keyboard to fully open
-    });
-  }
-
-
-  // --- Mobile: tap chat widget → open full-screen chat page ---
-  if (window.matchMedia('(max-width: 640px)').matches) {
-    var chatWidget = document.querySelector('.srp-chat-section .srp-chat-widget');
-    if (chatWidget) {
-      chatWidget.addEventListener('pointerdown', function() {
-        window.location.href = 'chat.html';
-      });
-    }
-  }
-
-}
-
-  // --- Footer pull-to-reveal privacy strip ---
+  // --- Privacy strip: button click + mobile swipe-up from footer ---
   (function() {
-    const strip = document.getElementById('privacy-strip');
+    const strip   = document.getElementById('privacy-strip');
+    const trigger = document.getElementById('privacy-strip-trigger');
+    const closeBtn= document.getElementById('privacy-strip-close');
     if (!strip) return;
 
-    let touchStartY  = 0;
-    let fromBottom   = false;
-    const THRESHOLD  = 40; // px swipe-up needed
-
-    function atBottom() {
-      return window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 80;
-    }
-
-    function openPrivacy() {
+    function open() {
+      if (strip.classList.contains('open')) return;
       strip.classList.add('open');
       strip.setAttribute('aria-hidden', 'false');
       document.body.style.paddingBottom = strip.offsetHeight + 'px';
     }
 
-    function closePrivacy() {
+    function close() {
+      if (!strip.classList.contains('open')) return;
       strip.classList.remove('open');
       strip.setAttribute('aria-hidden', 'true');
       document.body.style.paddingBottom = '';
     }
 
+    function atBottom() {
+      return window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 80;
+    }
+
+    // Button click
+    if (trigger) trigger.addEventListener('click', (e) => { e.preventDefault(); open(); });
+    if (closeBtn) closeBtn.addEventListener('click', (e) => { e.preventDefault(); close(); });
+
+    // Swipe up from footer (touch only)
+    let touchStartY = 0;
+    let startedAtBottom = false;
     document.addEventListener('touchstart', (e) => {
       touchStartY = e.touches[0].clientY;
-      fromBottom  = atBottom();
+      startedAtBottom = atBottom();
     }, { passive: true });
-
     document.addEventListener('touchend', (e) => {
-      if (!fromBottom || strip.classList.contains('open')) return;
-      const dy = touchStartY - e.changedTouches[0].clientY; // positive = swipe up
-      if (dy > THRESHOLD) openPrivacy();
+      if (!startedAtBottom || strip.classList.contains('open')) return;
+      if (touchStartY - e.changedTouches[0].clientY > 40) open();
     }, { passive: true });
 
-    // Close when user scrolls back up from the bottom
+    // Close on scroll away from bottom
+    let lastY = window.scrollY;
     window.addEventListener('scroll', () => {
-      if (strip.classList.contains('open') && !atBottom()) closePrivacy();
+      const y = window.scrollY;
+      if (strip.classList.contains('open') && y < lastY && !atBottom()) close();
+      lastY = y;
     }, { passive: true });
   })();
 
