@@ -4365,20 +4365,37 @@ section {
   font-weight: 700;
 }
 
-/* Center hamburger on mobile */
+/* Mobile header: scroll-reveal hamburger */
 @media (max-width: 640px) {
-  /* logo takes its natural width, burger gets remaining space centered,
-     actions sit on the right — no overlap */
   .header-container {
     grid-template-columns: auto 1fr auto;
   }
+  .nav-desktop { display: none; }
+  .header-actions { grid-column: 3; }
+
+  /* At top of page: no hamburger, full logo visible */
   .mobile-toggle {
-    display: flex;
+    display: none;
     grid-column: 2;
     justify-self: center;
   }
-  .nav-desktop { display: none; }
-  .header-actions { grid-column: 3; }
+
+  /* Logo text fades smoothly */
+  .logo-text {
+    transition: opacity 0.2s ease, max-width 0.2s ease;
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  /* On scroll: hamburger appears, logo text hides */
+  .main-header.shrink .mobile-toggle {
+    display: flex;
+  }
+  .main-header.shrink .logo-text {
+    opacity: 0;
+    max-width: 0;
+  }
 }
 
 /* ==========================================================================
