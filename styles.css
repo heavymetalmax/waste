@@ -3927,3 +3927,45 @@ section {
   margin-block-start: 0.15rem;
 }
 .privacy-strip-close:hover { background: rgba(255, 255, 255, 0.28); }
+
+/* Orbital rings around tech hero stat panel */
+.tech-stat-panel {
+  position: relative;
+}
+
+.tech-stat-grid,
+.tech-stat-note {
+  position: relative;
+  z-index: 1;
+}
+
+.tech-orbital-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 480px;
+  height: 480px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.tech-orbital-rings svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.t-arc {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.t-arc-1 { animation: t-orbit-cw  50s linear infinite; }
+.t-arc-2 { animation: t-orbit-ccw 28s linear infinite; }
+.t-arc-3 { animation: t-orbit-cw  18s linear infinite; }
+.t-arc-4 { animation: t-orbit-ccw 60s linear infinite; }
+.t-arc-5 { animation: t-orbit-cw  13s linear infinite; }
+
+@keyframes t-orbit-cw  { to { transform: rotate( 360deg); } }
+@keyframes t-orbit-ccw { to { transform: rotate(-360deg); } }
