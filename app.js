@@ -443,4 +443,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+
+  // --- Privacy bottom strip ---
+  const privacyTrigger = document.getElementById('privacy-strip-trigger');
+  const privacyStrip   = document.getElementById('privacy-strip');
+  const privacyClose   = document.getElementById('privacy-strip-close');
+  if (privacyTrigger && privacyStrip) {
+    privacyTrigger.addEventListener('click', () => {
+      privacyStrip.classList.add('open');
+      privacyStrip.setAttribute('aria-hidden', 'false');
+      document.body.style.paddingBottom = privacyStrip.offsetHeight + 'px';
+    });
+    if (privacyClose) {
+      privacyClose.addEventListener('click', () => {
+        privacyStrip.classList.remove('open');
+        privacyStrip.setAttribute('aria-hidden', 'true');
+        document.body.style.paddingBottom = '';
+      });
+    }
+  }
+
 });
