@@ -2525,6 +2525,7 @@ section {
 @media (max-width: 1024px) {
   .model-cards { grid-template-columns: repeat(2, 1fr); }
   .config-cards { grid-template-columns: 1fr; }
+  .config-card { min-width: 0; max-width: 100%; }
 
 }
 
