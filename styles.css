@@ -4757,3 +4757,13 @@ section {
   color: #fff;
 }
 .contact-vcard-btn svg { flex-shrink: 0; }
+
+/* Popover callback: input full-width, button centered below */
+.popover-callback-wrap .callback-row {
+  flex-direction: column;
+  align-items: stretch;
+}
+.popover-callback-wrap .callback-btn {
+  width: 100%;
+  text-align: center;
+}
