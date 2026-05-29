@@ -3378,9 +3378,9 @@ section {
 /* Widget container */
 .srp-chat-widget {
   max-width: 680px;
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-card);
-  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  background: var(--color-bg);
   box-shadow: var(--shadow-card);
   overflow: hidden;
   display: flex;
@@ -3393,7 +3393,8 @@ section {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  max-height: 420px;
+  min-height: 460px;
+  max-height: 560px;
   overflow-y: auto;
   scroll-behavior: smooth;
 }
