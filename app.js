@@ -455,4 +455,48 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+}
+
+  // --- Footer pull-to-reveal privacy strip ---
+  (function() {
+    const strip = document.getElementById('privacy-strip');
+    if (!strip) return;
+
+    let touchStartY  = 0;
+    let fromBottom   = false;
+    const THRESHOLD  = 40; // px swipe-up needed
+
+    function atBottom() {
+      return window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 80;
+    }
+
+    function openPrivacy() {
+      strip.classList.add('open');
+      strip.setAttribute('aria-hidden', 'false');
+      document.body.style.paddingBottom = strip.offsetHeight + 'px';
+    }
+
+    function closePrivacy() {
+      strip.classList.remove('open');
+      strip.setAttribute('aria-hidden', 'true');
+      document.body.style.paddingBottom = '';
+    }
+
+    document.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+      fromBottom  = atBottom();
+    }, { passive: true });
+
+    document.addEventListener('touchend', (e) => {
+      if (!fromBottom || strip.classList.contains('open')) return;
+      const dy = touchStartY - e.changedTouches[0].clientY; // positive = swipe up
+      if (dy > THRESHOLD) openPrivacy();
+    }, { passive: true });
+
+    // Close when user scrolls back up from the bottom
+    window.addEventListener('scroll', () => {
+      if (strip.classList.contains('open') && !atBottom()) closePrivacy();
+    }, { passive: true });
+  })();
+
 });
