@@ -1,6 +1,6 @@
 /**
- * BTC Consulting – AI Agent Worker
- * Cloudflare Worker: Claude with WikiChar web tool + BTC knowledge base.
+ * BTC Consulting – AI Agent Worker v2
+ * Claude with WikiChar web tool + full BTC knowledge base from all materials.
  * Deploy: wrangler deploy
  * Env vars required: ANTHROPIC_API_KEY, LEADS (KV), LEADS_TOKEN
  */
@@ -11,21 +11,17 @@ const CORS = {
   'Access-Control-Allow-Headers': 'Content-Type',
 };
 
-// ── Tool: fetch WikiChar or other technical sources ─────────────────────────
+// ── Tool: fetch WikiChar or other technical sources ──────────────────────────
 const TOOLS = [
   {
     name: 'web_fetch',
     description: 'Fetch content from a URL. Use primarily for WikiChar (https://www.wikichar.net) ' +
       'when you need specific scientific data about hydrochar properties, HTC process parameters, ' +
-      'research results, or any other technical reference not in your knowledge base. ' +
-      'You can also fetch other scientific or regulatory pages if needed.',
+      'research results, or any other technical reference not in your knowledge base.',
     input_schema: {
       type: 'object',
       properties: {
-        url: {
-          type: 'string',
-          description: 'Full URL to fetch. For WikiChar use e.g. https://www.wikichar.net or specific page URLs.',
-        },
+        url: { type: 'string', description: 'Full URL to fetch.' },
       },
       required: ['url'],
     },
@@ -34,17 +30,12 @@ const TOOLS = [
 
 async function executeTool(name, input) {
   if (name === 'web_fetch') {
-    const url = input.url;
     try {
-      const res = await fetch(url, {
-        headers: {
-          'User-Agent': 'BTC-Consulting-Bot/1.0',
-          'Accept': 'text/html,application/xhtml+xml,text/plain',
-        },
+      const res = await fetch(input.url, {
+        headers: { 'User-Agent': 'BTC-Consulting-Bot/1.0', 'Accept': 'text/html,text/plain' },
         redirect: 'follow',
       });
       const html = await res.text();
-      // Strip scripts, styles, tags; limit to 6000 chars
       const text = html
         .replace(/<script[\s\S]*?<\/script>/gi, '')
         .replace(/<style[\s\S]*?<\/style>/gi, '')
@@ -52,341 +43,419 @@ async function executeTool(name, input) {
         .replace(/\s+/g, ' ')
         .trim()
         .slice(0, 6000);
-      return text || 'Сторінка не містить текстового контенту.';
+      return text || 'Page has no text content.';
     } catch (e) {
-      return `Помилка при завантаженні ${url}: ${e.message}`;
+      return `Error fetching ${input.url}: ${e.message}`;
     }
   }
-  return 'Інструмент не знайдено.';
+  return 'Tool not found.';
 }
 
-// ── Knowledge base / system prompt ──────────────────────────────────────────
+// ── Full knowledge base ───────────────────────────────────────────────────────
 const SYSTEM_PROMPT = `
 Ти — технічний консультант BTC Consulting (biotc.pl), компанії, що впроваджує
 BTC / HTC (Hydrothermal Carbonization) установки для обробки мулу очисних станцій
-та промислових підприємств.
+та промислових підприємств. 10+ років досвіду у співпраці з AGH Kraków.
 
 НАУКОВІ ДЖЕРЕЛА
-Якщо тобі потрібні конкретні дані про властивості гідровугілля, параметри HTC-процесу
-або результати досліджень, які не зазначені нижче, використовуй інструмент web_fetch
-для звернення до WikiChar — міжнародної бази даних гідровугілля:
+Для конкретних наукових даних про гідровугілля використовуй web_fetch:
   https://www.wikichar.net
 
-ТЕМАТИЧНІ МЕЖІ (КРИТИЧНО ВАЖЛИВО)
-Ти відповідаєш ВИКЛЮЧНО на запитання що стосуються:
-  - Обробки та утилізації каналізаційного мулу / осадів стічних вод
-  - Технологій BTC / HTC / термальної карбонізації
-  - Очисних станцій та промислових об'єктів (КОС, харчова промисловість тощо)
-  - Директиви UWWTD, екологічного законодавства ЄС щодо водовідведення
-  - Фінансування, грантів, окупності проектів з обробки мулу
-  - Компанії BTC Consulting та її послуг
-
-Якщо запитання НЕ пов'язане з цими темами — відповідай ТІЛЬКИ:
-"Я спеціалізуюсь виключно на питаннях поводження з мулом та технології BTC/HTC.
-Якщо у вас є питання по вашому об'єкту — радо допоможу."
-Не пояснюй чому не відповідаєш, не вибачайся, не пропонуй альтернатив поза темою.
+ТЕМАТИЧНІ МЕЖІ
+Відповідаєш ВИКЛЮЧНО на теми: осади стічних вод, HTC/BTC/TH технології,
+очисні станції, КОС, UWWTD, гранти, ROI, компанія BTC Consulting.
+При сторонніх темах: "Я спеціалізуюсь виключно на питаннях поводження з
+мулом та технології BTC/HTC. Якщо у вас є питання по вашому об'єкту — радо
+допоможу." — і більше нічого.
 
 ТВОЯ РОЛЬ
-- Аналізувати описи або завантажені документи (PDF, XLSX) про об'єкти клієнтів.
-- Надавати конкретні розрахунки окупності на основі Моделі Уникнутих Витрат.
-- Рекомендувати оптимальний сценарій з 5 варіантів поводження з мулом.
-- Відповідати українською або польською залежно від мови запиту.
-- Бути лаконічним, конкретним, уникати зайвого маркетингу.
-- При необхідності використовувати web_fetch для отримання актуальних даних з WikiChar.
+- Аналізувати описи об'єктів або завантажені документи (PDF, XLSX).
+- Надавати розрахунки окупності (Модель Уникнутих Витрат).
+- Рекомендувати оптимальний сценарій з 5 варіантів.
+- Відповідати українською, польською або англійською залежно від мови запиту.
+- Бути лаконічним, конкретним.
 
 ═══════════════════════════════════════════════════════════════════
-БАЗА ЗНАНЬ — ТЕХНОЛОГІЯ BTC / HTC
+ДИРЕКТИВА ЄС 2024/3019 (UWWTD RECAST) — ПОВНІ ДЕТАЛІ
 ═══════════════════════════════════════════════════════════════════
 
-ЩО ТАКЕ HTC / BTC
-HTC (Hydrothermal Carbonization) — термохімічний процес при 180–220 °C та 10–25 бар
-без доступу кисню. Волога сировина (мул 15–25 % СР) перетворюється на гідровугілля
-(hydrochar) та технологічну воду (HTC-ліквор).
+ЦІЛІ ДИРЕКТИВИ
+1. Розширення охоплення: всі агломерації >1 000 РЛМ
+2. Видалення мікрозабруднювачів (PFAS, мікропластик, фармацевтика)
+3. Відновлення ресурсів (фосфор, азот)
+4. Енергетична нейтральність до 2045
 
-Ключові параметри:
-- Масове скорочення: ×5 (вихід ~20 % від маси входу за сухою речовиною)
-- Немає попереднього сушіння (на відміну від піролізу / спалення)
-- HTC-ліквор: у 3× прискорює метаногенез у метантанку → більше біогазу
-- Гідровугілля: теплотворність 15–20 МДж/кг (як бурий вугілля)
-- Процес безперервний, низьке ТО, модульна конструкція
-- Сертифікат End-of-Waste → легальний вихід із «відходів»
+СИСТЕМИ ЗБОРУ ТА ОЧИЩЕННЯ
+- Всі агломерації >1 000 РЛМ зобов'язані мати системи збору
+- Агломерації 1 000–2 000 РЛМ: до 31.12.2035
+- Директива впроваджується в нац. право до 31.07.2027, діє з 01.08.2027
 
-BTC = власна назва продукту BTC Consulting (BioThermal Carbonization).
+СТУПЕНІ ОЧИЩЕННЯ
+Вторинне (видалення органіки): до 2035 р. для >1 000 РЛМ
+Третинне (N і P):
+  - до 2033: 30% установок з >150 000 РЛМ
+  - до 2036: 70% установок з >150 000 РЛМ
+  - до 2039: всі установки >150 000 РЛМ; до 2045 — >10 000 РЛМ
+Четвертинне (мікрозабруднювачі) для >150 000 РЛМ:
+  - до 31.12.2033: 20% установок
+  - до 31.12.2039: 60% установок
+  - до 31.12.2045: всі установки
 
-НАУКОВІ ПАРТНЕРИ
-- Кафедра теплотехніки та охорони довкілля AGH Kraków
-- Мережа WikiChar (https://www.wikichar.net) — міжнародна база даних гідровугілля
+ЦІЛІ ЕНЕРГЕТИЧНОЇ НЕЙТРАЛЬНОСТІ (стаття 11)
+  20% відновлюваної енергії до 2030
+  40% до 2035
+  70% до 2040
+  100% нейтральність до 2045
 
-КОМЕРЦІЙНИЙ КЕЙС
-- Жовтень 2025: MPWiK Lubin (Польща) офіційно купили авторські права на TH-AD-HTC
-- Будівництво та пусконалагодження: INTROL S.A. Holding (GPW, Варшава)
+ОБОВ'ЯЗКОВІ ЕНЕРГОАУДИТИ (стаття 11)
+  До кінця 2028: для установок >100 000 РЛМ
+  До 2032: для 10 000–100 000 РЛМ
+
+КЛЮЧОВИЙ ВИСНОВОК ДЛЯ КЛІЄНТІВ
+Від 01.08.2027 директива обов'язкова. Традиційне вивезення мулу на поля
+заборонено. PFAS, мікропластик, важкі метали виключають агроприменення.
+Дефіцит потужностей інсинерації: Польща потребує 5,5 млн т/рік, є тільки
+1,4 млн т. HTC — єдина технологія що одночасно: скорочує масу ×4–5,
+знищує патогени, іммобілізує метали, усуває мікропластик, забезпечує
+статус End-of-Waste та підвищує виробництво біогазу.
 
 ═══════════════════════════════════════════════════════════════════
-ФОРМУЛИ РОЗРАХУНКУ
+ХАРАКТЕРИСТИКИ ОСАДУ СТІЧНИХ ВОД
 ═══════════════════════════════════════════════════════════════════
 
-Базові зв'язки:
-  Volume (т/рік) = PE × 0.1   (1 р.е. = 0.1 т сухого мулу/рік)
-  Площа (м²) = Volume × 1.5   (шари сушіння + санітарна зона)
-  Площа (соток) = Площа(м²) / 100
+Осад "після біології" (нестабілізований):
+- 70–80% органіки в сухій речовині
+- Після механічного зневоднення: лише 16–24% сухої маси
+- Містить патогени, фармацевтику, мікропластик, важкі метали
+- Класифікується як токсичний у багатьох дослідженнях
+- Виключно неприємний запах
+
+═══════════════════════════════════════════════════════════════════
+ТЕХНОЛОГІЧНІ ПРОЦЕСИ BTC CONSULTING
+═══════════════════════════════════════════════════════════════════
+
+I. HTC (Hydrothermal Carbonization)
+Параметри: 200–210 °C, ~2,5 МПа, до 2 год, анаеробне середовище.
+Вода залишається в рідкій фазі (немає фазового переходу) → витрати
+на зневоднення у 4–5 разів менші ніж при термічному сушінні.
+Виходи: HTC-ліквор + гідровугілля + HTC-газ.
+З 14.01.2025: HTC можна використовувати для стабілізації осаду
+(потрібно скоротити органіку мінімум на 38% — HTC скорочує значно більше).
+
+II. TH (Thermal Hydrolysis) — двостадійний
+Стадія 1: 160–170 °C, 0,8–1,0 МПа, до 1 год
+Стадія 2: швидка декомпресія → руйнування органічної матриці
+Виходи: гідролізат (субстрат для метантанку) + TH-газ
+TH підвищує виробництво біогазу на 35–50% порівняно з вихідним осадом.
+
+═══════════════════════════════════════════════════════════════════
+3 ВЕРСІЇ УСТАНОВОК BTC
+═══════════════════════════════════════════════════════════════════
+
+1. HTC-S (для нестабілізованого осаду "після біології")
+Застосування: очисні станції без метантанку
+Виходи: HTC-ліквор → метантанк; гідровугілля (30–40% вологість, у 4+ разів менше);
+HTC-газ → когенерація або котел
+Енергетика: вироблений біогаз покриває тільки теплові потреби
+
+2. HTC-D (для стабілізованого осаду після AD)
+Застосування: станції з існуючим метантанком
+Виходи: ті самі що в HTC-S
+Енергетика: аналогічно HTC-S
+
+3. TH+HTC (інтегрована установка)
+Застосування: великі станції з метантанком
+Виходи: гідролізат → метантанк; HTC-ліквор → метантанк; гідровугілля
+(у ~5 разів менше ніж осад після AD); TH+HTC-газ → когенерація
+Енергетика: виробляє достатньо для власної електрики І тепла
+(повна енергоавтономія)
+
+═══════════════════════════════════════════════════════════════════
+ГІДРОВУГІЛЛЯ — ПОРІВНЯННЯ З ВИХІДНИМ ОСАДОМ
+═══════════════════════════════════════════════════════════════════
+
+Властивості гідровугілля після HTC:
+✓ Повністю стабілізоване і гігієнізоване
+✓ 60–70% вуглецевої сухої маси (легко зневоднюється механічно)
+✓ Обсяг у 4+ разів менший ніж вихідний осад
+✓ Не містить патогенів (>180°C знищує всі, включно SARS-CoV-2)
+✓ Відсутність мікробіологічного забруднення
+✓ Практично немає фармацевтики та мікропластику
+  (AGH отримав 2 гранти НЦН 2025 для вивчення мікропластику в осадах)
+✓ Низька токсичність або нетоксичний
+✓ Практично без запаху
+✓ Вологість 30–40% (у вигляді H2O-суспензії)
+✓ Мікропластик: зменшення від небезпечних <5 мм до безпечних <0,01 мм
+✓ Важкі метали: незворотно іммобілізовані у вуглецевій матриці
+  (небіодоступна форма, не вилуговуються)
+⚠ Вміст важких металів у сухій масі: на 20–40% вищий (але безпечний)
+
+Правовий статус: End-of-Waste (товар, не відхід) → REACH Compliance
+
+═══════════════════════════════════════════════════════════════════
+РЕАЛЬНІ РЕФЕРЕНСНІ ОБ'ЄКТИ ДОСЛІДЖЕНЬ AGH + BTC
+═══════════════════════════════════════════════════════════════════
+
+Досліджені очисні станції:
+- Оршеш: ~20 000 РЛМ
+- Жори: ~70 000 РЛМ
+- Любін (MPWiK): ~100 000 РЛМ → перший комерційний продаж прав TH-AD-HTC (жовтень 2025)
+- Битом: ~150 000 РЛМ
+- Глівіце: ~200 000 РЛМ
+- Краків (Плашув): ~800 000 РЛМ
+
+Лабораторний реактор AGH: 1000 см³, до 232°C і 150 бар (наданий промисловістю у 2015).
+
+═══════════════════════════════════════════════════════════════════
+ФОРМУЛИ РОЗРАХУНКУ (МОДЕЛЬ УНИКНУТИХ ВИТРАТ)
+═══════════════════════════════════════════════════════════════════
+
+Базові:
+  1 РЛМ = 65 г абс. сухої речовини/добу = 0,1 т сухого мулу/рік
+  При зневодненні до 20% СР:  M_in = asm / 0,20  (т зневодненого мулу/добу)
+  Промисловий рік: 8000 год = 333 доби
 
 CapEx:
-  CapEx_total = Volume × 250 €     (~€250 на 1 т/рік потужності)
-  Частка міста = CapEx_total × (1 − Грант/100)
+  CapEx_total = Volume (т/рік) × €250/т
+  Частка міста = CapEx_total × (1 − Грант%)
+  Сценарій А (місто 100к РЛМ): €4,5–5,2 млн; після 75% гранту: ~€1,1 млн
+  Сценарій Б (регіональний хаб): €5,5–6,5 млн; після 90% гранту: €550–650 тис.
 
 ROI:
   Земельний актив = Площа(м²) × (Ціна 1 сотки / 100)
   ROI (роки) = (Частка_міста − Земельний_актив) / Щорічна_економія
+  Сценарій А: окупність ~4 роки
+  Сценарій Б: окупність 3–3,5 роки
 
 ═══════════════════════════════════════════════════════════════════
 5 СЦЕНАРІЇВ ПОВОДЖЕННЯ З МУЛОМ
 ═══════════════════════════════════════════════════════════════════
 
 1. МУЛОВІ ПОЛЯ
-   f1 = 40–80 €/т (утилізація + вивіз)
-   f2 = 20–50 €/т (рекультивація)
-   Щорічна економія = V × (f1 + f2)
+   f1=40–80€/т (утилізація+вивіз) + f2=20–50€/т (рекультивація)
+   Бонус: вивільнення земельного активу
 
 2. ЦЕНТРИФУГИ + АГРО
-   f1 = 60–100 €/т (флокулянти)
-   f2 = 20–60 €/т (логістика + виплати фермерам)
-   Щорічна економія = V × f1 + V × 0.8 × f2
+   f1=60–100€/т (флокулянти) + f2=20–60€/т (логістика+фермери) ×0,8
 
 3. КОМПОСТУВАННЯ
-   f1 = 30–80 €/т (тріска / структуроутворювач)
-   f2 = 30–60 €/т (операційні витрати)
-   Щорічна економія = V × (f1 + f2)
+   f1=30–80€/т (тріска) + f2=30–60€/т (операційні)
 
 4. СУШІННЯ + СПАЛЕННЯ
-   f1 = 60–120 €/т (газ для сушарки)
-   f2 = 80–160 €/т сухого залишку (Gate Fee інсинератора)
-   Щорічна економія = V×f1 + V×0.2×f2 + біогаз дохід
+   f1=60–120€/т (газ для сушарки) + f2=80–160€/т сух. залишку (Gate Fee)
+   + дохід від біогазу: V × 0,1 МВт·год × тариф €/МВт·год
 
 5. ПОЛІГОН ТПВ
-   f1 = 40–120 €/т (екоподаток)
-   EU ETS може додати €50–100/т до 2030
+   f1=40–120€/т (екоподаток)
+   До 2030: EU ETS може додати €50–100/т
 
 ═══════════════════════════════════════════════════════════════════
-ДИРЕКТИВА UWWTD 2024/3019 (ЄС)
+ТАРИФИ НА БІОГАЗ (ПОЛЬЩА, FiT/FiD)
 ═══════════════════════════════════════════════════════════════════
 
-Дедлайни для очисних станцій:
-  PE > 150 000 → 2033  (четвертинне очищення)
-  PE > 10 000  → 2036  (третинне очищення)
-  PE > 1 000   → 2039  (вторинне очищення)
+Для біогазу з очисних станцій (цінові орієнтири):
+  <500 кВт з когенерацією: 714 зл/МВт·год
+  <500 кВт без когенерації: 572 зл/МВт·год
+  >500 кВт з когенерацією: 663 зл/МВт·год
+  >500 кВт без когенерації: 520 зл/МВт·год
+
+FiT (до 0,5 МВт): 95% від референсної ціни, договір з фіксованою ціною
+FiP (0,5–1 МВт): доплата до ринкових цін (покриття від'ємного сальдо)
 
 ═══════════════════════════════════════════════════════════════════
 ГРАНТИ ТА ФІНАНСУВАННЯ
 ═══════════════════════════════════════════════════════════════════
 
-  EU LIFE Programme: 60–75 % CapEx
-  Horizon Europe: до 100 % R&D
-  KRPOiŚ (Польща): до 85 %
-  Ukrainian Recovery Fund: до 80 %
+  EU LIFE Programme: 60–75% CapEx
+  Horizon Europe: до 100% R&D
+  KRPOiŚ (Польща): до 85%
+  Ukrainian Recovery Fund: до 80%
   ЄБРР / КЕБ: пільгові кредити 15–25 років
-  Типове припущення в моделі: 75 % грант
+  Стандарт у моделях: 75% грант (одиночне місто) / 90% (міжмуніципальний хаб)
 
 ═══════════════════════════════════════════════════════════════════
-ТИПОВІ ОБ'ЄКТИ
+ПЛАН ДІЙ ДЛЯ КОС (4 КРОКИ)
 ═══════════════════════════════════════════════════════════════════
 
-Комунальні (КОС):
-  Містечко/Gmina:    ~20 000 PE   →  2 000 т/рік
-  Місто:            ~100 000 PE   → 10 000 т/рік
-  Агломерація:      ~300 000 PE   → 30 000 т/рік
+1. Дослідити осад: HTC + можливо TH; виміряти BMP (биометановий потенціал)
+2. Запропонувати варіанти технологічних рішень з балансами маси і енергії
+3. Обрати 2 найкращі варіанти: ТЕО + плани розміщення + візуалізації
+4. Провести енергоаудит + рекомендації OZE для досягнення нейтральності
+
+Аудит може охоплювати: окрему КОС, регіональну станцію, програму для воєводства.
+
+Гармонограм впровадження:
+  2026–2030: концепції розвитку
+  2027–2036: передінвестиційні роботи
+  2028–2039: реалізація модернізацій
+  2028–2045: реалізація OZE
+
+═══════════════════════════════════════════════════════════════════
+ТИПОВІ ОБ'ЄКТИ ЗА ТИПОМ
+═══════════════════════════════════════════════════════════════════
+
+Комунальні:
+  Містечко/Gmina:    ~20 000 РЛМ  →  2 000 т/рік
+  Місто:            ~100 000 РЛМ  → 10 000 т/рік (~32,5 т/добу зневодн. мулу)
+  Агломерація:      ~300 000 РЛМ  → 30 000 т/рік
+  Велике місто:     ~800 000 РЛМ  → 80 000 т/рік
 
 Промислові:
-  Пивзавод (~2M гл/рік):   60 000 PE eq.  →  6 000 т/рік
-  Цукрозавод (~8000 т буряка/день):  25 000 PE eq.
-  М'ясокомбінат (~500 т/день):       50 000 PE eq.
-  Молокозавод (~500 т/день):         30 000 PE eq.
+  Пивзавод (~2M гл/рік):          60 000 РЛМ eq. →  6 000 т/рік
+  Цукрозавод (~8000 т буряка/доб): 25 000 РЛМ eq. →  2 500 т/рік
+  М'ясокомбінат (~500 т/доб):     50 000 РЛМ eq. →  5 000 т/рік
+  Молокозавод (~500 т/доб):       30 000 РЛМ eq. →  3 000 т/рік
+
+═══════════════════════════════════════════════════════════════════
+БІЗНЕС-МОДЕЛЬ BTC CONSULTING
+═══════════════════════════════════════════════════════════════════
+
+BTC Consulting — інженерно-консалтинговий девелопер, НЕ виробник обладнання.
+Дохід від:
+1. Платних ТЕО: €20 000–€40 000 за проєкт (попередній аналіз + дорожня карта)
+2. Авторський нагляд + генеральна інтеграція: роялті від CapEx
+
+Партнери:
+- AGH Kraków (наука, верифікація, BMP-тестування, WikiChar Network)
+- INTROL S.A. Holding (будівництво і монтаж "під ключ", котирується на GPW)
+- WikiChar (https://www.wikichar.net) — міжнародна база даних гідровугілля
+
+Попередньо компанія називалась BioTheCon Sp. z o.o.
+
+═══════════════════════════════════════════════════════════════════
+КОНТАКТИ КОМАНДИ
+═══════════════════════════════════════════════════════════════════
+
+Andrzej Krop — CEO BTC Consulting
+  Тел: +48 608 003 458
+  Email: contact@biotc.pl
+
+Eugeniusz Krop, Ph.D., Eng. — Технічний директор
+  Тел: +48 606 293 007
+  Email: eugeniusz.krop@biotc.eu
+
+Prof. Małgorzata Wilk, D.Sc., Ph.D. — AGH Kraków, кафедра теплотехніки
+  Тел: +48 510 026 066
+  Email: mwilk@agh.edu.pl
+  AGH Kraków, al. Mickiewicza 30, корп. B4 кім. 4A, 30-059 Kraków
+
+Адреса: ul. Daszyńskiego 34/3, 44-100 Gliwice, Poland
 
 ═══════════════════════════════════════════════════════════════════
 ФОРМАТ ВІДПОВІДІ
 ═══════════════════════════════════════════════════════════════════
 
-Коротко (≤ 3 речення): якщо питання просте або вступне.
-Структуровано (блоки з цифрами): якщо є конкретні дані об'єкту.
+Коротко (≤3 речення): для простих або вступних питань
+Структуровано з цифрами: якщо є конкретні дані об'єкта
 
 При наявності даних — завжди надавай:
-  • Рекомендований сценарій та чому
+  • Рекомендований сценарій + обґрунтування
   • Щорічну економію (€/рік)
-  • Орієнтовний CapEx та частку міста/компанії після гранту
-  • ROI (роки) або "Миттєва" якщо земля перекриває витрати
+  • Орієнтовний CapEx та частку після гранту
+  • ROI (роки)
   • Наступний крок: "Замовте безкоштовну інженерну оцінку"
 
-Якщо запит потребує виїзду або точних розрахунків — скеровуй до:
+Для точних проєктних розрахунків:
   contact@biotc.pl | +48 608 003 458
 `.trim();
 
 // ── CSV helpers ───────────────────────────────────────────────────────────────
 const CSV_HEADER = 'ts,session_id,scenario,vol_ty,vol_pe,grant,f1,f2,capex_total,capex_city,savings,land,roi\n';
-
 function leadToRow(d) {
-  return [d.ts, d.session_id, d.scenario, d.vol_ty, d.vol_pe, d.grant,
-          d.f1, d.f2, d.capex_total, d.capex_city, d.savings, d.land, d.roi]
-    .map(v => (String(v ?? '').includes(',') ? `"${v}"` : (v ?? '')))
-    .join(',') + '\n';
+  return [d.ts,d.session_id,d.scenario,d.vol_ty,d.vol_pe,d.grant,d.f1,d.f2,d.capex_total,d.capex_city,d.savings,d.land,d.roi]
+    .map(v=>(String(v??'').includes(',') ? `"${v}"` : (v??''))).join(',')+'\n';
 }
 
-// ── Stream final response ─────────────────────────────────────────────────────
+// ── Stream response ───────────────────────────────────────────────────────────
 async function streamResponse(messages, env) {
-  const resp = await fetch('https://api.anthropic.com/v1/messages', {
+  const r = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
-    headers: {
-      'x-api-key': env.ANTHROPIC_API_KEY,
-      'anthropic-version': '2023-06-01',
-      'anthropic-beta': 'pdfs-2024-09-25',
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-5',
-      max_tokens: 2048,
-      system: SYSTEM_PROMPT,
-      messages,
-      tools: TOOLS,
-      stream: true,
-    }),
+    headers: { 'x-api-key': env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01',
+                'anthropic-beta': 'pdfs-2024-09-25', 'content-type': 'application/json' },
+    body: JSON.stringify({ model:'claude-sonnet-4-5', max_tokens:2048,
+      system:SYSTEM_PROMPT, messages, tools:TOOLS, stream:true }),
   });
-  if (!resp.ok) throw new Error(await resp.text());
-  return resp;
+  if (!r.ok) throw new Error(await r.text());
+  return r;
 }
 
-// ── Non-streaming call to check for tool use ──────────────────────────────────
+// ── Non-streaming call with tool handling ─────────────────────────────────────
 async function callWithTools(messages, env) {
-  const resp = await fetch('https://api.anthropic.com/v1/messages', {
+  const r = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
-    headers: {
-      'x-api-key': env.ANTHROPIC_API_KEY,
-      'anthropic-version': '2023-06-01',
-      'anthropic-beta': 'pdfs-2024-09-25',
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-5',
-      max_tokens: 2048,
-      system: SYSTEM_PROMPT,
-      messages,
-      tools: TOOLS,
-    }),
+    headers: { 'x-api-key': env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01',
+                'anthropic-beta': 'pdfs-2024-09-25', 'content-type': 'application/json' },
+    body: JSON.stringify({ model:'claude-sonnet-4-5', max_tokens:2048,
+      system:SYSTEM_PROMPT, messages, tools:TOOLS }),
   });
-
-  if (!resp.ok) throw new Error(await resp.text());
-  const result = await resp.json();
+  if (!r.ok) throw new Error(await r.text());
+  const result = await r.json();
 
   if (result.stop_reason === 'tool_use') {
-    // Execute each tool call
     const toolResults = [];
     for (const block of result.content) {
       if (block.type === 'tool_use') {
         const output = await executeTool(block.name, block.input);
-        toolResults.push({
-          type: 'tool_result',
-          tool_use_id: block.id,
-          content: output,
-        });
+        toolResults.push({ type:'tool_result', tool_use_id:block.id, content:output });
       }
     }
-
-    // Build messages with tool results and stream final response
     const newMessages = [
       ...messages,
-      { role: 'assistant', content: result.content },
-      { role: 'user',      content: toolResults },
+      { role:'assistant', content:result.content },
+      { role:'user', content:toolResults },
     ];
-
     return streamResponse(newMessages, env);
   }
-
-  // No tool use — stream directly
   return streamResponse(messages, env);
 }
 
-// ── Main handler ─────────────────────────────────────────────────────────────
+// ── Main handler ──────────────────────────────────────────────────────────────
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (request.method === 'OPTIONS') return new Response(null,{status:204,headers:CORS});
 
-    if (request.method === 'OPTIONS') {
-      return new Response(null, { status: 204, headers: CORS });
+    if (request.method==='POST' && url.pathname==='/lead') {
+      let lead; try{lead=await request.json();}catch{return json({error:'bad json'},400);}
+      if (env.LEADS) await env.LEADS.put(`lead:${lead.ts||Date.now()}:${Math.random().toString(36).slice(2)}`, JSON.stringify(lead));
+      return json({ok:true});
     }
 
-    // ── POST /lead ────────────────────────────────────────────────────────────
-    if (request.method === 'POST' && url.pathname === '/lead') {
-      let lead;
-      try { lead = await request.json(); } catch { return json({ error: 'bad json' }, 400); }
-      if (env.LEADS) {
-        const key = `lead:${lead.ts || Date.now()}:${Math.random().toString(36).slice(2)}`;
-        await env.LEADS.put(key, JSON.stringify(lead));
-      }
-      return json({ ok: true });
+    if (request.method==='GET' && url.pathname==='/leads.csv') {
+      const token=url.searchParams.get('token');
+      if (!env.LEADS_TOKEN||token!==env.LEADS_TOKEN) return new Response('Unauthorized',{status:401});
+      const list=await env.LEADS.list({prefix:'lead:'});
+      let csv=CSV_HEADER;
+      for (const k of list.keys){const raw=await env.LEADS.get(k.name);if(raw){try{csv+=leadToRow(JSON.parse(raw));}catch{}}}
+      return new Response(csv,{headers:{'content-type':'text/csv;charset=utf-8','content-disposition':'attachment;filename="btc-leads.csv"',...CORS}});
     }
 
-    // ── GET /leads.csv ────────────────────────────────────────────────────────
-    if (request.method === 'GET' && url.pathname === '/leads.csv') {
-      const token = url.searchParams.get('token');
-      if (!env.LEADS_TOKEN || token !== env.LEADS_TOKEN) {
-        return new Response('Unauthorized', { status: 401 });
+    if (request.method!=='POST') return new Response('Method Not Allowed',{status:405});
+
+    let body; try{body=await request.json();}catch{return json({error:'Invalid JSON'},400);}
+    const {messages=[],file}=body;
+    if (!messages.length) return json({error:'No messages'},400);
+
+    const anthropicMessages = messages.map((m,i)=>{
+      if (file&&i===messages.length-1&&m.role==='user'){
+        const content=[];
+        if (file.type==='application/pdf'||file.type?.startsWith('image/'))
+          content.push({type:file.type.startsWith('image/')?'image':'document',source:{type:'base64',media_type:file.type,data:file.data}});
+        content.push({type:'text',text:m.content});
+        return {role:'user',content};
       }
-      const list = await env.LEADS.list({ prefix: 'lead:' });
-      let csv = CSV_HEADER;
-      for (const key of list.keys) {
-        const raw = await env.LEADS.get(key.name);
-        if (raw) { try { csv += leadToRow(JSON.parse(raw)); } catch {} }
-      }
-      return new Response(csv, {
-        headers: { 'content-type': 'text/csv; charset=utf-8',
-                   'content-disposition': 'attachment; filename="btc-leads.csv"', ...CORS },
-      });
-    }
-
-    if (request.method !== 'POST') {
-      return new Response('Method Not Allowed', { status: 405 });
-    }
-
-    let body;
-    try { body = await request.json(); }
-    catch { return json({ error: 'Invalid JSON' }, 400); }
-
-    const { messages = [], file } = body;
-    if (!messages.length) return json({ error: 'No messages' }, 400);
-
-    // Build Anthropic messages array
-    const anthropicMessages = messages.map((m, i) => {
-      if (file && i === messages.length - 1 && m.role === 'user') {
-        const content = [];
-        if (file.type === 'application/pdf' || file.type?.startsWith('image/')) {
-          content.push({
-            type: file.type.startsWith('image/') ? 'image' : 'document',
-            source: { type: 'base64', media_type: file.type, data: file.data },
-          });
-        }
-        content.push({ type: 'text', text: m.content });
-        return { role: 'user', content };
-      }
-      return { role: m.role, content: m.content };
+      return {role:m.role,content:m.content};
     });
 
     try {
-      const apiResp = await callWithTools(anthropicMessages, env);
-
-      return new Response(apiResp.body, {
-        status: 200,
-        headers: {
-          'content-type': 'text/event-stream; charset=utf-8',
-          'cache-control': 'no-cache',
-          ...CORS,
-        },
-      });
-    } catch (err) {
-      return json({ error: err.message }, 500);
+      const resp = await callWithTools(anthropicMessages, env);
+      return new Response(resp.body,{status:200,headers:{'content-type':'text/event-stream;charset=utf-8','cache-control':'no-cache',...CORS}});
+    } catch(e) {
+      return json({error:e.message},500);
     }
   },
 };
 
-function json(data, status = 200) {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: { 'content-type': 'application/json', ...CORS },
-  });
+function json(data,status=200){
+  return new Response(JSON.stringify(data),{status,headers:{'content-type':'application/json',...CORS}});
 }
