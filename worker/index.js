@@ -661,6 +661,34 @@ export default {
       return json({ok:true});
     }
 
+    // ── POST /conv — save full conversation ─────────────────────────────────
+    if (request.method==='POST' && url.pathname==='/conv') {
+      let conv; try{conv=await request.json();}catch{return json({error:'bad json'},400);}
+      if (env.CONVS) {
+        const key = 'conv:' + (conv.ts||Date.now()) + ':' + Math.random().toString(36).slice(2);
+        await env.CONVS.put(key, JSON.stringify(conv), { expirationTtl: 60*60*24*180 }); // 180 days
+      }
+      return json({ok:true});
+    }
+
+    // ── GET /conversations — download all saved conversations ────────────────
+    if (request.method==='GET' && url.pathname==='/conversations') {
+      const token = url.searchParams.get('token');
+      if (!env.CONV_TOKEN || token !== env.CONV_TOKEN) return new Response('Unauthorized',{status:401});
+      const list = await env.CONVS.list({prefix:'conv:'});
+      const convs = [];
+      for (const k of list.keys) {
+        const raw = await env.CONVS.get(k.name);
+        if (raw) { try{convs.push(JSON.parse(raw));}catch{} }
+      }
+      // Sort by ts
+      convs.sort((a,b) => (a.ts||0) - (b.ts||0));
+      return new Response(JSON.stringify(convs, null, 2), {
+        headers: {'content-type':'application/json;charset=utf-8',
+                  'content-disposition':'attachment;filename="btc-conversations.json"',...CORS}
+      });
+    }
+
     if (request.method==='GET' && url.pathname==='/leads.csv') {
       const token=url.searchParams.get('token');
       if (!env.LEADS_TOKEN||token!==env.LEADS_TOKEN) return new Response('Unauthorized',{status:401});

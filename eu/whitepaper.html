@@ -24,27 +24,74 @@
     .doc-card-header { display: flex; align-items: center; gap: 1.1rem; margin-block-end: 2rem; }
     .doc-card { background: #fff; border: 1.5px solid #046BD2; border-radius: 0.5rem; padding: 2.5rem 3rem; }
     @media (max-width: 640px) { .doc-card { padding: 1.5rem 1.25rem; } }
-    .doc-meta { background: rgba(4,107,210,0.04); border: 1px solid rgba(4,107,210,0.15); border-radius: 0.4rem; padding: 1rem 1.25rem; margin-block-end: 2rem; font-size: 0.82rem; line-height: 1.8; color: var(--color-text-muted); }
+
+    /* Meta block */
+    .doc-meta {
+      background: rgba(4,107,210,0.04);
+      border: 1px solid rgba(4,107,210,0.15);
+      border-radius: 0.4rem;
+      padding: 1rem 1.25rem;
+      margin-block-end: 2rem;
+      font-size: 0.82rem;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+    }
     .doc-meta strong { color: var(--color-text); }
-    .doc-card h2 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; color: var(--color-text); margin-block: 2.5rem 0.5rem; line-height: 1.2; }
+
+    /* Doc typography */
+    .doc-card h2 {
+      font-family: var(--font-display); font-size: 1.15rem; font-weight: 800;
+      color: var(--color-text); margin-block: 2.5rem 0.5rem; line-height: 1.2;
+    }
     .doc-card h2:first-of-type { margin-block-start: 0; }
-    .doc-card h3 { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #046BD2; margin-block: 1.75rem 0.5rem; padding-inline-start: 0.75rem; border-left: 3px solid #046BD2; }
+    .doc-card h3 {
+      font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: #046BD2;
+      margin-block: 1.75rem 0.5rem;
+      padding-inline-start: 0.75rem;
+      border-left: 3px solid #046BD2;
+    }
     .doc-card p { font-size: 0.95rem; line-height: 1.8; color: var(--color-text); margin-block-end: 0.75rem; }
     .doc-card p:last-child { margin-block-end: 0; }
     .doc-card ul { padding-inline-start: 1.25rem; margin-block: 0.5rem 0.75rem; }
     .doc-card li { font-size: 0.92rem; line-height: 1.75; color: var(--color-text); margin-block-end: 0.5rem; }
-    .doc-card .formula { display: block; font-size: 0.92rem; font-weight: 600; font-style: italic; text-align: center; color: var(--color-text); margin-block: 0.75rem; padding: 0.6rem 1rem; background: rgba(4,107,210,0.04); border-radius: 4px; }
-    .doc-card blockquote { border-left: 3px solid #046BD2; margin: 0.75rem 0; padding: 0.65rem 1rem; background: rgba(4,107,210,0.04); border-radius: 0 0.4rem 0.4rem 0; font-style: italic; font-size: 0.95rem; line-height: 1.7; color: var(--color-text); }
+    .doc-card .formula {
+      display: block; font-size: 0.92rem; font-weight: 600; font-style: italic;
+      text-align: center; color: var(--color-text);
+      margin-block: 0.75rem; padding: 0.6rem 1rem;
+      background: rgba(4,107,210,0.04); border-radius: 4px;
+    }
+    .doc-card blockquote {
+      border-left: 3px solid #046BD2; margin: 0.75rem 0;
+      padding: 0.65rem 1rem; background: rgba(4,107,210,0.04);
+      border-radius: 0 0.4rem 0.4rem 0;
+      font-style: italic; font-size: 0.95rem; line-height: 1.7; color: var(--color-text);
+    }
+
+    /* Comparison table */
     .doc-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-block: 1.25rem; }
-    .doc-table th { background: #046BD2; color: #fff; font-weight: 700; padding: 0.7rem 0.9rem; text-align: left; line-height: 1.35; }
+    .doc-table th {
+      background: #046BD2; color: #fff; font-weight: 700;
+      padding: 0.7rem 0.9rem; text-align: left; line-height: 1.35;
+    }
     .doc-table th:first-child { width: 28%; }
     .doc-table td { padding: 0.65rem 0.9rem; border-bottom: 1px solid rgba(4,107,210,0.12); vertical-align: top; line-height: 1.5; }
     .doc-table tr:last-child td { border-bottom: none; }
     .doc-table tr:nth-child(even) td { background: rgba(4,107,210,0.03); }
-    @media (max-width: 640px) { .doc-table { font-size: 0.78rem; } .doc-table th, .doc-table td { padding: 0.5rem; } }
+    @media (max-width: 640px) {
+      .doc-table { font-size: 0.78rem; }
+      .doc-table th, .doc-table td { padding: 0.5rem; }
+    }
+
     .doc-actions { margin-block-start: 1.5rem; display: flex; justify-content: flex-end; }
-    .doc-pdf-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1.4rem; background: #046BD2; color: #fff; font-size: 0.875rem; font-weight: 700; border-radius: 0.5rem; border: none; cursor: pointer; font-family: var(--font-body); transition: opacity 0.15s; }
+    .doc-pdf-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.65rem 1.4rem; background: #046BD2; color: #fff;
+      font-size: 0.875rem; font-weight: 700; border-radius: 0.5rem;
+      border: none; cursor: pointer; font-family: var(--font-body); transition: opacity 0.15s;
+    }
     .doc-pdf-btn:hover { opacity: 0.88; }
+
     @media print {
       body { background: #fff; }
       .main-header, .doc-actions, .doc-back { display: none !important; }
@@ -56,21 +103,26 @@
 </head>
 <body>
 
+  <!-- Site header -->
   <header class="main-header" id="header">
     <div class="header-container">
       <a href="index.html" class="logo" aria-label="BTC Consulting Home">
         <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="lg-eu1" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop offset="0%" stop-color="#046BD2"/><stop offset="100%" stop-color="#0D9488"/></linearGradient>
-            <linearGradient id="lg-eu2" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop offset="0%" stop-color="#38BDF8"/><stop offset="100%" stop-color="#2DD4BF"/></linearGradient>
+            <linearGradient id="lg-wp1" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+              <stop offset="0%" stop-color="#046BD2"/><stop offset="100%" stop-color="#0D9488"/>
+            </linearGradient>
+            <linearGradient id="lg-wp2" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+              <stop offset="0%" stop-color="#38BDF8"/><stop offset="100%" stop-color="#2DD4BF"/>
+            </linearGradient>
           </defs>
-          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#lg-eu1)"/>
-          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#lg-eu2)" stroke="white" stroke-width="1.5" vector-effect="non-scaling-stroke" transform="translate(12,13) scale(0.62) translate(-12,-13)"/>
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#lg-wp1)"/>
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#lg-wp2)" stroke="white" stroke-width="1.5" vector-effect="non-scaling-stroke" transform="translate(12,13) scale(0.62) translate(-12,-13)"/>
           <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="white" opacity="0.92" transform="translate(12,13) scale(0.33) translate(-12,-13)"/>
         </svg>
         <span class="logo-text"><span class="logo-btc">BTC</span> Consulting</span>
       </a>
-      <nav class="nav-desktop" aria-label="Main menu">
+      <nav class="nav-desktop" aria-label="Main Menu">
         <ul>
           <li><a href="index.html">Solutions</a></li>
           <li><a href="technology.html">Technology</a></li>
@@ -81,7 +133,7 @@
         <button class="lang-globe-btn" id="lang-globe-btn" aria-label="Language">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </button>
-        <button class="nav-fab" id="nav-fab" aria-label="Contact">
+        <button class="nav-fab" id="nav-fab" aria-label="Audit Facility">
           <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 12 19.79 19.79 0 0 1 1.08 3.38 2 2 0 0 1 3.07 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
@@ -93,9 +145,9 @@
     </div>
     <div class="lang-strip" id="lang-strip" aria-hidden="true">
       <div class="lang-strip-inner">
-        <a href="../pl/whitepaper.html" class="lang-strip-item">&#x1F1F5;&#x1F1F1; Polski</a>
-        <a href="whitepaper.html" class="lang-strip-item active">&#x1F1EA;&#x1F1FA; English</a>
-        <a href="../ua/whitepaper.html" class="lang-strip-item">&#x1F1FA;&#x1F1E6; Українська</a>
+        <a href="../pl/index.html" class="lang-strip-item ">&#x1F1F5;&#x1F1F1; Polski</a>
+        <a href="index.html" class="lang-strip-item active">&#x1F1EA;&#x1F1FA; English</a>
+        <a href="../ua/index.html" class="lang-strip-item ">&#x1F1FA;&#x1F1E6; Українська</a>
       </div>
     </div>
     <div class="nav-mobile-strip" id="nav-mobile-strip" aria-hidden="true">
@@ -113,116 +165,159 @@
 
     <a href="javascript:history.back()" class="doc-back">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-      Back
+      Повернутися
     </a>
 
     <div class="doc-card">
 
+      <!-- Card header -->
       <div class="doc-card-header">
         <svg class="doc-logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="dh-eu1" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop offset="0%" stop-color="#046BD2"/><stop offset="100%" stop-color="#0D9488"/></linearGradient>
-            <linearGradient id="dh-eu2" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop offset="0%" stop-color="#38BDF8"/><stop offset="100%" stop-color="#2DD4BF"/></linearGradient>
+            <linearGradient id="dh-wp1" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+              <stop offset="0%" stop-color="#046BD2"/><stop offset="100%" stop-color="#0D9488"/>
+            </linearGradient>
+            <linearGradient id="dh-wp2" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+              <stop offset="0%" stop-color="#38BDF8"/><stop offset="100%" stop-color="#2DD4BF"/>
+            </linearGradient>
           </defs>
-          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#dh-eu1)"/>
-          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#dh-eu2)" stroke="white" stroke-width="1.5" vector-effect="non-scaling-stroke" transform="translate(12,13) scale(0.62) translate(-12,-13)"/>
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#dh-wp1)"/>
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#dh-wp2)" stroke="white" stroke-width="1.5" vector-effect="non-scaling-stroke" transform="translate(12,13) scale(0.62) translate(-12,-13)"/>
           <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="white" opacity="0.92" transform="translate(12,13) scale(0.33) translate(-12,-13)"/>
         </svg>
         <div class="doc-vline"></div>
-        <h1 class="doc-title">Whitepaper<br><span style="font-size:0.55em;font-weight:600;color:#046BD2;text-transform:uppercase;letter-spacing:0.08em">White Paper</span></h1>
+        <h1 class="doc-title">Whitepaper<br><span style="font-size:0.55em;font-weight:600;color:#046BD2;text-transform:uppercase;letter-spacing:0.08em">Біла Книга</span></h1>
       </div>
 
+      <!-- Meta -->
       <div class="doc-meta">
-        <strong>Topic:</strong> BioTC System Design — Transforming Sewage Sludge into High-Calorie Hydrochar and Energy Independence for Municipal Wastewater Treatment Plants<br>
-        <strong>Developer:</strong> BTC Consulting Sp. z o.o. | ul. Daszyńskiego 34/3, 44-100 Gliwice, Poland<br>
-        <strong>Scientific Partners:</strong> Department of Thermal and Environmental Engineering, AGH Kraków | WikiChar Network<br>
-        <strong>Industrial Partner:</strong> INTROL S.A. Holding<br>
-        <strong>Version:</strong> 4.0 (mathematically verified) &nbsp;|&nbsp; <strong>Date:</strong> May, 2026
+        <strong>Тема:</strong> Проєктування систем BioTC. Трансформація осаду стічних вод у висококалорійне гідровугілля та енергетичну незалежність муніципальних очисних споруд<br>
+        <strong>Розробник:</strong> BTC Consulting Sp. z o.o. | ul. Daszyńskiego 34/3, 44-100 Gliwice, Poland<br>
+        <strong>Наукові партнери:</strong> Кафедра теплотехніки та охорони довкілля AGH Kraków | Мережа WikiChar<br>
+        <strong>Індустріальний партнер:</strong> INTROL S.A. Holding<br>
+        <strong>Версія:</strong> 4.0 (математично верифікована) &nbsp;|&nbsp; <strong>Дата:</strong> Травень, 2026
       </div>
 
-      <h2>Executive Summary</h2>
-      <p>In 2026, the municipal and industrial sewage sludge (SS) management sector in the European Union is facing an unprecedented systemic crisis. The entry into force of the updated EU Urban Wastewater Treatment Directive (<em>UWWTD recast</em>) has effectively blocked traditional disposal methods such as agricultural spreading and landfilling. A critical shortage of incineration capacity, combined with rising natural gas prices, has made conventional thermal drying financially catastrophic for municipal budgets.</p>
-      <p><strong>BTC Consulting</strong> offers the <strong>BioTC</strong> technological architecture — a fundamental modernization of the Hydrothermal Carbonization (HTC) process. Unlike obsolete competitor approaches, our solution separates water in the liquid phase under high pressure and temperature without a phase transition. The project is fully reoriented from equipment supply to high-value engineering consulting, individual feasibility studies, and turnkey projects with up to <strong>75–90% non-repayable EU grant funding</strong>.</p>
+      <!-- Executive Summary -->
+      <h2>Резюме проєкту (Executive Summary)</h2>
+      <p>У 2026 році муніципальний та індустріальний сектори поводження з осадами стічних вод (ОСВ) в Європейському Союзі зіткнулися з безпрецедентною системною кризою. Набрання чинності оновленими вимогами Директиви ЄС про очищення міських стічних вод (<em>UWWTD recast</em>) де-факто заблокувало традиційні методики ліквідації осадів, такі як агрокультурне вивезення на поля та складування. Критичний брак потужностей для промислового спалювання у поєднанні з різким зростанням цін на природний газ зробили класичні заводи термічного сушіння фінансово катастрофічними для бюджетів міст.</p>
+      <p>Компанія <strong>BTC Consulting</strong> пропонує ринку технологічну архітектуру <strong>BioTC</strong>, яка заснована на фундаментальній модернізації процесу гідротермальної карбонізації (HTC). На відміну від застарілих підходів конкурентів, наше рішення відокремлює воду в рідкій фазі під високим тиском і температурою без фазового переходу. Проєкт повністю переорієнтований з постачання ізольованого обладнання на надання високовартісного інжинірингового консалтингу, створення індивідуальних ТЕО та бізнес-інтеграцію об'єктів «під ключ» із залученням до 75–90% безповоротного грантового фінансування ЄС.</p>
 
-      <h2>1. Regulatory Collapse and Municipal Infrastructure Pain</h2>
+      <!-- Section 1 -->
+      <h2>1. Регуляторний колапс та інфраструктурний біль муніципалітетів</h2>
 
-      <h3>1.1. Consequences of the UWWTD 2026 Directive</h3>
-      <p>The implementation of new EU environmental standards has fundamentally disrupted the previous logistics of wastewater treatment plants. Key pressure factors:</p>
+      <h3>1.1. Наслідки директиви UWWTD 2026</h3>
+      <p>Впровадження нових екологічних стандартів ЄС повністю зруйнувало колишню логістику очисних споруд. Головні фактори тиску:</p>
       <ul>
-        <li><strong>Agricultural spreading ban:</strong> Strict control over PFAS, microplastics, and heavy metal content has made direct soil application impossible.</li>
-        <li><strong>Incinerator capacity crisis:</strong> The pan-European deficit in incineration capacity has reached critical levels. In Poland: annual disposal demand exceeds 5.5 million tons of wet cake, while real capacity of all operating plants is limited to 1.4 million tons per year.</li>
-        <li><strong>Gate Fees and penalties:</strong> Water utilities pay astronomical commercial tariffs to monopoly operators, leading to massive capital drain from municipal budgets.</li>
+        <li><strong>Заборона на вивезення в агросектор:</strong> Жорсткий контроль вмісту PFAS, мікропластику та важких металів унеможливив пряме внесення мулу в ґрунт.</li>
+        <li><strong>Криза пропускної спроможності інсинераторів:</strong> Загальноєвропейський дефіцит потужностей спалювання досяг критичних позначок. На прикладі Польщі: щорічна потреба в утилізації перевищує 5,5 млн тонн вологого кеку, тоді як реальна потужність усіх діючих заводів обмежена 1,4 млн тонн на рік.</li>
+        <li><strong>Штрафні санкції та Gate Fees:</strong> Водоканали сплачують астрономічні комерційні тарифи монопольним операторам, що призводить до капітального вимивання грошових коштів із муніципальних компаній.</li>
       </ul>
 
-      <h3>1.2. The Thermodynamic Flaw of Convection Drying</h3>
-      <p>Traditional competitor systems (TerraNova Energy, Ingelia) rely on water evaporation. For a phase transition of 1 ton of water from liquid to steam, convection dryers require 800 to 1,100 kWh of energy. The use of fossil gas in volatile energy markets makes plant operations planned losses. The BioTC system transforms SS from a "toxic liability" into a "liquid renewable asset."</p>
+      <h3>1.2. Термодинамічна помилка конвекційного сушіння</h3>
+      <p>Традиційні системи конкурентів (TerraNova Energy, Ingelia) спираються на випаровування води. Для фазового переходу 1 тонни води з рідкого стану в пару конвекційні сушарки потребують від 800 до 1 100 кВт·год енергії. Використання викопного газу в умовах волатильності енергоринків робить експлуатацію очисних споруд планово збитковою. Система BioTC вирішує цю проблему, переводячи ОСВ з категорії токсичного пасиву в ліквідний відновлюваний актив.</p>
 
-      <h2>2. Technological Foundations and Scientific Verification</h2>
+      <!-- Section 2 -->
+      <h2>2. Технологічні основи та наукова верифікація процесу BioTC</h2>
 
-      <h3>2.1. Chemistry and Physics of the HTC Process</h3>
-      <p>BioTC technology treats dewatered sludge in reactors at <strong>180–220°C</strong> and autogenous pressure of <strong>15–25 bar</strong> for up to 2 hours. Under these hydrothermal conditions, water behaves as a non-polar solvent and catalyst. The process occurs without prior boiling. Rapid depolymerization, decarboxylation, and dehydration of the sludge organic matrix occur.</p>
-      <blockquote>Key energy effect: since water remains in the liquid phase throughout the carbonization cycle, energy consumption for dewatering is reduced by 4–5 times compared to thermal evaporation. Subsequent mechanical pressing produces solid fuel without the use of natural gas.</blockquote>
+      <h3>2.1. Хімізм та фізика HTC-процесу</h3>
+      <p>Технологія BioTC базується на обробці зневодненого осаду в реакторах за температури <strong>180–220°C</strong> та автогенного тиску <strong>15–25 бар</strong>. У цих гідротермальних умовах вода поводиться як неполярний розчинник і каталізатор. Процес протікає без попереднього кипіння. Відбувається швидка деполімеризація, декарбоксилювання та дегідратація органічної матриці мулу. Клітинні стінки бактерій повністю руйнуються, вивільняючи зв'язану воду.</p>
+      <blockquote>Ключовий енергетичний ефект: оскільки вода залишається у рідкій фазі протягом усього циклу карбонізації, витрати енергії на зневоднення знижуються у 4–5 разів порівняно з термічним випаровуванням. Подальше механічне пресування дозволяє отримати тверде паливо без витрат природного газу.</blockquote>
 
-      <h3>2.2. Scientific Eco-Safety: PFAS, Microplastics and Heavy Metals</h3>
-      <p>In partnership with <strong>AGH Kraków</strong> and the <strong>WikiChar Network</strong>, a series of studies confirmed complete detoxification:</p>
+      <h3>2.2. Наукова еко-безпека: PFAS, мікропластик та важкі метали</h3>
+      <p>У партнерстві з університетом <strong>AGH Kraków</strong> та мережею <strong>WikiChar</strong> проведено серію досліджень, які підтвердили повну детоксикацію матеріалу:</p>
       <ul>
-        <li><strong>Microplastic destruction:</strong> HTC parameters reduce fraction sizes from dangerous &lt;5 mm to absolutely safe &lt;0.01 mm.</li>
-        <li><strong>Heavy metal immobilization:</strong> Cations are irreversibly sealed within a stable porous carbon matrix in a non-bioavailable form.</li>
-        <li><strong>Pathogen inactivation:</strong> Temperature barrier above 180°C guarantees 100% destruction of all pathogens, bacteria, helminths and viral markers (including SARS-CoV-2).</li>
+        <li><strong>Руйнування мікропластику:</strong> Параметри HTC забезпечують деструкцію полімерних ланцюгів мікропластику, зменшуючи розмір фракцій із небезпечних &lt;5 мм до абсолютно безпечних &lt;0,01 мм.</li>
+        <li><strong>Іммобілізація важких металів:</strong> Під час карбонізації катіони важких металів незворотно запечатуються усередині стабільної пористої вуглецевої матриці, переходячи у небіодоступну форму.</li>
+        <li><strong>Інактивація патогенів:</strong> Температурний бар'єр понад 180°C гарантує 100% знищення всіх патогенних мікроорганізмів, бактерій, гельмінтів та вірусних маркерів.</li>
       </ul>
 
-      <h2>3. Infrastructure Scenarios and Economic Assessment</h2>
+      <!-- Section 3 -->
+      <h2>3. Гнучкі інфраструктурні сценарії та промірювання економіки</h2>
 
-      <h3>3.1. Material Balance for a Base City (100,000 RLM)</h3>
-      <p>One average inhabitant (RLM) produces 65 g of absolute dry matter (asm) per day.</p>
-      <p class="formula">100,000 &times; 65 g = 6.5 t asm / day</p>
-      <p>After standard centrifuge dewatering to 20% dry matter content:</p>
-      <p class="formula">M<sub>in</sub> = 6.5 t asm &divide; 0.20 = <strong>32.5 t dewatered sludge per day</strong></p>
-      <p>Accounting for an industrial year (8,000 h = 333 days): total annual volume for Scenario A is <strong>~10,800 t/year</strong>.</p>
+      <h3>3.1. Розрахунок матеріального балансу для базового міста</h3>
+      <p>Один умовний мешканець (RLM) виробляє в середньому <strong>65 г</strong> абсолютно сухої речовини (asm) на добу. Для міських очисних споруд масштабу 100 000 RLM добова генерація становить:</p>
+      <p class="formula">100 000 × 65 г = 6,5 тонн абсолютно сухої речовини (asm) / добу</p>
+      <p>При стандартному механічному зневодненні на центрифугах до вологості 80% (вміст сухої маси 20%), реальна добова маса кеку, що подається на установку BioTC:</p>
+      <p class="formula">M<sub>in</sub> = 6,5 тонн asm ÷ 0,20 = <strong>32,5 тонни зневодненого мулу на добу</strong></p>
+      <p>З урахуванням регламентного промислового року (8 000 робочих годин = 333 доби), сумарний річний обсяг переробки для Сценарію А становить <strong>~10 800 тонн/рік</strong>.</p>
 
-      <h3>3.2. Comparative Scenario Analysis</h3>
+      <h3>3.2. Порівняльний аналіз сценаріїв розгортання</h3>
+
       <table class="doc-table">
         <thead>
           <tr>
-            <th>Parameter</th>
-            <th>Scenario A: Local Utility Modernization (Lubin)</th>
-            <th>Scenario B: Regional Environmental Hub (Hub &amp; Spoke)</th>
+            <th>Параметр</th>
+            <th>Сценарій А: Локальна модернізація водоканалу міста (Любін)</th>
+            <th>Сценарій Б: Регіональний екологічний хаб (Hub &amp; Spoke)</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td><strong>Feedstock / Year</strong></td><td>32.5 t/day · ~10,800 t/year</td><td>120–150 t/day · ~50,000 t/year</td></tr>
-          <tr><td><strong>Target</strong></td><td>Municipal utility (MPWiK). Own municipal sludge.</td><td>Major city (Hub) + 4–5 satellite municipalities within 50 km</td></tr>
-          <tr><td><strong>Total CapEx</strong></td><td>€4.5m – €5.2m</td><td>€5.5m – €6.5m</td></tr>
-          <tr><td><strong>Non-repayable EU Grants</strong></td><td>75% (LIFE / Cohesion Fund)</td><td>Up to 90% (inter-municipal cluster)</td></tr>
-          <tr><td><strong>Real Budget Impact</strong></td><td>~€1.1m</td><td>€550,000 – €650,000</td></tr>
-          <tr><td><strong>Payback Period</strong></td><td>4 years</td><td>3 – 3.5 years</td></tr>
-          <tr><td><strong>Win-Win Logic</strong></td><td>Total elimination of gas costs and incinerator fees. Internal energy autonomy.</td><td>Stable Gate Fee income from neighboring cities on 10–15 year contracts.</td></tr>
+          <tr>
+            <td><strong>Обсяг сировини / рік</strong></td>
+            <td>32,5 тонн/добу · ~10 800 тонн/рік</td>
+            <td>120–150 тонн/добу · ~50 000 тонн/рік</td>
+          </tr>
+          <tr>
+            <td><strong>Цільова аудиторія</strong></td>
+            <td>Міський водоканал (MPWiK). Власні муніципальні осади.</td>
+            <td>Базове велике місто (Hub) + 4–5 громад-супутників у радіусі 50 км</td>
+          </tr>
+          <tr>
+            <td><strong>Повний CapEx</strong></td>
+            <td>€4,5 млн – €5,2 млн</td>
+            <td>€5,5 млн – €6,5 млн</td>
+          </tr>
+          <tr>
+            <td><strong>Безповоротні гранти ЄС</strong></td>
+            <td>75% (LIFE / Cohesion Fund)</td>
+            <td>До 90% (як міжмуніципальний кластер)</td>
+          </tr>
+          <tr>
+            <td><strong>Реальне навантаження на бюджет</strong></td>
+            <td>~€1,1 млн</td>
+            <td>€550 000 – €650 000</td>
+          </tr>
+          <tr>
+            <td><strong>Термін окупності</strong></td>
+            <td>4 роки</td>
+            <td>3 – 3,5 роки</td>
+          </tr>
+          <tr>
+            <td><strong>Логіка Win-Win</strong></td>
+            <td>Повна ліквідація витрат на газ та плату стороннім інсинераторам. Внутрішня енергоавтономія.</td>
+            <td>Стабільний дохід від сусідніх міст через Gate Fees на основі довгострокових контрактів.</td>
+          </tr>
         </tbody>
       </table>
 
-      <h2>4. Multi-Stream Revenue Economy</h2>
+      <!-- Section 4 -->
+      <h2>4. Економіка багатоканального доходу (Multi-Stream Revenue)</h2>
 
-      <h3>4.1. Municipal Gate Fees</h3>
-      <p>In the regional hub scenario, surrounding municipalities pay the hub a fixed fee per ton of sludge. These streams are protected by 10–15 year long-term contracts — significantly cheaper for municipalities than EU fines for unauthorized landfilling.</p>
+      <h3>4.1. Муніципальні Gate Fees</h3>
+      <p>У сценарії регіонального хабу навколишні малі муніципалітети сплачують хабу фіксовану вартість за утилізацію кожної тонни свого мулу. Ці потоки захищені від ринкових коливань довгостроковими контрактами на 10–15 років, оскільки для громад цей тариф суттєво нижчий, ніж потенційні штрафи ЄС за несанкціоноване складування.</p>
 
-      <h3>4.2. Commercial End-of-Waste Product (Hydrochar)</h3>
-      <p>At the exit of the BioTC unit, dry eco-coal — <strong>Hydrochar</strong> — is formed. Moisture &lt;10%, calorific value <strong>20–24 MJ/kg</strong> (equivalent to high-quality bituminous coal). CE certification. Sold to cement plants and technical sorbent producers at market prices.</p>
+      <h3>4.2. Комерційний продукт End-of-Waste (Hydrochar)</h3>
+      <p>На виході з установки BioTC утворюється сухе ековугілля — <strong>Hydrochar</strong>. Вологість менше 10%, теплотворна здатність <strong>20–24 МДж/кг</strong>, що еквівалентно якісному кам'яному вугіллю. Продукт отримує сертифікацію CE і реалізується промисловим підприємствам (цементні заводи, технічні сорбенти) за ринковими цінами.</p>
 
-      <h3>4.3. Biogas Production Stimulation</h3>
-      <p>The HTC process liquor contains high concentrations of easily digestible organic matter. Returning the liquor to existing digesters acts as a powerful biostimulant that <strong>accelerates biogas generation by 3&times;</strong>. Excess biogas powers cogeneration for electricity and heat. The facility achieves <strong>100% energy neutrality</strong> (OpEx = 0 for gas).</p>
+      <h3>4.3. Стимуляція виробництва біогазу</h3>
+      <p>Рідка фаза після HTC-процесу (ліквор) містить високу концентрацію легкозасвоюваної органіки. Повернення ліквору в існуючі метантенки діє як потужний біостимулятор, який <strong>прискорює генерацію біогазу в 3 рази</strong>. Надлишковий біогаз направляється на когенерацію для виробництва електрики та тепла. Об'єкт виходить на <strong>100% енергетичну нейтральність</strong> (OpEx = 0 по газу).</p>
 
-      <h2>5. Monetization and Scaling Business Model</h2>
-      <p>BTC Consulting operates as a high-tech engineering-consulting developer — not an equipment manufacturer. Revenue from intellectual property and licenses:</p>
+      <!-- Section 5 -->
+      <h2>5. Бізнес-модель монетизації та масштабування BTC Consulting</h2>
+      <p>BTC Consulting діє на ринку як високотехнологічний інженерно-консалтинговий девелопер. Внутрішня бізнес-модель захищена від заморожування обігових коштів у виробничих ланцюгах і будується на продажі інтелектуальної власності та ліцензій:</p>
       <ul>
-        <li><strong>Paid pre-project feasibility studies:</strong> €20,000–40,000 per project — detailed localized engineering-environmental analysis and implementation roadmap (Upfront Revenue).</li>
-        <li><strong>Author's supervision + general integration:</strong> Fixed high-margin royalty on total infrastructure CapEx, coordinating AGH Kraków (science) with INTROL S.A. (construction).</li>
+        <li><strong>Платна розробка пре-проєктних ТЕО:</strong> Деталізований локалізований інженерно-екологічний аналіз об'єкта (до 200 сторінок) продається муніципалітетам за ціною €20 000 – €40 000 за один проєкт (Upfront Revenue).</li>
+        <li><strong>Авторський нагляд та генеральна інтеграція:</strong> Компанія координує взаємодію між академічними розробниками (AGH Kraków) та генеральним підрядником (INTROL S.A.) і отримує фіксований високомаржинальний відсоток від загального CapEx.</li>
       </ul>
 
-      <h2>6. Risk Minimization and Architecture of Trust (De-Risking)</h2>
+      <!-- Section 6 -->
+      <h2>6. Мінімізація ризиків та архітектура довіри (De-Risking)</h2>
+      <p>Для забезпечення фінансових та юридичних гарантій для мерів міст та інвесторів в архітектуру BioTC інтегровано три захисні рівні:</p>
       <ul>
-        <li><strong>Industrial Performance Guarantees:</strong> Construction and turnkey delivery in consortium with <strong>INTROL S.A.</strong> (GPW-listed). Completely eliminates the risk of not achieving declared capacities.</li>
-        <li><strong>Quality Gateway:</strong> Digital simulator algorithms pre-model reactor behavior when mixing in external toxic sewage. Parameters automatically adjust to guarantee process stability.</li>
-        <li><strong>REACH Compliance:</strong> Hydrochar is legally transitioned from "waste" to "product" status, removing all restrictions on cross-border movement and commercial sale in EU markets.</li>
+        <li><strong>Індустріальні гарантії результату:</strong> Будівництво та здача «під ключ» здійснюється у консорціумі з холдингом <strong>INTROL S.A.</strong>, акції якого торгуються на біржі GPW. Це повністю ліквідує ризик неотримання задекларованих потужностей.</li>
+        <li><strong>Вхідний технологічний шлюз (Quality Gateway):</strong> Алгоритми цифрового симулятора дозволяють заздалегідь змоделювати поведінку реактора при підмішуванні сторонніх токсичних стоків. Параметри системи автоматично коригуються, гарантуючи стабільність процесу.</li>
+        <li><strong>Юридична чистота обігу (REACH Compliance):</strong> Весь технологічний пакет розробляється відповідно до регламентів REACH. Гідровугілля легально виводиться зі статусу «відходу» в статус «продукту», знімаючи обмеження на транскордонне переміщення та комерційну реалізацію на ринках ЄС.</li>
       </ul>
 
     </div>
@@ -230,7 +325,7 @@
     <div class="doc-actions">
       <button class="doc-pdf-btn" onclick="window.print()">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download PDF
+        Завантажити PDF
       </button>
     </div>
 
@@ -239,10 +334,10 @@
   <div class="privacy-strip" id="privacy-strip" aria-hidden="true">
     <div class="privacy-strip-inner">
       <div class="privacy-strip-body">
-        <strong>About Data</strong>
-        <p>We anonymously store calculator inputs (sludge volume, scenario, grant %). No personal data is collected or shared.</p>
+        <strong>About Data Collection</strong>
+        <p>When using the calculator, we anonymously store the entered parameters (sludge volume, scenario, grant percentage) and the calculated results. Personal data (name, email, IP address) is not collected or shared with third parties. Data is used solely for demand analysis and service improvement.</p>
       </div>
-      <button class="privacy-strip-close" id="privacy-strip-close" aria-label="Close">&#x2715;</button>
+      <button class="privacy-strip-close" id="privacy-strip-close" aria-label="I understand">&#x2715;</button>
     </div>
   </div>
 

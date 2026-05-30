@@ -874,7 +874,25 @@
         return out.join('');
       }
 
-          function pump(){
+    
+      // Save conversation after each bot response
+      function saveConversation() {
+        if (typeof AGENT_ENDPOINT === 'undefined' || AGENT_ENDPOINT.indexOf('CHANGE_ME') !== -1) return;
+        var endpoint = AGENT_ENDPOINT.replace('/chat', '/conv');
+        var payload = {
+          ts: Date.now(),
+          session_id: typeof session_id !== 'undefined' ? session_id : 'unknown',
+          lang: document.documentElement.lang || 'unknown',
+          url: window.location.pathname,
+          messages: history.slice()
+        };
+        fetch(endpoint, {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify(payload)
+        }).catch(function(){});
+      }
+      function pump(){
             return reader.read().then(function(r){
               if (r.done){
                 history.push({ role: 'assistant', content: full });
