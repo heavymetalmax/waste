@@ -11,7 +11,8 @@ import json, re, sys, pathlib, shutil
 ROOT  = pathlib.Path(__file__).parent
 TDIR  = ROOT / "translations"
 TMPL  = ROOT / "biotc"             # source templates
-PAGES = ["index.html", "technology.html", "simulator.html", "chat.html", "mission.html", "whitepaper.html"]
+PAGES = ["index.html", "technology.html", "simulator.html", "chat.html"]
+# mission.html and whitepaper.html are maintained as static files per language
 LANGS = ["ua", "pl", "eu"]
 
 CHECK_ONLY = "--check" in sys.argv
