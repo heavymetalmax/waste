@@ -286,6 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
           "TEL;TYPE=WORK,VOICE:+48608003458",
           "EMAIL;TYPE=PREF,INTERNET:contact@biotc.pl",
           "URL:https://biotc.pl",
+          "NOTE:Hydrochar · Hydrochar · HTC · BioTC · BTC Consulting · Hydrothermal Carbonization · Sewage sludge · Municipal wastewater · Osad sciekow · Osady · KOS · Oczyszczalnia · Mул · Гідровугілля · Очисні споруди · Гідротермальна карбонізація · UWWTD · End-of-Waste · Circular economy · Inzynieria srodowiska · Gliwice · Poland · EU grants · CapEx · Biowegiel",
           base64Photo ? `PHOTO;TYPE=JPEG;ENCODING=b:${base64Photo}` : "",
           "END:VCARD"
         ].filter(Boolean).join("\r\n");
@@ -434,6 +435,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'EMAIL;TYPE=WORK:contact@biotc.pl',
         'URL:https://biotc.pl',
         'ADR;TYPE=WORK:;;ul. Daszynskiego 34/3;Gliwice;;44-100;Poland',
+        'NOTE:Hydrochar · Hydrochar · HTC · BioTC · BTC Consulting · Hydrothermal Carbonization · Sewage sludge · Municipal wastewater · Osad sciekow · Osady · KOS · Oczyszczalnia · Mул · Гідровугілля · Очисні споруди · Гідротермальна карбонізація · UWWTD · End-of-Waste · Circular economy · Inzynieria srodowiska · Gliwice · Poland · EU grants · CapEx · Biowegiel',
         'END:VCARD'
       ].join('\r\n');
       const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
