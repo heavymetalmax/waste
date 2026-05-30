@@ -2025,6 +2025,7 @@ section {
 
 .tech-hero-content h1 {
   max-width: 540px;
+  margin-block-start: 1.5rem;
   margin-block-end: var(--space-md);
 }
 
