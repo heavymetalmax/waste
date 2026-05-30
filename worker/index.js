@@ -414,6 +414,74 @@ BTC Consulting + INTROL S.A. будують біогазовні «під клю
 для ABP — реєстрація ветеринарної інспекції.
 
 
+
+═══════════════════════════════════════════════════════════════════
+WHITEPAPER BioTC — ENGLISH VERSION (for EN responses)
+═══════════════════════════════════════════════════════════════════
+
+Topic: BioTC System Design. Transforming Sewage Sludge into High-Calorie
+Hydrochar and Energy Independence for Municipal Wastewater Treatment Plants.
+Developer: BTC Consulting Sp. z o.o. | Gliwice, Poland | Version 4.0, May 2026
+
+EXECUTIVE SUMMARY
+In 2026, the EU municipal sludge management sector faces an unprecedented crisis.
+The UWWTD recast has blocked traditional disposal (agricultural spreading, landfill).
+Critical shortage of incineration capacity + gas price spikes make thermal drying
+financially catastrophic. BTC Consulting offers BioTC — a modernized HTC process
+that separates water in the liquid phase under high pressure/temperature with no
+phase transition. Fully reoriented from equipment supply to high-value engineering
+consulting, individual feasibility studies, and turnkey projects with 75–90%
+non-repayable EU grants.
+
+KEY PRESSURE FACTORS (2026)
+- Agricultural spreading ban: PFAS, microplastics, heavy metals make soil
+  application illegal under UWWTD.
+- Incinerator capacity crisis (Poland): 5.5M tons/year demand vs 1.4M tons/year
+  real capacity. Gate Fees drain municipal budgets.
+- Convection drying flaw: competitors (TerraNova, Ingelia) need 800–1,100 kWh/ton
+  for phase transition. BioTC avoids phase transition entirely → 4–5× less energy.
+
+HTC PROCESS PARAMETERS
+- Temperature: 180–220°C | Pressure: 15–25 bar | Retention: up to 2 hours
+- Water remains liquid throughout → no evaporation energy needed
+- Depolymerization, decarboxylation, dehydration of organic matrix
+- Bacterial cell walls fully destroyed → bound water released
+
+SCIENTIFIC VERIFICATION (AGH Kraków + WikiChar Network)
+- Microplastics: reduced from dangerous <5 mm to safe <0.01 mm
+- Heavy metals: irreversibly immobilized in stable porous carbon matrix
+- Pathogens: 100% destruction at >180°C (including SARS-CoV-2)
+
+MATERIAL BALANCE (100,000 RLM base city)
+- 1 RLM = 65 g dry matter/day
+- 100,000 RLM = 6.5 t asm/day
+- After centrifuge dewatering (20% DM): 32.5 t dewatered cake/day
+- Industrial year (8,000 h = 333 days): ~10,800 t/year (Scenario A)
+
+SCENARIO COMPARISON
+Scenario A (City modernization, Lubin model):
+  CapEx: €4.5–5.2M | EU grants: 75% | City share: ~€1.1M | Payback: 4 years
+Scenario B (Regional hub, Hub & Spoke):
+  CapEx: €5.5–6.5M | EU grants: up to 90% | City share: €550–650K | Payback: 3–3.5yr
+
+THREE REVENUE STREAMS
+1. Municipal Gate Fees: neighboring municipalities pay per ton (10–15yr contracts)
+2. Hydrochar (End-of-Waste): <10% moisture, 20–24 MJ/kg (≈ bituminous coal)
+   CE certification → sold to cement plants, sorbent producers at market price
+3. Biogas stimulation: HTC liquor → digester → 3× faster biogas generation
+   → CHP (cogeneration) → 100% energy neutrality (OpEx = 0 for gas)
+
+BUSINESS MODEL
+- Paid pre-project feasibility studies: €20,000–40,000 per project (Upfront Revenue)
+- Author supervision + general integration: royalty % of total CapEx
+  Partners: AGH Kraków (science) + INTROL S.A. Holding (GPW, construction)
+
+DE-RISKING ARCHITECTURE
+1. Performance Guarantees: INTROL S.A. (GPW-listed) = zero risk of underdelivery
+2. Quality Gateway: digital simulator pre-models reactor behavior for toxic inputs
+3. REACH Compliance: hydrochar legally transitions from waste to product status,
+   enabling cross-border trade and commercial sale in EU markets
+
 ═══════════════════════════════════════════════════════════════════
 ТИПОВІ ЗАПЕРЕЧЕННЯ ТА ВІДПОВІДІ
 ═══════════════════════════════════════════════════════════════════
