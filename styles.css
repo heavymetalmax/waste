@@ -4835,9 +4835,9 @@ section {
 }
 
 .process-step.active .process-step-num {
-  background: var(--color-accent);
+  background: linear-gradient(135deg, var(--color-accent) 0%, #0356a8 100%);
   color: #fff;
-  border-color: var(--color-accent);
+  border-color: transparent;
   box-shadow: 0 4px 14px rgba(4, 107, 210, 0.35);
   transform: scale(1.08);
 }
