@@ -8,7 +8,7 @@
   "chat.page.back": "Back",
   "chat.placeholder": "For example: WWTP 150,000 PE, sludge disposed to landfill for 80 €/t...",
   "chat.send": "Send",
-  "chat.welcome": "Hello! I am the technical assistant for BTC Consulting. Tell me about your facility: how much sludge is produced per year (tons or PE), how it is currently disposed of, and your main pain points. Or simply upload your project documentation and I will analyze it and provide concrete figures.",
+  "chat.welcome": "Hello! I am a technical consultant at BTC Consulting. Please tell me about your facility: type of plant, approximate size in PE, and how you currently handle sludge management. You are also welcome to attach documentation in PDF or XLSX format.",
   "contact.h2": "First step: Free engineering assessment of the facility.",
   "contact.label": "Contact",
   "contact.p": "Submit a request. Our engineers will analyze the input data and, during a 30-minute call, explain which scenario is optimal for your facility (standalone station or a regional Hub & Spoke cluster) and what grant funding is available.",
