@@ -361,8 +361,15 @@ document.addEventListener("DOMContentLoaded", () => {
       return window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 80;
     }
 
-    // Button click
-    if (trigger) trigger.addEventListener('click', (e) => { e.preventDefault(); open(); });
+    // Button click (toggle style)
+    if (trigger) trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (strip.classList.contains('open')) {
+        close();
+      } else {
+        open();
+      }
+    });
     if (closeBtn) closeBtn.addEventListener('click', (e) => { e.preventDefault(); close(); });
 
     // Swipe up from footer (touch only)
@@ -375,14 +382,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener('touchend', (e) => {
       if (!startedAtBottom || strip.classList.contains('open')) return;
       if (touchStartY - e.changedTouches[0].clientY > 40) open();
-    }, { passive: true });
-
-    // Close on scroll away from bottom
-    let lastY = window.scrollY;
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      if (strip.classList.contains('open') && y < lastY && !atBottom()) close();
-      lastY = y;
     }, { passive: true });
   })();
 
