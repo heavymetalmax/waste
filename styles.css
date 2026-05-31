@@ -4793,14 +4793,12 @@ section {
 }
 
 .process-step {
-  position: relative;
-  margin-top: 1.5rem;
   background: var(--color-card);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--color-border);
   border-radius: 1.25rem;
-  padding: 3rem 2rem 2.25rem 2rem;
+  padding: 2.25rem 2rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03),
               inset 0 1px 1px rgba(255, 255, 255, 0.5);
   display: flex;
@@ -4819,16 +4817,12 @@ section {
 }
 
 .process-step-num {
-  position: absolute;
-  top: -24px;
-  left: 2rem;
-  z-index: 10;
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--color-accent-glow);
-  border: 1px solid rgba(4, 107, 210, 0.15);
-  color: var(--color-accent);
+  background: #f1f5f9;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
   font-family: var(--font-display);
   font-size: 1.15rem;
   font-weight: 800;
@@ -4836,6 +4830,7 @@ section {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  margin-block-end: 1.5rem;
   transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
 }
 
@@ -4846,6 +4841,7 @@ section {
   box-shadow: 0 4px 14px rgba(4, 107, 210, 0.35);
   transform: scale(1.08);
 }
+
 
 
 .process-step-body h3 {
