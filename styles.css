@@ -4768,3 +4768,91 @@ section {
   width: 100%;
   text-align: center;
 }
+
+/* ==========================================================================
+   3-Step Process Section
+   ========================================================================== */
+.process-section {
+  padding-block: var(--space-2xl);
+  background: var(--color-surface);
+}
+
+.process-section h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  margin-block: 0.5rem var(--space-xl);
+  max-width: 52ch;
+  margin-inline: auto;
+}
+
+.process-steps {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  max-width: 960px;
+  margin-inline: auto;
+}
+
+.process-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 var(--space-md);
+}
+
+.process-step-num {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-block-end: 1.25rem;
+  box-shadow: 0 4px 14px rgba(4, 107, 210, 0.28);
+}
+
+.process-step-body h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-block-end: 0.5rem;
+}
+
+.process-step-body p {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+.process-connector {
+  flex-shrink: 0;
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(to right, var(--color-accent), var(--color-teal));
+  margin-block-start: 27px;
+  opacity: 0.4;
+}
+
+.process-cta {
+  text-align: center;
+  margin-block-start: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .process-steps {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-lg);
+    max-width: 480px;
+  }
+  .process-step { flex-direction: row; text-align: left; align-items: flex-start; gap: 1rem; padding: 0; }
+  .process-step-num { margin-block-end: 0; }
+  .process-connector { display: none; }
+}
