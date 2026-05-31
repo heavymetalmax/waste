@@ -4816,7 +4816,7 @@ section {
   border-color: rgba(4, 107, 210, 0.35);
 }
 
-.process-step-num {
+.process-section .process-step-num {
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -4831,16 +4831,19 @@ section {
   justify-content: center;
   flex-shrink: 0;
   margin-block-end: 1.5rem;
+  opacity: 1;
   transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
 }
 
-.process-step.active .process-step-num {
+.process-section .process-step.active .process-step-num {
   background: linear-gradient(135deg, var(--color-accent) 0%, #0356a8 100%);
   color: #fff;
   border-color: transparent;
   box-shadow: 0 4px 14px rgba(4, 107, 210, 0.35);
   transform: scale(1.08);
+  opacity: 1;
 }
+
 
 
 
