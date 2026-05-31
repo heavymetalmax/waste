@@ -4831,6 +4831,15 @@ section {
   justify-content: center;
   flex-shrink: 0;
   margin-block-end: 1.5rem;
+  transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.process-step.active .process-step-num {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 14px rgba(4, 107, 210, 0.35);
+  transform: scale(1.08);
 }
 
 .process-step-body h3 {

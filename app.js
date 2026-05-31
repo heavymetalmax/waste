@@ -459,4 +459,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // --- Process Steps sequential highlight loop ---
+  const processSteps = document.querySelectorAll('.process-step');
+  if (processSteps.length > 0) {
+    let currentStep = 0;
+    processSteps[currentStep].classList.add('active');
+
+    setInterval(() => {
+      processSteps[currentStep].classList.remove('active');
+      currentStep = (currentStep + 1) % processSteps.length;
+      processSteps[currentStep].classList.add('active');
+    }, 2800);
+  }
+
 });
