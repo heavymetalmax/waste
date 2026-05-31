@@ -438,7 +438,7 @@ KEY PRESSURE FACTORS (2026)
   application illegal under UWWTD.
 - Incinerator capacity crisis (Poland): 5.5M tons/year demand vs 1.4M tons/year
   real capacity. Gate Fees drain municipal budgets.
-- Convection drying flaw: competitors (TerraNova, Ingelia) need 800–1,100 kWh/ton
+- Convection drying flaw: conventional competitor systems need 800–1,100 kWh/ton
   for phase transition. BioTC avoids phase transition entirely → 4–5× less energy.
 
 HTC PROCESS PARAMETERS
