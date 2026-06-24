@@ -45,17 +45,53 @@
     .hero-bars-bg .stripe { flex: 1; height: 100%; overflow: hidden; position: relative; }
     .hero-bars-bg .stripe-inner {
       position: absolute; inset: 0; height: 480%;
-      animation-name: stripeLoop, stripeVanish;
-      animation-timing-function: linear, step-end;
-      animation-fill-mode: none, forwards;
+      animation-timing-function: linear;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
     }
-    .hero-bars-bg .stripe:nth-child(1) .stripe-inner { background: linear-gradient(180deg, #86c2e8 0%, #1c6aa8 11%, #3a9fe0 25%, #06121f 25%, #0a1d33 39%, #08182b 50%, #86c2e8 50%, #1c6aa8 61%, #3a9fe0 75%, #06121f 75%, #0a1d33 89%, #08182b 100%); animation-duration: 3s, 0.01s; animation-iteration-count: 3, 1; animation-delay: 0s, 9s; }
-    .hero-bars-bg .stripe:nth-child(2) .stripe-inner { background: linear-gradient(180deg, #f2f6f9 0%, #bcd9ee 12%, #dce8f0 25%, #3a9fe0 25%, #1c6aa8 38%, #3a9fe0 50%, #f2f6f9 50%, #bcd9ee 62%, #dce8f0 75%, #3a9fe0 75%, #1c6aa8 88%, #3a9fe0 100%); animation-duration: 3.75s, 0.01s; animation-direction: reverse, normal; animation-iteration-count: 5, 1; animation-delay: 0s, 18.75s; }
-    .hero-bars-bg .stripe:nth-child(3) .stripe-inner { background: linear-gradient(180deg, #020810 0%, #0f3a5f 13%, #08182b 25%, #86c2e8 25%, #dce8f0 37%, #86c2e8 50%, #020810 50%, #0f3a5f 63%, #08182b 75%, #86c2e8 75%, #dce8f0 87%, #86c2e8 100%); animation-duration: 2.5s, 0.01s; animation-iteration-count: 2, 1; animation-delay: 0s, 5s; }
-    .hero-bars-bg .stripe:nth-child(4) .stripe-inner { background: linear-gradient(180deg, #86c2e8 0%, #3a9fe0 12%, #1c6aa8 25%, #020810 25%, #0a1d33 38.5%, #020810 50%, #86c2e8 50%, #3a9fe0 62%, #1c6aa8 75%, #020810 75%, #0a1d33 88.5%, #020810 100%); animation-duration: 4.25s, 0.01s; animation-direction: reverse, normal; animation-iteration-count: 4, 1; animation-delay: 0s, 17s; }
-    .hero-bars-bg .stripe:nth-child(5) .stripe-inner { background: linear-gradient(180deg, #020810 0%, #08182b 12.5%, #0f3a5f 25%, #3a9fe0 25%, #bcd9ee 37.5%, #3a9fe0 50%, #020810 50%, #08182b 62.5%, #0f3a5f 75%, #3a9fe0 75%, #bcd9ee 87.5%, #3a9fe0 100%); animation-duration: 4.75s, 0.01s; animation-iteration-count: 3, 1; animation-delay: 0s, 14.25s; }
-    @keyframes stripeLoop { from { transform: translateY(0%); } to { transform: translateY(-50%); } }
-    @keyframes stripeVanish { to { visibility: hidden; } }
+    .hero-bars-bg .stripe:nth-child(1) .stripe-inner { background: linear-gradient(180deg, #86c2e8 0%, #1c6aa8 11%, #3a9fe0 25%, #06121f 25%, #0a1d33 39%, #08182b 50%, #86c2e8 50%, #1c6aa8 61%, #3a9fe0 75%, #06121f 75%, #0a1d33 89%, #08182b 100%); animation-name: stripeAnim1; animation-duration: 9.3s; }
+    .hero-bars-bg .stripe:nth-child(2) .stripe-inner { background: linear-gradient(180deg, #f2f6f9 0%, #bcd9ee 12%, #dce8f0 25%, #3a9fe0 25%, #1c6aa8 38%, #3a9fe0 50%, #f2f6f9 50%, #bcd9ee 62%, #dce8f0 75%, #3a9fe0 75%, #1c6aa8 88%, #3a9fe0 100%); animation-name: stripeAnim2; animation-duration: 19.05s; }
+    .hero-bars-bg .stripe:nth-child(3) .stripe-inner { background: linear-gradient(180deg, #020810 0%, #0f3a5f 13%, #08182b 25%, #86c2e8 25%, #dce8f0 37%, #86c2e8 50%, #020810 50%, #0f3a5f 63%, #08182b 75%, #86c2e8 75%, #dce8f0 87%, #86c2e8 100%); animation-name: stripeAnim3; animation-duration: 5.3s; }
+    .hero-bars-bg .stripe:nth-child(4) .stripe-inner { background: linear-gradient(180deg, #86c2e8 0%, #3a9fe0 12%, #1c6aa8 25%, #020810 25%, #0a1d33 38.5%, #020810 50%, #86c2e8 50%, #3a9fe0 62%, #1c6aa8 75%, #020810 75%, #0a1d33 88.5%, #020810 100%); animation-name: stripeAnim4; animation-duration: 17.3s; }
+    .hero-bars-bg .stripe:nth-child(5) .stripe-inner { background: linear-gradient(180deg, #020810 0%, #08182b 12.5%, #0f3a5f 25%, #3a9fe0 25%, #bcd9ee 37.5%, #3a9fe0 50%, #020810 50%, #08182b 62.5%, #0f3a5f 75%, #3a9fe0 75%, #bcd9ee 87.5%, #3a9fe0 100%); animation-name: stripeAnim5; animation-duration: 14.55s; }
+
+    @keyframes stripeAnim1 {
+      0% { transform: translateY(0%); }
+      32.258% { transform: translateY(-50%); }
+      64.516% { transform: translateY(0%); }
+      96.774% { transform: translateY(-50%); }
+      100% { transform: translateY(-50%); visibility: hidden; animation-timing-function: step-end; }
+    }
+    @keyframes stripeAnim2 {
+      0% { transform: translateY(-50%); }
+      19.685% { transform: translateY(0%); }
+      39.370% { transform: translateY(-50%); }
+      59.055% { transform: translateY(0%); }
+      78.740% { transform: translateY(-50%); }
+      98.425% { transform: translateY(0%); }
+      100% { transform: translateY(0%); visibility: hidden; animation-timing-function: step-end; }
+    }
+    @keyframes stripeAnim3 {
+      0% { transform: translateY(0%); }
+      47.170% { transform: translateY(-50%); }
+      94.340% { transform: translateY(0%); }
+      100% { transform: translateY(0%); visibility: hidden; animation-timing-function: step-end; }
+    }
+    @keyframes stripeAnim4 {
+      0% { transform: translateY(-50%); }
+      24.566% { transform: translateY(0%); }
+      49.133% { transform: translateY(-50%); }
+      73.699% { transform: translateY(0%); }
+      98.266% { transform: translateY(-50%); }
+      100% { transform: translateY(-50%); visibility: hidden; animation-timing-function: step-end; }
+    }
+    @keyframes stripeAnim5 {
+      0% { transform: translateY(0%); }
+      32.646% { transform: translateY(-50%); }
+      65.292% { transform: translateY(0%); }
+      97.938% { transform: translateY(-50%); }
+      100% { transform: translateY(-50%); visibility: hidden; animation-timing-function: step-end; }
+    }
 
     #hero > .container { position: relative; z-index: 1; }
     #hero h1, #hero .hero-desc { color: var(--color-white); text-shadow: 0 2px 16px rgba(0,0,0,0.5); }
