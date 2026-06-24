@@ -4,87 +4,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BTC Consulting – Technologia HTC dla oczyszczalni ścieków</title>
-  <meta name="description" content="BTC Consulting projektuje instalacje HTC (karbonizacja hydrotermalna) dla oczyszczalni ścieków. Dofinansowanie do 90% z FENX i NFOŚiGW.">
-
+  <meta name="description" content="BTC Consulting projektuje instalacje HTC dla oczyszczalni ścieków. Dofinansowanie do 90% z FENX i NFOŚiGW.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-
   <link rel="stylesheet" href="styles.min.css?v=23">
-
   <style>
-    .placeholder-card {
+    .contact-block {
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.10);
       border-radius: 20px;
       padding: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
     }
-    .placeholder-label {
+    .contact-block-title {
       font-family: 'Outfit', sans-serif;
-      font-size: .72rem;
+      font-size: .75rem;
       font-weight: 600;
-      letter-spacing: .1em;
+      letter-spacing: .12em;
       text-transform: uppercase;
       color: #046BD2;
-      margin-bottom: .25rem;
+      margin-bottom: 1.75rem;
     }
-    .placeholder-contact {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: .85rem 1rem;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 12px;
-      text-decoration: none;
-      color: inherit;
-      transition: border-color .2s;
+    .contact-row {
+      margin-bottom: 1.5rem;
     }
-    .placeholder-contact:hover { border-color: rgba(4,107,210,0.45); }
-    .placeholder-contact-icon {
-      width: 36px; height: 36px;
-      border-radius: 9px;
-      background: rgba(4,107,210,0.18);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      font-size: 1rem;
-    }
-    .placeholder-contact-lbl {
-      font-size: .7rem;
-      color: #4a6880;
+    .contact-row:last-child { margin-bottom: 0; }
+    .contact-row-label {
+      font-size: .78rem;
+      color: #6a8aaa;
+      margin-bottom: .3rem;
       font-family: 'Outfit', sans-serif;
-      letter-spacing: .06em;
+      letter-spacing: .05em;
       text-transform: uppercase;
     }
-    .placeholder-contact-val {
-      font-size: .95rem;
+    .contact-row-value {
+      font-size: 1.1rem;
       font-weight: 500;
-      color: #c8d8ea;
-      margin-top: .1rem;
+      color: #e2eaf4;
+      line-height: 1.5;
     }
-    .placeholder-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .4rem;
-      padding-top: .5rem;
+    .contact-row-value a {
+      color: #e2eaf4;
+      text-decoration: none;
     }
-    .placeholder-tag {
-      font-size: .72rem;
-      font-family: 'Outfit', sans-serif;
-      background: rgba(4,107,210,0.10);
-      border: 1px solid rgba(4,107,210,0.22);
-      color: #6aabf0;
-      border-radius: 50px;
-      padding: .28rem .75rem;
+    .contact-row-value a:hover {
+      color: #7ab8f5;
+    }
+    .contact-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      margin: 1.5rem 0;
     }
   </style>
 </head>
 <body>
-
   <div class="blur-orb orb-1"></div>
   <div class="blur-orb orb-2"></div>
   <div class="blur-orb orb-3"></div>
@@ -113,20 +87,6 @@
         </svg>
         <span class="logo-text"><span class="logo-btc">BTC</span> Consulting</span>
       </a>
-
-      <nav class="nav-desktop" aria-label="Menu główne">
-        <ul>
-          <li><a href="pl/index.html">Rozwiązania</a></li>
-          <li><a href="pl/technology.html">Technologia</a></li>
-          <li><a href="pl/simulator.html">Kalkulator</a></li>
-        </ul>
-      </nav>
-
-      <div class="header-actions">
-        <a href="mailto:contact@biotc.pl" class="nav-fab" aria-label="Kontakt">
-          <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        </a>
-      </div>
     </div>
   </header>
 
@@ -142,65 +102,48 @@
             <animate attributeName="d" dur="28s" repeatCount="indefinite"
               values="M0,220 C360,110 720,270 1080,160 C1280,240 1360,140 1440,190 L1440,400 L0,400 Z;M0,170 C300,280 600,120 900,260 C1200,320 1320,180 1440,240 L1440,400 L0,400 Z;M0,220 C360,110 720,270 1080,160 C1280,240 1360,140 1440,190 L1440,400 L0,400 Z" />
           </path>
-          <path fill="rgba(56, 189, 248, 0.02)">
-            <animate attributeName="d" dur="34s" repeatCount="indefinite"
-              values="M0,250 C280,320 560,180 840,290 C1120,380 1280,220 1440,270 L1440,400 L0,400 Z;M0,290 C320,190 640,310 960,210 C1280,120 1360,280 1440,230 L1440,400 L0,400 Z;M0,250 C280,320 560,180 840,290 C1120,380 1280,220 1440,270 L1440,400 L0,400 Z" />
-          </path>
         </svg>
       </div>
-
       <div class="container">
         <div class="hero-grid">
-
           <div class="hero-content">
-            <a href="pl/index.html" class="badge" style="text-decoration:none;">🇪🇺 Nowa dyrektywa UE UWWTD · 12.2024</a>
+            <div class="badge">Strona w budowie</div>
 
-            <h1>Kondensujemy wszystkie <span class="h1-problem">ogromne&nbsp;problemy</span> z osadami w <span class="h1-solution">kompaktowy i bezpieczny hydrowęgiel.</span></h1>
+            <h1>Przekształcamy <span class="h1-problem">toksyczne osady ściekowe</span> w <span class="h1-solution">bezpieczny hydrowęgiel.</span></h1>
 
-            <p class="hero-desc">Na zawsze rozwiązujemy problem utylizacji osadu. Optymalizujemy koszty (CAPEX i OPEX) i tworzymy kompleksowe rozwiązania inżynieryjne dla gmin, miast i przedsiębiorstw.</p>
+            <p class="hero-desc">BTC Consulting projektuje i wdraża instalacje karbonizacji hydrotermalnej (HTC) dla komunalnych oczyszczalni ścieków. Pomagamy gminom i przedsiębiorstwom na trwałe rozwiązać problem utylizacji osadu, obniżyć koszty operacyjne i spełnić wymogi dyrektywy UWWTD — z dofinansowaniem UE pokrywającym do 90% kosztów inwestycji.</p>
 
-            <div class="hero-actions">
-              <a href="pl/index.html" class="btn btn-primary">Dowiedz się więcej →</a>
-              <a href="mailto:contact@biotc.pl" class="btn btn-secondary">Napisz do nas</a>
-            </div>
-
-            <p class="hero-micro-text">Strona w budowie — przepraszamy za niedogodności. Wkrótce wrócimy z pełną wersją.</p>
+            <p class="hero-micro-text">Przepraszamy za niedogodności — strona jest w przebudowie.</p>
           </div>
 
           <div class="hero-stage" id="hero-stage">
-            <div class="placeholder-card">
-              <div class="placeholder-label">Kontakt</div>
+            <div class="contact-block">
+              <div class="contact-block-title">Kontakt</div>
 
-              <a class="placeholder-contact" href="tel:+48608003458">
-                <div class="placeholder-contact-icon">📞</div>
-                <div>
-                  <div class="placeholder-contact-lbl">Telefon</div>
-                  <div class="placeholder-contact-val">+48 608 003 458</div>
-                </div>
-              </a>
-
-              <a class="placeholder-contact" href="mailto:contact@biotc.pl">
-                <div class="placeholder-contact-icon">✉️</div>
-                <div>
-                  <div class="placeholder-contact-lbl">E-mail</div>
-                  <div class="placeholder-contact-val">contact@biotc.pl</div>
-                </div>
-              </a>
-
-              <div class="placeholder-contact">
-                <div class="placeholder-contact-icon">📍</div>
-                <div>
-                  <div class="placeholder-contact-lbl">Biuro</div>
-                  <div class="placeholder-contact-val">ul. Daszyńskiego 34/3<br>44-100 Gliwice</div>
-                </div>
+              <div class="contact-row">
+                <div class="contact-row-label">Telefon</div>
+                <div class="contact-row-value"><a href="tel:+48608003458">+48 608 003 458</a></div>
               </div>
 
-              <div class="placeholder-tags">
-                <span class="placeholder-tag">HTC</span>
-                <span class="placeholder-tag">Osady ściekowe</span>
-                <span class="placeholder-tag">UWWTD</span>
-                <span class="placeholder-tag">FENX · NFOŚiGW</span>
-                <span class="placeholder-tag">Hub &amp; Spoke</span>
+              <hr class="contact-divider">
+
+              <div class="contact-row">
+                <div class="contact-row-label">E-mail</div>
+                <div class="contact-row-value"><a href="mailto:contact@biotc.pl">contact@biotc.pl</a></div>
+              </div>
+
+              <hr class="contact-divider">
+
+              <div class="contact-row">
+                <div class="contact-row-label">Biuro</div>
+                <div class="contact-row-value">ul. Daszyńskiego 34/3<br>44-100 Gliwice, Polska</div>
+              </div>
+
+              <hr class="contact-divider">
+
+              <div class="contact-row">
+                <div class="contact-row-label">Spółka</div>
+                <div class="contact-row-value">BTC Consulting Sp. z o.o.</div>
               </div>
             </div>
           </div>
