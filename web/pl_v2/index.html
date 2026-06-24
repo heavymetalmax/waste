@@ -56,7 +56,7 @@
     }
 
     /* ── FAQ ─────────────────────────────────────────── */
-    .faq-item { padding: 0; }
+    .faq-item { padding: 0; border: none; }
     .faq-item summary {
       cursor: pointer; font-weight: 800; font-size: 1.1rem;
       display: flex; justify-content: space-between; align-items: center; gap: 1rem;
@@ -64,7 +64,7 @@
     }
     .faq-item summary::-webkit-details-marker { display: none; }
     .faq-item summary::after {
-      content: '+'; font-size: 1.6rem; font-weight: 300; color: var(--color-blue); flex-shrink: 0;
+      content: '+'; font-size: 2.2rem; font-weight: 700; color: var(--color-black); flex-shrink: 0;
     }
     .faq-item[open] summary::after { content: '−'; }
     .faq-item p { margin-top: 1rem; font-weight: 500; }
@@ -74,12 +74,13 @@
     .contact-deliverables {
       margin: var(--space-md) 0; padding: var(--space-sm) var(--space-md);
       background: var(--color-gray-light); border-left: 4px solid var(--color-blue);
+      color: var(--color-gray-dark);
     }
-    .contact-deliverables strong { display: block; margin-bottom: 0.6rem; font-size: 0.95rem; text-transform: uppercase; }
+    .contact-deliverables strong { display: block; margin-bottom: 0.6rem; font-size: 0.95rem; text-transform: uppercase; color: var(--color-gray-dark); }
     .contact-deliverables ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem; }
-    .contact-deliverables li { font-size: 0.95rem; font-weight: 600; }
+    .contact-deliverables li { font-size: 0.95rem; font-weight: 600; color: var(--color-gray-dark); }
     .contact-deliverables li::before { content: '✓ '; color: var(--color-blue); font-weight: 900; }
-    .contact-deliverables .note { margin-top: 0.6rem; font-size: 0.85rem; font-style: italic; font-weight: 500; }
+    .contact-deliverables .note { margin-top: 0.6rem; font-size: 0.85rem; font-style: italic; font-weight: 500; color: var(--color-gray-dark); }
 
     #contact .contact-info-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
     #contact .info-item { display: flex; align-items: center; gap: 0.75rem; font-weight: 700; }
@@ -218,8 +219,8 @@
     <!-- FAQ -->
     <section id="faq">
       <div class="container">
-        <span class="rubric">Pytania i odpowiedzi</span>
-        <h2>Co powstrzymuje gminy przed wdrożeniem HTC?</h2>
+        <span class="rubric" style="background-color: var(--color-blue);">Pytania i odpowiedzi</span>
+        <h2 style="color: var(--color-blue); border-color: var(--color-blue);">Co powstrzymuje gminy przed wdrożeniem HTC?</h2>
 
         <div style="display:flex; flex-direction:column; gap:1rem; margin-top: var(--space-md);">
 
