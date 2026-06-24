@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analiza TEO — Ocena techniczno-ekonomiczna oczyszczalni | BTC Consulting</title>
+  <meta name="description" content="Bezpłatna wstępna ocena i pełna analiza TEO dla Twojej oczyszczalni. Konkretne liczby: ROI, oszczędności, ścieżka grantowa NFOŚiGW/LIFE do 90% CapEx. Realizacja 4–6 tygodni.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+
+  <link rel="stylesheet" href="../styles.min.css?v=23">
+  <link rel="prefetch" href="index.html">
+  <link rel="prefetch" href="technology.html">
+
+  <link rel="alternate" hreflang="pl-PL" href="https://btcconsulting.pl/uslugi/teo" />
+</head>
+<body>
+
+  <div class="blur-orb orb-1"></div>
+  <div class="blur-orb orb-2"></div>
+  <div class="blur-orb orb-3"></div>
+
+  <!-- HEADER -->
+  <header class="main-header" id="header">
+    <div class="header-container">
+      <a href="index.html" class="logo" aria-label="Strona główna BTC Consulting">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logo-grad" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+              <stop offset="0%" stop-color="#046BD2"/>
+              <stop offset="100%" stop-color="#0D9488"/>
+            </linearGradient>
+            <linearGradient id="logo-grad-mi" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+              <stop offset="0%" stop-color="#38BDF8"/>
+              <stop offset="100%" stop-color="#2DD4BF"/>
+            </linearGradient>
+          </defs>
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#logo-grad)"/>
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#logo-grad-mi)" stroke="white" stroke-width="1.5" vector-effect="non-scaling-stroke" transform="translate(12,13) scale(0.62) translate(-12,-13)"/>
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="white" opacity="0.92" transform="translate(12,13) scale(0.33) translate(-12,-13)"/>
+        </svg>
+        <span class="logo-text"><span class="logo-btc">BTC</span> Consulting</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Menu główne">
+        <ul>
+          <li><a href="index.html">Rozwiązania</a></li>
+          <li><a href="technology.html">Technologia</a></li>
+          <li><a href="teo.html" class="active">Analiza TEO</a></li>
+          <li><a href="simulator.html">Kalkulator</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="lang-globe-btn" id="lang-globe-btn" aria-label="Language">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </button>
+        <button class="nav-fab" id="nav-fab" aria-label="Zamów TEO">
+          <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 12 19.79 19.79 0 0 1 1.08 3.38 2 2 0 0 1 3.07 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </button>
+      </div>
+      <button class="mobile-toggle" aria-label="Otwórz menu" aria-expanded="false" aria-controls="nav-mobile-strip">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+
+    <div class="lang-strip" id="lang-strip" aria-hidden="true">
+      <div class="lang-strip-inner">
+        <a href="teo.html" class="lang-strip-item active">🇵🇱 Polski</a>
+        <a href="../eu/teo.html" class="lang-strip-item">🇪🇺 English</a>
+      </div>
+    </div>
+    <div class="nav-mobile-strip" id="nav-mobile-strip" aria-hidden="true">
+      <div class="nav-mobile-strip-inner">
+        <ul>
+          <li><a href="index.html">Rozwiązania</a></li>
+          <li><a href="technology.html">Technologia</a></li>
+          <li><a href="teo.html" class="active">Analiza TEO</a></li>
+          <li><a href="simulator.html">Kalkulator</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================ -->
+    <!-- HERO                                                          -->
+    <!-- ============================================================ -->
+    <section id="teo-hero" class="tech-hero-section">
+      <div class="hero-waves-bg">
+        <svg viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill="rgba(4, 107, 210, 0.035)">
+            <animate attributeName="d" dur="22s" repeatCount="indefinite"
+              values="M0,180 C320,290 640,110 960,250 C1280,390 1360,200 1440,240 L1440,400 L0,400 Z;M0,230 C240,130 560,290 880,190 C1200,90 1320,310 1440,210 L1440,400 L0,400 Z;M0,180 C320,290 640,110 960,250 C1280,390 1360,200 1440,240 L1440,400 L0,400 Z"/>
+          </path>
+          <path fill="rgba(13, 148, 136, 0.025)">
+            <animate attributeName="d" dur="28s" repeatCount="indefinite"
+              values="M0,220 C360,110 720,270 1080,160 C1280,240 1360,140 1440,190 L1440,400 L0,400 Z;M0,170 C300,280 600,120 900,260 C1200,320 1320,180 1440,240 L1440,400 L0,400 Z;M0,220 C360,110 720,270 1080,160 C1280,240 1360,140 1440,190 L1440,400 L0,400 Z"/>
+          </path>
+        </svg>
+      </div>
+      <div class="container">
+        <div class="tech-hero-grid">
+
+          <div class="tech-hero-content">
+            <span class="badge">🇵🇱 Polska technologia · Doświadczenie: 11 lat · AGH Kraków</span>
+            <h1>Analiza TEO — poznaj <span class="h1-solution">konkretne liczby dla swojej oczyszczalni.</span></h1>
+            <p class="hero-desc">Techniczne i ekonomiczne studium wykonalności dostosowane do Twojego obiektu. Nie szablon — rzeczywista analiza składu osadu, bilansu energii i ścieżki grantowej. Podstawa do pozyskania dofinansowania UE do 90% CapEx.</p>
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary">Zamów bezpłatną wstępną ocenę</a>
+              <a href="#scope" class="btn btn-secondary">Co zawiera TEO →</a>
+            </div>
+            <p class="hero-micro-text">Wstępna ocena inżynieryska — bezpłatnie i bez zobowiązań. Pełna analiza TEO: 4–6 tygodni.</p>
+          </div>
+
+          <div class="tech-stat-panel">
+            <div class="tech-stat-grid">
+              <div class="tech-stat">
+                <span class="tech-stat-val">4–6</span>
+                <span class="tech-stat-label">tygodni realizacji</span>
+              </div>
+              <div class="tech-stat">
+                <span class="tech-stat-val">do 90%</span>
+                <span class="tech-stat-label">dofinansowanie CapEx z TEO</span>
+              </div>
+              <div class="tech-stat">
+                <span class="tech-stat-val">200+</span>
+                <span class="tech-stat-label">stron dokumentacji technicznej</span>
+              </div>
+              <div class="tech-stat">
+                <span class="tech-stat-val">11 lat</span>
+                <span class="tech-stat-label">badań na polskich oczyszczalniach</span>
+              </div>
+              <div class="tech-stat">
+                <span class="tech-stat-val">6</span>
+                <span class="tech-stat-label">WWTP przebadanych (Lubin, Gliwice, Kraków...)</span>
+              </div>
+              <div class="tech-stat">
+                <span class="tech-stat-val">55–73%</span>
+                <span class="tech-stat-label">oszczędności na utylizacji osadu</span>
+              </div>
+            </div>
+            <p class="tech-stat-note">Parametry oparte na zrealizowanych projektach BTC Consulting i badaniach AGH Kraków</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- DLACZEGO TEO JEST NIEZBĘDNE                                   -->
+    <!-- ============================================================ -->
+    <section id="why-teo">
+      <div class="container">
+        <p class="section-label">Dlaczego TEO</p>
+        <h2>Bez analizy TEO nie ma grantu. Bez grantu projekt jest 3–4× droższy.</h2>
+        <p class="section-desc">NFOŚiGW, LIFE, Horyzont Europa — każdy fundusz wymaga techniczno-ekonomicznego studium wykonalności jako podstawy wniosku. To nie formalność. To dokument, który decyduje, ile realnie zapłaci Twoja gmina.</p>
+
+        <div class="grid-3" style="margin-block-start: var(--space-lg)">
+
+          <div class="glass-card problem-card">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M14 3v4a1 1 0 0 0 1 1h4"/>
+                <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/>
+                <path d="M9 17h6"/><path d="M9 13h6"/><path d="M9 9h1"/>
+              </svg>
+            </div>
+            <h3>Podstawa wniosku grantowego</h3>
+            <p>Każdy wniosek do NFOŚiGW, LIFE lub Horyzontu wymaga szczegółowego studium techniczno-ekonomicznego. Bez TEO wniosek jest niekompletny — bez względu na jakość projektu.</p>
+          </div>
+
+          <div class="glass-card problem-card">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/>
+                <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/>
+                <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"/>
+              </svg>
+            </div>
+            <h3>Personalny projekt, nie szablon</h3>
+            <p>Osad z oczyszczalni w Gliwicach różni się chemicznie od osadu z Lublina. Nasze TEO opiera się na rzeczywistym składzie Twojego osadu — nie na uśrednionych danych z literatury. Stąd precyzja wyliczeń ROI.</p>
+          </div>
+
+          <div class="glass-card problem-card">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"/>
+                <path d="M9 12l2 2l4 -4"/>
+              </svg>
+            </div>
+            <h3>Rada gminy dostaje gotowe argumenty</h3>
+            <p>TEO to nie tylko dokument dla NFOŚiGW. To gotowa prezentacja dla rady gminy lub zarządu: konkretny payback period, NPV, porównanie scenariuszy i rekomendacja optymalna dla Twojego budżetu.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ZAKRES — Co zawiera TEO                                       -->
+    <!-- ============================================================ -->
+    <section id="scope" class="process-section">
+      <div class="container">
+        <p class="section-label">Zakres prac</p>
+        <h2 class="text-center">Co dostajesz w ramach analizy TEO</h2>
+
+        <div class="grid-3" style="margin-block-start: var(--space-lg)">
+
+          <div class="glass-card">
+            <div class="card-icon" style="color: var(--color-accent)">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"/>
+                <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"/>
+                <path d="M9 12h6"/><path d="M9 16h6"/>
+              </svg>
+            </div>
+            <h3>Audyt obecnej sytuacji</h3>
+            <ul class="scenario-benefits">
+              <li>Wolumeny i skład chemiczny osadu (ds., LOI, metale, PFAS)</li>
+              <li>Aktualne koszty utylizacji (PLN/tonę)</li>
+              <li>Stan compliance z UWWTD i harmonogram wymaganych działań</li>
+              <li>Analiza istniejącej infrastruktury (obecność komór AD, odwadniania)</li>
+            </ul>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-icon" style="color: var(--color-teal)">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M3 3l18 18"/><path d="M3 7v4h4"/>
+                <path d="M7 3h4"/><path d="M17 21h-4"/><path d="M21 17v-4"/>
+                <path d="M21 7a9 9 0 0 0 -9 -4a9 9 0 0 0 -4 1.054"/>
+                <path d="M3 11a9 9 0 0 0 15 6.32"/>
+              </svg>
+            </div>
+            <h3>Rekomendacja technologiczna</h3>
+            <ul class="scenario-benefits">
+              <li>Bilans masy i energii dla Twojego konkretnego obiektu</li>
+              <li>Dobór konfiguracji: HTC Standalone / TH-booster / pełna pętla TH-AD-HTC</li>
+              <li>Analiza wariantu Hub & Spoke (jeśli sąsiednie gminy mogą uczestniczyć)</li>
+              <li>Porównanie 3 scenariuszy ze wskaźnikami CAPEX/OPEX</li>
+            </ul>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-icon" style="color: var(--color-accent)">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M7 9l4 -4l4 4"/>
+                <path d="M7 15l4 4l4 -4"/>
+              </svg>
+            </div>
+            <h3>Model ekonomiczny i ścieżka grantowa</h3>
+            <ul class="scenario-benefits">
+              <li>Pełny model ROI: payback period, NPV, IRR</li>
+              <li>Porównanie kosztów: HTC vs obecna utylizacja w 10-letnim horyzoncie</li>
+              <li>Mapa dostępnych dotacji: NFOŚiGW, LIFE, Horyzont Europa, RPO</li>
+              <li>Gotowa dokumentacja techniczna do złożenia wniosku grantowego</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="glass-card callout-box callout-box--accent" style="margin-block-start: var(--space-lg)">
+          <h3 style="margin-block-end: var(--space-xs);">TEO jako inwestycja, nie koszt</h3>
+          <p>Przy projekcie o wartości 5 mln EUR, dofinansowanie 85% = 4,25 mln EUR grantu. Koszt TEO wynosi ułamek tej kwoty — i jest warunkiem niezbędnym do złożenia wniosku. Projekt bez TEO oznacza finansowanie 100% z własnego budżetu gminy.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PROCES — 5 kroków                                             -->
+    <!-- ============================================================ -->
+    <section id="process" class="process-section">
+      <div class="container">
+        <p class="section-label text-center">Jak pracujemy</p>
+        <h2 class="text-center">Od pierwszego kontaktu do gotowej dokumentacji</h2>
+
+        <div class="process-steps">
+
+          <div class="process-step">
+            <div class="process-step-num">01</div>
+            <div class="process-step-body">
+              <h3>Wstępna rozmowa — bezpłatnie</h3>
+              <p>30 minut przez telefon lub video. Opisujesz obiekt: typ oczyszczalni, RLM, aktualny sposób zagospodarowania osadu. Na podstawie tych danych już podajemy orientacyjne liczby — bez zobowiązań.</p>
+              <p class="scenario-targets" style="margin-top: 0.5rem;">⏱ 30 min · Bezpłatnie · Przez telefon lub Teams</p>
+            </div>
+          </div>
+
+          <div class="process-connector" aria-hidden="true"></div>
+
+          <div class="process-step">
+            <div class="process-step-num">02</div>
+            <div class="process-step-body">
+              <h3>Umowa i kick-off</h3>
+              <p>Podpisanie umowy na realizację TEO. Ustalamy zakres, harmonogram i listę danych potrzebnych od Twojej oczyszczalni (raporty laboratoryjne, plany technologiczne, dane eksploatacyjne).</p>
+              <p class="scenario-targets" style="margin-top: 0.5rem;">⏱ Tydzień 1 · Zdalnie lub w Gliwicach</p>
+            </div>
+          </div>
+
+          <div class="process-connector" aria-hidden="true"></div>
+
+          <div class="process-step">
+            <div class="process-step-num">03</div>
+            <div class="process-step-body">
+              <h3>Wizyta na obiekcie i pobór danych</h3>
+              <p>Nasz inżynier przyjeżdża na oczyszczalnię. Ocena infrastruktury, pobór próbek osadu do analizy laboratoryjnej (AGH Kraków), dokumentacja fotographic i geotechniczna jeśli potrzebna.</p>
+              <p class="scenario-targets" style="margin-top: 0.5rem;">⏱ Tydzień 1–2 · Wizyta na miejscu</p>
+            </div>
+          </div>
+
+          <div class="process-connector" aria-hidden="true"></div>
+
+          <div class="process-step">
+            <div class="process-step-num">04</div>
+            <div class="process-step-body">
+              <h3>Analiza i modelowanie</h3>
+              <p>Opracowujemy bilanse masy i energii, modelujemy 3 scenariusze technologiczne, obliczamy ROI i identyfikujemy optymalne ścieżki grantowe. Całość weryfikowana przez zespół AGH.</p>
+              <p class="scenario-targets" style="margin-top: 0.5rem;">⏱ Tygodnie 2–5 · Praca zdalna</p>
+            </div>
+          </div>
+
+          <div class="process-connector" aria-hidden="true"></div>
+
+          <div class="process-step">
+            <div class="process-step-num">05</div>
+            <div class="process-step-body">
+              <h3>Prezentacja wyników i raport TEO</h3>
+              <p>Prezentacja dla Twojego zespołu i rady gminy / zarządu. Oddajemy komplet dokumentacji (200+ stron): raport techniczny, model finansowy, mapę grantową i gotowe formularze do NFOŚiGW.</p>
+              <p class="scenario-targets" style="margin-top: 0.5rem;">⏱ Tydzień 6 · U Ciebie lub online</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="process-cta">
+          <a href="#contact" class="btn btn-primary">Zacznij od bezpłatnej rozmowy</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- EKONOMIKA — Ile to kosztuje vs ile oszczędza                  -->
+    <!-- ============================================================ -->
+    <section id="economics">
+      <div class="container">
+        <p class="section-label">Ekonomika</p>
+        <h2>Ile realnie oszczędza Twoja gmina dzięki HTC.</h2>
+        <p class="section-desc">TEO oblicza to precyzyjnie dla Twojego obiektu. Poniżej — rzeczywiste zakresy z naszych projektów na polskich oczyszczalniach.</p>
+
+        <div class="table-responsive" style="margin-block-start: var(--space-lg)">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Wielkość obiektu</th>
+                <th>Obecne koszty utylizacji</th>
+                <th class="col-hub">Koszty z HTC (gate fee)</th>
+                <th class="col-hub">Oszczędność / rok</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Małe (ok. 10 000 RLM)</td>
+                <td>~200 000 PLN/rok</td>
+                <td class="col-hub">~55 000–80 000 PLN/rok</td>
+                <td class="col-hub"><strong>~120 000–145 000 PLN</strong></td>
+              </tr>
+              <tr>
+                <td>Średnie (ok. 30 000 RLM)</td>
+                <td>~542 000 PLN/rok</td>
+                <td class="col-hub">~150 000–210 000 PLN/rok</td>
+                <td class="col-hub"><strong>~330 000–390 000 PLN</strong></td>
+              </tr>
+              <tr>
+                <td>Duże (ok. 100 000 RLM)</td>
+                <td>~1 505 000 PLN/rok</td>
+                <td class="col-hub">~415 000–580 000 PLN/rok</td>
+                <td class="col-hub"><strong>~925 000–1 090 000 PLN</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin-block-start: var(--space-xs);">Dane orientacyjne dla wilgotności osadu 80%. Dokładne wartości obliczane indywidualnie w TEO. Obecne koszty: średnia PLN 550/t (suszenie + spalarnie).</p>
+
+        <div class="solution-scenarios" style="margin-block-start: var(--space-lg)">
+
+          <div class="glass-card scenario-card">
+            <span class="scenario-badge">Zwrot z inwestycji</span>
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M3 19l9 -15l9 15h-18z"/><path d="M12 12l0 3"/><path d="M12 17l0 .01"/>
+              </svg>
+            </div>
+            <h3>3–4 lata (stacja własna)</h3>
+            <p class="scenario-for">Przy 85% dofinansowaniu CapEx z NFOŚiGW lub LIFE</p>
+            <ul class="scenario-benefits">
+              <li>Własna instalacja HTC — pełna niezależność</li>
+              <li>Zwrot z inwestycji licząc od własnego wkładu (15% CapEx)</li>
+              <li>Po spłacie — czyste oszczędności operacyjne przez 15–20 lat</li>
+            </ul>
+          </div>
+
+          <div class="glass-card scenario-card">
+            <span class="scenario-badge scenario-badge--teal">Hub & Spoke</span>
+            <div class="card-icon" style="color: var(--color-teal)">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M10 5a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>
+                <path d="M3 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>
+                <path d="M17 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>
+                <path d="M12 7l-3.5 8.5"/><path d="M12 7l3.5 8.5"/><path d="M6.5 15.5l8.5 0"/>
+              </svg>
+            </div>
+            <h3>3–3,5 roku (klaster regionalny)</h3>
+            <p class="scenario-for">Model Hub & Spoke: 3–5 gmin dzieli jedną instalację</p>
+            <ul class="scenario-benefits">
+              <li>Minimalny wkład własny dzięki podziałowi między uczestnikami</li>
+              <li>Wyższe dofinansowanie — do 90% CapEx dla projektów klastrowych</li>
+              <li>Jedna certyfikacja środowiskowa zamiast kilkudziesięciu</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TRUST — Referencje                                            -->
+    <!-- ============================================================ -->
+    <section id="trust" class="proof-section">
+      <div class="container">
+        <p class="section-label">Potwierdzone</p>
+        <h2 class="text-center">TEO, które trafiło do realnej umowy komercyjnej.</h2>
+
+        <div class="grid-3" style="margin-block-start: var(--space-lg)">
+
+          <div class="glass-card proof-card">
+            <span class="proof-badge-text">Case komercyjny</span>
+            <div class="proof-logo-wrapper">
+              <svg class="brand-logo-svg" viewBox="0 0 140 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="24" font-family="Outfit, sans-serif" font-weight="800" font-size="22" fill="#0F172A">MPWiK</text>
+                <text x="82" y="24" font-family="Inter, sans-serif" font-weight="400" font-size="11" fill="#475569">LUBIN</text>
+              </svg>
+            </div>
+            <h3>MPWiK Lubin — październik 2025</h3>
+            <p>Przedsiębiorstwo komunalne MPWiK Lubin (100 000 RLM) oficjalnie wykupiło prawa autorskie do koncepcji TH-AD-HTC opracowanej przez BTC Consulting. Pierwsza komercyjna umowa — nie projekt pilotażowy, lecz pełnoprawny kontrakt samorządowy.</p>
+            <a href="case-lubin.html" class="callout-inline-link">Czytaj studium przypadku →</a>
+          </div>
+
+          <div class="glass-card proof-card">
+            <span class="proof-badge-text">Baza naukowa</span>
+            <div class="proof-logo-wrapper">
+              <svg class="brand-logo-svg" viewBox="0 0 200 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="24" font-family="Outfit, sans-serif" font-weight="800" font-size="22" fill="#0F172A">AGH</text>
+                <text x="52" y="24" font-family="Inter, sans-serif" font-weight="400" font-size="11" fill="#475569">KRAKÓW</text>
+              </svg>
+            </div>
+            <h3>11 lat badań, 6 oczyszczalni</h3>
+            <p>Nasze TEO opierają się na analizach laboratoryjnych przeprowadzonych wspólnie z AGH Kraków na osadach z Orzesze, Żor, Lublina, Bytomia, Gliwic i Krakowa-Płaszowa. Dr hab. inż. Małgorzata Wilk — TOP 2% naukowców świata (Stanford).</p>
+          </div>
+
+          <div class="glass-card proof-card">
+            <span class="proof-badge-text">Weryfikacja regulacyjna</span>
+            <div class="proof-logo-wrapper">
+              <svg class="brand-logo-svg" viewBox="0 0 200 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="24" font-family="Outfit, sans-serif" font-weight="800" font-size="16" fill="#0F172A">WikiChar</text>
+                <text x="95" y="24" font-family="Inter, sans-serif" font-weight="400" font-size="11" fill="#475569">Hydrochar Network</text>
+              </svg>
+            </div>
+            <h3>Fizyka potwierdzona globalnie</h3>
+            <p>Parametry procesowe HTC (200°C, 20 bar, redukcja PFAS, wartość opałowa hydrocharu) zweryfikowane przez WikiChar Hydrochar Network — międzynarodową bazę danych procesów HTC. Nie marketing — termodynamika.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- FAQ                                                           -->
+    <!-- ============================================================ -->
+    <section id="faq">
+      <div class="container">
+        <p class="section-label">Najczęstsze pytania</p>
+        <h2>Odpowiedzi zanim zapytasz.</h2>
+
+        <div class="solution-scenarios" style="margin-block-start: var(--space-lg); grid-template-columns: 1fr;">
+
+          <div class="glass-card" style="padding: var(--space-lg);">
+
+            <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding-bottom: var(--space-md); margin-bottom: var(--space-md);">
+              <h3 style="font-size: var(--text-base); margin-bottom: 0.5rem;">Czy moja oczyszczalnia jest wystarczająco duża na HTC?</h3>
+              <p style="color: var(--color-text-muted); font-size: var(--text-sm); margin: 0;">Model Hub & Spoke otwiera HTC dla obiektów od ok. 10 000 RLM. Dla mniejszych — łączymy kilka gmin w klaster. Wstępna ocena telefoniczna powie Ci w 30 minut, który wariant pasuje.</p>
+            </div>
+
+            <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding-bottom: var(--space-md); margin-bottom: var(--space-md);">
+              <h3 style="font-size: var(--text-base); margin-bottom: 0.5rem;">Ile kosztuje pełna analiza TEO?</h3>
+              <p style="color: var(--color-text-muted); font-size: var(--text-sm); margin: 0;">Wstępna ocena inżynierska — bezpłatnie. Pełna analiza TEO (200+ stron dokumentacji) — wyceniana indywidualnie po pierwszej rozmowie, zależnie od skali i złożoności projektu. Koszt TEO kwalifikuje się do dofinansowania jako koszt przygotowania projektu w wielu funduszach.</p>
+            </div>
+
+            <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding-bottom: var(--space-md); margin-bottom: var(--space-md);">
+              <h3 style="font-size: var(--text-base); margin-bottom: 0.5rem;">Jak długo trwa realizacja projektu po TEO?</h3>
+              <p style="color: var(--color-text-muted); font-size: var(--text-sm); margin: 0;">Złożenie wniosku grantowego: 3–6 miesięcy po TEO. Decyzja NFOŚiGW: 6–12 miesięcy. Budowa instalacji HTC: 8–14 miesięcy. Łącznie od TEO do uruchomienia: 18–30 miesięcy. Dlatego ważne, żeby zacząć teraz — terminy UWWTD są nieprzesuwalne.</p>
+            </div>
+
+            <div style="border-bottom: 1px solid rgba(255,255,255,0.07); padding-bottom: var(--space-md); margin-bottom: var(--space-md);">
+              <h3 style="font-size: var(--text-base); margin-bottom: 0.5rem;">Czy BTC pomaga też przy samym wniosku grantowym?</h3>
+              <p style="color: var(--color-text-muted); font-size: var(--text-sm); margin: 0;">Tak. TEO dostarcza całą dokumentację techniczną wymaganą przez NFOŚiGW, LIFE i Horyzont Europę. Na życzenie towarzyszymy przez cały proces aplikacyjny aż do podpisania umowy o dofinansowanie.</p>
+            </div>
+
+            <div>
+              <h3 style="font-size: var(--text-base); margin-bottom: 0.5rem;">Co jeśli okaże się, że HTC nie jest optymalne dla mojego obiektu?</h3>
+              <p style="color: var(--color-text-muted); font-size: var(--text-sm); margin: 0;">TEO zawsze analizuje 3 scenariusze i wskazuje optymalny. Jeśli dla Twojego wolumenu inne rozwiązanie będzie lepsze ekonomicznie — powiemy to wprost. Nasz cel to długoterminowa relacja, nie jednorazowa sprzedaż.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- KONTAKT — Formularz                                           -->
+    <!-- ============================================================ -->
+    <section id="contact" class="banner-section">
+      <div class="container">
+        <p class="section-label text-center">Zaczynamy</p>
+        <h2 class="text-center">Bezpłatna wstępna ocena Twojej oczyszczalni.</h2>
+        <p class="section-desc text-center">30 minut rozmowy. Bez zobowiązań. Pierwsze liczby już na telefonie.</p>
+
+        <div class="solution-scenarios" style="margin-block-start: var(--space-lg);">
+          <div class="glass-card" style="padding: var(--space-xl);">
+            <form id="teo-form" onsubmit="handleSubmit(event)">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div>
+                  <label style="display: block; font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: 0.4rem;">Imię i nazwisko *</label>
+                  <input type="text" name="name" required placeholder="Jan Kowalski"
+                    style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 14px; color: var(--color-text); font-size: var(--text-sm); outline: none;">
+                </div>
+                <div>
+                  <label style="display: block; font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: 0.4rem;">Stanowisko</label>
+                  <input type="text" name="role" placeholder="Kierownik oczyszczalni"
+                    style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 14px; color: var(--color-text); font-size: var(--text-sm); outline: none;">
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div>
+                  <label style="display: block; font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: 0.4rem;">E-mail *</label>
+                  <input type="email" name="email" required placeholder="jan@wodociagi.pl"
+                    style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 14px; color: var(--color-text); font-size: var(--text-sm); outline: none;">
+                </div>
+                <div>
+                  <label style="display: block; font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: 0.4rem;">Telefon</label>
+                  <input type="tel" name="phone" placeholder="+48 500 000 000"
+                    style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 14px; color: var(--color-text); font-size: var(--text-sm); outline: none;">
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div>
+                  <label style="display: block; font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: 0.4rem;">Nazwa oczyszczalni / gminy *</label>
+                  <input type="text" name="wwtp" required placeholder="Oczyszczalnia Miejska w..."
+                    style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 14px; color: var(--color-text); font-size: var(--text-sm); outline: none;">
+                </div>
+                <div>
+                  <label style="display: block; font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: 0.4rem;">Wolumen osadu (t/rok)</label>
+                  <input type="text" name="volume" placeholder="ok. 500 t/rok"
+                    style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 14px; color: var(--color-text); font-size: var(--text-sm); outline: none;">
+                </div>
+              </div>
+
+              <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: 0.4rem;">Pytanie lub opis sytuacji</label>
+                <textarea name="message" rows="3" placeholder="Np. aktualnie suszymy osad i wysyłamy do cementowni, szukamy rozwiązania przed 2027..."
+                  style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 14px; color: var(--color-text); font-size: var(--text-sm); outline: none; resize: vertical;"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Wyślij zapytanie o bezpłatną ocenę →
+              </button>
+              <p style="font-size: var(--text-xs); color: var(--color-text-muted); text-align: center; margin-top: 0.75rem;">Odpowiadamy w ciągu 24 godzin · Dane chronione zgodnie z RODO</p>
+            </form>
+
+            <div id="form-success" style="display:none; text-align:center; padding: var(--space-lg);">
+              <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
+              <h3>Dziękujemy — odezwiemy się w ciągu 24 godzin.</h3>
+              <p style="color: var(--color-text-muted);">Sprawdź skrzynkę e-mail — wyślemy potwierdzenie z propozycją terminu rozmowy.</p>
+            </div>
+          </div>
+
+          <div class="glass-card" style="padding: var(--space-xl); display: flex; flex-direction: column; gap: var(--space-lg);">
+            <div>
+              <p class="section-label" style="margin: 0 0 0.5rem;">Bezpośredni kontakt</p>
+              <h3 style="margin-bottom: var(--space-sm);">Andrzej Krop</h3>
+              <p style="color: var(--color-text-muted); font-size: var(--text-sm); margin-bottom: var(--space-sm);">CEO / BTC Consulting Sp. z o.o.<br>Gliwice, ul. Toszecka 102</p>
+              <a href="mailto:a.krop@btcconsulting.pl" style="color: var(--color-accent); font-size: var(--text-sm); display: block; margin-bottom: 0.4rem;">a.krop@btcconsulting.pl</a>
+              <a href="tel:+48" style="color: var(--color-accent); font-size: var(--text-sm); display: block;">+48 ___ ___ ___</a>
+            </div>
+
+            <div>
+              <p class="section-label" style="margin: 0 0 0.5rem;">CTO / Główny inżynier</p>
+              <h3 style="margin-bottom: var(--space-sm);">Dr hab. inż. Małgorzata Krop-Wilk</h3>
+              <p style="color: var(--color-text-muted); font-size: var(--text-sm);">Katedra Techniki Cieplnej i Ochrony Środowiska, AGH Kraków<br>TOP 2% naukowców świata (Stanford University, 2024)</p>
+            </div>
+
+            <div class="glass-card callout-box" style="background: rgba(4, 107, 210, 0.08); border-color: rgba(4, 107, 210, 0.2);">
+              <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 0;">
+                <strong style="color: var(--color-text);">Granty mają terminy składania wniosków.</strong><br>
+                NFOŚiGW otwiera nabory 2–3 razy w roku. Przygotowanie TEO trwa 4–6 tygodni. Żeby zdążyć na najbliższy nabór — zacznij teraz.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer style="border-top: 1px solid rgba(255,255,255,0.07); padding: var(--space-lg) 0; margin-top: var(--space-xl);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <div style="font-size: var(--text-sm); color: var(--color-text-muted);">
+        © 2026 BTC Consulting Sp. z o.o. · Gliwice · NIP: _________
+      </div>
+      <nav style="display: flex; gap: 1.5rem; font-size: var(--text-sm);">
+        <a href="index.html" style="color: var(--color-text-muted);">Rozwiązania</a>
+        <a href="technology.html" style="color: var(--color-text-muted);">Technologia</a>
+        <a href="case-lubin.html" style="color: var(--color-text-muted);">Case study</a>
+        <a href="simulator.html" style="color: var(--color-text-muted);">Kalkulator</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // Mobile nav
+    const toggle = document.querySelector('.mobile-toggle');
+    const mobileNav = document.getElementById('nav-mobile-strip');
+    if (toggle && mobileNav) {
+      toggle.addEventListener('click', () => {
+        const open = mobileNav.getAttribute('aria-hidden') === 'false';
+        mobileNav.setAttribute('aria-hidden', open ? 'true' : 'false');
+        toggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+      });
+    }
+
+    // Lang strip
+    const langBtn = document.getElementById('lang-globe-btn');
+    const langStrip = document.getElementById('lang-strip');
+    if (langBtn && langStrip) {
+      langBtn.addEventListener('click', () => {
+        const open = langStrip.getAttribute('aria-hidden') === 'false';
+        langStrip.setAttribute('aria-hidden', open ? 'true' : 'false');
+      });
+    }
+
+    // Form
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('teo-form').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
