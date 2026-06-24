@@ -20,6 +20,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./web/
           server-dir: /
+          dangerous-clean-slate: true
           exclude: |
             **/.git*
             **/.git*/**
@@ -35,3 +36,9 @@ jobs:
             **/package*.json
             **/.DS_Store
             **/index_test.html
+            **/Materials/**
+            **/v2/**
+            **/Ua/**
+            **/biotc/**
+            **/worker/**
+            **/*.skill
