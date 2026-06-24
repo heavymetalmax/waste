@@ -47,15 +47,14 @@
       will-change: background-position, opacity;
       animation-duration: 4s, 1.5s;
       animation-timing-function: linear, ease-out;
-      animation-iteration-count: 3, 1;
-      animation-delay: 0s, 12s;
+      animation-iteration-count: infinite, 1;
       animation-fill-mode: none, forwards;
     }
-    .hero-bars-bg .stripe:nth-child(1) { background-image: linear-gradient(180deg,#86c2e8 0%,#1c6aa8 22%,#3a9fe0 50%,#06121f 50%,#0a1d33 78%,#08182b 100%); animation-name: heroScrollUp, heroBarsFadeOut; }
-    .hero-bars-bg .stripe:nth-child(2) { background-image: linear-gradient(180deg,#f2f6f9 0%,#bcd9ee 24%,#dce8f0 50%,#3a9fe0 50%,#1c6aa8 76%,#3a9fe0 100%); animation-name: heroScrollDown, heroBarsFadeOut; }
-    .hero-bars-bg .stripe:nth-child(3) { background-image: linear-gradient(180deg,#020810 0%,#0f3a5f 26%,#08182b 50%,#86c2e8 50%,#dce8f0 74%,#86c2e8 100%); animation-name: heroScrollUp, heroBarsFadeOut; }
-    .hero-bars-bg .stripe:nth-child(4) { background-image: linear-gradient(180deg,#86c2e8 0%,#3a9fe0 24%,#1c6aa8 50%,#020810 50%,#0a1d33 77%,#020810 100%); animation-name: heroScrollDown, heroBarsFadeOut; }
-    .hero-bars-bg .stripe:nth-child(5) { background-image: linear-gradient(180deg,#020810 0%,#08182b 25%,#0f3a5f 50%,#3a9fe0 50%,#bcd9ee 75%,#3a9fe0 100%); animation-name: heroScrollUp, heroBarsFadeOut; }
+    .hero-bars-bg .stripe:nth-child(1) { background-image: linear-gradient(180deg,#86c2e8 0%,#1c6aa8 22%,#3a9fe0 50%,#06121f 50%,#0a1d33 78%,#08182b 100%); animation-name: heroScrollUp, heroBarsFadeOut; animation-delay: 0s, 9s; }
+    .hero-bars-bg .stripe:nth-child(2) { background-image: linear-gradient(180deg,#f2f6f9 0%,#bcd9ee 24%,#dce8f0 50%,#3a9fe0 50%,#1c6aa8 76%,#3a9fe0 100%); animation-name: heroScrollDown, heroBarsFadeOut; animation-delay: 0s, 10.5s; }
+    .hero-bars-bg .stripe:nth-child(3) { background-image: linear-gradient(180deg,#020810 0%,#0f3a5f 26%,#08182b 50%,#86c2e8 50%,#dce8f0 74%,#86c2e8 100%); animation-name: heroScrollUp, heroBarsFadeOut; animation-delay: 0s, 12s; }
+    .hero-bars-bg .stripe:nth-child(4) { background-image: linear-gradient(180deg,#86c2e8 0%,#3a9fe0 24%,#1c6aa8 50%,#020810 50%,#0a1d33 77%,#020810 100%); animation-name: heroScrollDown, heroBarsFadeOut; animation-delay: 0s, 13.5s; }
+    .hero-bars-bg .stripe:nth-child(5) { background-image: linear-gradient(180deg,#020810 0%,#08182b 25%,#0f3a5f 50%,#3a9fe0 50%,#bcd9ee 75%,#3a9fe0 100%); animation-name: heroScrollUp, heroBarsFadeOut; animation-delay: 0s, 15s; }
     @keyframes heroScrollUp { 0% { background-position: 0% 0%; } 100% { background-position: 0% -240%; } }
     @keyframes heroScrollDown { 0% { background-position: 0% 0%; } 100% { background-position: 0% 240%; } }
     @keyframes heroBarsFadeOut { 0% { opacity: 1; } 100% { opacity: 0; } }
