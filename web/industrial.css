@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
+
+/* 
+  Premium Financial Magazine Theme Override 
+  "The Economist" / "Financial Times" aesthetic.
+*/
+
+:root {
+  /* Expensive Financial Magazine Palette */
+  --bg-color: #fcfbf9; /* Ivory/Cream paper texture */
+  --text-color: #2b2b2b; /* Ink black */
+  --accent-color: #9c7c38; /* Classic dark gold/brass */
+  --accent-glow: rgba(156, 124, 56, 0.05);
+  
+  --card-bg: #ffffff;
+  --card-border: #e4e0d5; /* Subtle paper border */
+  --glass-bg: #ffffff;
+  --glass-border: #e4e0d5;
+  
+  --h1-problem-color: #8b0000; /* Deep crimson */
+  --h1-solution-color: #004d00; /* Deep wealth green */
+  
+  --radius-lg: 0px !important; /* Print design uses sharp corners */
+  --radius-md: 0px !important;
+  --radius-sm: 0px !important;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Headings get the editorial Serif font */
+h1, h2, h3, h4, .section-label {
+  font-family: 'Playfair Display', serif;
+}
+
+.hero-desc {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem !important;
+  color: #444;
+  line-height: 1.6;
+}
+
+h1 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #111;
+  text-transform: none;
+}
+
+h2 {
+  font-weight: 600;
+  border-bottom: 2px solid #111;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  color: #111;
+}
+
+/* Remove abstract neon stuff */
+.blur-orb,
+.bg-wave,
+.problem-bg-icon,
+.solution-bg-icon,
+.calc-bg-icon,
+.trust-bg-icon,
+.team-bg-icon,
+.grants-bg-icon,
+.contact-bg-icon {
+  display: none !important;
+}
+
+/* Editorial layout for cards (columns) */
+.glass-card,
+.process-step,
+.stage-stat,
+.hero-stage,
+.team-card {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+  border-top: 4px solid #111 !important; /* Thick top border like a newspaper column */
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Section Labels (Rubrics) */
+.section-label {
+  background: none !important;
+  color: var(--accent-color) !important;
+  border: none !important;
+  border-top: 1px solid var(--accent-color) !important;
+  border-bottom: 1px solid var(--accent-color) !important;
+  border-radius: 0 !important;
+  font-weight: 600;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  padding: 0.2rem 0;
+  display: inline-block;
+}
+
+/* Buttons */
+.btn-primary {
+  background: #111 !important;
+  color: #fff !important;
+  border: 1px solid #111 !important;
+  border-radius: 0 !important;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  box-shadow: none !important;
+  padding: 1rem 2rem !important;
+}
+.btn-primary:hover {
+  background: var(--accent-color) !important;
+  border-color: var(--accent-color) !important;
+  color: #fff !important;
+}
+
+/* Table - Financial report style */
+.comparison-table {
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-top: 2px solid #111 !important;
+  border-bottom: 2px solid #111 !important;
+}
+.comparison-table th {
+  background: transparent !important;
+  color: #111 !important;
+  border-bottom: 1px solid #111 !important;
+  font-family: 'Playfair Display', serif;
+  text-transform: none;
+  font-style: italic;
+  font-size: 1.15rem;
+}
+.comparison-table td {
+  border-bottom: 1px solid #e4e0d5 !important;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: #333;
+}
+.comparison-table th.col-hub,
+.comparison-table td.col-hub {
+  background: rgba(156, 124, 56, 0.05) !important;
+  border-left: 1px solid #e4e0d5 !important;
+  font-weight: 600;
+}
+
+/* Header & Footer */
+.main-header {
+  background: rgba(252, 251, 249, 0.95) !important;
+  border-bottom: 1px solid #e4e0d5 !important;
+  backdrop-filter: blur(5px);
+}
+
+.main-footer {
+  background: #111 !important;
+  color: #fdfbf7 !important;
+  border-top: none !important;
+}
+.main-footer p, .main-footer a, .footer-brand p {
+  color: #dcd7cb !important;
+}
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+
+/* Stats (like financial indexes) */
+.stage-num-wrap {
+  color: var(--accent-color) !important;
+}
+.stage-num {
+  font-family: 'Playfair Display', serif;
+}
+.sn-val {
+  background: none !important;
+  -webkit-text-fill-color: var(--accent-color) !important;
+  color: var(--accent-color) !important;
+}
+
+
+}
+
+/* --- Hero Stage Financial Index Layout --- */
+.hero-stage {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  height: auto !important;
+  width: 100% !important;
+  margin-top: 0 !important;
+  border-top: 3px solid #111 !important;
+  border-bottom: 1px solid #111 !important;
+  padding-block: 0 !important;
+  background: transparent !important;
+}
+
+.stage-stat {
+  position: relative !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 1.5rem 0 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid #dcd7cb !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  pointer-events: auto !important;
+}
+
+.stage-stat:last-child {
+  border-bottom: none !important;
+}
+
+.stage-num-wrap {
+  flex: 0 0 auto !important;
+  margin-right: 1.5rem !important;
+  text-align: left !important;
+  color: var(--accent-color) !important;
+}
+
+.stage-num {
+  font-family: 'Playfair Display', serif !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 0.5rem !important;
+}
+
+.sn-pre {
+  font-size: 1.25rem !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  color: #111 !important;
+}
+
+.sn-val {
+  font-size: 3.5rem !important;
+  background: none !important;
+  -webkit-text-fill-color: var(--accent-color) !important;
+  color: var(--accent-color) !important;
+  letter-spacing: -0.02em !important;
+}
+
+.sn-unit {
+  font-size: 1.5rem !important;
+  font-family: 'Inter', sans-serif !important;
+  color: #111 !important;
+  margin-left: 0.2rem !important;
+}
+
+.stage-text-wrap {
+  flex: 1 1 auto !important;
+  text-align: right !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.25rem !important;
+}
+
+.stage-label {
+  display: block !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  color: #111 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+.stage-sub {
+  display: block !important;
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1.05rem !important;
+  font-style: italic !important;
+  color: #555 !important;
+}
+
+/* Animations reset */
+.stage-stat .stage-num, .stage-stat .stage-text-wrap {
+  animation: none !important;
+  filter: none !important;
+}
+
+@media (min-width: 1024px) {
+  .hero-stage {
+    margin-left: auto;
+  }
+}

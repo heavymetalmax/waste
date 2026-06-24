@@ -1,0 +1,211 @@
+/* ==========================================================================
+   test_images.css — Image Enhancement Styles for BioTC Test Page
+   Scoped under .has-images to avoid conflicts with index.css
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Scroll Reveal Animation (fade-in on scroll via IntersectionObserver)
+   -------------------------------------------------------------------------- */
+@keyframes imgFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.has-images .img-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.has-images .img-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   1. Hero Section — Full-bleed Background Image
+   -------------------------------------------------------------------------- */
+.has-images .hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.has-images .hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.pexels.com/photos/5712211/pexels-photo-5712211.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.has-images .hero-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.85);
+  z-index: -1;
+}
+
+/* --------------------------------------------------------------------------
+   2. Showroom Section — Thin Image Banner Strip (200px)
+   -------------------------------------------------------------------------- */
+.has-images .showroom-banner {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 1rem 1rem 0 0;
+  margin-block-end: 2rem;
+}
+
+.has-images .showroom-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.has-images .showroom-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 30%, var(--bg-secondary, #F8FAFC) 100%);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. Tech Step Cards — Image Thumbnails
+   -------------------------------------------------------------------------- */
+.has-images .tech-step-img {
+  width: 100%;
+  max-height: 160px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  margin-block-end: 1rem;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.has-images .tech-step-card {
+  overflow: hidden;
+}
+
+.has-images .tech-step-card:hover .tech-step-img {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   4. Comparison / Quality Section — Subtle Background Texture
+   -------------------------------------------------------------------------- */
+.has-images .quality-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.has-images .quality-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.pexels.com/photos/19888251/pexels-photo-19888251.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.has-images .quality-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.92);
+  z-index: -1;
+}
+
+/* --------------------------------------------------------------------------
+   5. Contact Section — Engineer Image (desktop only)
+   -------------------------------------------------------------------------- */
+.has-images .contact-engineer-img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 1rem;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+  margin-block-start: 2rem;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.has-images .contact-engineer-img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+}
+
+/* Hide engineer image on mobile */
+@media (max-width: 767px) {
+  .has-images .contact-engineer-img {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Pexels Attribution in Footer
+   -------------------------------------------------------------------------- */
+.has-images .pexels-credit {
+  font-size: 0.8rem;
+  color: var(--text-muted, #475569);
+  margin-block-start: 1rem;
+  margin-block-end: 0;
+}
+
+.has-images .pexels-credit a {
+  color: var(--color-blue, #046BD2);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.has-images .pexels-credit a:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .has-images .showroom-banner {
+    height: 140px;
+    border-radius: 0.75rem 0.75rem 0 0;
+  }
+
+  .has-images .tech-step-img {
+    max-height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .has-images .showroom-banner {
+    height: 100px;
+  }
+
+  .has-images .tech-step-img {
+    max-height: 100px;
+  }
+}

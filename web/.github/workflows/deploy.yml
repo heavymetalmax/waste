@@ -1,0 +1,37 @@
+name: Deploy to home.pl
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: serwer2637190.home.pl
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: /
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.claude/**
+            **/archive/**
+            **/scratch/**
+            **/todo/**
+            **/marketing/**
+            **/*.py
+            **/translations/**
+            **/translations_review.xlsx
+            **/package*.json
+            **/.DS_Store
+            **/index_test.html

@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="{{lang.code}}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{home.meta.title}}</title>
+  <meta name="description" content="{{home.meta.desc}}">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+
+  <link rel="stylesheet" href="../styles.min.css?v=23">
+  <link rel="prefetch" href="technology.html">
+
+  <link rel="alternate" hreflang="uk-UA" href="https://biotc.com.ua/" />
+  <link rel="alternate" hreflang="en" href="https://biotc.com.ua/eu/" />
+  <link rel="alternate" hreflang="pl-PL" href="https://biotc.com.ua/pl/" />
+  <link rel="alternate" hreflang="x-default" href="https://biotc.com.ua/" />
+</head>
+<body>
+
+  <div class="blur-orb orb-1"></div>
+  <div class="blur-orb orb-2"></div>
+  <div class="blur-orb orb-3"></div>
+
+  <!-- ============================================================ -->
+  <!-- HEADER                                                        -->
+  <!-- ============================================================ -->
+  <header class="main-header" id="header">
+    <div class="header-container">
+      <a href="../index.html" class="logo" aria-label="{{header.logo.aria}}">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logo-grad" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+              <stop offset="0%" stop-color="#046BD2"/>
+              <stop offset="100%" stop-color="#0D9488"/>
+            </linearGradient>
+            <linearGradient id="logo-grad-mi" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+              <stop offset="0%" stop-color="#38BDF8"/>
+              <stop offset="100%" stop-color="#2DD4BF"/>
+            </linearGradient>
+          </defs>
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#logo-grad)"/>
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z"
+                fill="url(#logo-grad-mi)" stroke="white" stroke-width="1.5" vector-effect="non-scaling-stroke"
+                transform="translate(12,13) scale(0.62) translate(-12,-13)"/>
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z"
+                fill="white" opacity="0.92"
+                transform="translate(12,13) scale(0.33) translate(-12,-13)"/>
+        </svg>
+        <span class="logo-text"><span class="logo-btc">BTC</span> Consulting</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="{{header.nav.aria}}">
+        <ul>
+          <li><a href="index.html" class="active">{{header.nav.home}}</a></li>
+      <li><a href="technology.html">{{header.nav.technology}}</a></li>
+          <li><a href="simulator.html">{{header.nav.calculator}}</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+<button class="lang-globe-btn" id="lang-globe-btn" aria-label="Language">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M2 12h20"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      </button>
+        <button class="nav-fab" id="nav-fab" aria-label="{{header.nav.cta}}">
+          <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 12 19.79 19.79 0 0 1 1.08 3.38 2 2 0 0 1 3.07 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
+        </button>
+      </div>
+        <button class="mobile-toggle" aria-label="{{header.mobile.toggle}}" aria-expanded="false" aria-controls="nav-mobile-strip">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+    </div>
+
+    <div class="lang-strip" id="lang-strip" aria-hidden="true">
+      <div class="lang-strip-inner">
+        <a href="{{lang.pl.url}}" class="lang-strip-item {{lang.pl.class}}">&#x1F1F5;&#x1F1F1; Polski</a>
+        <a href="{{lang.eu.url}}" class="lang-strip-item {{lang.eu.class}}">&#x1F1EA;&#x1F1FA; English</a>
+        <a href="{{lang.ua.url}}" class="lang-strip-item {{lang.ua.class}}">&#x1F1FA;&#x1F1E6; Українська</a>
+      </div>
+    </div>
+    <div class="nav-mobile-strip" id="nav-mobile-strip" aria-hidden="true">
+      <div class="nav-mobile-strip-inner">
+        <ul>
+          <li><a href="index.html" class="active">{{header.nav.home}}</a></li>
+          <li><a href="technology.html">{{header.nav.technology}}</a></li>
+          <li><a href="simulator.html">{{header.nav.calculator}}</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================ -->
+    <!-- BLOCK 1: Hero                                                 -->
+    <!-- ============================================================ -->
+    <section id="hero" class="hero-section">
+      <div class="hero-waves-bg">
+        <svg viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Wave 1 (Accent Blue) -->
+          <path fill="rgba(4, 107, 210, 0.035)">
+            <animate attributeName="d"
+                     dur="22s"
+                     repeatCount="indefinite"
+                     values="
+                       M0,180 C320,290 640,110 960,250 C1280,390 1360,200 1440,240 L1440,400 L0,400 Z;
+                       M0,230 C240,130 560,290 880,190 C1200,90 1320,310 1440,210 L1440,400 L0,400 Z;
+                       M0,180 C320,290 640,110 960,250 C1280,390 1360,200 1440,240 L1440,400 L0,400 Z
+                     " />
+          </path>
+          <!-- Wave 2 (Teal) -->
+          <path fill="rgba(13, 148, 136, 0.025)">
+            <animate attributeName="d"
+                     dur="28s"
+                     repeatCount="indefinite"
+                     values="
+                       M0,220 C360,110 720,270 1080,160 C1280,240 1360,140 1440,190 L1440,400 L0,400 Z;
+                       M0,170 C300,280 600,120 900,260 C1200,320 1320,180 1440,240 L1440,400 L0,400 Z;
+                       M0,220 C360,110 720,270 1080,160 C1280,240 1360,140 1440,190 L1440,400 L0,400 Z
+                     " />
+          </path>
+          <!-- Wave 3 (Light Blue) -->
+          <path fill="rgba(56, 189, 248, 0.02)">
+            <animate attributeName="d"
+                     dur="34s"
+                     repeatCount="indefinite"
+                     values="
+                       M0,250 C280,320 560,180 840,290 C1120,380 1280,220 1440,270 L1440,400 L0,400 Z;
+                       M0,290 C320,190 640,310 960,210 C1280,120 1360,280 1440,230 L1440,400 L0,400 Z;
+                       M0,250 C280,320 560,180 840,290 C1120,380 1280,220 1440,270 L1440,400 L0,400 Z
+                     " />
+          </path>
+        </svg>
+      </div>
+      <div class="container">
+        <div class="hero-grid">
+
+          <div class="hero-content">
+            <a href="#problem" class="badge" style="text-decoration:none;">{{home.hero.badge}}</a>
+
+            <h1>{{home.hero.h1}}</h1>
+
+            <p class="hero-desc">{{home.hero.desc}}</p>
+
+              <div class="hero-actions">
+              <a href="simulator.html" class="btn btn-primary">{{home.hero.btn.primary}}</a>
+              <a href="#problem" class="btn btn-secondary">{{home.hero.btn.secondary}}</a>
+            </div>
+
+            <p class="hero-micro-text">{{home.hero.micro}}</p>
+          </div>
+
+          <div class="hero-stage" id="hero-stage">
+
+            <canvas id="ring-canvas" aria-hidden="true"></canvas>
+
+            <div class="stage-stat" data-index="0">
+              <div class="stage-num-wrap">
+                <span class="stage-num">
+                  <span class="sn-pre">{{home.hero.stat1.pre}}</span>
+                  <span class="sn-val">x5</span>
+                </span>
+              </div>
+              <div class="stage-text-wrap">
+                <span class="stage-label">{{home.hero.stat1.label}}</span>
+              </div>
+            </div>
+
+            <div class="stage-stat" data-index="1">
+              <div class="stage-num-wrap">
+                <span class="stage-num">
+                  <span class="sn-pre">{{home.hero.stat2.pre}}</span>
+                  <span class="sn-val">75%</span>
+                </span>
+              </div>
+              <div class="stage-text-wrap">
+                <span class="stage-label">{{home.hero.stat2.label}}</span>
+                <span class="stage-sub">{{home.hero.stat2.sub}}</span>
+              </div>
+            </div>
+
+            <div class="stage-stat" data-index="2">
+              <div class="stage-num-wrap">
+                <span class="stage-num">
+                  <span class="sn-pre">{{home.hero.stat3.pre}}</span>
+                  <span class="sn-val">0.01<span class="sn-unit"> мм</span></span>
+                </span>
+              </div>
+              <div class="stage-text-wrap">
+                <span class="stage-label">{{home.hero.stat3.label}}</span>
+                <span class="stage-sub">{{home.hero.stat3.sub}}</span>
+              </div>
+            </div>
+
+            <div class="stage-progress" id="stage-progress">
+              <div class="stage-dot"></div>
+              <div class="stage-dot"></div>
+              <div class="stage-dot"></div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- BLOCK 2: Problem — Three Budget Threats                       -->
+    <!-- ============================================================ -->
+    <section id="problem">
+      <div class="problem-bg-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M20.984 12.535a9 9 0 1 0 -8.431 8.448"/>
+          <path d="M12 7v5l3 3"/>
+          <path d="M19 16v6"/>
+          <path d="M22 19l-3 3l-3 -3"/>
+        </svg>
+      </div>
+      <div class="container">
+        <p class="section-label">{{home.problem.label}}</p>
+        <h2>{{home.problem.h2}}</h2>
+
+        <div class="grid-3" style="margin-block-start: var(--space-lg)">
+
+          <div class="glass-card problem-card">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M12 10.941c2.333 -3.308 .167 -7.823 -1 -8.941c0 3.395 -2.235 5.299 -3.667 6.706c-1.43 1.408 -2.333 3.294 -2.333 5.588c0 3.704 3.134 6.706 7 6.706c3.866 0 7 -3.002 7 -6.706c0 -1.712 -1.232 -4.403 -2.333 -5.588c-2.084 3.353 -3.257 3.353 -4.667 2.235"/>
+              </svg>
+            </div>
+            <h3>{{home.problem.card1.h3}}</h3>
+            <p>{{home.problem.card1.p}}</p>
+          </div>
+
+          <div class="glass-card problem-card">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M4 8a1 1 0 0 1 1 -1h14a1 1 0 0 1 1 1v7a1 1 0 0 1 -1 1h-14a1 1 0 0 1 -1 -1l0 -7"/>
+                <path d="M7 16v4"/><path d="M7.5 16l9 -9"/><path d="M13.5 16l6.5 -6.5"/>
+                <path d="M4 13.5l6.5 -6.5"/><path d="M17 16v4"/>
+                <path d="M5 20h4"/><path d="M15 20h4"/>
+                <path d="M17 7v-2"/><path d="M7 7v-2"/>
+              </svg>
+            </div>
+            <h3>{{home.problem.card2.h3}}</h3>
+            <p>{{home.problem.card2.p}}</p>
+          </div>
+
+          <div class="glass-card problem-card">
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M13 10l7.383 7.418c.823 .82 .823 2.148 0 2.967a2.11 2.11 0 0 1 -2.976 0l-7.407 -7.385"/>
+                <path d="M6 9l4 4"/><path d="M13 10l-4 -4"/><path d="M3 21h7"/>
+                <path d="M6.793 15.793l-3.586 -3.586a1 1 0 0 1 0 -1.414l2.293 -2.293l.5 .5l3 -3l-.5 -.5l2.293 -2.293a1 1 0 0 1 1.414 0l3.586 3.586a1 1 0 0 1 0 1.414l-2.293 2.293l-.5 -.5l-3 3l.5 .5l-2.293 2.293a1 1 0 0 1 -1.414 0"/>
+              </svg>
+            </div>
+            <h3>{{home.problem.card3.h3}}</h3>
+            <p>{{home.problem.card3.p}}</p>
+          </div>
+
+        </div>
+
+        <div class="problem-link">
+          <a href="technology.html">{{home.problem.link}}</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+
+    <!-- ============================================================ -->
+    <!-- BLOCK 2b: How We Work — 3-Step Process                        -->
+    <!-- ============================================================ -->
+    <section id="process" class="process-section">
+      <div class="container">
+        <p class="section-label text-center">{{home.process.label}}</p>
+        <h2 class="text-center">{{home.process.h2}}</h2>
+
+        <div class="process-steps">
+
+          <div class="process-step">
+            <div class="process-step-num">{{home.process.step1.num}}</div>
+            <div class="process-step-body">
+              <h3>{{home.process.step1.h3}}</h3>
+              <p>{{home.process.step1.p}}</p>
+            </div>
+          </div>
+
+          <div class="process-connector" aria-hidden="true"></div>
+
+          <div class="process-step">
+            <div class="process-step-num">{{home.process.step2.num}}</div>
+            <div class="process-step-body">
+              <h3>{{home.process.step2.h3}}</h3>
+              <p>{{home.process.step2.p}}</p>
+            </div>
+          </div>
+
+          <div class="process-connector" aria-hidden="true"></div>
+
+          <div class="process-step">
+            <div class="process-step-num">{{home.process.step3.num}}</div>
+            <div class="process-step-body">
+              <h3>{{home.process.step3.h3}}</h3>
+              <p>{{home.process.step3.p}}</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="process-cta">
+          <a href="#contact" class="btn btn-primary">{{home.process.cta}}</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BLOCK 3: Solution — Cluster Approach                          -->
+    <!-- ============================================================ -->
+    <section id="solution">
+      <div class="solution-bg-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M5.931 6.936l1.275 4.249m5.607 5.609l4.251 1.275"/>
+          <path d="M11.683 12.317l5.759 -5.759"/>
+          <path d="M4 5.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0"/>
+          <path d="M17 5.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0"/>
+          <path d="M17 18.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0"/>
+          <path d="M4 15.5a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0 -9 0"/>
+        </svg>
+      </div>
+      <div class="container">
+        <div class="solution-intro">
+          <div class="solution-intro-heading">
+            <p class="section-label">{{home.solution.label}}</p>
+            <h2>{{home.solution.h2}}</h2>
+          </div>
+          <p class="solution-intro-desc">{{home.solution.desc}}</p>
+        </div>
+
+        <div class="solution-scenarios">
+
+          <!-- Сценарій А: Монозадачна станція -->
+          <div class="glass-card scenario-card">
+            <span class="scenario-badge">{{home.solution.a.badge}}</span>
+            <div class="card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M4 21v-15c0 -1 1 -2 2 -2h5c1 0 2 1 2 2v15"/>
+                <path d="M16 8h2c1 0 2 1 2 2v11"/>
+                <path d="M3 21h18"/>
+                <path d="M10 12v.01"/><path d="M10 16v.01"/><path d="M10 8v.01"/>
+                <path d="M7 12v.01"/><path d="M7 16v.01"/><path d="M7 8v.01"/>
+                <path d="M17 12v.01"/><path d="M17 16v.01"/>
+              </svg>
+            </div>
+            <h3>{{home.solution.a.h3}}</h3>
+            <p class="scenario-for">{{home.solution.a.for}}</p>
+            <p>{{home.solution.a.p}}</p>
+            <ul class="scenario-benefits">
+              <li>{{home.solution.a.li1}}</li>
+              <li>{{home.solution.a.li2}}</li>
+              <li>{{home.solution.a.li3}}</li>
+              <li>{{home.solution.a.li4}}</li>
+            </ul>
+            <p class="scenario-targets">{{home.solution.a.targets}}</p>
+          </div>
+
+          <!-- Сценарій Б: Кластер Hub & Spoke -->
+          <div class="glass-card scenario-card">
+            <span class="scenario-badge scenario-badge--teal">{{home.solution.b.badge}}</span>
+            <div class="card-icon" style="color: var(--color-teal)">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M10 5a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>
+                <path d="M17.723 7.41a7.992 7.992 0 0 0 -3.74 -2.162m-3.971 0a7.993 7.993 0 0 0 -3.789 2.216m-1.881 3.215a8 8 0 0 0 -.342 2.32c0 .738 .1 1.453 .287 2.132m1.96 3.428a7.993 7.993 0 0 0 3.759 2.19m4 0a7.993 7.993 0 0 0 3.747 -2.186m1.962 -3.43a8.008 8.008 0 0 0 .287 -2.131c0 -.764 -.107 -1.503 -.307 -2.203"/>
+                <path d="M3 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>
+                <path d="M17 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>
+              </svg>
+            </div>
+            <h3>{{home.solution.b.h3}}</h3>
+            <p class="scenario-for">{{home.solution.b.for}}</p>
+            <p>{{home.solution.b.p}}</p>
+            <ul class="scenario-benefits">
+              <li>{{home.solution.b.li1}}</li>
+              <li>{{home.solution.b.li2}}</li>
+              <li>{{home.solution.b.li3}}</li>
+              <li>{{home.solution.b.li4}}</li>
+            </ul>
+            <p class="scenario-targets">{{home.solution.b.targets}}</p>
+          </div>
+
+        </div>
+
+        <div class="table-responsive">
+          <div class="rotate-hint" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-14"/><path d="M11 4h2"/><path d="M12 17v.01"/></svg>
+            <span>{{ui.rotate.hint}}</span>
+          </div>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>{{home.solution.tbl.p0}}</th>
+                <th>{{home.solution.tbl.p1}}</th>
+                <th class="col-hub">{{home.solution.tbl.p2}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>{{home.solution.tbl.r1.l}}</td><td>{{home.solution.tbl.r1.a}}</td><td class="col-hub">{{home.solution.tbl.r1.b}}</td></tr>
+              <tr><td>{{home.solution.tbl.r2.l}}</td><td>{{home.solution.tbl.r2.a}}</td><td class="col-hub">{{home.solution.tbl.r2.b}}</td></tr>
+              <tr><td>{{home.solution.tbl.r3.l}}</td><td>{{home.solution.tbl.r3.a}}</td><td class="col-hub">{{home.solution.tbl.r3.b}}</td></tr>
+              <tr><td>{{home.solution.tbl.r4.l}}</td><td>{{home.solution.tbl.r4.a}}</td><td class="col-hub">{{home.solution.tbl.r4.b}}</td></tr>
+              <tr><td>{{home.solution.tbl.r5.l}}</td><td>{{home.solution.tbl.r5.a}}</td><td class="col-hub">{{home.solution.tbl.r5.b}}</td></tr>
+              <tr><td>{{home.solution.tbl.r6.l}}</td><td>{{home.solution.tbl.r6.a}}</td><td class="col-hub">{{home.solution.tbl.r6.b}}</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section-label" style="margin-block-start: var(--space-lg); margin-block-end: 0.5rem; display: flex; align-items: center;">
+          <span class="callout-icon" style="display: inline-block;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-bell-ringing" style="vertical-align: middle; display: block;"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" /><path d="M9 17v1a3 3 0 0 0 6 0v-1" /><path d="M21 6.727a11.05 11.05 0 0 0 -2.794 -3.727" /><path d="M3 6.727a11.05 11.05 0 0 1 2.792 -3.727" /></svg>
+          </span>
+        </div>
+        <div class="glass-card callout-box callout-box--accent" style="margin-top: 0;">
+          <h3 style="margin-block-end: var(--space-xs);">{{home.solution.callout.h3}}</h3>
+          <p style="margin-block-end: 0.6rem;">{{home.solution.callout.p}}</p>
+          <div style="text-align: right;">
+            <a href="#contact" class="callout-inline-link">{{home.solution.callout.btn}}</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- BLOCK 4: Calculator Banner                                    -->
+    <!-- ============================================================ -->
+    <section id="calculator-cta" class="banner-section">
+      <div class="calc-bg-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M4 5a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2l0 -14"/>
+          <path d="M8 8a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1l0 -1"/>
+          <path d="M8 14l0 .01"/><path d="M12 14l0 .01"/><path d="M16 14l0 .01"/>
+          <path d="M8 17l0 .01"/><path d="M12 17l0 .01"/><path d="M16 17l0 .01"/>
+        </svg>
+      </div>
+      <div class="container">
+        <p class="section-label">{{home.calc.label}}</p>
+        <h2>{{home.calc.h2}}</h2>
+        <p class="section-desc">{{home.calc.desc}}</p>
+
+        <div class="sim-banner-grid" style="margin-block-start: var(--space-lg)">
+          <div class="glass-card">
+            <h3 style="font-size: var(--text-lg); margin-block-end: var(--space-sm);">{{home.calc.col1.h3}} <span class="tag tag-teal">{{home.calc.col1.tag}}</span></h3>
+            <ul class="sim-feature-list">
+              <li>{{home.calc.col1.li1}}</li>
+              <li>{{home.calc.col1.li2}}</li>
+              <li>{{home.calc.col1.li3}}</li>
+            </ul>
+          </div>
+          <div class="glass-card glass-card--gradient-border">
+            <h3 style="font-size: var(--text-lg); margin-block-end: var(--space-sm);">{{home.calc.col2.h3}}</h3>
+            <ul class="sim-feature-list">
+              <li>{{home.calc.col2.li1}}</li>
+              <li>{{home.calc.col2.li2}}</li>
+              <li>{{home.calc.col2.li3}}</li>
+              <li>{{home.calc.col2.li4}}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-block-start: var(--space-lg)">
+          <a href="simulator.html" class="btn btn-primary btn-block" style="max-width: 400px; margin-inline: auto;">{{home.calc.btn}}</a>
+          <p class="sim-micro-text">{{home.calc.micro}}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- BLOCK 5: Trust Center                                         -->
+    <!-- ============================================================ -->
+    <section id="trust" class="proof-section">
+      <div class="trust-bg-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M5 21h14"/>
+          <path d="M6 18h2"/>
+          <path d="M7 18v3"/>
+          <path d="M9 11l3 3l6 -6l-3 -3l-6 6"/>
+          <path d="M10.5 12.5l-1.5 1.5"/>
+          <path d="M17 3l3 3"/>
+          <path d="M12 21a6 6 0 0 0 3.715 -10.712"/>
+        </svg>
+      </div>
+      <div class="container">
+        <p class="section-label">{{home.trust.label}}</p>
+        <h2 class="text-center">{{home.trust.h2}}</h2>
+
+        <div class="grid-3" style="margin-block-start: var(--space-lg)">
+
+          <div class="glass-card proof-card">
+            <span class="proof-badge-text">{{home.trust.card1.badge}}</span>
+            <div class="proof-logo-wrapper">
+              <svg class="proof-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M3 4h8"/><path d="M4 4v5a6 6 0 0 0 6 6h3a1 1 0 0 1 1 1v4"/>
+                <path d="M10 4v4a1 1 0 0 0 1 1h3a6 6 0 0 1 6 6v5"/>
+                <path d="M13 20h8"/><path d="M12 9v6"/>
+              </svg>
+              <svg class="brand-logo-svg" viewBox="0 0 140 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="24" font-family="Outfit, sans-serif" font-weight="800" font-size="22" fill="#0F172A">MPWiK</text>
+                <text x="82" y="24" font-family="Inter, sans-serif" font-weight="400" font-size="11" fill="#475569">LUBIN</text>
+              </svg>
+            </div>
+            <h3>{{home.trust.card1.h3}}</h3>
+            <p>{{home.trust.card1.p}}</p>
+          </div>
+
+          <div class="glass-card proof-card">
+            <span class="proof-badge-text">{{home.trust.card2.badge}}</span>
+            <div class="proof-logo-wrapper">
+              <svg class="proof-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"/>
+                <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"/>
+              </svg>
+              <svg class="brand-logo-svg" viewBox="0 0 200 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="24" font-family="Outfit, sans-serif" font-weight="800" font-size="22" fill="#0F172A">AGH</text>
+                <text x="52" y="24" font-family="Inter, sans-serif" font-weight="400" font-size="11" fill="#475569">KRAKÓW + WikiChar</text>
+              </svg>
+            </div>
+            <h3>{{home.trust.card2.h3}}</h3>
+            <p>{{home.trust.card2.p}}</p>
+          </div>
+
+          <div class="glass-card proof-card">
+            <span class="proof-badge-text">{{home.trust.card3.badge}}</span>
+            <div class="proof-logo-wrapper">
+              <svg class="proof-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M3 21h18"/>
+                <path d="M5 21v-12l5 4v-4l5 4h4"/>
+                <path d="M19 21v-8l-1.436 -9.574a.5 .5 0 0 0 -.495 -.426h-1.145a.5 .5 0 0 0 -.494 .418l-1.43 8.582"/>
+                <path d="M9 17h1"/><path d="M14 17h1"/>
+              </svg>
+              <svg class="brand-logo-svg" viewBox="0 0 200 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="24" font-family="Outfit, sans-serif" font-weight="800" font-size="22" fill="#0F172A">INTROL</text>
+                <text x="95" y="24" font-family="Inter, sans-serif" font-weight="400" font-size="11" fill="#475569">GROUP S.A.</text>
+              </svg>
+            </div>
+            <h3>{{home.trust.card3.h3}}</h3>
+            <p>{{home.trust.card3.p}}</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- BLOCK 6: Team                                                 -->
+    <!-- ============================================================ -->
+    <section id="team">
+      <div class="team-bg-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/>
+          <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1"/>
+          <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/>
+          <path d="M17 10h2a2 2 0 0 1 2 2v1"/>
+          <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/>
+          <path d="M3 13v-1a2 2 0 0 1 2 -2h2"/>
+        </svg>
+      </div>
+      <div class="container">
+        <p class="section-label">{{home.team.label}}</p>
+        <h2 class="text-center">{{home.team.h2}}</h2>
+
+        <div class="grid-4" style="margin-block-start: var(--space-lg)">
+
+          <div class="glass-card team-card">
+            <div class="team-avatar"><img src="{{img.team}}krop-e.jpg" alt="Dr inż. Eugeniusz Krop" loading="lazy"></div>
+            <h3>Dr inż. Eugeniusz Krop</h3>
+            <span class="team-role">{{home.team.krop_e.role}}</span>
+            <p>{{home.team.krop_e.p}}</p>
+          </div>
+
+          <div class="glass-card team-card">
+            <div class="team-avatar"><img src="{{img.team}}wilk-m.jpg" alt="Dr hab. inż. Małgorzata Wilk" loading="lazy"></div>
+            <h3>Dr hab. inż. Małgorzata Wilk</h3>
+            <span class="team-role">{{home.team.wilk.role}}</span>
+            <p>{{home.team.wilk.p}}</p>
+          </div>
+
+          <div class="glass-card team-card">
+            <div class="team-avatar"><img src="{{img.team}}krop-a.jpg" alt="Andrzej Krop" loading="lazy"></div>
+            <h3>Andrzej Krop</h3>
+            <span class="team-role">{{home.team.krop_a.role}}</span>
+            <p>{{home.team.krop_a.p}}</p>
+          </div>
+
+          <div class="glass-card team-card">
+            <div class="team-avatar"><img src="{{img.team}}koval-m.jpg" alt="Max Koval" loading="lazy"></div>
+            <h3>Max Koval</h3>
+            <span class="team-role">{{home.team.koval.role}}</span>
+            <p>{{home.team.koval.p}}</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- BLOCK 7: EU Grants                                            -->
+    <!-- ============================================================ -->
+    <section id="grants" class="grants-section">
+      <div class="grants-bg-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M9 14c0 1.657 2.686 3 6 3s6 -1.343 6 -3s-2.686 -3 -6 -3s-6 1.343 -6 3"/>
+          <path d="M9 14v4c0 1.656 2.686 3 6 3s6 -1.344 6 -3v-4"/>
+          <path d="M3 6c0 1.072 1.144 2.062 3 2.598s4.144 .536 6 0c1.856 -.536 3 -1.526 3 -2.598c0 -1.072 -1.144 -2.062 -3 -2.598s-4.144 -.536 -6 0c-1.856 .536 -3 1.526 -3 2.598"/>
+          <path d="M3 6v10c0 .888 .772 1.45 2 2"/>
+          <path d="M3 11c0 .888 .772 1.45 2 2"/>
+        </svg>
+      </div>
+      <div class="container">
+        <p class="section-label">{{home.grants.label}}</p>
+        <h2 class="text-center">{{home.grants.h2}}</h2>
+        <p class="section-desc">{{home.grants.desc}}</p>
+
+        <div class="grants-list">
+
+          <div class="glass-card grant-item">
+            <div class="grant-num">1</div>
+            <div class="grant-content">
+              <h3>{{home.grants.item1.h3}}</h3>
+              <p>{{home.grants.item1.p}}</p>
+            </div>
+          </div>
+
+          <div class="glass-card grant-item">
+            <div class="grant-num">2</div>
+            <div class="grant-content">
+              <h3>{{home.grants.item2.h3}}</h3>
+              <p>{{home.grants.item2.p}}</p>
+            </div>
+          </div>
+
+          <div class="glass-card grant-item">
+            <div class="grant-num">3</div>
+            <div class="grant-content">
+              <h3>{{home.grants.item3.h3}}</h3>
+              <p>{{home.grants.item3.p}}</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="grants-cta">
+          <a href="#contact" class="btn btn-outline">{{home.grants.cta}}</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- BLOCK 8: Contact Form                                         -->
+    <!-- ============================================================ -->
+    <section id="contact">
+      <div class="contact-bg-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M12 11v.01"/><path d="M8 11v.01"/><path d="M16 11v.01"/>
+          <path d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3l12 0"/>
+        </svg>
+      </div>
+      <div class="container">
+        <div class="contact-grid">
+
+          <div class="contact-text">
+            <p class="section-label">{{contact.label}}</p>
+            <h2>{{contact.h2}}</h2>
+            <p>{{contact.p}}</p>
+
+            <div class="contact-info-list">
+              <div class="info-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>+48 608 003 458</span>
+              </div>
+              <div class="info-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span>contact@biotc.pl</span>
+              </div>
+              <div class="info-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>ul. Daszyńskiego 34/3, 44-100 Gliwice, Polska</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card contact-form-card">
+            <form id="rfq-form" action="#" method="POST" novalidate>
+              <fieldset class="form-fieldset">
+                <div class="visually-hidden" aria-hidden="true">
+                  <label for="honeypot">Leave blank</label>
+                  <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
+                </div>
+                <div class="form-group">
+                  <input type="text" id="user-name" name="name" placeholder=" " required minlength="2" autocomplete="name" aria-describedby="name-error">
+                  <label for="user-name" class="floating-label">{{form.name.label}}</label>
+                  <span id="name-error" class="error-msg" role="alert">{{form.name.error}}</span>
+                </div>
+                <div class="form-group">
+                  <input type="tel" id="user-phone" name="phone" placeholder=" " required autocomplete="tel" inputmode="tel" aria-describedby="phone-error">
+                  <label for="user-phone" class="floating-label">{{form.phone.label}}</label>
+                  <span id="phone-error" class="error-msg" role="alert">{{form.phone.error}}</span>
+                </div>
+                <div class="form-group">
+                  <input type="text" id="user-company" name="company" placeholder=" " required autocomplete="organization" aria-describedby="company-error">
+                  <label for="user-company" class="floating-label">{{form.company.label}}</label>
+                  <span id="company-error" class="error-msg" role="alert">{{form.company.error}}</span>
+                </div>
+                <div class="form-group">
+                  <select id="user-type" name="object_type">
+                    <option value="" disabled selected></option>
+                    <option value="waterutil">{{form.type.waterutil}}</option>
+                    <option value="community">{{form.type.community}}</option>
+                    <option value="agro">{{form.type.agro}}</option>
+                    <option value="other">{{form.type.other}}</option>
+                  </select>
+                  <label for="user-type" class="floating-label">{{form.type.label}}</label>
+                </div>
+                <button type="submit" id="form-submit-btn" class="btn btn-primary btn-block">{{form.submit}}</button>
+                <p class="form-micro-text">{{form.micro}}</p>
+              </fieldset>
+            </form>
+            <div id="form-status" class="form-status-container hidden" tabindex="-1" role="status" aria-live="polite"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER                                                        -->
+  <!-- ============================================================ -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo-text"><span class="logo-btc">BTC</span> Consulting</span>
+          <p>{{footer.brand.p}}</p>
+        </div>
+        <div class="footer-links">
+          <h4>{{footer.nav.h4}}</h4>
+          <ul>
+            <li><a href="index.html">{{footer.nav.home}}</a></li>
+            <li><a href="technology.html">{{footer.nav.technology}}</a></li>
+            <li><a href="simulator.html">{{footer.nav.calculator}}</a></li>
+            <li><a href="#contact">{{footer.nav.contact}}</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>{{footer.docs.h4}}</h4>
+          <ul>
+            <li><a href="mission.html">{{footer.docs.mission}}</a></li>
+            <li><a href="whitepaper.html">{{footer.docs.whitepaper}}</a></li>
+            <li><a href="investors.html">{{footer.docs.investors}}</a></li>
+            <li><a href="case-lubin.html">{{footer.docs.case_lubin}}</a></li>
+          </ul>
+        </div>
+      </div>
+            <div class="footer-copy">
+        <span>{{footer.copy}}</span>
+        <button class="footer-privacy-btn" id="privacy-strip-trigger">{{footer.privacy.link}}</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../app.min.js?v=5"></script>
+
+  <script>
+  /* ── Hero Stage: dot-ring + phase-locked ticker ─────────────── */
+  (function () {
+    if (window.innerWidth <= 1024) return;
+
+    /* ── Canvas setup ── */
+    var canvas = document.getElementById('ring-canvas');
+    if (!canvas) return;
+    var ctx    = canvas.getContext('2d');
+    var DPR    = Math.min(window.devicePixelRatio || 1, 2);
+    var CW = 920, CH = 860;
+    canvas.width  = CW * DPR;
+    canvas.height = CH * DPR;
+    canvas.style.width  = CW + 'px';
+    canvas.style.height = CH + 'px';
+    ctx.scale(DPR, DPR);
+    var cx = CW / 2, cy = CH / 2;
+
+    /* ── Ring params ── */
+    var N_DOTS     = 32;
+    var DOT_MAX    = 6;
+    var MID_R      = 255;    // centre of breathing range
+    var BREATH_AMP = 120;    // ± px: ring between ~135 and ~375 px radius
+    var BREATH_MS  = 3200;   // one full inhale+exhale cycle
+    var ROT_MS     = 16000;  // one full rotation
+    var APPEAR_MS  = 900;    // initial fade-in
+
+    /* ── Phase-lock sync points (within one BREATH_MS cycle) ──────
+         ring MAX  at sin peak    → cyclePos = BREATH_MS / 4  =  800ms
+         EXIT gate at sin = 0 ↓  → cyclePos = BREATH_MS / 2  = 1600ms  (ring MID, contracting)
+         ENTER gate at sin trough → cyclePos = BREATH_MS * .75= 2400ms  (ring MIN)
+         new stat enters at MIN and rides ring back up → fully visible at next MAX (4000ms)
+    ── */
+    var EXIT_AT  = Math.round(BREATH_MS * 0.50);  // 1600ms
+    var ENT_AT   = Math.round(BREATH_MS * 0.75);  // 2400ms
+    var EXIT_MS  = 560;
+    var ENTER_MS = 680;
+
+    /* ── Ticker state ── */
+    var stats        = Array.from(document.querySelectorAll('#hero-stage .stage-stat'));
+    var idx          = 0;
+    var locked       = false;
+    var readyToEnter = false;
+    var exitFired    = false;
+    var enterFired   = false;
+    var cycleCount   = 0;
+    var prevCyclePos = -1;
+    var t0           = null;
+
+    function showStat(el) {
+      el.style.visibility = 'visible';
+      el.classList.remove('st-exit');
+      el.classList.add('st-enter');
+    }
+
+    function hideStat(el, onDone) {
+      el.classList.remove('st-enter');
+      el.classList.add('st-exit');
+      setTimeout(function () {
+        el.classList.remove('st-exit');
+        el.style.visibility = 'hidden';
+        if (onDone) onDone();
+      }, EXIT_MS);
+    }
+
+    function triggerExit() {
+      if (locked) return;
+      locked = true;
+      var prev = idx;
+      idx = (idx + 1) % stats.length;
+      hideStat(stats[prev], function () { readyToEnter = true; });
+    }
+
+    function triggerEnter() {
+      if (!readyToEnter) return;
+      readyToEnter = false;
+      showStat(stats[idx]);
+      setTimeout(function () { locked = false; }, ENTER_MS);
+    }
+
+    /* ── RAF draw + sync loop ── */
+    function drawRing(ts) {
+      if (!t0) t0 = ts;
+      var elapsed = ts - t0;
+
+      var ramp        = Math.min(elapsed / APPEAR_MS, 1);
+      var breathPhase = (elapsed % BREATH_MS) / BREATH_MS * Math.PI * 2;
+      var rotAngle    = (elapsed % ROT_MS)    / ROT_MS    * Math.PI * 2;
+      var radius      = MID_R + BREATH_AMP * Math.sin(breathPhase);
+      var dotR        = DOT_MAX * (0.78 + 0.22 * Math.sin(breathPhase));
+      var alpha       = ramp * (0.50 + 0.38 * Math.sin(breathPhase));
+
+      ctx.clearRect(0, 0, CW, CH);
+      // Dot ring drawing disabled for a cleaner, less distracting UI
+
+      /* ── Phase-locked ticker ──
+           Wait one full cycle before first swap — gives the initial stat
+           a display window of ~4800ms that includes two ring peaks.
+           From cycle 2 onward every stat gets exactly one breath cycle.
+      ── */
+      var cyclePos = elapsed % BREATH_MS;
+
+      if (prevCyclePos >= 0) {
+        /* detect cycle wrap */
+        if (cyclePos < prevCyclePos) {
+          cycleCount++;
+          exitFired  = false;
+          enterFired = false;
+        }
+
+        if (cycleCount >= 1) {
+          /* EXIT: ring just passed its midpoint on the way DOWN */
+          if (!exitFired && prevCyclePos < EXIT_AT && cyclePos >= EXIT_AT) {
+            exitFired = true;
+            triggerExit();
+          }
+          /* ENTER: ring at minimum — about to rise back toward MAX */
+          if (!enterFired && prevCyclePos < ENT_AT && cyclePos >= ENT_AT) {
+            enterFired = true;
+            triggerEnter();
+          }
+        }
+      }
+
+      prevCyclePos = cyclePos;
+      if (ringActive) requestAnimationFrame(drawRing);
+    }
+
+    /* ── Pause when hero scrolled out of view ── */
+    var ringActive = true;
+    window.addEventListener('scroll', function () {
+      var inView = window.scrollY < CH + 100;
+      if (inView && !ringActive) {
+        ringActive = true;
+        requestAnimationFrame(drawRing);
+      } else if (!inView && ringActive) {
+        ringActive = false;
+      }
+    }, { passive: true });
+
+    /* ── Init ── */
+    stats.forEach(function (el) { el.style.visibility = 'hidden'; });
+    showStat(stats[0]);
+    requestAnimationFrame(drawRing);
+  })();
+
+  </script>
+
+  <!-- Parallax background icons -->
+  <script>
+  (function () {
+    var RANGE = 120;  /* px — icon drifts this far down as section scrolls through */
+
+    var pairs = [
+      ['#problem',        '.problem-bg-icon'],
+      ['#solution',       '.solution-bg-icon'],
+      ['#calculator-cta', '.calc-bg-icon'],
+      ['#trust',          '.trust-bg-icon'],
+      ['#team',           '.team-bg-icon'],
+      ['#grants',         '.grants-bg-icon'],
+      ['#contact',        '.contact-bg-icon'],
+    ].map(function (p) {
+      return {
+        section: document.querySelector(p[0]),
+        icon:    document.querySelector(p[1]),
+      };
+    }).filter(function (p) { return p.section && p.icon; });
+
+    var ticking = false;
+
+    function update() {
+      var wh = window.innerHeight;
+      pairs.forEach(function (p) {
+        var r  = p.section.getBoundingClientRect();
+        var sh = r.height;
+        /* progress: 0 when section top hits viewport bottom → 1 when section bottom hits viewport top */
+        var progress = (wh - r.top) / (wh + sh);
+        progress = Math.max(0, Math.min(1, progress));
+        /* Icon starts at top of section, drifts down as user scrolls */
+        var yShift = progress * RANGE;
+        p.icon.style.transform = 'translateY(' + yShift.toFixed(1) + 'px)';
+      });
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', update,   { passive: true });
+    update();
+  })();
+  </script>
+
+
+
+    <!-- Privacy bottom strip -->
+    <div class="privacy-strip" id="privacy-strip" aria-hidden="true">
+      <div class="privacy-strip-inner">
+        <div class="privacy-strip-body">
+          <strong>{{footer.privacy.title}}</strong>
+          <p>{{footer.privacy.text}}</p>
+        </div>
+        <button class="privacy-strip-close" id="privacy-strip-close" aria-label="{{footer.privacy.close}}">&#x2715;</button>
+      </div>
+    </div>
+    <!-- Contact Popover / Modal -->
+    <div class="contact-popover-overlay" id="contact-popover-overlay" aria-hidden="true"></div>
+    <div class="contact-popover" id="contact-popover" aria-hidden="true" role="dialog" aria-label="{{contact.popover.title}}">
+      <div class="popover-arrow" aria-hidden="true"></div>
+      <div class="popover-header">
+        <h4>{{contact.popover.title}}</h4>
+        <button class="popover-close" id="popover-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="popover-body">
+        <div class="popover-contact-card">
+          <div class="popover-avatar">
+            <img src="{{img.team}}krop-a.jpg" alt="Andrzej Krop">
+          </div>
+          <div class="popover-info">
+            <div class="popover-name">Andrzej Krop</div>
+            <div class="popover-role">{{home.team.krop_a.role}}</div>
+          </div>
+        </div>
+        <div class="popover-actions-grid">
+          <a href="tel:+48608003458" class="popover-action-btn border-teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>+48 608 003 458</span>
+          </a>
+          <a href="mailto:contact@biotc.pl" class="popover-action-btn border-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>contact@biotc.pl</span>
+          </a>
+          <a href="https://wa.me/48608003458" target="_blank" rel="noopener" class="popover-action-btn border-teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <span>WhatsApp Chat</span>
+          </a>
+          <button id="vcard-download-btn" class="popover-action-btn border-orange">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/></svg>
+            <strong>{{contact.vcard.btn}}</strong>
+          </button>
+        </div>
+        <div class="popover-divider"><span>{{contact.popover.or}}</span></div>
+        <div class="popover-callback-wrap">
+          <div class="callback-row">
+            <input type="tel" id="popover-phone" placeholder="{{form.phone.label}}"
+                   inputmode="tel" autocomplete="tel">
+            <button type="button" class="btn btn-primary callback-btn" id="popover-callback-btn"
+                    data-label="{{form.callback.btn}}">{{form.callback.btn}}</button>
+          </div>
+          <p id="popover-callback-error" class="error-msg" style="display:none">{{form.callback.error}}</p>
+          <p class="form-micro-text" style="margin-block-start:0.4rem;">{{form.micro}}</p>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

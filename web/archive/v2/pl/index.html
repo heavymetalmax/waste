@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Odzysk zasobów z oczyszczalni ścieków | BioTC | BTC Consulting</title>
+  <meta name="description" content="BTC Consulting wdraża innowacyjną technologię kompozycji organicznej BioTC (TH-AD-HTC) w Polsce. Zmniejszenie objętości substancji wyjściowej o 75% i produkcja węgla ekologicznego.">
+  <meta name="keywords" content="utylizacja osadów ściekowych, przetwarzanie osadów z oczyszczalni, karbonizacja hydrotermalna, węgiel ekologiczny, BioTC Polska, BTC Consulting, rekombinacja molekularna">
+  
+  <!-- Google Fonts: Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="../index.css">
+
+  <!-- Hreflang Tags for SEO -->
+  <link rel="alternate" hreflang="uk-UA" href="https://biotc.com.ua/" />
+  <link rel="alternate" hreflang="en" href="https://biotc.com.ua/eu/" />
+  <link rel="alternate" hreflang="pl-PL" href="https://biotc.com.ua/pl/" />
+  <link rel="alternate" hreflang="x-default" href="https://biotc.com.ua/" />
+</head>
+<body>
+
+  <!-- Background Ambient Glows (Light Clean-Tech Version) -->
+  <div class="blur-orb orb-1"></div>
+  <div class="blur-orb orb-2"></div>
+  <div class="blur-orb orb-3"></div>
+
+  <!-- Header Section -->
+  <header class="main-header" id="header">
+    <div class="header-container">
+      <a href="#" class="logo" aria-label="Strona główna BTC Consulting">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z" fill="url(#logo-grad)"/>
+          <defs>
+            <linearGradient id="logo-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#046BD2"/>
+              <stop offset="1" stop-color="#0D9488"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="logo-text">BTC<span>Consulting</span></span>
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="nav-desktop" aria-label="Menu główne">
+        <ul>
+          <li><a href="#calculator">Kalkulator BioTC</a></li>
+          <li><a href="#showroom">Instalacje</a></li>
+          <li><a href="#tech">Technologia</a></li>
+          <li><a href="#comparison">Węgiel ekologiczny</a></li>
+          <li><a href="#proof">Wiarygodność</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="header-actions">
+        <!-- Language Switcher Dropdown -->
+        <div class="lang-switcher">
+          <button class="lang-btn" aria-haspopup="true" aria-expanded="false" title="Zmień Język">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="globe-icon">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="lang-dropdown">
+            <li><a href="../eu/index.html" onclick="localStorage.setItem('userLang', 'eu')">🇪🇺 English (EU)</a></li>
+            <li><a href="index.html" class="active">🇵🇱 Polski</a></li>
+            <li><a href="../index.html" onclick="localStorage.setItem('userLang', 'uk')">🇺🇦 Ukraiński</a></li>
+          </ul>
+        </div>
+
+        <a href="#calculator" class="btn btn-outline nav-cta-btn">Kalkulacja BioTC</a>
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle" aria-label="Otwórz menu" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobilne" aria-hidden="true">
+    <ul>
+      <li><a href="#calculator">Kalkulator BioTC</a></li>
+      <li><a href="#showroom">Instalacje</a></li>
+      <li><a href="#tech">Technologia</a></li>
+      <li><a href="#comparison">Węgiel ekologiczny</a></li>
+      <li><a href="#proof">Wiarygodność</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+      <li><a href="#calculator" class="btn btn-primary" style="margin-top: 1rem; display: block; text-align: center;">Oblicz RLM</a></li>
+      <!-- Mobile Language Links -->
+      <li class="mobile-lang-switcher">
+        <a href="../eu/index.html" onclick="localStorage.setItem('userLang', 'eu')">🇪🇺 EU</a>
+        <a href="index.html" class="active">🇵🇱 PL</a>
+        <a href="../index.html" onclick="localStorage.setItem('userLang', 'uk')">🇺🇦 UA</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge-row">
+            <div class="badge">🇵🇱 Polskie Technologie Clean-Tech</div>
+          </div>
+          <h1>Ekologiczna modernizacja oczyszczalni ścieków</h1>
+          <p class="hero-desc">
+            Wdrażamy nowoczesne instalacje <strong>kompozycji organicznej (TH-AD-HTC)</strong> BioTC. Zmniejsz objętość substancji wyjściowej o <strong>75%</strong> i przekształć ją w wysokokaloryczne paliwo ekologiczne (węgiel ekologiczny).
+          </p>
+          <div class="hero-actions">
+            <a href="#calculator" class="btn btn-primary">Kalkulator zwrotu</a>
+            <a href="#tech" class="btn btn-secondary">Jak działa technologia?</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-num">75%</span>
+              <span class="stat-label">Zmniejszenie objętości</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">20-25</span>
+              <span class="stat-label">MJ/kg wartość opałowa</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">100%</span>
+              <span class="stat-label">Sterylność produktu</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="glass-card tech-card animate-pulse">
+            <div class="card-header">
+              <div class="orange-dot"></div>
+              <span>Instalacja kompozycji molekularnej BioTC</span>
+            </div>
+            <div class="card-body">
+              <div class="flow-chart">
+                <div class="flow-node node-in">Surowiec (80%)</div>
+                <div class="flow-arrow">&#x27A4;</div>
+                <div class="flow-node node-core">Instalacja BioTC</div>
+                <div class="flow-arrow">&#x27A4;</div>
+                <div class="flow-node node-out">Węgiel ekologiczny</div>
+              </div>
+              <div class="telemetry">
+                <div class="telemetry-item">
+                  <span class="t-label">Zmniejszenie objętości</span>
+                  <span class="t-value text-orange">-75%</span>
+                </div>
+                <div class="telemetry-item">
+                  <span class="t-label">Destrukcja PFAS i mikroplastiku</span>
+                  <span class="t-value text-teal">Całkowita (100%)</span>
+                </div>
+                <div class="telemetry-item">
+                  <span class="t-label">Wilgotność końcowa</span>
+                  <span class="t-value">&lt; 10% (węgiel eko)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wastewater HTC Calculator Section -->
+    <section class="calculator-section" id="calculator">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="sub-title">Kalkulacja systemu</span>
+          <h2>Inżynieryjny kalkulator węgla ekologicznego BioTC</h2>
+          <p class="section-desc">Wprowadź równoważną liczbę mieszkańców (RLM) lub dobową ilość odwodnionego surowca organicznego, aby obliczyć wolumen produkcji węgla ekologicznego oraz redukcję kosztów logistycznych.</p>
+        </div>
+
+        <div class="calc-grid">
+          <!-- Inputs Column -->
+          <div class="glass-card calc-inputs-card">
+            <fieldset class="form-group-fieldset">
+              <legend class="calc-legend">1. Metoda oceny obciążenia</legend>
+              <div class="category-selector">
+                <input type="radio" id="calc-by-rlm" name="calc-mode" value="rlm" checked class="visually-hidden">
+                <label for="calc-by-rlm" class="cat-label">
+                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                  <span>Według RLM (mieszkańcy)</span>
+                </label>
+
+                <input type="radio" id="calc-by-tons" name="calc-mode" value="tons" class="visually-hidden">
+                <label for="calc-by-tons" class="cat-label">
+                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                  <span>Według ton surowca</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-group-fieldset">
+              <legend class="calc-legend">2. Wolumen obciążenia</legend>
+              <div class="calc-dynamic-inputs">
+                <!-- RLM Input -->
+                <div id="inputs-rlm" class="dynamic-group active">
+                  <div class="form-group-range">
+                    <label for="rlm-count">Równoważna liczba mieszkańców (RLM): <span id="rlm-val" class="text-blue font-bold">20 000</span> RLM</label>
+                    <input type="range" id="rlm-count" min="5000" max="100000" value="20000" step="5000" class="slider-input">
+                    <div class="range-labels">
+                      <span>5 000 RLM</span>
+                      <span>100 000 RLM</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tons Input -->
+                <div id="inputs-tons" class="dynamic-group">
+                  <div class="form-group-range">
+                    <label for="tons-count">Odwodniony surowiec organiczny na dobę: <span id="tons-val" class="text-blue font-bold">6,0</span> t/dobę</label>
+                    <input type="range" id="tons-count" min="1.5" max="30.0" value="6.0" step="0.5" class="slider-input">
+                    <div class="range-labels">
+                      <span>1,5 t/dobę</span>
+                      <span>30,0 t/dobę</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <!-- Output Column -->
+          <div class="glass-card calc-output-card border-blue">
+            <h3 class="calc-output-title">Konfiguracja systemu BioTC</h3>
+            <div id="calc-result-normal">
+              <div class="model-badge" id="recommended-model">BioTC HTC-S 5</div>
+              <div class="metrics-grid">
+                <div class="metric-item">
+                  <span class="m-label">Substancja wyjściowa (80% wilg.)</span>
+                  <span class="m-val" id="wet-input-val">2 190 t/rok</span>
+                </div>
+                <div class="metric-item">
+                  <span class="m-label">Wydajność węgla ekologicznego</span>
+                  <span class="m-val text-orange" id="hydrochar-val">482 t/rok</span>
+                </div>
+                <div class="metric-item">
+                  <span class="m-label">Potencjał cieplny</span>
+                  <span class="m-val" id="energy-val">9 636 GJ/rok</span>
+                </div>
+                <div class="metric-item">
+                  <span class="m-label">Redukcja CO₂</span>
+                  <span class="m-val text-teal" id="co2-val">~578 t/rok</span>
+                </div>
+              </div>
+              <div class="eco-benefit">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="#0D9488" stroke-width="2" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Instalacja całkowicie eliminuje nieprzyjemne zapachy i niszczy mikroplastik.</span>
+              </div>
+              <button class="btn btn-primary btn-block" id="calc-cta-btn">Uzyskaj kalkulację studium wykonalności</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Showroom Section -->
+    <section class="showroom-section" id="showroom">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="sub-title">Warianty konfiguracji</span>
+          <h2>Specyfikacje instalacji BioTC</h2>
+          <p class="section-desc">Systemy są dostosowywane do konkretnych zadań inżynieryjnych i wolumenów wyjściowej substancji organicznej.</p>
+        </div>
+
+        <!-- Tab Controls -->
+        <div class="showroom-tabs" role="tablist" aria-label="Typy instalacji BioTC">
+          <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-htc-s" id="tab-htc-s">BioTC HTC-S (Stabilizacja)</button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-htc-d" id="tab-htc-d">BioTC HTC-D (Fermentacja)</button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-th-htc" id="tab-th-htc">TH + HTC (Hydroliza Termiczna)</button>
+        </div>
+
+        <!-- Tab Panels -->
+        <div class="tab-content">
+          <!-- HTC-S Panel -->
+          <div class="tab-panel active" id="panel-htc-s" role="tabpanel" aria-labelledby="tab-htc-s">
+            <div class="product-cards-grid">
+              <!-- Card 1 -->
+              <div class="glass-card product-card">
+                <div class="prod-badge">Dla małych miast / gmin</div>
+                <h3>BioTC HTC-S 5</h3>
+                <p class="prod-desc">Idealne rozwiązanie dla oczyszczalni ścieków w miastach do 15 000 RLM. Zapewnia ekologiczną stabilizację bez wydzielonych komór fermentacyjnych.</p>
+                <ul class="prod-specs">
+                  <li><strong>Wydajność:</strong> do 5 ton odwodnionego surowca organicznego/dobę</li>
+                  <li><strong>Wilgotność substancji wyjściowej:</strong> 75% - 82%</li>
+                  <li><strong>Wydajność węgla ekologicznego:</strong> ~1.1 t/dobę (suchego)</li>
+                  <li><strong>Autorekuperacja ciepła:</strong> Automatyczna wewnętrzna</li>
+                </ul>
+                <div class="prod-price">Zwrot inwestycji: 4-5 lat</div>
+                <a href="#contact" class="btn btn-outline btn-block">Zamów kalkulację studium wykonalności</a>
+              </div>
+              <!-- Card 2 -->
+              <div class="glass-card product-card border-blue">
+                <div class="prod-badge">Popularna konfiguracja</div>
+                <h3>BioTC HTC-S 15</h3>
+                <p class="prod-desc">Dla średnich miast do 50 000 RLM. Całkowicie eliminuje potrzebę rozbudowy poletek osadowych.</p>
+                <ul class="prod-specs">
+                  <li><strong>Wydajność:</strong> do 15 ton odwodnionego surowca organicznego/dobę</li>
+                  <li><strong>Wilgotność substancji wyjściowej:</strong> 75% - 85%</li>
+                  <li><strong>Wydajność węgla ekologicznego:</strong> ~3.3 t/dobę (suchego)</li>
+                  <li><strong>Kontrola emisji:</strong> Hermetyczny system zamknięty</li>
+                </ul>
+                <div class="prod-price">Zwrot inwestycji: 3.5-4 lata</div>
+                <a href="#contact" class="btn btn-outline btn-block">Zamów kalkulację studium wykonalności</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- HTC-D Panel -->
+          <div class="tab-panel hidden" id="panel-htc-d" role="tabpanel" aria-labelledby="tab-htc-d">
+            <div class="product-cards-grid">
+              <!-- Card 1 -->
+              <div class="glass-card product-card border-teal">
+                <div class="prod-badge">Booster energetyczny</div>
+                <h3>BioTC HTC-D 30</h3>
+                <p class="prod-desc">Model dla oczyszczalni ścieków z komorami fermentacyjnymi. Intensyfikuje produkcję biogazu.</p>
+                <ul class="prod-specs">
+                  <li><strong>Wydajność:</strong> do 30 ton odwodnionego surowca organicznego/dobę</li>
+                  <li><strong>Wzrost produkcji biogazu:</strong> +15% - 20% wydajności CH₄</li>
+                  <li><strong>Recyrkulacja fazy ciekłej:</strong> Bezpośrednio do komory fermentacyjnej (stymulacja)</li>
+                  <li><strong>Sterowanie:</strong> W pełni automatyczne ze SCADA</li>
+                </ul>
+                <div class="prod-price">Wysoka efektywność energetyczna</div>
+                <a href="#contact" class="btn btn-outline btn-block">Zamów audyt surowca</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- TH + HTC Panel -->
+          <div class="tab-panel hidden" id="panel-th-htc" role="tabpanel" aria-labelledby="tab-th-htc">
+            <div class="ind-panel-content glass-card">
+              <div class="ind-grid">
+                <div>
+                  <h3>TH + HTC: Zintegrowane rozwiązanie dwustopniowe</h3>
+                  <p class="prod-desc">Kompleksowy system przemysłowy dla oczyszczalni ścieków z fermentacją beztlenową. Łączy hydrolizę termiczną przed fermentacją i karbonizację hydrotermalną po niej.</p>
+                  <ul class="prod-specs">
+                    <li><strong>Wzrost produkcji biogazu:</strong> od +35% do +50% generacji CH₄</li>
+                    <li><strong>Redukcja pozostałości:</strong> 5-krotne zmniejszenie masy suchej pozostałości</li>
+                    <li><strong>Bilans energetyczny:</strong> Autonomiczne zaopatrzenie w energię elektryczną i ciepło</li>
+                    <li><strong>Bariera molekularna:</strong> Całkowita destrukcja mikroplastiku, PFAS i patogenów</li>
+                  </ul>
+                  <div class="prod-price">Maksymalna niezależność energetyczna</div>
+                  <a href="#contact" class="btn btn-outline btn-block">Zamów audyt surowca</a>
+                </div>
+                <div>
+                  <!-- Inline SVG representing process flow or similar clean graphic -->
+                  <svg class="svg-tech-diagram" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569" />
+                      </marker>
+                    </defs>
+                    <rect width="200" height="150" fill="none"/>
+                    <!-- TH Reactor Node -->
+                    <rect x="15" y="25" width="50" height="40" rx="4" fill="#046BD2" fill-opacity="0.1" stroke="#046BD2" stroke-width="2"/>
+                    <text x="40" y="49" font-family="Outfit" font-size="10" font-weight="bold" fill="#0F172A" text-anchor="middle">TH (165°C)</text>
+                    <!-- Digester Node -->
+                    <rect x="80" y="55" width="40" height="40" rx="20" fill="#0D9488" fill-opacity="0.1" stroke="#0D9488" stroke-width="2"/>
+                    <text x="100" y="79" font-family="Outfit" font-size="10" font-weight="bold" fill="#0F172A" text-anchor="middle">AD</text>
+                    <!-- HTC Reactor Node -->
+                    <rect x="135" y="85" width="50" height="40" rx="4" fill="#D35400" fill-opacity="0.1" stroke="#D35400" stroke-width="2"/>
+                    <text x="160" y="109" font-family="Outfit" font-size="10" font-weight="bold" fill="#0F172A" text-anchor="middle">HTC (200°C)</text>
+                    <!-- Flow Arrows -->
+                    <path d="M 65 45 L 80 65" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+                    <path d="M 120 75 L 135 95" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- Close tab-content -->
+      </div> <!-- Close showroom-section container -->
+    </section>
+
+    <!-- Technology & Process Section -->
+    <section class="tech-section" id="tech">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="sub-title">Etapy procesu</span>
+          <h2>4 etapy rekombinacji molekularnej</h2>
+          <p class="section-desc">Szybki proces fizyczno-termiczny BioTC odtwarza wielowiekowy naturalny cykl powstawania węgla w zaledwie 2 godziny.</p>
+        </div>
+
+        <div class="tech-steps">
+          <!-- Step 1 -->
+          <div class="tech-step-card glass-card">
+            <div class="step-num">01</div>
+            <h3>Wstępne podgrzewanie</h3>
+            <p>Odwodniona substancja wyjściowa (wilgotność ok. 80%) jest podawana do systemu i podgrzewana za pomocą odzysku ciepła ze strumieni wylotowych, co zapewnia minimalne zewnętrzne zużycie energii.</p>
+          </div>
+          <!-- Step 2 -->
+          <div class="tech-step-card glass-card border-blue">
+            <div class="step-num text-blue">02</div>
+            <h3>Reakcja kompozycji molekularnej</h3>
+            <p>Mieszanina jest podgrzewana do 180-220°C pod ciśnieniem autogenicznym 15-25 bar. Woda pozostaje w stanie ciekłym, niszcząc strukturę komórkową mikroorganizmów i uwalniając wodę związaną.</p>
+          </div>
+          <!-- Step 3 -->
+          <div class="tech-step-card glass-card">
+            <div class="step-num">03</div>
+            <h3>Odwodnienie mechaniczne</h3>
+            <p>Skarbonizowana zawiesina węglowa łatwo oddaje wodę. Jest kierowana do prasy filtracyjnej, gdzie wilgotność spada z 80% do 35-40% bez użycia kosztownych koagulantów.</p>
+          </div>
+          <!-- Step 4 -->
+          <div class="tech-step-card glass-card">
+            <div class="step-num">04</div>
+            <h3>Suszenie i granulacja</h3>
+            <p>Odwodniony węgiel ekologiczny jest dosuszany ciepłem niskotemperaturowym do wilgotności resztkowej &lt;10%. Produktem końcowym jest czysty węgiel ekologiczny, gotowy do spalenia lub sprzedaży.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wastewater vs Eco-Coal Quality Comparison Table -->
+    <section class="quality-section" id="comparison">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="sub-title">Analiza porównawcza</span>
+          <h2>Substancja wyjściowa vs Węgiel ekologiczny BioTC</h2>
+          <p class="section-desc">Parametry fizykochemiczne substancji przed i po procesie karbonizacji molekularnej BioTC.</p>
+        </div>
+
+        <div class="quality-card glass-card">
+          <div class="table-responsive">
+            <table class="quality-table">
+              <thead>
+                <tr>
+                  <th>Parametr fizykochemiczny</th>
+                  <th>Wyjściowa substancja organiczna</th>
+                  <th>Węgiel ekologiczny BioTC</th>
+                  <th>Właściwości paliwowe</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Zawartość wilgoci (%)</strong></td>
+                  <td class="text-red">75% - 85%</td>
+                  <td class="text-teal font-bold">&lt; 10%</td>
+                  <td>Stabilny, wygodny w logistyce</td>
+                </tr>
+                <tr>
+                  <td><strong>Wartość opałowa</strong></td>
+                  <td class="text-red">2 - 4 MJ/kg</td>
+                  <td class="text-teal font-bold">20 - 25 MJ/kg</td>
+                  <td>Równoważnik węgla brunatnego klasy D</td>
+                </tr>
+                <tr>
+                  <td><strong>Patogeny (bakterie, pasożyty)</strong></td>
+                  <td class="text-red">Wysokie ryzyko epidemiczne</td>
+                  <td class="text-teal font-bold">W 100% sterylny</td>
+                  <td>Całkowicie bezpieczny w przechowywaniu</td>
+                </tr>
+                <tr>
+                  <td><strong>Nieprzyjemny zapach</strong></td>
+                  <td class="text-red">Ostry, intensywny</td>
+                  <td class="text-teal font-bold">Całkowicie nieobecny</td>
+                  <td>Naturalny neutralny zapach</td>
+                </tr>
+                <tr>
+                  <td><strong>PFAS i mikroplastik</strong></td>
+                  <td class="text-red">Obecne w dużych ilościach</td>
+                  <td class="text-teal font-bold">Całkowicie zniszczone</td>
+                  <td>Zgodny z wymogami ekologicznymi UE</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reputational Credentials & Social Proof Section -->
+    <section class="proof-section" id="proof">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="sub-title">Wiarygodność</span>
+          <h2>Ufają nam samorządy i giganci inżynieryjni</h2>
+          <p class="section-desc">Technologia BioTC została pomyślnie przetestowana, opatentowana i jest wdrażana we współpracy z wiodącymi europejskimi przedsiębiorstwami oraz uczelniami wyższymi.</p>
+        </div>
+
+        <div class="proof-grid">
+          <!-- Card 1: Lubin -->
+          <div class="glass-card proof-card">
+            <div class="proof-logo-wrapper">
+              <!-- Inline SVG representing Lubin MPWiK Logo -->
+              <svg class="brand-logo-svg" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo MPWiK Lubin">
+                <path d="M10 20C10 14.48 14.48 10 20 10C25.52 10 30 14.48 30 20C30 25.52 25.52 30 20 30C14.48 30 10 25.52 10 20Z" fill="#046BD2" fill-opacity="0.2"/>
+                <path d="M20 5C11.72 5 5 11.72 5 20C5 28.28 11.72 35 20 35C28.28 35 35 28.28 35 20C35 11.72 28.28 5 20 5ZM20 28C15.58 28 12 24.42 12 20C12 15.58 15.58 12 20 12C24.42 12 28 15.58 28 20C28 24.42 24.42 28 20 28Z" fill="#046BD2"/>
+                <path d="M20 15L23 20H17L20 15Z" fill="#0D9488"/>
+                <text x="45" y="25" fill="#0F172A" font-family="Outfit" font-size="16" font-weight="800">MPWiK LUBIN</text>
+              </svg>
+            </div>
+            <span class="proof-badge-text">Wdrożenie Samorządowe</span>
+            <h3>Rzeczywiste wdrożenie</h3>
+            <p>W październiku 2025 roku przedsiębiorstwo miejskie <strong>MPWiK Lubin (Polska)</strong> oficjalnie zatwierdziło i wykupiło prawa autorskie do koncepcji technologicznej TH-AD-HTC od BioTC w celu modernizacji miejskiej oczyszczalni ścieków.</p>
+          </div>
+
+          <!-- Card 2: AGH -->
+          <div class="glass-card proof-card">
+            <div class="proof-logo-wrapper">
+              <!-- Inline SVG representing AGH Krakow Logo -->
+              <svg class="brand-logo-svg" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo AGH Krakow">
+                <rect width="32" height="32" rx="4" fill="#0F172A"/>
+                <path d="M16 6L24 22H8L16 6Z" fill="#D35400"/>
+                <circle cx="16" cy="16" r="3" fill="#FFFFFF"/>
+                <text x="42" y="25" fill="#0F172A" font-family="Outfit" font-size="18" font-weight="800">AGH KRAKÓW</text>
+              </svg>
+            </div>
+            <span class="proof-badge-text">Zaplecze Naukowe</span>
+            <h3>Wsparcie akademickie</h3>
+            <p>Rozwój i badania procesów kompozycji organicznej są prowadzone w ścisłej współpracy z wybitnymi profesorami energetyki cieplnej i inżynierii środowiska <strong>Akademii Górniczo-Hutniczej im. Stanisława Staszica w Krakowie</strong>.</p>
+          </div>
+
+          <!-- Card 3: INTROL -->
+          <div class="glass-card proof-card">
+            <div class="proof-logo-wrapper">
+              <!-- Inline SVG representing INTROL Logo -->
+              <svg class="brand-logo-svg" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo Grupa INTROL">
+                <rect x="5" y="8" width="10" height="24" fill="#046BD2"/>
+                <rect x="20" y="8" width="10" height="24" fill="#0D9488"/>
+                <rect x="35" y="8" width="10" height="24" fill="#D35400"/>
+                <text x="55" y="26" fill="#0F172A" font-family="Outfit" font-size="18" font-weight="800">INTROL GROUP</text>
+              </svg>
+            </div>
+            <span class="proof-badge-text">Skala Generalnego Wykonawstwa</span>
+            <h3>Inżynieria przemysłowa</h3>
+            <p>Wszelkie prace projektowe, montażowe oraz rozruch przemysłowych systemów BioTC są realizowane „pod klucz” przez konsorcjum <strong>Grupa INTROL S.A.</strong> — wiodący polski holding inżynieryjny notowany na Giełdzie Papierów Wartościowych w Warszawie.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RFQ Contact Form Section -->
+    <section class="contact-section" id="contact">
+      <div class="container contact-grid">
+        <!-- Text Block -->
+        <div class="contact-text">
+          <span class="sub-title">Konsultacje i kalkulacja</span>
+          <h2>Uzyskaj bezpłatny audyt surowca i studium wykonalności</h2>
+          <p>Nasi inżynierowie przeprowadzą ocenę bilansu wyjściowego surowca z oczyszczalni ścieków Twojego miasta lub przedsiębiorstwa, dobiorą optymalną konfigurację instalacji BioTC oraz prześlą kalkulację okresu zwrotu z inwestycji.</p>
+          
+          <div class="contact-info-list">
+            <div class="info-item">
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="#0D9488" stroke-width="2" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span><a href="tel:+48608003458" style="color: inherit; text-decoration: none;">+48 608 003 458</a></span>
+            </div>
+            <div class="info-item">
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="#0D9488" stroke-width="2" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span><a href="mailto:andrzej.krop@biotc.pl" style="color: inherit; text-decoration: none;">andrzej.krop@biotc.pl</a></span>
+            </div>
+            <div class="info-item">
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="#0D9488" stroke-width="2" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>ul. Daszyńskiego 34/3, 44-100 Gliwice, Polska</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Block -->
+        <div class="glass-card contact-form-card">
+          <form id="rfq-form" action="#" method="POST" class="rfq-form-element" aria-describedby="form-status">
+            <!-- Honey pot spam prevention -->
+            <div class="visually-hidden">
+              <label for="honeypot">Nie wypełniaj tego pola, jeśli jesteś człowiekiem:</label>
+              <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
+            </div>
+
+            <fieldset class="form-fieldset">
+              <legend class="visually-hidden">Informacje kontaktowe</legend>
+              
+              <!-- Name Input -->
+              <div class="form-group">
+                <label for="user-name" class="floating-label">Twoje imię, nazwisko i stanowisko *</label>
+                <input type="text" id="user-name" name="name" required minlength="2" maxlength="100" autocomplete="name" placeholder=" ">
+                <span class="error-msg" id="name-error" aria-live="polite">Wprowadź imię, nazwisko i stanowisko (minimum 2 znaki).</span>
+              </div>
+
+              <!-- Phone Input -->
+              <div class="form-group">
+                <label for="user-phone" class="floating-label">Numer telefonu kontaktowego *</label>
+                <input type="tel" id="user-phone" name="phone" required autocomplete="tel" inputmode="tel" pattern="^\+?[0-9\s\-()]{10,20}$" placeholder=" ">
+                <span class="error-msg" id="phone-error" aria-live="polite">Wprowadź poprawny numer telefonu.</span>
+              </div>
+
+              <!-- Email Input -->
+              <div class="form-group">
+                <label for="user-email" class="floating-label">Firmowy adres e-mail *</label>
+                <input type="email" id="user-email" name="email" required autocomplete="email" placeholder=" ">
+                <span class="error-msg" id="email-error" aria-live="polite">Niepoprawny format adresu e-mail.</span>
+              </div>
+
+              <!-- City/Company Input -->
+              <div class="form-group">
+                <label for="user-company" class="floating-label">Nazwa miasta (Wodociągów) / Firmy *</label>
+                <input type="text" id="user-company" name="company" required minlength="2" placeholder=" ">
+                <span class="error-msg" id="company-error" aria-live="polite">Wskaż nazwę przedsiębiorstwa lub miejscowości.</span>
+              </div>
+
+              <!-- Message Textarea -->
+              <div class="form-group">
+                <label for="user-message" class="floating-label">Parametry obiektu (RLM lub t/dobę surowca) / Komentarz</label>
+                <textarea id="user-message" name="message" rows="3" placeholder=" "></textarea>
+              </div>
+
+              <!-- Hidden Preselected Model for Form Submission Tracking -->
+              <input type="hidden" id="preselected-model" name="model" value="BioTC HTC-S 5">
+
+              <button type="submit" class="btn btn-primary btn-block" id="form-submit-btn">Wyślij zapytanie o studium wykonalności</button>
+            </fieldset>
+
+            <!-- Success/Feedback Message -->
+            <div id="form-status" class="form-status-container hidden" role="status" aria-live="assertive">
+              <!-- Dynamically populated via JS -->
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="main-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="logo-text">BTC<span>Consulting</span></span>
+        <p>Kompleksowe rozwiązania inżynieryjne clean-tech w zakresie zaopatrzenia w wodę i odzysku organicznej substancji wyjściowej.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Nawigacja</h4>
+        <ul>
+          <li><a href="#calculator">Kalkulator BioTC</a></li>
+          <li><a href="#showroom">Instalacje BioTC</a></li>
+          <li><a href="#tech">Etapy technologii</a></li>
+          <li><a href="#comparison">Właściwości paliwa</a></li>
+          <li><a href="#proof">Wiarygodność i partnerzy</a></li>
+        </ul>
+      </div>
+      <div class="footer-copy">
+        <p>&copy; 2026 BTC Consulting Sp. z o.o. Wdrożenie technologii BioTC. Wszelkie prawa zastrzeżone. Urządzenia są zgodne z unijnymi regulacjami środowiskowymi.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script File -->
+  <script src="../app.js"></script>
+</body>
+</html>

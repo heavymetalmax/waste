@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Симулятор окупності BioTC | BTC Consulting</title>
+  <meta name="description" content="Розрахуйте окупність BioTC за 60 секунд: CapEx, дедлайни UWWTD, щорічна економія та земельний актив для вашого об'єкта.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+
+  <link rel="stylesheet" href="../styles.min.css?v=23">
+  <link rel="prefetch" href="index.html">
+
+  <link rel="alternate" hreflang="uk-UA" href="https://biotc.com.ua/simulator" />
+  <link rel="alternate" hreflang="x-default" href="https://biotc.com.ua/simulator" />
+</head>
+<body>
+
+  <div class="blur-orb orb-1"></div>
+  <div class="blur-orb orb-2"></div>
+  <div class="blur-orb orb-3"></div>
+
+  <!-- ============================================================ -->
+  <!-- HEADER                                                        -->
+  <!-- ============================================================ -->
+  <header class="main-header" id="header">
+    <div class="header-container">
+      <a href="index.html" class="logo" aria-label="Головна BTC Consulting">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logo-grad-s" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+              <stop offset="0%" stop-color="#046BD2"/>
+              <stop offset="100%" stop-color="#0D9488"/>
+            </linearGradient>
+            <linearGradient id="logo-grad-m" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+              <stop offset="0%" stop-color="#38BDF8"/>
+              <stop offset="100%" stop-color="#2DD4BF"/>
+            </linearGradient>
+          </defs>
+          <!-- outer droplet: site primary gradient -->
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#logo-grad-s)"/>
+          <!-- middle droplet: lighter gradient, white ring separates from outer -->
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z"
+                fill="url(#logo-grad-m)" stroke="white" stroke-width="1.5" vector-effect="non-scaling-stroke"
+                transform="translate(12,13) scale(0.62) translate(-12,-13)"/>
+          <!-- inner droplet: white — clean water -->
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z"
+                fill="white" opacity="0.92"
+                transform="translate(12,13) scale(0.33) translate(-12,-13)"/>
+        </svg>
+        <span class="logo-text"><span class="logo-btc">BTC</span> Consulting</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Основне меню">
+        <ul>
+          <li><a href="index.html">Рішення</a></li>
+      <li><a href="technology.html">Технологія</a></li>
+          <li><a href="simulator.html" class="active">Розрахунки</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+<button class="lang-globe-btn" id="lang-globe-btn" aria-label="Language">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M2 12h20"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      </button>
+        <button class="nav-fab" id="nav-fab" aria-label="Аудит об'єкта">
+          <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 12 19.79 19.79 0 0 1 1.08 3.38 2 2 0 0 1 3.07 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
+        </button>
+      </div>
+        <button class="mobile-toggle" aria-label="Відкрити меню" aria-expanded="false" aria-controls="nav-mobile-strip">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+    </div>
+
+    <div class="lang-strip" id="lang-strip" aria-hidden="true">
+      <div class="lang-strip-inner">
+        <a href="../pl/simulator.html" class="lang-strip-item ">&#x1F1F5;&#x1F1F1; Polski</a>
+        <a href="../eu/simulator.html" class="lang-strip-item ">&#x1F1EA;&#x1F1FA; English</a>
+        <a href="simulator.html" class="lang-strip-item active">&#x1F1FA;&#x1F1E6; Українська</a>
+      </div>
+    </div>
+    <div class="nav-mobile-strip" id="nav-mobile-strip" aria-hidden="true">
+      <div class="nav-mobile-strip-inner">
+        <ul>
+          <li><a href="index.html">Рішення</a></li>
+          <li><a href="technology.html">Технологія</a></li>
+          <li><a href="simulator.html" class="active">Розрахунки</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================ -->
+    <!-- BLOCK 1: Compact hero banner                                  -->
+    <!-- ============================================================ -->
+    <section class="sim-hero-section">
+      <div class="container">
+        <div class="sim-hero-content">
+          <span class="badge">Модель уникнутих витрат · Avoided Costs Model</span>
+          <h1>Розрахуйте окупність <span class="h1-solution">вашого об'єкта за 60 секунд.</span></h1>
+          <p class="sim-hero-desc">Вкажіть обсяг мулу та параметри: симулятор миттєво покаже CapEx, щорічну економію, земельний актив і термін окупності після гранту.</p>
+        </div>
+
+        <!-- Methodology accordion -->
+        <details class="sim-method">
+          <summary class="sim-method-toggle">Як ми рахуємо → методика</summary>
+          <div class="sim-method-body">
+            <div class="sim-article">
+
+              <!-- Lead paragraph — full width -->
+              <p class="sim-article-lead">Традиційні моделі окупності для нових технологій будуються на потенційному доході від продажу продукту: гідровугілля, енергії, добрив. Ми навмисно НЕ використовуємо цей підхід.</p>
+              <p class="sim-article-lead">Ми не рахуємо дохід від продажу гідровугілля. Ми рахуємо скільки ви ПЕРЕСТАЄТЕ ПЛАТИТИ. Кошти, які ваш об'єкт зараз витрачає на утилізацію мулу (транспорт, полімери, полігон, рекультивація): це уникнута витрата після встановлення BTC.</p>
+
+              <!-- Two-column body -->
+              <div class="sim-article-cols">
+
+                <!-- LEFT: rationale -->
+                <div class="sim-article-col">
+                  <h4 class="sim-article-h4">Зараз ваш об'єкт ПЛАТИТЬ щороку</h4>
+                  <ul class="sim-article-list">
+                    <li>Полімери для зневоднення: €40–80/т</li>
+                    <li>Транспорт до місця утилізації: €20–50/т</li>
+                    <li>Gate Fee полігону або інсинератора: €60–160/т</li>
+                    <li>Екоподаток / штрафи за захоронення: €40–120/т</li>
+                    <li>Рекультивація мулових полів: €20–50/т</li>
+                  </ul>
+                  <p class="sim-article-note">→ і ці суми щороку зростають через EU ETS та UWWTD</p>
+
+                  <h4 class="sim-article-h4">Після BTC: одноразова інвестиція замінює нескінченні платежі</h4>
+                  <p>Усі ті рядки вище зникають із операційного бюджету. Після окупності 100% колишніх витрат стають чистим виграшем, назавжди, щороку, поки працює установка.</p>
+
+                  <h4 class="sim-article-h4">Чому ця модель надійніша за прогноз доходу?</h4>
+                  <p>Поточні витрати на утилізацію є аудитованими рядками у вашому бюджеті. Їх не потрібно прогнозувати, вони вже є. Ринок гідровугілля, навпаки, ще формується і залежить від кон'юнктури. Модель уникнутих витрат не залежить від ціни продажу, ринкового попиту чи регуляторних змін. Саме тому вона легше проходить через муніципальні ради, грантові комітети та банківський скоринг при кредитуванні ЄБРР / КЕБ.</p>
+
+                  <h4 class="sim-article-h4">Додатково: але НЕ в базовому розрахунку</h4>
+                  <p>Потенційні доходи від реалізації гідровугілля (замінник вугілля, ґрунтові добавки) та вуглецеві кредити (Carbon Credits) існують, але ринок нестабільний. Симулятор показує найгірший сценарій: щоб будь-яка реальна цифра була приємним сюрпризом.</p>
+                </div>
+
+                <!-- RIGHT: formulas & data -->
+                <div class="sim-article-col">
+                  <h4 class="sim-article-h4">CapEx</h4>
+                  <p>~€250 на 1 т/рік продуктивності. Модульна конструкція, ціна масштабується лінійно. Після гранту ЄС 75% реальна частка міста близько €62/т.</p>
+
+                  <h4 class="sim-article-h4">Гранти</h4>
+                  <p>EU LIFE / Horizon Europe / KRPOiŚ (PL) / UA Recovery Fund: до 60–85% CapEx. У моделі за замовчуванням 75%: консервативна оцінка.</p>
+
+                  <h4 class="sim-article-h4">Формула ROI</h4>
+                  <code class="sim-article-formula">(CapEx після гранту − Земельний актив) ÷ Щорічна економія</code>
+
+                  <h4 class="sim-article-h4">Земельний актив</h4>
+                  <p>1,5 м² на 1 т/рік потужності (шари сушіння + санітарна зона). Після закриття мулових майданчиків ця земля повертається у господарський обіг і зараховується у баланс проекту.</p>
+
+                  <h4 class="sim-article-h4">Базові ставки та джерела</h4>
+                  <p>Витрати на утилізацію: галузеві середні за польськими тендерами 2022–2024 та українськими тарифами. Тариф на біогаз: EU ETS mid-price. Норматив осаду: BREF FDM 2019 (JRC). Усі значення редагуються вручну в калькуляторі.</p>
+                </div>
+
+              </div><!-- /.sim-article-cols -->
+            </div><!-- /.sim-article -->
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- BLOCK 2: Simulator                                            -->
+    <!-- ============================================================ -->
+    <section id="simulator" class="sim-section">
+      <div class="sim-bg-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M13 12h1c1 0 1 1 2.016 3.527c.984 2.473 .984 3.473 1.984 3.473h1"/>
+          <path d="M12 19c1.5 0 3 -2 4 -3.5s2.5 -3.5 4 -3.5"/>
+          <path d="M3 12h1l3 8l3 -16h10"/>
+        </svg>
+      </div>
+      <div class="container">
+        <div class="srp-grid">
+
+          <!-- ── LEFT: Inputs ───────────────────────────────────── -->
+          <div class="srp-col">
+          <p class="section-label">Параметри об'єкта</p>
+          <div class="srp-panel">
+
+            <!-- Quick presets -->
+            <div class="srp-presets-wrap">
+              <div class="srp-presets">
+                <span class="srp-presets-lbl">Комунальні:</span>
+                <button type="button" class="srp-preset-btn" data-pe="20000"  data-ty="2000">Містечко · 20к р.е.</button>
+                <button type="button" class="srp-preset-btn" data-pe="100000" data-ty="10000">Місто · 100к р.е.</button>
+                <button type="button" class="srp-preset-btn" data-pe="300000" data-ty="30000">Агломерація · 300к р.е.</button>
+              </div>
+              <div class="srp-presets">
+                <span class="srp-presets-lbl">Промислові:</span>
+                <button type="button" class="srp-preset-btn" data-pe="60000"  data-ty="6000">Пивзавод · 60к р.е.</button>
+                <button type="button" class="srp-preset-btn" data-pe="25000"  data-ty="2500">Цукрозавод · 25к р.е.</button>
+                <button type="button" class="srp-preset-btn" data-pe="50000"  data-ty="5000">Агрохолдинг · 50к р.е.</button>
+              </div>
+            </div>
+
+            <!-- Volume group (gradient highlight, always visible) -->
+            <div class="srp-hl-group">
+            <div class="srp-hl-inner srp-vol-group">
+
+              <!-- Scenario tabs (top of highlighted block) -->
+              <div class="srp-sc-tabs" role="tablist" aria-label="Тип поводження з мулом">
+                <button type="button" class="srp-sc-tab active" data-sc="fields"     role="tab">Мулові поля</button>
+                <button type="button" class="srp-sc-tab"        data-sc="agro"       role="tab">Центрифуги + Агро</button>
+                <button type="button" class="srp-sc-tab"        data-sc="compost"    role="tab">Компостування</button>
+                <button type="button" class="srp-sc-tab"        data-sc="incinerate" role="tab">Сушіння + Спалення</button>
+                <button type="button" class="srp-sc-tab"        data-sc="landfill"   role="tab">Полігон ТПВ</button>
+              </div>
+
+              <div class="srp-field">
+                <label class="srp-label">Продуктивність (тонн / рік)</label>
+                <div class="srp-stepper">
+                  <button type="button" class="srp-btn-step" data-for="srp-vol-ty" data-dir="-1">&#8722;</button>
+                  <input type="number" id="srp-vol-ty" value="20000" min="0" max="200000" step="1000" inputmode="numeric" autocomplete="off">
+                  <button type="button" class="srp-btn-step" data-for="srp-vol-ty" data-dir="1">+</button>
+                </div>
+              </div>
+
+              <div class="srp-vol-or" aria-hidden="true">
+                <span class="srp-or-line"></span>
+                <span class="srp-or-text">або</span>
+                <span class="srp-or-line"></span>
+              </div>
+
+              <div class="srp-field">
+                <label class="srp-label">Еквівалент населення (р.е.)</label>
+                <div class="srp-stepper">
+                  <button type="button" class="srp-btn-step" data-for="srp-vol-pe" data-dir="-1">&#8722;</button>
+                  <input type="number" id="srp-vol-pe" value="200000" min="0" max="2000000" step="10000" inputmode="numeric" autocomplete="off">
+                  <button type="button" class="srp-btn-step" data-for="srp-vol-pe" data-dir="1">+</button>
+                </div>
+                <p class="srp-hint">1 р.е. = 0,1 т сухого мулу на рік</p>
+              </div>
+            </div><!-- /.srp-hl-inner -->
+            </div><!-- /.srp-hl-group -->
+
+            <!-- f1: scenario primary cost (always) -->
+            <div class="srp-field" id="srp-f1-wrap">
+              <div class="srp-label-row">
+                <label class="srp-label" id="srp-f1-label"></label>
+                <span class="srp-label-unit" id="srp-f1-unit"></span>
+              </div>
+              <div class="srp-stepper">
+                <button type="button" class="srp-btn-step" data-for="srp-f1" data-dir="-1">&#8722;</button>
+                <input type="number" id="srp-f1" value="60" min="0" step="5" inputmode="numeric" autocomplete="off">
+                <button type="button" class="srp-btn-step" data-for="srp-f1" data-dir="1">+</button>
+              </div>
+              <p class="srp-hint" id="srp-f1-hint"></p>
+            </div>
+
+            <!-- f2: scenario secondary cost (conditional) -->
+            <div class="srp-field" id="srp-f2-wrap">
+              <div class="srp-label-row">
+                <label class="srp-label" id="srp-f2-label"></label>
+                <span class="srp-label-unit" id="srp-f2-unit"></span>
+              </div>
+              <div class="srp-stepper">
+                <button type="button" class="srp-btn-step" data-for="srp-f2" data-dir="-1">&#8722;</button>
+                <input type="number" id="srp-f2" value="30" min="0" step="5" inputmode="numeric" autocomplete="off">
+                <button type="button" class="srp-btn-step" data-for="srp-f2" data-dir="1">+</button>
+              </div>
+              <p class="srp-hint" id="srp-f2-hint"></p>
+            </div>
+
+            <!-- Land price (only for Mudovi polia scenario) -->
+            <div class="srp-field" id="srp-land-wrap" style="display:none">
+              <div class="srp-label-row">
+                <label class="srp-label">Ціна 1 сотки земельної ділянки</label>
+                <span class="srp-label-unit">€/сот.</span>
+              </div>
+              <div class="srp-stepper">
+                <button type="button" class="srp-btn-step" data-for="srp-land" data-dir="-1">&#8722;</button>
+                <input type="number" id="srp-land" value="5000" min="0" step="250" inputmode="numeric" autocomplete="off">
+                <button type="button" class="srp-btn-step" data-for="srp-land" data-dir="1">+</button>
+              </div>
+              <p class="srp-hint">Ринкова ціна промислової ділянки в регіоні (1 сотка = 100 м²)</p>
+            </div>
+
+            <!-- Grant % (always visible) -->
+            <div class="srp-field">
+              <div class="srp-label-row">
+                <label class="srp-label">Грантове покриття ЄС</label>
+                <span class="srp-label-unit">%</span>
+              </div>
+              <div class="srp-stepper">
+                <button type="button" class="srp-btn-step" data-for="srp-grant" data-dir="-1">&#8722;</button>
+                <input type="number" id="srp-grant" value="75" min="0" max="90" step="5" inputmode="numeric" autocomplete="off">
+                <button type="button" class="srp-btn-step" data-for="srp-grant" data-dir="1">+</button>
+              </div>
+              <p class="srp-hint">Частка CapEx, яку покриває грант EU LIFE / Horizon</p>
+            </div>
+          </div>
+          </div><!-- /.srp-col -->
+          <!-- ── end LEFT ────────────────────────────────────────── -->
+
+
+          <!-- ── RIGHT: Results ─────────────────────────────────── -->
+          <div class="srp-col">
+          <p class="section-label">Результати</p>
+          <div class="srp-results">
+
+            <!-- Results card — financial report style -->
+            <div class="rpt-card">
+
+              <!-- ROI headline -->
+              <div class="rpt-kpi">
+                <span class="rpt-kpi-lbl">Термін окупності для міста (ROI)</span>
+                <span class="rpt-kpi-val" id="k5-val">—</span>
+              </div>
+              <p class="rpt-kpi-note" id="k5-note"></p>
+
+              <!-- UWWTD -->
+              <div class="rpt-section">
+                <div class="rpt-sh">Директива (ЄС) 2024/3019 UWWTD</div>
+                <div class="rpt-row">
+                  <span id="k1-sub"></span>
+                  <span class="rpt-num src-val--warn" id="k1-val">—</span>
+                </div>
+                <div class="rpt-row rpt-row--sub" id="k1-pe"></div>
+              </div>
+
+              <!-- CapEx -->
+              <div class="rpt-section">
+                <div class="rpt-sh">Капітальні витрати</div>
+                <div class="rpt-row">
+                  <span>Повний CapEx</span>
+                  <span class="rpt-num rpt-dim" id="k2-total">—</span>
+                </div>
+                <div class="rpt-row">
+                  <span>Грант ЄС</span>
+                  <span class="rpt-num rpt-dim" id="k2-grant">—</span>
+                </div>
+                <div class="rpt-row rpt-row--sum">
+                  <span>Власний внесок</span>
+                  <span class="rpt-num" id="k2-city">—</span>
+                </div>
+              </div>
+
+              <!-- Savings -->
+              <div class="rpt-section">
+                <div class="rpt-sh" id="k3-title">Щорічна економія (Утилізація + Енергія)</div>
+                <div class="rpt-row">
+                  <span id="k3-row1-label">Утилізація мулу</span>
+                  <span class="rpt-num rpt-dim" id="k3-disp">—</span>
+                </div>
+                <div class="rpt-row" id="k3-row2">
+                  <span id="k3-row2-label">Продаж електроенергії</span>
+                  <span class="rpt-num rpt-dim" id="k3-energy">—</span>
+                </div>
+                <div class="rpt-row" id="k3-row3" style="display:none">
+                  <span id="k3-row3-label">Біогаз → електроенергія (€160/МВт·год)</span>
+                  <span class="rpt-num rpt-dim" id="k3-energy3">—</span>
+                </div>
+                <div class="rpt-row rpt-row--sum">
+                  <span>Разом / рік</span>
+                  <span class="rpt-num rpt-teal" id="k3-cf">—</span>
+                </div>
+                <div class="rpt-row rpt-row--sub" id="k3-energy-status"></div>
+              </div>
+
+              <!-- Land asset -->
+              <div class="rpt-section">
+                <div class="rpt-sh">Звільнений актив (Закриття мулових майданчиків)</div>
+                <div class="rpt-row">
+                  <span>Ринкова вартість</span>
+                  <span class="rpt-num" id="k4-value">—</span>
+                </div>
+                <div class="rpt-row rpt-row--sub" id="k4-area"></div>
+              </div>
+
+              <!-- Conclusion -->
+              <div class="rpt-conclusion">
+                <div class="rpt-sh">Висновок та рекомендації</div>
+                <p class="rpt-conclusion-body" id="src-conclusion"></p>
+              </div>
+
+            </div><!-- /.rpt-card -->
+
+            <!-- CTA -->
+            <button class="srp-cta-btn" id="srp-cta-btn" onclick="openLeadModal()">
+              Зберегти ТЕО та замовити PDF-звіт →
+            </button>
+
+          </div>
+          </div><!-- /.srp-results-col -->
+          <!-- ── end RIGHT ───────────────────────────────────────── -->
+
+        </div><!-- .srp-grid -->
+
+        <div style="margin-block-start: var(--space-lg);">
+          <div style="margin-block-end: 0.5rem; display: flex; align-items: center;">
+            <span class="callout-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6"/><path d="M9 17v1a3 3 0 0 0 6 0v-1"/><path d="M21 6.727a11.05 11.05 0 0 0 -2.794 -3.727"/><path d="M3 6.727a11.05 11.05 0 0 1 2.792 -3.727"/></svg>
+            </span>
+          </div>
+          <div class="glass-card callout-box callout-box--accent" style="margin-top: 0;">
+            <p style="margin: 0;">Розрахунки є орієнтовними на основі галузевих середніх. Для точного техніко-економічного обґрунтування замовте безкоштовну інженерну оцінку.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!-- ============================================================ -->
+    <!-- BLOCK 2a: HTC Chemical Simulator                              -->
+    <!-- ============================================================ -->
+    <section class="htc-section" id="htc-simulator">
+      <div class="htc-bg-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M9 3l6 0"/>
+          <path d="M10 9l4 0"/>
+          <path d="M10 3v6l-4 11a.7 .7 0 0 0 .5 1h11a.7 .7 0 0 0 .5 -1l-4 -11v-6"/>
+        </svg>
+      </div>
+      <div class="container">
+
+        <div class="srp-chat-intro">
+          <p class="section-label">Хімічний аналіз продукту</p>
+          <h2>Склад гідровугілля та ринок збуту</h2>
+          <p class="section-desc">Оберіть профіль осаду: симулятор розрахує хімічний склад продукту та визначить легальний ринок збуту за директивами ЄС.</p>
+        </div>
+
+        <div class="htc-grid">
+
+          <!-- LEFT: inputs ───────────────────────────────────────── -->
+          <div class="srp-col">
+          <p class="section-label">Параметри об'єкта</p>
+          <div class="srp-panel">
+
+            <!-- Source type — bubble tabs -->
+            <div class="srp-field">
+              <label class="srp-label">Джерело стічних вод</label>
+              <div class="srp-sc-tabs" role="tablist">
+                <button type="button" class="srp-sc-tab active" data-source="municipal"  role="tab">Міські</button>
+                <button type="button" class="srp-sc-tab"        data-source="food"       role="tab">Харчова</button>
+                <button type="button" class="srp-sc-tab"        data-source="agro"       role="tab">Агро</button>
+                <button type="button" class="srp-sc-tab"        data-source="industrial" role="tab">Хімічна</button>
+              </div>
+            </div>
+
+            <!-- Reactor position — bubble toggle -->
+            <div class="srp-field">
+              <label class="srp-label">Схема інтеграції HTC</label>
+              <div class="srp-sc-tabs" role="tablist">
+                <button type="button" class="srp-sc-tab active" data-reactor="before" role="tab">Сирий осад</button>
+                <button type="button" class="srp-sc-tab"        data-reactor="after"  role="tab">Зброджений</button>
+              </div>
+            </div>
+
+            <!-- Organic % stepper -->
+            <div class="srp-field">
+              <div class="srp-label-row">
+                <label class="srp-label">Органічна речовина (суха маса)</label>
+                <span class="srp-label-unit">%</span>
+              </div>
+              <div class="srp-stepper">
+                <button type="button" class="srp-btn-step" data-for="htc-organic" data-dir="-1">&#8722;</button>
+                <input type="number" id="htc-organic" value="70" min="10" max="95" step="5" inputmode="numeric" autocomplete="off">
+                <button type="button" class="srp-btn-step" data-for="htc-organic" data-dir="1">+</button>
+              </div>
+            </div>
+
+            <!-- Ash % stepper -->
+            <div class="srp-field">
+              <div class="srp-label-row">
+                <label class="srp-label">Зольність</label>
+                <span class="srp-label-unit">%</span>
+              </div>
+              <div class="srp-stepper">
+                <button type="button" class="srp-btn-step" data-for="htc-ash" data-dir="-1">&#8722;</button>
+                <input type="number" id="htc-ash" value="30" min="5" max="90" step="5" inputmode="numeric" autocomplete="off">
+                <button type="button" class="srp-btn-step" data-for="htc-ash" data-dir="1">+</button>
+              </div>
+            </div>
+
+            <!-- Contaminant badges -->
+            <div class="htc-badges">
+              <span class="htc-badge htc-badge--warn" id="htc-badge-metals"></span>
+              <span class="htc-badge htc-badge--warn" id="htc-badge-plastics"></span>
+            </div>
+
+          </div>
+          </div><!-- /.srp-col left -->
+
+          <!-- RIGHT: single rpt-card (same pattern as economics results) -->
+          <div class="srp-col">
+          <p class="section-label">Результати</p>
+          <div class="htc-results">
+
+            <div class="rpt-card" id="htc-route-card">
+
+              <!-- Route headline — mirrors ROI kpi row -->
+              <div class="rpt-kpi">
+                <span class="rpt-kpi-lbl">Легальний шлях утилізації (ЄС)</span>
+                <span class="rpt-kpi-val" id="htc-kpi-route">&#8212;</span>
+              </div>
+              <p class="rpt-kpi-note" id="htc-route-long"></p>
+
+              <!-- Hydrochar passport -->
+              <div class="rpt-section">
+                <div class="rpt-sh">Паспорт гідровугілля</div>
+                <div class="rpt-row">
+                  <span>Масовий вихід (з 1 т АСР)</span>
+                  <span class="rpt-num rpt-teal" id="htc-char-mass">&#8212;</span>
+                </div>
+                <div class="rpt-row">
+                  <span>Вміст вуглецю (C)</span>
+                  <span class="rpt-num" id="htc-char-carbon">&#8212;</span>
+                </div>
+                <div class="rpt-row">
+                  <span>Вміст золи</span>
+                  <span class="rpt-num rpt-dim" id="htc-char-ash">&#8212;</span>
+                </div>
+                <div class="rpt-row rpt-row--sum">
+                  <span>Теплотворна здатність</span>
+                  <span class="rpt-num rpt-teal" id="htc-calorific">&#8212;</span>
+                </div>
+              </div>
+
+              <!-- Liquor to digester -->
+              <div class="rpt-section">
+                <div class="rpt-sh">Органіка → Метантанк</div>
+                <div class="rpt-row rpt-row--sum">
+                  <span>Направлено в ліквор</span>
+                  <span class="rpt-num rpt-teal" id="htc-liquor-carbon">&#8212;</span>
+                </div>
+                <div class="rpt-row rpt-row--sub">Розчинений вуглець генерує біогаз у 3× швидше за сирий осад. Реактор забезпечує себе власною енергією.</div>
+              </div>
+
+              <!-- Conclusion: route description + toxic warning -->
+              <div class="rpt-conclusion">
+                <div class="rpt-sh">Висновок та рекомендації</div>
+                <p class="rpt-conclusion-body" id="htc-route-text"></p>
+                <p class="htc-toxic-warning" id="htc-toxic-warning" style="display:none"></p>
+              </div>
+
+            </div><!-- /.rpt-card -->
+
+          </div>
+          </div><!-- /.srp-col right -->
+
+        </div><!-- /.htc-grid -->
+
+      </div>
+    </section>
+
+    <!-- HTC simulator logic -->
+    <script>
+    (function(){
+      var ROUTE_AGRO_SHORT  = 'Агро';
+      var ROUTE_FUEL_SHORT  = 'SRF/RDF';
+      var ROUTE_CONST_SHORT = 'Будівництво';
+      var ROUTE_AGRO_LONG   = 'Сільське господарство: Добриво / Покращувач ґрунту';
+      var ROUTE_FUEL_LONG   = 'Енергетика: Альтернативне паливо SRF/RDF';
+      var ROUTE_CONST_LONG  = 'Будівництво: Інертний наповнювач';
+      var ROUTE_TEXT_AGRO   = 'Відсутність токсинів дозволяє легально вносити продукт у ґрунт. Гідровугілля утримуватиме вологу та повертатиме поживні речовини.';
+      var ROUTE_TEXT_FUEL   = 'Мікропластик знищено, важкі метали надійно запечатані у вуглецевій матриці. Висока калорійність дозволяє продавати продукт на цементні заводи.';
+      var ROUTE_TEXT_CONST  = 'Висока зольність блокує ефективне спалювання. Єдиний легальний шлях утилізації за нормами ЄС: безпечна інкапсуляція токсинів у бетоні або асфальті.';
+      var TOXIC_WARNING     = '⚠ HTC іммобілізує {metals} у вуглецевій матриці та зменшує {plastics} до розміру <0.01 мм.';
+      var BADGE_METALS      = 'Важкі метали';
+      var BADGE_PLASTICS    = 'Мікропластик';
+      var UNIT_KG           = 'кг';
+      var UNIT_MJKG         = 'МДж/кг';
+
+      var PRESETS = {
+        municipal:  { organic: 70, metals: 'Перевищення норм',  plastics: 'Критичний рівень',  toxic: true  },
+        food:       { organic: 85, metals: 'В нормі',       plastics: 'Відсутні',       toxic: false },
+        agro:       { organic: 75, metals: 'В нормі',       plastics: 'Відсутні',       toxic: false },
+        industrial: { organic: 25, metals: 'Екстремально високі', plastics: 'Специфічні', toxic: true  }
+      };
+
+      var currentSource  = 'municipal';
+      var currentReactor = 'before';
+      var organicEl = document.getElementById('htc-organic');
+      var ashEl     = document.getElementById('htc-ash');
+
+      function htcCalc(triggeredBy) {
+        var isAsh = false;
+        if (triggeredBy === 'ash') {
+          isAsh = true;
+        } else if (triggeredBy && triggeredBy.target) {
+          var tgt = triggeredBy.target;
+          if (tgt.id === 'htc-ash' || (tgt.closest && tgt.closest('[data-for="htc-ash"]'))) {
+            isAsh = true;
+          }
+        }
+
+        var organic = parseFloat(organicEl.value) || 70;
+        var ash     = parseFloat(ashEl.value) || 30;
+
+        if (isAsh) {
+          ash = Math.max(5, Math.min(90, ash));
+          organic = 100 - ash;
+          organicEl.value = organic;
+        } else {
+          organic = Math.max(10, Math.min(95, organic));
+          ash = 100 - organic;
+          ashEl.value = ash;
+        }
+
+        var preset  = PRESETS[currentSource] || PRESETS.municipal;
+
+        /* Contaminant badges */
+        var badgeMet = document.getElementById('htc-badge-metals');
+        var badgePls = document.getElementById('htc-badge-plastics');
+        badgeMet.textContent = BADGE_METALS + ': ' + preset.metals;
+        badgePls.textContent = BADGE_PLASTICS + ': ' + preset.plastics;
+        badgeMet.className = 'htc-badge htc-badge--' + (preset.toxic ? (currentSource === 'industrial' ? 'bad' : 'warn') : 'ok');
+        badgePls.className = 'htc-badge htc-badge--' + (preset.toxic ? 'warn' : 'ok');
+
+        /* Chemistry — basis: 1000 kg dry matter */
+        var inputOrganicMass  = 1000 * (organic / 100);
+        var inputAshMass      = 1000 - inputOrganicMass;
+        var inputCarbonMass   = inputOrganicMass * 0.55;
+        var otherOrganicsMass = inputOrganicMass - inputCarbonMass;
+        var c_retention       = currentReactor === 'after' ? 0.85 : 0.70;
+        var charCarbonMass    = inputCarbonMass * c_retention;
+        var liquorCarbonMass  = inputCarbonMass - charCarbonMass;
+        var charOtherOrganics = otherOrganicsMass * 0.40;
+        var totalCharMass     = charCarbonMass + inputAshMass + charOtherOrganics;
+        var newCarbonPct      = (charCarbonMass / totalCharMass) * 100;
+        var newAshPct         = (inputAshMass   / totalCharMass) * 100;
+        var calorific         = newCarbonPct * 0.35;
+
+        /* Passport rows */
+        document.getElementById('htc-char-mass').textContent     = Math.round(totalCharMass) + ' ' + UNIT_KG;
+        document.getElementById('htc-char-carbon').textContent   = newCarbonPct.toFixed(1) + '%';
+        document.getElementById('htc-char-ash').textContent      = newAshPct.toFixed(1) + '%';
+        document.getElementById('htc-calorific').textContent     = calorific.toFixed(1) + ' ' + UNIT_MJKG;
+        document.getElementById('htc-liquor-carbon').textContent = Math.round(liquorCarbonMass) + ' ' + UNIT_KG;
+
+        /* Route headline */
+        var route  = !preset.toxic ? 'agro' : (calorific >= 12 ? 'fuel' : 'construction');
+        var kpiEl  = document.getElementById('htc-kpi-route');
+        kpiEl.textContent = { agro: ROUTE_AGRO_SHORT, fuel: ROUTE_FUEL_SHORT, construction: ROUTE_CONST_SHORT }[route];
+        kpiEl.className   = 'rpt-kpi-val htc-route--' + route;
+        document.getElementById('htc-route-long').textContent  = { agro: ROUTE_AGRO_LONG, fuel: ROUTE_FUEL_LONG,  construction: ROUTE_CONST_LONG  }[route];
+        document.getElementById('htc-route-text').textContent  = { agro: ROUTE_TEXT_AGRO, fuel: ROUTE_TEXT_FUEL,  construction: ROUTE_TEXT_CONST  }[route];
+
+        /* Toxic warning */
+        var warnEl = document.getElementById('htc-toxic-warning');
+        if (preset.toxic) {
+          warnEl.style.display = '';
+          warnEl.textContent = TOXIC_WARNING.replace('{metals}', preset.metals).replace('{plastics}', preset.plastics);
+        } else {
+          warnEl.style.display = 'none';
+        }
+      }
+
+      /* Source tabs */
+      document.querySelectorAll('.srp-sc-tab[data-source]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.srp-sc-tab[data-source]').forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          currentSource = btn.dataset.source;
+          organicEl.value = (PRESETS[currentSource] || PRESETS.municipal).organic;
+          htcCalc('organic');
+        });
+      });
+
+      /* Reactor tabs */
+      document.querySelectorAll('.srp-sc-tab[data-reactor]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.srp-sc-tab[data-reactor]').forEach(function(b){ b.classList.remove('active'); });
+          btn.classList.add('active');
+          currentReactor = btn.dataset.reactor;
+          htcCalc();
+        });
+      });
+
+      /* Organic stepper */
+      document.querySelectorAll('.srp-btn-step[data-for="htc-organic"]').forEach(function(b){
+        b.addEventListener('click', htcCalc);
+      });
+      organicEl.addEventListener('input', htcCalc);
+
+      /* Ash stepper */
+      document.querySelectorAll('.srp-btn-step[data-for="htc-ash"]').forEach(function(b){
+        b.addEventListener('click', htcCalc);
+      });
+      ashEl.addEventListener('input', htcCalc);
+
+      htcCalc();
+    })();
+    </script>
+
+
+    <!-- ============================================================ -->
+    <!-- BLOCK 2b: AI Agent Chat                                       -->
+    <!-- ============================================================ -->
+    <section class="srp-chat-section" id="ai-agent">
+      <div class="chat-bg-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M6 5h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2"/>
+          <path d="M9 16c1 .667 2 1 3 1s2 -.333 3 -1"/>
+          <path d="M9 7l-1 -4"/>
+          <path d="M15 7l1 -4"/>
+          <path d="M9 12v-1"/>
+          <path d="M15 12v-1"/>
+        </svg>
+      </div>
+      <div class="container">
+        <div class="srp-grid">
+
+          <!-- LEFT: intro -->
+          <div class="srp-col">
+            <div class="srp-chat-intro">
+              <p class="section-label">ШІ-консультант</p>
+              <h2>Опишіть об'єкт словами або надішліть документацію</h2>
+              <p class="section-desc">Розкажіть про вашу очисну станцію або підприємство: скільки мулу, як утилізується, який бюджет. Можна завантажити PDF-звіт, XLSX-таблицю або технічне завдання.</p>
+            </div>
+          </div>
+
+          <!-- RIGHT: chat card -->
+          <div class="srp-col">
+            <div class="srp-chat-widget">
+
+              <!-- Messages -->
+              <div class="srp-chat-msgs" id="srp-chat-msgs" role="log" aria-live="polite">
+                <div class="srp-chat-msg srp-chat-msg--bot">
+                  <div class="srp-chat-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#av-g)"/><path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="white" opacity="0.9" transform="translate(12,13) scale(0.33) translate(-12,-13)"/><defs><linearGradient id="av-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#046BD2"/><stop offset="100%" stop-color="#0D9488"/></linearGradient></defs></svg></div>
+                  <div class="srp-chat-bubble" id="srp-chat-welcome">Вітаю! Я технічний консультант BTC Consulting. Розкажіть про ваш об'єкт: тип станції, приблизний розмір у РЛМ, як зараз вирішуєте питання з мулом. Якщо є документація — можете прикріпити PDF або XLSX.</div>
+                </div>
+              </div>
+
+              <!-- File preview -->
+              <div class="srp-chat-file-bar" id="srp-chat-file-bar" style="display:none">
+                <span id="srp-chat-file-name"></span>
+                <button class="srp-chat-file-clear" id="srp-chat-file-clear" aria-label="Remove file">&times;</button>
+              </div>
+
+              <!-- Input row -->
+              <div class="srp-chat-input-row">
+                <label class="srp-chat-attach" for="srp-chat-file" title="Прикріпити файл (PDF, XLSX, DOCX)">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                  <input type="file" id="srp-chat-file" accept=".pdf,.xlsx,.xls,.docx,.csv,.txt" style="display:none">
+                </label>
+                <textarea id="srp-chat-input" class="srp-chat-textarea" placeholder="Наприклад: КОС 150 000 р.е., мул вивозимо на полігон за 80 €/т..." rows="1" maxlength="4000" autocomplete="off" autocorrect="off" spellcheck="false" autocapitalize="sentences"></textarea>
+                <button class="srp-chat-send" id="srp-chat-send" aria-label="Надіслати">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+              </div>
+
+            </div><!-- /.srp-chat-widget -->
+          </div><!-- /.srp-col right -->
+
+        </div><!-- /.srp-grid -->
+      </div>
+    </section>
+
+    <script>
+    (function(){
+      // ── Config ────────────────────────────────────────────────────
+      // Set AGENT_ENDPOINT after deploying the Cloudflare Worker:
+      //   wrangler secret put ANTHROPIC_API_KEY
+      //   wrangler deploy  →  copy the workers.dev URL here
+      var AGENT_ENDPOINT = 'https://btc-agent.maksym-koval-vpl.workers.dev/chat';
+      var DEMO_MODE = AGENT_ENDPOINT.indexOf('CHANGE_ME') !== -1;
+
+      // ── State ─────────────────────────────────────────────────────
+      var history   = [];   // [{role:'user'|'assistant', content:'...'}]
+      var pendingFile = null; // {name, type, data (base64)}
+      var isStreaming = false;
+
+      // ── DOM refs ──────────────────────────────────────────────────
+      var msgsEl   = document.getElementById('srp-chat-msgs');
+      var inputEl  = document.getElementById('srp-chat-input');
+      var sendBtn  = document.getElementById('srp-chat-send');
+      var fileEl   = document.getElementById('srp-chat-file');
+      var fileBar  = document.getElementById('srp-chat-file-bar');
+      var fileName = document.getElementById('srp-chat-file-name');
+      var fileClear= document.getElementById('srp-chat-file-clear');
+
+      // ── Auto-grow textarea ────────────────────────────────────────
+      inputEl.addEventListener('input', function(){
+        this.style.height = 'auto';
+        this.style.height = Math.min(this.scrollHeight, 140) + 'px';
+      });
+      inputEl.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); send(); }
+      });
+
+      // ── File handling ─────────────────────────────────────────────
+      fileEl.addEventListener('change', function(){
+        var f = this.files[0];
+        if (!f) return;
+        if (f.size > 5 * 1024 * 1024) { alert('Файл > 5 МБ'); return; }
+        var reader = new FileReader();
+        reader.onload = function(ev){
+          pendingFile = { name: f.name, type: f.type, data: ev.target.result.split(',')[1] };
+          fileName.textContent = f.name;
+          fileBar.style.display = '';
+        };
+        reader.readAsDataURL(f);
+      });
+      fileClear.addEventListener('click', function(){
+        pendingFile = null; fileBar.style.display = 'none'; fileEl.value = '';
+      });
+      sendBtn.addEventListener('click', send);
+
+      // ── Send ──────────────────────────────────────────────────────
+      function send() {
+        if (isStreaming) return;
+        var text = inputEl.value.trim();
+        if (!text && !pendingFile) return;
+
+        var msgText = text || ('(файл: ' + (pendingFile ? pendingFile.name : '') + ')');
+        addMsg('user', msgText);
+        history.push({ role: 'user', content: text || 'Проаналізуй завантажений файл.' });
+
+        inputEl.value = '';
+        inputEl.style.height = 'auto';
+
+        var file = pendingFile;
+        pendingFile = null; fileBar.style.display = 'none'; fileEl.value = '';
+
+        if (DEMO_MODE) {
+          simulateDemo();
+          return;
+        }
+
+        isStreaming = true;
+        sendBtn.disabled = true;
+        var botBubble = addMsg('bot', '', true);
+
+        fetch(AGENT_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: history, file: file }),
+        })
+        .then(function(resp){
+          if (!resp.ok) throw new Error('HTTP ' + resp.status);
+          var reader = resp.body.getReader();
+          var dec = new TextDecoder();
+          var buf = '';
+          var full = '';
+
+
+      function md2html(t) {
+        var s = t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        s = s.replace(/\*\*([^*
+]+)\*\*/g, '<strong>$1</strong>');
+        var lines = s.split('
+'), out = [], ul = false;
+        lines.forEach(function(l) {
+          if (/^[-*] /.test(l)) {
+            if (!ul) { out.push('<ul>'); ul = true; }
+            out.push('<li>' + l.slice(2) + '</li>');
+          } else {
+            if (ul) { out.push('</ul>'); ul = false; }
+            out.push(l === '' ? '' : '<p>' + l + '</p>');
+          }
+        });
+        if (ul) out.push('</ul>');
+        return out.join('');
+      }
+
+    
+      // Save conversation after each bot response
+      function saveConversation() {
+        if (typeof AGENT_ENDPOINT === 'undefined' || AGENT_ENDPOINT.indexOf('CHANGE_ME') !== -1) return;
+        var endpoint = AGENT_ENDPOINT.replace('/chat', '/conv');
+        var payload = {
+          ts: Date.now(),
+          session_id: typeof session_id !== 'undefined' ? session_id : 'unknown',
+          lang: document.documentElement.lang || 'unknown',
+          url: window.location.pathname,
+          messages: history.slice()
+        };
+        fetch(endpoint, {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify(payload)
+        }).catch(function(){});
+      }
+      function pump(){
+            return reader.read().then(function(r){
+              if (r.done){
+                history.push({ role: 'assistant', content: full });
+                botBubble.classList.remove('srp-chat-bubble--typing');
+                botBubble.innerHTML = md2html(full);
+                msgsEl.scrollTop = msgsEl.scrollHeight;
+                isStreaming = false;
+                sendBtn.disabled = false;
+                return;
+              }
+              buf += dec.decode(r.value, { stream: true });
+              var lines = buf.split('\n');
+              buf = lines.pop();
+              lines.forEach(function(line){
+                if (!line.startsWith('data:')) return;
+                var raw = line.slice(5).trim();
+                if (raw === '[DONE]') return;
+                try {
+                  var ev = JSON.parse(raw);
+                  if (ev.type === 'content_block_delta' && ev.delta && ev.delta.text) {
+                    full += ev.delta.text;
+                    botBubble.textContent = full;
+                    msgsEl.scrollTop = msgsEl.scrollHeight;
+                  }
+                } catch(e){}
+              });
+              return pump();
+            });
+          }
+          return pump();
+        })
+        .catch(function(err){
+          botBubble.textContent = 'Помилка з\'єднання. Спробуйте ще раз або зв\'яжіться з нами: contact@biotc.pl';
+          isStreaming = false;
+          sendBtn.disabled = false;
+        });
+      }
+
+      function simulateDemo(){
+        var botBubble = addMsg('bot', '', true);
+        var msg = 'AI-консультант підключено! Щоб активувати, розгорніть Cloudflare Worker (worker/index.js) та замініть AGENT_ENDPOINT у коді. Поки що — зв\'яжіться з нами напряму: contact@biotc.pl або +48 608 003 458.';
+        var i = 0;
+        var iv = setInterval(function(){
+          botBubble.textContent = msg.slice(0, ++i);
+          msgsEl.scrollTop = msgsEl.scrollHeight;
+          if (i >= msg.length){ clearInterval(iv); history.push({ role: 'assistant', content: msg }); }
+        }, 18);
+      }
+
+      // ── Helpers ───────────────────────────────────────────────────
+      function addMsg(role, text, empty) {
+        var wrap = document.createElement('div');
+        wrap.className = 'srp-chat-msg srp-chat-msg--' + (role==='user'?'user':'bot');
+        if (role === 'bot') {
+          var av = document.createElement('div');
+          av.className = 'srp-chat-avatar'; av.textContent = 'AI';
+          wrap.appendChild(av);
+        }
+        var bubble = document.createElement('div');
+        bubble.className = 'srp-chat-bubble' + (empty?' srp-chat-bubble--typing':'');
+        if (!empty) bubble.textContent = text;
+        wrap.appendChild(bubble);
+        msgsEl.appendChild(wrap);
+        msgsEl.scrollTop = msgsEl.scrollHeight;
+        return bubble;
+      }
+    })();
+    </script>
+
+    <!-- ============================================================ -->
+    <!-- BLOCK 3: Contact Form                                         -->
+    <!-- ============================================================ -->
+    <section id="contact">
+      <div class="contact-bg-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M12 11v.01"/><path d="M8 11v.01"/><path d="M16 11v.01"/>
+          <path d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3l12 0"/>
+        </svg>
+      </div>
+      <div class="container">
+        <div class="contact-grid">
+
+          <div class="contact-text">
+            <p class="section-label">Наступний крок</p>
+            <h2>Отримайте точний розрахунок під ваш об'єкт.</h2>
+            <p class="section-desc">Симулятор показує загальну картину. Наші інженери уточнять параметри по конкретному об'єкту та підготують повний пакет грантової документації.</p>
+
+            <div class="contact-info-list">
+              <div class="info-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>+48 608 003 458</span>
+              </div>
+              <div class="info-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span>contact@biotc.pl</span>
+              </div>
+              <div class="info-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>ul. Daszyńskiego 34/3, 44-100 Gliwice, Polska</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card contact-form-card">
+            <form id="rfq-form" action="#" method="POST" novalidate>
+              <fieldset class="form-fieldset">
+                <div class="visually-hidden" aria-hidden="true">
+                  <label for="honeypot">Leave blank</label>
+                  <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
+                </div>
+                <div class="form-group">
+                  <input type="text" id="user-name" name="name" placeholder=" " required minlength="2" autocomplete="name" aria-describedby="name-error">
+                  <label for="user-name" class="floating-label">Ім'я та посада *</label>
+                  <span id="name-error" class="error-msg" role="alert">Будь ласка, вкажіть ім'я</span>
+                </div>
+                <div class="form-group">
+                  <input type="tel" id="user-phone" name="phone" placeholder=" " required autocomplete="tel" inputmode="tel" aria-describedby="phone-error">
+                  <label for="user-phone" class="floating-label">Контактний телефон *</label>
+                  <span id="phone-error" class="error-msg" role="alert">Будь ласка, вкажіть телефон</span>
+                </div>
+                <div class="form-group">
+                  <input type="text" id="user-company" name="company" placeholder=" " required autocomplete="organization" aria-describedby="company-error">
+                  <label for="user-company" class="floating-label">Місто / назва підприємства *</label>
+                  <span id="company-error" class="error-msg" role="alert">Будь ласка, вкажіть назву</span>
+                </div>
+                <div class="form-group">
+                  <select id="user-type" name="object_type">
+                    <option value="" disabled selected></option>
+                    <option value="waterutil">Регіональний водоканал (50k+)</option>
+                    <option value="community">Громада (від 10k)</option>
+                    <option value="agro">Агропромислове підприємство</option>
+                    <option value="other">Інше</option>
+                  </select>
+                  <label for="user-type" class="floating-label">Тип об'єкта</label>
+                </div>
+                <button type="submit" id="form-submit-btn" class="btn btn-primary btn-block">Надіслати заявку на розгляд</button>
+                <p class="form-micro-text">Відповідь протягом 1 робочого дня. Без зобов'язань.</p>
+              </fieldset>
+            </form>
+            <div id="form-status" class="form-status-container hidden" tabindex="-1" role="status" aria-live="polite"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER                                                        -->
+  <!-- ============================================================ -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo-text"><span class="logo-btc">BTC</span> Consulting</span>
+          <p>Інженерні хаби для безпечної утилізації осадів стічних вод. Технологія TH-AD-HTC. Гранти ЄС до 90% CapEx.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Навігація</h4>
+          <ul>
+            <li><a href="index.html">Рішення</a></li>
+            <li><a href="technology.html">Технологія</a></li>
+            <li><a href="simulator.html">Розрахунки</a></li>
+            <li><a href="#contact">Контакт</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Документи</h4>
+          <ul>
+            <li><a href="mission.html">Місія</a></li>
+            <li><a href="whitepaper.html">Whitepaper</a></li>
+            <li><a href="investors.html">Investors</a></li>
+            <li><a href="case-lubin.html">Кейс: Любінь</a></li>
+          </ul>
+        </div>
+      </div>
+            <div class="footer-copy">
+        <span>&copy; 2025 BTC Consulting. Всі права захищено.</span>
+        <button class="footer-privacy-btn" id="privacy-strip-trigger">Дані та конфіденційність</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../app.min.js?v=5"></script>
+
+  <!-- ── Simulator logic ──────────────────────────────────────────── -->
+  <script>
+  (function () {
+    /* Build-time translation strings */
+    var K1_SUB_A    = 'Критично: четвертинне очищення до 2033 р.';
+    var K1_SUB_B    = 'Увага: інтегрований план управління до 2033 р.';
+    var K1_SUB_C    = 'Вимога: третинне очищення до 2036–2039 р.';
+    var K1_SUB_D    = 'Вторинне очищення стічних вод до 2035 р.';
+    var K1_EXEMPT   = 'Поза директивою';
+    var K1_EX_NOTE  = '< 1 000 р.е.: дія директиви не поширюється';
+    var K4_AREA_TPL = 'Звільнено: {n} соток';
+    var K4_NO_LAND  = 'Майданчики не вивільняються';
+    var K5_NOTE     = 'З урахуванням капіталізації землі та гранту';
+    var K5_INSTANT  = 'Миттєва!';
+    var K5_IN_NOTE  = 'Вартість звільненої землі повністю покриває частку міста у CapEx.';
+    var K5_UNIT     = 'р.';
+    var K1_PE_TPL   = 'Еквівалент населення: {n} р.е.';
+
+    /* Scenario definitions */
+    var SC = {
+      fields: {
+        f1: { label:'Утилізація та вивіз мулу', unit:'€/т', hint:'Поточна вартість: полімери, транспорт, подальша утилізація', def:60,  step:5  },
+        f2: { label:'Рекультивація майданчиків', unit:'€/т', hint:'Витрати на відновлення і повернення площ у використання', def:30,  step:5,  show:true },
+        land: true,
+        k3title: 'Уникнуті поточні витрати',
+        k3status: 'Мул ущільнено у 5 разів · Майданчики вивільнено',
+        calc: function(v, f1, f2, land, grant) {
+          var f1s = v * f1, f2s = v * f2;
+          var lv  = (v * 1.5) * (land / 100);
+          return { save:f1s+f2s, landVal:lv, capex:v*250*(1-grant/100), f1s:f1s, f2s:f2s, f3s:0 };
+        }
+      },
+      agro: {
+        f1: { label:'Флокулянти / хімія', unit:'€/т', hint:'Витрати на поліелектроліти для зневоднення центрифугами', def:40, step:5 },
+        f2: { label:'Логістика на поля', unit:'€/т', hint:'Транспорт + плата фермерам. Економія ×0.8 від скорочення маси HTC', def:30, step:5, show:true },
+        land: false,
+        k3title: 'Уникнуті поточні витрати',
+        k3status: 'Маса скорочена на 80% · Усунені виплати фермерам',
+        calc: function(v, f1, f2, land, grant) {
+          var f1s = v * f1, f2s = v * 0.8 * f2;
+          return { save:f1s+f2s, landVal:0, capex:v*250*(1-grant/100), f1s:f1s, f2s:f2s, f3s:0 };
+        }
+      },
+      compost: {
+        f1: { label:'Тріска / структуроутворювач', unit:'€/т', hint:'Ціна деревної тріски або іншого структуроутворювача', def:35, step:5 },
+        f2: { label:'Операційні витрати', unit:'€/т', hint:'Паливо, техніка, 6 міс. обслуговування майданчика', def:20, step:5, show:true },
+        land: false,
+        k3title: 'Уникнуті поточні витрати',
+        k3status: '2 год замість 6 міс. · Детоксикація мікропластику',
+        calc: function(v, f1, f2, land, grant) {
+          var f1s = v * f1, f2s = v * f2;
+          return { save:f1s+f2s, landVal:0, capex:v*250*(1-grant/100), f1s:f1s, f2s:f2s, f3s:0 };
+        }
+      },
+      incinerate: {
+        f1: { label:'Газ / енергія для сушарки', unit:'€/т', hint:'Вартість газу або ел. енергії для сушарки до ≥85% СР', def:80,  step:10 },
+        f2: { label:'Gate Fee інсинератора', unit:'€/т сух.', hint:'Плата заводу за прийом. Маса сухого залишку = M×0.2', def:120, step:10, show:true },
+        f3label: 'Біогаз → електроенергія (€160/МВт·год)',
+        land: false,
+        k3title: 'Уникнуті витрати + дохід від енергії',
+        k3status: 'BTC HTC-ліквор = 3× швидший метаногенез',
+        calc: function(v, f1, f2, land, grant) {
+          var f1s = v * f1;
+          var f2s = v * 0.2 * f2;   /* dry mass = M_in x 0.2 */
+          var f3s = v * 0.1 * 160;  /* embedded biogas->elec at 160 EUR/MWh */
+          return { save:f1s+f2s+f3s, landVal:0, capex:v*250*(1-grant/100), f1s:f1s, f2s:f2s, f3s:f3s };
+        }
+      },
+      landfill: {
+        f1: { label:'Екологічний податок', unit:'€/т', hint:'Ставка екоподатку / штрафи за захоронення. Враховуйте зростання', def:50, step:10 },
+        f2: { show:false },
+        land: false,
+        k3title: 'Уникнуті санкції та штрафи',
+        k3status: 'Сертифікат End-of-Waste · Юридична броня',
+        calc: function(v, f1, f2, land, grant) {
+          var f1s = v * f1;
+          return { save:f1s, landVal:0, capex:v*250*(1-grant/100), f1s:f1s, f2s:0, f3s:0 };
+        }
+      }
+    };
+
+    var currentSC = 'fields';
+    var shadowTimer;
+
+    /* Formatters */
+    function fmtEur(v)  { return (!isFinite(v)||v<0) ? '—' : '€ '+Math.round(v).toLocaleString(); }
+    function fmtCost(v) { return (!isFinite(v)||v<=0) ? '—' : '(€ '+Math.round(v).toLocaleString()+')'; }
+    function fmtGain(v) { return (!isFinite(v)||v<=0) ? '—' : '€ '+Math.round(v).toLocaleString(); }
+    function fmtNum(n) { return (!isFinite(n)||n<0) ? '—' : Math.round(n).toLocaleString(); }
+    function fmtHa(m2) {
+      if (!isFinite(m2)||m2<=0) return '—';
+      return (m2/100).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1});
+    }
+
+    /* Volume sync */
+    function syncVolume(id, val) {
+      // Clear preset highlights when user types manually
+      document.querySelectorAll('.srp-preset-btn').forEach(function(b){ b.classList.remove('active'); });
+      if (id==='srp-vol-ty') document.getElementById('srp-vol-pe').value = Math.round(val*10);
+      else if (id==='srp-vol-pe') document.getElementById('srp-vol-ty').value = Math.round(val*0.1);
+    }
+
+    /* Apply scenario: update labels, visibility, defaults */
+    function applyScenario(name) {
+      var sc = SC[name];
+
+      /* f1 */
+      document.getElementById('srp-f1-label').textContent = sc.f1.label;
+      document.getElementById('srp-f1-unit').textContent  = sc.f1.unit;
+      document.getElementById('srp-f1-hint').textContent  = sc.f1.hint;
+      var f1el = document.getElementById('srp-f1');
+      f1el.value = sc.f1.def; f1el.step = sc.f1.step;
+
+      /* f2 */
+      var f2wrap = document.getElementById('srp-f2-wrap');
+      if (sc.f2 && sc.f2.show !== false) {
+        f2wrap.style.display = '';
+        document.getElementById('srp-f2-label').textContent = sc.f2.label;
+        document.getElementById('srp-f2-unit').textContent  = sc.f2.unit;
+        document.getElementById('srp-f2-hint').textContent  = sc.f2.hint;
+        var f2el = document.getElementById('srp-f2');
+        f2el.value = sc.f2.def; f2el.step = sc.f2.step;
+      } else { f2wrap.style.display = 'none'; }
+
+      /* land */
+      document.getElementById('srp-land-wrap').style.display = sc.land ? '' : 'none';
+
+      /* K3 title + row labels */
+      document.getElementById('k3-title').textContent      = sc.k3title;
+      document.getElementById('k3-row1-label').textContent = sc.f1.label;
+      var row2 = document.getElementById('k3-row2');
+      if (sc.f2 && sc.f2.show !== false) {
+        row2.style.display = '';
+        document.getElementById('k3-row2-label').textContent = sc.f2.label;
+      } else { row2.style.display = 'none'; }
+      var row3 = document.getElementById('k3-row3');
+      if (sc.f3label) {
+        row3.style.display = '';
+        document.getElementById('k3-row3-label').textContent = sc.f3label;
+      } else { row3.style.display = 'none'; }
+
+      currentSC = name;
+      calc();
+    }
+
+    /* Main calculation */
+    function calc() {
+      var Volume = parseFloat(document.getElementById('srp-vol-ty').value) || 0;
+      var PE     = parseFloat(document.getElementById('srp-vol-pe').value) || 0;
+      var grant  = parseFloat(document.getElementById('srp-grant').value)  || 0;
+      var f1     = parseFloat(document.getElementById('srp-f1').value)     || 0;
+      var f2wrap = document.getElementById('srp-f2-wrap');
+      var f2     = f2wrap.style.display!=='none' ? (parseFloat(document.getElementById('srp-f2').value)||0) : 0;
+      var lWrap  = document.getElementById('srp-land-wrap');
+      var land   = lWrap.style.display!=='none'  ? (parseFloat(document.getElementById('srp-land').value)||0) : 0;
+
+      var sc  = SC[currentSC];
+      var res = sc.calc(Volume, f1, f2, land, grant);
+
+      /* K1 UWWTD */
+      var k1ValEl = document.getElementById('k1-val');
+      document.getElementById('k1-pe').textContent = K1_PE_TPL.replace('{n}', fmtNum(PE));
+      if (PE>0 && PE<=1000) {
+        k1ValEl.className = 'rpt-num src-val--ok';
+        k1ValEl.textContent = K1_EXEMPT;
+        document.getElementById('k1-sub').textContent = K1_EX_NOTE;
+      } else {
+        k1ValEl.className = 'rpt-num src-val--warn';
+        k1ValEl.textContent = PE>150000?'2033':(PE>10000?'2036':'2039');
+        document.getElementById('k1-sub').textContent = PE>150000?K1_SUB_A:(PE>100000?K1_SUB_B:(PE>10000?K1_SUB_C:K1_SUB_D));
+      }
+
+      /* K2 CapEx */
+      var capexTotal = Volume * 250;
+      var k2TotalEl = document.getElementById('k2-total');
+      k2TotalEl.textContent = fmtCost(capexTotal);
+      k2TotalEl.className = 'rpt-num rpt-dim';
+      var k2GrantEl = document.getElementById('k2-grant');
+      k2GrantEl.textContent = fmtGain(capexTotal - res.capex);
+      k2GrantEl.className = 'rpt-num rpt-teal';
+      var k2CityEl = document.getElementById('k2-city');
+      k2CityEl.textContent = fmtCost(res.capex);
+      k2CityEl.className = 'rpt-num rpt-neg';
+
+      /* K3 Savings */
+      document.getElementById('k3-cf').textContent      = fmtGain(res.save);
+      document.getElementById('k3-disp').textContent    = fmtGain(res.f1s);
+      document.getElementById('k3-energy').textContent  = fmtGain(res.f2s);
+      document.getElementById('k3-energy3').textContent = fmtGain(res.f3s);
+      document.getElementById('k3-energy-status').textContent = sc.k3status;
+
+      /* K4 Land (always shown) */
+      var k4ValEl = document.getElementById('k4-value');
+      k4ValEl.textContent = res.landVal > 0 ? fmtGain(res.landVal) : '—';
+      k4ValEl.className = res.landVal > 0 ? 'rpt-num rpt-teal' : 'rpt-num rpt-dim';
+      document.getElementById('k4-area').textContent  = res.landVal>0
+        ? K4_AREA_TPL.replace('{n}', fmtHa(Volume*1.5))
+        : K4_NO_LAND;
+
+      /* K5 ROI */
+      var roiYears = res.save>0 ? (res.capex-res.landVal)/res.save : Infinity;
+      var k5ValEl  = document.getElementById('k5-val');
+      var k5NoteEl = document.getElementById('k5-note');
+      if (res.save<=0 || roiYears<=0) {
+        k5ValEl.className  = 'rpt-kpi-val src-val--ok';
+        k5ValEl.textContent  = K5_INSTANT;
+        k5NoteEl.textContent = K5_IN_NOTE;
+      } else {
+        k5ValEl.className  = 'rpt-kpi-val';
+        k5ValEl.textContent  = roiYears.toLocaleString(undefined,{maximumFractionDigits:1})+' '+K5_UNIT;
+        k5NoteEl.textContent = K5_NOTE;
+      }
+
+      /* Conclusion */
+      document.getElementById('src-conclusion').textContent = buildConclusion(PE, roiYears, res, grant, currentSC, Volume);
+
+      clearTimeout(shadowTimer);
+      shadowTimer = setTimeout(saveShadowLead, 2000);
+    }
+
+    /* ── Conclusion generator ───────────────────────────────────────────── */
+    function buildConclusion(PE, roi, res, grant, sc, vol) {
+      var city   = fmtEur(res.capex);
+      var saveS  = fmtEur(res.save);
+      var landS  = fmtEur(res.landVal);
+      var year   = PE>150000?'2033':(PE>10000?'2036':'2039');
+      var roiStr = (isFinite(roi) && roi>0) ? roi.toLocaleString(undefined,{maximumFractionDigits:1}) : null;
+
+      var landLine = res.landVal>0
+        ? ' Земельний актив '+landS+' (звільнено '+fmtHa(vol*1.5)+' соток) покращує загальний баланс.'
+        : '';
+
+      var scLine = '';
+      if (sc==='incinerate') scLine = ' Вбудований дохід від біогазу додатково підвищує рентабельність.';
+      if (sc==='landfill') scLine = ' Уникнення екоподатку забезпечує юридичну стабільність підприємства.';
+      if (sc==='fields' && res.landVal>0) scLine = ' Закриття мулових майданчиків — унікальна можливість повернути землю у господарський обіг.';
+
+      if (PE>0 && PE<=1000)
+        return 'Обʼєкт не підпадає під обовʼязкові норми UWWTD (≤ 1000 р.е.). Проте технологія BTC залишається економічно обгрунтованою при наявності поточних витрат на мул.';
+
+      if (!isFinite(roi) || roi<=0)
+        return 'Земельний актив '+landS+' перевищує частку міста у CapEx — проект фактично самоокупний до введення в дію. Щорічна економія '+saveS+' формує стабільний грошовий потік.'+scLine;
+
+      if (roi<3)
+        return 'Виняткова економіка: окупність '+roiStr+' р. при частці міста лише '+city+' після гранту '+grant+'%. Дедлайн UWWTD '+year+' залишає час для технічної підготовки — рекомендуємо запустити ТЕО у 2025–2026 рр.'+landLine+scLine;
+
+      if (roi<7)
+        return 'Надійна інвестиція: окупність '+roiStr+' р. і щорічна економія '+saveS+'. Грант '+grant+'% знижує навантаження на бюджет до '+city+'. Дедлайн '+year+'.'+landLine+scLine+' Радимо подати заявку на грант паралельно з ТЕО.';
+
+      return 'При поточних параметрах окупність '+roiStr+' р. Збільшення гранту або зростання тарифів на утилізацію прискорить показник.'+landLine+scLine+' Розгляньте кредитування ЄБРР / КЕБ з відстрочкою платежу.';
+    }
+
+    /* Scenario tabs */
+    document.querySelectorAll('.srp-sc-tab').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.srp-sc-tab').forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        applyScenario(btn.dataset.sc);
+      });
+    });
+
+    /* Preset buttons */
+    document.querySelectorAll('.srp-preset-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.getElementById('srp-vol-pe').value = parseFloat(btn.dataset.pe);
+        document.getElementById('srp-vol-ty').value  = parseFloat(btn.dataset.ty);
+        document.querySelectorAll('.srp-preset-btn').forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        calc();
+      });
+    });
+
+    /* Stepper buttons */
+    document.querySelectorAll('.srp-btn-step[data-for]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var el   = document.getElementById(btn.dataset.for);
+        var dir  = parseFloat(btn.dataset.dir);
+        var step = parseFloat(el.getAttribute('step'))||1;
+        var min  = el.getAttribute('min')!==null ? parseFloat(el.getAttribute('min')) : -Infinity;
+        var max  = el.getAttribute('max')!==null ? parseFloat(el.getAttribute('max')) :  Infinity;
+        var val  = Math.max(min, Math.min(max, (parseFloat(el.value)||0)+dir*step));
+        el.value = val;
+        syncVolume(el.id, val);
+        calc();
+      });
+    });
+
+    /* Direct input */
+    ['srp-vol-ty','srp-vol-pe','srp-grant','srp-f1','srp-f2','srp-land'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('input', function(){ syncVolume(id,parseFloat(this.value)||0); calc(); });
+    });
+
+    /* Shadow leads */
+    function getSessionId() {
+      var s = localStorage.getItem('btc_sid');
+      if (!s) { s='sid_'+Math.random().toString(36).substr(2,9)+'_'+Date.now(); localStorage.setItem('btc_sid',s); }
+      return s;
+    }
+    function saveShadowLead() {
+      var sc  = SC[currentSC];
+      var vol = parseFloat(document.getElementById('srp-vol-ty').value) || 0;
+      var gr  = parseFloat(document.getElementById('srp-grant').value)  || 0;
+      var f1  = parseFloat(document.getElementById('srp-f1').value)     || 0;
+      var f2wrap = document.getElementById('srp-f2-wrap');
+      var f2  = f2wrap.style.display !== 'none' ? (parseFloat(document.getElementById('srp-f2').value) || 0) : 0;
+      var lWrap = document.getElementById('srp-land-wrap');
+      var land  = lWrap.style.display !== 'none' ? (parseFloat(document.getElementById('srp-land').value) || 0) : 0;
+      var res = sc.calc(vol, f1, f2, land, gr);
+      var roi = res.save > 0 ? ((res.capex - res.landVal) / res.save) : null;
+      var p = {
+        session_id:  getSessionId(),
+        ts:          new Date().toISOString(),
+        scenario:    currentSC,
+        vol_ty:      vol,
+        vol_pe:      document.getElementById('srp-vol-pe').value,
+        grant:       gr,
+        f1:          f1,
+        f2:          f2,
+        capex_total: Math.round(vol * 250),
+        capex_city:  Math.round(res.capex),
+        savings:     Math.round(res.save),
+        land:        Math.round(res.landVal),
+        roi:         roi !== null ? Math.round(roi * 10) / 10 : null,
+      };
+      if (AGENT_ENDPOINT.indexOf('CHANGE_ME') === -1) {
+        var endpoint = AGENT_ENDPOINT.replace('/chat', '/lead');
+        fetch(endpoint, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(p) })
+          .catch(function(){});
+      }
+    }
+
+    window.openLeadModal = function(){ document.getElementById('contact').scrollIntoView({behavior:'smooth'}); };
+
+    /* Init */
+    applyScenario('fields');
+  })();
+  </script>
+
+  <!-- ── Parallax contact bg icon ────────────────────────────── -->
+  <script>
+  (function () {
+    var RANGE = 120;
+    var pairs = [['#simulator','.sim-bg-icon'],['#htc-simulator','.htc-bg-icon'],['#ai-agent','.chat-bg-icon'],['#contact','.contact-bg-icon']].map(function(p){
+      return { section: document.querySelector(p[0]), icon: document.querySelector(p[1]) };
+    }).filter(function(p){ return p.section && p.icon; });
+    var ticking = false;
+    function update() {
+      var wh = window.innerHeight;
+      pairs.forEach(function(p){
+        var r = p.section.getBoundingClientRect();
+        var prog = Math.max(0, Math.min(1, (wh - r.top)/(wh + r.height)));
+        p.icon.style.transform = 'translateY(' + (prog*RANGE).toFixed(1) + 'px)';
+      });
+      ticking = false;
+    }
+    function onScroll(){ if(!ticking){ requestAnimationFrame(update); ticking=true; } }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', update, {passive:true});
+    update();
+  })();
+  </script>
+
+
+
+    <!-- Privacy bottom strip -->
+    <div class="privacy-strip" id="privacy-strip" aria-hidden="true">
+      <div class="privacy-strip-inner">
+        <div class="privacy-strip-body">
+          <strong>Про збір даних</strong>
+          <p>При використанні калькулятора ми анонімно зберігаємо введені параметри розрахунку (обсяг мулу, сценарій, відсоток гранту) та розраховані результати. Особисті дані (ім'я, email, IP-адреса) не збираються та не передаються третім особам. Дані використовуються виключно для аналізу попиту та покращення сервісу.</p>
+        </div>
+        <button class="privacy-strip-close" id="privacy-strip-close" aria-label="Зрозуміло">&#x2715;</button>
+      </div>
+    </div>
+    <!-- Contact Popover / Modal -->
+    <div class="contact-popover-overlay" id="contact-popover-overlay" aria-hidden="true"></div>
+    <div class="contact-popover" id="contact-popover" aria-hidden="true" role="dialog" aria-label="Швидкий зв'язок">
+      <div class="popover-arrow" aria-hidden="true"></div>
+      <div class="popover-header">
+        <h4>Швидкий зв'язок</h4>
+        <button class="popover-close" id="popover-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="popover-body">
+        <div class="popover-contact-card">
+          <div class="popover-avatar">
+            <img src="../img/team/krop-a.jpg" alt="Andrzej Krop">
+          </div>
+          <div class="popover-info">
+            <div class="popover-name">Andrzej Krop</div>
+            <div class="popover-role">Управління проєктами</div>
+          </div>
+        </div>
+        <div class="popover-actions-grid">
+          <a href="tel:+48608003458" class="popover-action-btn border-teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>+48 608 003 458</span>
+          </a>
+          <a href="mailto:contact@biotc.pl" class="popover-action-btn border-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>contact@biotc.pl</span>
+          </a>
+          <a href="https://wa.me/48608003458" target="_blank" rel="noopener" class="popover-action-btn border-teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <span>WhatsApp Chat</span>
+          </a>
+          <button id="vcard-download-btn" class="popover-action-btn border-orange">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/></svg>
+            <strong>Додати контакт</strong>
+          </button>
+        </div>
+        <div class="popover-divider"><span>або</span></div>
+        <div class="popover-callback-wrap">
+          <div class="callback-row">
+            <input type="tel" id="popover-phone" placeholder="Контактний телефон *"
+                   inputmode="tel" autocomplete="tel">
+            <button type="button" class="btn btn-primary callback-btn" id="popover-callback-btn"
+                    data-label="Передзвоніть мені">Передзвоніть мені</button>
+          </div>
+          <p id="popover-callback-error" class="error-msg" style="display:none">Введіть коректний номер телефону</p>
+          <p class="form-micro-text" style="margin-block-start:0.4rem;">Відповідь протягом 1 робочого дня. Без зобов'язань.</p>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

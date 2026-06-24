@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BioTC Executive Brief - Turn Sludge Liability into Clean Energy</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Design System Tokens */
+    :root {
+      --bg-primary: #FFFFFF;
+      --bg-secondary: #F8FAFC;
+      --accent-orange: #D35400;
+      --accent-orange-light: #FDF2E9;
+      --accent-green: #0D9488;
+      --accent-green-light: #F0FDF4;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --border-color: #E2E8F0;
+      --shadow-sm: 0 4px 6px -1px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 15px -3px rgba(15, 23, 42, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F1F5F9;
+      color: var(--text-main);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .brief-container {
+      max-width: 210mm;
+      margin: 40px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    /* Print-Only Guide Floating Panel (Screen Only) */
+    .print-guide {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 20px;
+      z-index: 100;
+    }
+
+    .print-guide-text h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .print-guide-text p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .print-btn {
+      background-color: var(--accent-green);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.2s ease;
+      box-shadow: 0 4px 10px rgba(13, 148, 136, 0.2);
+    }
+
+    .print-btn:hover {
+      background-color: #0b7a70;
+    }
+
+    /* Page Definition (A4 aspect ratio: 210mm x 297mm) */
+    .page {
+      background-color: var(--bg-primary);
+      width: 210mm;
+      height: 297mm;
+      padding: 20mm;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.25;
+    }
+
+    h1 {
+      font-size: 32px;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 22px;
+      letter-spacing: -0.01em;
+      border-bottom: 2px solid var(--accent-orange-light);
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h2 span.step-num {
+      background-color: var(--accent-orange);
+      color: white;
+      font-size: 14px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    /* Header & Footer */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+    }
+
+    .page-logo {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .page-logo span {
+      color: var(--accent-orange);
+    }
+
+    .page-tagline {
+      font-size: 10px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-color);
+      padding-top: 8px;
+      margin-top: 15px;
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    .page-number {
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* Cover Styling */
+    .cover-top {
+      height: 120px;
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, #EDF2F7 100%);
+      border-left: 5px solid var(--accent-green);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 8px;
+      margin-bottom: 25px;
+    }
+
+    .cover-badge {
+      display: inline-block;
+      align-self: flex-start;
+      background-color: var(--accent-green-light);
+      color: var(--accent-green);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      border: 1px solid rgba(13, 148, 136, 0.15);
+    }
+
+    .cover-headline {
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    /* Executive Summary Block */
+    .summary-card {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 25px;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .summary-column {
+      background: white;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+    }
+
+    .summary-column h4 {
+      font-size: 13px;
+      color: var(--accent-green);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Flowchart CSS */
+    .flow-diagram {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 15px 0;
+      background: var(--bg-secondary);
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    .flow-step {
+      flex: 1;
+      text-align: center;
+      padding: 8px;
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 11px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .flow-step strong {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 4px;
+      color: var(--text-main);
+    }
+
+    .flow-step.accent {
+      border-color: var(--accent-orange);
+      background-color: var(--accent-orange-light);
+    }
+
+    .flow-arrow {
+      padding: 0 10px;
+      font-weight: 700;
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+
+    /* Grid columns */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 15px;
+    }
+
+    .card {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 15px;
+      background: white;
+    }
+
+    .card.danger {
+      border-left: 4px solid #E53E3E;
+    }
+
+    .card.success {
+      border-left: 4px solid var(--accent-green);
+    }
+
+    .bullet-list {
+      list-style: none;
+    }
+
+    .bullet-list li {
+      font-size: 13px;
+      color: var(--text-muted);
+      position: relative;
+      padding-left: 15px;
+      margin-bottom: 8px;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      color: var(--accent-orange);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    /* Tables */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      font-size: 12.5px;
+    }
+
+    .compare-table th {
+      background-color: var(--bg-secondary);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      text-align: left;
+      padding: 10px;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .compare-table td {
+      padding: 10px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .compare-table tr:hover {
+      background-color: var(--bg-secondary);
+    }
+
+    .compare-table td.highlight {
+      font-weight: 600;
+      color: var(--accent-green);
+      background-color: var(--accent-green-light);
+    }
+
+    .compare-table td.negative {
+      color: #E53E3E;
+    }
+
+    /* Contacts Box */
+    .contacts-box {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 15px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .contact-item {
+      font-size: 12.5px;
+    }
+
+    .contact-item strong {
+      display: block;
+      color: var(--accent-green);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+
+    /* Page-break control */
+    .page-content {
+      flex-grow: 1;
+    }
+
+    /* Print styling definitions */
+    @media print {
+      body {
+        background-color: #FFFFFF;
+      }
+
+      .brief-container {
+        margin: 0;
+        gap: 0;
+      }
+
+      .print-guide {
+        display: none !important;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        page-break-after: always;
+        width: 210mm;
+        height: 297mm;
+        overflow: hidden;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="brief-container">
+    
+    <!-- Floating guide block visible on screens -->
+    <div class="print-guide">
+      <div class="print-guide-text">
+        <h4>📄 Professional Executive Brief & Pitch Deck</h4>
+        <p>This is configured for standard A4 printing. Click print and select "Save as PDF" to generate the final PDF file.</p>
+      </div>
+      <button class="print-btn" onclick="window.print()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        Print PDF
+      </button>
+    </div>
+
+    <!-- ================= PAGE 1 ================= -->
+    <div class="page" id="page-1">
+      <div class="page-header">
+        <div class="page-logo">BioTC<span>.</span></div>
+        <div class="page-tagline">Executive Technology Brief</div>
+      </div>
+      
+      <div class="page-content">
+        <div class="cover-top">
+          <div class="cover-badge">Investment & Technology Overview</div>
+          <div class="cover-headline">BioTC: Turn Sludge Liability into Clean Energy</div>
+        </div>
+
+        <div class="summary-card">
+          <h2 style="font-size: 18px; margin-bottom: 10px; border:none; padding:0;">1. Executive Summary</h2>
+          <p><strong>BioTC</strong> (developed by BioTheCon and represented by <strong>BTC Consulting Sp. z o.o.</strong>) is an integrated clean-tech solution that solves the final, most critical bottleneck of wastewater treatment: <strong>sewage sludge and organic waste accumulation</strong>.</p>
+          <p>By combining <strong>Thermal Hydrolysis (TH)</strong> and <strong>Hydrothermal Carbonization (HTC)</strong> in a single, closed-loop system, BioTC converts wet, hazardous organic sludge into sterile, high-energy <strong>Eco-Coal</strong> and <strong>clean, pathogen-free water</strong> on-site.</p>
+          
+          <div class="summary-grid">
+            <div class="summary-column">
+              <h4>Waste Reduction</h4>
+              <p style="font-size: 12.5px; margin-bottom: 0;">Sludge volume is compressed by up to <strong>80% (5x volume reduction)</strong>, removing the water component and drastically decreasing logistical costs.</p>
+            </div>
+            <div class="summary-column">
+              <h4>Energy Production</h4>
+              <p style="font-size: 12.5px; margin-bottom: 0;">Converts wet feedstock into dry <strong>Eco-Coal</strong> biofuel (20–25 MJ/kg), usable in industrial boilers for heating or sold on the market.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 style="font-size: 18px; border: none; padding:0; margin-bottom: 10px;">2. The Clean-Water Paradox & Regulatory Pressure</h2>
+        <p>Wastewater treatment plants (WWTPs) excel at returning clean water to rivers. However, this process filters out a toxic, wet, pathogen-ridden residue: <strong>sewage sludge</strong>. Current management methods are facing critical challenges:</p>
+        
+        <div class="grid-2">
+          <div class="card danger">
+            <h3 style="color:#C53030;">The Logistic & Financial Strain</h3>
+            <p style="font-size:12.5px; margin-bottom:0;">Sewage sludge consists of <strong>80% moisture</strong>. Traditional hauling and landfill disposal are expensive because operators are essentially paying to transport water. Environmental taxes and landfill dumping fees are rising exponentially, making old disposal methods unsustainable.</p>
+          </div>
+          <div class="card danger">
+            <h3 style="color:#C53030;">Tighter EU Directives</h3>
+            <p style="font-size:12.5px; margin-bottom:0;">Under new EU regulations (including **Directive 2024/3019**), agricultural spreading and landfilling of raw sludge are being banned. Microplastics, pharmaceutical traces, and PFAS ("forever chemicals") must be completely destroyed to prevent soil and groundwater contamination.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <div>BTC Consulting Sp. z o.o. | Gliwice, Poland</div>
+        <div class="page-number">Page 1</div>
+      </div>
+    </div>
+
+    <!-- ================= PAGE 2 ================= -->
+    <div class="page" id="page-2">
+      <div class="page-header">
+        <div class="page-logo">BioTC<span>.</span></div>
+        <div class="page-tagline">Integrated Thermal Hydrolysis & Carbonization</div>
+      </div>
+      
+      <div class="page-content">
+        <h2>3. The Technology: Integrated TH + HTC</h2>
+        <p>Instead of relying on energy-intensive air-drying or incineration, BioTC uses a pressurized thermochemical process that mimics natural coal formation over millions of years, compressing it into a <strong>2-hour cycle</strong>.</p>
+        
+        <div class="flow-diagram">
+          <div class="flow-step">
+            <strong>1. Wet Feedstock</strong>
+            80% moisture sludge from dewatering press
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step accent">
+            <strong>2. Reactor (HTC)</strong>
+            Cooked at 200°C under 20 bar pressure
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <strong>3. Press Chamber</strong>
+            Mechanical pressing down to 30% moisture
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step accent">
+            <strong>4. Outputs</strong>
+            Solid Eco-Coal + Sterile Recycled Water
+          </div>
+        </div>
+
+        <ul class="bullet-list" style="margin-bottom: 20px;">
+          <li><strong>Thermal Destruction:</strong> High-pressure cooking at 180–220 °C breaks down cellular walls and completely destroys 100% of pathogen structures, bacteria, microplastics, hormone residues, and PFAS.</li>
+          <li><strong>Physical Phase Change:</strong> The sludge loses its colloidal structure. Water, which was chemically bound inside sludge cells, is released and can be easily pressed out mechanically without high heat.</li>
+          <li><strong>Digestion Booster (HTC-D):</strong> The liquid run-off after mechanical press is rich in soluble organics. Returning it back to anaerobic digestion tanks stimulates additional **biogas yields by up to 60%**.</li>
+        </ul>
+
+        <h2>4. Value-Added Outputs</h2>
+        <p>The BioTC process converts a toxic municipal liability into two valuable commodities:</p>
+        
+        <div class="grid-2">
+          <div class="card success">
+            <h3 style="color: var(--accent-green); display: flex; align-items: center; gap: 6px;">
+              <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--accent-green);"></span>
+              Eco-Coal (Hydrochar)
+            </h3>
+            <p style="font-size:12.5px; margin-bottom: 8px;">A dry, sterile, and odorless solid carbon fuel with high heating density:</p>
+            <ul class="bullet-list" style="margin-left: 5px;">
+              <li style="margin-bottom: 4px; font-size:12px;"><strong>Energy Density:</strong> 20–25 MJ/kg (equivalent to coal).</li>
+              <li style="margin-bottom: 4px; font-size:12px;"><strong>CO2 Neutrality:</strong> Classified as sustainable biofuel.</li>
+              <li style="margin-bottom: 0; font-size:12px;"><strong>Uses:</strong> Combustion in boilers, cement plant feedstock, soil amendment.</li>
+            </ul>
+          </div>
+          
+          <div class="card success">
+            <h3 style="color: var(--accent-green); display: flex; align-items: center; gap: 6px;">
+              <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--accent-green);"></span>
+              Clean Recycled Water
+            </h3>
+            <p style="font-size:12.5px; margin-bottom: 8px;">All contaminants are neutralized by the high-pressure steam:</p>
+            <ul class="bullet-list" style="margin-left: 5px;">
+              <li style="margin-bottom: 4px; font-size:12px;"><strong>Safety:</strong> Free from PFAS, microplastics, and active bacteria.</li>
+              <li style="margin-bottom: 4px; font-size:12px;"><strong>Recycling:</strong> Safely returned to the WWTP inlet.</li>
+              <li style="margin-bottom: 0; font-size:12px;"><strong>Volume:</strong> Fully sterilised water run-off.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <div>BTC Consulting Sp. z o.o. | Gliwice, Poland</div>
+        <div class="page-number">Page 2</div>
+      </div>
+    </div>
+
+    <!-- ================= PAGE 3 ================= -->
+    <div class="page" id="page-3">
+      <div class="page-header">
+        <div class="page-logo">BioTC<span>.</span></div>
+        <div class="page-tagline">Financial Payback & Partners</div>
+      </div>
+      
+      <div class="page-content">
+        <h2>5. Financial & Investment Case (ROI)</h2>
+        <p>Implementing BioTC transitions sewage management from an **annual budget expense** to a **profitable revenue stream** by generating fuel on-site.</p>
+        
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Traditional Landfilling</th>
+              <th>Competitor Drying/THP</th>
+              <th>BioTC Integrated TH+HTC</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Sludge Volume Reduction</strong></td>
+              <td class="negative">0%</td>
+              <td>Up to 50%</td>
+              <td class="highlight">Up to 80% (5x reduction)</td>
+            </tr>
+            <tr>
+              <td><strong>PFAS & PFAS Destruction</strong></td>
+              <td class="negative">No</td>
+              <td>Partial / Weak</td>
+              <td class="highlight">100% Destroyed</td>
+            </tr>
+            <tr>
+              <td><strong>Energy Profile</strong></td>
+              <td class="negative">High Cost (Transport)</td>
+              <td>Self-consuming (heat only)</td>
+              <td class="highlight">Net-Positive (electricity + heat)</td>
+            </tr>
+            <tr>
+              <td><strong>Biogas Yield Boost</strong></td>
+              <td class="negative">0%</td>
+              <td>+30%</td>
+              <td class="highlight">+60% (boosts digestion)</td>
+            </tr>
+            <tr>
+              <td><strong>Financial Payback</strong></td>
+              <td class="negative">Infinite Cost</td>
+              <td>High CAPEX / Slow ROI</td>
+              <td class="highlight">4–6 Years Return on Investment</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p style="margin-top: 10px;"><strong>Green Grant Funding:</strong> Because BioTC meets strict circular economy criteria, municipal projects are eligible for European subsidies and green grants covering **up to 70% of capital expenditure (CAPEX)**.</p>
+
+        <h2>6. Proven Credentials & Partners</h2>
+        <p>BioTC is backed by leading European institutions, removing the risk of prototype testing:</p>
+        
+        <ul class="bullet-list" style="margin-bottom: 20px;">
+          <li><strong>The Lubin Milestone (Poland):</strong> In October 2025, the municipal water utility **MPWiK Lubin** officially approved and purchased the copyrights to implement BioTheCon’s integrated TH-AD-HTC concept for their municipal modernization.</li>
+          <li><strong>Academic Partners:</strong> Developed in close collaboration with thermal and environmental engineering professors at the **AGH University of Krakow**, supported by national research grants.</li>
+          <li><strong>Industrial General Contractor:</strong> All installations are engineered and built under general contract by **INTROL Group**, a major European engineering holding listed on the Warsaw Stock Exchange.</li>
+        </ul>
+
+        <h2>7. Request a Free Waste Audit</h2>
+        <p>Before launching a project, we calculate the exact business case using your specific material. We offer a <strong>Free Organic Feedstock Audit</strong>:</p>
+        
+        <ul class="bullet-list" style="margin-bottom: 15px;">
+          <li>Send a 2 kg sample of your municipal or industrial sludge/feedstock to our laboratory.</li>
+          <li>Our lab in Poland will process it in an HTC test reactor to measure the exact **Eco-Coal yield** (MJ/kg).</li>
+          <li>We will provide a tailored **financial payback simulation (ROI)** report for your facility.</li>
+        </ul>
+
+        <div class="contacts-box">
+          <div class="contact-item">
+            <strong>Corporate Address</strong>
+            BTC Consulting Sp. z o.o.<br>
+            ul. Daszyńskiego 34/3, 44-100 Gliwice, Poland
+          </div>
+          <div class="contact-item">
+            <strong>Contact Channels</strong>
+            Email: andrzej.krop@biotc.pl<br>
+            Phone: +48 608 003 458
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <div>BTC Consulting Sp. z o.o. | Gliwice, Poland</div>
+        <div class="page-number">Page 3</div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

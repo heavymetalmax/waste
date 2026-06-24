@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BioTC - Climate-Tech Pre-Launch & GTM Framework</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Design System Tokens */
+    :root {
+      --bg-primary: #FFFFFF;
+      --bg-secondary: #F8FAFC;
+      --accent-orange: #D35400;
+      --accent-orange-light: #FDF2E9;
+      --accent-green: #0D9488;
+      --accent-green-light: #F0FDF4;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --border-color: #E2E8F0;
+      --shadow-sm: 0 4px 6px -1px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 15px -3px rgba(15, 23, 42, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F1F5F9;
+      color: var(--text-main);
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .brief-container {
+      max-width: 210mm;
+      margin: 40px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    /* Print-Only Guide Floating Panel (Screen Only) */
+    .print-guide {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 20px;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+
+    .print-guide-text h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .print-guide-text p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .print-btn {
+      background-color: var(--accent-green);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.2s ease;
+      box-shadow: 0 4px 10px rgba(13, 148, 136, 0.2);
+    }
+
+    .print-btn:hover {
+      background-color: #0b7a70;
+    }
+
+    /* Page Definition (A4 aspect ratio: 210mm x 297mm) */
+    .page {
+      background-color: var(--bg-primary);
+      width: 210mm;
+      height: 297mm;
+      padding: 18mm 20mm;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.25;
+    }
+
+    h1 {
+      font-size: 26px;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 18px;
+      letter-spacing: -0.01em;
+      border-bottom: 2px solid var(--accent-orange-light);
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h2 span.step-num {
+      background-color: var(--accent-orange);
+      color: white;
+      font-size: 13px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+    }
+
+    h3 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    /* Header & Footer */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
+
+    .page-logo {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .page-logo span {
+      color: var(--accent-orange);
+    }
+
+    .page-tagline {
+      font-size: 10px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-color);
+      padding-top: 8px;
+      margin-top: 12px;
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    .page-number {
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* Cover Styling */
+    .cover-top {
+      height: 100px;
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, #EDF2F7 100%);
+      border-left: 5px solid var(--accent-green);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .cover-badge {
+      display: inline-block;
+      align-self: flex-start;
+      background-color: var(--accent-green-light);
+      color: var(--accent-green);
+      padding: 3px 8px;
+      border-radius: 20px;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+      border: 1px solid rgba(13, 148, 136, 0.15);
+    }
+
+    .cover-headline {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    /* Cards */
+    .summary-card {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 15px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 12px;
+    }
+
+    .card {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px;
+      background: white;
+    }
+
+    .card.danger {
+      border-left: 4px solid #E53E3E;
+      background: #FFF5F5;
+    }
+
+    .card.success {
+      border-left: 4px solid var(--accent-green);
+      background: var(--accent-green-light);
+    }
+
+    .card.info {
+      border-left: 4px solid #3182CE;
+      background: #EBF8FF;
+    }
+
+    .card h3 {
+      font-size: 13.5px;
+      margin-bottom: 6px;
+    }
+
+    .card.danger h3 {
+      color: #C53030;
+    }
+
+    .card.success h3 {
+      color: #0F766E;
+    }
+
+    .card.info h3 {
+      color: #2B6CB0;
+    }
+
+    .bullet-list {
+      list-style: none;
+    }
+
+    .bullet-list li {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      position: relative;
+      padding-left: 15px;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      color: var(--accent-orange);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      font-size: 14px;
+    }
+
+    /* Diagram */
+    .flowchart {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 15px 0;
+      background: var(--bg-secondary);
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    .flowchart-node {
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 8px 12px;
+      width: 130px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      font-size: 11px;
+    }
+
+    .flowchart-node strong {
+      display: block;
+      font-size: 11.5px;
+      color: var(--accent-orange);
+      margin-bottom: 4px;
+    }
+
+    .flowchart-arrow {
+      color: var(--text-muted);
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    /* Tables */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+      font-size: 11.5px;
+    }
+
+    .compare-table th {
+      background-color: var(--bg-secondary);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      text-align: left;
+      padding: 8px;
+      border-bottom: 2px solid var(--border-color);
+      color: var(--text-main);
+    }
+
+    .compare-table td {
+      padding: 8px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-muted);
+    }
+
+    .compare-table tr:hover {
+      background-color: var(--bg-secondary);
+    }
+
+    .compare-table td.highlight {
+      font-weight: 600;
+      color: var(--accent-green);
+      background-color: var(--accent-green-light);
+    }
+
+    .compare-table td.negative {
+      color: #E53E3E;
+    }
+
+    /* Page specific spacing adjustments */
+    .page-content {
+      flex-grow: 1;
+    }
+
+    /* Print styling definitions */
+    @media print {
+      body {
+        background-color: #FFFFFF;
+      }
+
+      .brief-container {
+        margin: 0;
+        gap: 0;
+      }
+
+      .print-guide {
+        display: none !important;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        page-break-after: always;
+        width: 210mm;
+        height: 297mm;
+        overflow: hidden;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="brief-container">
+    
+    <!-- Floating guide block visible on screens -->
+    <div class="print-guide">
+      <div class="print-guide-text">
+        <h4>📄 BioTC Pre-Launch & GTM Framework (English)</h4>
+        <p>Adapted for standard A4 printing. Click print and select "Save as PDF" to generate the final PDF file.</p>
+      </div>
+      <button class="print-btn" onclick="window.print()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        Print PDF
+      </button>
+    </div>
+
+    <!-- ================= PAGE 1 ================= -->
+    <div class="page" id="page-1">
+      <div class="page-header">
+        <div class="page-logo">BioTC<span>.</span></div>
+        <div class="page-tagline">Go-to-Market & Pre-Launch Framework</div>
+      </div>
+      
+      <div class="page-content">
+        <div class="cover-top">
+          <div class="cover-badge">Climate-Tech GTM Strategy</div>
+          <div class="cover-headline">Pre-Launch & Market Validation Framework</div>
+        </div>
+
+        <div class="summary-card">
+          <h3 style="font-size: 15px; margin-bottom: 6px; color: var(--accent-green);">Strategic Overview</h3>
+          <p style="margin-bottom: 0;">This framework adapts the initial validation phases for <strong>BioTC</strong> (integrated Hydrothermal Carbonization & Thermal Hydrolysis) to the heavy infrastructure <strong>Enterprise B2B / B2G (Business-to-Government)</strong> wastewater treatment market. In this segment, characterized by high contract values ($1M+) and 6–18 month sales cycles, validation relies on laboratory verification and structured Letters of Intent (LOI) rather than standard digital landing pages.</p>
+        </div>
+
+        <h2><span class="step-num">P0</span>Founder, Capital & Compliance Fit</h2>
+        <p>Evaluating regulatory compliance, internal readiness, and capital runway prior to starting client discussions.</p>
+        
+        <div class="grid-2">
+          <div class="card info">
+            <h3>1. Regulatory Compliance Matrix</h3>
+            <p style="font-size: 11.5px; margin-bottom: 0; line-height: 1.4;">
+              <strong>• EU Directive 2024/3019:</strong> Demands full elimination of microplastics, PFAS, and pharmaceutical residues from sewage sludge, alongside strict bans on wet sludge landfilling.<br>
+              <strong>• Ukrainian Legislation:</strong> Law "On Waste Management" establishes a strict hierarchy prioritizing energy recovery over landfilling; DBN V.2.5-75:2013 sets standards for sludge handling.
+            </p>
+          </div>
+          
+          <div class="card info">
+            <h3>2. Runway & Capital Requirements</h3>
+            <p style="font-size: 11.5px; margin-bottom: 0; line-height: 1.4;">
+              <strong>• Initial Budget:</strong> Approx. $50,000 required for lab sample testing in Poland, localizing technical Feasibility Studies, and securing legal compliance for municipal PPP/ESCO models.<br>
+              <strong>• Financing Channels:</strong> Leverages EU green grants (LIFE, Horizon Europe), state ecological funds, and general contractor financing structures (INTROL Group).
+            </p>
+          </div>
+        </div>
+
+        <h3 style="margin-top: 15px; color: var(--accent-orange);">Key Focus of Phase P0: Runway Validation</h3>
+        <p>Because environmental project approvals, public tenders, and technical designs consume significant time, the startup runway must be <strong>at least 12 months</strong>. Founder fit requires deep engineering expertise or direct advisory partnerships with environmental chemistry departments (e.g., AGH Krakow, KPI Kiev) to establish technical authority during B2G negotiations.</p>
+      </div>
+
+      <div class="page-footer">
+        <div>BTC Consulting Sp. z o.o. | Gliwice, Poland</div>
+        <div class="page-number">Page 1</div>
+      </div>
+    </div>
+
+    <!-- ================= PAGE 2 ================= -->
+    <div class="page" id="page-2">
+      <div class="page-header">
+        <div class="page-logo">BioTC<span>.</span></div>
+        <div class="page-tagline">Buying Center & Process Discovery</div>
+      </div>
+      
+      <div class="page-content">
+        <h2><span class="step-num">P1</span>Buying Center & Process Discovery</h2>
+        <p>Mapping the complex decision-making unit (DMU) and initiating technical discovery with municipalities and industrial waste generators.</p>
+        
+        <h3 style="margin-top: 10px;">1. Buying Center Mapping (Municipal / Industrial)</h3>
+        <p>Decisions are never made by a single person. Buying roles must be mapped and targeted individually:</p>
+
+        <table class="compare-table" style="margin-bottom: 15px;">
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>Typical Persona</th>
+              <th>Primary KPI / Motivator</th>
+              <th>Key Fear / Friction Point</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Economic Buyer</strong></td>
+              <td>Mayor, CEO, CFO</td>
+              <td>Operational payback, ROI, public green PR</td>
+              <td>CAPEX overrun, political blowback if halted</td>
+            </tr>
+            <tr>
+              <td><strong>End User</strong></td>
+              <td>WWTP Chief Engineer</td>
+              <td>24/7 reliability, operational ease, automated lines</td>
+              <td>"Too complex to operate with current staff"</td>
+            </tr>
+            <tr>
+              <td><strong>Technical Gatekeeper</strong></td>
+              <td>Eco-auditor, Compliance Officer</td>
+              <td>100% legal alignment, OVD approvals</td>
+              <td>Lack of certification, air emission penalties</td>
+            </tr>
+            <tr>
+              <td><strong>Influencer / Offtaker</strong></td>
+              <td>Cement plant director</td>
+              <td>Consistent hydrochar calorific value & low ash</td>
+              <td>Contaminant spikes damaging industrial kilns</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>2. Customer Development (CustDev) Discovery Script</h3>
+        <p>Conduct 10–12 open-ended interviews with target operators using the following protocol:</p>
+        <ul class="bullet-list" style="margin-bottom: 10px;">
+          <li><em>"Describe your current sewage sludge handling flow. What are the key bottlenecks from dewatering to disposal?"</em></li>
+          <li><em>"What is your total fully-loaded cost per ton of disposed sludge (hauling, drying, eco-taxes, and tipping fees)?"</em></li>
+          <li><em>"What is the remaining lifespan and capacity of your current sludge lagoons or landfill sites?"</em></li>
+          <li><em>"Have you faced regulatory penalties or community complaints regarding odor or runoff in the last 24 months?"</em></li>
+          <li><em>"What internal approval stages, engineering checks, and municipal votes would a $2M infrastructure project require?"</em></li>
+        </ul>
+      </div>
+
+      <div class="page-footer">
+        <div>BTC Consulting Sp. z o.o. | Gliwice, Poland</div>
+        <div class="page-number">Page 2</div>
+      </div>
+    </div>
+
+    <!-- ================= PAGE 3 ================= -->
+    <div class="page" id="page-3">
+      <div class="page-header">
+        <div class="page-logo">BioTC<span>.</span></div>
+        <div class="page-tagline">Market Valuation & ROI Modeling</div>
+      </div>
+      
+      <div class="page-content">
+        <h2><span class="step-num">P2</span>TAM/SAM/SOM & Value-Based Pricing</h2>
+        <p>Evaluating the true commercial volume and structuring an interactive economic payback model for target clients.</p>
+        
+        <div class="grid-2" style="margin-top: 10px;">
+          <div class="card">
+            <h3 style="color: var(--accent-green);">Market Sizing (TAM/SAM/SOM)</h3>
+            <p style="font-size: 11.5px; margin-bottom: 0; line-height: 1.4;">
+              <strong>• TAM:</strong> All municipal and industrial WWTPs in Poland and Ukraine (~1,500 facilities).<br>
+              <strong>• SAM:</strong> Facilities matching modular line scale (>30,000 RLM equivalent) + chemical/food factories (~350 facilities).<br>
+              <strong>• SOM:</strong> High-priority sites with critical lagoon shortages or immediate compliance deadlines (~25 facilities within 3 years).
+            </p>
+          </div>
+          <div class="card">
+            <h3 style="color: var(--accent-green);">Value-Based Pricing Logic</h3>
+            <p style="font-size: 11.5px; margin-bottom: 0; line-height: 1.4;">
+              Pricing is calculated based on the client's annual savings:
+              $$\text{Savings} = \text{Logistics} + \text{Taxes} + \text{Fuel Value} - \text{OPEX}$$
+              For a 10,000 t/year WWTP, compressing sludge by 75% saves ~$112k in transport, avoids ~$30k in eco-taxes, and yields ~$160k in hydrochar fuel value, netting **$260k/year** savings.
+            </p>
+          </div>
+        </div>
+
+        <h2><span class="step-num">P3</span>Technology Brief & Integration Framework</h2>
+        <p>Setting the technical integration requirements and tailoring communications across different buying personas.</p>
+        
+        <h3 style="margin-top: 10px;">1. Technical Interface Specifications</h3>
+        <ul class="bullet-list" style="margin-bottom: 12px;">
+          <li><strong>Feedstock parameters:</strong> System accepts dewatered sludge (75–82% moisture) directly from screw/belt presses.</li>
+          <li><strong>Utility tie-ins:</strong> Requires electrical startup power, water connection, and steam/gas hookups for reactor heating.</li>
+          <li><strong>Filtrate return:</strong> Liquid output (reclaiming bound water) is returned to the WWTP headworks without loading the biological stage.</li>
+        </ul>
+
+        <h3>2. Three-Tier Messaging Framework</h3>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Audience</th>
+              <th>Core Value Proposition</th>
+              <th>Key Technical / Financial Driver</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>C-Level & Mayors</strong></td>
+              <td>"Convert sludge costs into municipal energy independence."</td>
+              <td>Operational savings, 4–6 year payback period, grant funding.</td>
+            </tr>
+            <tr>
+              <td><strong>Chief Engineers</strong></td>
+              <td>"75% volume reduction without expanding drying lagoons."</td>
+              <td>Fully automated 24/7 process, compact footprint, high uptime.</td>
+            </tr>
+            <tr>
+              <td><strong>Eco-Inspectors</strong></td>
+              <td>"100% compliance with EU Directive 2024/3019 limits."</td>
+              <td>Thermal destruction of PFAS, microplastics, and all pathogens.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="page-footer">
+        <div>BTC Consulting Sp. z o.o. | Gliwice, Poland</div>
+        <div class="page-number">Page 3</div>
+      </div>
+    </div>
+
+    <!-- ================= PAGE 4 ================= -->
+    <div class="page" id="page-4">
+      <div class="page-header">
+        <div class="page-logo">BioTC<span>.</span></div>
+        <div class="page-tagline">Validation Funnel & Decision Gates</div>
+      </div>
+      
+      <div class="page-content">
+        <h2><span class="step-num">P4</span>Validation Funnel & LOI framework</h2>
+        <p>Validating interest without constructing a physical plant using a low-cost, high-trust technical pipeline.</p>
+        
+        <div class="flowchart">
+          <div class="flowchart-node">
+            <strong>1. Waste Audit</strong>
+            Collect 2 kg sludge sample from target client
+          </div>
+          <div class="flowchart-arrow">→</div>
+          <div class="flowchart-node">
+            <strong>2. Lab Run</strong>
+            Process in Poland lab to determine hydrochar yield
+          </div>
+          <div class="flowchart-arrow">→</div>
+          <div class="flowchart-node">
+            <strong>3. Payback Study</strong>
+            Present custom ROI case based on lab results
+          </div>
+          <div class="flowchart-arrow">→</div>
+          <div class="flowchart-node">
+            <strong>4. Trilateral LOI</strong>
+            Sign intent for pilot hosting & contract options
+          </div>
+        </div>
+
+        <ul class="bullet-list" style="margin-bottom: 15px;">
+          <li><strong>The Free Waste Audit Hook:</strong> Serves as the ultimate validation signal. If a municipality signs the release forms to ship sewage sludge samples across borders to Poland, it confirms severe pain and high interest.</li>
+          <li><strong>Trilateral LOI Structure:</strong> Binds the Developer (BTC Consulting), the Host WWTP (providing space and utilities), and the Offtaker/Funder (pre-approving purchases once pilot targets are met).</li>
+        </ul>
+
+        <h2>Decision Gates (G0 → G4)</h2>
+        <table class="compare-table" style="font-size: 11px;">
+          <thead>
+            <tr>
+              <th>Gate</th>
+              <th>Go Criterion (Proceed)</th>
+              <th>No-Go Trigger (Stop/Pivot)</th>
+              <th>Mitigation Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>G0→1</strong></td>
+              <td>Exclusive BioTC UA rights + 40-site lead list built.</td>
+              <td>Thermodynamic block / No lab testing budget.</td>
+              <td>Partner with AGH Krakow or KPI for technical advisory.</td>
+            </tr>
+            <tr>
+              <td><strong>G1→2</strong></td>
+              <td>8 completed CustDevs. 4 clients confirm high hauling costs.</td>
+              <td>"Free lagoon space for 50 years, no disposal pain."</td>
+              <td>Pivot geography to Poland or focus on private chemical plants.</td>
+            </tr>
+            <tr>
+              <td><strong>G2→3</strong></td>
+              <td>Calculated ROI &lt; 6 years. 3 clients commit to sludge tests.</td>
+              <td>High energy/heat prices make local OPEX unviable.</td>
+              <td>Pivot to HTC-D (integrating with biogas cogeneration).</td>
+            </tr>
+            <tr>
+              <td><strong>G3→4</strong></td>
+              <td>Lab tests confirm hydrochar calorific value &gt; 20 MJ/kg.</td>
+              <td>Heavy metal levels block standard hydrochar sales.</td>
+              <td>Target cement kilns as offtakers (metals bind into cement).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="page-footer">
+        <div>BTC Consulting Sp. z o.o. | Gliwice, Poland</div>
+        <div class="page-number">Page 4</div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

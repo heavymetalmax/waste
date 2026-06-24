@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BioTC — AGH Technical Deep-Dive Interview: Complete Questionnaire</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-primary: #FFFFFF;
+      --bg-secondary: #F8FAFC;
+      --accent-orange: #D35400;
+      --accent-orange-light: #FDF2E9;
+      --accent-green: #0D9488;
+      --accent-green-light: #F0FDF4;
+      --accent-blue: #2563EB;
+      --accent-blue-light: #EFF6FF;
+      --accent-red: #DC2626;
+      --accent-red-light: #FEF2F2;
+      --accent-purple: #7C3AED;
+      --accent-purple-light: #F5F3FF;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --border-color: #E2E8F0;
+      --shadow-sm: 0 4px 6px -1px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 15px -3px rgba(15, 23, 42, 0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F1F5F9;
+      color: var(--text-main);
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .brief-container {
+      max-width: 210mm;
+      margin: 40px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    /* Floating Print Bar */
+    .print-guide {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px 20px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 20px;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+    .print-guide-text h4 { font-family: 'Outfit', sans-serif; font-size: 15px; color: var(--text-main); margin-bottom: 3px; }
+    .print-guide-text p { font-size: 12px; color: var(--text-muted); }
+    .print-btn {
+      background-color: var(--accent-green); color: white; border: none;
+      padding: 10px 20px; border-radius: 8px; font-family: 'Outfit', sans-serif;
+      font-weight: 600; font-size: 14px; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background-color 0.2s ease;
+      box-shadow: 0 4px 10px rgba(13, 148, 136, 0.2);
+    }
+    .print-btn:hover { background-color: #0b7a70; }
+
+    /* Page */
+    .page {
+      background-color: var(--bg-primary);
+      width: 210mm;
+      height: 297mm;
+      padding: 16mm 18mm;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; font-weight: 700; color: var(--text-main); line-height: 1.25; }
+    h2 {
+      font-size: 15px;
+      padding-bottom: 5px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h3 { font-size: 12.5px; font-weight: 600; margin-bottom: 4px; }
+    p { font-size: 11.5px; color: var(--text-muted); margin-bottom: 6px; }
+    strong { color: var(--text-main); font-weight: 600; }
+
+    /* Header & Footer */
+    .page-header {
+      display: flex; justify-content: space-between; align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 6px; margin-bottom: 10px;
+    }
+    .page-logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 14px; color: var(--text-main); }
+    .page-logo span { color: var(--accent-orange); }
+    .page-tagline { font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+    .page-footer {
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid var(--border-color);
+      padding-top: 6px; margin-top: 10px;
+      font-size: 9px; color: var(--text-muted);
+    }
+    .page-number { font-weight: 700; color: var(--text-main); }
+    .page-content { flex-grow: 1; }
+
+    /* Cover */
+    .cover-top {
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, #EDF2F7 100%);
+      border-left: 5px solid var(--accent-green);
+      padding: 16px 18px; border-radius: 8px; margin-bottom: 12px;
+    }
+    .cover-badge {
+      display: inline-block; align-self: flex-start;
+      background-color: var(--accent-green-light); color: var(--accent-green);
+      padding: 2px 8px; border-radius: 20px; font-size: 8.5px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px;
+      border: 1px solid rgba(13, 148, 136, 0.15);
+    }
+    .cover-headline { font-size: 19px; font-weight: 800; line-height: 1.25; }
+
+    /* Section Headers with Color Coding */
+    .section-header {
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-bottom: 10px;
+      border-left: 4px solid;
+    }
+    .section-header h2 { margin-bottom: 2px; border: none; padding: 0; font-size: 14px; }
+    .section-header p { font-size: 10.5px; margin-bottom: 0; font-style: italic; }
+
+    .section-header.green  { background: var(--accent-green-light); border-color: var(--accent-green); }
+    .section-header.green h2 { color: var(--accent-green); }
+    .section-header.orange { background: var(--accent-orange-light); border-color: var(--accent-orange); }
+    .section-header.orange h2 { color: var(--accent-orange); }
+    .section-header.blue   { background: var(--accent-blue-light); border-color: var(--accent-blue); }
+    .section-header.blue h2 { color: var(--accent-blue); }
+    .section-header.red    { background: var(--accent-red-light); border-color: var(--accent-red); }
+    .section-header.red h2 { color: var(--accent-red); }
+    .section-header.purple { background: var(--accent-purple-light); border-color: var(--accent-purple); }
+    .section-header.purple h2 { color: var(--accent-purple); }
+
+    /* Question Items */
+    .q-item {
+      margin-bottom: 8px;
+      padding-left: 0;
+    }
+    .q-number {
+      display: inline-block;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--accent-orange);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      width: 22px; height: 18px;
+      border-radius: 4px;
+      text-align: center;
+      line-height: 18px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+    .q-text {
+      font-size: 11.5px;
+      color: var(--text-main);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .q-context {
+      font-size: 10.5px;
+      color: var(--text-muted);
+      margin-top: 2px;
+      margin-left: 28px;
+      line-height: 1.35;
+      font-style: italic;
+    }
+
+    /* Sub-headers within pages */
+    .sub-header {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-top: 10px;
+      margin-bottom: 6px;
+      padding-bottom: 3px;
+      border-bottom: 1px dashed var(--border-color);
+    }
+
+    /* Info card */
+    .info-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+    }
+
+    /* Table for output mapping */
+    .map-table {
+      width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 10.5px;
+    }
+    .map-table th {
+      background: var(--bg-secondary); font-family: 'Outfit', sans-serif;
+      font-weight: 600; text-align: left; padding: 6px;
+      border-bottom: 2px solid var(--border-color); color: var(--text-main);
+    }
+    .map-table td {
+      padding: 5px 6px; border-bottom: 1px solid var(--border-color); color: var(--text-muted);
+    }
+
+    @media print {
+      body { background-color: #FFFFFF; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .brief-container { margin: 0; gap: 0; }
+      .print-guide { display: none !important; }
+      .page {
+        margin: 0; box-shadow: none; border-radius: 0;
+        page-break-after: always;
+        width: 210mm; height: 297mm; overflow: hidden;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="brief-container">
+
+  <!-- Print Bar -->
+  <div class="print-guide">
+    <div class="print-guide-text">
+      <h4>🔬 AGH Technical Deep-Dive — Complete Interview Questionnaire</h4>
+      <p>25 questions across 12 sections. Print to PDF or share digitally with the research team.</p>
+    </div>
+    <button class="print-btn" onclick="window.print()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+        <rect x="6" y="14" width="12" height="8"></rect>
+      </svg>
+      Print PDF
+    </button>
+  </div>
+
+  <!-- ================= PAGE 1: Cover & Block 1 ================= -->
+  <div class="page" id="page-1">
+    <div class="page-header">
+      <div class="page-logo">BioTC<span>.</span></div>
+      <div class="page-tagline">Confidential — Technical Deep-Dive Questionnaire</div>
+    </div>
+    
+    <div class="page-content">
+      <div class="cover-top">
+        <div class="cover-badge">For AGH University Research Team</div>
+        <div class="cover-headline">Technical Deep-Dive Interview:<br>Complete Questionnaire for Scientific Advisor</div>
+      </div>
+
+      <div class="info-card">
+        <h3 style="font-size: 12px; margin-bottom: 4px; color: var(--accent-green);">Purpose of This Document</h3>
+        <p style="margin-bottom: 6px;">BTC Consulting is building an industrial-grade marketing and sales infrastructure for deploying BioTC systems across Poland and Ukraine. To create technically rigorous materials (Whitepapers, Engineering FAQs, ROI Calculators, and a public-facing website), we need precise scientific answers from the technology developers.</p>
+        <p style="margin-bottom: 0;"><strong>How to use:</strong> Please review each question and provide your response in writing, during a recorded interview session, or via an AI assistant. Your answers will form the scientific foundation of all client-facing documentation. Where exact figures are not yet available, please provide ranges or estimates with confidence levels.</p>
+      </div>
+
+      <div class="section-header green">
+        <h2>Block 1 — Process Chemistry & Environmental Safety</h2>
+        <p>Target audience for resulting content: Environmental auditors, compliance officers, eco-inspectors.</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">1</span>
+        <span class="q-text">PFAS & Microplastic Destruction Mechanism</span>
+        <p class="q-context">Given the extreme stability of C-F bonds in PFAS, how does subcritical water (200°C, 20 bar) achieve defluorination and polymer chain destruction? Which specific mechanisms (hydrolysis, radical reactions, depolymerization) are responsible? What is the measured destruction rate (%) for PFAS and common microplastics (PE, PP, PET)?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">2</span>
+        <span class="q-text">Heavy Metal Immobilization & Leachability</span>
+        <p class="q-context">What is the fate of heavy metals (Zn, Cu, Pb, Cd) during HTC? Are they encapsulated within the hydrochar carbon matrix? What do TCLP or EN 12457 leaching tests show for the resulting hydrochar compared to untreated dried sludge?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">3</span>
+        <span class="q-text">Phosphorus Migration & Recovery Potential</span>
+        <p class="q-context">How does HTC affect phosphorus distribution between the solid phase (hydrochar) and the liquid filtrate? Does phosphorus remain as inorganic salts in hydrochar, or does it migrate to the filtrate where it could be recovered (e.g., as struvite)?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">4</span>
+        <span class="q-text">Off-Gas Composition & Emission Control</span>
+        <p class="q-context">What is the chemical composition of gases released during the HTC reaction (CO₂, CO, VOCs, H₂S, NH₃)? What emission control systems (biofilters, scrubbers, thermal oxidizers) are integrated into BioTC, and what are the final stack emission levels versus EU BAT (Best Available Techniques) limits?</p>
+      </div>
+
+      <div class="q-item" style="margin-bottom: 0;">
+        <span class="q-number">5</span>
+        <span class="q-text">Filtrate Quality & Biological Impact</span>
+        <p class="q-context">The liquid phase is returned to the WWTP headworks. What are the measured COD (Chemical Oxygen Demand) and BOD (Biological Oxygen Demand) concentrations? Is there a risk of shock-loading the activated sludge in aeration tanks?</p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>BTC Consulting Sp. z o.o. | AGH Deep-Dive Questionnaire</div>
+      <div class="page-number">Page 1 of 8</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 2: Block 2 & Block 3 ================= -->
+  <div class="page" id="page-2">
+    <div class="page-header">
+      <div class="page-logo">BioTC<span>.</span></div>
+      <div class="page-tagline">Feedstock Requirements & Energy Balance</div>
+    </div>
+    
+    <div class="page-content">
+      <div class="section-header orange">
+        <h2>Block 2 — Feedstock Requirements & Sensitivity</h2>
+        <p>Target audience: WWTP chief engineers and process technologists evaluating system compatibility.</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">6</span>
+        <span class="q-text">Debris Sensitivity & Pre-Treatment</span>
+        <p class="q-context">How sensitive is the reactor to sand, gravel, rags, hair, or plastic bags that may pass through upstream screens? Is a macerator or fine-screen filter required before HTC feed? What particle size must the input sludge be reduced to?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">7</span>
+        <span class="q-text">Moisture Tolerance Window</span>
+        <p class="q-context">The optimal feedstock moisture is stated as ~80%. What happens if a client's dewatering press delivers 85% moisture (poorly performing) or 70% (over-dried)? How does this shift energy efficiency, reaction kinetics, and final hydrochar quality?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">8</span>
+        <span class="q-text">Compositional Variability & Upsets</span>
+        <p class="q-context">If the incoming sludge composition changes abruptly (e.g., an illegal industrial discharge into the municipal sewer), does the reactor shut down automatically, or does it simply produce different-quality hydrochar? What is the system's resilience to feed composition spikes?</p>
+      </div>
+
+      <div class="section-header orange" style="margin-top: 14px;">
+        <h2>Block 3 — Energy Balance & Biogas Integration</h2>
+        <p>Target audience: CFOs and financial directors evaluating operational expenditure and energy self-sufficiency.</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">9</span>
+        <span class="q-text">Complete Mass & Energy Balance (Reference Case)</span>
+        <p class="q-context">For a reference input of <strong>1,000 kg of dewatered sludge at 80% moisture</strong>, please provide exact outputs: kg of hydrochar produced, liters of filtrate water, m³ of off-gas, kWh of electricity consumed, and kWh of thermal energy consumed. This will become the core of our ROI calculator.</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">10</span>
+        <span class="q-text">Cold-Start Energy & Time Requirements</span>
+        <p class="q-context">How long (hours) and how much external energy (kWh or m³ of gas) is required for a cold start to reach operating temperature of 200°C? How does this compare to steady-state operation where heat is recirculated?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">11</span>
+        <span class="q-text">HTC-D Biogas Boost Mechanism</span>
+        <p class="q-context">BioTC claims a +60% increase in biogas yield when filtrate is returned to anaerobic digesters. What is the exact biochemical mechanism? Is there a risk of inhibiting methanogenic bacteria due to furfural or phenolic compounds present in the HTC filtrate? What concentrations trigger inhibition?</p>
+      </div>
+
+      <div class="q-item" style="margin-bottom: 0;">
+        <span class="q-number">12</span>
+        <span class="q-text">Reaction Exothermicity & Autothermal Potential</span>
+        <p class="q-context">Carbonization reactions (decarboxylation, dehydration) can be exothermic. Is the heat released sufficient to sustain reactor temperature autogenously after cold start, or does the system always require external heating? What percentage of total thermal demand is covered by exothermic reaction heat?</p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>BTC Consulting Sp. z o.o. | AGH Deep-Dive Questionnaire</div>
+      <div class="page-number">Page 2 of 8</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 3: Block 4 ================= -->
+  <div class="page" id="page-3">
+    <div class="page-header">
+      <div class="page-logo">BioTC<span>.</span></div>
+      <div class="page-tagline">Operations, Reliability & Hydrochar Properties</div>
+    </div>
+    
+    <div class="page-content">
+      <div class="section-header blue">
+        <h2>Block 4 — Operations, Wear & Reliability</h2>
+        <p>Target audience: Chief engineers evaluating maintenance burden, staffing, and long-term durability.</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">13</span>
+        <span class="q-text">Reactor Metallurgy & Corrosion Resistance</span>
+        <p class="q-context">What steel alloy is used for the reactor vessel (e.g., duplex stainless, Hastelloy, titanium-clad)? Given the acidic pH and abrasive sand content during carbonization, what is the realistic service life of reactor internals before major overhaul or replacement?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">14</span>
+        <span class="q-text">Maintenance Schedule & Consumable Parts</span>
+        <p class="q-context">What is the annual planned downtime (hours/year) for scheduled maintenance? Which components are the primary consumables (pumps, pressure relief valves, seals, heat exchanger gaskets) and what are their replacement intervals?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">15</span>
+        <span class="q-text">Automation Level & Staffing Requirements</span>
+        <p class="q-context">How many operators are required per shift? Can the system operate unattended overnight in "lights-out" mode with remote SCADA monitoring? What level of operator training (e.g., chemical engineer vs. standard WWTP operator) is required?</p>
+      </div>
+
+      <div class="section-header blue" style="margin-top: 14px;">
+        <h2>Block 5 — Hydrochar as Solid Fuel (Combustion Properties)</h2>
+        <p>Target audience: Cement plant directors, district heating operators, and industrial boiler managers (offtakers).</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">16</span>
+        <span class="q-text">Coalification Degree (Van Krevelen Position)</span>
+        <p class="q-context">How do the atomic O/C and H/C ratios of sewage sludge-derived hydrochar compare to lignite (brown coal) and sub-bituminous coal on the Van Krevelen diagram? How close does the product come to true coal-grade fuel?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">17</span>
+        <span class="q-text">Combustion Behavior: Slagging & Fouling Risk</span>
+        <p class="q-context">Given the high ash content of sludge-derived hydrochar, what are the risks of slagging, fouling, and clinker formation in industrial boilers? Do alkali metals (K, Na) cause corrosion of heat exchange surfaces? Is co-combustion (blending with coal or biomass) required, and at what ratio?</p>
+      </div>
+
+      <div class="q-item" style="margin-bottom: 0;">
+        <span class="q-number">18</span>
+        <span class="q-text">Surface Area & Biochar/Sorbent Potential</span>
+        <p class="q-context">How does the specific surface area (BET) and pore structure of hydrochar compare to dried sludge and activated carbon? Does HTC improve sorption capacity enough for the product to be used as a soil amendment (biochar) or water treatment sorbent, rather than solely as fuel?</p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>BTC Consulting Sp. z o.o. | AGH Deep-Dive Questionnaire</div>
+      <div class="page-number">Page 3 of 8</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 4: Block 6 — Feedstock Case Studies ================= -->
+  <div class="page" id="page-4">
+    <div class="page-header">
+      <div class="page-logo">BioTC<span>.</span></div>
+      <div class="page-tagline">Feedstock Variability — Practical Case Studies</div>
+    </div>
+    
+    <div class="page-content">
+      <div class="section-header green">
+        <h2>Block 6 — Feedstock Variability: Three Commercial Case Studies</h2>
+        <p>Each case study will be used to build a segment-specific sales pitch with verified scientific data.</p>
+      </div>
+
+      <p>We serve three distinct market segments. Each feedstock produces different hydrochar. Please comment on the expected outputs, unique challenges, and optimal end-use for each case:</p>
+
+      <div class="sub-header">Case 1: Municipal Sewage Sludge (B2G — Water Utilities)</div>
+      <div class="q-item">
+        <span class="q-number">19</span>
+        <span class="q-text">Municipal Sludge → Hydrochar Performance</span>
+        <p class="q-context"><strong>Feedstock profile:</strong> High inorganic content (sand, ash), microplastics, pathogens, elevated nitrogen. Typical for Polish MPWiK and Ukrainian Vodokanals processing combined municipal wastewater.<br>
+        <strong>Questions:</strong> (a) What is the realistic peak calorific value (MJ/kg) achievable, given high ash? (b) Is this hydrochar suitable for direct combustion at a CHP, or must it be co-fired with coal/biomass? (c) What is the typical ash content (%) of the output product?</p>
+      </div>
+
+      <div class="sub-header">Case 2: Food & Beverage Industry Waste (B2B — Food Processors)</div>
+      <div class="q-item">
+        <span class="q-number">20</span>
+        <span class="q-text">Food Waste → Premium Hydrochar Potential</span>
+        <p class="q-context"><strong>Feedstock profile:</strong> Slaughterhouse offal, dairy plant residues, expired supermarket organics, catering waste. High moisture, rich in fats, proteins, and carbohydrates, near-zero ash content.<br>
+        <strong>Questions:</strong> (a) Is it correct that hydrochar from this feedstock could achieve premium calorific values of 25–28 MJ/kg due to negligible ash? (b) How does the high fat content affect HTC reaction kinetics and product composition? (c) Are there any operational risks (foaming, clogging) associated with high-lipid feedstocks?</p>
+      </div>
+
+      <div class="sub-header">Case 3: Agricultural & Livestock Waste (B2B — Agribusiness)</div>
+      <div class="q-item">
+        <span class="q-number">21</span>
+        <span class="q-text">Manure & Crop Residue → Soil Amendment or Fuel?</span>
+        <p class="q-context"><strong>Feedstock profile:</strong> Pig/cattle manure, poultry litter, corn stover, straw. High lignocellulose content, rich in phosphorus and potassium. Often contaminated with veterinary antibiotics (tetracyclines, fluoroquinolones).<br>
+        <strong>Questions:</strong> (a) For manure-derived hydrochar, is it more valuable as a slow-release soil amendment (biochar) than as fuel, given the nutrient content? (b) Does HTC at 200°C fully destroy veterinary antibiotics and antimicrobial resistance genes (ARGs)? (c) Can the liquid filtrate from manure HTC serve as a concentrated liquid fertilizer?</p>
+      </div>
+
+      <p style="margin-top: 10px;"><strong>Comparative output summary request:</strong> If possible, please provide approximate values for the following matrix:</p>
+      <table class="map-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Municipal Sludge</th>
+            <th>Food Industry</th>
+            <th>Agricultural / Manure</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Hydrochar calorific value (MJ/kg)</strong></td><td></td><td></td><td></td></tr>
+          <tr><td><strong>Ash content (%)</strong></td><td></td><td></td><td></td></tr>
+          <tr><td><strong>Mass reduction (%)</strong></td><td></td><td></td><td></td></tr>
+          <tr><td><strong>Optimal end-use</strong></td><td></td><td></td><td></td></tr>
+          <tr><td><strong>Key risk / limitation</strong></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="page-footer">
+      <div>BTC Consulting Sp. z o.o. | AGH Deep-Dive Questionnaire</div>
+      <div class="page-number">Page 4 of 8</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 5: Block 7 — Competitive Differentiation ================= -->
+  <div class="page" id="page-5">
+    <div class="page-header">
+      <div class="page-logo">BioTC<span>.</span></div>
+      <div class="page-tagline">Competitive Differentiation & Innovation</div>
+    </div>
+    
+    <div class="page-content">
+      <div class="section-header purple">
+        <h2>Block 7 — Competitive Differentiation: Why BioTC?</h2>
+        <p>Critical for positioning against TerraNova Energy, C-Green, Ingelia, HTCycle, and traditional incineration.</p>
+      </div>
+
+      <div class="sub-header">7A — Architectural Uniqueness</div>
+
+      <div class="q-item">
+        <span class="q-number">22</span>
+        <span class="q-text">Integrated TH+HTC vs. Standalone Systems</span>
+        <p class="q-context">Most competitors offer either Thermal Hydrolysis (THP) or HTC separately. BioTC integrates both in a closed-loop system. (a) What specifically happens at the engineering level — is it a sequential two-reactor chain or a single-vessel dual-process? (b) What measurable advantage does integration provide over running TH and HTC as separate units? (c) Is the "closed-loop" claim about heat recirculation, water recirculation, or both?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">23</span>
+        <span class="q-text">HTC-D Digestion Booster — Originality & Priority</span>
+        <p class="q-context">The concept of returning HTC filtrate to anaerobic digesters to boost biogas yield is central to the HTC-D variant. (a) Is this BioTheCon's original innovation, or is it a known approach in the literature? (b) Do you hold priority (patent or publication) on this specific configuration? (c) How does your implementation differ from similar concepts by competitors?</p>
+      </div>
+
+      <div class="sub-header">7B — Head-to-Head Comparison</div>
+
+      <div class="q-item">
+        <span class="q-number">24</span>
+        <span class="q-text">BioTC vs. Incineration (Fluidized Bed)</span>
+        <p class="q-context">Direct incineration in fluidized bed furnaces is the dominant method in Germany and Switzerland. (a) What is the key advantage of HTC over incineration regarding energy balance, dioxin/furan formation, and CAPEX? (b) At what scale (tons/day) does incineration become cheaper than HTC, and vice versa?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">25</span>
+        <span class="q-text">BioTC vs. Pyrolysis</span>
+        <p class="q-context">Pyrolysis (400–700°C, oxygen-free) also produces biochar. (a) Why was subcritical water (180–220°C) chosen over pyrolysis? (b) What are the fundamental differences in end-product structure, calorific value, and contaminant destruction between hydrochar and pyrolytic biochar? (c) What is the energy cost comparison per ton of input?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">26</span>
+        <span class="q-text">BioTC vs. TerraNova Energy (Germany)</span>
+        <p class="q-context">TerraNova is arguably the most established commercial HTC provider in Europe with multiple installations. (a) What specific technical parameters (temperature regime, pressure, cycle time, continuous vs. batch) differentiate BioTC from TerraNova? (b) Where does BioTC hold an objective advantage? (c) Where does TerraNova currently have an edge?</p>
+      </div>
+
+      <div class="q-item" style="margin-bottom: 0;">
+        <span class="q-number">27</span>
+        <span class="q-text">"One-Sentence" Innovation Statement</span>
+        <p class="q-context">If you had to describe the core scientific breakthrough of BioTC compared to classical HTC in one sentence for a non-technical audience, what would that sentence be? (We intend to use this as the central positioning statement for all marketing.)</p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>BTC Consulting Sp. z o.o. | AGH Deep-Dive Questionnaire</div>
+      <div class="page-number">Page 5 of 8</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 6: Block 8 — Scientific Evidence & IP ================= -->
+  <div class="page" id="page-6">
+    <div class="page-header">
+      <div class="page-logo">BioTC<span>.</span></div>
+      <div class="page-tagline">Scientific Evidence, Patents & Institutional Validation</div>
+    </div>
+    
+    <div class="page-content">
+      <div class="section-header blue">
+        <h2>Block 8 — Scientific Evidence Base & Intellectual Property</h2>
+        <p>Target audience: Investors, grant evaluators, and technical due diligence teams.</p>
+      </div>
+
+      <div class="sub-header">8A — Peer-Reviewed Publications</div>
+
+      <div class="q-item">
+        <span class="q-number">28</span>
+        <span class="q-text">Publication Portfolio</span>
+        <p class="q-context">Please provide the full list of peer-reviewed journal articles directly related to BioTC/HTC for sewage sludge authored by your team. We are particularly interested in publications in Bioresource Technology, Waste Management, Energy & Fuels, Journal of Cleaner Production, or equivalent Q1/Q2 journals.</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">29</span>
+        <span class="q-text">Key Reference Paper</span>
+        <p class="q-context">Which single publication would you recommend as the most comprehensive overview of BioTC technology for a WWTP technical director who wants to understand the science in 30 minutes?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">30</span>
+        <span class="q-text">Lab Protocol & Reproducibility</span>
+        <p class="q-context">When testing a client's sludge sample, what exact protocol is used? (Reactor size, temperature profile, residence time, number of replicates, calorific value measurement standard — DIN/ISO/ASTM?) What is the statistical reproducibility (standard deviation) of calorific value measurements across repeated runs?</p>
+      </div>
+
+      <div class="sub-header">8B — Patents & IP Protection</div>
+
+      <div class="q-item">
+        <span class="q-number">31</span>
+        <span class="q-text">Patent Portfolio</span>
+        <p class="q-context">How many patents protect the BioTC technology, and what specific aspects do they cover? (Reactor design? TH+HTC integration? Heat recovery configuration? HTC-D filtrate return?) Are these filed nationally (UPRP Poland), via EPO, or through PCT international applications?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">32</span>
+        <span class="q-text">Freedom to Operate (FTO)</span>
+        <p class="q-context">Has a Freedom to Operate analysis been conducted to verify that BioTC does not infringe upon patents held by TerraNova, C-Green, Ingelia, or other HTC developers?</p>
+      </div>
+
+      <div class="sub-header">8C — Institutional & Third-Party Validation</div>
+
+      <div class="q-item">
+        <span class="q-number">33</span>
+        <span class="q-text">Independent Verification</span>
+        <p class="q-context">Have any independent laboratories or research institutes (not affiliated with AGH) verified your results? For example, Fraunhofer Institute (Germany), TNO (Netherlands), or EU-accredited testing labs?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">34</span>
+        <span class="q-text">Grant & Funding History</span>
+        <p class="q-context">Which national and EU research grants funded the development of BioTC? (Program names, approximate funding amounts, and project durations.) This data demonstrates that the technology represents years of state-backed R&D investment, not a startup concept.</p>
+      </div>
+
+      <div class="q-item" style="margin-bottom: 0;">
+        <span class="q-number">35</span>
+        <span class="q-text">Technology Readiness Level (TRL)</span>
+        <p class="q-context">At what TRL (1–9) does BioTC currently stand? What is the maximum throughput (tons/day) that has been tested in continuous operation, and for how long? How many PhD and MSc theses have been completed at your department specifically on HTC of sewage sludge?</p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>BTC Consulting Sp. z o.o. | AGH Deep-Dive Questionnaire</div>
+      <div class="page-number">Page 6 of 8</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 7: Block 9 & 10 — Education & Honest Limitations ================= -->
+  <div class="page" id="page-7">
+    <div class="page-header">
+      <div class="page-logo">BioTC<span>.</span></div>
+      <div class="page-tagline">Education, Awareness & Honest Limitations</div>
+    </div>
+    
+    <div class="page-content">
+      <div class="section-header green">
+        <h2>Block 9 — Education & Client Awareness</h2>
+        <p>Objective: Design educational formats that create "aha moments" for skeptical decision-makers.</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">36</span>
+        <span class="q-text">Availability for Educational Events</span>
+        <p class="q-context">Would you be available to participate in webinars or on-site technical seminars for Polish and Ukrainian WWTP directors? If so, how many sessions per year and in what format (online lecture, live lab demo, conference presentation)? Can we organize guided lab visits at AGH for small client delegations (3–5 people)?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">37</span>
+        <span class="q-text">The "Shock Fact" — PFAS Time Bomb</span>
+        <p class="q-context">From your experience presenting to practitioners, what single fact or statistic shocks engineers the most when they learn about the true state of sludge management? For example: how many mg of microplastics per ton of dried sludge are currently being spread on farmland? Is the cumulative PFAS contamination from decades of agricultural sludge application becoming a legal liability (similar to asbestos)?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">38</span>
+        <span class="q-text">EU Directive 2024/3019 — Hard Deadline</span>
+        <p class="q-context">What is the actual year by which Polish and Ukrainian water utilities will be legally required to implement micropollutant/PFAS destruction technologies? Is there a concrete cutoff date after which current disposal methods (landfilling, agricultural spreading) become illegal? This date becomes our most powerful sales argument.</p>
+      </div>
+
+      <div class="section-header red" style="margin-top: 14px;">
+        <h2>Block 10 — Honest Limitations & Known Weak Points</h2>
+        <p>Objective: Build trust by transparently communicating where HTC is NOT the best solution.</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">39</span>
+        <span class="q-text">Feedstocks That Do NOT Work</span>
+        <p class="q-context">For which specific waste types is HTC categorically not recommended? (e.g., radioactive waste, purely inorganic slurries, high heavy-metal galvanic sludge?) Where is the absolute boundary?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">40</span>
+        <span class="q-text">Minimum Economic Threshold</span>
+        <p class="q-context">What is the minimum daily throughput (tons of sludge/day) that makes an HTC installation economically viable? Below what RLM (Resident Load Equivalent) size should a municipality NOT consider this technology?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">41</span>
+        <span class="q-text">Hydrochar Legal Classification Barrier</span>
+        <p class="q-context">In some EU member states, sludge-derived hydrochar is classified as "waste" rather than "product" or "fuel," creating legal barriers to its sale. What is the current classification status in Poland and the broader EU? Is there active regulatory work to change this?</p>
+      </div>
+
+      <div class="q-item" style="margin-bottom: 0;">
+        <span class="q-number">42</span>
+        <span class="q-text">Honest Competitive Assessment</span>
+        <p class="q-context">Where, in your professional opinion, are competitors (TerraNova, C-Green) objectively stronger than BioTC today? What do they have that we do not yet have — more installed sites, broader patent coverage, longer operational track record? What are the biggest scale-up risks when moving from lab (TRL 4–5) to full industrial operation (TRL 8–9)?</p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>BTC Consulting Sp. z o.o. | AGH Deep-Dive Questionnaire</div>
+      <div class="page-number">Page 7 of 8</div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 8: Block 11 & 12 — Community Impact & Future ================= -->
+  <div class="page" id="page-8">
+    <div class="page-header">
+      <div class="page-logo">BioTC<span>.</span></div>
+      <div class="page-tagline">Community Impact, Sanitary Zones & Future Roadmap</div>
+    </div>
+    
+    <div class="page-content">
+      <div class="section-header green">
+        <h2>Block 11 — Sanitary Zones & Indirect Community Benefits</h2>
+        <p>Target audience: Mayors, city councils, and municipal decision-makers.</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">43</span>
+        <span class="q-text">Odor Elimination & Sanitary Zone Reduction</span>
+        <p class="q-context">Open sludge drying beds are the primary source of H₂S, mercaptans, and ammonia. If BioTC eliminates these open lagoons entirely: (a) Is the BioTC installation itself odor-free (fully enclosed)? (b) Are there documented European precedents where introducing closed thermal sludge treatment led to an official reduction of the sanitary protection zone? (c) What measurement protocol should be used to document H₂S/NH₃ reduction before and after installation?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">44</span>
+        <span class="q-text">Land Liberation & Groundwater Protection</span>
+        <p class="q-context">A typical 50,000-population WWTP occupies 2–10 hectares with sludge lagoons. (a) What is the physical footprint (m²) of a BioTC module per ton/day capacity? (b) Can hydrochar (biochar) be used to remediate the contaminated soil of decommissioned sludge beds? (c) Are there studies quantifying the annual pollutant load (nitrates, PFAS, pathogens) leaching from sludge lagoons into groundwater?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">45</span>
+        <span class="q-text">Community Heating & Energy Independence</span>
+        <p class="q-context">If hydrochar is combusted at a local district heating plant, what percentage of a model city's heating demand (50,000 residents) could one BioTC installation cover? How many truck trips per week are eliminated by reducing sludge volume by 75%?</p>
+      </div>
+
+      <div class="section-header purple" style="margin-top: 14px;">
+        <h2>Block 12 — Future Roadmap & Emerging Applications</h2>
+        <p>Objective: Content for thought leadership, LinkedIn, and conference presentations.</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">46</span>
+        <span class="q-text">Novel Feedstocks Under Investigation</span>
+        <p class="q-context">Are you currently investigating HTC for new feedstock types such as: marine algae, aquaculture sludge, textile waste, or construction & demolition organic residues?</p>
+      </div>
+
+      <div class="q-item">
+        <span class="q-number">47</span>
+        <span class="q-text">Carbon Credit Qualification</span>
+        <p class="q-context">Can hydrochar applied to soil as biochar qualify for carbon credits under Verra or Gold Standard frameworks? Has the long-term carbon stability (100+ years) of sludge-derived hydrochar been studied?</p>
+      </div>
+
+      <div class="q-item" style="margin-bottom: 0;">
+        <span class="q-number">48</span>
+        <span class="q-text">Upcoming Publications</span>
+        <p class="q-context">Are there papers currently under peer review or in preparation? We would like to synchronize our marketing launch with the publication of new scientific results for maximum credibility and media coverage.</p>
+      </div>
+
+      <div style="margin-top: 14px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 6px; padding: 10px 12px;">
+        <h3 style="font-size: 12px; margin-bottom: 4px; color: var(--accent-green);">Thank You</h3>
+        <p style="margin-bottom: 0; font-size: 11px;">Your expertise and scientific rigor are the foundation of BioTC's credibility in the market. The answers provided in this document will be treated as confidential source material and will be professionally adapted for public-facing content only after your review and written approval.</p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>BTC Consulting Sp. z o.o. | AGH Deep-Dive Questionnaire</div>
+      <div class="page-number">Page 8 of 8</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

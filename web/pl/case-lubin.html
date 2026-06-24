@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studium przypadku: MPWiK Lubin | BTC Consulting</title>
+  <meta name="description" content="TH-AD-HTC technology at WWTP Lubin: ×5.6 mass reduction, +59% biogas, positive economics. Design concept accepted Oct 2025.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="../styles.min.css?v=22">
+  <style>
+    body { background: #f0f2f5; }
+    .doc-back { display:inline-flex;align-items:center;gap:.35rem;font-size:.875rem;font-weight:600;color:var(--color-accent);text-decoration:none;margin-block-end:1.25rem;transition:opacity .15s; }
+    .doc-back:hover { opacity:.7; }
+    .doc-wrap { max-width:900px;margin:calc(70px + 2.5rem) auto 4rem;padding:0 1.5rem; }
+    .doc-logo-icon { width:52px;height:52px;flex-shrink:0; }
+    .doc-vline { width:4px;height:88px;background:#111;border-radius:2px;flex-shrink:0; }
+    .doc-card-header { display:flex;align-items:center;gap:1.1rem;margin-block-end:2rem; }
+    .doc-title { font-family:var(--font-display);font-size:clamp(1.4rem,3vw,2rem);font-weight:800;color:var(--color-text);line-height:1.15;margin:0; }
+    .doc-card { background:#fff;border:1.5px solid #046BD2;border-radius:.5rem;padding:2.5rem 3rem; }
+    @media(max-width:640px){.doc-card{padding:1.5rem 1.25rem;}}
+
+    /* Meta strip */
+    .case-meta { display:flex;flex-wrap:wrap;gap:1rem 2rem;background:rgba(4,107,210,.04);border:1px solid rgba(4,107,210,.15);border-radius:.4rem;padding:1rem 1.25rem;margin-block-end:2rem;font-size:.82rem; }
+    .case-meta-item strong { display:block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-muted);margin-block-end:.15rem; }
+    .case-meta-item span { font-weight:600;color:var(--color-text); }
+
+    /* KPI grid */
+    .kpi-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-block:1.5rem; }
+    @media(max-width:640px){.kpi-grid{grid-template-columns:1fr 1fr;}}
+    .kpi-card { background:rgba(4,107,210,.04);border:1px solid rgba(4,107,210,.15);border-radius:.5rem;padding:1rem;text-align:center; }
+    .kpi-val { font-family:var(--font-display);font-size:2rem;font-weight:800;color:#046BD2;line-height:1; }
+    .kpi-lbl { font-size:.72rem;color:var(--color-text-muted);margin-block-start:.3rem;line-height:1.4; }
+
+    /* Comparison table */
+    .cmp-table { width:100%;border-collapse:collapse;font-size:.85rem;margin-block:1rem; }
+    .cmp-table th { background:#046BD2;color:#fff;font-weight:700;padding:.65rem .9rem;text-align:left; }
+    .cmp-table td { padding:.6rem .9rem;border-bottom:1px solid rgba(4,107,210,.1);vertical-align:top; }
+    .cmp-table tr:last-child td{border-bottom:none;}
+    .cmp-table tr:nth-child(even) td{background:rgba(4,107,210,.03);}
+    .td-good { color:#0D9488;font-weight:700; }
+    .td-bad  { color:#D35400; }
+
+    /* Timeline */
+    .timeline { margin-block:1rem; }
+    .tl-item { display:flex;gap:1rem;padding-block:.5rem; }
+    .tl-dot { width:10px;height:10px;border-radius:50%;background:#046BD2;flex-shrink:0;margin-block-start:.35rem; }
+    .tl-date { font-size:.75rem;font-weight:700;color:#046BD2;white-space:nowrap;min-width:80px; }
+    .tl-text { font-size:.875rem;color:var(--color-text); }
+
+    .doc-card h2 { font-family:var(--font-display);font-size:1.05rem;font-weight:800;color:var(--color-text);margin-block:2rem .6rem; }
+    .doc-card h2:first-of-type{margin-block-start:0;}
+    .doc-card h3 { font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#046BD2;margin-block:1.5rem .4rem;padding-inline-start:.75rem;border-left:3px solid #046BD2; }
+    .doc-card p { font-size:.9rem;line-height:1.75;color:var(--color-text);margin-block-end:.6rem; }
+    .doc-card p:last-child{margin-block-end:0;}
+    .note { font-size:.78rem;color:var(--color-text-muted);font-style:italic;margin-block-start:.5rem; }
+
+    .doc-actions{margin-block-start:1.5rem;display:flex;justify-content:flex-end;}
+    .doc-pdf-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.4rem;background:#046BD2;color:#fff;font-size:.875rem;font-weight:700;border-radius:.5rem;border:none;cursor:pointer;font-family:var(--font-body);transition:opacity .15s;}
+    .doc-pdf-btn:hover{opacity:.88;}
+    @media print{body{background:#fff;}.main-header,.doc-actions,.doc-back{display:none!important;}.doc-wrap{margin-top:1cm;padding:0 1cm;}}
+  </style>
+</head>
+<body>
+
+  <header class="main-header" id="header">
+    <div class="header-container">
+      <a href="index.html" class="logo" aria-label="BTC Consulting">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop offset="0%" stop-color="#046BD2"/><stop offset="100%" stop-color="#0D9488"/></linearGradient>
+            <linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop offset="0%" stop-color="#38BDF8"/><stop offset="100%" stop-color="#2DD4BF"/></linearGradient>
+          </defs>
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#lg1)"/>
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#lg2)" stroke="white" stroke-width="1.5" vector-effect="non-scaling-stroke" transform="translate(12,13) scale(0.62) translate(-12,-13)"/>
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="white" opacity="0.92" transform="translate(12,13) scale(0.33) translate(-12,-13)"/>
+        </svg>
+        <span class="logo-text"><span class="logo-btc">BTC</span> Consulting</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Main Menu">
+        <ul>
+          <li><a href="index.html">Rozwiazania</a></li>
+          <li><a href="technology.html">Technologia</a></li>
+          <li><a href="simulator.html">Kalkulacje</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="lang-globe-btn" id="lang-globe-btn" aria-label="Language">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </button>
+        <button class="nav-fab" id="nav-fab" aria-label="Contact">
+          <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 12 19.79 19.79 0 0 1 1.08 3.38 2 2 0 0 1 3.07 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
+        </button>
+      </div>
+      <button class="mobile-toggle" aria-label="Open Menu" aria-expanded="false" aria-controls="nav-mobile-strip">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+    <div class="lang-strip" id="lang-strip" aria-hidden="true">
+      <div class="lang-strip-inner">
+        <a href="../eu/case-lubin.html" class="lang-strip-item">&#x1F1F5;&#x1F1F1; Polski</a>
+        <a href="../eu/case-lubin.html" class="lang-strip-item">&#x1F1EA;&#x1F1FA; English</a>
+        <a href="../ua/case-lubin.html" class="lang-strip-item">&#x1F1FA;&#x1F1E6; Українська</a>
+      </div>
+    </div>
+    <div class="nav-mobile-strip" id="nav-mobile-strip" aria-hidden="true">
+      <div class="nav-mobile-strip-inner">
+        <ul>
+          <li><a href="index.html">Rozwiazania</a></li>
+          <li><a href="technology.html">Technologia</a></li>
+          <li><a href="simulator.html">Kalkulacje</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <div class="doc-wrap">
+
+    <a href="javascript:history.back()" class="doc-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back
+    </a>
+
+    <div class="doc-card">
+
+      <div class="doc-card-header">
+        <svg class="doc-logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="dh1" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop offset="0%" stop-color="#046BD2"/><stop offset="100%" stop-color="#0D9488"/></linearGradient>
+            <linearGradient id="dh2" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop offset="0%" stop-color="#38BDF8"/><stop offset="100%" stop-color="#2DD4BF"/></linearGradient>
+          </defs>
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#dh1)"/>
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#dh2)" stroke="white" stroke-width="1.5" vector-effect="non-scaling-stroke" transform="translate(12,13) scale(0.62) translate(-12,-13)"/>
+          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="white" opacity="0.92" transform="translate(12,13) scale(0.33) translate(-12,-13)"/>
+        </svg>
+        <div class="doc-vline"></div>
+        <h1 class="doc-title">Studium przypadku<br><span style="font-size:0.6em;font-weight:600;color:#046BD2;">MPWiK Lubin · TH-AD-HTC</span></h1>
+      </div>
+
+      <!-- Meta -->
+      <div class="case-meta">
+        <div class="case-meta-item"><strong>Client</strong><span>MPWiK Sp. z o.o. Lubin</span></div>
+        <div class="case-meta-item"><strong>Location</strong><span>Lubin, Lower Silesia, Poland</span></div>
+        <div class="case-meta-item"><strong>Scale</strong><span>~100,000 PE</span></div>
+        <div class="case-meta-item"><strong>Technologia</strong><span>TH-AD-HTC (TH+HTC installation)</span></div>
+        <div class="case-meta-item"><strong>Status</strong><span>Design concept accepted · Rights purchased Oct 2025</span></div>
+        <div class="case-meta-item"><strong>Developer</strong><span>BTC Consulting Sp. z o.o.</span></div>
+      </div>
+
+      <h2>Sytuacja przed wdrozeniem</h2>
+      <p>After Stage I modernization, WWTP Lubin (approx. 100,000 PE) was operating with a conventional anaerobic digestion system. The plant generated 36.4 Mg/day of dewatered digestate at 18% dry matter — an expensive liability requiring off-site disposal at a cost of approximately 400 PLN/Mg. Daily net sludge management loss reached 15,146 PLN/day.</p>
+      <p>Electricity generated in-house (341 kWel) covered only part of the plant's needs. The plant had no path to energy neutrality under the UWWTD 2024/3019 requirements targeting 100% renewable energy by 2045.</p>
+
+      <h2>Zastosowane rozwiazanie</h2>
+      <p>BTC Consulting developed the research and design concept for Stage II modernization based on the <strong>TH-AD-HTC technology</strong> — a combined Thermal Hydrolysis (TH) before anaerobic digestion, followed by Hydrothermal Carbonization (HTC) of the resulting digestate. This creates a closed-loop process that simultaneously maximises biogas production and converts residual sludge into marketable hydrochar.</p>
+      <p>The TH+HTC installation fits into a hall of <strong>20×36 m, height 12 m</strong>, directly integrated with the existing WWTP infrastructure. Two deployment scenarios were designed:</p>
+      <ul style="font-size:.9rem;line-height:1.75;color:var(--color-text);padding-inline-start:1.25rem;margin-block:.5rem 1rem;">
+        <li><strong>Variant IIa</strong> — sludge from Lubin only</li>
+        <li><strong>Variant IIb</strong> — Lubin + up to 20% additional dry matter from surrounding smaller WWTPs (Hub &amp; Spoke model)</li>
+      </ul>
+
+      <h2>Projektowane wyniki</h2>
+      <p class="note">* Parametry sa wartosciami projektowymi z zatwierdzonej koncepcji inzynierskiej. Instalacja jest w fazie przedinwestycyjnej od 2025 r.</p>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-val">×5.6</div>
+          <div class="kpi-lbl">Sludge mass reduction<br>(36.4 → 6.5 Mg/day)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">+59%</div>
+          <div class="kpi-lbl">Increase in biogas production<br>(131.8 → 209.0 nm³/h)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">+60%</div>
+          <div class="kpi-lbl">Increase in dry matter content<br>(18% → 60% DM in hydrochar)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">341→541</div>
+          <div class="kpi-lbl">Electricity generation kWel<br>(net gain after TH+HTC load)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">+3.4M</div>
+          <div class="kpi-lbl">Annual economic improvement<br>PLN/year (Variant IIa, min.)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">TRL 7</div>
+          <div class="kpi-lbl">Technology readiness level<br>Patent applications filed</div>
+        </div>
+      </div>
+
+      <h2>Porownanie przed / po</h2>
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>After Stage I</th>
+            <th>After Stage IIa (Variant IIa)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Dewatered sludge / Hydrochar</td><td class="td-bad">36.4 Mg/day (18% DM)</td><td class="td-good">6.5 Mg/day (60% DM)</td></tr>
+          <tr><td>Mass reduction ratio</td><td>—</td><td class="td-good">×5.6</td></tr>
+          <tr><td>Biogas production</td><td>131.8 nm³/h</td><td class="td-good">209.0 nm³/h (+59%)</td></tr>
+          <tr><td>Electricity generation</td><td>341 kWel</td><td class="td-good">449–541 kWel</td></tr>
+          <tr><td>Net sludge mgmt. (PLN/day)</td><td class="td-bad">–15,146</td><td class="td-good">–5,897 to +639</td></tr>
+          <tr><td>Annual economic improvement</td><td>baseline</td><td class="td-good">+3,376–5,295 thousand PLN/year</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Potencjal Hub &amp; Spoke (Wariant IIb)</h2>
+      <p>Adding 20% additional dry matter from surrounding smaller municipalities increases biogas production by <strong>+85%</strong> and the annual economic improvement reaches <strong>+5,046–11,762 thousand PLN/year</strong>. WWTP Lubin becomes a regional sludge management hub, generating revenue from Gate Fees charged to satellite municipalities.</p>
+
+      <h2>Harmonogram projektu</h2>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Sep 2025</div><div class="tl-text">MPWiK Lubin officially accepts the research and design concept for Stage II modernization (TH-AD-HTC, TH+HTC installation)</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Oct 2025</div><div class="tl-text">MPWiK purchases all proprietary copyrights and derivative rights to implement the concept at WWTP Lubin — first commercial transaction for BTC Consulting</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">2026–2027</div><div class="tl-text">Pre-investment phase: detailed design, grant applications (EU LIFE / Cohesion Fund), permitting</div></div>
+        <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">2027+</div><div class="tl-text">Construction and commissioning of TH+HTC installation by INTROL S.A. (GPW-listed)</div></div>
+      </div>
+
+      <h2>Kluczowe wnioski</h2>
+      <p>The Lubin case demonstrates that for a medium-sized WWTP (~100,000 PE), the TH-AD-HTC technology transforms the sludge management operation from a financial liability into an energy-positive, economically self-sustaining asset. The combination of radical sludge volume reduction, increased biogas production, and potential Gate Fee revenue from satellite municipalities creates a multi-stream return model with a payback period of 3–4 years after EU grant.</p>
+
+    </div>
+
+    <div class="doc-actions">
+      <button class="doc-pdf-btn" onclick="window.print()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download PDF
+      </button>
+    </div>
+
+  </div>
+
+  <script src="../app.min.js?v=4"></script>
+</body>
+</html>

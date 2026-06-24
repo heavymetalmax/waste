@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BioTC - Poland GTM Discovery Workbook</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Design System Tokens */
+    :root {
+      --bg-primary: #FFFFFF;
+      --bg-secondary: #F8FAFC;
+      --accent-orange: #D35400;
+      --accent-orange-light: #FDF2E9;
+      --accent-green: #0D9488;
+      --accent-green-light: #F0FDF4;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --border-color: #E2E8F0;
+      --shadow-sm: 0 4px 6px -1px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 10px 15px -3px rgba(15, 23, 42, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F1F5F9;
+      color: var(--text-main);
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .brief-container {
+      max-width: 210mm;
+      margin: 40px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    /* Print-Only Guide Floating Panel (Screen Only) */
+    .print-guide {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 20px;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+
+    .print-guide-text h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .print-guide-text p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .print-btn {
+      background-color: var(--accent-green);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.2s ease;
+      box-shadow: 0 4px 10px rgba(13, 148, 136, 0.2);
+    }
+
+    .print-btn:hover {
+      background-color: #0b7a70;
+    }
+
+    /* Page Definition (A4 aspect ratio: 210mm x 297mm) */
+    .page {
+      background-color: var(--bg-primary);
+      width: 210mm;
+      height: 297mm;
+      padding: 18mm 20mm;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.25;
+    }
+
+    h1 {
+      font-size: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      border-bottom: 2px solid var(--accent-orange-light);
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h2 span.step-num {
+      background-color: var(--accent-orange);
+      color: white;
+      font-size: 12px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+    }
+
+    h3 {
+      font-size: 13.5px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    p {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    /* Form Fields for Printing/Interactive Fill */
+    .field-group {
+      margin-bottom: 10px;
+    }
+
+    .field-label {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .form-input {
+      width: 100%;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      height: 34px;
+      padding: 6px 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      background-color: var(--bg-secondary);
+      color: var(--text-main);
+      outline: none;
+    }
+
+    .form-textarea {
+      width: 100%;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      height: 80px;
+      padding: 8px 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      background-color: var(--bg-secondary);
+      color: var(--text-main);
+      resize: none;
+      outline: none;
+    }
+
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      accent-color: var(--accent-green);
+      cursor: pointer;
+    }
+
+    /* Header & Footer */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+
+    .page-logo {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .page-logo span {
+      color: var(--accent-orange);
+    }
+
+    .page-tagline {
+      font-size: 9.5px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-color);
+      padding-top: 8px;
+      margin-top: 12px;
+      font-size: 9.5px;
+      color: var(--text-muted);
+    }
+
+    .page-number {
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* Cover Styling */
+    .cover-top {
+      height: 90px;
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, #EDF2F7 100%);
+      border-left: 5px solid var(--accent-green);
+      padding: 15px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .cover-badge {
+      display: inline-block;
+      align-self: flex-start;
+      background-color: var(--accent-green-light);
+      color: var(--accent-green);
+      padding: 3px 8px;
+      border-radius: 20px;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+      border: 1px solid rgba(13, 148, 136, 0.15);
+    }
+
+    .cover-headline {
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    /* Layout Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+
+    .card {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 10px 12px;
+      background: white;
+    }
+
+    .card.info {
+      border-left: 4px solid var(--accent-green);
+      background: var(--bg-secondary);
+    }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0;
+      font-size: 11px;
+    }
+
+    .compare-table th {
+      background-color: var(--bg-secondary);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      text-align: left;
+      padding: 6px;
+      border-bottom: 2px solid var(--border-color);
+      color: var(--text-main);
+    }
+
+    .compare-table td {
+      padding: 6px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-muted);
+    }
+
+    .signature-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 15px;
+    }
+
+    .sig-line {
+      border-bottom: 1px solid var(--text-muted);
+      height: 40px;
+      margin-bottom: 4px;
+    }
+
+    .sig-label {
+      font-size: 10.5px;
+      color: var(--text-muted);
+    }
+
+    /* Page specific spacing adjustments */
+    .page-content {
+      flex-grow: 1;
+    }
+
+    /* Print styling definitions */
+    @media print {
+      body {
+        background-color: #FFFFFF;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .brief-container {
+        margin: 0;
+        gap: 0;
+      }
+
+      .print-guide {
+        display: none !important;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        page-break-after: always;
+        width: 210mm;
+        height: 297mm;
+        overflow: hidden;
+      }
+
+      .form-input, .form-textarea {
+        border: 1px solid #CBD5E1 !important;
+        background-color: #FFFFFF !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="brief-container">
+    
+    <!-- Floating guide block visible on screens -->
+    <div class="print-guide">
+      <div class="print-guide-text">
+        <h4>📋 BioTC Poland - GTM Strategy Discovery Workbook</h4>
+        <p>This is a collaborative setup document for the Polish partner. Print to PDF or share the file to collect answers.</p>
+      </div>
+      <button class="print-btn" onclick="window.print()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        Print PDF
+      </button>
+    </div>
+
+    <!-- ================= PAGE 1 ================= -->
+    <div class="page" id="page-1">
+      <div class="page-header">
+        <div class="page-logo">BioTC<span>.</span></div>
+        <div class="page-tagline">Poland Market Validation & Go-To-Market Alignment</div>
+      </div>
+      
+      <div class="page-content">
+        <div class="cover-top">
+          <div class="cover-badge">Poland GTM Discovery Workbook</div>
+          <div class="cover-headline">Commercial Assumptions & Launch Alignment</div>
+        </div>
+
+        <p><strong>Dear Partner,</strong><br>
+        To align our commercial strategy for deploying the <strong>BioTC (Thermal Hydrolysis + Hydrothermal Carbonization)</strong> sewage sludge systems in the Polish market, please review the proposed framework and fill out the questions below. Your answers will shape the final financial calculator, technical briefs, and targeting templates.</p>
+
+        <h2><span class="step-num">1</span>ICP & Target Market Segmentation</h2>
+        <p>In Poland, sewage sludge treatment is driven by strict EU directives. We need to decide which segment to prioritize for our initial outbound campaigns.</p>
+        
+        <div class="grid-2">
+          <div class="card info">
+            <h3>Municipal (B2G): MPWiK</h3>
+            <p style="font-size: 11px; margin-bottom: 0; line-height: 1.35;">
+              • Heavy regulatory pressure (Directive 2024/3019)<br>
+              • Large volumes, eligible for NFOŚiGW grants<br>
+              • Subject to Public Procurement Law (long sales cycle)
+            </p>
+          </div>
+          <div class="card info">
+            <h3>Industrial (B2B): Factories</h3>
+            <p style="font-size: 11px; margin-bottom: 0; line-height: 1.35;">
+              • Food processing, chemical, paper plants<br>
+              • Short sales cycle, direct executive negotiations<br>
+              • Urgent ESG/carbon footprint requirements
+            </p>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">1.1. Which customer segment should be our primary focus in Poland for the next 6-12 months?</label>
+          <div class="checkbox-grid">
+            <label class="checkbox-item"><input type="checkbox" name="segment" value="mpwik"> Municipal (MPWiK) - B2G</label>
+            <label class="checkbox-item"><input type="checkbox" name="segment" value="industrial"> Private Industrial - B2B</label>
+            <label class="checkbox-item"><input type="checkbox" name="segment" value="both" checked> Dual Approach (Municipal Lead)</label>
+            <label class="checkbox-item"><input type="checkbox" name="segment" value="other"> Waste Operators (Remondis, etc.)</label>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">1.2. State the key entry criteria for a target facility (e.g., minimum RLM equivalent size, tons of sludge/day, location):</label>
+          <input type="text" class="form-input" placeholder="e.g., Min. 30,000 RLM, >10 tons of dewatered sludge per day...">
+        </div>
+
+        <div class="field-group" style="margin-bottom: 0;">
+          <label class="field-label">1.3. List 3 to 5 target Polish cities or factories that we should approach first as potential pilot sites:</label>
+          <textarea class="form-textarea" placeholder="1. MPWiK Kraków (or other specific cities/factories)...&#10;2. ...&#10;3. ..."></textarea>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <div>BTC Consulting Sp. z o.o. | Confidential Strategic Alignment</div>
+        <div class="page-number">Page 1</div>
+      </div>
+    </div>
+
+    <!-- ================= PAGE 2 ================= -->
+    <div class="page" id="page-2">
+      <div class="page-header">
+        <div class="page-logo">BioTC<span>.</span></div>
+        <div class="page-tagline">Sludge Testing & Technical Limits</div>
+      </div>
+      
+      <div class="page-content">
+        <h2><span class="step-num">2</span>Technical Capabilities & Sludge Testing Logistics</h2>
+        <p>Our GTM model uses a <strong>"Free Sludge Audit"</strong> hook (analyzing 2 kg of sludge in Poland) to secure interest. We must align on the technical boundaries and capacity of the testing loop.</p>
+
+        <div class="field-group">
+          <label class="field-label">2.1. Where will sludge samples from Polish clients be tested, and what is our monthly testing capacity?</label>
+          <input type="text" class="form-input" placeholder="e.g., AGH Krakow Thermal Lab, capacity: 5 tests/month...">
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">2.2. Feedstock constraints: What are the absolute limits of sludge the HTC system cannot accept?</label>
+          <div class="checkbox-grid">
+            <label class="checkbox-item"><input type="checkbox" checked> Ash/sand content &gt; 45%</label>
+            <label class="checkbox-item"><input type="checkbox" checked> Heavy metals exceeding EU norms</label>
+            <label class="checkbox-item"><input type="checkbox"> Moisture levels &lt; 65%</label>
+            <label class="checkbox-item"><input type="checkbox"> Chemical contamination (PFAS spike)</label>
+          </div>
+          <input type="text" class="form-input" placeholder="Any other specific feedstock exclusions..." style="margin-top: 5px;">
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">2.3. Mobile Pilot Unit status: Do we have a mobile containerized pilot unit that can be deployed to client sites in Poland? If yes, what are the deployment conditions?</label>
+          <textarea class="form-textarea" placeholder="e.g., Available for 1-month trials on-site, requires 400V power and 2m3/day water connection..."></textarea>
+        </div>
+
+        <h2><span class="step-num">3</span>Value-Based ROI Model Inputs</h2>
+        <p>We sell <strong>payback, not steel</strong>. To configure the Poland ROI calculator, please supply the current average market costs:</p>
+
+        <div class="grid-2">
+          <div class="field-group">
+            <label class="field-label">3.1. Average sludge hauling & landfilling cost (PLN / wet ton):</label>
+            <input type="text" class="form-input" placeholder="e.g., 200 - 350 PLN / ton">
+          </div>
+          <div class="field-group">
+            <label class="field-label">3.2. Typical industrial electricity cost (PLN / kWh):</label>
+            <input type="text" class="form-input" placeholder="e.g., 0.80 PLN / kWh">
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-bottom: 0;">
+          <div class="field-group">
+            <label class="field-label">3.3. Industrial natural gas / steam cost (PLN / GJ):</label>
+            <input type="text" class="form-input" placeholder="e.g., 90 PLN / GJ">
+          </div>
+          <div class="field-group">
+            <label class="field-label">3.4. Target payback period required by Polish clients (Years):</label>
+            <input type="text" class="form-input" placeholder="e.g., B2G: 5-7 years, B2B: <4 years">
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <div>BTC Consulting Sp. z o.o. | Technical & Financial Inputs</div>
+        <div class="page-number">Page 2</div>
+      </div>
+    </div>
+
+    <!-- ================= PAGE 3 ================= -->
+    <div class="page" id="page-3">
+      <div class="page-header">
+        <div class="page-logo">BioTC<span>.</span></div>
+        <div class="page-tagline">Offtake Strategy & Project Finance</div>
+      </div>
+      
+      <div class="page-content">
+        <h2><span class="step-num">4</span>Eco-Coal (Hydrochar) Offtaker Strategy</h2>
+        <p>Hydrochar (calorific density 20–25 MJ/kg) is a valuable byproduct. To build the business case, we must verify where this output will be sold or utilized in Poland.</p>
+
+        <div class="field-group">
+          <label class="field-label">4.1. Who are the primary target buyers for the generated Eco-Coal in Poland?</label>
+          <div class="checkbox-grid">
+            <label class="checkbox-item"><input type="checkbox" checked> Local Cement Plants (Górażdże, Lafarge, etc.)</label>
+            <label class="checkbox-item"><input type="checkbox" checked> Municipal District Heating (PEC - Przedsiębiorstwa Energetyki Cieplnej)</label>
+            <label class="checkbox-item"><input type="checkbox"> Co-combustion at local coal-fired power plants</label>
+            <label class="checkbox-item"><input type="checkbox"> Returned to host factory/boiler for self-consumption</label>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">4.2. What is the conservative market price we can assume for hydrochar sale (PLN / dry ton)?</label>
+          <input type="text" class="form-input" placeholder="e.g., 250 - 400 PLN / ton based on calorific content...">
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">4.3. Are there active agreements or contacts with Polish cement associations/kilns regarding hydrochar testing?</label>
+          <textarea class="form-textarea" placeholder="Detail any existing relationships or parameters required by cement plants..."></textarea>
+        </div>
+
+        <h2><span class="step-num">5</span>Financing & EU Green Grants</h2>
+        <p>Green grants can subsidize up to 70% of project CAPEX in Poland, drastically improving client ROI.</p>
+
+        <div class="field-group">
+          <label class="field-label">5.1. Which grant programs are currently active and applicable for BioTC installations in Poland?</label>
+          <div class="checkbox-grid">
+            <label class="checkbox-item"><input type="checkbox" checked> NFOŚiGW National Programs (sludge/biogas focus)</label>
+            <label class="checkbox-item"><input type="checkbox" checked> FEnIKS (Fundusze Europejskie na Infrastrukturę, Klimat, Środowisko)</label>
+            <label class="checkbox-item"><input type="checkbox"> WFOŚiGW (Regional Voivodeship Programs)</label>
+            <label class="checkbox-item"><input type="checkbox"> Commercial Green Loans (BGK / commercial banks)</label>
+          </div>
+        </div>
+
+        <div class="field-group" style="margin-bottom: 0;">
+          <label class="field-label">5.2. Do we have a specialized partner or internal capability to write grant applications for our clients?</label>
+          <input type="text" class="form-input" placeholder="e.g., Partner consulting firm name, or internally managed...">
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <div>BTC Consulting Sp. z o.o. | Commercial Offtake & Financing</div>
+        <div class="page-number">Page 3</div>
+      </div>
+    </div>
+
+    <!-- ================= PAGE 4 ================= -->
+    <div class="page" id="page-4">
+      <div class="page-header">
+        <div class="page-logo">BioTC<span>.</span></div>
+        <div class="page-tagline">Partnerships, Delivery & Next Steps</div>
+      </div>
+      
+      <div class="page-content">
+        <h2><span class="step-num">6</span>Commercial Delivery & Partnership Model</h2>
+        <p>Aligning on how we contract and distribute risk between BTC Consulting, BioTheCon (developers), and INTROL Group (general contractor).</p>
+
+        <div class="field-group">
+          <label class="field-label">6.1. What is the preferred contracting structure for Polish clients?</label>
+          <div class="checkbox-grid">
+            <label class="checkbox-item"><input type="checkbox" checked> Direct Sale (CAPEX + License Fee)</label>
+            <label class="checkbox-item"><input type="checkbox"> Waste-Management-as-a-Service (WaaS) / ESCO</label>
+            <label class="checkbox-item"><input type="checkbox"> Public-Private Partnership (PPP)</label>
+            <label class="checkbox-item"><input type="checkbox"> Joint Venture with local utility / municipality</label>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">6.2. Describe the exact division of labor between BTC Consulting, BioTheCon, and INTROL Group:</label>
+          <textarea class="form-textarea" placeholder="e.g., INTROL handles construction/EPC. BioTheCon delivers core reactor and engineering design. BTC Consulting manages sales, project development, and licensing..."></textarea>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">6.3. What are the key milestones required to announce the first joint campaign in Poland?</label>
+          <input type="text" class="form-input" placeholder="e.g., Lubin contract formalization, finalizing marketing materials, scheduling initial webinars...">
+        </div>
+
+        <h3 style="margin-top: 15px; color: var(--accent-orange);">Strategic Sign-Off</h3>
+        <p>By completing this workbook, we establish the commercial baseline for the Polish market launch. The data provided will be compiled into the localized GTM strategy pack.</p>
+
+        <div class="signature-row">
+          <div>
+            <div class="sig-line"></div>
+            <div class="sig-label">Representative, Ukrainian Development Team</div>
+          </div>
+          <div>
+            <div class="sig-line"></div>
+            <div class="sig-label">Andrzej Krop / Representative, BTC Consulting Sp. z o.o.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <div>BTC Consulting Sp. z o.o. | Final Sign-off & Milestones</div>
+        <div class="page-number">Page 4</div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
