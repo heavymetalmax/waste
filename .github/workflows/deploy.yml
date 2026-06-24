@@ -38,7 +38,7 @@ jobs:
             **/index_test.html
             **/Materials/**
             **/v2/**
-            **/Ua/**
             **/biotc/**
             **/worker/**
             **/*.skill
+            **/web/**
