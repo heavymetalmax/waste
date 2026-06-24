@@ -39,22 +39,16 @@
       #hero .paper-checklist .check-item { padding: 0.6rem 0; gap: 0.75rem; }
     }
 
-    /* ── Hero: animated gradient-bar background, freezes one stripe at a time ── */
+    /* ── Hero: animated gradient-bar background ──────────────── */
     .hero-bars-bg { position: absolute; inset: 0; z-index: 0; display: flex; }
-    .hero-bars-bg .stripe { flex: 1; height: 100%; overflow: hidden; position: relative; }
-    .hero-bars-bg .stripe-inner {
-      position: absolute; inset: 0; height: 800%;
-      animation-name: stripeSettle;
-      animation-timing-function: linear;
-      animation-iteration-count: 1;
-      animation-fill-mode: forwards;
-    }
-    .hero-bars-bg .stripe:nth-child(1) .stripe-inner { background: linear-gradient(180deg, #08182b 0%, #08182b 12.5%, #1c6aa8 12.5%, #1c6aa8 25%, #08182b 25%, #08182b 37.5%, #1c6aa8 37.5%, #1c6aa8 50%, #08182b 50%, #08182b 62.5%, #1c6aa8 62.5%, #1c6aa8 75%, #08182b 75%, #08182b 87.5%, #1c6aa8 87.5%, #1c6aa8 100%); animation-duration: 6s; }
-    .hero-bars-bg .stripe:nth-child(2) .stripe-inner { background: linear-gradient(180deg, #0a1d33 0%, #0a1d33 12.5%, #3a9fe0 12.5%, #3a9fe0 25%, #0a1d33 25%, #0a1d33 37.5%, #3a9fe0 37.5%, #3a9fe0 50%, #0a1d33 50%, #0a1d33 62.5%, #3a9fe0 62.5%, #3a9fe0 75%, #0a1d33 75%, #0a1d33 87.5%, #3a9fe0 87.5%, #3a9fe0 100%); animation-duration: 7s; }
-    .hero-bars-bg .stripe:nth-child(3) .stripe-inner { background: linear-gradient(180deg, #020810 0%, #020810 12.5%, #86c2e8 12.5%, #86c2e8 25%, #020810 25%, #020810 37.5%, #86c2e8 37.5%, #86c2e8 50%, #020810 50%, #020810 62.5%, #86c2e8 62.5%, #86c2e8 75%, #020810 75%, #020810 87.5%, #86c2e8 87.5%, #86c2e8 100%); animation-duration: 8s; }
-    .hero-bars-bg .stripe:nth-child(4) .stripe-inner { background: linear-gradient(180deg, #020810 0%, #020810 12.5%, #1c6aa8 12.5%, #1c6aa8 25%, #020810 25%, #020810 37.5%, #1c6aa8 37.5%, #1c6aa8 50%, #020810 50%, #020810 62.5%, #1c6aa8 62.5%, #1c6aa8 75%, #020810 75%, #020810 87.5%, #1c6aa8 87.5%, #1c6aa8 100%); animation-duration: 9s; }
-    .hero-bars-bg .stripe:nth-child(5) .stripe-inner { background: linear-gradient(180deg, #08182b 0%, #08182b 12.5%, #3a9fe0 12.5%, #3a9fe0 25%, #08182b 25%, #08182b 37.5%, #3a9fe0 37.5%, #3a9fe0 50%, #08182b 50%, #08182b 62.5%, #3a9fe0 62.5%, #3a9fe0 75%, #08182b 75%, #08182b 87.5%, #3a9fe0 87.5%, #3a9fe0 100%); animation-duration: 10s; }
-    @keyframes stripeSettle { from { transform: translateY(0%); } to { transform: translateY(-87.5%); } }
+    .hero-bars-bg .stripe { flex: 1; height: 100%; background-repeat: repeat-y; background-size: 100% 240%; will-change: background-position; }
+    .hero-bars-bg .stripe:nth-child(1) { background-image: linear-gradient(180deg,#86c2e8 0%,#1c6aa8 22%,#3a9fe0 50%,#06121f 50%,#0a1d33 78%,#08182b 100%); animation: heroScrollUp 12s linear infinite; }
+    .hero-bars-bg .stripe:nth-child(2) { background-image: linear-gradient(180deg,#f2f6f9 0%,#bcd9ee 24%,#dce8f0 50%,#3a9fe0 50%,#1c6aa8 76%,#3a9fe0 100%); animation: heroScrollDown 15s linear infinite; }
+    .hero-bars-bg .stripe:nth-child(3) { background-image: linear-gradient(180deg,#020810 0%,#0f3a5f 26%,#08182b 50%,#86c2e8 50%,#dce8f0 74%,#86c2e8 100%); animation: heroScrollUp 10s linear infinite; }
+    .hero-bars-bg .stripe:nth-child(4) { background-image: linear-gradient(180deg,#86c2e8 0%,#3a9fe0 24%,#1c6aa8 50%,#020810 50%,#0a1d33 77%,#020810 100%); animation: heroScrollDown 17s linear infinite; }
+    .hero-bars-bg .stripe:nth-child(5) { background-image: linear-gradient(180deg,#020810 0%,#08182b 25%,#0f3a5f 50%,#3a9fe0 50%,#bcd9ee 75%,#3a9fe0 100%); animation: heroScrollUp 19s linear infinite; }
+    @keyframes heroScrollUp { 0% { background-position: 0% 0%; } 100% { background-position: 0% -240%; } }
+    @keyframes heroScrollDown { 0% { background-position: 0% 0%; } 100% { background-position: 0% 240%; } }
 
     #hero > .container { position: relative; z-index: 1; }
     #hero h1, #hero .hero-desc { color: var(--color-white); text-shadow: 0 2px 16px rgba(0,0,0,0.5); }
@@ -134,11 +128,11 @@
     <!-- HERO -->
     <section id="hero">
       <div class="hero-bars-bg" aria-hidden="true">
-        <div class="stripe"><div class="stripe-inner"></div></div>
-        <div class="stripe"><div class="stripe-inner"></div></div>
-        <div class="stripe"><div class="stripe-inner"></div></div>
-        <div class="stripe"><div class="stripe-inner"></div></div>
-        <div class="stripe"><div class="stripe-inner"></div></div>
+        <div class="stripe"></div>
+        <div class="stripe"></div>
+        <div class="stripe"></div>
+        <div class="stripe"></div>
+        <div class="stripe"></div>
       </div>
       <div class="container">
         <div class="grid-2" style="align-items: center;">
