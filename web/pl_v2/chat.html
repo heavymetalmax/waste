@@ -175,7 +175,7 @@
   fileEl.addEventListener('change', function(){
     var f = this.files[0];
     if (!f) return;
-    if (f.size > 5 * 1024 * 1024) { alert('Файл > 5 МБ'); return; }
+    if (f.size > 5 * 1024 * 1024) { alert('Plik > 5 MB'); return; }
     var reader = new FileReader();
     reader.onload = function(ev){
       pendingFile = { name: f.name, type: f.type, data: ev.target.result.split(',')[1] };
@@ -193,9 +193,9 @@
     if (isStreaming) return;
     var text = inputEl.value.trim();
     if (!text && !pendingFile) return;
-    var msgText = text || ('(файл: ' + (pendingFile ? pendingFile.name : '') + ')');
+    var msgText = text || ('(plik: ' + (pendingFile ? pendingFile.name : '') + ')');
     addMsg('user', msgText);
-    history.push({ role: 'user', content: text || 'Проаналізуй завантажений файл.' });
+    history.push({ role: 'user', content: text || 'Przeanalizuj przesłany plik.' });
     inputEl.value = ''; inputEl.style.height = 'auto';
     var file = pendingFile;
     pendingFile = null; fileBar.style.display = 'none'; fileEl.value = '';
@@ -247,14 +247,14 @@
       return pump();
     })
     .catch(function(err){
-      botBubble.textContent = 'Помилка з\'єднання. Зв\'яжіться: contact@biotc.pl';
+      botBubble.textContent = 'Błąd połączenia. Skontaktuj się: contact@biotc.pl';
       isStreaming = false; sendBtn.disabled = false;
     });
   }
 
   function simulateDemo(){
     var botBubble = addMsg('bot', '', true);
-    var msg = 'AI-консультант підключено! Щоб активувати, розгорніть Cloudflare Worker та замініть AGENT_ENDPOINT. Поки що: contact@biotc.pl або +48 608 003 458.';
+    var msg = 'Asystent AI podłączony! Aby aktywować, wdróż Cloudflare Worker i zamień AGENT_ENDPOINT. Na razie: contact@biotc.pl lub +48 608 003 458.';
     var i = 0;
     var iv = setInterval(function(){ botBubble.textContent = msg.slice(0,++i); msgsEl.scrollTop = msgsEl.scrollHeight; if(i>=msg.length){ clearInterval(iv); history.push({role:'assistant',content:msg}); }}, 18);
   }
