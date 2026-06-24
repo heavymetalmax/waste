@@ -6,194 +6,81 @@
   <title>Technologia HTC · TH-AD-HTC | BioTC | BTC Consulting</title>
   <meta name="description" content="Hydrotermalne uwęglanie (HTC) — 200°C, 20 bar, 2 godziny. Trzy konfiguracje dla każdego obiektu: od kompaktowego HTC Standalone do pełnej pętli TH-AD-HTC z +60% wydajności biogazu.">
 
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-
-  <link rel="stylesheet" href="../styles.min.css?v=23">
-  <link rel="prefetch" href="index.html">
+  <link rel="stylesheet" href="../Ua/industrial-modern.css">
 
   <link rel="alternate" hreflang="uk-UA" href="https://biotc.com.ua/technology" />
   <link rel="alternate" hreflang="x-default" href="https://biotc.com.ua/technology" />
+
+  <style>
+    /* ── Tech hero stat panel ───────────────────────────── */
+    .tech-stat-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm);
+    }
+    .tech-stat { display: flex; flex-direction: column; gap: 0.2rem; }
+    .tech-stat-val { font-size: 2.2rem; font-weight: 900; color: var(--color-blue); line-height: 1; }
+    .tech-stat-val small { font-size: 1rem; font-weight: 700; }
+    .tech-stat-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--color-gray-dark); }
+    .tech-stat-note { margin-top: var(--space-sm); font-size: 0.85rem; font-style: italic; font-weight: 500; color: var(--color-gray-dark); }
+
+    /* ── Process flow / config flow text ─────────────────── */
+    .flow-line { font-weight: 800; text-transform: uppercase; font-size: 0.9rem; margin: var(--space-sm) 0; }
+    .flow-line .flow-accent { color: var(--color-blue); }
+    .flow-line .flow-teal { color: var(--color-teal, #0D9488); }
+
+    .process-step-spec { margin-top: auto; padding-top: var(--space-sm); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; }
+
+    .scenario-benefits { padding-left: 1.2rem; font-weight: 600; }
+    .scenario-targets { margin-top: var(--space-sm); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; padding-top: var(--space-sm); border-top: 2px solid var(--color-black); }
+
+    /* ── Hydrochar specs ──────────────────────────────────── */
+    .hydrochar-spec-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+    .hydrochar-spec-list li { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--color-gray-light); font-weight: 600; }
+    .hydrochar-spec-list li:last-child { border-bottom: none; padding-bottom: 0; }
+    .spec-key { color: var(--color-gray-dark); }
+    .spec-val { font-weight: 800; }
+    .spec-val--accent { color: var(--color-blue); }
+    .spec-val--teal { color: var(--color-teal, #0D9488); }
+
+    /* ── Model cards ──────────────────────────────────────── */
+    .model-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm); }
+    .model-capacity { font-weight: 800; font-size: 0.85rem; text-transform: uppercase; }
+    .model-spec-list { list-style: none; padding: 0; margin: var(--space-sm) 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .model-spec-list li { display: flex; flex-direction: column; font-size: 0.9rem; }
+    .model-spec-list li span { font-weight: 600; color: var(--color-gray-dark); font-size: 0.8rem; text-transform: uppercase; }
+    .model-spec-list li strong { font-weight: 800; }
+    .model-energy-badge { margin-top: auto; padding-top: var(--space-sm); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: var(--color-blue); }
+  </style>
 </head>
 <body>
 
-
-
-  <div class="blur-orb orb-1"></div>
-  <div class="blur-orb orb-2"></div>
-  <div class="blur-orb orb-3"></div>
-
-  <!-- ============================================================ -->
-  <!-- HEADER                                                        -->
-  <!-- ============================================================ -->
-  <header class="main-header" id="header">
-    <div class="header-container">
-      <a href="index.html" class="logo" aria-label="Strona główna BTC Consulting">
-        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="logo-grad-t" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
-              <stop offset="0%" stop-color="#046BD2"/>
-              <stop offset="100%" stop-color="#0D9488"/>
-            </linearGradient>
-            <linearGradient id="logo-grad-tm" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
-              <stop offset="0%" stop-color="#38BDF8"/>
-              <stop offset="100%" stop-color="#2DD4BF"/>
-            </linearGradient>
-          </defs>
-          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#logo-grad-t)"/>
-          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z"
-                fill="url(#logo-grad-tm)" stroke="white" stroke-width="1.5" vector-effect="non-scaling-stroke"
-                transform="translate(12,13) scale(0.62) translate(-12,-13)"/>
-          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z"
-                fill="white" opacity="0.92"
-                transform="translate(12,13) scale(0.33) translate(-12,-13)"/>
-        </svg>
-        <span class="logo-text"><span class="logo-btc">BTC</span> Consulting</span>
-      </a>
-
-      <nav class="nav-desktop" aria-label="Menu główne">
-        <ul>
-          <li><a href="index.html">Rozwiązania</a></li>
-      <li><a href="technology.html" class="active">Technologia</a></li>
-          <li><a href="simulator.html">Kalkulator</a></li>
-        </ul>
+  <header>
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between;">
+      <a href="index.html" class="logo">BTC <span>Consulting</span></a>
+      <nav style="display:flex; align-items:center; gap:2rem;">
+        <a href="index.html" style="font-weight:800; text-transform:uppercase; font-size:0.9rem;">Rozwiązania</a>
+        <a href="technology.html" style="font-weight:800; text-transform:uppercase; font-size:0.9rem; color: var(--color-blue);">Technologia</a>
+        <a href="simulator.html" style="font-weight:800; text-transform:uppercase; font-size:0.9rem;">Kalkulator</a>
+        <a href="#contact" class="btn btn-outline">Zdobądź ocenę</a>
       </nav>
-
-      <div class="header-actions">
-<button class="lang-globe-btn" id="lang-globe-btn" aria-label="Language">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <path d="M2 12h20"/>
-          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-        </svg>
-      </button>
-        <button class="nav-fab" id="nav-fab" aria-label="Audyt obiektu">
-          <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 12 19.79 19.79 0 0 1 1.08 3.38 2 2 0 0 1 3.07 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
-        </button>
-      </div>
-        <button class="mobile-toggle" aria-label="Otwórz menu" aria-expanded="false" aria-controls="nav-mobile-strip">
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </button>
-    </div>
-
-    <div class="lang-strip" id="lang-strip" aria-hidden="true">
-      <div class="lang-strip-inner">
-        <a href="technology.html" class="lang-strip-item active">&#x1F1F5;&#x1F1F1; Polski</a>
-        <a href="../eu/technology.html" class="lang-strip-item ">&#x1F1EA;&#x1F1FA; English</a>
-        <a href="../ua/technology.html" class="lang-strip-item ">&#x1F1FA;&#x1F1E6; Українська</a>
-      </div>
-    </div>
-    <div class="nav-mobile-strip" id="nav-mobile-strip" aria-hidden="true">
-      <div class="nav-mobile-strip-inner">
-        <ul>
-          <li><a href="index.html">Rozwiązania</a></li>
-          <li><a href="technology.html" class="active">Technologia</a></li>
-          <li><a href="simulator.html">Kalkulator</a></li>
-        </ul>
-      </div>
     </div>
   </header>
 
   <main>
 
-    <!-- ============================================================ -->
-    <!-- BLOCK TECH-01: Hero                                           -->
-    <!-- ============================================================ -->
-    <section id="tech-hero" class="tech-hero-section">
-
-      <div class="tech-hero-bg-icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <path d="M12 17l-2 2l2 2"/>
-          <path d="M10 19h9a2 2 0 0 0 1.75 -2.75l-.55 -1"/>
-          <path d="M8.536 11l-.732 -2.732l-2.732 .732"/>
-          <path d="M7.804 8.268l-4.5 7.794a2 2 0 0 0 1.506 2.89l1.141 .024"/>
-          <path d="M15.464 11l2.732 .732l.732 -2.732"/>
-          <path d="M18.196 11.732l-4.5 -7.794a2 2 0 0 0 -3.256 -.14l-.591 .976"/>
-        </svg>
-      </div>
-      <div class="hero-waves-bg">
-        <svg viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Wave 1 (Accent Blue) -->
-          <path fill="rgba(4, 107, 210, 0.035)">
-            <animate attributeName="d"
-                     dur="22s"
-                     repeatCount="indefinite"
-                     values="
-                       M0,180 C320,290 640,110 960,250 C1280,390 1360,200 1440,240 L1440,400 L0,400 Z;
-                       M0,230 C240,130 560,290 880,190 C1200,90 1320,310 1440,210 L1440,400 L0,400 Z;
-                       M0,180 C320,290 640,110 960,250 C1280,390 1360,200 1440,240 L1440,400 L0,400 Z
-                     " />
-          </path>
-          <!-- Wave 2 (Teal) -->
-          <path fill="rgba(13, 148, 136, 0.025)">
-            <animate attributeName="d"
-                     dur="28s"
-                     repeatCount="indefinite"
-                     values="
-                       M0,220 C360,110 720,270 1080,160 C1280,240 1360,140 1440,190 L1440,400 L0,400 Z;
-                       M0,170 C300,280 600,120 900,260 C1200,320 1320,180 1440,240 L1440,400 L0,400 Z;
-                       M0,220 C360,110 720,270 1080,160 C1280,240 1360,140 1440,190 L1440,400 L0,400 Z
-                     " />
-          </path>
-          <!-- Wave 3 (Light Blue) -->
-          <path fill="rgba(56, 189, 248, 0.02)">
-            <animate attributeName="d"
-                     dur="34s"
-                     repeatCount="indefinite"
-                     values="
-                       M0,250 C280,320 560,180 840,290 C1120,380 1280,220 1440,270 L1440,400 L0,400 Z;
-                       M0,290 C320,190 640,310 960,210 C1280,120 1360,280 1440,230 L1440,400 L0,400 Z;
-                       M0,250 C280,320 560,180 840,290 C1120,380 1280,220 1440,270 L1440,400 L0,400 Z
-                     " />
-          </path>
-        </svg>
-      </div>
+    <!-- HERO -->
+    <section id="hero">
       <div class="container">
-        <div class="tech-hero-grid">
-
-          <div class="tech-hero-content">
-            <span class="badge">Hydrotermalna karbonizacja · TH · AD · HTC</span>
-            <h1>Od niebezpiecznego osadu do <span class="h1-solution">hydrowęgla w zaledwie 2 godziny.</span></h1>
+        <div class="grid-2" style="align-items: center;">
+          <div>
+            <span class="rubric">Hydrotermalna karbonizacja · TH · AD · HTC</span>
+            <h1>Od niebezpiecznego osadu do hydrowęgla w zaledwie 2 godziny.</h1>
             <p class="hero-desc">Hydrotermalne uwęglanie to sprawdzona technologia. Odtwarzamy naturalny proces zwęglania w zamkniętym reaktorze — bez emisji, bez zapachu i bez uwalniania PFAS. Jeden proces, wiele konfiguracji — dopasowanych do każdego obiektu.</p>
-            <div class="hero-actions">
-              <a href="#configurations" class="btn btn-primary">Konfiguracje dla Twojego obiektu</a>
-              <a href="#contact" class="btn btn-secondary">Audyt obiektu →</a>
-            </div>
+            <a href="#configurations" class="btn btn-primary">Konfiguracje dla Twojego obiektu</a>
+            <a href="#contact" class="btn btn-outline">Audyt obiektu →</a>
           </div>
 
-          <div class="tech-stat-panel">            <div class="tech-stat-grid">
-
-                        <div class="tech-orbital-rings" aria-hidden="true">
-              <svg viewBox="0 0 760 760" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- arc 1: outermost, teal, thin, 50s CW -->
-                <circle class="t-arc t-arc-1" cx="380" cy="380" r="355"
-                        stroke="#0D9488" stroke-width="1.5"
-                        stroke-dasharray="1673 557" stroke-linecap="round"/>
-                <!-- arc 2: blue, medium, 30s CCW -->
-                <circle class="t-arc t-arc-2" cx="380" cy="380" r="315"
-                        stroke="#046BD2" stroke-width="3"
-                        stroke-dasharray="1148 831" stroke-linecap="round"/>
-                <!-- arc 3: light blue, thin, 20s CW -->
-                <circle class="t-arc t-arc-3" cx="380" cy="380" r="278"
-                        stroke="#38BDF8" stroke-width="1"
-                        stroke-dasharray="1143 604" stroke-linecap="round"/>
-                <!-- arc 4: teal, thick, 65s CCW -->
-                <circle class="t-arc t-arc-4" cx="380" cy="380" r="258"
-                        stroke="#2DD4BF" stroke-width="4"
-                        stroke-dasharray="681 940" stroke-linecap="round"/>
-                <!-- arc 5: innermost, blue, almost wraps panel, 14s CW -->
-                <circle class="t-arc t-arc-5" cx="380" cy="380" r="238"
-                        stroke="#046BD2" stroke-width="1.5"
-                        stroke-dasharray="777 718" stroke-linecap="round"
-                        opacity="0.7"/>
-              </svg>
-            </div>
+          <div class="col-card">
+            <div class="tech-stat-grid">
               <div class="tech-stat">
                 <span class="tech-stat-val">200°C</span>
                 <span class="tech-stat-label">Temperatura reakcji</span>
@@ -221,150 +108,60 @@
             </div>
             <p class="tech-stat-note">Parametry zweryfikowane przez AGH Kraków i WikiChar Hydrochar Network</p>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- BLOCK TECH-02: Що таке HTC                                    -->
-    <!-- ============================================================ -->
-    <section id="what-is-htc" class="htc-section">
-
-      <div class="htc-bg-icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <path d="M12 8l0 4l2 2"/>
-          <path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5"/>
-        </svg>
-      </div>
-
+    <!-- WHAT IS HTC -->
+    <section id="what-is-htc">
       <div class="container">
-        <p class="section-label">Zasada działania</p>
+        <span class="rubric">Zasada działania</span>
         <h2>Proces trwający w naturze miliony lat skracamy do 2 godzin.</h2>
-        <p class="section-desc">Węgiel kamienny powstał z materii organicznej pod ciśnieniem i temperaturą przez epoki geologiczne. Hydrotermalne uwęglanie (HTC) odtwarza ten fizyczny proces w zamkniętym urządzeniu — bez spalania, bez chemikaliów, bez zewnętrznych emisji.</p>
+        <p>Węgiel kamienny powstał z materii organicznej pod ciśnieniem i temperaturą przez epoki geologiczne. Hydrotermalne uwęglanie (HTC) odtwarza ten fizyczny proces w zamkniętym urządzeniu — bez spalania, bez chemikaliów, bez zewnętrznych emisji.</p>
 
-        <div class="process-flow" role="list">
-
-          <div class="process-step glass-card" role="listitem">
-            <div class="process-step-num">01</div>
-            <div class="card-icon" style="color: var(--color-text-muted);">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M4 7h16"/>
-                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/>
-                <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/>
-                <path d="M10 12l4 4m0 -4l-4 4"/>
-              </svg>
-            </div>
+        <div class="grid-3" style="margin-top: var(--space-lg);">
+          <div class="col-card process-card">
+            <span class="number">01</span>
             <h3>Podanie surowca</h3>
             <p>Odwodniony osad (~80% wilgotności) ładowany jest do hermetycznego reaktora. Zapach, patogeny i PFAS — wszystko pozostaje wewnątrz zamkniętego obiegu.</p>
             <div class="process-step-spec">Wilgotność materiału wsadowego: 70–85%</div>
           </div>
-
-          <div class="process-connector" aria-hidden="true">
-            <svg viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 12 L30 12 M22 5 L30 12 L22 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-
-          <div class="process-step glass-card" role="listitem">
-            <div class="process-step-num" style="color: var(--color-accent); opacity: 1;">02</div>
-            <div class="card-icon" style="color: var(--color-accent);">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M8 13.5a4 4 0 1 0 4 0v-8.5a2 2 0 0 0 -4 0v8.5"/>
-                <path d="M8 9l4 0"/>
-                <path d="M16 9l6 0"/>
-                <path d="M19 6l0 6"/>
-              </svg>
-            </div>
+          <div class="col-card process-card">
+            <span class="number">02</span>
             <h3>Reakcja pod ciśnieniem</h3>
             <p>200°C i 20 bar. Cząsteczki materii organicznej rozpadają się i ulegają reformowaniu. Reakcja trwa 2 godziny — w pełni autonomiczna, bez zewnętrznych chemikaliów.</p>
-            <div class="process-step-spec" style="color: var(--color-accent);">200°C · 20 bar · 2 godziny · zero emisji</div>
+            <div class="process-step-spec">200°C · 20 bar · 2 godziny · zero emisji</div>
           </div>
-
-          <div class="process-connector" aria-hidden="true">
-            <svg viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 12 L30 12 M22 5 L30 12 L22 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-
-          <div class="process-step glass-card" role="listitem">
-            <div class="process-step-num" style="color: var(--color-teal); opacity: 1;">03</div>
-            <div class="card-icon" style="color: var(--color-teal);">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M14 4h6v6h-6l0 -6"/>
-                <path d="M4 14h6v6h-6l0 -6"/>
-                <path d="M14 17a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/>
-                <path d="M4 7a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/>
-              </svg>
-            </div>
+          <div class="col-card process-card">
+            <span class="number">03</span>
             <h3>Produkt i woda</h3>
             <p>Hydrowęgiel wychodzi w postaci granulatu — sterylny, bez zapachu. Woda procesowa wraca do obiegu lub jest oczyszczana do zrzutu. Żadnych hałd, żadnych wysypisk.</p>
-            <div class="process-step-spec" style="color: var(--color-teal);">20–25 MJ/kg · 100% sterylność · −80% objętości</div>
+            <div class="process-step-spec">20–25 MJ/kg · 100% sterylność · −80% objętości</div>
           </div>
-
         </div>
 
-        <div class="section-label" style="margin-block-start: var(--space-lg); margin-block-end: 0.5rem; display: flex; align-items: center;">
-          <span class="callout-icon" style="display: inline-block;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-bell-ringing" style="vertical-align: middle; display: block;"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" /><path d="M9 17v1a3 3 0 0 0 6 0v-1" /><path d="M21 6.727a11.05 11.05 0 0 0 -2.794 -3.727" /><path d="M3 6.727a11.05 11.05 0 0 1 2.792 -3.727" /></svg>
-          </span>
-        </div>
-        <div class="glass-card callout-box callout-box--accent" style="margin-top: 0;">
-          <h3 style="margin-block-end: var(--space-xs);">Dlaczego zamknięty obieg jest kluczowy</h3>
+        <div class="col-card" style="margin-top: var(--space-lg); background-color: var(--color-gray-light);">
+          <h3>Dlaczego zamknięty obieg jest kluczowy</h3>
           <p>Tradycyjne technologie (suszenie, kompostowanie, spalanie) mają otwarte punkty emisji: zapach, dym, przecieki przez grunt. Reaktor HTC to całkowicie zamknięte środowisko pod nadciśnieniem. Jakikolwiek wyciek jest fizycznie niemożliwy: ciśnienie wewnątrz jest wyższe niż na zewnątrz. To nie marketing — to termodynamika.</p>
         </div>
-
       </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- BLOCK TECH-03: Конфігурації                                   -->
-    <!-- ============================================================ -->
-    <section id="configurations" class="configs-section">
-
-      <div class="configs-bg-icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <path d="M11.992 21c-.728 -.003 -1.455 -.442 -1.667 -1.317a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c.882 .214 1.32 .95 1.317 1.684"/>
-          <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/>
-          <path d="M19 22.5a4.75 4.75 0 0 1 3.5 -3.5a4.75 4.75 0 0 1 -3.5 -3.5a4.75 4.75 0 0 1 -3.5 3.5a4.75 4.75 0 0 1 3.5 3.5"/>
-        </svg>
-      </div>
-
+    <!-- CONFIGURATIONS -->
+    <section id="configurations">
       <div class="container">
-        <p class="section-label">Konfiguracje</p>
+        <span class="rubric">Konfiguracje</span>
         <h2>Jedna technologia — trzy konfiguracje. Zależy od Twojej infrastruktury.</h2>
-        <p class="section-desc">HTC to rdzeń. Wokół niego budowana jest konfiguracja dostosowana do konkretnego obiektu: czy są komory fermentacyjne, jaki jest wolumen osadu, czy można włączyć sąsiednie gminy. Trzy scenariusze — od minimalnego wejścia do maksymalnej niezależności energetycznej.</p>
+        <p>HTC to rdzeń. Wokół niego budowana jest konfiguracja dostosowana do konkretnego obiektu: czy są komory fermentacyjne, jaki jest wolumen osadu, czy można włączyć sąsiednie gminy. Trzy scenariusze — od minimalnego wejścia do maksymalnej niezależności energetycznej.</p>
 
-        <div class="config-carousel-wrapper">
-        <div class="config-cards" id="config-carousel">
+        <div class="grid-3" style="margin-top: var(--space-lg);">
 
-          <!-- Config A -->
-          <div class="glass-card config-card" data-cidx="0">
-            <span class="scenario-badge">Konfiguracja A</span>
+          <div class="col-card">
+            <span class="rubric">Konfiguracja A</span>
             <h3>HTC Standalone</h3>
-            <p class="scenario-for">Dla obiektów bez komór fermentacyjnych: małe oczyszczalnie, zakłady przemysłowe, kompleksy rolnicze</p>
+            <p><em>Dla obiektów bez komór fermentacyjnych: małe oczyszczalnie, zakłady przemysłowe, kompleksy rolnicze</em></p>
 
-            <div class="config-flow">
-              <div class="flow-stage">
-                <span class="flow-stage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a3 7 0 1 0 6 0a3 7 0 1 0 -6 0"/><path d="M21 10c0 -3.866 -1.343 -7 -3 -7"/><path d="M6 3h12"/><path d="M21 10v10l-3 -1l-3 2l-3 -3l-3 2v-10"/><path d="M6 10h.01"/></svg></span>
-                <span>Osad</span>
-              </div>
-              <div class="flow-arrow">→</div>
-              <div class="flow-stage">
-                <span class="flow-stage-icon" style="color: var(--color-accent);"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6a8 3 0 1 0 16 0a8 3 0 1 0 -16 0"/><path d="M4 6v6a8 3 0 0 0 16 0v-6"/><path d="M4 12v6a8 3 0 0 0 16 0v-6"/></svg></span>
-                <span style="color: var(--color-accent);">HTC</span>
-              </div>
-              <div class="flow-arrow">→</div>
-              <div class="flow-stage">
-                <span class="flow-stage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 4h6v6h-6l0 -6"/><path d="M4 14h6v6h-6l0 -6"/><path d="M14 17a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M4 7a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/></svg></span>
-                <span>Hydrowęgiel</span>
-              </div>
-            </div>
+            <p class="flow-line">Osad → <span class="flow-accent">HTC</span> → Hydrowęgiel</p>
 
             <ul class="scenario-benefits">
               <li>Najszybszy start — minimum wymagań wstępnych</li>
@@ -376,42 +173,13 @@
             <div class="scenario-targets">Modele: HTC-S 5 · HTC-S 15 · HTC-D 30</div>
           </div>
 
-          <!-- Config B -->
-          <div class="glass-card config-card" data-cidx="1">
-            <span class="scenario-badge scenario-badge--teal">Konfiguracja B</span>
+          <div class="col-card">
+            <span class="rubric" style="background-color: var(--color-blue);">Konfiguracja B</span>
             <h3>TH-booster do istniejącej komory fermentacyjnej (AD)</h3>
-            <p class="scenario-for">Dla obiektów z działającą fermentacją beztlenową — znacząco zwiększa wydajność biogazu bez budowy nowej komory fermentacyjnej</p>
+            <p><em>Dla obiektów z działającą fermentacją beztlenową — znacząco zwiększa wydajność biogazu bez budowy nowej komory fermentacyjnej</em></p>
 
-            <div class="config-flow">
-              <div class="flow-stage">
-                <span class="flow-stage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a3 7 0 1 0 6 0a3 7 0 1 0 -6 0"/><path d="M21 10c0 -3.866 -1.343 -7 -3 -7"/><path d="M6 3h12"/><path d="M21 10v10l-3 -1l-3 2l-3 -3l-3 2v-10"/><path d="M6 10h.01"/></svg></span>
-                <span>Osad</span>
-              </div>
-              <div class="flow-arrow">→</div>
-              <div class="flow-stage">
-                <span class="flow-stage-icon" style="color:var(--color-teal)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 13.5a4 4 0 1 0 4 0v-8.5a2 2 0 0 0 -4 0v8.5"/><path d="M8 9l4 0"/><path d="M16 9l6 0"/><path d="M19 6l0 6"/></svg></span>
-                <span style="color:var(--color-teal)">TH</span>
-              </div>
-              <div class="flow-arrow">→</div>
-              <div class="flow-stage">
-                <span class="flow-stage-icon" style="color:var(--color-teal)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 6a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v12a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3v-12"/><path d="M6 12a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"/></svg></span>
-                <span style="color:var(--color-teal)">AD</span>
-              </div>
-              <div class="flow-arrow">→</div>
-              <div class="flow-stage">
-                <span class="flow-stage-icon" style="color:var(--color-accent)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6a8 3 0 1 0 16 0a8 3 0 1 0 -16 0"/><path d="M4 6v6a8 3 0 0 0 16 0v-6"/><path d="M4 12v6a8 3 0 0 0 16 0v-6"/></svg></span>
-                <span style="color:var(--color-accent)">HTC</span>
-              </div>
-              <div class="flow-arrow">→</div>
-              <div class="flow-stage">
-                <span class="flow-stage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 4h6v6h-6l0 -6"/><path d="M4 14h6v6h-6l0 -6"/><path d="M14 17a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M4 7a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/></svg></span>
-                <span>Hydrowęgiel</span>
-              </div>
-            </div>
-            <div class="config-loop-note" style="color: var(--color-teal);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.27"/></svg>
-              Ciecz HTC recyrkuluje z powrotem do komory fermentacyjnej → dodatkowa stymulacja
-            </div>
+            <p class="flow-line">Osad → <span class="flow-teal">TH</span> → <span class="flow-teal">AD</span> → <span class="flow-accent">HTC</span> → Hydrowęgiel</p>
+            <p style="font-weight:700; font-size:0.9rem;">Ciecz HTC recyrkuluje z powrotem do komory fermentacyjnej → dodatkowa stymulacja</p>
 
             <ul class="scenario-benefits">
               <li>+60% wydajności biogazu bez nowej komory fermentacyjnej</li>
@@ -423,42 +191,13 @@
             <div class="scenario-targets">Oczyszczalnie od 80 000 RLM · Działające AD · Projektowanie indywidualne</div>
           </div>
 
-          <!-- Config C -->
-          <div class="glass-card config-card" data-cidx="2">
-            <span class="scenario-badge scenario-badge--teal">Konfiguracja C</span>
+          <div class="col-card">
+            <span class="rubric" style="background-color: var(--color-blue);">Konfiguracja C</span>
             <h3>Pełna pętla TH-AD-HTC</h3>
-            <p class="scenario-for">Dla dużych oczyszczalni lub regionalnych hubów — greenfield lub pełna przebudowa z myślą o niezależności energetycznej</p>
+            <p><em>Dla dużych oczyszczalni lub regionalnych hubów — greenfield lub pełna przebudowa z myślą o niezależności energetycznej</em></p>
 
-            <div class="config-flow">
-              <div class="flow-stage">
-                <span class="flow-stage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a3 7 0 1 0 6 0a3 7 0 1 0 -6 0"/><path d="M21 10c0 -3.866 -1.343 -7 -3 -7"/><path d="M6 3h12"/><path d="M21 10v10l-3 -1l-3 2l-3 -3l-3 2v-10"/><path d="M6 10h.01"/></svg></span>
-                <span>Osad</span>
-              </div>
-              <div class="flow-arrow">→</div>
-              <div class="flow-stage">
-                <span class="flow-stage-icon" style="color:var(--color-teal)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 13.5a4 4 0 1 0 4 0v-8.5a2 2 0 0 0 -4 0v8.5"/><path d="M8 9l4 0"/><path d="M16 9l6 0"/><path d="M19 6l0 6"/></svg></span>
-                <span style="color:var(--color-teal)">TH</span>
-              </div>
-              <div class="flow-arrow">→</div>
-              <div class="flow-stage">
-                <span class="flow-stage-icon" style="color:var(--color-teal)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 6a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v12a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3v-12"/><path d="M6 12a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"/></svg></span>
-                <span style="color:var(--color-teal)">New AD</span>
-              </div>
-              <div class="flow-arrow">→</div>
-              <div class="flow-stage">
-                <span class="flow-stage-icon" style="color:var(--color-accent)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6a8 3 0 1 0 16 0a8 3 0 1 0 -16 0"/><path d="M4 6v6a8 3 0 0 0 16 0v-6"/><path d="M4 12v6a8 3 0 0 0 16 0v-6"/></svg></span>
-                <span style="color:var(--color-accent)">HTC</span>
-              </div>
-              <div class="flow-arrow">→</div>
-              <div class="flow-stage">
-                <span class="flow-stage-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 4h6v6h-6l0 -6"/><path d="M4 14h6v6h-6l0 -6"/><path d="M14 17a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M4 7a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/></svg></span>
-                <span>Hydrowęgiel</span>
-              </div>
-            </div>
-            <div class="config-loop-note">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-              Biogaz → kogeneracja CHP → własna energia elektryczna + ciepło dla reaktorów
-            </div>
+            <p class="flow-line">Osad → <span class="flow-teal">TH</span> → <span class="flow-teal">New AD</span> → <span class="flow-accent">HTC</span> → Hydrowęgiel</p>
+            <p style="font-weight:700; font-size:0.9rem;">Biogaz → kogeneracja CHP → własna energia elektryczna + ciepło dla reaktorów</p>
 
             <ul class="scenario-benefits">
               <li>Bilans energetycznie dodatni: system produkuje więcej, niż zużywa</li>
@@ -470,32 +209,24 @@
             <div class="scenario-targets">Oczyszczalnie od 200 000 RLM · Regionalny Hub &amp; Spoke · Projektowanie indywidualne</div>
           </div>
 
-        </div><!-- /.config-cards -->
+        </div>
 
-
-        </div><!-- /.config-carousel-wrapper -->
-
-        <!-- Decision table -->
-        <div class="table-responsive">
-          <div class="rotate-hint" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-14"/><path d="M11 4h2"/><path d="M12 17v.01"/></svg>
-            <span>Obróć telefon poziomo, aby wyświetlić tabelę</span>
-          </div>
-          <table class="comparison-table">
+        <div class="table-wrapper">
+          <table>
             <thead>
               <tr>
                 <th>Parametr</th>
                 <th>Konf. A — HTC Standalone</th>
-                <th class="col-hub">Konf. B — TH + AD + HTC</th>
-                <th class="col-hub">Konf. C — Pełna pętla</th>
+                <th class="btc-col">Konf. B — TH + AD + HTC</th>
+                <th class="btc-col">Konf. C — Pełna pętla</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>Minimalny rozmiar obiektu</td><td>od 5 t/dobę osadu</td><td class="col-hub">od 80 000 RLM</td><td class="col-hub">od 200 000 RLM</td></tr>
-              <tr><td>Wymagana działająca komora fermentacyjna</td><td>Nie</td><td class="col-hub">Tak (istniejąca)</td><td class="col-hub">Budowana nowa</td></tr>
-              <tr><td>Przyrost wydajności biogazu</td><td>—</td><td class="col-hub">+60%</td><td class="col-hub">+60% + generacja CHP</td></tr>
-              <tr><td>Profil energetyczny</td><td>Neutralny</td><td class="col-hub">Dodatni</td><td class="col-hub">Energetycznie dodatni</td></tr>
-              <tr><td>Czas realizacji</td><td>3–6 miesięcy</td><td class="col-hub">12–18 miesięcy</td><td class="col-hub">18–30 miesięcy</td></tr>
+              <tr><td>Minimalny rozmiar obiektu</td><td>od 5 t/dobę osadu</td><td class="btc-col">od 80 000 RLM</td><td class="btc-col">od 200 000 RLM</td></tr>
+              <tr><td>Wymagana działająca komora fermentacyjna</td><td>Nie</td><td class="btc-col">Tak (istniejąca)</td><td class="btc-col">Budowana nowa</td></tr>
+              <tr><td>Przyrost wydajności biogazu</td><td>—</td><td class="btc-col">+60%</td><td class="btc-col">+60% + generacja CHP</td></tr>
+              <tr><td>Profil energetyczny</td><td>Neutralny</td><td class="btc-col">Dodatni</td><td class="btc-col">Energetycznie dodatni</td></tr>
+              <tr><td>Czas realizacji</td><td>3–6 miesięcy</td><td class="btc-col">12–18 miesięcy</td><td class="btc-col">18–30 miesięcy</td></tr>
             </tbody>
           </table>
         </div>
@@ -503,123 +234,49 @@
       </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- BLOCK TECH-04: Гідровугілля                                   -->
-    <!-- ============================================================ -->
-    <section id="hydrochar" class="hydrochar-section">
-
-      <div class="hydrochar-bg-icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <path d="M3 21l18 0"/>
-          <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4"/>
-          <path d="M5 21l0 -10.15"/>
-          <path d="M19 21l0 -10.15"/>
-          <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"/>
-        </svg>
-      </div>
-
+    <!-- HYDROCHAR -->
+    <section id="hydrochar">
       <div class="container">
-        <p class="section-label">Produkt</p>
+        <span class="rubric">Produkt</span>
         <h2>Hydrowęgiel to nie odpad. To produkt z unijnym statusem End-of-Waste — towar dopuszczony do obrotu.</h2>
-        <p class="section-desc">HTC przekształca osad z prawnie niebezpiecznego odpadu w certyfikowany produkt. Po przejściu przez proces hydrowęgiel (Hydrochar) klasyfikowany jest według EU End-of-Waste criteria — można go sprzedawać, stosować w przemyśle i zaliczać do raportowania węglowego.</p>
+        <p>HTC przekształca osad z prawnie niebezpiecznego odpadu w certyfikowany produkt. Po przejściu przez proces hydrowęgiel (Hydrochar) klasyfikowany jest według EU End-of-Waste criteria — można go sprzedawać, stosować w przemyśle i zaliczać do raportowania węglowego.</p>
 
-        <div class="hydrochar-grid">
+        <div class="grid-2" style="margin-top: var(--space-lg); align-items: start;">
 
-          <div class="glass-card hydrochar-specs-card">
+          <div class="col-card">
             <h3>Specyfikacja techniczna</h3>
             <ul class="hydrochar-spec-list">
-              <li>
-                <span class="spec-key">Wartość opałowa</span>
-                <span class="spec-val spec-val--accent">20–25 MJ/kg</span>
-              </li>
-              <li>
-                <span class="spec-key">Redukcja objętości względem surowca</span>
-                <span class="spec-val">−75 — −80%</span>
-              </li>
-              <li>
-                <span class="spec-key">Wilgotność produktu końcowego</span>
-                <span class="spec-val">&lt;15%</span>
-              </li>
-              <li>
-                <span class="spec-key">Patogeny (Salmonella, E. coli)</span>
-                <span class="spec-val spec-val--teal">100% zniszczenie</span>
-              </li>
-              <li>
-                <span class="spec-key">PFAS i mikroplastik</span>
-                <span class="spec-val spec-val--teal">100% destrukcja</span>
-              </li>
-              <li>
-                <span class="spec-key">Metale ciężkie</span>
-                <span class="spec-val">Unieruchomione w matrycy</span>
-              </li>
-              <li>
-                <span class="spec-key">Forma produktu</span>
-                <span class="spec-val">Granulat lub proszek</span>
-              </li>
-              <li>
-                <span class="spec-key">Status prawny UE</span>
-                <span class="spec-val spec-val--accent">End-of-Waste (towar)</span>
-              </li>
+              <li><span class="spec-key">Wartość opałowa</span><span class="spec-val spec-val--accent">20–25 MJ/kg</span></li>
+              <li><span class="spec-key">Redukcja objętości względem surowca</span><span class="spec-val">−75 — −80%</span></li>
+              <li><span class="spec-key">Wilgotność produktu końcowego</span><span class="spec-val">&lt;15%</span></li>
+              <li><span class="spec-key">Patogeny (Salmonella, E. coli)</span><span class="spec-val spec-val--teal">100% zniszczenie</span></li>
+              <li><span class="spec-key">PFAS i mikroplastik</span><span class="spec-val spec-val--teal">100% destrukcja</span></li>
+              <li><span class="spec-key">Metale ciężkie</span><span class="spec-val">Unieruchomione w matrycy</span></li>
+              <li><span class="spec-key">Forma produktu</span><span class="spec-val">Granulat lub proszek</span></li>
+              <li><span class="spec-key">Status prawny UE</span><span class="spec-val spec-val--accent">End-of-Waste (towar)</span></li>
             </ul>
-            <p class="tech-stat-note" style="margin-block-start: var(--space-md);">Dla porównania: węgiel brunatny — 8–15 MJ/kg · Zrębki drewna — 15–17 MJ/kg · Antracyt — 30–33 MJ/kg</p>
+            <p class="tech-stat-note">Dla porównania: węgiel brunatny — 8–15 MJ/kg · Zrębki drewna — 15–17 MJ/kg · Antracyt — 30–33 MJ/kg</p>
           </div>
 
-          <div class="hydrochar-uses">
-            <h3>Zastosowania</h3>
-            <div class="use-cards">
-
-              <div class="glass-card use-card">
-                <div class="card-icon" style="color: var(--color-accent);">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M13.58 13.79c.27 .68 .42 1.43 .42 2.21c0 1.77 -.77 3.37 -2 4.46a5.93 5.93 0 0 1 -4 1.54c-3.31 0 -6 -2.69 -6 -6c0 -2.76 1.88 -5.1 4.42 -5.79"/>
-                    <path d="M17.58 10.21c2.54 .69 4.42 3.03 4.42 5.79c0 3.31 -2.69 6 -6 6a5.93 5.93 0 0 1 -4 -1.54"/>
-                    <path d="M6 8a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"/>
-                  </svg>
-                </div>
+          <div>
+            <h3 style="margin-bottom: var(--space-sm);">Zastosowania</h3>
+            <div class="grid-2">
+              <div class="col-card">
                 <h4>Paliwo stałe dla kotłowni</h4>
                 <p>Bezpośredni zamiennik węgla lub biomasy. Nadaje się do kotłów przemysłowych i kogeneracji. Wartość opałowa w zakresie węgla brunatnego — ale z zerowym śladem CO₂.</p>
               </div>
-
-              <div class="glass-card use-card">
-                <div class="card-icon" style="color: var(--color-teal);">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M14.42 9.058l-5.362 5.363a1.978 1.978 0 0 1 -3.275 -.773l-2.682 -8.044a1.978 1.978 0 0 1 2.502 -2.502l8.045 2.682a1.978 1.978 0 0 1 .773 3.274"/>
-                    <path d="M10 10l6.5 6.5"/>
-                    <path d="M19.347 16.575l1.08 1.079a1.96 1.96 0 0 1 -2.773 2.772l-1.08 -1.079a1.96 1.96 0 0 1 2.773 -2.772"/>
-                  </svg>
-                </div>
+              <div class="col-card">
                 <h4>Dodatek do cementu i betonu</h4>
                 <p>Częściowe zastąpienie klinkieru. Cementownie są zainteresowane hydrowęglem o gwarantowanym składzie. Rynek zapewniony przez dyrektywę UE o dekarbonizacji przemysłu.</p>
               </div>
-
-              <div class="glass-card use-card">
-                <div class="card-icon" style="color: var(--color-teal);">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M12 10a6 6 0 0 0 -6 -6h-3v2a6 6 0 0 0 6 6h3"/>
-                    <path d="M12 14a6 6 0 0 1 6 -6h3v1a6 6 0 0 1 -6 6h-3"/>
-                    <path d="M12 20l0 -10"/>
-                  </svg>
-                </div>
+              <div class="col-card">
                 <h4>Polepszacz glebowy (biowęgiel)</h4>
                 <p>Rekultywacja zdegradowanych gleb: poprawa retencji wody i żyzności. Kwalifikuje się jako usuwanie węgla zgodnie z metodologiami VCS/Gold Standard.</p>
               </div>
-
-              <div class="glass-card use-card">
-                <div class="card-icon" style="color: var(--color-accent);">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M10.07 15.34c1.115 .88 2.74 .88 3.855 0c1.115 -.88 1.398 -2.388 .671 -3.575l-2.596 -3.765l-2.602 3.765c-.726 1.187 -.443 2.694 .672 3.575"/>
-                    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/>
-                  </svg>
-                </div>
+              <div class="col-card">
                 <h4>Produkcja węgla aktywowanego</h4>
                 <p>Po aktywacji parą — adsorbent do oczyszczania wody i powietrza. Rynek premium. Wymaga dodatkowego kroku, ale zwiększa wartość 5–8-krotnie.</p>
               </div>
-
             </div>
           </div>
 
@@ -627,142 +284,109 @@
       </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- BLOCK TECH-05: Порівняння                                     -->
-    <!-- ============================================================ -->
-    <section id="contrast" class="contrast-section">
-
-      <div class="contrast-bg-icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <path d="M7 20l10 0"/>
-          <path d="M6 6l6 -1l6 1"/>
-          <path d="M12 3l0 17"/>
-          <path d="M9 12l-3 -6l-3 6a3 3 0 0 0 6 0"/>
-          <path d="M21 12l-3 -6l-3 6a3 3 0 0 0 6 0"/>
-        </svg>
-      </div>
-
+    <!-- CONTRAST -->
+    <section id="contrast">
       <div class="container">
-        <p class="section-label">Porównanie</p>
+        <span class="rubric">Porównanie</span>
         <h2>BioTC nie konkuruje z rynkiem. BioTC rozwiązuje problem, którego rynek nie rozwiązał.</h2>
-        <p class="section-desc">Tradycyjne technologie rozwiązują problem połowicznie. Albo zmniejszają objętość, albo produkują gaz, albo niszczą patogeny — ale nie wszystko naraz. Pętla BioTC TH-AD-HTC to jedyna konfiguracja, która zamyka wszystkie strumienie w jeden energetycznie dodatni cykl.</p>
+        <p>Tradycyjne technologie rozwiązują problem połowicznie. Albo zmniejszają objętość, albo produkują gaz, albo niszczą patogeny — ale nie wszystko naraz. Pętla BioTC TH-AD-HTC to jedyna konfiguracja, która zamyka wszystkie strumienie w jeden energetycznie dodatni cykl.</p>
 
-        <div class="table-responsive">
-          <div class="rotate-hint" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-14"/><path d="M11 4h2"/><path d="M12 17v.01"/></svg>
-            <span>Obróć telefon poziomo, aby wyświetlić tabelę</span>
-          </div>
-          <table class="comparison-table contrast-table-tech">
+        <div class="table-wrapper">
+          <table>
             <thead>
               <tr>
                 <th>Wskaźnik</th>
                 <th>Składowisko / lagunowanie</th>
                 <th>Spalanie</th>
-                <th>Konkurenci THP<br><small style="font-weight:400;font-size:0.75em;"></small></th>
-                <th class="col-hub">BioTC — TH-AD-HTC<br><small style="font-weight:400;font-size:0.75em;">Opatentowana pętla</small></th>
+                <th>Konkurenci THP</th>
+                <th class="btc-col">BioTC — TH-AD-HTC</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>Redukcja objętości osadu</td>
                 <td>0%</td>
-                <td>~70% (popiol — odpad)</td>
-                <td>до 50%</td>
-                <td class="col-hub">до 80%</td>
+                <td>~70% (popiół — odpad)</td>
+                <td>do 50%</td>
+                <td class="btc-col">do 80%</td>
               </tr>
               <tr>
                 <td>Zniszczenie PFAS</td>
-                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:#f87171"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg> Brak</td>
-                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:#fbbf24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 9v4"/><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0"/><path d="M12 16h.01"/></svg> Częściowe</td>
-                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:#fbbf24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 9v4"/><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0"/><path d="M12 16h.01"/></svg> Częściowe</td>
-                <td class="col-hub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:var(--color-teal)"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg> 100% destrukcja</td>
+                <td>Brak</td>
+                <td>Częściowe</td>
+                <td>Częściowe</td>
+                <td class="btc-col">100% destrukcja</td>
               </tr>
               <tr>
                 <td>Zniszczenie patogenów</td>
-                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:#f87171"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg> Brak</td>
-                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:var(--color-teal)"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg> 100%</td>
-                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:var(--color-teal)"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg> 100%</td>
-                <td class="col-hub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:var(--color-teal)"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg> 100%</td>
+                <td>Brak</td>
+                <td>100%</td>
+                <td>100%</td>
+                <td class="btc-col">100%</td>
               </tr>
               <tr>
                 <td>Użyteczny produkt wyjściowy</td>
                 <td>Brak</td>
                 <td>Toksyczne popioły (odpad)</td>
                 <td>Digestat (ograniczony rynek)</td>
-                <td class="col-hub">Hydrowęgiel — End-of-Waste</td>
+                <td class="btc-col">Hydrowęgiel — End-of-Waste</td>
               </tr>
               <tr>
                 <td>Wzrost wydajności biogazu</td>
                 <td>—</td>
                 <td>—</td>
                 <td>+30%</td>
-                <td class="col-hub">+60% (recyrkulacja cieczy)</td>
+                <td class="btc-col">+60% (recyrkulacja cieczy)</td>
               </tr>
               <tr>
                 <td>Profil energetyczny</td>
                 <td>Stałe koszty</td>
                 <td>Zużywa energię</td>
                 <td>Samowystarczalne</td>
-                <td class="col-hub">Energetycznie dodatni</td>
+                <td class="btc-col">Energetycznie dodatni</td>
               </tr>
               <tr>
                 <td>Zgodność z UWWTD UE</td>
-                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:#f87171"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg> Kary</td>
-                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:#fbbf24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 9v4"/><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0"/><path d="M12 16h.01"/></svg> Warunkowo</td>
-                <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:var(--color-teal)"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg> Tak</td>
-                <td class="col-hub"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:.3em;color:var(--color-teal)"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M9 12l2 2l4 -4"/></svg> Pełna zgodność</td>
+                <td>Kary</td>
+                <td>Warunkowo</td>
+                <td>Tak</td>
+                <td class="btc-col">Pełna zgodność</td>
               </tr>
               <tr>
                 <td>Zwrot z inwestycji</td>
                 <td>Nigdy</td>
-                <td>Rzadko <10 lat</td>
+                <td>Rzadko &lt;10 lat</td>
                 <td>8–12 lat</td>
-                <td class="col-hub">4–6 lat</td>
+                <td class="btc-col">4–6 lat</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div class="section-label" style="margin-block-start: var(--space-lg); margin-block-end: 0.5rem; display: flex; align-items: center;">
-          <span class="callout-icon" style="display: inline-block;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-bell-ringing" style="vertical-align: middle; display: block;"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" /><path d="M9 17v1a3 3 0 0 0 6 0v-1" /><path d="M21 6.727a11.05 11.05 0 0 0 -2.794 -3.727" /><path d="M3 6.727a11.05 11.05 0 0 1 2.792 -3.727" /></svg>
-          </span>
-        </div>
-        <div class="glass-card callout-box callout-box--accent" style="margin-top: 0;">
-          <h3 style="margin-block-end: var(--space-xs);">Dlaczego ciecz HTC w komorze fermentacyjnej to kluczowy wyróżnik</h3>
+        <div class="col-card" style="margin-top: var(--space-lg); background-color: var(--color-gray-light);">
+          <h3>Dlaczego ciecz HTC w komorze fermentacyjnej to kluczowy wyróżnik</h3>
           <p>Konkurenci realizują termiczną hydrolizę (TH) jako samodzielny etap przed komorą fermentacyjną (AD). Nie mają reaktora HTC w łańcuchu. BioTC dodaje HTC po AD, a ciecz — frakcja ciekła po HTC — wraca do komory fermentacyjnej, stymulując dodatkową fermentację. To właśnie daje +60% zamiast +30% konkurentów. To jest opatentowane.</p>
         </div>
 
       </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- BLOCK TECH-06: Лінійка моделей                                -->
-    <!-- ============================================================ -->
-    <section id="models" class="models-section">
-
-      <div class="models-bg-icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <path d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6 -6a6 6 0 0 1 -8 -8l3.5 3.5"/>
-        </svg>
-      </div>
-
+    <!-- MODELS -->
+    <section id="models">
       <div class="container">
-        <p class="section-label">Linia urządzeń</p>
+        <span class="rubric">Linia urządzeń</span>
         <h2>Cztery modele. Od kompaktowego kontenera do regionalnego hubu.</h2>
-        <p class="section-desc">Wszystkie standardowe modele dostarczane są jako gotowe instalacje modułowe. Podłączenie w 14–21 dni bez prac budowlanych. Konfiguracja indywidualna TH+HTC projektowana jest na zamówienie.</p>
+        <p>Wszystkie standardowe modele dostarczane są jako gotowe instalacje modułowe. Podłączenie w 14–21 dni bez prac budowlanych. Konfiguracja indywidualna TH+HTC projektowana jest na zamówienie.</p>
 
-        <div class="model-cards">
+        <div class="grid-4" style="margin-top: var(--space-lg);">
 
-          <div class="glass-card model-card">
+          <div class="col-card">
             <div class="model-card-header">
-              <span class="scenario-badge">HTC-S 5</span>
+              <span class="rubric" style="margin-bottom:0;">HTC-S 5</span>
               <span class="model-capacity">5 t/day</span>
             </div>
             <h3>Dla małych obiektów</h3>
-            <p class="scenario-for">Oczyszczalnie, zakłady przemysłowe, kompleksy rolnicze do ~30 000 RLM</p>
+            <p><em>Oczyszczalnie, zakłady przemysłowe, kompleksy rolnicze do ~30 000 RLM</em></p>
             <ul class="model-spec-list">
               <li><span>Wydajność dobowa</span><strong>do 5 t osadu (~80% wilg.)</strong></li>
               <li><span>Roczna przepustowość</span><strong>do 1 800 t/rok</strong></li>
@@ -773,13 +397,13 @@
             <div class="model-energy-badge">Autogeniczne wydzielanie ciepła</div>
           </div>
 
-          <div class="glass-card model-card model-card--featured">
+          <div class="col-card" style="background-color: var(--color-gray-light);">
             <div class="model-card-header">
-              <span class="scenario-badge">HTC-S 15</span>
+              <span class="rubric" style="margin-bottom:0;">HTC-S 15</span>
               <span class="model-capacity">15 t/day</span>
             </div>
             <h3>Dla średnich miast</h3>
-            <p class="scenario-for">Oczyszczalnie od 80 000 do 150 000 RLM — najpopularniejszy rozmiar</p>
+            <p><em>Oczyszczalnie od 80 000 do 150 000 RLM — najpopularniejszy rozmiar</em></p>
             <ul class="model-spec-list">
               <li><span>Wydajność dobowa</span><strong>do 15 t osadu</strong></li>
               <li><span>Roczna przepustowość</span><strong>do 5 500 t/rok</strong></li>
@@ -787,16 +411,16 @@
               <li><span>System sterowania</span><strong>Automatyzacja SCADA</strong></li>
               <li><span>Rekuperacja ciepła</span><strong>Pełna (para → podgrzewanie)</strong></li>
             </ul>
-            <div class="model-energy-badge" style="color: var(--color-teal); background: var(--color-teal-glow);">Dodatni bilans cieplny</div>
+            <div class="model-energy-badge">Dodatni bilans cieplny</div>
           </div>
 
-          <div class="glass-card model-card">
+          <div class="col-card">
             <div class="model-card-header">
-              <span class="scenario-badge">HTC-D 30</span>
+              <span class="rubric" style="margin-bottom:0;">HTC-D 30</span>
               <span class="model-capacity">30 t/day</span>
             </div>
             <h3>Regionalny hub</h3>
-            <p class="scenario-for">Duże oczyszczalnie komunalne lub Hub &amp; Spoke od 200 000 RLM</p>
+            <p><em>Duże oczyszczalnie komunalne lub Hub &amp; Spoke od 200 000 RLM</em></p>
             <ul class="model-spec-list">
               <li><span>Wydajność dobowa</span><strong>do 30 t osadu</strong></li>
               <li><span>Roczna przepustowość</span><strong>do 11 000 t/rok</strong></li>
@@ -804,16 +428,16 @@
               <li><span>Redundancja linii</span><strong>100% gorąca rezerwa</strong></li>
               <li><span>Autonomiczność</span><strong>Pełna (bez zewn. gazu)</strong></li>
             </ul>
-            <div class="model-energy-badge" style="color: var(--color-teal); background: var(--color-teal-glow);">Pełna niezależność energetyczna</div>
+            <div class="model-energy-badge">Pełna niezależność energetyczna</div>
           </div>
 
-          <div class="glass-card model-card model-card--custom">
+          <div class="col-card" style="background-color: var(--color-gray-light);">
             <div class="model-card-header">
-              <span class="scenario-badge scenario-badge--teal">TH + HTC</span>
+              <span class="rubric" style="margin-bottom:0; background-color: var(--color-blue);">TH + HTC</span>
               <span class="model-capacity">30+ t/day</span>
             </div>
             <h3>Pętla indywidualna</h3>
-            <p class="scenario-for">Zintegrowana TH-AD-HTC dla oczyszczalni od 200 000 RLM lub regionalnych hubów</p>
+            <p><em>Zintegrowana TH-AD-HTC dla oczyszczalni od 200 000 RLM lub regionalnych hubów</em></p>
             <ul class="model-spec-list">
               <li><span>Wydajność</span><strong>Od 30 t/dobę i więcej</strong></li>
               <li><span>Przyrost biogazu</span><strong>+60% (recykl cieczy)</strong></li>
@@ -821,239 +445,92 @@
               <li><span>Recyrkulacja cieczy</span><strong>Z powrotem do komory fermentacyjnej</strong></li>
               <li><span>Projektowanie</span><strong>Indywidualne</strong></li>
             </ul>
-            <div class="model-energy-badge" style="color: var(--color-teal); background: var(--color-teal-glow);">Cykl energetycznie dodatni · CHP</div>
+            <div class="model-energy-badge">Cykl energetycznie dodatni · CHP</div>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- BLOCK TECH-07: CTA / Contact                                  -->
-    <!-- ============================================================ -->
+    <!-- CONTACT -->
     <section id="contact">
-
-      <div class="contact-bg-icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <path d="M12 11v.01"/><path d="M8 11v.01"/><path d="M16 11v.01"/>
-          <path d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3l12 0"/>
-        </svg>
-      </div>
-
       <div class="container">
-        <div class="contact-grid">
-
-          <div class="contact-text">
-            <p class="section-label">Kontakt</p>
+        <div class="grid-2">
+          <div>
+            <span class="rubric">Kontakt</span>
             <h2>Pierwszy krok — bezpłatna ocena inżynieryjna obiektu.</h2>
-            <p class="section-desc">Wyślij zgłoszenie. Nasi inżynierowie przeanalizują dane wejściowe i podczas 30-minutowej rozmowy wyjaśnią: który wariant jest optymalny dla Twojego obiektu (własna stacja przetwarzania osadu lub regionalny klaster, gdzie kilka oczyszczalni wspólnie korzysta z jednej instalacji BioTC) oraz jakie dofinansowanie z UE jest dostępne.</p>
+            <p>Wyślij zgłoszenie. Nasi inżynierowie przeanalizują dane wejściowe i podczas 30-minutowej rozmowy wyjaśnią: który wariant jest optymalny dla Twojego obiektu (własna stacja przetwarzania osadu lub regionalny klaster, gdzie kilka oczyszczalni wspólnie korzysta z jednej instalacji BioTC) oraz jakie dofinansowanie z UE jest dostępne.</p>
 
-            <div class="contact-info-list">
-              <div class="info-item">
+            <div class="contact-info-list" style="display:flex; flex-direction:column; gap:0.75rem; margin-top:1.5rem;">
+              <div class="info-item" style="display:flex; align-items:center; gap:0.75rem; font-weight:700;">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 <span>+48 608 003 458</span>
               </div>
-              <div class="info-item">
+              <div class="info-item" style="display:flex; align-items:center; gap:0.75rem; font-weight:700;">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 <span>contact@biotc.pl</span>
               </div>
-              <div class="info-item">
+              <div class="info-item" style="display:flex; align-items:center; gap:0.75rem; font-weight:700;">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 <span>ul. Daszyńskiego 34/3, 44-100 Gliwice, Polska</span>
               </div>
             </div>
           </div>
 
-          <div class="glass-card contact-form-card">
+          <div class="col-card">
             <form id="rfq-form" action="#" method="POST" novalidate>
-              <fieldset class="form-fieldset">
-                <div class="visually-hidden" aria-hidden="true">
-                  <label for="honeypot">Leave blank</label>
-                  <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
-                </div>
-                <div class="form-group">
-                  <input type="text" id="user-name" name="name" placeholder=" " required minlength="2" autocomplete="name" aria-describedby="name-error">
-                  <label for="user-name" class="floating-label">Imię i nazwisko / stanowisko *</label>
-                  <span id="name-error" class="error-msg" role="alert">Proszę podać imię i nazwisko</span>
-                </div>
-                <div class="form-group">
-                  <input type="tel" id="user-phone" name="phone" placeholder=" " required autocomplete="tel" inputmode="tel" aria-describedby="phone-error">
-                  <label for="user-phone" class="floating-label">Telefon kontaktowy *</label>
-                  <span id="phone-error" class="error-msg" role="alert">Proszę podać numer telefonu</span>
-                </div>
-                <div class="form-group">
-                  <input type="text" id="user-company" name="company" placeholder=" " required autocomplete="organization" aria-describedby="company-error">
-                  <label for="user-company" class="floating-label">Miasto / nazwa przedsiębiorstwa *</label>
-                  <span id="company-error" class="error-msg" role="alert">Proszę podać nazwę</span>
-                </div>
-                <div class="form-group">
-                  <select id="user-type" name="object_type">
-                    <option value="" disabled selected></option>
-                    <option value="waterutil">Regionalne przedsiębiorstwo wodociągowe (od 50 tys.)</option>
-                    <option value="community">Gmina (od 10 tys.)</option>
-                    <option value="agro">Przedsiębiorstwo rolno-spożywcze</option>
-                    <option value="other">Inne</option>
-                  </select>
-                  <label for="user-type" class="floating-label">Typ obiektu</label>
-                </div>
-                <button type="submit" id="form-submit-btn" class="btn btn-primary btn-block">Wyślij zgłoszenie</button>
-                <p class="form-micro-text">Odpowiedź w ciągu 1 dnia roboczego. Bez zobowiązań.</p>
-              </fieldset>
+              <div style="position:absolute; left:-9999px;" aria-hidden="true">
+                <label for="honeypot">Leave blank</label>
+                <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label for="user-name">Imię i nazwisko / stanowisko *</label>
+                <input type="text" id="user-name" name="name" required minlength="2" autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="user-phone">Telefon kontaktowy *</label>
+                <input type="tel" id="user-phone" name="phone" required autocomplete="tel" inputmode="tel">
+              </div>
+              <div class="form-group">
+                <label for="user-company">Miasto / nazwa przedsiębiorstwa *</label>
+                <input type="text" id="user-company" name="company" required autocomplete="organization">
+              </div>
+              <div class="form-group">
+                <label for="user-type">Typ obiektu</label>
+                <select id="user-type" name="object_type">
+                  <option value="" disabled selected></option>
+                  <option value="waterutil">Regionalne przedsiębiorstwo wodociągowe (od 50 tys.)</option>
+                  <option value="community">Gmina (od 10 tys.)</option>
+                  <option value="agro">Przedsiębiorstwo rolno-spożywcze</option>
+                  <option value="other">Inne</option>
+                </select>
+              </div>
+              <button type="submit" id="form-submit-btn" class="btn btn-primary" style="width:100%;">Wyślij zgłoszenie</button>
+              <p style="margin-top:1rem; font-size:0.85rem; font-weight:600;">Odpowiedź w ciągu 1 dnia roboczego. Bez zobowiązań.</p>
             </form>
-            <div id="form-status" class="form-status-container hidden" tabindex="-1" role="status" aria-live="polite"></div>
+            <div id="form-status" class="hidden" tabindex="-1" role="status" aria-live="polite"></div>
           </div>
-
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ============================================================ -->
-  <!-- FOOTER                                                        -->
-  <!-- ============================================================ -->
-  <footer class="main-footer">
+  <footer>
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <span class="logo-text"><span class="logo-btc">BTC</span> Consulting</span>
-          <p>Rozwiązania inżynieryjne dla bezpiecznej utylizacji osadów ściekowych. Technologia TH-AD-HTC. Dotacje UE do 90% CAPEX.</p>
-        </div>
-        <div class="footer-links">
-          <h4>Nawigacja</h4>
-          <ul>
-            <li><a href="index.html">Rozwiązania</a></li>
-            <li><a href="technology.html">Technologia</a></li>
-            <li><a href="simulator.html">Kalkulator</a></li>
-            <li><a href="#contact">Kontakt</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-links">
-          <h4>Dokumenty</h4>
-          <ul>
-            <li><a href="mission.html">Misja</a></li>
-            <li><a href="whitepaper.html">Whitepaper</a></li>
-            <li><a href="investors.html">Investors</a></li>
-            <li><a href="case-lubin.html">Przypadek: Lubin</a></li>
-          </ul>
-        </div>
+      <div class="logo">BTC <span>Consulting</span></div>
+      <div class="footer-links">
+        <a href="index.html">Rozwiązania</a>
+        <a href="technology.html">Technologia</a>
+        <a href="simulator.html">Kalkulator</a>
+        <a href="#contact">Kontakt</a>
+        <a href="mission.html">Misja</a>
+        <a href="whitepaper.html">Whitepaper</a>
+        <a href="case-lubin.html">Przypadek: Lubin</a>
       </div>
-            <div class="footer-copy">
-        <span>&copy; 2025 BTC Consulting. Wszelkie prawa zastrzeżone.</span>
-        <button class="footer-privacy-btn" id="privacy-strip-trigger">Dane i prywatność</button>
-      </div>
+      <p>&copy; 2025 BTC Consulting. Wszelkie prawa zastrzeżone.</p>
     </div>
   </footer>
 
-  <script src="../app.min.js?v=5"></script>
-
-  <!-- Parallax background icons -->
-  <script>
-  (function () {
-    var RANGE = 120;  /* px — icon drifts down as section scrolls through */
-
-    var pairs = [
-      /* tech-hero-bg-icon excluded — it uses CSS spin-slow animation instead */
-      ['#what-is-htc',   '.htc-bg-icon'],
-      ['#configurations','.configs-bg-icon'],
-      ['#hydrochar',     '.hydrochar-bg-icon'],
-      ['#contrast',      '.contrast-bg-icon'],
-      ['#models',        '.models-bg-icon'],
-      ['#contact',       '.contact-bg-icon'],
-    ].map(function (p) {
-      return {
-        section: document.querySelector(p[0]),
-        icon:    document.querySelector(p[1]),
-      };
-    }).filter(function (p) { return p.section && p.icon; });
-
-    var ticking = false;
-
-    function update() {
-      var wh = window.innerHeight;
-      pairs.forEach(function (p) {
-        var r  = p.section.getBoundingClientRect();
-        var sh = r.height;
-        var progress = (wh - r.top) / (wh + sh);
-        progress = Math.max(0, Math.min(1, progress));
-        var yShift = progress * RANGE;
-        p.icon.style.transform = 'translateY(' + yShift.toFixed(1) + 'px)';
-      });
-      ticking = false;
-    }
-
-    function onScroll() {
-      if (!ticking) { requestAnimationFrame(update); ticking = true; }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', update,   { passive: true });
-    update();
-  })();
-  </script>
-
-
-
-    <!-- Privacy bottom strip -->
-    <div class="privacy-strip" id="privacy-strip" aria-hidden="true">
-      <div class="privacy-strip-inner">
-        <div class="privacy-strip-body">
-          <strong>O zbieraniu danych</strong>
-          <p>Podczas korzystania z kalkulatora anonimowo zapisujemy wprowadzone parametry (objętość osadu, scenariusz, procent dotacji) oraz wyniki obliczeń. Dane osobowe (imię, e-mail, adres IP) nie są zbierane ani przekazywane osobom trzecim. Dane służą wyłącznie do analizy popytu i ulepszania serwisu.</p>
-        </div>
-        <button class="privacy-strip-close" id="privacy-strip-close" aria-label="Rozumiem">&#x2715;</button>
-      </div>
-    </div>
-    <!-- Contact Popover / Modal -->
-    <div class="contact-popover-overlay" id="contact-popover-overlay" aria-hidden="true"></div>
-    <div class="contact-popover" id="contact-popover" aria-hidden="true" role="dialog" aria-label="Szybki kontakt">
-      <div class="popover-arrow" aria-hidden="true"></div>
-      <div class="popover-header">
-        <h4>Szybki kontakt</h4>
-        <button class="popover-close" id="popover-close" aria-label="Close">&times;</button>
-      </div>
-      <div class="popover-body">
-        <div class="popover-contact-card">
-          <div class="popover-avatar">
-            <img src="../img/team/krop-a.jpg" alt="Andrzej Krop">
-          </div>
-          <div class="popover-info">
-            <div class="popover-name">Andrzej Krop</div>
-            <div class="popover-role">Zarządzanie projektami</div>
-          </div>
-        </div>
-        <div class="popover-actions-grid">
-          <a href="tel:+48608003458" class="popover-action-btn border-teal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span>+48 608 003 458</span>
-          </a>
-          <a href="mailto:contact@biotc.pl" class="popover-action-btn border-blue">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <span>contact@biotc.pl</span>
-          </a>
-          <a href="https://wa.me/48608003458" target="_blank" rel="noopener" class="popover-action-btn border-teal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-            <span>WhatsApp Chat</span>
-          </a>
-          <button id="vcard-download-btn" class="popover-action-btn border-orange">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/></svg>
-            <strong>Dodaj kontakt</strong>
-          </button>
-        </div>
-        <div class="popover-divider"><span>lub</span></div>
-        <div class="popover-callback-wrap">
-          <div class="callback-row">
-            <input type="tel" id="popover-phone" placeholder="Telefon kontaktowy *"
-                   inputmode="tel" autocomplete="tel">
-            <button type="button" class="btn btn-primary callback-btn" id="popover-callback-btn"
-                    data-label="Oddzwoń do mnie">Oddzwoń do mnie</button>
-          </div>
-          <p id="popover-callback-error" class="error-msg" style="display:none">Podaj poprawny numer telefonu</p>
-          <p class="form-micro-text" style="margin-block-start:0.4rem;">Odpowiedź w ciągu 1 dnia roboczego. Bez zobowiązań.</p>
-        </div>
-      </div>
-    </div>
 </body>
 </html>
