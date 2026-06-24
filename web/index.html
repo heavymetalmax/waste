@@ -7,6 +7,20 @@
   <meta name="description" content="BTC Consulting projektuje instalacje HTC dla oczyszczalni ścieków. Dofinansowanie do 90% z FENX i NFOŚiGW.">
   <link rel="stylesheet" href="Ua/industrial-modern.css">
   <style>
+    html, body { height: 100%; margin: 0; overflow: hidden; }
+    body { display: flex; flex-direction: column; }
+    header { flex-shrink: 0; }
+    main { flex: 1; min-height: 0; overflow: hidden; }
+    #hero { height: 100%; display: flex; align-items: center; }
+    #hero h1 { font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.1; }
+    #hero .hero-desc { font-size: clamp(0.85rem, 1.3vw, 1rem); line-height: 1.4; }
+    #hero .paper-checklist { padding: clamp(1rem, 2vw, 2rem); }
+    #hero .contact-row { padding: 0.6rem 0; }
+    @media (max-width: 768px) {
+      html, body { height: auto; overflow: auto; }
+      main { overflow: visible; }
+      #hero { height: auto; padding: var(--space-md) 0; }
+    }
     .contact-card {
       display: flex;
       flex-direction: column;
