@@ -3,1057 +3,204 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Odzysk zasobów z oczyszczalni ścieków | BioTC | BTC Consulting</title>
-  <meta name="description" content="BTC Consulting projektuje regionalne huby inżynieryjne, które przetwarzają toksyczne osady ściekowe na hydrowęgiel. Dotacje UE do 90% CapEx. Technologia TH-AD-HTC.">
-
-
+  <title>BTC Consulting – Technologia HTC dla oczyszczalni ścieków</title>
+  <meta name="description" content="BTC Consulting projektuje i wdraża instalacje HTC (karbonizacja hydrotermalna) dla oczyszczalni ścieków. Dofinansowanie do 90% z FENX i NFOŚiGW.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <link rel="stylesheet" href="../styles.min.css?v=23">
-  <link rel="prefetch" href="technology.html">
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0f1e;
+      color: #e8edf5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+    }
 
-  <link rel="alternate" hreflang="uk-UA" href="https://biotc.com.ua/" />
-  <link rel="alternate" hreflang="en" href="https://biotc.com.ua/eu/" />
-  <link rel="alternate" hreflang="pl-PL" href="https://biotc.com.ua/pl/" />
-  <link rel="alternate" hreflang="x-default" href="https://biotc.com.ua/" />
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      max-width: 640px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .logo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: rgba(4,107,210,0.15);
+      border: 1px solid rgba(4,107,210,0.4);
+      border-radius: 50px;
+      padding: .45rem 1.1rem;
+      margin-bottom: 2rem;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: .85rem;
+      letter-spacing: .08em;
+      color: #4da3ff;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.25;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    h1 span { color: #046BD2; }
+
+    .tagline {
+      font-size: 1rem;
+      color: #8fa3bc;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: #046BD2;
+      border-radius: 2px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: .9rem 1.2rem;
+      text-decoration: none;
+      color: #e8edf5;
+      transition: border-color .2s, background .2s;
+    }
+
+    .contact-item:hover {
+      border-color: rgba(4,107,210,0.5);
+      background: rgba(4,107,210,0.08);
+    }
+
+    .contact-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(4,107,210,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+    }
+
+    .contact-label {
+      font-size: .72rem;
+      color: #5a7a99;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .contact-value {
+      font-size: .95rem;
+      font-weight: 500;
+      color: #c8d8ea;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      justify-content: center;
+    }
+
+    .tag {
+      font-size: .78rem;
+      font-family: 'Outfit', sans-serif;
+      background: rgba(4,107,210,0.1);
+      border: 1px solid rgba(4,107,210,0.25);
+      color: #7ab8f5;
+      border-radius: 50px;
+      padding: .3rem .85rem;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: .78rem;
+      color: #3d5166;
+    }
+  </style>
 </head>
 <body>
 
-  <div class="blur-orb orb-1"></div>
-  <div class="blur-orb orb-2"></div>
-  <div class="blur-orb orb-3"></div>
+<div class="card">
+  <div class="logo-badge">⚗ BTC Consulting</div>
 
-  <!-- ============================================================ -->
-  <!-- HEADER                                                        -->
-  <!-- ============================================================ -->
-  <header class="main-header" id="header">
-    <div class="header-container">
-      <a href="../index.html" class="logo" aria-label="Strona główna BTC Consulting">
-        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="logo-grad" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
-              <stop offset="0%" stop-color="#046BD2"/>
-              <stop offset="100%" stop-color="#0D9488"/>
-            </linearGradient>
-            <linearGradient id="logo-grad-mi" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
-              <stop offset="0%" stop-color="#38BDF8"/>
-              <stop offset="100%" stop-color="#2DD4BF"/>
-            </linearGradient>
-          </defs>
-          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#logo-grad)"/>
-          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z"
-                fill="url(#logo-grad-mi)" stroke="white" stroke-width="1.5" vector-effect="non-scaling-stroke"
-                transform="translate(12,13) scale(0.62) translate(-12,-13)"/>
-          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z"
-                fill="white" opacity="0.92"
-                transform="translate(12,13) scale(0.33) translate(-12,-13)"/>
-        </svg>
-        <span class="logo-text"><span class="logo-btc">BTC</span> Consulting</span>
-      </a>
+  <h1>Technologia <span>HTC</span> dla<br>oczyszczalni ścieków</h1>
 
-      <nav class="nav-desktop" aria-label="Menu główne">
-        <ul>
-          <li><a href="index.html" class="active">Rozwiązania</a></li>
-      <li><a href="technology.html">Technologia</a></li>
-          <li><a href="simulator.html">Kalkulator</a></li>
-        </ul>
-      </nav>
+  <p class="tagline">
+    Projektujemy i wdrażamy instalacje karbonizacji hydrotermalnej (HTC)
+    dla komunalnych oczyszczalni ścieków. Dofinansowanie do 90% z FENX i NFOŚiGW.
+  </p>
 
-      <div class="header-actions">
-<button class="lang-globe-btn" id="lang-globe-btn" aria-label="Language">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <path d="M2 12h20"/>
-          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-        </svg>
-      </button>
-        <button class="nav-fab" id="nav-fab" aria-label="Audyt obiektu">
-          <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 12 19.79 19.79 0 0 1 1.08 3.38 2 2 0 0 1 3.07 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          <svg class="nav-fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
-        </button>
+  <div class="divider"></div>
+
+  <div class="contacts">
+    <a class="contact-item" href="tel:+48608003458">
+      <div class="contact-icon">📞</div>
+      <div>
+        <div class="contact-label">Telefon</div>
+        <div class="contact-value">+48 608 003 458</div>
       </div>
-        <button class="mobile-toggle" aria-label="Otwórz menu" aria-expanded="false" aria-controls="nav-mobile-strip">
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </button>
-    </div>
+    </a>
 
-    <div class="lang-strip" id="lang-strip" aria-hidden="true">
-      <div class="lang-strip-inner">
-        <a href="index.html" class="lang-strip-item active">&#x1F1F5;&#x1F1F1; Polski</a>
-        <a href="../eu/index.html" class="lang-strip-item ">&#x1F1EA;&#x1F1FA; English</a>
-        <a href="../ua/index.html" class="lang-strip-item ">&#x1F1FA;&#x1F1E6; Українська</a>
+    <a class="contact-item" href="mailto:contact@biotc.pl">
+      <div class="contact-icon">✉️</div>
+      <div>
+        <div class="contact-label">E-mail</div>
+        <div class="contact-value">contact@biotc.pl</div>
+      </div>
+    </a>
+
+    <div class="contact-item">
+      <div class="contact-icon">📍</div>
+      <div>
+        <div class="contact-label">Biuro</div>
+        <div class="contact-value">ul. Daszyńskiego 34/3, 44-100 Gliwice</div>
       </div>
     </div>
-    <div class="nav-mobile-strip" id="nav-mobile-strip" aria-hidden="true">
-      <div class="nav-mobile-strip-inner">
-        <ul>
-          <li><a href="index.html" class="active">Rozwiązania</a></li>
-          <li><a href="technology.html">Technologia</a></li>
-          <li><a href="simulator.html">Kalkulator</a></li>
-        </ul>
-      </div>
-    </div>
-  </header>
+  </div>
+
+  <div class="tags">
+    <span class="tag">HTC / Karbonizacja hydrotermalna</span>
+    <span class="tag">Osady ściekowe</span>
+    <span class="tag">UWWTD 2024/3019</span>
+    <span class="tag">FENX · NFOŚiGW</span>
+    <span class="tag">Hub &amp; Spoke</span>
+  </div>
+</div>
+
+<footer>© 2026 BTC Consulting Sp. z o.o. · Gliwice</footer>
 
-  <main>
-
-    <!-- ============================================================ -->
-    <!-- BLOCK 1: Hero                                                 -->
-    <!-- ============================================================ -->
-    <section id="hero" class="hero-section">
-      <div class="hero-waves-bg">
-        <svg viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Wave 1 (Accent Blue) -->
-          <path fill="rgba(4, 107, 210, 0.035)">
-            <animate attributeName="d"
-                     dur="22s"
-                     repeatCount="indefinite"
-                     values="
-                       M0,180 C320,290 640,110 960,250 C1280,390 1360,200 1440,240 L1440,400 L0,400 Z;
-                       M0,230 C240,130 560,290 880,190 C1200,90 1320,310 1440,210 L1440,400 L0,400 Z;
-                       M0,180 C320,290 640,110 960,250 C1280,390 1360,200 1440,240 L1440,400 L0,400 Z
-                     " />
-          </path>
-          <!-- Wave 2 (Teal) -->
-          <path fill="rgba(13, 148, 136, 0.025)">
-            <animate attributeName="d"
-                     dur="28s"
-                     repeatCount="indefinite"
-                     values="
-                       M0,220 C360,110 720,270 1080,160 C1280,240 1360,140 1440,190 L1440,400 L0,400 Z;
-                       M0,170 C300,280 600,120 900,260 C1200,320 1320,180 1440,240 L1440,400 L0,400 Z;
-                       M0,220 C360,110 720,270 1080,160 C1280,240 1360,140 1440,190 L1440,400 L0,400 Z
-                     " />
-          </path>
-          <!-- Wave 3 (Light Blue) -->
-          <path fill="rgba(56, 189, 248, 0.02)">
-            <animate attributeName="d"
-                     dur="34s"
-                     repeatCount="indefinite"
-                     values="
-                       M0,250 C280,320 560,180 840,290 C1120,380 1280,220 1440,270 L1440,400 L0,400 Z;
-                       M0,290 C320,190 640,310 960,210 C1280,120 1360,280 1440,230 L1440,400 L0,400 Z;
-                       M0,250 C280,320 560,180 840,290 C1120,380 1280,220 1440,270 L1440,400 L0,400 Z
-                     " />
-          </path>
-        </svg>
-      </div>
-      <div class="container">
-        <div class="hero-grid">
-
-          <div class="hero-content">
-            <a href="#problem" class="badge" style="text-decoration:none;">🇪🇺 Nowa dyrektywa UE UWWTD · 12.2024</a>
-
-            <h1>Kondensujemy wszystkie <span class="h1-problem">ogromne&nbsp;problemy</span> z osadami w <span class="h1-solution">kompaktowy i bezpieczny hydrowęgiel.</span></h1>
-
-            <p class="hero-desc">Na zawsze rozwiązujemy problem utylizacji osadu. Optymalizujemy koszty (CAPEX i OPEX) i tworzymy kompleksowe rozwiązania inżynieryjne dla gmin, miast i przedsiębiorstw.</p>
-
-              <div class="hero-actions">
-              <a href="simulator.html" class="btn btn-primary">Uzyskaj raport w Kalkulatorze</a>
-              <a href="#problem" class="btn btn-secondary">Ekonomika procesu</a>
-            </div>
-
-            <p class="hero-micro-text">Gmina od 10 tys. mieszkańców lub przedsiębiorstwo rolne? Sprawdź, czy Twój obiekt może stać się sercem regionalnego hubu →</p>
-          </div>
-
-          <div class="hero-stage" id="hero-stage">
-
-            <canvas id="ring-canvas" aria-hidden="true"></canvas>
-
-            <div class="stage-stat" data-index="0">
-              <div class="stage-num-wrap">
-                <span class="stage-num">
-                  <span class="sn-pre">do</span>
-                  <span class="sn-val">x5</span>
-                </span>
-              </div>
-              <div class="stage-text-wrap">
-                <span class="stage-label">Redukcja objętości odpadów</span>
-              </div>
-            </div>
-
-            <div class="stage-stat" data-index="1">
-              <div class="stage-num-wrap">
-                <span class="stage-num">
-                  <span class="sn-pre">do</span>
-                  <span class="sn-val">75%</span>
-                </span>
-              </div>
-              <div class="stage-text-wrap">
-                <span class="stage-label">CapEx pokrywają dotacje UE</span>
-                <span class="stage-sub">do 95% na techniczne projekty pilotażowe</span>
-              </div>
-            </div>
-
-            <div class="stage-stat" data-index="2">
-              <div class="stage-num-wrap">
-                <span class="stage-num">
-                  <span class="sn-pre">&lt;</span>
-                  <span class="sn-val">0.01<span class="sn-unit"> мм</span></span>
-                </span>
-              </div>
-              <div class="stage-text-wrap">
-                <span class="stage-label">Rozmiar cząstek mikroplastiku po HTC</span>
-                <span class="stage-sub">poniżej progu wykrywalności wg normy UE</span>
-              </div>
-            </div>
-
-            <div class="stage-progress" id="stage-progress">
-              <div class="stage-dot"></div>
-              <div class="stage-dot"></div>
-              <div class="stage-dot"></div>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================ -->
-    <!-- BLOCK 2: Problem — Three Budget Threats                       -->
-    <!-- ============================================================ -->
-    <section id="problem">
-      <div class="problem-bg-icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <path d="M20.984 12.535a9 9 0 1 0 -8.431 8.448"/>
-          <path d="M12 7v5l3 3"/>
-          <path d="M19 16v6"/>
-          <path d="M22 19l-3 3l-3 -3"/>
-        </svg>
-      </div>
-      <div class="container">
-        <p class="section-label">Problem</p>
-        <h2>Tradycyjna utylizacja osadu umiera. Nie metaforycznie. Finansowo i prawnie.</h2>
-
-        <div class="grid-3" style="margin-block-start: var(--space-lg)">
-
-          <div class="glass-card problem-card">
-            <div class="card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M12 10.941c2.333 -3.308 .167 -7.823 -1 -8.941c0 3.395 -2.235 5.299 -3.667 6.706c-1.43 1.408 -2.333 3.294 -2.333 5.588c0 3.704 3.134 6.706 7 6.706c3.866 0 7 -3.002 7 -6.706c0 -1.712 -1.232 -4.403 -2.333 -5.588c-2.084 3.353 -3.257 3.353 -4.667 2.235"/>
-              </svg>
-            </div>
-            <h3>Suszenie osadu pożera budżet</h3>
-            <p>94% oczyszczalni w Polsce nie posiada komór fermentacyjnych. Susząc osad przy użyciu zakupionej energii — gazu lub prądu — zużywają 1200–1300 Wh na każdy kilogram. Miasta do 100 000 mieszkańców pokrywają te koszty bezpośrednio z budżetu.</p>
-          </div>
-
-          <div class="glass-card problem-card">
-            <div class="card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M4 8a1 1 0 0 1 1 -1h14a1 1 0 0 1 1 1v7a1 1 0 0 1 -1 1h-14a1 1 0 0 1 -1 -1l0 -7"/>
-                <path d="M7 16v4"/><path d="M7.5 16l9 -9"/><path d="M13.5 16l6.5 -6.5"/>
-                <path d="M4 13.5l6.5 -6.5"/><path d="M17 16v4"/>
-                <path d="M5 20h4"/><path d="M15 20h4"/>
-                <path d="M17 7v-2"/><path d="M7 7v-2"/>
-              </svg>
-            </div>
-            <h3>Nie ma gdzie wieźć</h3>
-            <p>W Polsce działa tylko 11 spalarni osadów ściekowych. Kolejki, uzależnienie od jednego odbiorcy, ryzyko przestoju — to nie jest hipotetyczny scenariusz. To codzienność dziesiątek gmin.</p>
-          </div>
-
-          <div class="glass-card problem-card">
-            <div class="card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M13 10l7.383 7.418c.823 .82 .823 2.148 0 2.967a2.11 2.11 0 0 1 -2.976 0l-7.407 -7.385"/>
-                <path d="M6 9l4 4"/><path d="M13 10l-4 -4"/><path d="M3 21h7"/>
-                <path d="M6.793 15.793l-3.586 -3.586a1 1 0 0 1 0 -1.414l2.293 -2.293l.5 .5l3 -3l-.5 -.5l2.293 -2.293a1 1 0 0 1 1.414 0l3.586 3.586a1 1 0 0 1 0 1.414l-2.293 2.293l-.5 -.5l-3 3l.5 .5l-2.293 2.293a1 1 0 0 1 -1.414 0"/>
-              </svg>
-            </div>
-            <h3>Dyrektywa UE zamyka stare rozwiązania</h3>
-            <p>PFAS, mikroplastik i metale ciężkie w tradycyjnym osadzie czynią jego stosowanie w rolnictwie nielegalnym. Nowa UWWTD przyjęta w grudniu 2024. Odliczanie już się rozpoczęło — pierwsze terminy dla dużych oczyszczalni przypadają na 2033 rok. Kto się nie przygotuje, zapłaci kary.</p>
-          </div>
-
-        </div>
-
-        <div class="problem-link">
-          <a href="technology.html">Jak to rozwiązuje technologia →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================ -->
-
-    <!-- ============================================================ -->
-    <!-- BLOCK 2b: How We Work — 3-Step Process                        -->
-    <!-- ============================================================ -->
-    <section id="process" class="process-section">
-      <div class="container">
-        <p class="section-label text-center">Jak pracujemy</p>
-        <h2 class="text-center">Od pierwszego kontaktu do zrealizowanego projektu</h2>
-
-        <div class="process-steps">
-
-          <div class="process-step">
-            <div class="process-step-num">01</div>
-            <div class="process-step-body">
-              <h3>Opisz obiekt</h3>
-              <p>Powiedz nam o swojej oczyszczalni: typ, wielkosc w RLM, aktualny sposob zagospodarowania osadow. Przez formularz, chatbota AI lub telefon. Zajmuje 5 minut, bez zobowiazan.</p>
-            </div>
-          </div>
-
-          <div class="process-connector" aria-hidden="true"></div>
-
-          <div class="process-step">
-            <div class="process-step-num">02</div>
-            <div class="process-step-body">
-              <h3>Bezplatna ocena inzynierska</h3>
-              <p>Nasi inzynierowie analizuja dane i podczas 30-minutowej rozmowy podaja konkretne liczby: jaki scenariusz pasuje, jaka oczekiwana oszczednosc i jakie dofinansowanie UE jest dostepne dla Twojego obiektu.</p>
-            </div>
-          </div>
-
-          <div class="process-connector" aria-hidden="true"></div>
-
-          <div class="process-step">
-            <div class="process-step-num">03</div>
-            <div class="process-step-body">
-              <h3>Studium wykonalnosci i pakiet grantowy</h3>
-              <p>Opracowujemy pelne studium techniczno-ekonomiczne z bilansami masy i energii, planami zagospodarowania i kompletna dokumentacja do uzyskania grantu UE do 90% CapEx.</p>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="process-cta">
-          <a href="#contact" class="btn btn-primary">Zacznij bezplatnie</a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- BLOCK 3: Solution — Cluster Approach                          -->
-    <!-- ============================================================ -->
-    <section id="solution">
-      <div class="solution-bg-icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <path d="M5.931 6.936l1.275 4.249m5.607 5.609l4.251 1.275"/>
-          <path d="M11.683 12.317l5.759 -5.759"/>
-          <path d="M4 5.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0"/>
-          <path d="M17 5.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0"/>
-          <path d="M17 18.5a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0"/>
-          <path d="M4 15.5a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0 -9 0"/>
-        </svg>
-      </div>
-      <div class="container">
-        <div class="solution-intro">
-          <div class="solution-intro-heading">
-            <p class="section-label">Rozwiązanie</p>
-            <h2>Znajdujemy rozwiązanie, w którym każdy wygrywa — bez względu na skalę.</h2>
-          </div>
-          <p class="solution-intro-desc">Optymalność zależy od wolumenu odpadów. Duże przedsiębiorstwo wodociągowe lub przemysłowe otrzymuje własną stację specjalistyczną z pełną autonomią bez uzależnienia od zewnętrznych operatorów. Małe gminy i przedsiębiorstwa łączą siły w regionalnym klastrze Hub&nbsp;&amp;&nbsp;Spoke, gdzie kilku uczestników dzieli jedną infrastrukturę i razem osiąga komercyjnie atrakcyjną skalę. W obu przypadkach znajdujemy najlepsze rozwiązanie.</p>
-        </div>
-
-        <div class="solution-scenarios">
-
-          <!-- Сценарій А: Монозадачна станція -->
-          <div class="glass-card scenario-card">
-            <span class="scenario-badge">Scenariusz A</span>
-            <div class="card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M4 21v-15c0 -1 1 -2 2 -2h5c1 0 2 1 2 2v15"/>
-                <path d="M16 8h2c1 0 2 1 2 2v11"/>
-                <path d="M3 21h18"/>
-                <path d="M10 12v.01"/><path d="M10 16v.01"/><path d="M10 8v.01"/>
-                <path d="M7 12v.01"/><path d="M7 16v.01"/><path d="M7 8v.01"/>
-                <path d="M17 12v.01"/><path d="M17 16v.01"/>
-              </svg>
-            </div>
-            <h3>Stacja specjalistyczna</h3>
-            <p class="scenario-for">Dla dużych przedsiębiorstw wodociągowych i przemysłowych ze stabilnie wysokimi wolumenami osadu</p>
-            <p>Indywidualny kompleks BioTC integruje się bezpośrednio ze schematem technologicznym oczyszczalni i zapewnia pełną utylizację odpadów w miejscu ich powstawania.</p>
-            <ul class="scenario-benefits">
-              <li>Pełna utylizacja odpadów w miejscu powstawania</li>
-              <li>Zerowe uzależnienie od zewnętrznych operatorów</li>
-              <li>Eliminacja kosztów transportu osadu</li>
-              <li>Gwarantowane spełnienie ekologicznych KPI</li>
-            </ul>
-            <p class="scenario-targets">Duże wodociągi · Przemysł spożywczy · Chemiczny · Celulozowo-papierniczy</p>
-          </div>
-
-          <!-- Сценарій Б: Кластер Hub & Spoke -->
-          <div class="glass-card scenario-card">
-            <span class="scenario-badge scenario-badge--teal">Scenariusz B</span>
-            <div class="card-icon" style="color: var(--color-teal)">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M10 5a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>
-                <path d="M17.723 7.41a7.992 7.992 0 0 0 -3.74 -2.162m-3.971 0a7.993 7.993 0 0 0 -3.789 2.216m-1.881 3.215a8 8 0 0 0 -.342 2.32c0 .738 .1 1.453 .287 2.132m1.96 3.428a7.993 7.993 0 0 0 3.759 2.19m4 0a7.993 7.993 0 0 0 3.747 -2.186m1.962 -3.43a8.008 8.008 0 0 0 .287 -2.131c0 -.764 -.107 -1.503 -.307 -2.203"/>
-                <path d="M3 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>
-                <path d="M17 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>
-              </svg>
-            </div>
-            <h3>Regionalny klaster Hub &amp; Spoke</h3>
-            <p class="scenario-for">Dla małych miast, gmin i przedsiębiorstw, gdzie budowa osobnej instalacji HTC jest ekonomicznie nieoptymalna</p>
-            <p>Kilku sąsiadujących uczestników łączy siły. Centralny Hub (stacja przetwarzania z reaktorem BioTC) obsługuje oczyszczalnie-satelity, które odwadniają osad lokalnie i dostarczają go do centrum przetwarzania.</p>
-            <ul class="scenario-benefits">
-              <li>Podział obciążenia finansowego między uczestnikami</li>
-              <li>Komercyjnie atrakcyjne wolumeny hydrowęgla i biogazu</li>
-              <li>Jedna certyfikacja środowiskowa zamiast kilkudziesięciu</li>
-              <li>Dostęp do dotacji UE do 90% CAPEX</li>
-            </ul>
-            <p class="scenario-targets">Małe gminy · Małe wodociągi · Agroprzedsiębiorstwa · Lokalny biznes</p>
-          </div>
-
-        </div>
-
-        <div class="table-responsive">
-          <div class="rotate-hint" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-14"/><path d="M11 4h2"/><path d="M12 17v.01"/></svg>
-            <span>Obróć telefon poziomo, aby wyświetlić tabelę</span>
-          </div>
-          <table class="comparison-table">
-            <thead>
-              <tr>
-                <th>Parametr</th>
-                <th>Specjalistyczna</th>
-                <th class="col-hub">Klaster Hub &amp; Spoke</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Minimalny roczny strumień osadów</td><td>Od ~50 000 m³/rok</td><td class="col-hub">Od ~10 000 m³/rok</td></tr>
-              <tr><td>Zależność od zewnętrznych operatorów</td><td>Zerowe</td><td class="col-hub">Minimalne</td></tr>
-              <tr><td>Dostęp do dotacji UE</td><td>Do 75%</td><td class="col-hub">Do 90%</td></tr>
-              <tr><td>Zwrot z inwestycji</td><td>3–4 lata</td><td class="col-hub">3–3,5 roku</td></tr>
-              <tr><td>Skalowalność</td><td>Stała</td><td class="col-hub">Modułowa</td></tr>
-              <tr><td>Certyfikacja środowiskowa</td><td>Własna</td><td class="col-hub">Jedna na klaster</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="section-label" style="margin-block-start: var(--space-lg); margin-block-end: 0.5rem; display: flex; align-items: center;">
-          <span class="callout-icon" style="display: inline-block;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-bell-ringing" style="vertical-align: middle; display: block;"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" /><path d="M9 17v1a3 3 0 0 0 6 0v-1" /><path d="M21 6.727a11.05 11.05 0 0 0 -2.794 -3.727" /><path d="M3 6.727a11.05 11.05 0 0 1 2.792 -3.727" /></svg>
-          </span>
-        </div>
-        <div class="glass-card callout-box callout-box--accent" style="margin-top: 0;">
-          <h3 style="margin-block-end: var(--space-xs);">Nie wiesz, który scenariusz pasuje?</h3>
-          <p style="margin-block-end: 0.6rem;">Bezpłatna ocena inżynieryjna określi optymalną architekturę dla Twojego wolumenu osadu i budżetu — bez zobowiązań.</p>
-          <div style="text-align: right;">
-            <a href="#contact" class="callout-inline-link">Uzyskaj ocenę →</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ============================================================ -->
-    <!-- BLOCK 4: Calculator Banner                                    -->
-    <!-- ============================================================ -->
-    <section id="calculator-cta" class="banner-section">
-      <div class="calc-bg-icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <path d="M4 5a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2l0 -14"/>
-          <path d="M8 8a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1l0 -1"/>
-          <path d="M8 14l0 .01"/><path d="M12 14l0 .01"/><path d="M16 14l0 .01"/>
-          <path d="M8 17l0 .01"/><path d="M12 17l0 .01"/><path d="M16 17l0 .01"/>
-        </svg>
-      </div>
-      <div class="container">
-        <p class="section-label">Kalkulator</p>
-        <h2>Prześlij raport swojej oczyszczalni. Uzyskaj wstępne wyliczenia w 60 sekund.</h2>
-        <p class="section-desc">AI odczyta parametry z Twojego dokumentu laboratoryjnego i obliczy potencjał obiektu: wydajność hydrowęgla, bilans energetyczny, klasę hubu.</p>
-
-        <div class="sim-banner-grid" style="margin-block-start: var(--space-lg)">
-          <div class="glass-card">
-            <h3 style="font-size: var(--text-lg); margin-block-end: var(--space-sm);">Od razu <span class="tag tag-teal">bez rejestracji</span></h3>
-            <ul class="sim-feature-list">
-              <li>Wydajność hydrowęgla (t/dobę)</li>
-              <li>Redukcja objętości odpadów (%)</li>
-              <li>Klasa obiektu: mały / średni / hub</li>
-            </ul>
-          </div>
-          <div class="glass-card glass-card--gradient-border">
-            <h3 style="font-size: var(--text-lg); margin-block-end: var(--space-sm);">Po kontakcie</h3>
-            <ul class="sim-feature-list">
-              <li>Pełny bilans energetyczny i biogaz</li>
-              <li>Orientacyjny zwrot z inwestycji (lata)</li>
-              <li>Zgodność z kryteriami dotacji UE</li>
-              <li>Zalecana konfiguracja hubu</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="text-center" style="margin-block-start: var(--space-lg)">
-          <a href="simulator.html" class="btn btn-primary btn-block" style="max-width: 400px; margin-inline: auto;">Przejdź do kalkulatora →</a>
-          <p class="sim-micro-text">PDF, Excel lub skan raportu laboratoryjnego — AI odczyta wszystko</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================ -->
-    <!-- BLOCK 5: Trust Center                                         -->
-    <!-- ============================================================ -->
-    <section id="trust" class="proof-section">
-      <div class="trust-bg-icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <path d="M5 21h14"/>
-          <path d="M6 18h2"/>
-          <path d="M7 18v3"/>
-          <path d="M9 11l3 3l6 -6l-3 -3l-6 6"/>
-          <path d="M10.5 12.5l-1.5 1.5"/>
-          <path d="M17 3l3 3"/>
-          <path d="M12 21a6 6 0 0 0 3.715 -10.712"/>
-        </svg>
-      </div>
-      <div class="container">
-        <p class="section-label">Dowody</p>
-        <h2 class="text-center">Technologia potwierdzona komercyjnie, naukowo i branżowo.</h2>
-
-        <div class="grid-3" style="margin-block-start: var(--space-lg)">
-
-          <div class="glass-card proof-card">
-            <span class="proof-badge-text">Case komercyjny</span>
-            <div class="proof-logo-wrapper">
-              <svg class="proof-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M3 4h8"/><path d="M4 4v5a6 6 0 0 0 6 6h3a1 1 0 0 1 1 1v4"/>
-                <path d="M10 4v4a1 1 0 0 0 1 1h3a6 6 0 0 1 6 6v5"/>
-                <path d="M13 20h8"/><path d="M12 9v6"/>
-              </svg>
-              <svg class="brand-logo-svg" viewBox="0 0 140 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <text x="0" y="24" font-family="Outfit, sans-serif" font-weight="800" font-size="22" fill="#0F172A">MPWiK</text>
-                <text x="82" y="24" font-family="Inter, sans-serif" font-weight="400" font-size="11" fill="#475569">LUBIN</text>
-              </svg>
-            </div>
-            <h3>Pierwsza umowa komercyjna</h3>
-            <p>Październik 2025. Przedsiębiorstwo komunalne MPWiK Lubin oficjalnie wykupiło prawa autorskie do koncepcji TH-AD-HTC od BTC Consulting w celu modernizacji oczyszczalni ścieków — nie projekt pilotażowy, lecz pełnoprawna umowa komercyjna z samorządem.</p>
-          </div>
-
-          <div class="glass-card proof-card">
-            <span class="proof-badge-text">Baza naukowa</span>
-            <div class="proof-logo-wrapper">
-              <svg class="proof-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"/>
-                <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"/>
-              </svg>
-              <svg class="brand-logo-svg" viewBox="0 0 200 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <text x="0" y="24" font-family="Outfit, sans-serif" font-weight="800" font-size="22" fill="#0F172A">AGH</text>
-                <text x="52" y="24" font-family="Inter, sans-serif" font-weight="400" font-size="11" fill="#475569">KRAKÓW + WikiChar</text>
-              </svg>
-            </div>
-            <h3>Weryfikacja akademicka</h3>
-            <p>Badania prowadzone są wspólnie z Katedrą Energetyki Cieplnej AGH Kraków. Dr hab. inż. Małgorzata Wilk wchodzi do TOP 2% naukowców świata według Stanford University. Fizyka procesu potwierdzona przez międzynarodową bazę WikiChar Hydrochar Network.</p>
-          </div>
-
-          <div class="glass-card proof-card">
-            <span class="proof-badge-text">Skala przemysłowa</span>
-            <div class="proof-logo-wrapper">
-              <svg class="proof-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M3 21h18"/>
-                <path d="M5 21v-12l5 4v-4l5 4h4"/>
-                <path d="M19 21v-8l-1.436 -9.574a.5 .5 0 0 0 -.495 -.426h-1.145a.5 .5 0 0 0 -.494 .418l-1.43 8.582"/>
-                <path d="M9 17h1"/><path d="M14 17h1"/>
-              </svg>
-              <svg class="brand-logo-svg" viewBox="0 0 200 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <text x="0" y="24" font-family="Outfit, sans-serif" font-weight="800" font-size="22" fill="#0F172A">INTROL</text>
-                <text x="95" y="24" font-family="Inter, sans-serif" font-weight="400" font-size="11" fill="#475569">GROUP S.A.</text>
-              </svg>
-            </div>
-            <h3>Publiczny generalny wykonawca</h3>
-            <p>Wszystkie prace montażowe i rozruch wykonuje INTROL Group S.A. — holding notowany na Giełdzie Papierów Wartościowych w Warszawie. Nie anonimowy podwykonawca, lecz publiczna odpowiedzialność korporacyjna.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================ -->
-    <!-- BLOCK 6: Team                                                 -->
-    <!-- ============================================================ -->
-    <section id="team">
-      <div class="team-bg-icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/>
-          <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1"/>
-          <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/>
-          <path d="M17 10h2a2 2 0 0 1 2 2v1"/>
-          <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/>
-          <path d="M3 13v-1a2 2 0 0 1 2 -2h2"/>
-        </svg>
-      </div>
-      <div class="container">
-        <p class="section-label">Zespół</p>
-        <h2 class="text-center">Ludzie, którzy ponoszą osobistą odpowiedzialność za każdy projekt.</h2>
-
-        <div class="grid-4" style="margin-block-start: var(--space-lg)">
-
-          <div class="glass-card team-card">
-            <div class="team-avatar"><img src="../img/team/krop-e.jpg" alt="Dr inż. Eugeniusz Krop" loading="lazy"></div>
-            <h3>Dr inż. Eugeniusz Krop</h3>
-            <span class="team-role">Dyrektor techniczny</span>
-            <p>28 dużych wdrożeń przemysłowych. Wśród klientów — ORLEN. Jeśli technologia nie działa w terenie — wie dlaczego i jak to naprawić.</p>
-          </div>
-
-          <div class="glass-card team-card">
-            <div class="team-avatar"><img src="../img/team/wilk-m.jpg" alt="Dr hab. inż. Małgorzata Wilk" loading="lazy"></div>
-            <h3>Dr hab. inż. Małgorzata Wilk</h3>
-            <span class="team-role">Badania i weryfikacja naukowa</span>
-            <p>Kierownik katedry AGH Kraków. TOP 2% naukowców świata (Stanford, 2024). Każda liczba na tej stronie przeszła przez jej laboratorium.</p>
-          </div>
-
-          <div class="glass-card team-card">
-            <div class="team-avatar"><img src="../img/team/krop-a.jpg" alt="Andrzej Krop" loading="lazy"></div>
-            <h3>Andrzej Krop</h3>
-            <span class="team-role">Zarządzanie projektami</span>
-            <p>Były CEO europejskiego oddziału japońskiej korporacji. Gwarantuje, że projekt kończy się w terminie i budżecie — nie na papierze, lecz w rzeczywistości.</p>
-          </div>
-
-          <div class="glass-card team-card">
-            <div class="team-avatar"><img src="../img/team/koval-m.jpg" alt="Max Koval" loading="lazy"></div>
-            <h3>Max Koval</h3>
-            <span class="team-role">Marketing międzynarodowy</span>
-            <p>Tworzy rynki tam, gdzie wczoraj widziano odpady. Strategia B2B i pozycjonowanie BioTC w circular economy na rynkach UE.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================ -->
-    <!-- BLOCK 7: EU Grants                                            -->
-    <!-- ============================================================ -->
-    <section id="grants" class="grants-section">
-      <div class="grants-bg-icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <path d="M9 14c0 1.657 2.686 3 6 3s6 -1.343 6 -3s-2.686 -3 -6 -3s-6 1.343 -6 3"/>
-          <path d="M9 14v4c0 1.656 2.686 3 6 3s6 -1.344 6 -3v-4"/>
-          <path d="M3 6c0 1.072 1.144 2.062 3 2.598s4.144 .536 6 0c1.856 -.536 3 -1.526 3 -2.598c0 -1.072 -1.144 -2.062 -3 -2.598s-4.144 -.536 -6 0c-1.856 .536 -3 1.526 -3 2.598"/>
-          <path d="M3 6v10c0 .888 .772 1.45 2 2"/>
-          <path d="M3 11c0 .888 .772 1.45 2 2"/>
-        </svg>
-      </div>
-      <div class="container">
-        <p class="section-label">Finansowanie</p>
-        <h2 class="text-center">Do 75% kosztów hubu — nie z budżetu miejskiego. Do 95% — na dokumentację techniczną.</h2>
-        <p class="section-desc">Obawa przed dużymi nakładami kapitałowymi to główny powód, dla którego gminy odkładają decyzje. Eliminujemy ten strach konkretnymi instrumentami.</p>
-
-        <div class="grants-list">
-
-          <div class="glass-card grant-item">
-            <div class="grant-num">1</div>
-            <div class="grant-content">
-              <h3>Program EU LIFE</h3>
-              <p>Celowy program grantowy UE dla ekologicznych projektów infrastrukturalnych. Pokrywa do 90% CAPEX na obiekty pilotażowe. Znamy kryteria wyboru i projektujemy huby tak, aby je spełniały.</p>
-            </div>
-          </div>
-
-          <div class="glass-card grant-item">
-            <div class="grant-num">2</div>
-            <div class="grant-content">
-              <h3>Lobbing akademicki przez AGH</h3>
-              <p>Partnerstwo z uczelnią stanowi oficjalny kanał składania wniosków o granty badawcze i infrastrukturalne UE, niedostępne bezpośrednio dla podmiotów komercyjnych.</p>
-            </div>
-          </div>
-
-          <div class="glass-card grant-item">
-            <div class="grant-num">3</div>
-            <div class="grant-content">
-              <h3>Dokumentacja grantowa pod klucz</h3>
-              <p>Opracowanie kompletnego pakietu dokumentacji grantowej wchodzi w koszt projektu inżynieryjnego. Nie musisz szukać prawników i konsultantów osobno.</p>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="grants-cta">
-          <a href="#contact" class="btn btn-outline">Sprawdź zgodność swojego obiektu z kryteriami →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================ -->
-    <!-- BLOCK 8: Contact Form                                         -->
-    <!-- ============================================================ -->
-    <section id="contact">
-      <div class="contact-bg-icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <path d="M12 11v.01"/><path d="M8 11v.01"/><path d="M16 11v.01"/>
-          <path d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3l12 0"/>
-        </svg>
-      </div>
-      <div class="container">
-        <div class="contact-grid">
-
-          <div class="contact-text">
-            <p class="section-label">Kontakt</p>
-            <h2>Pierwszy krok — bezpłatna ocena inżynieryjna obiektu.</h2>
-            <p>Wyślij zgłoszenie. Nasi inżynierowie przeanalizują dane wejściowe i podczas 30-minutowej rozmowy wyjaśnią: który wariant jest optymalny dla Twojego obiektu (własna stacja przetwarzania osadu lub regionalny klaster, gdzie kilka oczyszczalni wspólnie korzysta z jednej instalacji BioTC) oraz jakie dofinansowanie z UE jest dostępne.</p>
-
-            <div class="contact-info-list">
-              <div class="info-item">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <span>+48 608 003 458</span>
-              </div>
-              <div class="info-item">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                <span>contact@biotc.pl</span>
-              </div>
-              <div class="info-item">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>ul. Daszyńskiego 34/3, 44-100 Gliwice, Polska</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="glass-card contact-form-card">
-            <form id="rfq-form" action="#" method="POST" novalidate>
-              <fieldset class="form-fieldset">
-                <div class="visually-hidden" aria-hidden="true">
-                  <label for="honeypot">Leave blank</label>
-                  <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
-                </div>
-                <div class="form-group">
-                  <input type="text" id="user-name" name="name" placeholder=" " required minlength="2" autocomplete="name" aria-describedby="name-error">
-                  <label for="user-name" class="floating-label">Imię i nazwisko / stanowisko *</label>
-                  <span id="name-error" class="error-msg" role="alert">Proszę podać imię i nazwisko</span>
-                </div>
-                <div class="form-group">
-                  <input type="tel" id="user-phone" name="phone" placeholder=" " required autocomplete="tel" inputmode="tel" aria-describedby="phone-error">
-                  <label for="user-phone" class="floating-label">Telefon kontaktowy *</label>
-                  <span id="phone-error" class="error-msg" role="alert">Proszę podać numer telefonu</span>
-                </div>
-                <div class="form-group">
-                  <input type="text" id="user-company" name="company" placeholder=" " required autocomplete="organization" aria-describedby="company-error">
-                  <label for="user-company" class="floating-label">Miasto / nazwa przedsiębiorstwa *</label>
-                  <span id="company-error" class="error-msg" role="alert">Proszę podać nazwę</span>
-                </div>
-                <div class="form-group">
-                  <select id="user-type" name="object_type">
-                    <option value="" disabled selected></option>
-                    <option value="waterutil">Regionalne przedsiębiorstwo wodociągowe (od 50 tys.)</option>
-                    <option value="community">Gmina (od 10 tys.)</option>
-                    <option value="agro">Przedsiębiorstwo rolno-spożywcze</option>
-                    <option value="other">Inne</option>
-                  </select>
-                  <label for="user-type" class="floating-label">Typ obiektu</label>
-                </div>
-                <button type="submit" id="form-submit-btn" class="btn btn-primary btn-block">Wyślij zgłoszenie</button>
-                <p class="form-micro-text">Odpowiedź w ciągu 1 dnia roboczego. Bez zobowiązań.</p>
-              </fieldset>
-            </form>
-            <div id="form-status" class="form-status-container hidden" tabindex="-1" role="status" aria-live="polite"></div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ============================================================ -->
-  <!-- FOOTER                                                        -->
-  <!-- ============================================================ -->
-  <footer class="main-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <span class="logo-text"><span class="logo-btc">BTC</span> Consulting</span>
-          <p>Rozwiązania inżynieryjne dla bezpiecznej utylizacji osadów ściekowych. Technologia TH-AD-HTC. Dotacje UE do 90% CAPEX.</p>
-        </div>
-        <div class="footer-links">
-          <h4>Nawigacja</h4>
-          <ul>
-            <li><a href="index.html">Rozwiązania</a></li>
-            <li><a href="technology.html">Technologia</a></li>
-            <li><a href="simulator.html">Kalkulator</a></li>
-            <li><a href="#contact">Kontakt</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-links">
-          <h4>Dokumenty</h4>
-          <ul>
-            <li><a href="mission.html">Misja</a></li>
-            <li><a href="whitepaper.html">Whitepaper</a></li>
-            <li><a href="investors.html">Investors</a></li>
-            <li><a href="case-lubin.html">Przypadek: Lubin</a></li>
-          </ul>
-        </div>
-      </div>
-            <div class="footer-copy">
-        <span>&copy; 2025 BTC Consulting. Wszelkie prawa zastrzeżone.</span>
-        <button class="footer-privacy-btn" id="privacy-strip-trigger">Dane i prywatność</button>
-      </div>
-    </div>
-  </footer>
-
-  <script src="../app.min.js?v=5"></script>
-
-  <script>
-  /* ── Hero Stage: dot-ring + phase-locked ticker ─────────────── */
-  (function () {
-    if (window.innerWidth <= 1024) return;
-
-    /* ── Canvas setup ── */
-    var canvas = document.getElementById('ring-canvas');
-    if (!canvas) return;
-    var ctx    = canvas.getContext('2d');
-    var DPR    = Math.min(window.devicePixelRatio || 1, 2);
-    var CW = 920, CH = 860;
-    canvas.width  = CW * DPR;
-    canvas.height = CH * DPR;
-    canvas.style.width  = CW + 'px';
-    canvas.style.height = CH + 'px';
-    ctx.scale(DPR, DPR);
-    var cx = CW / 2, cy = CH / 2;
-
-    /* ── Ring params ── */
-    var N_DOTS     = 32;
-    var DOT_MAX    = 6;
-    var MID_R      = 255;    // centre of breathing range
-    var BREATH_AMP = 120;    // ± px: ring between ~135 and ~375 px radius
-    var BREATH_MS  = 3200;   // one full inhale+exhale cycle
-    var ROT_MS     = 16000;  // one full rotation
-    var APPEAR_MS  = 900;    // initial fade-in
-
-    /* ── Phase-lock sync points (within one BREATH_MS cycle) ──────
-         ring MAX  at sin peak    → cyclePos = BREATH_MS / 4  =  800ms
-         EXIT gate at sin = 0 ↓  → cyclePos = BREATH_MS / 2  = 1600ms  (ring MID, contracting)
-         ENTER gate at sin trough → cyclePos = BREATH_MS * .75= 2400ms  (ring MIN)
-         new stat enters at MIN and rides ring back up → fully visible at next MAX (4000ms)
-    ── */
-    var EXIT_AT  = Math.round(BREATH_MS * 0.50);  // 1600ms
-    var ENT_AT   = Math.round(BREATH_MS * 0.75);  // 2400ms
-    var EXIT_MS  = 560;
-    var ENTER_MS = 680;
-
-    /* ── Ticker state ── */
-    var stats        = Array.from(document.querySelectorAll('#hero-stage .stage-stat'));
-    var idx          = 0;
-    var locked       = false;
-    var readyToEnter = false;
-    var exitFired    = false;
-    var enterFired   = false;
-    var cycleCount   = 0;
-    var prevCyclePos = -1;
-    var t0           = null;
-
-    function showStat(el) {
-      el.style.visibility = 'visible';
-      el.classList.remove('st-exit');
-      el.classList.add('st-enter');
-    }
-
-    function hideStat(el, onDone) {
-      el.classList.remove('st-enter');
-      el.classList.add('st-exit');
-      setTimeout(function () {
-        el.classList.remove('st-exit');
-        el.style.visibility = 'hidden';
-        if (onDone) onDone();
-      }, EXIT_MS);
-    }
-
-    function triggerExit() {
-      if (locked) return;
-      locked = true;
-      var prev = idx;
-      idx = (idx + 1) % stats.length;
-      hideStat(stats[prev], function () { readyToEnter = true; });
-    }
-
-    function triggerEnter() {
-      if (!readyToEnter) return;
-      readyToEnter = false;
-      showStat(stats[idx]);
-      setTimeout(function () { locked = false; }, ENTER_MS);
-    }
-
-    /* ── RAF draw + sync loop ── */
-    function drawRing(ts) {
-      if (!t0) t0 = ts;
-      var elapsed = ts - t0;
-
-      var ramp        = Math.min(elapsed / APPEAR_MS, 1);
-      var breathPhase = (elapsed % BREATH_MS) / BREATH_MS * Math.PI * 2;
-      var rotAngle    = (elapsed % ROT_MS)    / ROT_MS    * Math.PI * 2;
-      var radius      = MID_R + BREATH_AMP * Math.sin(breathPhase);
-      var dotR        = DOT_MAX * (0.78 + 0.22 * Math.sin(breathPhase));
-      var alpha       = ramp * (0.50 + 0.38 * Math.sin(breathPhase));
-
-      ctx.clearRect(0, 0, CW, CH);
-      // Dot ring drawing disabled for a cleaner, less distracting UI
-
-      /* ── Phase-locked ticker ──
-           Wait one full cycle before first swap — gives the initial stat
-           a display window of ~4800ms that includes two ring peaks.
-           From cycle 2 onward every stat gets exactly one breath cycle.
-      ── */
-      var cyclePos = elapsed % BREATH_MS;
-
-      if (prevCyclePos >= 0) {
-        /* detect cycle wrap */
-        if (cyclePos < prevCyclePos) {
-          cycleCount++;
-          exitFired  = false;
-          enterFired = false;
-        }
-
-        if (cycleCount >= 1) {
-          /* EXIT: ring just passed its midpoint on the way DOWN */
-          if (!exitFired && prevCyclePos < EXIT_AT && cyclePos >= EXIT_AT) {
-            exitFired = true;
-            triggerExit();
-          }
-          /* ENTER: ring at minimum — about to rise back toward MAX */
-          if (!enterFired && prevCyclePos < ENT_AT && cyclePos >= ENT_AT) {
-            enterFired = true;
-            triggerEnter();
-          }
-        }
-      }
-
-      prevCyclePos = cyclePos;
-      if (ringActive) requestAnimationFrame(drawRing);
-    }
-
-    /* ── Pause when hero scrolled out of view ── */
-    var ringActive = true;
-    window.addEventListener('scroll', function () {
-      var inView = window.scrollY < CH + 100;
-      if (inView && !ringActive) {
-        ringActive = true;
-        requestAnimationFrame(drawRing);
-      } else if (!inView && ringActive) {
-        ringActive = false;
-      }
-    }, { passive: true });
-
-    /* ── Init ── */
-    stats.forEach(function (el) { el.style.visibility = 'hidden'; });
-    showStat(stats[0]);
-    requestAnimationFrame(drawRing);
-  })();
-
-  </script>
-
-  <!-- Parallax background icons -->
-  <script>
-  (function () {
-    var RANGE = 120;  /* px — icon drifts this far down as section scrolls through */
-
-    var pairs = [
-      ['#problem',        '.problem-bg-icon'],
-      ['#solution',       '.solution-bg-icon'],
-      ['#calculator-cta', '.calc-bg-icon'],
-      ['#trust',          '.trust-bg-icon'],
-      ['#team',           '.team-bg-icon'],
-      ['#grants',         '.grants-bg-icon'],
-      ['#contact',        '.contact-bg-icon'],
-    ].map(function (p) {
-      return {
-        section: document.querySelector(p[0]),
-        icon:    document.querySelector(p[1]),
-      };
-    }).filter(function (p) { return p.section && p.icon; });
-
-    var ticking = false;
-
-    function update() {
-      var wh = window.innerHeight;
-      pairs.forEach(function (p) {
-        var r  = p.section.getBoundingClientRect();
-        var sh = r.height;
-        /* progress: 0 when section top hits viewport bottom → 1 when section bottom hits viewport top */
-        var progress = (wh - r.top) / (wh + sh);
-        progress = Math.max(0, Math.min(1, progress));
-        /* Icon starts at top of section, drifts down as user scrolls */
-        var yShift = progress * RANGE;
-        p.icon.style.transform = 'translateY(' + yShift.toFixed(1) + 'px)';
-      });
-      ticking = false;
-    }
-
-    function onScroll() {
-      if (!ticking) {
-        requestAnimationFrame(update);
-        ticking = true;
-      }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', update,   { passive: true });
-    update();
-  })();
-  </script>
-
-
-
-    <!-- Privacy bottom strip -->
-    <div class="privacy-strip" id="privacy-strip" aria-hidden="true">
-      <div class="privacy-strip-inner">
-        <div class="privacy-strip-body">
-          <strong>O zbieraniu danych</strong>
-          <p>Podczas korzystania z kalkulatora anonimowo zapisujemy wprowadzone parametry (objętość osadu, scenariusz, procent dotacji) oraz wyniki obliczeń. Dane osobowe (imię, e-mail, adres IP) nie są zbierane ani przekazywane osobom trzecim. Dane służą wyłącznie do analizy popytu i ulepszania serwisu.</p>
-        </div>
-        <button class="privacy-strip-close" id="privacy-strip-close" aria-label="Rozumiem">&#x2715;</button>
-      </div>
-    </div>
-    <!-- Contact Popover / Modal -->
-    <div class="contact-popover-overlay" id="contact-popover-overlay" aria-hidden="true"></div>
-    <div class="contact-popover" id="contact-popover" aria-hidden="true" role="dialog" aria-label="Szybki kontakt">
-      <div class="popover-arrow" aria-hidden="true"></div>
-      <div class="popover-header">
-        <h4>Szybki kontakt</h4>
-        <button class="popover-close" id="popover-close" aria-label="Close">&times;</button>
-      </div>
-      <div class="popover-body">
-        <div class="popover-contact-card">
-          <div class="popover-avatar">
-            <img src="../img/team/krop-a.jpg" alt="Andrzej Krop">
-          </div>
-          <div class="popover-info">
-            <div class="popover-name">Andrzej Krop</div>
-            <div class="popover-role">Zarządzanie projektami</div>
-          </div>
-        </div>
-        <div class="popover-actions-grid">
-          <a href="tel:+48608003458" class="popover-action-btn border-teal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span>+48 608 003 458</span>
-          </a>
-          <a href="mailto:contact@biotc.pl" class="popover-action-btn border-blue">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <span>contact@biotc.pl</span>
-          </a>
-          <a href="https://wa.me/48608003458" target="_blank" rel="noopener" class="popover-action-btn border-teal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-            <span>WhatsApp Chat</span>
-          </a>
-          <button id="vcard-download-btn" class="popover-action-btn border-orange">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/></svg>
-            <strong>Dodaj kontakt</strong>
-          </button>
-        </div>
-        <div class="popover-divider"><span>lub</span></div>
-        <div class="popover-callback-wrap">
-          <div class="callback-row">
-            <input type="tel" id="popover-phone" placeholder="Telefon kontaktowy *"
-                   inputmode="tel" autocomplete="tel">
-            <button type="button" class="btn btn-primary callback-btn" id="popover-callback-btn"
-                    data-label="Oddzwoń do mnie">Oddzwoń do mnie</button>
-          </div>
-          <p id="popover-callback-error" class="error-msg" style="display:none">Podaj poprawny numer telefonu</p>
-          <p class="form-micro-text" style="margin-block-start:0.4rem;">Odpowiedź w ciągu 1 dnia roboczego. Bez zobowiązań.</p>
-        </div>
-      </div>
-    </div>
 </body>
 </html>
