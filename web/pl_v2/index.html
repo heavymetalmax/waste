@@ -39,16 +39,22 @@
       #hero .paper-checklist .check-item { padding: 0.6rem 0; gap: 0.75rem; }
     }
 
-    /* ── Hero: animated gradient-bar background ──────────────── */
+    /* ── Hero: animated gradient-bar background, settles into one shared gradient ── */
     .hero-bars-bg { position: absolute; inset: 0; z-index: 0; display: flex; }
-    .hero-bars-bg .stripe { flex: 1; height: 100%; background-repeat: repeat-y; background-size: 100% 240%; will-change: background-position; }
-    .hero-bars-bg .stripe:nth-child(1) { background-image: linear-gradient(180deg,#86c2e8 0%,#1c6aa8 22%,#3a9fe0 50%,#06121f 50%,#0a1d33 78%,#08182b 100%); animation: heroScrollUp 12s linear infinite; }
-    .hero-bars-bg .stripe:nth-child(2) { background-image: linear-gradient(180deg,#f2f6f9 0%,#bcd9ee 24%,#dce8f0 50%,#3a9fe0 50%,#1c6aa8 76%,#3a9fe0 100%); animation: heroScrollDown 15s linear infinite; }
-    .hero-bars-bg .stripe:nth-child(3) { background-image: linear-gradient(180deg,#020810 0%,#0f3a5f 26%,#08182b 50%,#86c2e8 50%,#dce8f0 74%,#86c2e8 100%); animation: heroScrollUp 10s linear infinite; }
-    .hero-bars-bg .stripe:nth-child(4) { background-image: linear-gradient(180deg,#86c2e8 0%,#3a9fe0 24%,#1c6aa8 50%,#020810 50%,#0a1d33 77%,#020810 100%); animation: heroScrollDown 17s linear infinite; }
-    .hero-bars-bg .stripe:nth-child(5) { background-image: linear-gradient(180deg,#020810 0%,#08182b 25%,#0f3a5f 50%,#3a9fe0 50%,#bcd9ee 75%,#3a9fe0 100%); animation: heroScrollUp 19s linear infinite; }
-    @keyframes heroScrollUp { 0% { background-position: 0% 0%; } 100% { background-position: 0% -240%; } }
-    @keyframes heroScrollDown { 0% { background-position: 0% 0%; } 100% { background-position: 0% 240%; } }
+    .hero-bars-bg .stripe { flex: 1; height: 100%; overflow: hidden; position: relative; }
+    .hero-bars-bg .stripe-inner {
+      position: absolute; inset: 0; height: 600%;
+      animation-name: stripeSettle;
+      animation-timing-function: linear;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+    .hero-bars-bg .stripe:nth-child(1) .stripe-inner { background: linear-gradient(180deg, #08182b 0%, #08182b 16.6667%, #1c6aa8 16.6667%, #1c6aa8 33.3333%, #08182b 33.3333%, #08182b 50%, #1c6aa8 50%, #1c6aa8 66.6667%, #08182b 66.6667%, #08182b 83.3333%, #1f5d96 83.3333%, #2e74ab 87.5%, #4f96c8 91.6667%, #79bce8 95.8333%, #a0d4f7 100%); animation-duration: 5.4s; }
+    .hero-bars-bg .stripe:nth-child(2) .stripe-inner { background: linear-gradient(180deg, #0a1d33 0%, #0a1d33 16.6667%, #3a9fe0 16.6667%, #3a9fe0 33.3333%, #0a1d33 33.3333%, #0a1d33 50%, #3a9fe0 50%, #3a9fe0 66.6667%, #0a1d33 66.6667%, #0a1d33 83.3333%, #1f5d96 83.3333%, #2e74ab 87.5%, #4f96c8 91.6667%, #79bce8 95.8333%, #a0d4f7 100%); animation-duration: 8.2s; }
+    .hero-bars-bg .stripe:nth-child(3) .stripe-inner { background: linear-gradient(180deg, #020810 0%, #020810 16.6667%, #86c2e8 16.6667%, #86c2e8 33.3333%, #020810 33.3333%, #020810 50%, #86c2e8 50%, #86c2e8 66.6667%, #020810 66.6667%, #020810 83.3333%, #1f5d96 83.3333%, #2e74ab 87.5%, #4f96c8 91.6667%, #79bce8 95.8333%, #a0d4f7 100%); animation-duration: 6.9s; }
+    .hero-bars-bg .stripe:nth-child(4) .stripe-inner { background: linear-gradient(180deg, #051022 0%, #051022 16.6667%, #4f96c8 16.6667%, #4f96c8 33.3333%, #051022 33.3333%, #051022 50%, #4f96c8 50%, #4f96c8 66.6667%, #051022 66.6667%, #051022 83.3333%, #1f5d96 83.3333%, #2e74ab 87.5%, #4f96c8 91.6667%, #79bce8 95.8333%, #a0d4f7 100%); animation-duration: 9.6s; }
+    .hero-bars-bg .stripe:nth-child(5) .stripe-inner { background: linear-gradient(180deg, #08182b 0%, #08182b 16.6667%, #3a9fe0 16.6667%, #3a9fe0 33.3333%, #08182b 33.3333%, #08182b 50%, #3a9fe0 50%, #3a9fe0 66.6667%, #08182b 66.6667%, #08182b 83.3333%, #1f5d96 83.3333%, #2e74ab 87.5%, #4f96c8 91.6667%, #79bce8 95.8333%, #a0d4f7 100%); animation-duration: 7.1s; }
+    @keyframes stripeSettle { from { transform: translateY(0%); } to { transform: translateY(-83.3333%); } }
 
     #hero > .container { position: relative; z-index: 1; }
     #hero h1, #hero .hero-desc { color: var(--color-white); text-shadow: 0 2px 16px rgba(0,0,0,0.5); }
@@ -128,11 +134,11 @@
     <!-- HERO -->
     <section id="hero">
       <div class="hero-bars-bg" aria-hidden="true">
-        <div class="stripe"></div>
-        <div class="stripe"></div>
-        <div class="stripe"></div>
-        <div class="stripe"></div>
-        <div class="stripe"></div>
+        <div class="stripe"><div class="stripe-inner"></div></div>
+        <div class="stripe"><div class="stripe-inner"></div></div>
+        <div class="stripe"><div class="stripe-inner"></div></div>
+        <div class="stripe"><div class="stripe-inner"></div></div>
+        <div class="stripe"><div class="stripe-inner"></div></div>
       </div>
       <div class="container">
         <div class="grid-2" style="align-items: center;">
