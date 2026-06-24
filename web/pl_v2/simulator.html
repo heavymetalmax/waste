@@ -803,7 +803,7 @@
       fileEl.addEventListener('change', function(){
         var f = this.files[0];
         if (!f) return;
-        if (f.size > 5 * 1024 * 1024) { alert('Файл > 5 МБ'); return; }
+        if (f.size > 5 * 1024 * 1024) { alert('Plik > 5 MB'); return; }
         var reader = new FileReader();
         reader.onload = function(ev){
           pendingFile = { name: f.name, type: f.type, data: ev.target.result.split(',')[1] };
@@ -823,9 +823,9 @@
         var text = inputEl.value.trim();
         if (!text && !pendingFile) return;
 
-        var msgText = text || ('(файл: ' + (pendingFile ? pendingFile.name : '') + ')');
+        var msgText = text || ('(plik: ' + (pendingFile ? pendingFile.name : '') + ')');
         addMsg('user', msgText);
-        history.push({ role: 'user', content: text || 'Проаналізуй завантажений файл.' });
+        history.push({ role: 'user', content: text || 'Przeanalizuj przesłany plik.' });
 
         inputEl.value = '';
         inputEl.style.height = 'auto';
@@ -925,7 +925,7 @@
           return pump();
         })
         .catch(function(err){
-          botBubble.textContent = 'Помилка з\'єднання. Спробуйте ще раз або зв\'яжіться з нами: contact@biotc.pl';
+          botBubble.textContent = 'Błąd połączenia. Spróbuj ponownie lub skontaktuj się z nami: contact@biotc.pl';
           isStreaming = false;
           sendBtn.disabled = false;
         });
@@ -933,7 +933,7 @@
 
       function simulateDemo(){
         var botBubble = addMsg('bot', '', true);
-        var msg = 'AI-консультант підключено! Щоб активувати, розгорніть Cloudflare Worker (worker/index.js) та замініть AGENT_ENDPOINT у коді. Поки що — зв\'яжіться з нами напряму: contact@biotc.pl або +48 608 003 458.';
+        var msg = 'Asystent AI podłączony! Aby aktywować, wdróż Cloudflare Worker (worker/index.js) i zamień AGENT_ENDPOINT w kodzie. Na razie — skontaktuj się z nami bezpośrednio: contact@biotc.pl lub +48 608 003 458.';
         var i = 0;
         var iv = setInterval(function(){
           botBubble.textContent = msg.slice(0, ++i);
@@ -1310,27 +1310,27 @@
       var roiStr = (isFinite(roi) && roi>0) ? roi.toLocaleString(undefined,{maximumFractionDigits:1}) : null;
 
       var landLine = res.landVal>0
-        ? ' Земельний актив '+landS+' (звільнено '+fmtHa(vol*1.5)+' соток) покращує загальний баланс.'
+        ? ' Aktywo gruntowe '+landS+' (zwolniono '+fmtHa(vol*1.5)+' arów) poprawia ogólny bilans.'
         : '';
 
       var scLine = '';
-      if (sc==='incinerate') scLine = ' Вбудований дохід від біогазу додатково підвищує рентабельність.';
-      if (sc==='landfill') scLine = ' Уникнення екоподатку забезпечує юридичну стабільність підприємства.';
-      if (sc==='fields' && res.landVal>0) scLine = ' Закриття мулових майданчиків — унікальна можливість повернути землю у господарський обіг.';
+      if (sc==='incinerate') scLine = ' Wbudowany przychód z biogazu dodatkowo podnosi rentowność.';
+      if (sc==='landfill') scLine = ' Uniknięcie ekopodatku zapewnia stabilność prawną przedsiębiorstwa.';
+      if (sc==='fields' && res.landVal>0) scLine = ' Zamknięcie pól osadowych — unikalna możliwość przywrócenia gruntu do użytkowania gospodarczego.';
 
       if (PE>0 && PE<=1000)
-        return 'Обʼєкт не підпадає під обовʼязкові норми UWWTD (≤ 1000 р.е.). Проте технологія BTC залишається економічно обгрунтованою при наявності поточних витрат на мул.';
+        return 'Obiekt nie podlega obowiązkowym normom UWWTD (≤ 1000 RLM). Jednak technologia BTC pozostaje ekonomicznie uzasadniona przy obecnych kosztach utylizacji osadu.';
 
       if (!isFinite(roi) || roi<=0)
-        return 'Земельний актив '+landS+' перевищує частку міста у CapEx — проект фактично самоокупний до введення в дію. Щорічна економія '+saveS+' формує стабільний грошовий потік.'+scLine;
+        return 'Aktywo gruntowe '+landS+' przewyższa udział miasta w CAPEX — projekt jest faktycznie samowystarczalny już przed uruchomieniem. Roczna oszczędność '+saveS+' tworzy stabilny przepływ pieniężny.'+scLine;
 
       if (roi<3)
-        return 'Виняткова економіка: окупність '+roiStr+' р. при частці міста лише '+city+' після гранту '+grant+'%. Дедлайн UWWTD '+year+' залишає час для технічної підготовки — рекомендуємо запустити ТЕО у 2025–2026 рр.'+landLine+scLine;
+        return 'Wyjątkowa ekonomika: okres zwrotu '+roiStr+' lat przy udziale miasta wynoszącym tylko '+city+' po grancie '+grant+'%. Termin UWWTD '+year+' pozostawia czas na przygotowanie techniczne — rekomendujemy uruchomienie TEO w latach 2025–2026.'+landLine+scLine;
 
       if (roi<7)
-        return 'Надійна інвестиція: окупність '+roiStr+' р. і щорічна економія '+saveS+'. Грант '+grant+'% знижує навантаження на бюджет до '+city+'. Дедлайн '+year+'.'+landLine+scLine+' Радимо подати заявку на грант паралельно з ТЕО.';
+        return 'Solidna inwestycja: okres zwrotu '+roiStr+' lat i roczna oszczędność '+saveS+'. Grant '+grant+'% zmniejsza obciążenie budżetu do '+city+'. Termin '+year+'.'+landLine+scLine+' Radzimy złożyć wniosek grantowy równolegle z TEO.';
 
-      return 'При поточних параметрах окупність '+roiStr+' р. Збільшення гранту або зростання тарифів на утилізацію прискорить показник.'+landLine+scLine+' Розгляньте кредитування ЄБРР / КЕБ з відстрочкою платежу.';
+      return 'Przy obecnych parametrach okres zwrotu wynosi '+roiStr+' lat. Zwiększenie grantu lub wzrost taryf za utylizację przyspieszy ten wskaźnik.'+landLine+scLine+' Rozważ kredytowanie EBOR / EIB z odroczoną płatnością.';
     }
 
     /* Scenario tabs */
