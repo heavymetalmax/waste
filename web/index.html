@@ -5,113 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BTC Consulting – Technologia HTC dla oczyszczalni ścieków</title>
   <meta name="description" content="BTC Consulting projektuje instalacje HTC dla oczyszczalni ścieków. Dofinansowanie do 90% z FENX i NFOŚiGW.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-  <link rel="stylesheet" href="styles.min.css?v=23">
+  <link rel="stylesheet" href="Ua/industrial-modern.css">
   <style>
-    html, body { background-color: #0b1220 !important; color: #dce8f5 !important; }
-    .contact-block {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 20px;
-      padding: 2.5rem;
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
     }
-    .contact-block-title {
-      font-family: 'Outfit', sans-serif;
-      font-size: .72rem; font-weight: 700;
-      letter-spacing: .14em; text-transform: uppercase;
-      color: #4da0f0; margin-bottom: 1.75rem;
+    .contact-row {
+      padding: 1rem 0;
+      border-bottom: 2px solid var(--color-gray-dark);
     }
-    .contact-row { margin-bottom: 1.4rem; }
-    .contact-row:last-child { margin-bottom: 0; }
+    .contact-row:last-child { border-bottom: none; }
     .contact-row-label {
-      font-size: .72rem; color: #5a7a99;
-      margin-bottom: .3rem;
-      font-family: 'Outfit', sans-serif;
-      letter-spacing: .08em; text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-blue);
+      margin-bottom: 0.4rem;
     }
     .contact-row-value {
-      font-size: 1.05rem; font-weight: 500;
-      color: #d8e8f8; line-height: 1.55;
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.4;
     }
-    .contact-row-value a { color: #d8e8f8; text-decoration: none; }
-    .contact-row-value a:hover { color: #7ab8f5; }
-    .contact-divider {
-      border: none;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      margin: 1.4rem 0;
-    }
+    .contact-row-value a { color: var(--color-black); }
+    .contact-row-value a:hover { color: var(--color-blue); }
   </style>
 </head>
 <body>
-  <div class="blur-orb orb-1"></div>
-  <div class="blur-orb orb-2"></div>
-  <div class="blur-orb orb-3"></div>
 
-  <header class="main-header" id="header">
-    <div class="header-container">
-      <a href="index.html" class="logo" aria-label="Strona główna BTC Consulting">
-        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
-              <stop offset="0%" stop-color="#046BD2"/><stop offset="100%" stop-color="#0D9488"/>
-            </linearGradient>
-            <linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
-              <stop offset="0%" stop-color="#38BDF8"/><stop offset="100%" stop-color="#2DD4BF"/>
-            </linearGradient>
-          </defs>
-          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#lg1)"/>
-          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="url(#lg2)" stroke="white" stroke-width="1.5" vector-effect="non-scaling-stroke" transform="translate(12,13) scale(0.62) translate(-12,-13)"/>
-          <path d="M12 2C12 2 19 9 19 13C19 16.87 15.87 20 12 20C8.13 20 5 16.87 5 13C5 9 12 2 12 2Z" fill="white" opacity="0.92" transform="translate(12,13) scale(0.33) translate(-12,-13)"/>
-        </svg>
-        <span class="logo-text"><span class="logo-btc">BTC</span> Consulting</span>
-      </a>
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo" aria-label="Strona główna BTC Consulting">BTC <span>Consulting</span></a>
     </div>
   </header>
 
   <main>
-    <section id="hero" class="hero-section">
-      <div class="hero-waves-bg">
-        <svg viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill="rgba(4,107,210,0.035)">
-            <animate attributeName="d" dur="22s" repeatCount="indefinite" values="M0,180 C320,290 640,110 960,250 C1280,390 1360,200 1440,240 L1440,400 L0,400 Z;M0,230 C240,130 560,290 880,190 C1200,90 1320,310 1440,210 L1440,400 L0,400 Z;M0,180 C320,290 640,110 960,250 C1280,390 1360,200 1440,240 L1440,400 L0,400 Z"/>
-          </path>
-          <path fill="rgba(13,148,136,0.025)">
-            <animate attributeName="d" dur="28s" repeatCount="indefinite" values="M0,220 C360,110 720,270 1080,160 C1280,240 1360,140 1440,190 L1440,400 L0,400 Z;M0,170 C300,280 600,120 900,260 C1200,320 1320,180 1440,240 L1440,400 L0,400 Z;M0,220 C360,110 720,270 1080,160 C1280,240 1360,140 1440,190 L1440,400 L0,400 Z"/>
-          </path>
-        </svg>
-      </div>
+    <section id="hero">
       <div class="container">
-        <div class="hero-grid">
-          <div class="hero-content">
-            <div class="badge">Strona w budowie</div>
-            <h1>Przekształcamy <span class="h1-problem">toksyczne osady ściekowe</span> w <span class="h1-solution">bezpieczny hydrowęgiel.</span></h1>
+        <div class="grid-2" style="align-items: center;">
+          <div>
+            <span class="rubric">Strona w budowie</span>
+            <h1>Przekształcamy toksyczne osady ściekowe w bezpieczny hydrowęgiel.</h1>
             <p class="hero-desc">BTC Consulting projektuje i wdraża instalacje karbonizacji hydrotermalnej (HTC) dla komunalnych oczyszczalni ścieków. Pomagamy gminom i przedsiębiorstwom na trwałe rozwiązać problem utylizacji osadu, obniżyć koszty operacyjne i spełnić wymogi dyrektywy UWWTD — z dofinansowaniem UE pokrywającym do 90% kosztów inwestycji.</p>
-            <p class="hero-micro-text">Przepraszamy za niedogodności — strona jest w przebudowie.</p>
+            <p class="hero-desc" style="font-size: 0.95rem; font-weight: 600; color: var(--color-gray-dark);">Przepraszamy za niedogodności — strona jest w przebudowie.</p>
           </div>
-          <div class="hero-stage" id="hero-stage">
-            <div class="contact-block">
-              <div class="contact-block-title">Kontakt</div>
-              <div class="contact-row">
-                <div class="contact-row-label">Telefon</div>
-                <div class="contact-row-value"><a href="tel:+48608003458">+48 608 003 458</a></div>
+
+          <div class="paper-checklist-wrapper">
+            <div class="paper-checklist">
+              <div class="paper-header">
+                <span class="paper-title">KONTAKT</span>
               </div>
-              <hr class="contact-divider">
-              <div class="contact-row">
-                <div class="contact-row-label">E-mail</div>
-                <div class="contact-row-value"><a href="mailto:contact@biotc.pl">contact@biotc.pl</a></div>
-              </div>
-              <hr class="contact-divider">
-              <div class="contact-row">
-                <div class="contact-row-label">Biuro</div>
-                <div class="contact-row-value">ul. Daszyńskiego 34/3<br>44-100 Gliwice, Polska</div>
-              </div>
-              <hr class="contact-divider">
-              <div class="contact-row">
-                <div class="contact-row-label">Spółka</div>
-                <div class="contact-row-value">BTC Consulting Sp. z o.o.</div>
+              <div class="contact-card">
+                <div class="contact-row">
+                  <div class="contact-row-label">Telefon</div>
+                  <div class="contact-row-value"><a href="tel:+48608003458">+48 608 003 458</a></div>
+                </div>
+                <div class="contact-row">
+                  <div class="contact-row-label">E-mail</div>
+                  <div class="contact-row-value"><a href="mailto:contact@biotc.pl">contact@biotc.pl</a></div>
+                </div>
+                <div class="contact-row">
+                  <div class="contact-row-label">Biuro</div>
+                  <div class="contact-row-value">ul. Daszyńskiego 34/3<br>44-100 Gliwice, Polska</div>
+                </div>
+                <div class="contact-row">
+                  <div class="contact-row-label">Spółka</div>
+                  <div class="contact-row-value">BTC Consulting Sp. z o.o.</div>
+                </div>
               </div>
             </div>
           </div>
@@ -119,5 +82,6 @@
       </div>
     </section>
   </main>
+
 </body>
 </html>
