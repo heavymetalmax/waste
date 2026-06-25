@@ -1110,7 +1110,7 @@
         calc: function(v, f1, f2, land, grant) {
           var f1s = v * f1, f2s = v * f2;
           var lv  = (v * 1.5) * (land / 100);
-          return { save:f1s+f2s, landVal:lv, capex:v*250*(1-grant/100), f1s:f1s, f2s:f2s, f3s:0 };
+          return { save:f1s+f2s, landVal:lv, capex:v*1000*(1-grant/100), f1s:f1s, f2s:f2s, f3s:0 };
         }
       },
       agro: {
@@ -1121,7 +1121,7 @@
         k3status: 'Masa zredukowana o 80% · Wyeliminowane opłaty dla rolników',
         calc: function(v, f1, f2, land, grant) {
           var f1s = v * f1, f2s = v * 0.8 * f2;
-          return { save:f1s+f2s, landVal:0, capex:v*250*(1-grant/100), f1s:f1s, f2s:f2s, f3s:0 };
+          return { save:f1s+f2s, landVal:0, capex:v*1000*(1-grant/100), f1s:f1s, f2s:f2s, f3s:0 };
         }
       },
       compost: {
@@ -1132,7 +1132,7 @@
         k3status: '2 godz. zamiast 6 mies. · Detoksykacja mikroplastiku',
         calc: function(v, f1, f2, land, grant) {
           var f1s = v * f1, f2s = v * f2;
-          return { save:f1s+f2s, landVal:0, capex:v*250*(1-grant/100), f1s:f1s, f2s:f2s, f3s:0 };
+          return { save:f1s+f2s, landVal:0, capex:v*1000*(1-grant/100), f1s:f1s, f2s:f2s, f3s:0 };
         }
       },
       incinerate: {
@@ -1145,8 +1145,8 @@
         calc: function(v, f1, f2, land, grant) {
           var f1s = v * f1;
           var f2s = v * 0.2 * f2;   /* dry mass = M_in x 0.2 */
-          var f3s = v * 0.1 * 160;  /* embedded biogas->elec at 160 EUR/MWh */
-          return { save:f1s+f2s+f3s, landVal:0, capex:v*250*(1-grant/100), f1s:f1s, f2s:f2s, f3s:f3s };
+          var f3s = v * 0.1 * 700;  /* biogas->elec at PLN 700/MWh */
+          return { save:f1s+f2s+f3s, landVal:0, capex:v*1000*(1-grant/100), f1s:f1s, f2s:f2s, f3s:f3s };
         }
       },
       landfill: {
@@ -1157,7 +1157,7 @@
         k3status: 'Certyfikat End-of-Waste · Ochrona prawna',
         calc: function(v, f1, f2, land, grant) {
           var f1s = v * f1;
-          return { save:f1s, landVal:0, capex:v*250*(1-grant/100), f1s:f1s, f2s:0, f3s:0 };
+          return { save:f1s, landVal:0, capex:v*1000*(1-grant/100), f1s:f1s, f2s:0, f3s:0 };
         }
       }
     };
@@ -1166,9 +1166,9 @@
     var shadowTimer;
 
     /* Formatters */
-    function fmtEur(v)  { return (!isFinite(v)||v<0) ? '—' : '€ '+Math.round(v).toLocaleString(); }
-    function fmtCost(v) { return (!isFinite(v)||v<=0) ? '—' : '(€ '+Math.round(v).toLocaleString()+')'; }
-    function fmtGain(v) { return (!isFinite(v)||v<=0) ? '—' : '€ '+Math.round(v).toLocaleString(); }
+    function fmtEur(v)  { return (!isFinite(v)||v<0) ? '—' : Math.round(v).toLocaleString()+' zł'; }
+    function fmtCost(v) { return (!isFinite(v)||v<=0) ? '—' : '('+Math.round(v).toLocaleString()+' zł)'; }
+    function fmtGain(v) { return (!isFinite(v)||v<=0) ? '—' : Math.round(v).toLocaleString()+' zł'; }
     function fmtNum(n) { return (!isFinite(n)||n<0) ? '—' : Math.round(n).toLocaleString(); }
     function fmtHa(m2) {
       if (!isFinite(m2)||m2<=0) return '—';
@@ -1254,7 +1254,7 @@
       }
 
       /* K2 CapEx */
-      var capexTotal = Volume * 250;
+      var capexTotal = Volume * 1000;
       var k2TotalEl = document.getElementById('k2-total');
       k2TotalEl.textContent = fmtCost(capexTotal);
       k2TotalEl.className = 'rpt-num rpt-dim';
