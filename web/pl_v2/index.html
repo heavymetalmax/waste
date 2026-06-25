@@ -39,7 +39,7 @@
       #hero .paper-checklist .check-item { padding: 0.6rem 0; gap: 0.75rem; }
     }
 
-    /* ── Hero: animated gradient-bar background, stripes of finite length (2–6 desktop heights) pulled until their trailing edge exits past the viewport ── */
+    /* ── Hero: animated gradient-bar background, stripes of finite length (3–4 desktop heights, narrow spread so no stripe exits before cycle 3 and all finish by cycle 4) pulled until their trailing edge exits past the viewport ── */
     #hero { background-color: var(--color-blue); }
     .hero-bars-bg { position: absolute; inset: 0; z-index: 0; display: flex; }
     .hero-bars-bg .stripe { flex: 1; height: 100%; overflow: hidden; position: relative; }
@@ -49,11 +49,11 @@
       animation-iteration-count: 1;
       animation-fill-mode: forwards;
     }
-    .hero-bars-bg .stripe:nth-child(1) .stripe-inner { height: 200%; background: linear-gradient(180deg, #86c2e8 0%, #1c6aa8 11%, #3a9fe0 25%, #06121f 25%, #0a1d33 39%, #08182b 50%, #86c2e8 50%, #1c6aa8 61%, #3a9fe0 75%, #06121f 75%, #0a1d33 89%, #08182b 100%); animation-name: stripeAnim1; animation-duration: 9s; }
-    .hero-bars-bg .stripe:nth-child(2) .stripe-inner { height: 300%; background: linear-gradient(180deg, #f2f6f9 0%, #bcd9ee 12%, #dce8f0 25%, #3a9fe0 25%, #1c6aa8 38%, #3a9fe0 50%, #f2f6f9 50%, #bcd9ee 62%, #dce8f0 75%, #3a9fe0 75%, #1c6aa8 88%, #3a9fe0 100%); animation-name: stripeAnim2; animation-duration: 13.5s; }
-    .hero-bars-bg .stripe:nth-child(3) .stripe-inner { height: 400%; background: linear-gradient(180deg, #020810 0%, #0f3a5f 13%, #08182b 25%, #86c2e8 25%, #dce8f0 37%, #86c2e8 50%, #020810 50%, #0f3a5f 63%, #08182b 75%, #86c2e8 75%, #dce8f0 87%, #86c2e8 100%); animation-name: stripeAnim3; animation-duration: 18s; }
-    .hero-bars-bg .stripe:nth-child(4) .stripe-inner { height: 500%; background: linear-gradient(180deg, #86c2e8 0%, #3a9fe0 12%, #1c6aa8 25%, #020810 25%, #0a1d33 38.5%, #020810 50%, #86c2e8 50%, #3a9fe0 62%, #1c6aa8 75%, #020810 75%, #0a1d33 88.5%, #020810 100%); animation-name: stripeAnim4; animation-duration: 22.5s; }
-    .hero-bars-bg .stripe:nth-child(5) .stripe-inner { height: 600%; background: linear-gradient(180deg, #020810 0%, #08182b 12.5%, #0f3a5f 25%, #3a9fe0 25%, #bcd9ee 37.5%, #3a9fe0 50%, #020810 50%, #08182b 62.5%, #0f3a5f 75%, #3a9fe0 75%, #bcd9ee 87.5%, #3a9fe0 100%); animation-name: stripeAnim5; animation-duration: 27s; }
+    .hero-bars-bg .stripe:nth-child(1) .stripe-inner { height: 300%; background: linear-gradient(180deg, #86c2e8 0%, #1c6aa8 16.5%, #3a9fe0 33.3%, #06121f 33.3%, #0a1d33 49.8%, #08182b 66.6%, #86c2e8 66.6%, #1c6aa8 83.1%, #3a9fe0 100%); animation-name: stripeAnim1; animation-duration: 13.5s; }
+    .hero-bars-bg .stripe:nth-child(2) .stripe-inner { height: 325%; background: linear-gradient(180deg, #f2f6f9 0%, #bcd9ee 15.4%, #dce8f0 30.8%, #3a9fe0 30.8%, #1c6aa8 46.2%, #3a9fe0 61.5%, #f2f6f9 61.5%, #bcd9ee 76.9%, #dce8f0 92.3%, #3a9fe0 100%); animation-name: stripeAnim2; animation-duration: 14.625s; }
+    .hero-bars-bg .stripe:nth-child(3) .stripe-inner { height: 350%; background: linear-gradient(180deg, #020810 0%, #0f3a5f 14.3%, #08182b 28.6%, #86c2e8 28.6%, #dce8f0 42.9%, #86c2e8 57.1%, #020810 57.1%, #0f3a5f 71.4%, #08182b 85.7%, #86c2e8 100%); animation-name: stripeAnim3; animation-duration: 15.75s; }
+    .hero-bars-bg .stripe:nth-child(4) .stripe-inner { height: 375%; background: linear-gradient(180deg, #86c2e8 0%, #3a9fe0 13.3%, #1c6aa8 26.7%, #020810 26.7%, #0a1d33 40%, #020810 53.3%, #86c2e8 53.3%, #3a9fe0 66.7%, #1c6aa8 80%, #020810 100%); animation-name: stripeAnim4; animation-duration: 16.875s; }
+    .hero-bars-bg .stripe:nth-child(5) .stripe-inner { height: 400%; background: linear-gradient(180deg, #020810 0%, #08182b 12.5%, #0f3a5f 25%, #3a9fe0 25%, #bcd9ee 37.5%, #3a9fe0 50%, #020810 50%, #08182b 62.5%, #0f3a5f 75%, #3a9fe0 75%, #bcd9ee 87.5%, #3a9fe0 100%); animation-name: stripeAnim5; animation-duration: 18s; }
 
     /* each stripe travels in one consistent direction only, ending at translateY(±100%) — exactly its own full height, so the entire strip has scrolled past the edge and out of the viewport, no fade/visibility trick needed */
     @keyframes stripeAnim1 {
