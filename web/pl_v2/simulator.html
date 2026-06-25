@@ -412,6 +412,64 @@
             <p style="margin: 0;">Obliczenia mają charakter orientacyjny i opierają się na branżowych wartościach średnich. Aby uzyskać dokładne uzasadnienie techniczno-ekonomiczne, zamów bezpłatną ocenę inżynierską.</p>
           </div>
         </div>
+
+        <!-- Post-ROI configurator: equipment/financing step (placeholder data) -->
+        <div id="srp-config-flow" class="glass-card" style="display:none; margin-top: var(--space-lg);">
+
+          <div id="srp-cfg-step1">
+            <p class="section-label">Krok 1 z 3</p>
+            <h3>Potwierdź sposób postępowania z osadem</h3>
+            <div class="srp-sc-tabs" role="tablist" aria-label="Potwierdź scenariusz">
+              <button type="button" class="srp-sc-tab" data-sc="fields">Pola osadowe</button>
+              <button type="button" class="srp-sc-tab" data-sc="agro">Wirówki + Agro</button>
+              <button type="button" class="srp-sc-tab" data-sc="compost">Kompostowanie</button>
+              <button type="button" class="srp-sc-tab" data-sc="incinerate">Suszenie + Spalanie</button>
+              <button type="button" class="srp-sc-tab" data-sc="landfill">Składowisko odpadów</button>
+            </div>
+            <button type="button" class="btn btn-primary" id="srp-cfg-step1-next" style="margin-top: var(--space-md);">Dalej →</button>
+          </div>
+
+          <div id="srp-cfg-step2" style="display:none">
+            <p class="section-label">Krok 2 z 3</p>
+            <h3>Preferowany horyzont finansowania</h3>
+            <div class="srp-field">
+              <label class="srp-label" for="srp-cfg-horizon">Liczba lat: <span id="srp-cfg-horizon-val">7</span></label>
+              <input type="range" id="srp-cfg-horizon" min="3" max="15" step="1" value="7">
+            </div>
+            <button type="button" class="btn" id="srp-cfg-step2-back">← Wstecz</button>
+            <button type="button" class="btn btn-primary" id="srp-cfg-step2-next">Dalej →</button>
+          </div>
+
+          <div id="srp-cfg-step3" style="display:none">
+            <p class="section-label">Krok 3 z 3</p>
+            <h3>Rekomendowana konfiguracja</h3>
+            <div class="rpt-section">
+              <div class="rpt-row">
+                <span>Liczba modułów reaktora*</span>
+                <span class="rpt-num" id="srp-cfg-modules">—</span>
+              </div>
+              <div class="rpt-row">
+                <span>Pełny CAPEX</span>
+                <span class="rpt-num rpt-dim" id="srp-cfg-capex">—</span>
+              </div>
+              <div class="rpt-row rpt-row--sum">
+                <span>Wkład własny (po dotacji)</span>
+                <span class="rpt-num" id="srp-cfg-city">—</span>
+              </div>
+              <div class="rpt-row">
+                <span>Okres zwrotu</span>
+                <span class="rpt-num rpt-teal" id="srp-cfg-payback">—</span>
+              </div>
+            </div>
+            <p class="rpt-row--sub">* Orientacyjna liczba modułów; dokładna konfiguracja zostanie potwierdzona przez inżyniera BTC.</p>
+            <div class="callout-box callout-box--accent" style="margin-top: var(--space-sm);">
+              <p style="margin:0;">Typowy model finansowania: 70-90% dotacja UE + finansowanie pozostałej części (np. EBOR/EIB) rozłożone na wybrany horyzont.</p>
+            </div>
+            <button type="button" class="btn" id="srp-cfg-step3-back" style="margin-top: var(--space-md);">← Wstecz</button>
+            <button type="button" class="btn btn-primary" id="srp-cfg-step3-submit">Wyślij konfigurację →</button>
+          </div>
+
+        </div>
       </div>
     </section>
 
@@ -1004,6 +1062,13 @@
                   <label for="honeypot">Leave blank</label>
                   <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
                 </div>
+                <input type="hidden" name="scenario" id="rfq-scenario">
+                <input type="hidden" name="volume_t" id="rfq-volume">
+                <input type="hidden" name="recommended_modules" id="rfq-modules">
+                <input type="hidden" name="capex_city_pln" id="rfq-capex">
+                <input type="hidden" name="savings_pln" id="rfq-savings">
+                <input type="hidden" name="payback_years" id="rfq-payback">
+                <input type="hidden" name="financing_horizon" id="rfq-horizon">
                 <div class="form-group">
                   <input type="text" id="user-name" name="name" placeholder=" " required minlength="2" autocomplete="name" aria-describedby="name-error">
                   <label for="user-name" class="floating-label">Imię i nazwisko / stanowisko *</label>
@@ -1165,6 +1230,13 @@
     var currentSC = 'fields';
     var shadowTimer;
 
+    /* Latest calc() output, reused by the post-ROI configurator step */
+    var lastVolume = 0, lastGrant = 0, lastRes = null, lastCapexTotal = 0, lastRoiYears = Infinity;
+    /* PLACEHOLDER: pending real per-module throughput spec from BTC */
+    var MODULE_CAPACITY_T = 5000;
+    /* Populated once the visitor reaches the configurator's recommendation step */
+    var cfgState = { sc: null, horizon: null, modules: null };
+
     /* Formatters */
     function fmtEur(v)  { return (!isFinite(v)||v<0) ? '—' : Math.round(v).toLocaleString()+' zł'; }
     function fmtCost(v) { return (!isFinite(v)||v<=0) ? '—' : '('+Math.round(v).toLocaleString()+' zł)'; }
@@ -1297,6 +1369,8 @@
       /* Conclusion */
       document.getElementById('src-conclusion').textContent = buildConclusion(PE, roiYears, res, grant, currentSC, Volume);
 
+      lastVolume = Volume; lastGrant = grant; lastRes = res; lastCapexTotal = capexTotal; lastRoiYears = roiYears;
+
       clearTimeout(shadowTimer);
       shadowTimer = setTimeout(saveShadowLead, 2000);
     }
@@ -1400,20 +1474,87 @@
         grant:       gr,
         f1:          f1,
         f2:          f2,
-        capex_total: Math.round(vol * 250),
+        capex_total: Math.round(vol * 1000),
         capex_city:  Math.round(res.capex),
         savings:     Math.round(res.save),
         land:        Math.round(res.landVal),
         roi:         roi !== null ? Math.round(roi * 10) / 10 : null,
+        recommended_modules: cfgState.modules || null,
+        financing_horizon:   cfgState.horizon || null,
       };
-      if (AGENT_ENDPOINT.indexOf('CHANGE_ME') === -1) {
+      if (typeof AGENT_ENDPOINT !== 'undefined' && AGENT_ENDPOINT.indexOf('CHANGE_ME') === -1) {
         var endpoint = AGENT_ENDPOINT.replace('/chat', '/lead');
         fetch(endpoint, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(p) })
           .catch(function(){});
       }
     }
 
-    window.openLeadModal = function(){ document.getElementById('contact').scrollIntoView({behavior:'smooth'}); };
+    /* ── Post-ROI configurator (equipment/financing step) ──────────────── */
+    var cfgFlowEl = document.getElementById('srp-config-flow');
+
+    function cfgShowStep(n) {
+      [1,2,3].forEach(function(i){
+        document.getElementById('srp-cfg-step'+i).style.display = (i===n) ? '' : 'none';
+      });
+    }
+
+    function cfgOpen() {
+      cfgFlowEl.style.display = '';
+      document.querySelectorAll('#srp-cfg-step1 .srp-sc-tab').forEach(function(b){
+        b.classList.toggle('active', b.dataset.sc === currentSC);
+      });
+      cfgState.sc = currentSC;
+      cfgShowStep(1);
+      cfgFlowEl.scrollIntoView({behavior:'smooth'});
+    }
+
+    document.querySelectorAll('#srp-cfg-step1 .srp-sc-tab').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('#srp-cfg-step1 .srp-sc-tab').forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        cfgState.sc = btn.dataset.sc;
+      });
+    });
+
+    document.getElementById('srp-cfg-step1-next').addEventListener('click', function(){ cfgShowStep(2); });
+    document.getElementById('srp-cfg-step2-back').addEventListener('click', function(){ cfgShowStep(1); });
+
+    var cfgHorizonEl = document.getElementById('srp-cfg-horizon');
+    var cfgHorizonValEl = document.getElementById('srp-cfg-horizon-val');
+    cfgHorizonEl.addEventListener('input', function(){ cfgHorizonValEl.textContent = this.value; });
+
+    document.getElementById('srp-cfg-step2-next').addEventListener('click', function() {
+      cfgState.horizon = parseFloat(cfgHorizonEl.value) || 0;
+
+      var vol     = lastVolume || 0;
+      var modules = vol > 0 ? Math.ceil(vol / MODULE_CAPACITY_T) : 0;
+      cfgState.modules = modules;
+
+      document.getElementById('srp-cfg-modules').textContent = modules > 0 ? modules : '—';
+      document.getElementById('srp-cfg-capex').textContent  = fmtCost(lastCapexTotal);
+      document.getElementById('srp-cfg-city').textContent   = fmtCost(lastRes ? lastRes.capex : 0);
+      document.getElementById('srp-cfg-payback').textContent = (isFinite(lastRoiYears) && lastRoiYears>0)
+        ? lastRoiYears.toLocaleString(undefined,{maximumFractionDigits:1})+' lat'
+        : K5_INSTANT;
+
+      saveShadowLead();
+      cfgShowStep(3);
+    });
+
+    document.getElementById('srp-cfg-step3-back').addEventListener('click', function(){ cfgShowStep(2); });
+
+    document.getElementById('srp-cfg-step3-submit').addEventListener('click', function() {
+      document.getElementById('rfq-scenario').value  = cfgState.sc || currentSC;
+      document.getElementById('rfq-volume').value    = lastVolume || 0;
+      document.getElementById('rfq-modules').value    = cfgState.modules || 0;
+      document.getElementById('rfq-capex').value     = Math.round(lastRes ? lastRes.capex : 0);
+      document.getElementById('rfq-savings').value   = Math.round(lastRes ? lastRes.save : 0);
+      document.getElementById('rfq-payback').value   = isFinite(lastRoiYears) ? Math.round(lastRoiYears*10)/10 : '';
+      document.getElementById('rfq-horizon').value   = cfgState.horizon || '';
+      document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+    });
+
+    window.openLeadModal = function(){ cfgOpen(); };
 
     /* Init */
     applyScenario('fields');
