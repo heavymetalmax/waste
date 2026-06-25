@@ -1,1 +1,3 @@
 DirectoryIndex index.html index.php
+
+Redirect 301 /pl_v2/simulator.html /pl_v2/kalkulator-roi.html
