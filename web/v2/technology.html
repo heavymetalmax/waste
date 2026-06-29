@@ -6,16 +6,64 @@
   <title>Technologia HTC · TH-AD-HTC | BioTC | BTC Consulting</title>
   <meta name="description" content="Hydrotermalne uwęglanie (HTC) — 200°C, 20 bar, 2 godziny. Trzy konfiguracje dla każdego obiektu: od kompaktowego HTC Standalone do pełnej pętli TH-AD-HTC z +60% wydajności biogazu.">
 
-  <link rel="stylesheet" href="./design-system.css">
+  <link rel="stylesheet" href="../Ua/industrial-modern.css">
 
   <link rel="alternate" hreflang="uk-UA" href="https://biotc.com.ua/technology" />
   <link rel="alternate" hreflang="x-default" href="https://biotc.com.ua/technology" />
+
+  <style>
+    /* ── Tech hero stat panel ───────────────────────────── */
+    .tech-stat-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm);
+    }
+    .tech-stat { display: flex; flex-direction: column; gap: 0.2rem; }
+    .tech-stat-val { font-size: 2.2rem; font-weight: 900; color: var(--color-blue); line-height: 1; }
+    .tech-stat-val small { font-size: 1rem; font-weight: 700; }
+    .tech-stat-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--color-gray-dark); }
+    .tech-stat-note { margin-top: var(--space-sm); font-size: 0.85rem; font-style: italic; font-weight: 500; color: var(--color-gray-dark); }
+
+    /* ── Process flow / config flow text ─────────────────── */
+    .flow-line { font-weight: 800; text-transform: uppercase; font-size: 0.9rem; margin: var(--space-sm) 0; }
+    .flow-line .flow-accent { color: var(--color-blue); }
+    .flow-line .flow-teal { color: var(--color-teal, #0D9488); }
+
+    .process-step-spec { margin-top: auto; padding-top: var(--space-sm); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; }
+
+    .scenario-benefits { padding-left: 1.2rem; font-weight: 600; }
+    .scenario-targets { margin-top: var(--space-sm); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; padding-top: var(--space-sm); border-top: 2px solid var(--color-black); }
+
+    /* ── Hydrochar specs ──────────────────────────────────── */
+    .hydrochar-spec-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+    .hydrochar-spec-list li { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--color-gray-light); font-weight: 600; }
+    .hydrochar-spec-list li:last-child { border-bottom: none; padding-bottom: 0; }
+    .spec-key { color: var(--color-gray-dark); }
+    .spec-val { font-weight: 800; }
+    .spec-val--accent { color: var(--color-blue); }
+    .spec-val--teal { color: var(--color-teal, #0D9488); }
+
+    /* ── Model cards ──────────────────────────────────────── */
+    .model-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm); }
+    .model-capacity { font-weight: 800; font-size: 0.85rem; text-transform: uppercase; }
+    .model-spec-list { list-style: none; padding: 0; margin: var(--space-sm) 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .model-spec-list li { display: flex; flex-direction: column; font-size: 0.9rem; }
+    .model-spec-list li span { font-weight: 600; color: var(--color-gray-dark); font-size: 0.8rem; text-transform: uppercase; }
+    .model-spec-list li strong { font-weight: 800; }
     .model-energy-badge { margin-top: auto; padding-top: var(--space-sm); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: var(--color-blue); }
   </style>
 </head>
 <body>
 
-  <script src="partials/header.js"></script>
+  <header>
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between;">
+      <a href="index.html" class="logo">BTC <span>Consulting</span></a>
+      <nav style="display:flex; align-items:center; gap:2rem;">
+        <a href="index.html" style="font-weight:800; text-transform:uppercase; font-size:0.9rem;">Rozwiązania</a>
+        <a href="technology.html" style="font-weight:800; text-transform:uppercase; font-size:0.9rem; color: var(--color-blue);">Technologia</a>
+        <a href="simulator.html" style="font-weight:800; text-transform:uppercase; font-size:0.9rem;">Kalkulator</a>
+        <a href="#contact" class="btn btn-outline">Zdobądź ocenę</a>
+      </nav>
+    </div>
+  </header>
 
   <main>
 
@@ -444,8 +492,8 @@
                 <input type="tel" id="user-phone" name="phone" required autocomplete="tel" inputmode="tel">
               </div>
               <div class="form-group">
-                <label for="user-company">Miasto / nazwa przedsiębiorstwa</label>
-                <input type="text" id="user-company" name="company" autocomplete="organization">
+                <label for="user-company">Miasto / nazwa przedsiębiorstwa *</label>
+                <input type="text" id="user-company" name="company" required autocomplete="organization">
               </div>
               <div class="form-group">
                 <label for="user-type">Typ obiektu</label>
@@ -474,7 +522,7 @@
       <div class="footer-links">
         <a href="index.html">Rozwiązania</a>
         <a href="technology.html">Technologia</a>
-        <a href="kalkulator-roi.html">Kalkulator</a>
+        <a href="simulator.html">Kalkulator</a>
         <a href="#contact">Kontakt</a>
         <a href="mission.html">Misja</a>
         <a href="whitepaper.html">Whitepaper</a>
@@ -483,8 +531,6 @@
       <p>&copy; 2025 BTC Consulting. Wszelkie prawa zastrzeżone.</p>
     </div>
   </footer>
-
-  <script src="../app.min.js?v=5"></script>
 
 </body>
 </html>

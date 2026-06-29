@@ -1,0 +1,341 @@
+{
+  "name": "BTC Consulting Design System",
+  "version": "1.0",
+  "description": "Система дизайну, витягнена з домашної сторінки (index.html). Усі компоненти — переиспользування, не видумування.",
+
+  "colors": {
+    "primary": {
+      "name": "Білий",
+      "token": "var(--color-white)",
+      "hex": "#ffffff",
+      "usage": "фон основних розділів, карток"
+    },
+    "secondary": {
+      "name": "Чорний",
+      "token": "var(--color-black)",
+      "hex": "#0a0a0a",
+      "usage": "текст, бордери (4px), фон процесу"
+    },
+    "accent": {
+      "name": "Синій (основна акцент)",
+      "token": "var(--color-blue)",
+      "hex": "#0033a0",
+      "usage": "кнопки, числа, акцентні елементи, фон розділів"
+    },
+    "gray_light": {
+      "name": "Світло сіра",
+      "token": "var(--color-gray-light)",
+      "hex": "#f3f4f6",
+      "usage": "фон розділів, інформаційні ящики"
+    },
+    "gray_dark": {
+      "name": "Темно сіра",
+      "token": "var(--color-gray-dark)",
+      "hex": "#374151",
+      "usage": "фон контакту, текст на світлому фоні"
+    },
+    "blue_light": {
+      "name": "Світло синя",
+      "hex": "#86c2e8",
+      "usage": "градієнти, деталі, анімації"
+    },
+    "blue_medium": {
+      "name": "Середньо синя",
+      "hex": "#3a9fe0",
+      "usage": "переходи, деталі"
+    },
+    "blue_pale": {
+      "name": "Блідо синя",
+      "hex": "#bcd9ee",
+      "usage": "м'які переходи, фони"
+    }
+  },
+
+  "typography": {
+    "font_family": "Inter",
+    "font_weights": [400, 500, 600, 700, 800, 900],
+    "font_import": "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');",
+    "scales": {
+      "h1": {
+        "size": "clamp(2.5rem, 5vw, 4.5rem)",
+        "weight": 900,
+        "transform": "uppercase",
+        "letter_spacing": "-0.04em",
+        "line_height": 1.05
+      },
+      "h2": {
+        "size": "clamp(2.5rem, 5vw, 4rem)",
+        "weight": 800,
+        "transform": "uppercase",
+        "letter_spacing": "-0.03em",
+        "line_height": 1.1,
+        "border_top": "8px solid var(--border-color)"
+      },
+      "h3": {
+        "size": "1.5rem",
+        "weight": 800,
+        "letter_spacing": "-0.02em",
+        "line_height": 1.1
+      },
+      "body": {
+        "size": "1rem",
+        "weight": 500,
+        "line_height": 1.5
+      },
+      "lead": {
+        "size": "1.1rem",
+        "weight": 500,
+        "line_height": 1.4
+      },
+      "small": {
+        "size": "0.85rem",
+        "weight": 800,
+        "transform": "uppercase"
+      },
+      "number": {
+        "size": "5rem",
+        "weight": 900,
+        "color": "var(--color-blue)",
+        "line_height": 1
+      }
+    }
+  },
+
+  "spacing": {
+    "xs": {
+      "token": "var(--space-xs)",
+      "value": "0.5rem",
+      "px": 8
+    },
+    "sm": {
+      "token": "var(--space-sm)",
+      "value": "1rem",
+      "px": 16
+    },
+    "md": {
+      "token": "var(--space-md)",
+      "value": "2.5rem",
+      "px": 40
+    },
+    "lg": {
+      "token": "var(--space-lg)",
+      "value": "5rem",
+      "px": 80
+    },
+    "xl": {
+      "token": "var(--space-xl)",
+      "value": "7rem",
+      "px": 112
+    }
+  },
+
+  "components": {
+    "button_primary": {
+      "class": "btn btn-primary",
+      "background": "var(--color-blue)",
+      "color": "var(--color-white)",
+      "border": "4px solid var(--color-blue)",
+      "padding": "1.25rem 2.5rem",
+      "font_weight": 800,
+      "text_transform": "uppercase",
+      "letter_spacing": "0.05em",
+      "hover": {
+        "background": "var(--color-black)",
+        "border": "4px solid var(--color-black)"
+      }
+    },
+    "button_outline": {
+      "class": "btn btn-outline",
+      "background": "transparent",
+      "color": "var(--color-black)",
+      "border": "4px solid var(--color-black)",
+      "padding": "1.25rem 2.5rem",
+      "font_weight": 800,
+      "text_transform": "uppercase",
+      "letter_spacing": "0.05em",
+      "hover": {
+        "background": "var(--color-black)",
+        "color": "var(--color-white)"
+      }
+    },
+    "rubric": {
+      "class": "rubric",
+      "background": "var(--color-black)",
+      "color": "var(--color-white)",
+      "padding": "0.5rem 1rem",
+      "font_weight": 800,
+      "font_size": "0.85rem",
+      "text_transform": "uppercase",
+      "letter_spacing": "0.1em"
+    },
+    "col_card": {
+      "class": "col-card",
+      "padding": "var(--space-md)",
+      "border": "4px solid var(--color-black)",
+      "background": "var(--color-white)",
+      "color": "var(--color-black)"
+    },
+    "badge_tag": {
+      "class": "badge-tag",
+      "background": "var(--color-black)",
+      "color": "var(--color-white)",
+      "padding": "0.5rem 1rem",
+      "font_weight": 800,
+      "font_size": "0.8rem",
+      "text_transform": "uppercase",
+      "letter_spacing": "0.08em"
+    },
+    "grid_2": {
+      "class": "grid-2",
+      "columns": "1fr 1fr",
+      "gap": "var(--space-lg)"
+    },
+    "grid_3": {
+      "class": "grid-3",
+      "columns": "repeat(3, 1fr)",
+      "gap": "var(--space-md)",
+      "responsive_1024": {
+        "columns": "1fr 1fr"
+      },
+      "responsive_768": {
+        "columns": "1fr"
+      }
+    },
+    "grid_4": {
+      "class": "grid-4",
+      "columns": "repeat(4, 1fr)",
+      "gap": "var(--space-md)",
+      "responsive_1024": {
+        "columns": "1fr 1fr"
+      },
+      "responsive_768": {
+        "columns": "1fr"
+      }
+    },
+    "hero_index": {
+      "class": "hero-index",
+      "background": "var(--color-gray-light)",
+      "border": "4px solid var(--color-black)",
+      "padding": "1rem"
+    },
+    "woit_bridge": {
+      "class": "woit-bridge-card",
+      "display": "flex",
+      "align_items": "center",
+      "gap": "1.5rem",
+      "flex_wrap": "wrap",
+      "padding": "var(--space-md) 0",
+      "border_bottom": "4px solid var(--color-black)"
+    },
+    "contact_deliverables": {
+      "class": "contact-deliverables",
+      "background": "var(--color-gray-light)",
+      "border_left": "4px solid var(--color-blue)",
+      "padding": "var(--space-sm) var(--space-md)",
+      "color": "var(--color-gray-dark)"
+    },
+    "process_card": {
+      "class": "process-card col-card",
+      "border": "4px solid var(--color-gray-dark)"
+    },
+    "faq_item": {
+      "class": "faq-item col-card",
+      "border_bottom": "2px solid var(--color-black)"
+    }
+  },
+
+  "sections": {
+    "white": {
+      "background": "var(--color-white)",
+      "color": "var(--color-black)",
+      "border_bottom": "4px solid var(--color-black)"
+    },
+    "blue": {
+      "background": "var(--color-blue)",
+      "color": "var(--color-white)",
+      "border_bottom": "4px solid var(--color-black)",
+      "h2": {
+        "border_color": "var(--color-white)"
+      },
+      "rubric": {
+        "background": "var(--color-white)",
+        "color": "var(--color-blue)"
+      },
+      "btn_outline": {
+        "border_color": "var(--color-white)",
+        "color": "var(--color-white)",
+        "hover": {
+          "background": "var(--color-white)",
+          "color": "var(--color-blue)"
+        }
+      }
+    },
+    "black": {
+      "background": "var(--color-black)",
+      "color": "var(--color-white)",
+      "border_bottom": "4px solid var(--color-white)",
+      "h2": {
+        "border_color": "var(--color-white)"
+      },
+      "rubric": {
+        "background": "var(--color-white)",
+        "color": "var(--color-black)"
+      }
+    },
+    "gray_light": {
+      "background": "var(--color-gray-light)",
+      "color": "var(--color-black)",
+      "border_bottom": "4px solid var(--color-black)"
+    },
+    "gray_dark": {
+      "background": "var(--color-gray-dark)",
+      "color": "var(--color-white)",
+      "border_bottom": "4px solid var(--color-black)",
+      "h2": {
+        "border_color": "var(--color-white)"
+      }
+    }
+  },
+
+  "responsive": {
+    "desktop": ">= 1025px",
+    "tablet": "1024px to 769px",
+    "mobile": "<= 768px",
+    "small_mobile": "<= 640px",
+    "breakpoints": {
+      "1024": "Grid 3/4 → 2 columns",
+      "768": "All grids → 1 column, H1 → 2.5rem",
+      "640": "Flex columns for cards"
+    }
+  },
+
+  "container": {
+    "class": "container",
+    "width": "100%",
+    "max_width": "1300px",
+    "margin": "0 auto",
+    "padding": "0 var(--space-md)"
+  },
+
+  "section": {
+    "padding": "var(--space-xl) 0"
+  },
+
+  "files": {
+    "css_main": "/Users/max/Projects/Waste/web/Ua/industrial-modern.css",
+    "template": "/Users/max/Projects/Waste/web/v2/template-components.html",
+    "homepage": "/Users/max/Projects/Waste/web/v2/index.html",
+    "technology": "/Users/max/Projects/Waste/web/v2/technology.html"
+  },
+
+  "rules": {
+    "1_no_new_classes": "Не додавай нові класи. Переиспользуй .col-card, .btn-primary, .rubric",
+    "2_use_css_vars": "Всі кольори — через var(--color-*) або з градієнтів",
+    "3_use_spacing": "Spacing — тільки var(--space-*)",
+    "4_grid_first": "Для розташування — спочатку grid-2/3/4",
+    "5_from_homepage": "Нові компоненти — пиши, тільки якщо вони вже на index.html",
+    "6_border_4px": "Основна border — 4px solid",
+    "7_uppercase_headers": "Усі H1, H2, H3 — UPPERCASE",
+    "8_inter_font": "Шрифт — тільки Inter"
+  }
+}

@@ -26,216 +26,298 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
 
-  <link rel="stylesheet" href="./design-system.css">
+  <link rel="stylesheet" href="../Ua/industrial-modern.css">
 
   <link rel="alternate" hreflang="uk-UA" href="https://biotc.com.ua/simulator" />
   <link rel="alternate" hreflang="x-default" href="https://biotc.com.ua/simulator" />
 
   <style>
     /* ============================================================
-       Industrial-modern skin — repaints the existing functional
-       components (srp-, rpt-, htc-, glass-card classes from
-       styles.min.css) in the heavy-corporate blue/black/white
-       palette. No structural/JS-bearing markup is touched here.
+       Calculator using design-system components
+       All styling reuses .col-card, .btn-primary, .rubric, etc.
        ============================================================ */
-    :root {
-      --color-white: #ffffff;
-      --color-black: #0a0a0a;
-      --color-blue: #0033a0;
-      --color-gray-light: #f3f4f6;
-      --color-gray-dark: #374151;
-      --font-display: 'Inter', sans-serif;
-      --font-body: 'Inter', sans-serif;
-      --color-accent: var(--color-blue);
-      --color-bg: var(--color-white);
-      --color-text: var(--color-black);
-      --color-border: var(--color-black);
-      --radius-card: 0;
-      --shadow-card: none;
-      --shadow-card-hover: none;
-      --shadow-btn: none;
-      /* Match industrial-modern.css spacing scale so header/container geometry
-         is identical across every pl_v2 page (this page alone still loads
-         styles.min.css, which defines its own smaller --space-* values) */
-      --space-xs: 0.5rem;
-      --space-sm: 1rem;
-      --space-md: 2.5rem;
-      --space-lg: 5rem;
-      --space-xl: 7rem;
-    }
-    .container { max-width: 1300px !important; }
-    body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
-    h1, h2, h3, h4 { font-family: 'Inter', sans-serif; font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; }
+
+    /* Hide unused elements */
     .blur-orb, .sim-bg-icon, .htc-bg-icon, .chat-bg-icon, .contact-bg-icon { display: none !important; }
 
-    .badge {
-      background: var(--color-black); color: var(--color-white);
-      border: none; border-radius: 0; font-family: 'Inter', sans-serif;
-      text-transform: uppercase; letter-spacing: 0.1em; padding: 0.5rem 1rem;
+    /* Component remapping */
+    .rubric { margin-bottom: var(--space-sm); }
+    .badge { display: none; } /* Use .rubric instead */
+
+    /* Hero section */
+    .sim-hero-section {
+      background-color: var(--color-white);
+      color: var(--color-black);
+      border-bottom: 4px solid var(--color-black);
+      padding: var(--space-xl) 0;
     }
+    .sim-hero-content h1 { text-transform: uppercase; font-weight: 900; margin-bottom: var(--space-md); }
+    .sim-hero-desc { font-size: 1.1rem; font-weight: 500; max-width: 800px; margin-bottom: var(--space-md); }
+
+    /* Simulator section */
+    .sim-section {
+      background-color: var(--color-white);
+      color: var(--color-black);
+      border-bottom: 4px solid var(--color-black);
+      padding: var(--space-xl) 0;
+      position: relative;
+    }
+
+    /* Grid layout: left input + right results */
+    .srp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+      align-items: start;
+    }
+    @media (max-width: 1024px) { .srp-grid { grid-template-columns: 1fr; } }
+
+    /* Input and results containers */
+    .srp-panel, .srp-results {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    /* Section labels */
     .section-label {
-      font-family: 'Inter', sans-serif; color: var(--color-blue);
-      font-weight: 800; letter-spacing: 0.1em;
+      font-family: 'Inter', sans-serif;
+      color: var(--color-blue);
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      margin-bottom: var(--space-sm);
     }
 
-    .btn, .btn-primary, .btn-outline, .srp-cta-btn, #form-submit-btn, .srp-preset-btn {
-      border-radius: 0 !important; font-family: 'Inter', sans-serif !important;
-      text-transform: uppercase; font-weight: 800 !important; letter-spacing: 0.05em;
-      box-shadow: none !important; transition: none !important;
+    /* Col-card style (reuse from industrial-modern.css) */
+    .col-card { padding: var(--space-md); border: 4px solid var(--color-black); background: var(--color-white); }
+
+    /* Preset buttons */
+    .srp-presets-wrap { display: flex; flex-direction: column; gap: var(--space-sm); margin-bottom: var(--space-md); }
+    .srp-presets { display: flex; gap: var(--space-sm); align-items: center; flex-wrap: wrap; }
+    .srp-presets-lbl { font-weight: 800; text-transform: uppercase; font-size: 0.9rem; min-width: 100px; }
+    .srp-preset-btn {
+      padding: 0.8rem 1.2rem;
+      border: 2px solid var(--color-black);
+      background: transparent;
+      color: var(--color-black);
+      font-weight: 700;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-family: 'Inter', sans-serif;
     }
-    /* header .btn-outline must match the 1.25rem/2.5rem padding used on every other page */
-    header .btn-outline { padding: 1.25rem 2.5rem !important; font-size: 1rem !important; min-height: 0 !important; line-height: 1.5 !important; }
-    .btn-primary, .srp-cta-btn, #form-submit-btn.btn-primary {
-      background: var(--color-blue) !important; border: 4px solid var(--color-blue) !important; color: #fff !important;
+    .srp-preset-btn:hover { background: var(--color-gray-light); }
+
+    /* Scenario tabs */
+    .srp-sc-tabs { display: flex; gap: var(--space-xs); flex-wrap: wrap; margin-bottom: var(--space-md); }
+    .srp-sc-tab {
+      padding: 0.6rem 1rem;
+      border: 2px solid var(--color-black);
+      background: transparent;
+      color: var(--color-black);
+      font-weight: 700;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-family: 'Inter', sans-serif;
     }
-    .btn-primary:hover, .srp-cta-btn:hover { background: var(--color-black) !important; border-color: var(--color-black) !important; }
-    .btn-outline { background: transparent !important; border: 4px solid var(--color-black) !important; color: var(--color-black) !important; }
-    .btn-outline:hover { background: var(--color-black) !important; color: #fff !important; }
+    .srp-sc-tab.active { background: var(--color-blue); border-color: var(--color-blue); color: white; }
 
-    .glass-card, .rpt-card, .srp-panel, .callout-box, #srp-config-flow {
-      border-radius: 0 !important; border: 4px solid var(--color-black) !important;
-      box-shadow: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
-      background: var(--color-white) !important;
+    /* Form fields */
+    .srp-field { margin-bottom: var(--space-md); }
+    .srp-label { display: block; font-weight: 800; text-transform: uppercase; font-size: 0.85rem; margin-bottom: var(--space-xs); }
+    .srp-label-row { display: flex; justify-content: space-between; margin-bottom: var(--space-xs); }
+    .srp-label-unit { font-weight: 700; color: var(--color-gray-dark); font-size: 0.85rem; }
+
+    /* Stepper control */
+    .srp-stepper {
+      display: flex;
+      border: 2px solid var(--color-black);
+      background: var(--color-gray-light);
+      border-radius: 0;
     }
-    .callout-box--accent { border-color: var(--color-blue) !important; }
-
-    .srp-sc-tab, .srp-preset-btn {
-      border-radius: 0 !important; border: 2px solid var(--color-black) !important;
-      text-transform: uppercase; font-weight: 700;
+    .srp-stepper input {
+      flex: 1;
+      padding: 0.8rem;
+      border: none;
+      background: transparent;
+      font-weight: 700;
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
     }
-    .srp-sc-tab.active { background: var(--color-blue) !important; border-color: var(--color-blue) !important; color: #fff !important; }
-    .srp-stepper { border-radius: 0 !important; border: 2px solid var(--color-black) !important; background: var(--color-gray-light); }
-    .srp-btn-step { color: var(--color-blue) !important; font-weight: 700; }
-
-    .rpt-kpi-val, .index-val, .rpt-num.rpt-teal { color: var(--color-blue) !important; font-weight: 900 !important; }
-    .rpt-sh { text-transform: uppercase; font-weight: 800; letter-spacing: 0.04em; }
-
-    /* Header — unified plain pattern (matches index.html/technology.html/etc.) */
-    header { background: var(--color-white) !important; border-bottom: 4px solid var(--color-black) !important; padding: 1rem 0 !important; }
-    .logo { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 2rem; text-transform: uppercase; letter-spacing: -0.05em; }
-    .logo span { font-weight: 500; color: var(--color-blue); }
-
-    /* Hero — same grid-2 + rubric + col-card pattern as technology.html's hero */
-    .sim-hero-section { text-align: left !important; }
-    .h1-solution { background: none !important; -webkit-text-fill-color: var(--color-blue) !important; color: var(--color-blue) !important; }
-    .sim-method { margin-inline: 0 !important; text-align: left !important; max-width: none !important; margin-block-start: var(--space-md) !important; }
-
-    /* Methodology accordion */
-    .sim-method-toggle { font-weight: 800; text-transform: uppercase; }
-    .sim-article-formula { background: var(--color-gray-light); border: 2px solid var(--color-black); border-radius: 0; }
-
-    /* Chat widget bubbles */
-    .srp-chat-widget { border-radius: 0 !important; border: 4px solid var(--color-black) !important; }
-    .srp-chat-bubble { border-radius: 0 !important; }
-    .srp-chat-send { border-radius: 0 !important; background: var(--color-blue) !important; }
-    .srp-chat-textarea { border-radius: 0 !important; border: 4px solid var(--color-black) !important; background: var(--color-gray-light) !important; }
-    .srp-chat-textarea:focus { background: var(--color-white) !important; border-color: var(--color-blue) !important; }
-    .srp-chat-attach { border-radius: 0 !important; border: 2px solid var(--color-black) !important; }
-
-    /* Grid items must not grow past their track when content (bold KPI numbers) is wide */
-    .srp-grid > .srp-col, .htc-grid > .srp-col { min-width: 0; max-width: 100%; }
-    .rpt-num { white-space: normal !important; }
-
-    /* Methodology toggle — flat outline, not a rounded pill */
-    .sim-method-toggle {
-      border-radius: 0 !important; border: 4px solid var(--color-black) !important;
-      background: var(--color-white) !important; color: var(--color-black) !important;
-      padding: 0.75rem 1.5rem !important; font-weight: 800 !important;
+    .srp-stepper input:focus { outline: none; }
+    .srp-btn-step {
+      padding: 0.8rem 1rem;
+      border: none;
+      background: transparent;
+      color: var(--color-blue);
+      font-weight: 700;
+      font-size: 1.2rem;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
     }
-    .sim-method[open] .sim-method-toggle { background: var(--color-black) !important; color: var(--color-white) !important; }
+    .srp-btn-step:hover { background: var(--color-white); }
 
-    /* Volume highlight block — flat border, no animated rainbow gradient */
+    /* Highlighted group */
     .srp-hl-group {
-      background: var(--color-black) !important; border-radius: 0 !important;
-      animation: none !important; box-shadow: none !important; padding: 2px !important;
-    }
-    .srp-hl-inner { border-radius: 0 !important; background: var(--color-white) !important; }
-
-    /* Contaminant badges — flat, no rounded pill */
-    .htc-badge { border-radius: 0 !important; border: 2px solid var(--color-black) !important; font-weight: 800 !important; text-transform: uppercase; letter-spacing: 0.02em; }
-    .htc-badge--warn { background: var(--color-white) !important; color: var(--color-black) !important; border-color: #b45309 !important; }
-    .htc-badge--ok { background: var(--color-white) !important; color: var(--color-blue) !important; border-color: var(--color-blue) !important; }
-    .htc-badge--bad { background: var(--color-black) !important; color: var(--color-white) !important; border-color: var(--color-black) !important; }
-
-    /* "lub" divider */
-    .srp-or-line { background: var(--color-black) !important; }
-    .srp-or-text {
-      border-radius: 0 !important; border: 2px solid var(--color-black) !important;
-      background: var(--color-white) !important; color: var(--color-black) !important; font-weight: 800 !important;
+      background: var(--color-gray-light);
+      border: 4px solid var(--color-black);
+      padding: var(--space-md);
+      margin-bottom: var(--space-md);
     }
 
-    /* Unified page-wide primitives (shared pattern across all pl_v2 pages) */
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); align-items: start; }
-    .rubric {
-      display: inline-block; background: var(--color-black); color: var(--color-white);
-      padding: 0.5rem 1rem; font-weight: 800; text-transform: uppercase;
-      letter-spacing: 0.1em; font-size: 0.85rem; margin-bottom: var(--space-md);
+    /* Results card */
+    .rpt-card {
+      padding: var(--space-md);
+      border: 4px solid var(--color-black);
+      background: var(--color-white);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
     }
-    .hero-desc { font-size: 1.1rem; font-weight: 500; max-width: 700px; margin-bottom: 1.5rem; line-height: 1.5; }
-    .col-card { padding: var(--space-md); border: 4px solid var(--color-black); background: var(--color-white); color: var(--color-black); }
-    .form-group { margin-bottom: var(--space-sm); }
-    .form-group label { display: block; font-weight: 800; text-transform: uppercase; color: var(--color-black); margin-bottom: 0.4rem; font-size: 0.85rem; }
-    .form-group input, .form-group select {
-      width: 100%; padding: 1.1rem; background: var(--color-gray-light); border: 4px solid var(--color-gray-light);
-      color: var(--color-black); font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600;
-    }
-    .form-group input:focus, .form-group select:focus { outline: none; background: var(--color-white); border-color: var(--color-blue); }
-    @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
 
-    /* Hero stat panel (matches technology.html's right-column stat card) */
-    .tech-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm); }
-    .tech-stat { display: flex; flex-direction: column; gap: 0.2rem; }
-    .tech-stat-val { font-size: 2.2rem; font-weight: 900; color: var(--color-blue); line-height: 1; }
-    .tech-stat-val small { font-size: 1rem; font-weight: 700; }
-    .tech-stat-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--color-gray-dark); }
-    .tech-stat-note { margin-top: var(--space-sm); font-size: 0.85rem; font-style: italic; font-weight: 500; color: var(--color-gray-dark); }
-    #contact .contact-deliverables {
-      margin: var(--space-md) 0; padding: var(--space-sm) var(--space-md);
-      background: var(--color-gray-light); border-left: 4px solid var(--color-blue); color: var(--color-gray-dark);
-    }
-    #contact .contact-deliverables strong { display: block; margin-bottom: 0.6rem; font-size: 0.95rem; text-transform: uppercase; color: var(--color-gray-dark); }
-    #contact .contact-deliverables ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem; }
-    #contact .contact-deliverables li { font-size: 0.95rem; font-weight: 600; color: var(--color-gray-dark); }
-    #contact .contact-deliverables li::before { content: '✓ '; color: var(--color-blue); font-weight: 900; }
-    #contact .contact-deliverables .note { margin-top: 0.6rem; font-size: 0.85rem; font-style: italic; font-weight: 500; color: var(--color-gray-dark); }
-    #contact .contact-info-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
-    #contact .info-item { display: flex; align-items: center; gap: 0.75rem; font-weight: 700; }
-    #contact .info-item svg { flex-shrink: 0; width: 20px; height: 20px; }
+    /* Results structure */
+    .rpt-kpi { margin-bottom: var(--space-sm); }
+    .rpt-kpi-lbl { display: block; font-size: 0.85rem; font-weight: 800; text-transform: uppercase; color: var(--color-gray-dark); }
+    .rpt-kpi-val { display: block; font-size: 2.5rem; font-weight: 900; color: var(--color-blue); margin-top: 0.5rem; }
+    .rpt-kpi-note { font-size: 0.9rem; color: var(--color-gray-dark); margin: 0; }
 
-    footer { background: var(--color-black) !important; color: var(--color-white) !important; padding: var(--space-lg) 0; text-align: center; }
-    footer .logo { font-weight: 900; font-size: 2rem; text-transform: uppercase; letter-spacing: -0.05em; justify-content: center; color: var(--color-white); }
-    footer .logo span { font-weight: 500; color: var(--color-blue); }
-    footer .footer-links { display: flex; justify-content: center; gap: var(--space-md); margin: var(--space-md) 0; font-weight: 800; text-transform: uppercase; flex-wrap: wrap; }
-    footer .footer-links a { color: var(--color-white) !important; }
-    footer .footer-links a:hover { color: #7da3ff !important; }
-    footer p { color: #cbd5e1 !important; font-size: 0.85rem; }
+    .rpt-section { padding-top: var(--space-sm); border-top: 2px solid var(--color-black); }
+    .rpt-section:first-child { border-top: none; padding-top: 0; }
+
+    .rpt-sh {
+      display: block;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      font-size: 0.8rem;
+      color: var(--color-black);
+      margin-bottom: var(--space-sm);
+    }
+
+    .rpt-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      font-size: 0.95rem;
+    }
+    .rpt-row--sum { border-top: 2px solid var(--color-black); padding-top: var(--space-xs); font-weight: 700; }
+    .rpt-row--sub { font-size: 0.8rem; color: var(--color-gray-dark); }
+
+    .rpt-num { font-weight: 700; color: var(--color-black); text-align: right; }
+    .rpt-num.rpt-dim { color: var(--color-gray-dark); }
+    .rpt-num.rpt-teal { color: var(--color-blue); font-weight: 900; }
+
+    /* CTA button */
+    .srp-cta-btn {
+      padding: 1.25rem 2.5rem;
+      background: var(--color-blue);
+      color: white;
+      border: 4px solid var(--color-blue);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      margin-top: var(--space-md);
+      width: 100%;
+    }
+    .srp-cta-btn:hover { background: var(--color-black); border-color: var(--color-black); }
+
+    /* Callout box */
+    .glass-card.callout-box {
+      padding: var(--space-md);
+      border: 4px solid var(--color-black);
+      background: var(--color-white);
+      border-radius: 0;
+    }
+    .callout-box--accent { border-color: var(--color-blue); }
+
+    /* Hint text */
+    .srp-hint { font-size: 0.8rem; color: var(--color-gray-dark); margin-top: 0.4rem; margin-bottom: 0; }
+
+    /* Methodology article */
+    .sim-article-formula {
+      background: var(--color-gray-light);
+      border: 2px solid var(--color-black);
+      padding: var(--space-sm);
+      font-family: 'Courier New', monospace;
+      font-weight: 600;
+    }
+
+    .sim-article-h4 {
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      margin-top: var(--space-md);
+      margin-bottom: var(--space-sm);
+    }
+
+    .sim-article-list { margin: var(--space-sm) 0; padding-left: 1.5rem; }
+    .sim-article-list li { margin-bottom: 0.5rem; }
+
+    .sim-article-note { font-size: 0.85rem; color: var(--color-gray-dark); font-style: italic; }
+
+    /* Conclusion */
+    .rpt-conclusion {
+      padding-top: var(--space-md);
+      border-top: 2px solid var(--color-black);
+    }
+    .rpt-conclusion-body { margin: 0; font-size: 0.95rem; }
+
+    /* Or divider */
+    .srp-vol-or {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: var(--space-md) 0;
+    }
+    .srp-or-line { flex: 1; height: 2px; background: var(--color-black); }
+    .srp-or-text { font-weight: 700; text-transform: uppercase; font-size: 0.8rem; }
+
+    /* Config flow */
+    #srp-config-flow {
+      padding: var(--space-md);
+      border: 4px solid var(--color-black);
+      background: var(--color-white);
+      margin-top: var(--space-lg);
+    }
   </style>
 </head>
 <body>
 
-  <!-- ============================================================ -->
-  <!-- HEADER                                                        -->
-  <!-- ============================================================ -->
-  <script src="partials/header.js"></script>
+  <header>
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between;">
+      <a href="index.html" class="logo">BTC <span>Consulting</span></a>
+      <nav style="display:flex; align-items:center; gap:2rem;">
+        <a href="index.html" style="font-weight:800; text-transform:uppercase; font-size:0.9rem;">Rozwiązania</a>
+        <a href="technology.html" style="font-weight:800; text-transform:uppercase; font-size:0.9rem;">Technologia</a>
+        <a href="kalkulator-roi.html" style="font-weight:800; text-transform:uppercase; font-size:0.9rem;">Kalkulator</a>
+        <a href="#contact" class="btn btn-outline">Zdobądź ocenę</a>
+      </nav>
+    </div>
+  </header>
 
   <main>
 
     <!-- ============================================================ -->
     <!-- BLOCK 1: Compact hero banner                                  -->
     <!-- ============================================================ -->
-    <section id="hero" class="sim-hero-section">
+    <section class="sim-hero-section">
       <div class="container">
-        <div class="grid-2" style="align-items: center;">
-          <div>
-            <span class="rubric">Model unikniętych kosztów · Avoided Costs Model</span>
-            <h1>Oblicz zwrot z inwestycji <span class="h1-solution">dla swojego obiektu w 60 sekund.</span></h1>
-            <p class="hero-desc">Podaj wolumen osadów i parametry obiektu — symulator natychmiast pokaże CAPEX, roczne oszczędności, wartość gruntu i okres zwrotu po dofinansowaniu.</p>
-            <a href="#simulator" class="btn btn-primary">Przejdź do kalkulatora →</a>
+        <div class="sim-hero-content">
+          <span class="rubric">Model unikniętych kosztów</span>
+          <h1>Oblicz zwrot z inwestycji dla swojego obiektu w 60 sekund</h1>
+          <p class="sim-hero-desc">Podaj wolumen osadów i parametry obiektu — symulator natychmiast pokaże CAPEX, roczne oszczędności, wartość gruntu i okres zwrotu po dofinansowaniu.</p>
+        </div>
 
-            <!-- Methodology accordion -->
-            <details class="sim-method">
-              <summary class="sim-method-toggle">Jak liczymy → metodyka</summary>
-              <div class="sim-method-body">
+        <!-- Methodology accordion -->
+        <details class="sim-method">
+          <summary class="sim-method-toggle">Jak liczymy → metodyka</summary>
+          <div class="sim-method-body">
             <div class="sim-article">
 
               <!-- Lead paragraph — full width -->
@@ -288,31 +370,8 @@
               </div><!-- /.sim-article-cols -->
             </div><!-- /.sim-article -->
           </div>
-            </details>
-          </div>
+        </details>
 
-          <div class="col-card">
-            <div class="tech-stat-grid">
-              <div class="tech-stat">
-                <span class="tech-stat-val">60<small> sek</small></span>
-                <span class="tech-stat-label">Czas obliczenia</span>
-              </div>
-              <div class="tech-stat">
-                <span class="tech-stat-val">0 zł</span>
-                <span class="tech-stat-label">Koszt korzystania</span>
-              </div>
-              <div class="tech-stat">
-                <span class="tech-stat-val">75%</span>
-                <span class="tech-stat-label">Domyślne dofinansowanie UE</span>
-              </div>
-              <div class="tech-stat">
-                <span class="tech-stat-val">5 dni</span>
-                <span class="tech-stat-label">Odpowiedź inżyniera BTC</span>
-              </div>
-            </div>
-            <p class="tech-stat-note">Obliczenia mają charakter orientacyjny — dokładną wycenę przygotowuje inżynier BTC na podstawie zgłoszonych danych.</p>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -334,7 +393,7 @@
           <!-- ── LEFT: Inputs ───────────────────────────────────── -->
           <div class="srp-col">
           <p class="section-label">Parametry obiektu</p>
-          <div class="srp-panel">
+          <div class="col-card" style="padding: var(--space-md);">
 
             <!-- Quick presets -->
             <div class="srp-presets-wrap">
@@ -458,7 +517,7 @@
           <div class="srp-results">
 
             <!-- Results card — financial report style -->
-            <div class="rpt-card">
+            <div class="col-card">
 
               <!-- ROI headline -->
               <div class="rpt-kpi">
@@ -551,13 +610,13 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6"/><path d="M9 17v1a3 3 0 0 0 6 0v-1"/><path d="M21 6.727a11.05 11.05 0 0 0 -2.794 -3.727"/><path d="M3 6.727a11.05 11.05 0 0 1 2.792 -3.727"/></svg>
             </span>
           </div>
-          <div class="glass-card callout-box callout-box--accent" style="margin-top: 0;">
+          <div class="col-card callout-box callout-box--accent" style="margin-top: 0;">
             <p style="margin: 0;">Obliczenia mają charakter orientacyjny i opierają się na branżowych wartościach średnich. Aby uzyskać dokładne uzasadnienie techniczno-ekonomiczne, zamów bezpłatną ocenę inżynierską.</p>
           </div>
         </div>
 
         <!-- Post-ROI configurator: equipment/financing step (placeholder data) -->
-        <div id="srp-config-flow" class="glass-card" style="display:none; margin-top: var(--space-lg);">
+        <div id="srp-config-flow" class="col-card" style="display:none; margin-top: var(--space-lg);">
 
           <div id="srp-cfg-step1">
             <p class="section-label">Krok 1 z 3</p>
@@ -644,7 +703,7 @@
           <!-- LEFT: inputs ───────────────────────────────────────── -->
           <div class="srp-col">
           <p class="section-label">Parametry obiektu</p>
-          <div class="srp-panel">
+          <div class="col-card" style="padding: var(--space-md);">
 
             <!-- Source type — bubble tabs -->
             <div class="srp-field">
@@ -860,7 +919,7 @@
         var warnEl = document.getElementById('htc-toxic-warning');
         if (preset.toxic) {
           warnEl.style.display = '';
-          warnEl.textContent = TOXIC_WARNING.replace('{metale}', preset.metals).replace('{plastiki}', preset.plastics);
+          warnEl.textContent = TOXIC_WARNING.replace('{metals}', preset.metals).replace('{plastics}', preset.plastics);
         } else {
           warnEl.style.display = 'none';
         }
@@ -1167,75 +1226,92 @@
     <!-- BLOCK 3: Contact Form                                         -->
     <!-- ============================================================ -->
     <section id="contact">
+      <div class="contact-bg-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M12 11v.01"/><path d="M8 11v.01"/><path d="M16 11v.01"/>
+          <path d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3l12 0"/>
+        </svg>
+      </div>
       <div class="container">
-        <div class="grid-2">
-          <div>
-            <span class="rubric">Następny krok</span>
+        <div class="contact-grid">
+
+          <div class="contact-text">
+            <p class="section-label">Następny krok</p>
             <h2>Uzyskaj dokładną kalkulację dla swojego obiektu.</h2>
-            <p>Symulator pokazuje ogólny obraz. Nasi inżynierowie uszczegółowią parametry konkretnego obiektu i przygotują kompletny pakiet dokumentacji grantowej.</p>
+            <p class="section-desc">Symulator pokazuje ogólny obraz. Nasi inżynierowie uszczegółowią parametry konkretnego obiektu i przygotują kompletny pakiet dokumentacji grantowej.</p>
 
             <div class="contact-info-list">
               <div class="info-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 <span>+48 608 003 458</span>
               </div>
               <div class="info-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 <span>contact@biotc.pl</span>
               </div>
               <div class="info-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 <span>ul. Daszyńskiego 34/3, 44-100 Gliwice, Polska</span>
               </div>
             </div>
           </div>
 
-          <div class="col-card">
+          <div class="col-card contact-form-card">
             <form id="rfq-form" action="#" method="POST" novalidate>
-              <div style="position:absolute; left:-9999px;" aria-hidden="true">
-                <label for="honeypot">Leave blank</label>
-                <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
-              </div>
-              <input type="hidden" name="scenario" id="rfq-scenario">
-              <input type="hidden" name="volume_t" id="rfq-volume">
-              <input type="hidden" name="recommended_modules" id="rfq-modules">
-              <input type="hidden" name="capex_city_pln" id="rfq-capex">
-              <input type="hidden" name="savings_pln" id="rfq-savings">
-              <input type="hidden" name="payback_years" id="rfq-payback">
-              <input type="hidden" name="financing_horizon" id="rfq-horizon">
-              <div class="form-group">
-                <label for="user-name">Imię i nazwisko / stanowisko *</label>
-                <input type="text" id="user-name" name="name" required minlength="2" autocomplete="name">
-              </div>
-              <div class="form-group">
-                <label for="user-phone">Telefon kontaktowy *</label>
-                <input type="tel" id="user-phone" name="phone" required autocomplete="tel" inputmode="tel">
-              </div>
-              <div class="form-group">
-                <label for="user-company">Miasto / nazwa przedsiębiorstwa</label>
-                <input type="text" id="user-company" name="company" autocomplete="organization">
-              </div>
-              <div class="form-group">
-                <label for="user-type">Typ obiektu</label>
-                <select id="user-type" name="object_type">
-                  <option value="" disabled selected></option>
-                  <option value="waterutil">Regionalne przedsiębiorstwo wodociągowe (od 50 tys.)</option>
-                  <option value="community">Gmina (od 10 tys.)</option>
-                  <option value="agro">Przedsiębiorstwo rolno-spożywcze</option>
-                  <option value="other">Inne</option>
-                </select>
-              </div>
-              <button type="submit" id="form-submit-btn" class="btn btn-primary" style="width:100%;">Wyślij dane obiektu →</button>
-              <p style="margin-top:1rem; font-size:0.85rem; font-weight:600;">Odpowiedź w ciągu 5 dni roboczych. Bez zobowiązań i bez sprzedażowego pitchu.</p>
+              <fieldset class="form-fieldset">
+                <div class="visually-hidden" aria-hidden="true">
+                  <label for="honeypot">Leave blank</label>
+                  <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
+                </div>
+                <input type="hidden" name="scenario" id="rfq-scenario">
+                <input type="hidden" name="volume_t" id="rfq-volume">
+                <input type="hidden" name="recommended_modules" id="rfq-modules">
+                <input type="hidden" name="capex_city_pln" id="rfq-capex">
+                <input type="hidden" name="savings_pln" id="rfq-savings">
+                <input type="hidden" name="payback_years" id="rfq-payback">
+                <input type="hidden" name="financing_horizon" id="rfq-horizon">
+                <div class="form-group">
+                  <input type="text" id="user-name" name="name" placeholder=" " required minlength="2" autocomplete="name" aria-describedby="name-error">
+                  <label for="user-name" class="floating-label">Imię i nazwisko / stanowisko *</label>
+                  <span id="name-error" class="error-msg" role="alert">Proszę podać imię i nazwisko</span>
+                </div>
+                <div class="form-group">
+                  <input type="tel" id="user-phone" name="phone" placeholder=" " required autocomplete="tel" inputmode="tel" aria-describedby="phone-error">
+                  <label for="user-phone" class="floating-label">Telefon kontaktowy *</label>
+                  <span id="phone-error" class="error-msg" role="alert">Proszę podać numer telefonu</span>
+                </div>
+                <div class="form-group">
+                  <input type="text" id="user-company" name="company" placeholder=" " required autocomplete="organization" aria-describedby="company-error">
+                  <label for="user-company" class="floating-label">Miasto / nazwa przedsiębiorstwa *</label>
+                  <span id="company-error" class="error-msg" role="alert">Proszę podać nazwę</span>
+                </div>
+                <div class="form-group">
+                  <select id="user-type" name="object_type">
+                    <option value="" disabled selected></option>
+                    <option value="waterutil">Regionalne przedsiębiorstwo wodociągowe (od 50 tys.)</option>
+                    <option value="community">Gmina (od 10 tys.)</option>
+                    <option value="agro">Przedsiębiorstwo rolno-spożywcze</option>
+                    <option value="other">Inne</option>
+                  </select>
+                  <label for="user-type" class="floating-label">Typ obiektu</label>
+                </div>
+                <button type="submit" id="form-submit-btn" class="btn btn-primary btn-block">Wyślij zgłoszenie</button>
+                <p class="form-micro-text">Odpowiedź w ciągu 1 dnia roboczego. Bez zobowiązań.</p>
+              </fieldset>
             </form>
-            <div id="form-status" class="hidden" tabindex="-1" role="status" aria-live="polite"></div>
+            <div id="form-status" class="form-status-container hidden" tabindex="-1" role="status" aria-live="polite"></div>
           </div>
+
         </div>
       </div>
     </section>
 
   </main>
 
+  <!-- ============================================================ -->
+  <!-- FOOTER                                                        -->
+  <!-- ============================================================ -->
   <footer>
     <div class="container">
       <div class="logo">BTC <span>Consulting</span></div>

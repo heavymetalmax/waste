@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шаблон компонентів — BTC Consulting</title>
+  <link rel="stylesheet" href="../Ua/industrial-modern.css">
+  <style>
+    .template-section {
+      margin: 3rem 0;
+      padding: 2rem;
+      border-left: 4px solid var(--color-blue);
+      background: var(--color-gray-light);
+    }
+    .template-section h2 {
+      border: none;
+      padding: 0;
+      margin: 0 0 1rem 0;
+      font-size: 1.8rem;
+      color: var(--color-blue);
+    }
+    .template-code {
+      background: var(--color-white);
+      border: 2px solid var(--color-black);
+      padding: 1rem;
+      margin: 1rem 0;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1 style="margin-top: 3rem;">Шаблон компонентів BTC Consulting</h1>
+  <p style="font-size: 1.1rem; color: var(--color-gray-dark);">
+    Усі компоненти витягнуті з домашної сторінки та типографічної системи.
+    Элементи не видумуються, а переиспользуються із зразків.
+  </p>
+
+  <!-- COLORS -->
+  <section class="template-section">
+    <h2>Кольорова палітра</h2>
+    <div class="grid-4">
+      <div style="background: var(--color-white); border: 4px solid var(--color-black); padding: 2rem; text-align: center;">
+        <strong>Білий</strong><br>
+        #ffffff<br>
+        var(--color-white)
+      </div>
+      <div style="background: var(--color-black); color: var(--color-white); border: 4px solid var(--color-black); padding: 2rem; text-align: center;">
+        <strong>Чорний</strong><br>
+        #0a0a0a<br>
+        var(--color-black)
+      </div>
+      <div style="background: var(--color-blue); color: var(--color-white); border: 4px solid var(--color-black); padding: 2rem; text-align: center;">
+        <strong>Синій</strong><br>
+        #0033a0<br>
+        var(--color-blue)
+      </div>
+      <div style="background: var(--color-gray-dark); color: var(--color-white); border: 4px solid var(--color-black); padding: 2rem; text-align: center;">
+        <strong>Темно сіра</strong><br>
+        #374151<br>
+        var(--color-gray-dark)
+      </div>
+      <div style="background: var(--color-gray-light); border: 4px solid var(--color-black); padding: 2rem; text-align: center;">
+        <strong>Світло сіра</strong><br>
+        #f3f4f6<br>
+        var(--color-gray-light)
+      </div>
+      <div style="background: #86c2e8; border: 4px solid var(--color-black); padding: 2rem; text-align: center;">
+        <strong>Світло синя</strong><br>
+        #86c2e8
+      </div>
+      <div style="background: #3a9fe0; border: 4px solid var(--color-black); padding: 2rem; text-align: center;">
+        <strong>Середньо синя</strong><br>
+        #3a9fe0
+      </div>
+      <div style="background: #bcd9ee; border: 4px solid var(--color-black); padding: 2rem; text-align: center;">
+        <strong>Блідо синя</strong><br>
+        #bcd9ee
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPOGRAPHY -->
+  <section class="template-section">
+    <h2>Типографія</h2>
+    <p><strong>Шрифт:</strong> Inter (400, 500, 600, 700, 800, 900)</p>
+
+    <h3 style="margin-top: 2rem;">Заголовки (UPPERCASE)</h3>
+    <h1>H1: 2.5–4.5rem, 900 weight, letter-spacing -0.04em</h1>
+    <h2>H2: 2.5–4rem, 800 weight, letter-spacing -0.03em, border-top 8px</h2>
+    <h3>H3: 1.5rem, 800 weight, letter-spacing -0.02em</h3>
+
+    <h3 style="margin-top: 2rem;">Основний текст</h3>
+    <p style="font-size: 1.1rem; font-weight: 500;">P: 1rem, 500 weight, line-height 1.5</p>
+    <p style="font-size: 1.25rem; font-weight: 500;">Опис: 1.1–1.25rem, 500 weight</p>
+  </section>
+
+  <!-- SPACING -->
+  <section class="template-section">
+    <h2>Spacing</h2>
+    <div style="display: grid; gap: 1rem;">
+      <div>
+        <strong>--space-xs:</strong> 0.5rem (8px)
+        <div style="background: var(--color-blue); height: 0.5rem; margin-top: 0.5rem;"></div>
+      </div>
+      <div>
+        <strong>--space-sm:</strong> 1rem (16px)
+        <div style="background: var(--color-blue); height: 1rem; margin-top: 0.5rem;"></div>
+      </div>
+      <div>
+        <strong>--space-md:</strong> 2.5rem (40px)
+        <div style="background: var(--color-blue); height: 2.5rem; margin-top: 0.5rem;"></div>
+      </div>
+      <div>
+        <strong>--space-lg:</strong> 5rem (80px)
+        <div style="background: var(--color-blue); height: 5rem; margin-top: 0.5rem;"></div>
+      </div>
+      <div>
+        <strong>--space-xl:</strong> 7rem (112px)
+        <div style="background: var(--color-blue); height: 7rem; margin-top: 0.5rem;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUTTONS -->
+  <section class="template-section">
+    <h2>Кнопки</h2>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+      <button class="btn btn-primary">Btn Primary</button>
+      <button class="btn btn-outline">Btn Outline</button>
+    </div>
+    <div class="template-code">
+&lt;a href="#" class="btn btn-primary"&gt;Заховай безпекою&lt;/a&gt;
+&lt;a href="#" class="btn btn-outline"&gt;Дізнайся більше&lt;/a&gt;
+    </div>
+    <p><strong>Стиль:</strong> Inter 800, UPPERCASE, letter-spacing 0.05em</p>
+    <p><strong>Primary:</strong> var(--color-blue) фон, білий текст, чорна border на hover</p>
+    <p><strong>Outline:</strong> прозорий фон, чорний текст, чорна border, білий фон на hover</p>
+  </section>
+
+  <!-- RUBRICS -->
+  <section class="template-section">
+    <h2>Rubrics (Теги розділів)</h2>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+      <span class="rubric">Проблема</span>
+      <span class="rubric">Технологія</span>
+      <span class="rubric">Гранти</span>
+    </div>
+    <div class="template-code">
+&lt;span class="rubric"&gt;Проблема&lt;/span&gt;
+    </div>
+    <p><strong>Стиль:</strong> чорна background, білий текст, 0.85rem, 800 weight, UPPERCASE, letter-spacing 0.1em</p>
+  </section>
+
+  <!-- GRIDS -->
+  <section class="template-section">
+    <h2>Системи сіток</h2>
+
+    <h3>Grid-2 (gap: var(--space-lg))</h3>
+    <div class="grid-2">
+      <div class="col-card">Лівій елемент</div>
+      <div class="col-card">Правій елемент</div>
+    </div>
+
+    <h3 style="margin-top: 2rem;">Grid-3 (gap: var(--space-md))</h3>
+    <div class="grid-3">
+      <div class="col-card">Елемент 1</div>
+      <div class="col-card">Елемент 2</div>
+      <div class="col-card">Елемент 3</div>
+    </div>
+
+    <h3 style="margin-top: 2rem;">Grid-4 (gap: var(--space-md))</h3>
+    <div class="grid-4">
+      <div class="col-card">1</div>
+      <div class="col-card">2</div>
+      <div class="col-card">3</div>
+      <div class="col-card">4</div>
+    </div>
+
+    <p style="margin-top: 1rem;"><strong>Responsive:</strong> 1024px → grid-3/4 стають grid-2 | 768px → всі стають 1 колона</p>
+  </section>
+
+  <!-- COL-CARD -->
+  <section class="template-section">
+    <h2>Col-Card (Панель даних)</h2>
+    <div class="grid-2">
+      <div class="col-card">
+        <span class="number">94%</span>
+        <h3>Ключовий показник</h3>
+        <p>Это описание того, почему этот показатель важен. Он подчеркивает проблему.</p>
+      </div>
+      <div class="col-card">
+        <h3>Без числа</h3>
+        <p>Просто блок з інформацією. border 4px solid black, padding var(--space-md)</p>
+      </div>
+    </div>
+    <div class="template-code">
+&lt;div class="col-card"&gt;
+  &lt;span class="number"&gt;94%&lt;/span&gt;
+  &lt;h3&gt;Заголовок&lt;/h3&gt;
+  &lt;p&gt;Текст&lt;/p&gt;
+&lt;/div&gt;
+    </div>
+    <p><strong>Стиль:</strong> border 4px solid black, padding 2.5rem, background white</p>
+  </section>
+
+  <!-- BADGE-TAG -->
+  <section class="template-section">
+    <h2>Badge-Tag</h2>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+      <span class="badge-tag">Для Wójta</span>
+      <span class="badge-tag">Інвестиції</span>
+      <span class="badge-tag">Гранти UE</span>
+    </div>
+    <div class="template-code">
+&lt;span class="badge-tag"&gt;Для Wójta&lt;/span&gt;
+    </div>
+    <p><strong>Стиль:</strong> чорна background, білий текст, padding 0.5rem 1rem, 800 weight, 0.8rem, UPPERCASE, letter-spacing 0.08em</p>
+  </section>
+
+  <!-- SECTIONS WITH BACKGROUNDS -->
+  <section class="template-section">
+    <h2>Типові розділи сторінки</h2>
+
+    <h3 style="color: var(--color-black);">Білий розділ (Стандарт)</h3>
+    <div style="background: var(--color-white); border: 4px solid var(--color-black); padding: 2rem; color: var(--color-black); margin: 1rem 0;">
+      background: var(--color-white) | color: var(--color-black) | border-bottom: 4px solid var(--color-black)
+    </div>
+
+    <h3 style="color: var(--color-blue);">Синій розділ (Контраст)</h3>
+    <div style="background: var(--color-blue); border: 4px solid var(--color-black); padding: 2rem; color: var(--color-white); margin: 1rem 0;">
+      background: var(--color-blue) | color: var(--color-white) | border-bottom: 4px solid var(--color-black)
+    </div>
+
+    <h3 style="color: var(--color-white); background: var(--color-black); padding: 0 0.5rem;">Чорний розділ (Processo)</h3>
+    <div style="background: var(--color-black); border: 4px solid var(--color-white); padding: 2rem; color: var(--color-white); margin: 1rem 0;">
+      background: var(--color-black) | color: var(--color-white) | border-bottom: 4px solid var(--color-white)
+    </div>
+
+    <h3 style="color: var(--color-black);">Сіра розділ (Проблема)</h3>
+    <div style="background: var(--color-gray-light); border: 4px solid var(--color-black); padding: 2rem; color: var(--color-black); margin: 1rem 0;">
+      background: var(--color-gray-light) | color: var(--color-black) | border-bottom: 4px solid var(--color-black)
+    </div>
+
+    <h3 style="color: var(--color-white); background: var(--color-gray-dark); padding: 0 0.5rem;">Темно-сіра розділ (Контакт)</h3>
+    <div style="background: var(--color-gray-dark); border: 4px solid var(--color-black); padding: 2rem; color: var(--color-white); margin: 1rem 0;">
+      background: var(--color-gray-dark) | color: var(--color-white) | border-bottom: 4px solid var(--color-black)
+    </div>
+  </section>
+
+  <!-- HERO INDEX -->
+  <section class="template-section">
+    <h2>Hero Index (Числові показники)</h2>
+    <div class="hero-index">
+      <div class="index-row">
+        <div class="index-val">85<small>%</small></div>
+        <div class="index-desc">
+          <strong>Грант від ЄС</strong>
+          <span>На будівництво заводу</span>
+        </div>
+      </div>
+      <div class="index-row">
+        <div class="index-val">4<small>x</small></div>
+        <div class="index-desc">
+          <strong>Зменшення обсягу</strong>
+          <span>Коефіцієнт компресії</span>
+        </div>
+      </div>
+      <div class="index-row">
+        <div class="index-val">15<small>%</small></div>
+        <div class="index-desc">
+          <strong>Вкладення гміни</strong>
+          <span>Решту платить ЄС</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT DELIVERABLES -->
+  <section class="template-section">
+    <h2>Contact Deliverables (Чек-лист)</h2>
+    <div class="contact-deliverables">
+      <strong>На першій консультації ви отримаєте:</strong>
+      <ul>
+        <li>Технічна оцінка об'єкту</li>
+        <li>Попередня кошторисна (±20%)</li>
+        <li>Сценарій фінансування</li>
+        <li>План подання заявки на грант</li>
+      </ul>
+      <div class="note">Всі матеріали підготовлені в межах безкоштовної консультації.</div>
+    </div>
+  </section>
+
+  <!-- WÓJT BRIDGE -->
+  <section class="template-section">
+    <h2>Wójt Bridge (Інформаційна смуга)</h2>
+    <div class="woit-bridge-card">
+      <span class="badge-tag">Для Wójta</span>
+      <p class="woit-bridge-text"><strong>Gmina Lubin розв'язала проблему за 15% власних коштів.</strong> Решту платили гранти FENX.01.03.</p>
+      <a href="#" style="color: var(--color-blue); font-weight: 800; text-transform: uppercase;">Читайте подробно →</a>
+    </div>
+  </section>
+
+  <!-- PROCESS CARD -->
+  <section class="template-section">
+    <h2>Process Card</h2>
+    <div class="grid-2">
+      <div class="process-card col-card">
+        <span class="number">1</span>
+        <h3>Безкоштовна оцінка</h3>
+        <p>Ми проглянемо ваш об'єкт і складемо попередню кошторисну.</p>
+      </div>
+      <div class="process-card col-card">
+        <span class="number">2</span>
+        <h3>Дизайн системи</h3>
+        <p>Проектуємо конфігурацію, яка максимізує грант та ROI.</p>
+      </div>
+    </div>
+    <p style="margin-top: 1rem;"><strong>Стиль:</strong> border 4px solid var(--color-gray-dark)</p>
+  </section>
+
+  <!-- FAQ -->
+  <section class="template-section">
+    <h2>FAQ (Деталізація)</h2>
+    <details class="faq-item col-card" open>
+      <summary>Яка мінімальна величина ОС для HTC?</summary>
+      <p>Мінімум 8000 RLM. У моделі Hub &amp; Spoke кілька гмін можуть об'єднати ресурси на одну установку.</p>
+    </details>
+    <details class="faq-item col-card">
+      <summary>Скільки часу займає проект?</summary>
+      <p>Від першого контакту до розпалювання: 3–4 роки (ocena → SPEWiN → грант → будівництво → тестування).</p>
+    </details>
+    <p style="margin-top: 1rem;"><strong>Стиль:</strong> border-bottom 2px solid var(--color-black), font-weight 800, ::after +/− символи</p>
+  </section>
+
+  <!-- FOOTER -->
+  <section style="margin-top: 3rem;">
+    <footer>
+      <div class="container">
+        <div class="logo">BTC <span>Consulting</span></div>
+        <div class="footer-links">
+          <a href="#solutions">Розв'язання</a>
+          <a href="#technology">Технологія</a>
+          <a href="#calculator">Калькулятор</a>
+          <a href="#contact">Контакт</a>
+          <a href="#mission">Місія</a>
+          <a href="#whitepaper">Whitepaper</a>
+          <a href="#case">Кейс: Любін</a>
+        </div>
+        <p>&copy; 2025 BTC Consulting. Всі права захищені.</p>
+      </div>
+    </footer>
+  </section>
+
+</div>
+
+</body>
+</html>
