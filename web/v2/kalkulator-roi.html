@@ -1271,19 +1271,12 @@
             </div>
           </div>
 
-          <div class="col-card contact-form-card">
+          <div class="col-card">
             <form id="rfq-form" action="#" method="POST" novalidate>
               <div style="position:absolute; left:-9999px;" aria-hidden="true">
                 <label for="honeypot">Leave blank</label>
                 <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
               </div>
-              <input type="hidden" name="scenario" id="rfq-scenario">
-              <input type="hidden" name="volume_t" id="rfq-volume">
-              <input type="hidden" name="recommended_modules" id="rfq-modules">
-              <input type="hidden" name="capex_city_pln" id="rfq-capex">
-              <input type="hidden" name="savings_pln" id="rfq-savings">
-              <input type="hidden" name="payback_years" id="rfq-payback">
-              <input type="hidden" name="financing_horizon" id="rfq-horizon">
               <div class="form-group">
                 <label for="user-name">Imię i nazwisko / stanowisko *</label>
                 <input type="text" id="user-name" name="name" required minlength="2" autocomplete="name">
@@ -1737,13 +1730,15 @@
     document.getElementById('srp-cfg-step3-back').addEventListener('click', function(){ cfgShowStep(2); });
 
     document.getElementById('srp-cfg-step3-submit').addEventListener('click', function() {
-      document.getElementById('rfq-scenario').value  = cfgState.sc || currentSC;
-      document.getElementById('rfq-volume').value    = lastVolume || 0;
-      document.getElementById('rfq-modules').value    = cfgState.modules || 0;
-      document.getElementById('rfq-capex').value     = Math.round(lastRes ? lastRes.capex : 0);
-      document.getElementById('rfq-savings').value   = Math.round(lastRes ? lastRes.save : 0);
-      document.getElementById('rfq-payback').value   = isFinite(lastRoiYears) ? Math.round(lastRoiYears*10)/10 : '';
-      document.getElementById('rfq-horizon').value   = cfgState.horizon || '';
+      sessionStorage.setItem('rfq-context', JSON.stringify({
+        scenario: cfgState.sc || currentSC,
+        volume_t: lastVolume || 0,
+        recommended_modules: cfgState.modules || 0,
+        capex_city_pln: Math.round(lastRes ? lastRes.capex : 0),
+        savings_pln: Math.round(lastRes ? lastRes.save : 0),
+        payback_years: isFinite(lastRoiYears) ? Math.round(lastRoiYears*10)/10 : '',
+        financing_horizon: cfgState.horizon || ''
+      }));
       document.getElementById('contact').scrollIntoView({behavior:'smooth'});
     });
 
