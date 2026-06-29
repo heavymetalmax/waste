@@ -5,7 +5,7 @@ This repository is organized exclusively for the **pl_v2** project - a Polish la
 ## Project Structure
 
 ```
-pl_v2/               # Main project directory
+v2/                 # Main project directory
 ├── index.html       # Homepage
 ├── case-lubin.html  # Case study
 ├── chat.html        # Chat page
@@ -30,15 +30,15 @@ _archive/           # Archived projects and legacy files
 └── todo/            # Legacy task lists
 ```
 
-## Working with pl_v2
+## Working with v2
 
-All active development should be done in the `pl_v2/` directory. Shared assets (images, design system) are available in the root-level `design-system/` and `img/` directories.
+All active development should be done in the `v2/` directory. Shared assets (images, design system) are available in the root-level `design-system/` and `img/` directories.
 
 ### Key Files
-- **pl_v2/design-system.css** - Main styling for pl_v2
+- **v2/design-system.css** - Main styling
 - **design-system/design-guide.html** - Visual design reference
-- **pl_v2/DESIGN_SYSTEM.md** - Design documentation
+- **v2/DESIGN_SYSTEM.md** - Design documentation
 
 ## Archive
 
-All other projects, legacy code, and automation scripts have been moved to `_archive/` to keep the workspace focused on pl_v2 development.
+All other projects, legacy code, and automation scripts have been moved to `_archive/` to keep the workspace focused on v2 development.
