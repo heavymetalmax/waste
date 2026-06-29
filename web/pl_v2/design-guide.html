@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System Guide — PL_V2</title>
+  <link rel="stylesheet" href="./design-system.css">
+  <style>
+    body {
+      background: var(--color-gray-light);
+    }
+
+    .guide-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-lg);
+    }
+
+    .guide-header {
+      background: var(--color-white);
+      padding: var(--space-lg);
+      border-bottom: 4px solid var(--color-black);
+      margin-bottom: var(--space-lg);
+    }
+
+    .guide-header h1 {
+      margin: 0 0 var(--space-sm) 0;
+    }
+
+    .guide-header p {
+      margin: 0;
+    }
+
+    .guide-section {
+      background: var(--color-white);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
+      border-left: 4px solid var(--color-blue);
+    }
+
+    .guide-section h2 {
+      margin-top: 0;
+      border: none;
+      padding: 0;
+      font-size: 1.75rem;
+      text-transform: none;
+    }
+
+    .component-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+
+    .component {
+      padding: var(--space-md);
+      background: var(--color-gray-light);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border-light, #e5e7eb);
+    }
+
+    .component-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--color-gray-dark);
+      margin-bottom: var(--space-xs);
+      display: block;
+    }
+
+    .color-swatch {
+      display: inline-block;
+      width: 100px;
+      height: 60px;
+      border-radius: var(--radius-md);
+      margin-right: var(--space-md);
+      margin-bottom: var(--space-xs);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      vertical-align: middle;
+    }
+
+    .color-info {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    code {
+      background: var(--color-gray-light);
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      font-size: 0.85rem;
+      font-family: 'Monaco', 'Courier New', monospace;
+    }
+
+    .code-block {
+      background: #f5f5f5;
+      border-left: 3px solid var(--color-blue);
+      padding: var(--space-md);
+      border-radius: var(--radius-sm);
+      overflow-x: auto;
+      margin: var(--space-md) 0;
+    }
+
+    .code-block code {
+      background: transparent;
+      padding: 0;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .component-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="guide-wrapper">
+
+    <!-- Header -->
+    <div class="guide-header">
+      <h1>PL_V2 Design System</h1>
+      <p>Єдина дизайн-бібліотека для всіх сторінок pl_v2. <a href="./DESIGN_SYSTEM.md" style="color: var(--color-blue); font-weight: 700;">Повна документація →</a></p>
+    </div>
+
+    <!-- Colors -->
+    <div class="guide-section">
+      <h2>🎨 Color Palette</h2>
+
+      <div class="component-row">
+        <div class="component">
+          <span class="component-label">Primary Blue</span>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div class="color-swatch" style="background: var(--color-blue);"></div>
+            <div class="color-info">
+              <code>#0033a0</code><br>
+              Headings, buttons, accents
+            </div>
+          </div>
+        </div>
+        <div class="component">
+          <span class="component-label">Gray Light</span>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div class="color-swatch" style="background: var(--color-gray-light); border: 2px solid #ccc;"></div>
+            <div class="color-info">
+              <code>#f3f4f6</code><br>
+              Backgrounds, borders
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="component-row">
+        <div class="component">
+          <span class="component-label">Gray Dark</span>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div class="color-swatch" style="background: var(--color-gray-dark);"></div>
+            <div class="color-info">
+              <code>#374151</code><br>
+              Secondary text, labels
+            </div>
+          </div>
+        </div>
+        <div class="component">
+          <span class="component-label">Teal Accent</span>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div class="color-swatch" style="background: var(--color-teal);"></div>
+            <div class="color-info">
+              <code>#0D9488</code><br>
+              Secondary accent
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Typography -->
+    <div class="guide-section">
+      <h2>🔤 Typography</h2>
+
+      <h3 style="margin-top: 0;">Headings</h3>
+      <div class="component-row">
+        <div class="component">
+          <span class="component-label">&lt;h1&gt;</span>
+          <h1 style="margin: 0; font-size: 2.5rem;">Hero Heading</h1>
+          <code>clamp(1.8rem, 4vw, 4.2rem), weight 900</code>
+        </div>
+        <div class="component">
+          <span class="component-label">&lt;h2&gt;</span>
+          <h2 style="margin: 0; font-size: 1.75rem; border: none; padding: 0;">Section Heading</h2>
+          <code>clamp(2rem, 3.5vw, 3rem), weight 800, uppercase</code>
+        </div>
+      </div>
+
+      <div class="component-row">
+        <div class="component">
+          <span class="component-label">&lt;h3&gt;</span>
+          <h3 style="margin: 0;">Subsection</h3>
+          <code>1.5rem, weight 800</code>
+        </div>
+        <div class="component">
+          <span class="component-label">&lt;p&gt;</span>
+          <p style="margin: 0;">Body paragraph text. Uses Inter 500 weight, 1rem size, 1.5 line-height. Color is dark gray.</p>
+          <code>1rem, weight 500, 1.5 line-height</code>
+        </div>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="guide-section">
+      <h2>🔘 Buttons</h2>
+
+      <div class="component-row">
+        <div class="component">
+          <span class="component-label">Primary Button</span>
+          <a href="#" class="btn btn-primary">Click Me</a>
+          <div class="code-block"><code>.btn .btn-primary</code></div>
+        </div>
+        <div class="component">
+          <span class="component-label">Secondary Button</span>
+          <button class="btn btn-secondary">Click Me</button>
+          <div class="code-block"><code>.btn .btn-secondary</code></div>
+        </div>
+      </div>
+
+      <div class="component-row">
+        <div class="component">
+          <span class="component-label">Disabled Button</span>
+          <button class="btn btn-primary" disabled>Disabled</button>
+          <div class="code-block"><code>.btn disabled</code></div>
+        </div>
+        <div class="component">
+          <span class="component-label">Button with Icon</span>
+          <a href="#" class="btn btn-primary">
+            <span>→</span>
+            <span>With Icon</span>
+          </a>
+          <div class="code-block"><code>Flex gap built-in</code></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="guide-section">
+      <h2>📦 Cards</h2>
+
+      <div class="component-row">
+        <div class="card">
+          <h3 style="margin-top: 0;">Regular Card</h3>
+          <p>Standard card with shadow and border. Lifts on hover.</p>
+          <span class="component-label">.card</span>
+        </div>
+        <div class="glass-card">
+          <h3 style="margin-top: 0;">Glass Card</h3>
+          <p>Translucent card with backdrop blur. Modern look.</p>
+          <span class="component-label">.glass-card</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paper Checklist / Contact -->
+    <div class="guide-section">
+      <h2>📋 Contact Card (Paper Checklist)</h2>
+
+      <div class="component" style="max-width: 400px;">
+        <div class="paper-checklist">
+          <div class="paper-header">
+            <span class="paper-title">KONTAKT</span>
+          </div>
+          <div class="contact-card">
+            <div class="contact-row">
+              <div class="contact-row-label">Telefon</div>
+              <div class="contact-row-value"><a href="tel:+48608003458">+48 608 003 458</a></div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-row-label">E-mail</div>
+              <div class="contact-row-value"><a href="mailto:contact@biotc.pl">contact@biotc.pl</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spacing -->
+    <div class="guide-section">
+      <h2>📏 Spacing Scale (8px base)</h2>
+
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--color-gray-dark);">
+            <th style="text-align: left; padding: var(--space-sm);">Variable</th>
+            <th style="text-align: left; padding: var(--space-sm);">Size</th>
+            <th style="text-align: left; padding: var(--space-sm);">Usage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--color-gray-light);">
+            <td style="padding: var(--space-sm);"><code>--space-xs</code></td>
+            <td style="padding: var(--space-sm);">0.5rem (8px)</td>
+            <td style="padding: var(--space-sm);">Small gaps, tight spacing</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--color-gray-light);">
+            <td style="padding: var(--space-sm);"><code>--space-sm</code></td>
+            <td style="padding: var(--space-sm);">1rem (16px)</td>
+            <td style="padding: var(--space-sm);">Default gaps, padding</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--color-gray-light);">
+            <td style="padding: var(--space-sm);"><code>--space-md</code></td>
+            <td style="padding: var(--space-sm);">2.5rem (40px)</td>
+            <td style="padding: var(--space-sm);">Section spacing</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--color-gray-light);">
+            <td style="padding: var(--space-sm);"><code>--space-lg</code></td>
+            <td style="padding: var(--space-sm);">5rem (80px)</td>
+            <td style="padding: var(--space-sm);">Large section gaps</td>
+          </tr>
+          <tr>
+            <td style="padding: var(--space-sm);"><code>--space-xl</code></td>
+            <td style="padding: var(--space-sm);">7rem (112px)</td>
+            <td style="padding: var(--space-sm);">Hero spacing</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Layout -->
+    <div class="guide-section">
+      <h2>🎯 Layouts</h2>
+
+      <h3 style="margin-top: 0;">Container & Grid</h3>
+      <div class="component">
+        <span class="component-label">.container</span>
+        <p>Max-width 1300px, centered. Use for main content.</p>
+        <code>.container { max-width: 1300px; margin: 0 auto; padding: 0 var(--space-md); }</code>
+      </div>
+
+      <div class="component" style="margin-top: var(--space-md);">
+        <span class="component-label">.grid-2</span>
+        <div class="grid-2">
+          <div style="background: var(--color-gray-light); padding: var(--space-md); border-radius: var(--radius-md); text-align: center;">Column 1</div>
+          <div style="background: var(--color-gray-light); padding: var(--space-md); border-radius: var(--radius-md); text-align: center;">Column 2</div>
+        </div>
+        <code style="display: block; margin-top: var(--space-sm);">.grid-2 { grid-template-columns: repeat(2, 1fr); gap: var(--space-lg); }</code>
+      </div>
+
+      <h3>Flex Utilities</h3>
+      <div class="component">
+        <span class="component-label">.flex .flex-between</span>
+        <div class="flex flex-between" style="background: var(--color-gray-light); padding: var(--space-md); border-radius: var(--radius-md);">
+          <span>Left align</span>
+          <span>Right align</span>
+        </div>
+        <code style="display: block; margin-top: var(--space-sm);">.flex .flex-between { display: flex; justify-content: space-between; }</code>
+      </div>
+    </div>
+
+    <!-- Forms -->
+    <div class="guide-section">
+      <h2>📝 Forms</h2>
+
+      <div class="component" style="max-width: 400px;">
+        <span class="component-label">Input Field</span>
+        <div class="form-group">
+          <label for="example-input">Name</label>
+          <input type="text" id="example-input" placeholder="Enter your name">
+        </div>
+      </div>
+
+      <div class="component" style="max-width: 400px; margin-top: var(--space-md);">
+        <span class="component-label">Textarea</span>
+        <div class="form-group">
+          <label for="example-textarea">Message</label>
+          <textarea id="example-textarea" placeholder="Enter your message" rows="4"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tech Components -->
+    <div class="guide-section">
+      <h2>⚙️ Tech Page Components</h2>
+
+      <h3 style="margin-top: 0;">Tech Stat Grid</h3>
+      <div class="tech-stat-grid">
+        <div class="tech-stat">
+          <span class="tech-stat-val">200°C</span>
+          <span class="tech-stat-label">Reaction Temperature</span>
+        </div>
+        <div class="tech-stat">
+          <span class="tech-stat-val">2 h</span>
+          <span class="tech-stat-label">Transformation Cycle</span>
+        </div>
+        <div class="tech-stat">
+          <span class="tech-stat-val">−80%</span>
+          <span class="tech-stat-label">Sludge Volume Reduction</span>
+        </div>
+        <div class="tech-stat">
+          <span class="tech-stat-val">20–25<small> MJ/kg</small></span>
+          <span class="tech-stat-label">Hydrochar Heating Value</span>
+        </div>
+      </div>
+
+      <h3>Hydrochar Spec List</h3>
+      <div class="card" style="max-width: 500px;">
+        <ul class="hydrochar-spec-list">
+          <li>
+            <span class="spec-key">Heating value</span>
+            <span class="spec-val spec-val--accent">20–25 MJ/kg</span>
+          </li>
+          <li>
+            <span class="spec-key">Volume reduction</span>
+            <span class="spec-val">−75 — −80%</span>
+          </li>
+          <li>
+            <span class="spec-key">PFAS destruction</span>
+            <span class="spec-val spec-val--teal">100%</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Text Utilities -->
+    <div class="guide-section">
+      <h2>🔤 Text Utilities</h2>
+
+      <div class="component">
+        <p class="text-muted">This text is muted (secondary color)</p>
+        <code>.text-muted</code>
+      </div>
+
+      <div class="component" style="margin-top: var(--space-md);">
+        <p style="font-weight: 800;">This text is bold</p>
+        <code>.font-bold</code>
+      </div>
+
+      <div class="component" style="margin-top: var(--space-md);">
+        <p style="text-align: center;">This text is centered</p>
+        <code>.text-center</code>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="background: var(--color-white); padding: var(--space-lg); border-top: 4px solid var(--color-blue); margin-top: var(--space-lg);">
+      <p style="margin: 0; color: var(--color-gray-dark);">
+        <strong>📖 Full documentation:</strong> See <code>DESIGN_SYSTEM.md</code> for detailed usage guide and best practices.
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>

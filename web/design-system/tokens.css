@@ -1,0 +1,186 @@
+/* ==========================================================================
+   BTC Consulting — Unified Design System v2.0
+   tokens.css — Design tokens (colors, typography, spacing, shadows)
+   ========================================================================== */
+
+:root {
+  /* ========================================================================
+     1. COLOR SYSTEM
+     ======================================================================== */
+
+  /* Brand Colors */
+  --color-primary: #046BD2;              /* Corporate blue */
+  --color-primary-dark: #0255b0;         /* Darker blue for gradients */
+  --color-secondary: #0D9488;            /* Teal accent */
+  --color-accent: #D35400;               /* Orange (secondary accent) */
+
+  /* Backgrounds */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F8FAFC;         /* Subtle surface */
+  --color-bg-tertiary: #F3F4F6;          /* Concrete-like */
+
+  /* Text Colors */
+  --color-text-primary: #0F172A;         /* Dark text */
+  --color-text-secondary: #475569;       /* Muted text */
+  --color-text-light: #64748B;           /* Light gray text */
+  --color-text-white: #FFFFFF;
+  --color-text-black: #0a0a0a;           /* Pure black (industrial) */
+
+  /* Borders */
+  --color-border-light: #E2E8F0;         /* Light border */
+  --color-border-dark: #94A3B8;          /* Dark border */
+  --color-border-focus: var(--color-primary);
+  --color-border-error: #EF4444;
+
+  /* Glows / Overlays */
+  --color-primary-glow: rgba(4, 107, 210, 0.06);
+  --color-secondary-glow: rgba(13, 148, 136, 0.06);
+  --color-accent-glow: rgba(211, 84, 0, 0.06);
+
+  /* Semantic */
+  --color-success: #16a34a;
+  --color-warning: #facc15;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  /* ========================================================================
+     2. TYPOGRAPHY SYSTEM
+     ======================================================================== */
+
+  /* Font Families */
+  --font-display: 'Outfit', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Monaco', 'Courier New', monospace;
+
+  /* Font Weights */
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --fw-black: 900;
+
+  /* Font Sizes - Responsive Scale */
+  --text-xs: 0.75rem;                                   /* 12px */
+  --text-sm: 0.875rem;                                  /* 14px */
+  --text-base: 1rem;                                    /* 16px */
+  --text-lg: 1.125rem;                                  /* 18px */
+  --text-xl: 1.25rem;                                   /* 20px */
+  --text-2xl: 1.5rem;                                   /* 24px */
+  --text-3xl: clamp(2rem, 3.5vw, 2.75rem);
+  --text-4xl: clamp(2.5rem, 5vw, 3.75rem);
+  --text-display: clamp(2.5rem, 6vw, 4.5rem);          /* Hero headings */
+
+  /* Line Heights */
+  --lh-tight: 1.1;
+  --lh-snug: 1.2;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.6;
+  --lh-loose: 1.8;
+
+  /* Letter Spacing */
+  --ls-tight: -0.04em;
+  --ls-normal: -0.02em;
+  --ls-wide: 0.05em;
+  --ls-wider: 0.1em;
+  --ls-widest: 0.15em;
+
+  /* ========================================================================
+     3. SPACING SYSTEM (8px base)
+     ======================================================================== */
+
+  --space-0: 0;
+  --space-xs: 0.5rem;                   /* 8px */
+  --space-sm: 0.75rem;                  /* 12px */
+  --space-md: 1.5rem;                   /* 24px */
+  --space-lg: 2.5rem;                   /* 40px */
+  --space-xl: 4rem;                     /* 64px */
+  --space-2xl: 6rem;                    /* 96px */
+  --space-3xl: 8rem;                    /* 128px */
+
+  /* Padding aliases (semantic) */
+  --pad-inline-sm: 1rem;
+  --pad-inline-md: 1.5rem;
+  --pad-inline-lg: 2.5rem;
+  --pad-block-sm: 0.75rem;
+  --pad-block-md: 1.5rem;
+  --pad-block-lg: 2.5rem;
+
+  /* ========================================================================
+     4. BORDER RADIUS
+     ======================================================================== */
+
+  --radius-sm: 0.375rem;                /* 6px - buttons, small elements */
+  --radius-md: 0.75rem;                 /* 12px - cards, inputs */
+  --radius-lg: 1rem;                    /* 16px - large cards */
+  --radius-xl: 1.5rem;                  /* 24px - featured cards */
+  --radius-full: 9999px;                /* circles, pills */
+
+  /* ========================================================================
+     5. SHADOWS
+     ======================================================================== */
+
+  --shadow-none: none;
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 4px 24px rgba(15, 23, 42, 0.08);
+  --shadow-xl: 0 12px 32px rgba(15, 23, 42, 0.12);
+  --shadow-card: var(--shadow-md);
+  --shadow-card-hover: var(--shadow-xl);
+  --shadow-btn: 0 4px 14px rgba(4, 107, 210, 0.25);
+  --shadow-glass: 0 8px 32px rgba(31, 38, 135, 0.17);
+
+  /* ========================================================================
+     6. TRANSITIONS & ANIMATIONS
+     ========================================================================== */
+
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ========================================================================
+     7. Z-INDEX SCALE
+     ======================================================================== */
+
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal: 400;
+  --z-popover: 500;
+  --z-notification: 600;
+
+  /* ========================================================================
+     8. BACKDROP FILTER (Glass Morphism)
+     ======================================================================== */
+
+  --glass-blur: blur(12px);
+  --glass-filter: blur(12px);
+
+  /* ========================================================================
+     9. BREAKPOINTS (Mobile-First)
+     ======================================================================== */
+
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* Dark mode variant (optional, for future use) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg-primary: #0f172a;
+    --color-bg-secondary: #1e293b;
+    --color-bg-tertiary: #334155;
+    --color-text-primary: #f1f5f9;
+    --color-text-secondary: #cbd5e1;
+    --color-border-light: #475569;
+    --color-border-dark: #64748b;
+  }
+}

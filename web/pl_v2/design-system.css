@@ -1,0 +1,699 @@
+/* ==========================================================================
+   BTC Consulting — PL_V2 Unified Design System
+   design-system.css — базові токени + компоненти для всіх сторінок pl_v2
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* =========================================================================
+   1. DESIGN TOKENS (Color, Typography, Spacing)
+   ========================================================================= */
+
+:root {
+  /* ── Colors ─────────────────────────────────────────────────────── */
+  --color-white: #ffffff;
+  --color-black: #0a0a0a;
+  --color-blue: #0033a0;                /* Deep corporate industrial blue */
+  --color-gray-light: #f3f4f6;          /* Concrete */
+  --color-gray-dark: #374151;           /* Steel */
+  --color-teal: #0D9488;                /* Teal accent */
+
+  --bg-color: var(--color-white);
+  --text-main: var(--color-black);
+  --border-color: var(--color-black);
+
+  /* ── Typography ─────────────────────────────────────────────────── */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Font weights */
+  --fw-500: 500;
+  --fw-600: 600;
+  --fw-700: 700;
+  --fw-800: 800;
+  --fw-900: 900;
+
+  /* Font sizes (responsive where needed) */
+  --text-xs: 0.75rem;                   /* 12px */
+  --text-sm: 0.875rem;                  /* 14px */
+  --text-base: 1rem;                    /* 16px */
+  --text-lg: 1.125rem;                  /* 18px */
+  --text-xl: 1.25rem;                   /* 20px */
+  --text-2xl: 1.5rem;                   /* 24px */
+  --text-3xl: clamp(2rem, 3.5vw, 2.75rem);
+  --text-4xl: clamp(2.5rem, 5vw, 3.75rem);
+
+  /* ── Spacing (8px base) ──────────────────────────────────────────── */
+  --space-xs: 0.5rem;                   /* 8px */
+  --space-sm: 1rem;                     /* 16px */
+  --space-md: 2.5rem;                   /* 40px */
+  --space-lg: 5rem;                     /* 80px */
+  --space-xl: 7rem;                     /* 112px */
+
+  /* ── Border Radius ───────────────────────────────────────────────── */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+
+  /* ── Shadows ─────────────────────────────────────────────────────── */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 32px rgba(0, 0, 0, 0.12);
+
+  /* ── Transitions ─────────────────────────────────────────────────── */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =========================================================================
+   2. BASE STYLES & RESET
+   ========================================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-primary);
+  line-height: 1.5;
+  font-size: 17px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* =========================================================================
+   3. TYPOGRAPHY
+   ========================================================================= */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 4vw, 4.2rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin-bottom: var(--space-sm);
+  max-width: 900px;
+}
+
+h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-lg);
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.02em;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+p {
+  margin-bottom: var(--space-sm);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+strong, .font-bold {
+  font-weight: 800;
+}
+
+small {
+  font-size: 0.875rem;
+}
+
+.text-muted {
+  color: var(--color-gray-dark);
+}
+
+/* =========================================================================
+   4. LAYOUT
+   ========================================================================= */
+
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Flex utilities */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gap-xs { gap: var(--space-xs); }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+
+/* =========================================================================
+   5. HEADER
+   ========================================================================= */
+
+header {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--color-gray-light);
+  background: var(--bg-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.logo span {
+  font-weight: 700;
+}
+
+/* =========================================================================
+   6. HERO SECTION
+   ========================================================================= */
+
+#hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 4px solid var(--color-black);
+  background-color: var(--color-blue);
+}
+
+@media (min-width: 769px) {
+  #hero {
+    min-height: calc(100vh - 96px);
+    max-height: calc(100vh - 96px);
+    display: flex;
+    align-items: center;
+    padding: var(--space-sm) 0;
+  }
+
+  #hero h1 {
+    font-size: 4.2rem;
+    line-height: 1.05;
+    margin-bottom: var(--space-xs);
+  }
+
+  #hero .hero-desc {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: var(--space-sm);
+  }
+}
+
+@media (max-width: 768px) {
+  #hero {
+    padding: var(--space-md) 0;
+  }
+}
+
+.hero-bars-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+}
+
+.hero-bars-bg .stripe {
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* =========================================================================
+   7. CARDS & SECTIONS
+   ========================================================================= */
+
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-base);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-base);
+}
+
+.glass-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+section {
+  padding-block: var(--space-lg);
+}
+
+/* =========================================================================
+   8. PAPER CHECKLIST / CONTACT CARD
+   ========================================================================= */
+
+.paper-checklist {
+  background: var(--color-white);
+  border: 3px solid var(--color-black);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm);
+  box-shadow: var(--shadow-md);
+}
+
+.paper-header {
+  padding-bottom: var(--space-sm);
+  border-bottom: 3px solid var(--color-black);
+  margin-bottom: var(--space-sm);
+}
+
+.paper-title {
+  font-size: 0.85rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-blue);
+  display: block;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.contact-row {
+  padding: 1rem 0;
+  border-bottom: 2px solid var(--color-gray-dark);
+}
+
+.contact-row:last-child {
+  border-bottom: none;
+}
+
+.contact-row-label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-blue);
+  margin-bottom: 0.4rem;
+}
+
+.contact-row-value {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.contact-row-value a {
+  color: var(--color-black);
+}
+
+.contact-row-value a:hover {
+  color: var(--color-blue);
+}
+
+/* =========================================================================
+   9. TECH PAGE COMPONENTS
+   ========================================================================= */
+
+/* Tech stat grid */
+.tech-stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.tech-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.tech-stat-val {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--color-blue);
+  line-height: 1;
+}
+
+.tech-stat-val small {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.tech-stat-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-gray-dark);
+}
+
+.tech-stat-note {
+  margin-top: var(--space-sm);
+  font-size: 0.85rem;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-gray-dark);
+}
+
+/* Process flow / config flow */
+.flow-line {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin: var(--space-sm) 0;
+}
+
+.flow-line .flow-accent {
+  color: var(--color-blue);
+}
+
+.flow-line .flow-teal {
+  color: var(--color-teal);
+}
+
+.process-step-spec {
+  margin-top: auto;
+  padding-top: var(--space-sm);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.scenario-benefits {
+  padding-left: 1.2rem;
+  font-weight: 600;
+  list-style: disc;
+}
+
+.scenario-targets {
+  margin-top: var(--space-sm);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding-top: var(--space-sm);
+  border-top: 2px solid var(--color-black);
+}
+
+/* Hydrochar specs */
+.hydrochar-spec-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hydrochar-spec-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--color-gray-light);
+  font-weight: 600;
+}
+
+.hydrochar-spec-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.spec-key {
+  color: var(--color-gray-dark);
+}
+
+.spec-val {
+  font-weight: 800;
+}
+
+.spec-val--accent {
+  color: var(--color-blue);
+}
+
+.spec-val--teal {
+  color: var(--color-teal);
+}
+
+/* Model cards */
+.model-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.model-capacity {
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.model-spec-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-sm) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.model-spec-list li {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+
+.model-spec-list li span {
+  font-weight: 600;
+  color: var(--color-gray-dark);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.model-spec-list li strong {
+  font-weight: 800;
+}
+
+/* =========================================================================
+   10. BUTTONS
+   ========================================================================= */
+
+button, .btn {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-base);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--color-blue);
+  color: var(--color-white);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  background: #0028a0;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-blue);
+  border: 2px solid var(--color-blue);
+}
+
+.btn-secondary:hover {
+  background: var(--color-blue);
+  color: var(--color-white);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =========================================================================
+   11. FORMS
+   ========================================================================= */
+
+input, textarea, select {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-gray-light);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  color: var(--text-main);
+  transition: var(--transition-fast);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-blue);
+  box-shadow: 0 0 0 3px rgba(0, 51, 160, 0.1);
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.floating-label {
+  position: absolute;
+  font-size: 0.875rem;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: var(--transition-fast);
+  color: var(--color-gray-dark);
+}
+
+input:focus + .floating-label,
+input:not(:placeholder-shown) + .floating-label {
+  top: -8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-blue);
+}
+
+/* =========================================================================
+   12. RESPONSIVE
+   ========================================================================= */
+
+@media (max-width: 768px) {
+  html, body {
+    height: auto;
+    overflow: auto;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  section {
+    padding-block: var(--space-md);
+  }
+
+  .tech-stat-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================================
+   13. PRINT STYLES
+   ========================================================================= */
+
+@media print {
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  button, .btn {
+    display: none;
+  }
+}

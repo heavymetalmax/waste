@@ -6,7 +6,7 @@
   <title>Analiza TEO — Ocena techniczno-ekonomiczna oczyszczalni | BTC Consulting</title>
   <meta name="description" content="Bezpłatna wstępna ocena i pełna analiza TEO dla Twojej oczyszczalni. Konkretne liczby: ROI, oszczędności, ścieżka grantowa NFOŚiGW/LIFE do 90% CapEx. Realizacja 4–6 tygodni.">
 
-  <link rel="stylesheet" href="../Ua/industrial-modern.css">
+  <link rel="stylesheet" href="./design-system.css">
 
   <link rel="alternate" hreflang="pl-PL" href="https://btcconsulting.pl/uslugi/teo" />
 
@@ -40,17 +40,7 @@
 </head>
 <body>
 
-  <header>
-    <div class="container" style="display:flex; align-items:center; justify-content:space-between;">
-      <a href="index.html" class="logo">BTC <span>Consulting</span></a>
-      <nav style="display:flex; align-items:center; gap:2rem;">
-        <a href="index.html" style="font-weight:800; text-transform:uppercase; font-size:0.9rem;">Rozwiązania</a>
-        <a href="technology.html" style="font-weight:800; text-transform:uppercase; font-size:0.9rem;">Technologia</a>
-        <a href="kalkulator-roi.html" style="font-weight:800; text-transform:uppercase; font-size:0.9rem;">Kalkulator</a>
-        <a href="#contact" class="btn btn-outline">Zdobądź ocenę</a>
-      </nav>
-    </div>
-  </header>
+  <script src="partials/header.js"></script>
 
   <main>
 
@@ -349,53 +339,37 @@
 
         <div class="grid-2" style="margin-top: var(--space-lg);">
           <div class="col-card">
-            <form id="teo-form" onsubmit="handleSubmit(event)">
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="teo-name">Imię i nazwisko *</label>
-                  <input type="text" id="teo-name" name="name" required placeholder="Jan Kowalski">
-                </div>
-                <div class="form-group">
-                  <label for="teo-role">Stanowisko</label>
-                  <input type="text" id="teo-role" name="role" placeholder="Kierownik oczyszczalni">
-                </div>
+            <form id="rfq-form" action="#" method="POST" novalidate>
+              <div style="position:absolute; left:-9999px;" aria-hidden="true">
+                <label for="honeypot">Leave blank</label>
+                <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
               </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="teo-email">E-mail *</label>
-                  <input type="email" id="teo-email" name="email" required placeholder="jan@wodociagi.pl">
-                </div>
-                <div class="form-group">
-                  <label for="teo-phone">Telefon</label>
-                  <input type="tel" id="teo-phone" name="phone" placeholder="+48 500 000 000">
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="teo-wwtp">Nazwa oczyszczalni / gminy *</label>
-                  <input type="text" id="teo-wwtp" name="wwtp" required placeholder="Oczyszczalnia Miejska w...">
-                </div>
-                <div class="form-group">
-                  <label for="teo-volume">Wolumen osadu (t/rok)</label>
-                  <input type="text" id="teo-volume" name="volume" placeholder="ok. 500 t/rok">
-                </div>
-              </div>
-
               <div class="form-group">
-                <label for="teo-message">Pytanie lub opis sytuacji</label>
-                <textarea id="teo-message" name="message" rows="3" placeholder="Np. aktualnie suszymy osad i wysyłamy do cementowni, szukamy rozwiązania przed 2027..."></textarea>
+                <label for="user-name">Imię i nazwisko / stanowisko *</label>
+                <input type="text" id="user-name" name="name" required minlength="2" autocomplete="name">
               </div>
-
-              <button type="submit" class="btn btn-primary" style="width: 100%;">Wyślij zapytanie o bezpłatną ocenę →</button>
+              <div class="form-group">
+                <label for="user-phone">Telefon kontaktowy *</label>
+                <input type="tel" id="user-phone" name="phone" required autocomplete="tel" inputmode="tel">
+              </div>
+              <div class="form-group">
+                <label for="user-company">Miasto / nazwa przedsiębiorstwa</label>
+                <input type="text" id="user-company" name="company" autocomplete="organization">
+              </div>
+              <div class="form-group">
+                <label for="user-type">Typ obiektu</label>
+                <select id="user-type" name="object_type">
+                  <option value="" disabled selected></option>
+                  <option value="waterutil">Regionalne przedsiębiorstwo wodociągowe (od 50 tys.)</option>
+                  <option value="community">Gmina (od 10 tys.)</option>
+                  <option value="agro">Przedsiębiorstwo rolno-spożywcze</option>
+                  <option value="other">Inne</option>
+                </select>
+              </div>
+              <button type="submit" id="form-submit-btn" class="btn btn-primary" style="width: 100%;">Wyślij zapytanie o bezpłatną ocenę →</button>
               <p style="font-size: 0.8rem; text-align: center; margin-top: 0.75rem;">Odpowiadamy w ciągu 24 godzin · Dane chronione zgodnie z RODO</p>
             </form>
-
-            <div id="form-success" style="display:none; text-align:center; padding: var(--space-lg);">
-              <h3>Dziękujemy — odezwiemy się w ciągu 24 godzin.</h3>
-              <p>Sprawdź skrzynkę e-mail — wyślemy potwierdzenie z propozycją terminu rozmowy.</p>
-            </div>
+            <div id="form-status" class="hidden" tabindex="-1" role="status" aria-live="polite"></div>
           </div>
 
           <div class="col-card">
@@ -433,13 +407,7 @@
     </div>
   </footer>
 
-  <script>
-    function handleSubmit(e) {
-      e.preventDefault();
-      document.getElementById('teo-form').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-    }
-  </script>
+  <script src="../app.min.js?v=5"></script>
 
 </body>
 </html>

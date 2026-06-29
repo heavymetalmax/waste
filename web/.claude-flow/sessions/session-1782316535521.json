@@ -1,0 +1,14 @@
+{
+  "id": "session-1782316535521",
+  "startedAt": "2026-06-24T15:55:35.521Z",
+  "cwd": "/Users/max/Projects/Waste/web",
+  "context": {},
+  "metrics": {
+    "edits": 5,
+    "commands": 0,
+    "tasks": 0,
+    "errors": 0
+  },
+  "endedAt": "2026-06-24T16:24:42.378Z",
+  "duration": 1746858
+}
