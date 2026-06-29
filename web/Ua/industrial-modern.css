@@ -915,3 +915,12 @@ td:first-child {
 
 .paper-checklist .check-item:nth-child(5) .check-icon svg { animation-delay: 6.5s; }
 .paper-checklist .check-item:nth-child(6) .check-icon svg { animation-delay: 7.5s; }
+
+/* Honeypot hiding */
+.visually-hidden {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
