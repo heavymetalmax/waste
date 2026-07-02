@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Misja — O BTC Consulting | BTC Consulting</title>
+  <meta name="description" content="BTC Consulting — jedyna polska firma z własną technologią HTC dla oczyszczalni ścieków. 10+ lat badań z AGH Kraków. Pierwsza komercyjna instalacja: MPWiK Lubin, 2025.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/v5/design-system.css">
+
+  <style>
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+    }
+    @media (max-width: 900px) {
+      .value-grid { grid-template-columns: 1fr; }
+    }
+    .value-card {
+      background: var(--c-surface);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .value-card .card-label {
+      font-family: var(--f-display);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--c-gray);
+    }
+    .value-card .t-h4 { color: var(--c-white); }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3px;
+    }
+    @media (max-width: 900px) {
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .team-grid { grid-template-columns: 1fr; }
+    }
+    .team-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .team-card img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      filter: grayscale(1);
+    }
+    .team-card__info {
+      padding: 1.25rem 1rem;
+      background: var(--c-surface-w);
+    }
+    .team-card__name {
+      font-family: var(--f-display);
+      font-weight: 800;
+      font-size: clamp(0.875rem, 1.2vw, 1rem);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--c-black);
+      line-height: 1.3;
+    }
+    .team-card__role {
+      font-family: var(--f-display);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--c-accent);
+      margin-top: 0.375rem;
+    }
+    .team-card__desc {
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      color: var(--c-gray-d);
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<script src="/v5/partials/header.js"></script>
+
+<!-- ============================================================
+     A. HERO
+     ============================================================ -->
+<section class="hero" aria-label="O BTC Consulting">
+  <div class="hero__content">
+    <p class="t-label">O nas</p>
+
+    <h1 class="t-display reveal">
+      Zagrożenia<br>
+      środowiskowe<br>
+      zamieniamy<br>
+      w&nbsp;<span class="t-accent">zasoby</span>
+    </h1>
+
+    <p class="t-lead reveal" style="max-width:38ch;color:var(--c-gray-d)">
+      Jedyna polska firma z&nbsp;własną technologią HTC
+      dla oczyszczalni ścieków. 10+ lat badań z&nbsp;AGH Kraków.
+      Pierwsza komercyjna instalacja: MPWiK Lubin, 2025.
+    </p>
+
+    <div class="flex gap-sm reveal" style="flex-wrap:wrap">
+      <a class="btn btn-primary" href="#contact">
+        Porozmawiajmy →
+      </a>
+    </div>
+  </div>
+
+  <div class="hero__image">
+    <img src="/v5/assets/img/Project%20cowork.jpeg" alt="Zespół BTC Consulting"
+         style="width:100%;height:100%;object-fit:cover;filter:grayscale(1)">
+  </div>
+</section>
+
+<!-- ============================================================
+     B. STAT STRIP
+     ============================================================ -->
+<section class="stat-strip" aria-label="BTC w liczbach">
+  <div class="stat-strip__inner">
+    <div class="stat-item reveal">
+      <span class="stat-num is-accent" style="display:flex;align-items:baseline;gap:0.3rem">10+<span class="stat-unit">lat</span></span>
+      <span class="t-label-muted">Badań HTC z AGH Kraków</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num">6</span>
+      <span class="t-label-muted">Przebadanych oczyszczalni w Polsce</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num is-accent">3</span>
+      <span class="t-label-muted">Własne konfiguracje HTC (S/D/TH+HTC)</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num">2025</span>
+      <span class="t-label-muted">Pierwsza instalacja komercyjna</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     C. MISJA — statement
+     ============================================================ -->
+<section class="section section--accent" aria-label="Misja">
+  <div class="container" style="max-width:900px">
+    <p class="t-label mb-2">Misja</p>
+    <p class="t-display reveal" style="color:var(--c-white)">
+      Osad to problem&nbsp;dziś.<br>
+      <span class="t-accent">Zasób</span>&nbsp;jutro.<br>
+      Inwestycja, która<br>
+      się&nbsp;opłaca.
+    </p>
+    <p class="t-lead reveal" style="max-width:52ch;margin-top:1.75rem;color:var(--c-gray)">
+      Zamieniamy zagrożenia środowiskowe w&nbsp;odnawialne zasoby dla miast.
+      Sprawiamy, że planeta jest czystsza — a&nbsp;inwestycje
+      w&nbsp;gospodarkę o&nbsp;obiegu zamkniętym są bezdyskusyjnie opłacalne.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     D. WARTOŚCI — split
+     ============================================================ -->
+<section class="section" aria-label="Jak myślimy">
+  <div class="container">
+    <div class="split" style="gap:clamp(2rem,5vw,5rem);align-items:start">
+
+      <div style="display:flex;flex-direction:column;gap:32px">
+        <p class="t-label">Jak myślimy</p>
+        <h2 class="t-heading reveal">
+          Nauka, która<br>
+          <span class="t-accent">zarabia</span>
+        </h2>
+        <p class="t-body reveal" style="max-width:42ch">
+          Żadna dobra idea nie działa, jeśli nie jest rentowna.
+          Zrównoważony rozwój nie żyje na papierze ani na wolnych
+          hasłach — buduje się na solidnym fundamencie ekonomicznym.
+        </p>
+        <p class="t-body reveal" style="max-width:42ch">
+          Miasta pozbywają się finansowego bólu utylizacji osadów,
+          spełniają surowe dyrektywy UE i&nbsp;uzyskują do&nbsp;90%
+          bezzwrotnych grantów europejskich na CapEx. Przemysł
+          otrzymuje odnawialne paliwo. A&nbsp;inwestorzy — stabilny,
+          przejrzysty biznes z&nbsp;jasnym zwrotem.
+        </p>
+        <p class="t-body reveal" style="max-width:42ch;color:var(--c-gray-d)">
+          Jeśli pomysł ekologiczny nie przynosi zysku — to&nbsp;charytatywność.
+          My robimy efektywny biznes.
+        </p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:32px">
+        <p class="t-label">Partner naukowy</p>
+        <h2 class="t-heading reveal">
+          AGH&nbsp;Kraków<br>
+          <span class="t-accent">10+</span>&nbsp;lat
+        </h2>
+        <p class="t-body reveal" style="max-width:42ch">
+          Nasze TEO opierają się na analizach laboratoryjnych
+          przeprowadzonych wspólnie z&nbsp;AGH Kraków na osadach
+          z&nbsp;Orzesze, Żor, Lublina, Bytomia, Gliwic i&nbsp;Krakowa-Płaszowa.
+        </p>
+        <ul class="feature-list feature-list--light reveal">
+          <li>Dr hab. inż. Małgorzata Wilk — TOP 2% naukowców świata (Stanford)</li>
+          <li>6 przebadanych oczyszczalni na pełnym składzie osadu</li>
+          <li>Parametry HTC zweryfikowane przez WikiChar Hydrochar Network</li>
+          <li>Nie marketing — termodynamika</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     E. WARTOŚCI — 3 cards dark
+     ============================================================ -->
+<section class="section" style="border-top:1px solid var(--c-border)" aria-label="Wartości BTC">
+  <div class="container">
+    <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:48px">
+      <p class="t-label">Wartości</p>
+      <h2 class="t-heading reveal">Co nas definiuje</h2>
+    </div>
+
+    <div class="value-grid">
+      <article class="value-card reveal">
+        <p class="card-label">Natura i my</p>
+        <p class="t-h4">Jeden organizm</p>
+        <p class="t-small" style="color:var(--c-gray)">
+          Utrzymanie Ziemi w czystości to nie pilna konieczność —
+          to nasz podstawowy obowiązek wobec przyszłych pokoleń.
+          Musimy im zostawić normalną planetę.
+        </p>
+      </article>
+
+      <article class="value-card reveal">
+        <p class="card-label">Nauka</p>
+        <p class="t-h4">Pragmatyczna i realna</p>
+        <p class="t-small" style="color:var(--c-gray)">
+          Z nauki bierzemy tylko to, co działa w&nbsp;praktyce.
+          Zamieniamy złożone badania HTC i&nbsp;metryki inżynieryjne
+          w&nbsp;realne, operacyjne huby regionalne.
+        </p>
+      </article>
+
+      <article class="value-card reveal">
+        <p class="card-label">Edukacja</p>
+        <p class="t-h4">Uczymy patrzeć w&nbsp;przód</p>
+        <p class="t-small" style="color:var(--c-gray)">
+          Zmieniamy kulturę podejścia do&nbsp;tego, co kiedyś
+          uważano za toksyczny odpad — a&nbsp;co dziś staje się
+          aktywem i źródłem przychodu.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     F. ZESPÓŁ
+     ============================================================ -->
+<section class="section" aria-label="Zespół BTC">
+  <div class="container">
+    <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:48px">
+      <p class="t-label">Zespół</p>
+      <h2 class="t-heading reveal">
+        Ludzie, którzy ponoszą<br>
+        <span class="t-accent">osobistą</span> odpowiedzialność
+      </h2>
+    </div>
+
+    <div class="team-grid">
+      <article class="team-card reveal">
+        <img src="/v5/assets/img/E.%20Krop.jpeg" alt="Dr inż. Eugeniusz Krop">
+        <div class="team-card__info">
+          <p class="team-card__name">Dr inż. Eugeniusz Krop</p>
+          <p class="team-card__role">Dyrektor techniczny</p>
+          <p class="team-card__desc">28 dużych wdrożeń przemysłowych. Wśród klientów — ORLEN.</p>
+        </div>
+      </article>
+
+      <article class="team-card reveal">
+        <img src="/v5/assets/img/M.%20Wilk.jpeg" alt="Dr hab. inż. Małgorzata Wilk">
+        <div class="team-card__info">
+          <p class="team-card__name">Dr hab. inż. M.&nbsp;Wilk</p>
+          <p class="team-card__role">Badania i weryfikacja naukowa</p>
+          <p class="team-card__desc">Kierownik katedry AGH Kraków. TOP&nbsp;2% naukowców świata (Stanford).</p>
+        </div>
+      </article>
+
+      <article class="team-card reveal">
+        <img src="/v5/assets/img/A.%20Krop.jpeg" alt="Andrzej Krop">
+        <div class="team-card__info">
+          <p class="team-card__name">Andrzej Krop</p>
+          <p class="team-card__role">Zarządzanie projektami</p>
+          <p class="team-card__desc">Były CEO europejskiego oddziału japońskiej korporacji. Gwarant terminów i&nbsp;budżetu.</p>
+        </div>
+      </article>
+
+      <article class="team-card reveal">
+        <img src="/v5/assets/img/M.%20Koval.jpeg" alt="Max Koval">
+        <div class="team-card__info">
+          <p class="team-card__name">Max Koval</p>
+          <p class="team-card__role">Marketing międzynarodowy</p>
+          <p class="team-card__desc">Strategia B2B i&nbsp;pozycjonowanie BioTC w&nbsp;circular economy na rynkach UE.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     G. CTA
+     ============================================================ -->
+<section class="section" aria-label="Kontakt z BTC">
+  <div class="container" style="max-width:900px;text-align:center">
+    <p class="t-label mb-2">Następny krok</p>
+    <h2 class="t-heading reveal">
+      Sprawdź czy Twoja gmina<br>
+      kwalifikuje się na&nbsp;<span class="t-accent">dotację</span>
+    </h2>
+    <p class="t-body reveal" style="max-width:48ch;margin:1.5rem auto 0;color:var(--c-gray-d)">
+      Bezpłatna wstępna ocena inżynierska: 2 tygodnie, bez zobowiązań.
+      Konkretna odpowiedź czy HTC i&nbsp;dotacja są dla Ciebie.
+    </p>
+    <a class="btn btn-primary reveal" href="#contact"
+       style="margin-top:2rem">
+      Bezpłatna ocena wstępna →
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<script src="/v5/translations/pl.js"></script>
+<script src="/v5/i18n.js"></script>
+<script src="/v5/partials/footer.js?v=3"></script>
+<script src="/v5/reveal.js"></script>
+
+</body>
+</html>

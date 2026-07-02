@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analiza TEO — Ocena techniczno-ekonomiczna oczyszczalni | BTC Consulting</title>
+  <meta name="description" content="Bez analizy TEO nie ma grantu. Bez grantu projekt jest 3–4× droższy. TEO od BTC Consulting: 4–6 tygodni, 200+ stron, gotowa dokumentacja do NFOŚiGW.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/v5/design-system.css">
+
+  <style>
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 3px;
+    }
+    @media (max-width: 900px) {
+      .step-grid { grid-template-columns: 1fr; }
+    }
+    .step-card {
+      background: var(--c-surface);
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .step-num {
+      font-family: var(--f-display);
+      font-weight: 800;
+      font-size: clamp(2rem, 3vw, 3rem);
+      color: var(--c-accent);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .step-card .t-h4 { color: var(--c-white); }
+
+    .scope-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+    }
+    @media (max-width: 900px) {
+      .scope-grid { grid-template-columns: 1fr; }
+    }
+    .scope-card {
+      background: var(--c-white);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      border-top: 3px solid var(--c-accent);
+    }
+    .scope-card .card-label {
+      font-family: var(--f-display);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--c-gray);
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<script src="/v5/partials/header.js"></script>
+
+<!-- ============================================================
+     A. HERO
+     ============================================================ -->
+<section class="hero" aria-label="Analiza TEO">
+  <div class="hero__content">
+    <p class="t-label">Analiza TEO</p>
+
+    <h1 class="t-display reveal">
+      Bez TEO<br>
+      nie&nbsp;ma&nbsp;<span class="t-accent">grantu.</span><br>
+      Bez grantu<br>
+      3–4×&nbsp;drożej.
+    </h1>
+
+    <p class="t-lead reveal" style="max-width:38ch;color:var(--c-gray-d)">
+      TEO to nie koszt — to inwestycja, która zwraca się
+      przed pierwszą łopatą. 4–6 tygodni, 200+ stron
+      dokumentacji gotowej do NFOŚiGW.
+    </p>
+
+    <div class="flex gap-sm reveal" style="flex-wrap:wrap">
+      <a class="btn btn-primary" href="#contact">
+        Zamów bezpłatną wstępną ocenę →
+      </a>
+      <a class="btn btn-outline" href="#scope">
+        Co zawiera TEO
+      </a>
+    </div>
+  </div>
+
+  <div class="hero__image">
+    <img src="/v5/assets/img/project.jpeg" alt="Dokumentacja TEO"
+         style="width:100%;height:100%;object-fit:cover;filter:grayscale(1)">
+  </div>
+</section>
+
+<!-- ============================================================
+     B. STAT STRIP — 4 numbers
+     ============================================================ -->
+<section class="stat-strip" aria-label="TEO w liczbach">
+  <div class="stat-strip__inner">
+    <div class="stat-item reveal">
+      <span class="stat-num is-accent">4–6</span>
+      <span class="stat-unit">tygodni</span>
+      <span class="t-label-muted">Czas realizacji TEO</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num is-accent">do 90%</span>
+      <span class="t-label-muted">Dofinansowanie CapEx z TEO</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num">200+</span>
+      <span class="t-label-muted">Stron dokumentacji technicznej</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num">11</span>
+      <span class="stat-unit">lat</span>
+      <span class="t-label-muted">Badań na polskich oczyszczalniach</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     C. DLACZEGO TEO — split
+     ============================================================ -->
+<section class="section" aria-label="Dlaczego TEO">
+  <div class="container">
+    <div class="split" style="gap:clamp(2rem,5vw,5rem);align-items:start">
+
+      <div style="display:flex;flex-direction:column;gap:32px">
+        <p class="t-label">Dlaczego TEO</p>
+        <h2 class="t-heading reveal">
+          TEO to fundament<br>
+          każdego <span class="t-accent">grantu</span>
+        </h2>
+        <p class="t-body reveal" style="max-width:42ch">
+          NFOŚiGW, FEnIKS, LIFE, Horyzont Europa — każdy fundusz wymaga
+          techniczno-ekonomicznego studium wykonalności jako podstawy wniosku.
+          To nie formalność. To dokument, który decyduje, ile realnie
+          zapłaci Twoja gmina.
+        </p>
+        <ul class="feature-list feature-list--light reveal">
+          <li>Warunek formalny każdego wniosku grantowego</li>
+          <li>Personalny projekt oparty na Twoim składzie osadu — nie szablon</li>
+          <li>Gotowe argumenty dla rady gminy: payback, NPV, porównanie scenariuszy</li>
+          <li>Koszt TEO kwalifikuje się do dofinansowania jako przygotowanie projektu</li>
+        </ul>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:24px;padding:2.5rem;background:var(--c-surface-w);border-left:3px solid var(--c-accent)">
+        <p class="t-label" style="color:var(--c-accent)">TEO jako inwestycja</p>
+        <p class="t-body" style="max-width:42ch">
+          Przy projekcie o&nbsp;wartości EUR&nbsp;5&nbsp;M, dofinansowanie 85&nbsp;% =
+          EUR&nbsp;4,25&nbsp;M grantu. Koszt TEO wynosi ułamek tej kwoty —
+          i&nbsp;jest warunkiem niezbędnym do złożenia wniosku.
+        </p>
+        <p class="t-body" style="max-width:42ch;color:var(--c-gray-d)">
+          Projekt bez TEO oznacza finansowanie 100&nbsp;%
+          z&nbsp;własnego budżetu gminy.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     D. ZAKRES — 3 columns
+     ============================================================ -->
+<section class="section" id="scope" style="border-top:1px solid var(--c-border)" aria-label="Zakres TEO">
+  <div class="container">
+    <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:48px">
+      <p class="t-label">Zakres prac</p>
+      <h2 class="t-heading reveal">Co dostajesz w&nbsp;ramach TEO</h2>
+    </div>
+
+    <div class="scope-grid">
+      <article class="scope-card reveal">
+        <p class="card-label">Audyt obecnej sytuacji</p>
+        <ul class="feature-list feature-list--light">
+          <li>Wolumeny i skład chemiczny osadu (ds., LOI, metale, PFAS)</li>
+          <li>Aktualne koszty utylizacji (PLN/tonę)</li>
+          <li>Stan compliance z UWWTD i harmonogram</li>
+          <li>Analiza istniejącej infrastruktury (AD, odwadnianie)</li>
+        </ul>
+      </article>
+
+      <article class="scope-card reveal">
+        <p class="card-label">Rekomendacja technologiczna</p>
+        <ul class="feature-list feature-list--light">
+          <li>Bilans masy i energii dla Twojego obiektu</li>
+          <li>Dobór konfiguracji: HTC-S / HTC-D / TH+HTC</li>
+          <li>Analiza wariantu Hub&nbsp;&amp;&nbsp;Spoke</li>
+          <li>Porównanie 3 scenariuszy ze wskaźnikami CAPEX/OPEX</li>
+        </ul>
+      </article>
+
+      <article class="scope-card reveal">
+        <p class="card-label">Model ekonomiczny + ścieżka grantowa</p>
+        <ul class="feature-list feature-list--light">
+          <li>Pełny model ROI: payback period, NPV, IRR</li>
+          <li>Porównanie kosztów HTC vs obecna utylizacja (10 lat)</li>
+          <li>Mapa dostępnych dotacji: NFOŚiGW, LIFE, FEnIKS, KPO</li>
+          <li>Gotowa dokumentacja do złożenia wniosku grantowego</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     E. PROCES — 5 steps dark
+     ============================================================ -->
+<section class="section" style="border-top:1px solid var(--c-border)" aria-label="Proces TEO">
+  <div class="container">
+    <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:48px">
+      <p class="t-label">Jak pracujemy</p>
+      <h2 class="t-heading reveal">
+        Od pierwszego kontaktu<br>do gotowej dokumentacji
+      </h2>
+    </div>
+
+    <div class="step-grid">
+      <div class="step-card reveal">
+        <span class="step-num">01</span>
+        <p class="t-h4">Wstępna rozmowa</p>
+        <p class="t-small" style="color:var(--c-gray)">
+          30 minut przez telefon lub video. Opisujesz obiekt: typ oczyszczalni,
+          RLM, aktualny sposób zagospodarowania osadu.
+        </p>
+        <p class="t-label-muted" style="margin-top:auto">Bezpłatnie · 30 min</p>
+      </div>
+
+      <div class="step-card reveal">
+        <span class="step-num">02</span>
+        <p class="t-h4">Umowa i kick-off</p>
+        <p class="t-small" style="color:var(--c-gray)">
+          Podpisanie umowy na realizację TEO. Ustalamy zakres, harmonogram
+          i listę danych potrzebnych od Twojej oczyszczalni.
+        </p>
+        <p class="t-label-muted" style="margin-top:auto">Tydzień 1</p>
+      </div>
+
+      <div class="step-card reveal">
+        <span class="step-num">03</span>
+        <p class="t-h4">Wizyta na obiekcie</p>
+        <p class="t-small" style="color:var(--c-gray)">
+          Ocena infrastruktury, pobór próbek osadu do analizy
+          laboratoryjnej (AGH Kraków), dokumentacja fotograficzna.
+        </p>
+        <p class="t-label-muted" style="margin-top:auto">Tydzień 1–2</p>
+      </div>
+
+      <div class="step-card reveal">
+        <span class="step-num">04</span>
+        <p class="t-h4">Analiza i modelowanie</p>
+        <p class="t-small" style="color:var(--c-gray)">
+          Bilanse masy i energii, 3 scenariusze technologiczne,
+          obliczenia ROI, identyfikacja ścieżek grantowych.
+        </p>
+        <p class="t-label-muted" style="margin-top:auto">Tygodnie 2–5</p>
+      </div>
+
+      <div class="step-card reveal">
+        <span class="step-num">05</span>
+        <p class="t-h4">Prezentacja i raport</p>
+        <p class="t-small" style="color:var(--c-gray)">
+          Prezentacja dla zespołu i rady gminy. Komplet dokumentacji:
+          raport techniczny, model finansowy, gotowe formularze do NFOŚiGW.
+        </p>
+        <p class="t-label-muted" style="margin-top:auto">Tydzień 6</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     F. EKONOMIKA — tabela
+     ============================================================ -->
+<section class="section" aria-label="Ekonomika HTC">
+  <div class="container">
+    <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:48px">
+      <p class="t-label">Ekonomika</p>
+      <h2 class="t-heading reveal">
+        Ile realnie oszczędza Twoja gmina
+      </h2>
+      <p class="t-body reveal" style="max-width:52ch">
+        TEO oblicza to precyzyjnie dla Twojego obiektu. Poniżej —
+        rzeczywiste zakresy z&nbsp;naszych projektów na polskich oczyszczalniach.
+      </p>
+    </div>
+
+    <div style="overflow-x:auto">
+      <table class="econ-table">
+        <thead>
+          <tr>
+            <th style="width:30%">Wielkość obiektu</th>
+            <th>Obecne koszty</th>
+            <th>Koszty z HTC</th>
+            <th>Oszczędność / rok</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Małe (~10 000 RLM)</td>
+            <td>~200 000 PLN/rok</td>
+            <td>~55 000–80 000 PLN</td>
+            <td>~120 000–145 000 PLN</td>
+          </tr>
+          <tr>
+            <td>Średnie (~30 000 RLM)</td>
+            <td>~542 000 PLN/rok</td>
+            <td>~150 000–210 000 PLN</td>
+            <td>~330 000–390 000 PLN</td>
+          </tr>
+          <tr>
+            <td>Duże (~100 000 RLM)</td>
+            <td>~1 505 000 PLN/rok</td>
+            <td>~415 000–580 000 PLN</td>
+            <td>~925 000–1 090 000 PLN</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="t-small" style="margin-top:1rem;color:var(--c-gray)">
+      Dane orientacyjne dla wilgotności osadu 80%. Dokładne wartości obliczane indywidualnie w TEO.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     G. STATEMENT
+     ============================================================ -->
+<section class="section section--accent" aria-label="Potwierdzone">
+  <div class="container" style="max-width:900px">
+    <p class="t-label mb-2">Potwierdzone</p>
+    <p class="t-display reveal" style="color:var(--c-white)">
+      TEO, które trafiło<br>
+      do&nbsp;<span class="t-accent">realnej</span><br>
+      umowy komercyjnej.
+    </p>
+    <p class="t-lead reveal" style="max-width:52ch;margin-top:1.75rem;color:var(--c-gray)">
+      MPWiK Lubin (100&nbsp;000 RLM) oficjalnie wykupiło prawa autorskie
+      do koncepcji TH-AD-HTC opracowanej przez BTC Consulting.
+      Pierwsza komercyjna umowa — nie projekt pilotażowy,
+      lecz pełnoprawny kontrakt samorządowy (10.2025).
+    </p>
+    <a class="btn btn-primary reveal" href="/v5/case-lubin.html"
+       style="margin-top:2.5rem">
+      Czytaj case study Lubin →
+    </a>
+  </div>
+</section>
+
+<!-- ============================================================
+     H. SCARCITY
+     ============================================================ -->
+<section class="section section--black" aria-label="Ograniczona dostępność">
+  <div class="container" style="max-width:900px">
+    <p class="t-label mb-2">Dostępność</p>
+    <p class="t-display reveal" style="color:var(--c-white)">
+      8–10&nbsp;projektów<br>
+      <span class="t-accent">rocznie.</span><br>
+      Kolejka rośnie.
+    </p>
+    <p class="t-lead reveal" style="max-width:52ch;margin-top:1.75rem;color:var(--c-gray)">
+      Każde TEO wymaga wizyty na obiekcie, analizy laboratoryjnej AGH
+      i&nbsp;dedykowanego modelu finansowego. BTC Consulting przyjmuje
+      8–10&nbsp;nowych projektów rocznie&nbsp;— nie więcej.
+      Terminy na 2026 wypełniają się.
+    </p>
+    <a class="btn btn-primary reveal" href="#contact"
+       style="margin-top:2.5rem">
+      Zarezerwuj termin TEO →
+    </a>
+  </div>
+</section>
+
+<!-- ============================================================
+     I. FAQ — accordion
+     ============================================================ -->
+<section class="section" aria-label="Najczęstsze pytania o TEO">
+  <div class="container">
+    <div class="split" style="gap:clamp(2rem,5vw,5rem);align-items:start">
+
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <p class="t-label">FAQ</p>
+        <h2 class="t-heading reveal">
+          Odpowiedzi zanim<br>
+          <span class="t-accent">zapytasz</span>
+        </h2>
+      </div>
+
+      <div style="display:flex;flex-direction:column">
+        <div class="acc-item acc-item--light">
+          <button class="acc-btn" aria-expanded="false">
+            <span>Czy moja oczyszczalnia jest wystarczająco duża na HTC?</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-body" hidden>
+            <p class="t-body">
+              Model Hub&nbsp;&amp;&nbsp;Spoke otwiera HTC dla obiektów od ok.&nbsp;10&nbsp;000 RLM.
+              Dla mniejszych — łączymy kilka gmin w klaster. Wstępna ocena telefoniczna
+              powie Ci w&nbsp;30 minut, który wariant pasuje.
+            </p>
+          </div>
+        </div>
+
+        <div class="acc-item acc-item--light">
+          <button class="acc-btn" aria-expanded="false">
+            <span>Ile kosztuje pełna analiza TEO?</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-body" hidden>
+            <p class="t-body">
+              Wstępna ocena inżynierska — bezpłatnie. Pełna analiza TEO (200+ stron)
+              wyceniana indywidualnie po pierwszej rozmowie. Koszt TEO kwalifikuje się
+              do dofinansowania jako koszt przygotowania projektu.
+            </p>
+          </div>
+        </div>
+
+        <div class="acc-item acc-item--light">
+          <button class="acc-btn" aria-expanded="false">
+            <span>Jak długo trwa realizacja projektu po TEO?</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-body" hidden>
+            <p class="t-body">
+              Wniosek grantowy: 3–6 miesięcy po TEO. Decyzja NFOŚiGW: 6–12 miesięcy.
+              Budowa instalacji: 8–14 miesięcy. Łącznie od TEO do uruchomienia:
+              18–30 miesięcy. Dlatego ważne, żeby zacząć teraz.
+            </p>
+          </div>
+        </div>
+
+        <div class="acc-item acc-item--light">
+          <button class="acc-btn" aria-expanded="false">
+            <span>Czy BTC pomaga też przy samym wniosku grantowym?</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-body" hidden>
+            <p class="t-body">
+              Tak. TEO dostarcza całą dokumentację techniczną wymaganą przez NFOŚiGW,
+              LIFE i FEnIKS. Na życzenie towarzyszymy przez cały proces aplikacyjny
+              aż do podpisania umowy o dofinansowanie.
+            </p>
+          </div>
+        </div>
+
+        <div class="acc-item acc-item--light">
+          <button class="acc-btn" aria-expanded="false">
+            <span>Co jeśli HTC nie jest optymalne dla mojego obiektu?</span>
+            <span class="acc-icon">+</span>
+          </button>
+          <div class="acc-body" hidden>
+            <p class="t-body">
+              TEO zawsze analizuje 3 scenariusze i wskazuje optymalny.
+              Jeśli dla Twojego wolumenu inne rozwiązanie będzie lepsze
+              ekonomicznie — powiemy to wprost.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<script src="/v5/translations/pl.js"></script>
+<script src="/v5/i18n.js"></script>
+<script src="/v5/partials/footer.js?v=3"></script>
+<script src="/v5/reveal.js"></script>
+
+</body>
+</html>

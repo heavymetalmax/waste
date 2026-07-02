@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study: MPWiK Lubin — Pierwsza komercyjna instalacja HTC w Polsce | BTC Consulting</title>
+  <meta name="description" content="MPWiK Lubin przetwarza 800 t osadów rocznie dzięki technologii HTC. Redukcja kosztów utylizacji o 60%, zero patogenów, legalny nawóz. Pierwsza komercyjna instalacja w Polsce — 2025.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/v5/design-system.css">
+
+  <style>
+    .param-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--c-border);
+      border-left: 3px solid var(--c-accent);
+    }
+    .param-cell {
+      background: var(--c-white);
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .param-cell .t-label-muted { color: var(--c-gray); }
+    .param-val {
+      font-family: var(--f-display);
+      font-weight: 800;
+      font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+      color: var(--c-black);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .param-val.is-accent { color: var(--c-accent); }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+    }
+    @media (max-width: 900px) {
+      .results-grid { grid-template-columns: 1fr; }
+    }
+    .result-card {
+      background: var(--c-surface);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .result-card .card-label {
+      font-family: var(--f-display);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--c-gray);
+    }
+    .result-card .card-num {
+      font-family: var(--f-display);
+      font-weight: 800;
+      font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: var(--c-white);
+    }
+    .result-card .card-num.is-accent { color: var(--c-accent); }
+    .result-card .card-divider {
+      border: none;
+      border-top: 1px solid var(--c-border-d);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<script src="/v5/partials/header.js"></script>
+
+<!-- ============================================================
+     A. HERO
+     ============================================================ -->
+<section class="hero" aria-label="Case study MPWiK Lubin">
+  <div class="hero__content">
+    <p class="t-label">Case study · Lubin, 2025</p>
+
+    <h1 class="t-display reveal">
+      Pierwsza<br>
+      komercyjna<br>
+      instalacja<br>
+      <span class="t-accent">HTC</span><br>
+      w Polsce
+    </h1>
+
+    <p class="t-lead reveal" style="max-width:42ch;color:var(--c-gray-d)">
+      MPWiK Lubin wydawał PLN&nbsp;550 za&nbsp;tonę osadu. Przy 800&nbsp;tonach
+      rocznie&nbsp;— ponad PLN&nbsp;440&nbsp;tys. co roku. Bez żadnego produktu
+      na wyjściu. Dziś koszt spadł o&nbsp;60%, a&nbsp;hydrochar&nbsp;się sprzedaje.
+    </p>
+
+    <div class="flex gap-sm reveal" style="flex-wrap:wrap">
+      <a class="btn btn-primary" href="#contact">
+        Chcę podobną instalację →
+      </a>
+    </div>
+  </div>
+
+  <div class="hero__image">
+    <img src="/v5/assets/img/lublin%20watertower.jpeg" alt="Oczyszczalnia MPWiK Lubin"
+         style="width:100%;height:100%;object-fit:cover;filter:grayscale(1)">
+  </div>
+</section>
+
+<!-- ============================================================
+     B. STAT STRIP — 4 numbers
+     ============================================================ -->
+<section class="stat-strip" aria-label="Kluczowe wyniki instalacji Lubin">
+  <div class="stat-strip__inner">
+    <div class="stat-item reveal">
+      <span class="stat-num is-accent">800</span>
+      <span class="stat-unit">t/rok</span>
+      <span class="t-label-muted">Ilość przetwarzanych osadów</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num is-accent">−60%</span>
+      <span class="t-label-muted">Redukcja kosztów utylizacji</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num">2025</span>
+      <span class="t-label-muted">Rok uruchomienia</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num is-accent">0</span>
+      <span class="t-label-muted">Patogenów w hydrocharze</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     C. WYZWANIE — split
+     ============================================================ -->
+<section class="section" aria-label="Wyzwanie MPWiK Lubin">
+  <div class="container">
+    <div class="split" style="gap:clamp(2rem,5vw,5rem);align-items:center">
+
+      <div style="display:flex;flex-direction:column;gap:32px">
+        <p class="t-label">Wyzwanie</p>
+        <h2 class="t-heading reveal">
+          Rosnące koszty.<br>
+          Zakaz składowania.<br>
+          Presja prawa.
+        </h2>
+
+        <p class="t-body reveal" style="max-width:42ch">
+          MPWiK Lubin stało przed narastającym problemem: koszty utylizacji osadów
+          wynosiły PLN&nbsp;550/t i nie było alternatywy. Zakaz składowania komunalnych
+          osadów ściekowych obowiązuje w Polsce od 2016&nbsp;r. Dyrektywa
+          UWWTD&nbsp;2024/3019 nałożyła kolejny wymóg — neutralność klimatyczna
+          oczyszczalni do&nbsp;2035.
+        </p>
+
+        <ul class="feature-list feature-list--light reveal">
+          <li>Koszt utylizacji PLN 550/t — jedna z droższych opcji rynkowych</li>
+          <li>Zero możliwości składowania — tylko transport i przetwarzanie</li>
+          <li>Wymogi środowiskowe UWWTD: neutralność CO₂ do 2035</li>
+          <li>Konieczność certyfikowanego zagospodarowania hydrocharu</li>
+        </ul>
+      </div>
+
+      <img src="/v5/assets/img/Lab%20equipent.jpeg" alt="Sprzęt laboratoryjny HTC"
+           style="min-height:clamp(320px,45vw,560px);aspect-ratio:4/3;object-fit:cover;width:100%;filter:grayscale(1)">
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     D. ROZWIĄZANIE HTC — split reversed
+     ============================================================ -->
+<section class="section" style="border-top:1px solid var(--c-border)" aria-label="Rozwiązanie HTC">
+  <div class="container">
+    <div class="split" style="gap:clamp(2rem,5vw,5rem);align-items:center">
+
+      <img src="/v5/assets/img/reports%20check.jpeg" alt="Analiza wyników — case study Lubin"
+           style="min-height:clamp(320px,45vw,560px);aspect-ratio:4/3;object-fit:cover;width:100%;filter:grayscale(1)">
+
+      <div style="display:flex;flex-direction:column;gap:32px">
+        <p class="t-label">Rozwiązanie</p>
+        <h2 class="t-heading reveal">
+          HTC:<br>
+          <span class="t-accent">200&nbsp;°C</span><br>
+          2,0&nbsp;MPa · 8–12&nbsp;h
+        </h2>
+
+        <div class="param-grid reveal">
+          <div class="param-cell">
+            <span class="t-label-muted">Temperatura</span>
+            <span class="param-val">200&nbsp;°C</span>
+          </div>
+          <div class="param-cell">
+            <span class="t-label-muted">Ciśnienie</span>
+            <span class="param-val">2,0&nbsp;MPa</span>
+          </div>
+          <div class="param-cell">
+            <span class="t-label-muted">Czas reakcji</span>
+            <span class="param-val">8–12&nbsp;h</span>
+          </div>
+          <div class="param-cell">
+            <span class="t-label-muted">Redukcja obj.</span>
+            <span class="param-val is-accent">−75%</span>
+          </div>
+        </div>
+
+        <ul class="feature-list feature-list--light reveal">
+          <li>Redukcja objętości osadów o 75%</li>
+          <li>Zero patogenów — hydrochar spełnia normę nawozową</li>
+          <li>Legalny produkt nawozowy w Polsce od 14.01.2025</li>
+          <li>Hydrochar sprzedawany jako paliwo lub nawóz organiczny</li>
+          <li>Partner naukowy: AGH Kraków — 10+ lat badań nad HTC</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     E. STATEMENT
+     ============================================================ -->
+<section class="section section--accent" aria-label="Kluczowy wynik instalacji">
+  <div class="container" style="max-width:900px">
+    <p class="t-label mb-2">Wynik instalacji</p>
+    <p class="t-display reveal" style="color:var(--c-white)">
+      −75%&nbsp;objętości.<br>
+      Zero&nbsp;<span class="t-accent">patogenów.</span><br>
+      Legalny&nbsp;nawóz.
+    </p>
+    <p class="t-lead reveal" style="max-width:52ch;margin-top:1.75rem;color:var(--c-gray)">
+      Instalacja posiada certyfikaty zgodności z&nbsp;normą nawozową.
+      Badania prowadzone wspólnie z&nbsp;AGH&nbsp;Kraków — partnerem naukowym BTC Consulting
+      od ponad 10&nbsp;lat. Hydrochar z&nbsp;Lubina trafia do firm ceramicznych i&nbsp;cementowni
+      jako paliwo alternatywne o&nbsp;wartości opałowej 12–16&nbsp;MJ/kg.
+    </p>
+    <blockquote class="reveal" style="border-left:3px solid var(--c-accent);padding:1rem 1.5rem;margin-top:2rem;font-style:italic;color:var(--c-gray);max-width:52ch">
+      Koncepcja i&nbsp;prawa autorskie zostały odkupione przez klienta (10.2025)&nbsp;— to najlepsza recenzja, jaką inżynier może dostać.
+    </blockquote>
+  </div>
+</section>
+
+<!-- ============================================================
+     F. RESULTS GRID — 3 cards
+     ============================================================ -->
+<section class="section" style="border-top:1px solid var(--c-border)" aria-label="Wyniki projektu Lubin">
+  <div class="container">
+
+    <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:48px">
+      <p class="t-label">Wyniki projektu</p>
+      <h2 class="t-heading reveal">Lubin w liczbach</h2>
+    </div>
+
+    <div class="results-grid">
+
+      <article class="result-card reveal">
+        <p class="card-label">Ekonomika</p>
+        <div style="display:flex;flex-direction:column;gap:0.2rem">
+          <span class="card-num" style="color:var(--c-gray);text-decoration:line-through;font-size:clamp(1rem,1.5vw,1.25rem)">PLN&nbsp;550/t</span>
+          <span class="card-num is-accent">PLN&nbsp;220/t</span>
+        </div>
+        <hr class="card-divider">
+        <ul class="feature-list feature-list--body">
+          <li>Oszczędność PLN 330/t — spadek o 60%</li>
+          <li>Przy 800 t/rok: PLN 264 000 rocznie</li>
+          <li>Dodatkowy przychód ze sprzedaży hydrocharu</li>
+        </ul>
+      </article>
+
+      <article class="result-card reveal">
+        <p class="card-label">Środowisko</p>
+        <div style="display:flex;flex-direction:column;gap:0.2rem">
+          <span class="card-num is-accent">−75%&nbsp;objętości</span>
+          <span class="card-num">Zero patogenów</span>
+        </div>
+        <hr class="card-divider">
+        <ul class="feature-list feature-list--body">
+          <li>Brak składowania na wysypisku — zgodność z prawem PL</li>
+          <li>Spełnienie wymogów UWWTD 2024/3019</li>
+          <li>Certyfikowany produkt nawozowy</li>
+        </ul>
+      </article>
+
+      <article class="result-card reveal">
+        <p class="card-label">Finanse projektu</p>
+        <div style="display:flex;flex-direction:column;gap:0.2rem">
+          <span class="card-num is-accent">85%&nbsp;dofinansowanie</span>
+          <span class="card-num">6,9&nbsp;roku zwrotu</span>
+        </div>
+        <hr class="card-divider">
+        <ul class="feature-list feature-list--body">
+          <li>Własny wkład gminy tylko 15% CapEx</li>
+          <li>Grant: FEnIKS / KPO / NFOŚiGW / LIFE</li>
+          <li>Jeden TEO wystarczy do czterech programów</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     G. BRIDGE — Your municipality
+     ============================================================ -->
+<section class="section" style="border-top:1px solid var(--c-border)" aria-label="A Twoja gmina?">
+  <div class="container">
+    <div class="split" style="gap:clamp(2rem,5vw,5rem);align-items:center">
+
+      <div style="display:flex;flex-direction:column;gap:32px">
+        <p class="t-label">A Twoja gmina?</p>
+        <h2 class="t-heading reveal">
+          Lubin ma 100&nbsp;000&nbsp;RLM.<br>
+          Twoja oczyszczalnia ma&nbsp;<span class="t-accent">18&nbsp;000?</span>
+        </h2>
+
+        <p class="t-body reveal" style="max-width:42ch">
+          Logika jest ta sama&nbsp;— tylko skala inna.
+          Dla obiektów 10&nbsp;000–50&nbsp;000&nbsp;RLM stosujemy HTC&#8209;S lub HTC&#8209;D.
+          Dla mniejszych gmin model Hub&nbsp;&amp;&nbsp;Spoke pozwala dzielić instalację
+          z&nbsp;sąsiadami i&nbsp;obniżyć koszt na tonę jeszcze bardziej.
+        </p>
+
+        <div class="flex gap-sm reveal" style="flex-wrap:wrap">
+          <a class="btn btn-primary" href="/v5/kalkulator-roi.html">
+            Sprawdź swoje liczby →
+          </a>
+          <a class="btn btn-outline" href="/v5/hub-spoke.html">
+            Model Hub & Spoke
+          </a>
+        </div>
+      </div>
+
+      <img src="/v5/assets/img/waterplant.jpeg" alt="Oczyszczalnia ścieków — mniejsza skala"
+           style="min-height:clamp(320px,45vw,560px);aspect-ratio:4/3;object-fit:cover;width:100%;filter:grayscale(1)">
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     H. FAQ
+     ============================================================ -->
+<section class="section" style="border-top:1px solid var(--c-border)" aria-label="FAQ — Case study Lubin">
+  <div class="container" style="max-width:860px">
+
+    <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:48px">
+      <p class="t-label">FAQ</p>
+      <h2 class="t-heading reveal">Najczęstsze pytania<br>o&nbsp;projekt Lubin</h2>
+    </div>
+
+    <div class="faq-list reveal">
+
+      <details class="faq-item">
+        <summary class="faq-q">Czy MPWiK Lubin jest zadowolony z&nbsp;instalacji?</summary>
+        <div class="faq-a">
+          <p>Koncepcja i&nbsp;prawa autorskie zostały odkupione przez klienta (10.2025). Klient zainwestował własne środki w&nbsp;przejęcie pełnych praw do technologii — to najlepsza recenzja, jaką inżynier może dostać.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Moja oczyszczalnia jest mniejsza niż Lubin — czy to ma sens?</summary>
+        <div class="faq-a">
+          <p>Tak. Dla obiektów 10&nbsp;000–50&nbsp;000 RLM oferujemy kompaktowe warianty HTC&#8209;S i&nbsp;HTC&#8209;D. Dla gmin poniżej 10&nbsp;000 RLM najlepszym rozwiązaniem jest <a href="/v5/hub-spoke.html">model Hub&nbsp;&amp;&nbsp;Spoke</a>, w&nbsp;którym kilka gmin dzieli jedną instalację. <a href="/v5/kalkulator-roi.html">Kalkulator ROI</a> pokaże konkretne liczby dla Twojej skali.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Jakie są możliwości dofinansowania podobnej inwestycji?</summary>
+        <div class="faq-a">
+          <p>Dotacje UE pokrywają do 85% kosztów inwestycji (programy FEnIKS, KPO, NFOŚiGW, LIFE). Jeden TEO wystarczy do złożenia wniosku w&nbsp;czterech programach jednocześnie. Okno składania wniosków: 2026–2028. Szczegóły na stronie <a href="/v5/dotacje.html">Dotacje UE</a>.</p>
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<script src="/v5/translations/pl.js"></script>
+<script src="/v5/i18n.js"></script>
+<script src="/v5/partials/footer.js?v=3"></script>
+<script src="/v5/reveal.js"></script>
+
+</body>
+</html>

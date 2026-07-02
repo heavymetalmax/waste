@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hub & Spoke — Model regionalny dla małych gmin | BTC Consulting</title>
+  <meta name="description" content="Gminy poniżej 20 000 RLM oszczędzają 36–41% kosztów w modelu Hub & Spoke. Jedna instalacja HTC obsługuje 3–12 gmin w zasięgu 50 km.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/v5/design-system.css">
+
+  <style>
+    .role-block { display: flex; flex-direction: column; gap: 2rem; }
+    .role-card {
+      padding: 1.5rem;
+      background: var(--c-white);
+      border-left: 3px solid var(--c-border);
+    }
+    .role-card.role-btc { border-left-color: var(--c-accent); }
+    .role-card .role-label {
+      font-family: var(--f-display);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1rem;
+    }
+    .role-card.role-btc .role-label { color: var(--c-accent); }
+    .role-card.role-gmina .role-label { color: var(--c-gray); }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<script src="/v5/partials/header.js"></script>
+
+<!-- ============================================================
+     A. HERO
+     ============================================================ -->
+<section class="hero" aria-label="Model regionalny Hub & Spoke">
+  <div class="hero__content">
+    <p class="t-label">Model regionalny</p>
+
+    <h1 class="t-display reveal">
+      Hub&nbsp;&amp;&nbsp;Spoke:<br>
+      jedna&nbsp;instalacja<br>
+      dla&nbsp;<span class="t-accent">wielu&nbsp;gmin</span>
+    </h1>
+
+    <p class="t-lead reveal" style="max-width:38ch;color:var(--c-gray-d)">
+      Gminy poniżej 20&nbsp;000 RLM oszczędzają 36–41&nbsp;%
+      kosztów vs.&nbsp;własna instalacja HTC.
+    </p>
+
+    <div class="flex gap-sm reveal" style="flex-wrap:wrap">
+      <a class="btn btn-primary" href="#contact">
+        Sprawdź dla swojej gminy →
+      </a>
+      <a class="btn btn-outline" href="/v5/kalkulator-roi.html">
+        Kalkulator ROI
+      </a>
+    </div>
+  </div>
+
+  <div class="hero__image">
+    <img src="/v5/assets/img/Hub%20and%20Spoke%202.jpeg" alt="Oczyszczalnia — widok z góry"
+         style="width:100%;height:100%;object-fit:cover;filter:grayscale(1)">
+  </div>
+</section>
+
+<!-- ============================================================
+     B. STAT STRIP — 3 numbers
+     ============================================================ -->
+<section class="stat-strip" aria-label="Kluczowe parametry modelu Hub & Spoke">
+  <div class="stat-strip__inner" style="grid-template-columns:repeat(3,1fr)">
+    <div class="stat-item reveal">
+      <span class="stat-num is-accent">36–41%</span>
+      <span class="t-label-muted">Oszczędność vs. własna instalacja</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num">&le;50&nbsp;km</span>
+      <span class="t-label-muted">Maksymalny zasięg Spoke</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num">3–12</span>
+      <span class="t-label-muted">Gmin na jeden Hub</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     C. JAK TO DZIAŁA — split
+     ============================================================ -->
+<section class="section" aria-label="Architektura Hub & Spoke">
+  <div class="container">
+    <div class="split" style="gap:clamp(2rem,5vw,5rem);align-items:center">
+
+      <div style="display:flex;flex-direction:column;gap:32px">
+        <p class="t-label">Architektura systemu</p>
+        <h2 class="t-heading reveal">
+          Spoke&nbsp;przekazuje,<br>
+          Hub&nbsp;<span class="t-accent">przetwarza</span>
+        </h2>
+        <p class="t-lead reveal" style="max-width:40ch">
+          Każda gmina (Spoke) regularnie dostarcza odwodniony muł do centralnej
+          instalacji HTC (Hub). Gotowy hydrochar wraca do gminy — bez konieczności
+          budowania własnego reaktora.
+        </p>
+        <ul class="feature-list feature-list--light reveal">
+          <li>Spoke: dehydrator + transport ≤&nbsp;50&nbsp;km — koszt po stronie gminy</li>
+          <li>Hub: pełna instalacja HTC (200&nbsp;°C / 2,0&nbsp;MPa / 8–12&nbsp;h)</li>
+          <li>Jedno wspólne pozwolenie środowiskowe dla całej sieci</li>
+          <li>Harmonogram dostaw koordynowany przez BTC Consulting</li>
+          <li>Hydrochar wraca do gminy lub trafia do wspólnej sprzedaży</li>
+        </ul>
+      </div>
+
+      <img src="/v5/assets/img/hub%20and%20spoke.jpeg" alt="Model Hub &amp; Spoke"
+           style="min-height:460px;aspect-ratio:4/3;object-fit:cover;width:100%;filter:grayscale(1)">
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     D. STATEMENT — "Małe gminy, duże oszczędności"
+     ============================================================ -->
+<section class="section section--accent" aria-label="Wyróżnik modelu">
+  <div class="container" style="max-width:900px">
+    <p class="t-label mb-2">Dlaczego Hub &amp; Spoke</p>
+    <p class="t-display reveal" style="color:var(--c-white)">
+      Małe&nbsp;gminy,<br>
+      duże&nbsp;<span class="t-accent">oszczędności</span>
+    </p>
+    <p class="t-lead" style="max-width:52ch;margin-top:1.75rem;color:var(--c-gray)">
+      Instalacja własna przy 5&nbsp;000&nbsp;RLM to koszt niemożliwy do uzasadnienia.
+      Model regionalny rozkłada CapEx na wiele gmin — każda płaci za transport,
+      nie za reaktor. Przy grancie 85&nbsp;% wkład własny gminy to zaledwie
+      EUR&nbsp;750&nbsp;K.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     E. KTO ZARZĄDZA HUBEM — split
+     ============================================================ -->
+<section class="section" aria-label="Zarządzanie Hub-em">
+  <div class="container">
+    <div class="split" style="gap:clamp(2rem,5vw,5rem);align-items:start">
+
+      <div style="display:flex;flex-direction:column;gap:32px">
+        <p class="t-label">Zarządzanie</p>
+        <h2 class="t-heading reveal">
+          Kto zarządza<br>
+          <span class="t-accent">Hub-em?</span>
+        </h2>
+        <p class="t-body reveal" style="max-width:48ch">
+          BTC Consulting przejmuje pełną odpowiedzialność za centralną instalację —
+          od projektu i aplikacji grantowej, przez nadzór budowlany, aż po
+          codzienny serwis reaktorów 24/7. Gminy skupiają się wyłącznie
+          na logistyce transportu mułu.
+        </p>
+        <p class="t-body" style="max-width:48ch">
+          Kontrakt serwisowy BTC gwarantuje dostępność instalacji na poziomie 97&nbsp;%
+          z&nbsp;zapisanymi penalizacjami za przestoje. Jedno okienko kontaktowe dla
+          wszystkich gmin w klastrze — bez wielostronnych negocjacji.
+        </p>
+        <a class="btn btn-outline-light self-start" href="#contact">
+          Zapytaj o kontrakt serwisowy →
+        </a>
+      </div>
+
+      <div class="role-block">
+        <div class="role-card role-btc">
+          <p class="role-label">BTC Consulting</p>
+          <ul class="feature-list feature-list--light">
+            <li>Projektowanie i budowa instalacji Hub</li>
+            <li>Aplikacja o grant (FEnIKS / KPO / NFOŚiGW)</li>
+            <li>Pozwolenia środowiskowe i budowlane</li>
+            <li>Eksploatacja i serwis reaktorów HTC 24/7</li>
+            <li>Sprzedaż hydrocharu — przychód dzielony z gminami</li>
+            <li>Raportowanie ESG i zgodność z&nbsp;UWWTD&nbsp;2024</li>
+          </ul>
+        </div>
+
+        <div class="role-card role-gmina">
+          <p class="role-label">Gmina (Spoke)</p>
+          <ul class="feature-list feature-list--light">
+            <li>Dehydrator osadu na własnej oczyszczalni</li>
+            <li>Transport mułu do Hubu (≤&nbsp;50&nbsp;km)</li>
+            <li>Wkład własny: EUR&nbsp;750&nbsp;K przy grancie 85&nbsp;%</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     F. EKONOMIKA — dark section z tabelą
+     ============================================================ -->
+<section class="section" style="border-top:1px solid var(--c-border)" aria-label="Porównanie ekonomiczne">
+  <div class="container">
+
+    <div style="display:flex;flex-direction:column;gap:32px;margin-bottom:48px">
+      <p class="t-label">Ekonomika</p>
+      <h2 class="t-heading reveal">
+        Własna instalacja<br>
+        vs.&nbsp;<span class="t-accent">Hub&nbsp;&amp;&nbsp;Spoke</span>
+      </h2>
+      <p class="t-lead reveal" style="max-width:52ch;color:var(--c-gray-d)">
+        Przy grancie 85&nbsp;% obciążenie gminy spada z&nbsp;EUR&nbsp;5&nbsp;M
+        do zaledwie EUR&nbsp;750&nbsp;K — a w modelu Hub&nbsp;&amp;&nbsp;Spoke
+        dodatkowe 36–41&nbsp;% zostaje w budżecie gminy na kolejne inwestycje.
+      </p>
+    </div>
+
+    <div style="overflow-x:auto">
+      <table class="econ-table">
+        <thead>
+          <tr>
+            <th style="width:40%">Parametr</th>
+            <th>Własna instalacja</th>
+            <th>Hub &amp; Spoke</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CapEx całkowity projektu</td>
+            <td>EUR&nbsp;5&nbsp;M</td>
+            <td>EUR&nbsp;5&nbsp;M</td>
+          </tr>
+          <tr>
+            <td>Dofinansowanie EU (FEnIKS / KPO)</td>
+            <td>indywidualnie / brak</td>
+            <td>85&nbsp;% → EUR&nbsp;4,25&nbsp;M</td>
+          </tr>
+          <tr>
+            <td>Wkład własny gminy</td>
+            <td>EUR&nbsp;5&nbsp;M (100&nbsp;%)</td>
+            <td>EUR&nbsp;750&nbsp;K + transport</td>
+          </tr>
+          <tr>
+            <td>Udział gminy w CapEx</td>
+            <td>100&nbsp;%</td>
+            <td>15&nbsp;% (grant wspólny)</td>
+          </tr>
+          <tr>
+            <td>Oszczędność OPEX vs. własna instalacja</td>
+            <td>—</td>
+            <td>36–41&nbsp;%</td>
+          </tr>
+          <tr>
+            <td>Serwis i eksploatacja</td>
+            <td>gmina / umowa zewnętrzna</td>
+            <td>BTC Consulting (kontrakt SLA)</td>
+          </tr>
+          <tr>
+            <td>Kwalifikacja RLM</td>
+            <td>dowolna</td>
+            <td>&lt;20&nbsp;000&nbsp;RLM, ≤&nbsp;50&nbsp;km od Hub-u</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     G. SPOKE ECONOMICS — concrete numbers
+     ============================================================ -->
+<section class="section section--black" aria-label="Ekonomika Spoke">
+  <div class="container" style="max-width:900px">
+    <p class="t-label mb-2">Ekonomika Spoke</p>
+    <p class="t-display reveal" style="color:var(--c-white)">
+      PLN&nbsp;550/t&nbsp;→<br>
+      PLN&nbsp;<span class="t-accent">290/t</span>
+    </p>
+    <p class="t-lead reveal" style="max-width:52ch;margin-top:1.75rem;color:var(--c-gray)">
+      Oszczędność PLN&nbsp;260 na każdej tonie&nbsp;— spadek o&nbsp;47%.
+      Dla gminy 5&nbsp;000 RLM to PLN&nbsp;366&nbsp;750 zaoszczędzone
+      w&nbsp;ciągu 10 lat. Bez żadnej inwestycji kapitałowej.
+    </p>
+    <div style="margin-top:2.5rem;display:flex;flex-direction:column;gap:0.75rem;max-width:400px" class="reveal">
+      <div style="display:flex;justify-content:space-between;font-size:0.9375rem;color:var(--c-gray)">
+        <span>Obecny koszt utylizacji</span>
+        <span style="color:var(--c-white);font-weight:600">PLN 550/t</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:0.9375rem;color:var(--c-gray)">
+        <span>Gate fee (Hub)</span>
+        <span style="color:var(--c-white);font-weight:600">PLN 200/t</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:0.9375rem;color:var(--c-gray)">
+        <span>Transport (30 km)</span>
+        <span style="color:var(--c-white);font-weight:600">PLN ~90/t</span>
+      </div>
+      <hr style="border:none;border-top:1px solid var(--c-border-d);margin:0.25rem 0">
+      <div style="display:flex;justify-content:space-between;font-size:0.9375rem">
+        <span style="color:var(--c-accent);font-weight:700">Łącznie nowy koszt</span>
+        <span style="color:var(--c-accent);font-family:var(--f-display);font-weight:800;font-size:1.125rem">PLN 290/t</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     H. FAQ
+     ============================================================ -->
+<section class="section" style="border-top:1px solid var(--c-border)" aria-label="FAQ — Hub & Spoke">
+  <div class="container" style="max-width:860px">
+
+    <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:48px">
+      <p class="t-label">FAQ</p>
+      <h2 class="t-heading reveal">Najczęstsze pytania<br>o&nbsp;model Hub&nbsp;&amp;&nbsp;Spoke</h2>
+    </div>
+
+    <div class="faq-list reveal">
+
+      <details class="faq-item">
+        <summary class="faq-q">Kto inicjuje klaster Hub&nbsp;&amp;&nbsp;Spoke?</summary>
+        <div class="faq-a">
+          <p>Zwykle gmina z&nbsp;największą oczyszczalnią&nbsp;— to ona staje się Hub-em. BTC Consulting pomaga w&nbsp;negocjacjach między gminami i&nbsp;przygotowaniu umowy konsorcjum. Cały proces od pierwszego spotkania do złożenia wniosku grantowego trwa ok.&nbsp;3–4 miesiące.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Jak daleko może być Spoke od Hub-u?</summary>
+        <div class="faq-a">
+          <p>Maksymalnie 50&nbsp;km. Przy większej odległości koszty transportu zjadają oszczędności&nbsp;— przy 100&nbsp;km oszczędność maleje do ~9%, co jest nieopłacalne. Optymalna odległość to 20–35&nbsp;km.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Czy Spoke musi cokolwiek budować?</summary>
+        <div class="faq-a">
+          <p>Nie. Gmina-Spoke wozi osad do Hub-u i&nbsp;płaci gate fee (PLN&nbsp;200/t). Żadnych inwestycji kapitałowych, żadnych pozwoleń budowlanych, żadnego własnego reaktora. Jedyny wymóg&nbsp;— dehydrator osadu na własnej oczyszczalni (większość gmin już go ma).</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Ile gmin potrzeba, żeby Hub się opłacał?</summary>
+        <div class="faq-a">
+          <p>Minimum 2–3 gminy. Optymalnie 4–5 gmin w&nbsp;promieniu 30–50&nbsp;km. Im więcej Spoke'ów, tym niższy gate fee per tonę&nbsp;— bo CapEx Hub-u rozkłada się na większy wolumen. <a href="/v5/kalkulator-roi.html">Kalkulator ROI</a> pokaże konkretne liczby dla Waszego klastra.</p>
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<script src="/v5/translations/pl.js"></script>
+<script src="/v5/i18n.js"></script>
+<script src="/v5/partials/footer.js?v=3"></script>
+<script src="/v5/reveal.js"></script>
+
+</body>
+</html>

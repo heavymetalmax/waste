@@ -1,0 +1,894 @@
+/* ==========================================================================
+   BTC Consulting — pl_v2 Design System (canonical, self-contained)
+   Брутал-індастріал: гострі кути, 4px бордери, hard-offset тіні.
+   Незалежний від Ua/ — зміни тут НЕ впливають на україномовний сайт.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Big+Shoulders+Display:wght@600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap');
+
+/* =========================================================================
+   1. DESIGN TOKENS
+   ========================================================================= */
+
+:root {
+  /* ── Colors ─────────────────────────────────────────────────────── */
+  --color-white: #ffffff;
+  --color-black: #0a0a0a;
+  --color-blue: #0033a0;        /* Бренд / CTA / основний акцент */
+  --color-gray-light: #f3f4f6;  /* Бетон */
+  --color-gray-dark: #374151;   /* Сталь */
+  --color-amber: #E85D2C;       /* Сигнальний акцент — ТІЛЬКИ для ключових
+                                    економічних/технічних цифр-результатів
+                                    (економія, ROI%, % гранту, калорійність,
+                                    % деструкції). Не для декору, не для CTA. */
+
+  --bg-color: var(--color-white);
+  --text-main: var(--color-black);
+  --border-color: var(--color-black);
+
+  /* ── Typography ─────────────────────────────────────────────────── */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;   /* тіло тексту */
+  --font-display: 'Big Shoulders Display', 'Inter', sans-serif;                          /* H1/H2, великі цифри */
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;                               /* лейбли, дані, rubric */
+
+  /* ── Spacing (8px база) ─────────────────────────────────────────── */
+  --space-xs: 0.5rem;   /* 8px */
+  --space-sm: 1rem;     /* 16px */
+  --space-md: 2.5rem;   /* 40px */
+  --space-lg: 5rem;     /* 80px */
+  --space-xl: 7rem;     /* 112px */
+
+  /* ── Сигнатурна тінь (hard-offset, замінює radius/blur м'якої системи) ── */
+  --shadow-hard-sm: 12px 12px 0 var(--color-black);
+  --shadow-hard-lg: 16px 16px 0 var(--color-black);
+
+  /* ── Transitions ────────────────────────────────────────────────── */
+  --transition-fast: 0.15s ease;
+}
+
+/* =========================================================================
+   2. BASE & RESET
+   ========================================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-primary);
+  line-height: 1.5;
+  font-size: 17px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* =========================================================================
+   3. ACCESSIBILITY FLOOR
+   ========================================================================= */
+
+:focus-visible {
+  outline: 3px solid var(--color-blue);
+  outline-offset: 2px;
+}
+
+#calculator :focus-visible,
+.section-blue :focus-visible,
+.section-black :focus-visible {
+  outline-color: var(--color-white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================================
+   4. TYPOGRAPHY
+   ========================================================================= */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-md);
+  max-width: 900px;
+}
+
+h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-lg);
+  border-top: 8px solid var(--border-color);
+  padding-top: 1rem;
+  display: block;
+  width: 100%;
+}
+
+h3 {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+p {
+  margin-bottom: var(--space-sm);
+  font-weight: 500;
+}
+
+small { font-size: 0.875rem; }
+.text-muted { color: var(--color-gray-dark); }
+
+/* =========================================================================
+   5. LAYOUT
+   ========================================================================= */
+
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+section { padding: var(--space-xl) 0; }
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.grid-2 > div, .grid-3 > div, .grid-4 > div {
+  min-width: 0;
+  max-width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  h1 { font-size: 2.5rem; }
+  section { padding: var(--space-lg) 0; }
+  .container { padding: 0 var(--space-sm); }
+}
+
+/* Flex utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-center { align-items: center; justify-content: center; }
+.flex-between { align-items: center; justify-content: space-between; }
+.gap-xs { gap: var(--space-xs); }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+
+/* =========================================================================
+   6. HEADER & FOOTER
+   ========================================================================= */
+
+header {
+  padding: 1rem 0;
+  background-color: var(--color-white);
+  border-bottom: 4px solid var(--color-black);
+  position: relative;
+}
+
+/* Mobile nav toggle — hidden on desktop. Activated by app.min.js, which
+   already wires up .mobile-toggle + #mobile-nav (look for "aria-expanded"). */
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.mobile-toggle span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: var(--color-black);
+}
+.mobile-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.mobile-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.mobile-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+#mobile-nav {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--color-white);
+  border-bottom: 4px solid var(--color-black);
+  padding: 0 var(--space-md) var(--space-sm);
+  z-index: 50;
+}
+#mobile-nav.active { display: flex; }
+#mobile-nav a {
+  padding: 1rem 0;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1rem;
+  border-bottom: 2px solid var(--color-gray-light);
+}
+#mobile-nav a.btn {
+  border-bottom: none;
+  margin-top: var(--space-sm);
+  text-align: center;
+}
+
+.nav-desktop { display: flex; align-items: center; gap: 2rem; }
+
+@media (max-width: 900px) {
+  .nav-desktop { display: none; }
+  .mobile-toggle { display: flex; }
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.logo span {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  color: var(--color-blue);
+}
+
+footer {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: var(--space-lg) 0;
+  text-align: center;
+}
+
+footer .logo {
+  margin-bottom: var(--space-md);
+}
+
+footer .logo span { color: var(--color-blue); }
+
+.footer-grid {
+  display: inline-flex;
+  gap: 4rem;
+  margin-bottom: var(--space-md);
+  text-align: left;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.footer-col-heading {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--color-blue);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-xs);
+}
+
+.footer-col a {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.footer-col a:hover { color: var(--color-blue); }
+
+@media (max-width: 480px) {
+  .footer-grid {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+}
+
+/* =========================================================================
+   7. BUTTONS
+   ========================================================================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 2.5rem;
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 800;
+  cursor: pointer;
+  transition: none; /* Brutalist snap */
+  font-size: 1rem;
+  border: 4px solid var(--color-black);
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  border-color: var(--color-blue);
+}
+.btn-primary:hover { background-color: var(--color-black); border-color: var(--color-black); }
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-black);
+}
+.btn-outline:hover { background-color: var(--color-black); color: var(--color-white); }
+
+/* =========================================================================
+   8. RUBRIC / BADGES / LABELS (mono — "technical readout" texture)
+   ========================================================================= */
+
+.rubric {
+  display: inline-block;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  margin-bottom: var(--space-md);
+}
+
+.badge-tag {
+  display: inline-block;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+}
+
+/* =========================================================================
+   9. CARDS
+   ========================================================================= */
+
+.col-card {
+  padding: var(--space-md);
+  max-width: 100%;
+  box-sizing: border-box;
+  word-break: break-word;
+  justify-content: flex-start;
+  border: 4px solid var(--color-black);
+  background: var(--color-white);
+  color: var(--color-black);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.col-card h3 { font-size: 1.5rem; }
+
+.col-card .number,
+.number {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  color: var(--color-blue);
+  line-height: 1;
+  margin-bottom: var(--space-sm);
+  display: block;
+  font-weight: 800;
+}
+
+/* Цифри-результати (економія, ROI%, грант%, калорійність тощо) */
+.stat-accent { color: var(--color-amber) !important; }
+
+.process-card {
+  background: var(--color-black);
+  color: var(--color-white);
+  border: 4px solid var(--color-gray-dark);
+}
+.process-card .number { color: var(--color-white); font-size: 3.5rem; }
+
+.grant-card {
+  background: var(--color-white);
+  color: var(--color-black);
+  border-color: var(--color-black);
+}
+
+.grant-main {
+  background-color: var(--color-blue) !important;
+  color: var(--color-white) !important;
+  border-color: var(--color-blue) !important;
+  justify-content: center;
+}
+.grant-main .huge-stat {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 2rem 0;
+  color: var(--color-white);
+}
+.grant-main h3 { font-size: 2rem; text-transform: uppercase; }
+.grant-main p:not(.huge-stat) { font-size: 1.25rem; max-width: 80%; }
+
+.hero-index {
+  background-color: var(--color-gray-light);
+  border: 4px solid var(--color-black);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.index-row {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 0;
+  border-bottom: 4px solid var(--color-black);
+}
+.index-row:last-child { border-bottom: none; padding-bottom: 0; }
+.index-val {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-blue);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+.index-val small { font-size: 1.2rem; font-weight: 700; color: var(--color-black); }
+.index-desc strong { text-transform: uppercase; font-size: 0.85rem; font-weight: 800; display: block; }
+.index-desc span { font-size: 0.85rem; }
+
+/* =========================================================================
+   10. SECTION COLOR MODIFIERS
+   Портативні класи для будь-якої сторінки. Замінюють жорстку прив'язку до
+   ID домашньої сторінки (нижче, розділ 11) — для нових/мігрованих сторінок
+   використовуй ЦІ класи, а не вигадуй нові ID-правила.
+   ========================================================================= */
+
+.section-white {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border-bottom: 4px solid var(--color-black);
+}
+
+.section-gray {
+  background-color: var(--color-gray-light);
+  color: var(--color-black);
+  border-bottom: 4px solid var(--color-black);
+}
+
+.section-gray-dark {
+  background-color: var(--color-gray-dark);
+  color: var(--color-white);
+  border-bottom: 4px solid var(--color-black);
+}
+.section-gray-dark h2 { border-color: var(--color-white); }
+
+.section-blue {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  border-bottom: 4px solid var(--color-black);
+}
+.section-blue h2 { border-color: var(--color-white); }
+.section-blue .rubric { background-color: var(--color-black); color: var(--color-white); }
+.section-blue .btn-outline { border-color: var(--color-white); color: var(--color-white); }
+.section-blue .btn-outline:hover { background-color: var(--color-white); color: var(--color-blue); }
+
+.section-black {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-bottom: 4px solid var(--color-white);
+}
+.section-black h2 { border-color: var(--color-white); }
+.section-black .rubric { background-color: var(--color-blue); color: var(--color-white); }
+
+/* =========================================================================
+   11. HOMEPAGE-SPECIFIC SECTION HOOKS (legacy, index.html)
+   index.html ще використовує ID-секції напряму. Лишається для зворотної
+   сумісності — для нових сторінок використовуй класи з розділу 10 вище.
+   ========================================================================= */
+
+#problem { background-color: var(--color-gray-light); color: var(--color-black); border-bottom: 4px solid var(--color-black); }
+
+#process { background-color: var(--color-black); color: var(--color-white); border-bottom: 4px solid var(--color-white); position: relative; overflow: hidden; }
+#process h2 { border-color: var(--color-white); }
+#process .rubric { background-color: var(--color-blue); color: var(--color-white); }
+#process .container { position: relative; z-index: 2; }
+
+#calculator { background-color: var(--color-blue); color: var(--color-white); border-bottom: 4px solid var(--color-black); }
+#calculator h2 { border-color: var(--color-white); }
+#calculator .rubric { background-color: var(--color-black); color: var(--color-white); }
+#calculator .btn-outline { border-color: var(--color-white); color: var(--color-white); }
+#calculator .btn-outline:hover { background-color: var(--color-white); color: var(--color-blue); }
+
+#team { background-color: var(--color-gray-light); color: var(--color-black); border-bottom: 4px solid var(--color-black); }
+
+#trust { background-color: var(--color-white); color: var(--color-black); border-bottom: 4px solid var(--color-black); }
+#trust .grid-3 { align-items: stretch; }
+#trust .col-card { border: 4px solid var(--color-black); background: var(--color-gray-light); justify-content: flex-start; }
+
+#grants { background-color: var(--color-white); color: var(--color-black); border-bottom: 4px solid var(--color-black); }
+
+#contact { background-color: var(--color-gray-dark); color: var(--color-white); border-bottom: 4px solid var(--color-black); }
+#contact h2 { border-color: var(--color-white); }
+#contact .grid-2 { align-items: start; }
+#contact .col-card { height: auto; }
+
+/* Hero (first section on a page) */
+body > section:nth-of-type(1) {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border-bottom: 4px solid var(--color-black);
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  padding: var(--space-sm) 0;
+  position: relative;
+  overflow: hidden;
+}
+body > section:nth-of-type(1) h1 { font-size: clamp(2rem, 3.5vw, 3.2rem); margin-bottom: 1rem; }
+body > section:nth-of-type(1) .btn { padding: 1rem 1.5rem; }
+body > section:nth-of-type(1) .container { position: relative; z-index: 2; }
+
+.hero-desc {
+  font-size: 1.1rem;
+  font-weight: 500;
+  max-width: 800px;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Process staircase layout (desktop) */
+@media (min-width: 1025px) {
+  #process .grid-3 { align-items: flex-start; padding-bottom: 5rem; }
+  #what-is-htc .grid-3 { align-items: flex-start; padding-bottom: 8rem; }
+  .process-card:nth-child(1) { margin-top: 0; }
+  .process-card:nth-child(2) { margin-top: 6rem; }
+  .process-card:nth-child(3) { margin-top: 12rem; }
+
+  #grants .grid-3 {
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-rows: auto auto;
+    gap: var(--space-md);
+  }
+  .grant-card:nth-child(1) { grid-column: 1; grid-row: 1 / 3; }
+  .grant-card:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .grant-card:nth-child(3) { grid-column: 2; grid-row: 2; }
+}
+
+#process .grid-2 > div:first-child .col-card > div {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--color-gray-dark);
+  flex-shrink: 0;
+}
+
+/* =========================================================================
+   12. TABLES
+   ========================================================================= */
+
+.table-wrapper {
+  overflow-x: auto;
+  border: 4px solid var(--color-black);
+  background-color: var(--color-white);
+  color: var(--color-black);
+  margin-top: var(--space-md);
+  box-shadow: var(--shadow-hard-sm);
+}
+
+table { width: 100%; border-collapse: collapse; }
+
+th, td {
+  padding: 1.5rem 1.5rem;
+  text-align: left;
+  border-bottom: 4px solid var(--color-black);
+  border-right: 4px solid var(--color-black);
+  line-height: 1.5;
+}
+th:last-child, td:last-child { border-right: none; }
+tr:last-child td { border-bottom: none; }
+
+th {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 1rem;
+  text-transform: uppercase;
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+td { font-size: 1.1rem; font-weight: 600; background-color: var(--color-white); color: var(--color-black); vertical-align: top; }
+
+th.btc-col, td.btc-col { background-color: var(--color-blue); color: var(--color-white); }
+
+td:first-child {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  background-color: var(--color-gray-light);
+  width: 20%;
+}
+
+/* =========================================================================
+   13. CONTACT DELIVERABLES — "що отримаєш" чек-лист біля форми звʼязку
+   ========================================================================= */
+
+.contact-deliverables {
+  margin: var(--space-md) 0;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-gray-light);
+  border-left: 4px solid var(--color-blue);
+  color: var(--color-gray-dark);
+}
+.contact-deliverables strong { display: block; margin-bottom: 0.6rem; font-size: 0.95rem; text-transform: uppercase; color: var(--color-gray-dark); }
+.contact-deliverables ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+.contact-deliverables li { font-size: 0.95rem; font-weight: 600; color: var(--color-gray-dark); }
+.contact-deliverables li::before { content: '✓ '; color: var(--color-blue); font-weight: 900; }
+.contact-deliverables .note { margin-top: 0.6rem; font-size: 0.85rem; font-style: italic; font-weight: 500; color: var(--color-gray-dark); }
+
+/* On dark section backgrounds the gray-light box needs to stay legible/contrasted */
+.section-gray-dark .contact-deliverables,
+.section-black .contact-deliverables {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-white);
+  border-left-color: var(--color-white);
+}
+.section-gray-dark .contact-deliverables strong,
+.section-gray-dark .contact-deliverables li,
+.section-gray-dark .contact-deliverables .note,
+.section-black .contact-deliverables strong,
+.section-black .contact-deliverables li,
+.section-black .contact-deliverables .note { color: var(--color-white); }
+.section-gray-dark .contact-deliverables li::before,
+.section-black .contact-deliverables li::before { color: var(--color-white); }
+
+/* =========================================================================
+   14. FORMS
+   ========================================================================= */
+
+.form-group { margin-bottom: var(--space-sm); }
+
+.form-group label {
+  display: block;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: var(--color-black);
+  margin-bottom: var(--space-xs);
+}
+
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 1.25rem;
+  background: var(--color-gray-light);
+  border: 4px solid var(--color-gray-light);
+  color: var(--color-black);
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  outline: none;
+  background: var(--color-white);
+  border-color: var(--color-blue);
+}
+
+/* =========================================================================
+   15. SIGNATURE COMPONENTS — анімовані елементи бренду
+   ========================================================================= */
+
+/* ── Blueprint draw (фон hero, тонкі креслярські лінії) ──────────────── */
+.hero-blueprint {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  opacity: 0.15; z-index: 0; pointer-events: none; overflow: hidden;
+}
+.bp-line {
+  fill: none; stroke: var(--color-black); stroke-width: 2;
+  stroke-dasharray: 4000; stroke-dashoffset: 4000;
+  animation: drawBlueprint 15s ease-in-out infinite alternate;
+}
+.bp-line-thin {
+  fill: none; stroke: var(--color-black); stroke-width: 0.5;
+  stroke-dasharray: 2000; stroke-dashoffset: 2000;
+  animation: drawBlueprint 20s ease-in-out infinite alternate;
+}
+@keyframes drawBlueprint {
+  0% { stroke-dashoffset: 4000; }
+  100% { stroke-dashoffset: 0; }
+}
+.trust-blueprint {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  opacity: 0.08; z-index: 0; pointer-events: none;
+}
+
+/* ── Process section: engineering grid pan + scanner sweep ───────────── */
+.process-bg-anim {
+  position: absolute; top: -50px; left: -50px;
+  width: calc(100% + 100px); height: calc(100% + 100px);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: processGridMove 15s linear infinite;
+  z-index: 0; pointer-events: none;
+}
+@keyframes processGridMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-60px); }
+}
+.scanner-line {
+  position: absolute; top: -20%; left: 0; width: 100%; height: 250px;
+  background: linear-gradient(to bottom,
+    transparent 0%, rgba(0, 51, 160, 0.05) 40%, rgba(0, 51, 160, 0.3) 50%,
+    rgba(0, 51, 160, 0.05) 60%, transparent 100%);
+  border-top: 1px solid rgba(0, 51, 160, 0.5);
+  border-bottom: 1px solid rgba(0, 51, 160, 0.5);
+  animation: processScanSweep 6s ease-in-out infinite alternate;
+  z-index: 1; pointer-events: none; opacity: 0.8;
+}
+@keyframes processScanSweep {
+  0% { top: -20%; }
+  100% { top: 120%; }
+}
+
+/* ── Hero checklist (animated list, slide-in + draw-on checkmarks) ───── */
+.hero-checklist { display: flex; flex-direction: column; gap: var(--space-md); margin-top: 2rem; }
+.check-item {
+  display: flex; align-items: flex-start; gap: 1.5rem;
+  opacity: 0; transform: translateX(30px);
+  animation: slideInCheck 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--anim-delay);
+}
+@keyframes slideInCheck {
+  0% { opacity: 0; transform: translateX(30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+.check-icon {
+  width: 48px; height: 48px;
+  background-color: var(--color-black); color: var(--color-white);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; border: 4px solid var(--color-black);
+}
+.check-icon svg {
+  width: 24px; height: 24px;
+  stroke-dasharray: 40; stroke-dashoffset: 40;
+  animation: drawCheck 0.5s ease-out forwards;
+  animation-delay: calc(var(--anim-delay) + 0.4s);
+}
+@keyframes drawCheck {
+  0% { stroke-dashoffset: 40; }
+  100% { stroke-dashoffset: 0; }
+}
+.check-content { display: flex; flex-direction: column; }
+.check-val {
+  font-family: var(--font-display);
+  font-size: 1.5rem; font-weight: 800; color: var(--color-blue);
+  line-height: 1.1; margin-bottom: 0.5rem; text-transform: uppercase;
+}
+.check-desc { font-size: 1rem; font-weight: 600; color: var(--color-black); }
+@media (max-width: 768px) { .hero-checklist { margin-top: 3rem; } }
+
+/* ── Paper checklist (signature hero element — clipboard motif) ──────── */
+.paper-checklist-wrapper { perspective: 1000px; }
+.paper-checklist {
+  background: var(--color-white);
+  border: 4px solid var(--color-black);
+  box-shadow: var(--shadow-hard-lg);
+  padding: 2rem;
+  display: flex; flex-direction: column; gap: 1.5rem;
+  margin-top: 2rem;
+  transform: translateY(300px) rotateX(15deg);
+  opacity: 0;
+  animation: paperSlideUp 3s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+}
+@keyframes paperSlideUp {
+  0% { transform: translateY(300px) rotateX(15deg); opacity: 0; }
+  100% { transform: translateY(0) rotateX(0); opacity: 1; }
+}
+.paper-header { border-bottom: 4px solid var(--color-black); padding-bottom: 1rem; margin-bottom: 0.5rem; }
+.paper-title {
+  font-family: var(--font-mono);
+  font-weight: 800; font-size: 1.1rem; letter-spacing: 0.05em; color: var(--color-black);
+}
+.paper-checklist .check-item { display: flex; align-items: center; gap: 1.5rem; }
+.paper-checklist .check-icon {
+  width: 40px; height: 40px; background-color: transparent; color: var(--color-blue);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; border: 4px solid var(--color-black);
+}
+.paper-checklist .check-icon svg {
+  width: 24px; height: 24px; stroke-dasharray: 40; stroke-dashoffset: 40;
+  animation: drawCheck 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+.paper-checklist .check-item:nth-child(2) .check-icon svg { animation-delay: 3.5s; }
+.paper-checklist .check-item:nth-child(3) .check-icon svg { animation-delay: 4.5s; }
+.paper-checklist .check-item:nth-child(4) .check-icon svg { animation-delay: 5.5s; }
+.paper-checklist .check-item:nth-child(5) .check-icon svg { animation-delay: 6.5s; }
+.paper-checklist .check-item:nth-child(6) .check-icon svg { animation-delay: 7.5s; }
+.paper-checklist .check-val {
+  font-size: 1.3rem; font-weight: 800; color: var(--color-black);
+  line-height: 1.1; margin-bottom: 0.25rem; text-transform: uppercase;
+}
+.paper-checklist .check-desc { font-size: 0.95rem; font-weight: 600; color: var(--color-gray-dark); }
+
+/* =========================================================================
+   16. HELPERS
+   ========================================================================= */
+
+.visually-hidden { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.hidden { display: none; }
+
+/* =========================================================================
+   17. PRINT
+   ========================================================================= */
+
+@media print {
+  * { background: transparent !important; color: #000 !important; box-shadow: none !important; text-shadow: none !important; }
+  a { text-decoration: underline; }
+  .btn { display: none; }
+}

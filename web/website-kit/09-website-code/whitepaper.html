@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whitepaper BioTC | BTC Consulting</title>
+
+  <link rel="stylesheet" href="./design-system.css">
+
+  <style>
+    .doc-wrap { max-width: 860px; margin: 0 auto; }
+    .doc-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.9rem; font-weight: 800; text-transform: uppercase;
+      color: var(--color-black); text-decoration: none; margin-bottom: var(--space-md);
+    }
+
+    .doc-meta {
+      background: var(--color-gray-light); border-left: 4px solid var(--color-blue);
+      padding: 1rem 1.5rem; margin-block-end: var(--space-md);
+      font-size: 0.85rem; line-height: 1.8; color: var(--color-gray-dark);
+    }
+    .doc-meta strong { color: var(--color-black); }
+
+    .doc-card h2 {
+      font-size: 1.15rem; font-weight: 800; border: none;
+      color: var(--color-black); margin-block: var(--space-md) 0.5rem; line-height: 1.2;
+    }
+    .doc-card h2:first-of-type { margin-block-start: 0; }
+    .doc-card h3 {
+      font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--color-blue); margin-block: 1.5rem 0.5rem;
+      padding-inline-start: 0.75rem; border-left: 3px solid var(--color-blue);
+    }
+    .doc-card p { font-size: 0.95rem; line-height: 1.8; margin-block-end: 0.75rem; }
+    .doc-card p:last-child { margin-block-end: 0; }
+    .doc-card ul { padding-inline-start: 1.25rem; margin-block: 0.5rem 0.75rem; }
+    .doc-card li { font-size: 0.92rem; line-height: 1.75; margin-block-end: 0.5rem; }
+    .doc-card .formula {
+      display: block; font-size: 0.92rem; font-weight: 700; font-style: italic;
+      text-align: center; margin-block: 0.75rem; padding: 0.75rem 1rem;
+      background: var(--color-gray-light);
+    }
+    .doc-card blockquote {
+      border-left: 4px solid var(--color-blue); margin: 0.75rem 0;
+      padding: 0.75rem 1.25rem; background: var(--color-gray-light);
+      font-style: italic; font-size: 0.95rem; line-height: 1.7;
+    }
+
+    .doc-table-wrap { overflow-x: auto; margin-block: 1.25rem; }
+    .doc-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .doc-table th {
+      background: var(--color-black); color: var(--color-white); font-weight: 800;
+      padding: 0.85rem 1rem; text-align: left; line-height: 1.35;
+    }
+    .doc-table th:first-child { width: 28%; }
+    .doc-table td { padding: 0.75rem 1rem; border-bottom: 2px solid var(--color-gray-light); vertical-align: top; line-height: 1.5; font-weight: 600; }
+    .doc-table tr:last-child td { border-bottom: none; }
+
+    .doc-actions { margin-block-start: var(--space-md); display: flex; justify-content: flex-end; }
+    @media print { header, footer, .doc-back, .doc-actions { display: none !important; } }
+
+
+    #contact .contact-info-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+    #contact .info-item { display: flex; align-items: center; gap: 0.75rem; font-weight: 700; }
+    #contact .info-item svg { flex-shrink: 0; width: 20px; height: 20px; }
+  </style>
+</head>
+<body>
+
+  <script src="partials/header.js"></script>
+
+  <main>
+    <section>
+      <div class="container doc-wrap">
+
+        <a href="javascript:history.back()" class="doc-back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          Powrót
+        </a>
+
+        <span class="rubric">Whitepaper</span>
+        <h1>Whitepaper <span style="color: var(--color-blue);">· Biała Księga</span></h1>
+
+        <div class="col-card doc-card" style="margin-top: var(--space-md);">
+
+          <div class="doc-meta">
+            <strong>Temat:</strong> Projektowanie systemów BioTC. Transformacja osadów ściekowych w wysokokaloryczne hydrowęgiel i energetyczna niezależność miejskich oczyszczalni ścieków<br>
+            <strong>Opracowanie:</strong> BTC Consulting Sp. z o.o. | ul. Daszyńskiego 34/3, 44-100 Gliwice, Polska<br>
+            <strong>Partnerzy naukowi:</strong> Katedra Techniki Cieplnej i Ochrony Środowiska AGH Kraków | Sieć WikiChar<br>
+            <strong>Partner przemysłowy:</strong> INTROL S.A. Holding<br>
+            <strong>Wersja:</strong> 4.0 (zweryfikowana matematycznie) &nbsp;|&nbsp; <strong>Data:</strong> Maj 2026
+          </div>
+
+          <h2>Streszczenie projektu (Executive Summary)</h2>
+          <p>W 2026 roku sektor komunalny i przemysłowy gospodarki osadami ściekowymi w Unii Europejskiej stanął w obliczu bezprecedensowego kryzysu systemowego. Wejście w życie zaktualizowanych wymogów Dyrektywy UE o oczyszczaniu ścieków komunalnych (<em>UWWTD recast</em>) de facto zablokowało tradycyjne metody utylizacji osadów, takie jak rolnicze rozprowadzanie na polach i składowanie. Krytyczny niedobór mocy spalarniowych w połączeniu z gwałtownym wzrostem cen gazu ziemnego uczyniły klasyczne suszarnie termiczne finansową katastrofą dla budżetów miast.</p>
+          <p>Firma <strong>BTC Consulting</strong> proponuje rynkowi architekturę technologiczną <strong>BioTC</strong>, opartą na fundamentalnej modernizacji procesu hydrotermalnej karbonizacji (HTC). W odróżnieniu od przestarzałych podejść konkurencji, nasze rozwiązanie odseparowuje wodę w fazie ciekłej pod wysokim ciśnieniem i temperaturą, bez przejścia fazowego. Projekt jest w pełni przeorientowany z dostaw izolowanego sprzętu na świadczenie wysokowartościowego consultingu inżynieryjnego, opracowywanie indywidualnych studiów wykonalności (TEO) oraz integrację biznesową obiektów „pod klucz" z wykorzystaniem do 75–90% bezzwrotnego dofinansowania grantowego UE.</p>
+
+          <h2>1. Kolaps regulacyjny i infrastrukturalny ból gmin</h2>
+
+          <h3>1.1. Skutki dyrektywy UWWTD 2026</h3>
+          <p>Wdrożenie nowych standardów środowiskowych UE całkowicie zburzyło dotychczasową logistykę oczyszczalni ścieków. Główne czynniki nacisku:</p>
+          <ul>
+            <li><strong>Zakaz wywozu do sektora agro:</strong> Rygorystyczna kontrola zawartości PFAS, mikroplastiku i metali ciężkich uniemożliwiła bezpośrednie wprowadzanie mułu do gleby.</li>
+            <li><strong>Kryzys przepustowości spalarni:</strong> Ogólnoeuropejski deficyt mocy spalarniowych osiągnął krytyczne poziomy. Na przykładzie Polski: roczna potrzeba utylizacji przekracza 5,5 mln ton mokrego keku, podczas gdy realna moc wszystkich działających zakładów jest ograniczona do 1,4 mln ton rocznie.</li>
+            <li><strong>Sankcje karne i Gate Fees:</strong> Wodociągi płacą astronomiczne komercyjne tar­yfy monopolistycznym operatorom, co prowadzi do kapitałowego wypłukiwania środków z komunalnych spółek.</li>
+          </ul>
+
+          <h3>1.2. Błąd termodynamiczny suszenia konwekcyjnego</h3>
+          <p>Tradycyjne systemy konkurencji opierają się na odparowaniu wody. Do przejścia fazowego 1 tony wody ze stanu ciekłego w parę suszarki konwekcyjne wymagają od 800 do 1 100 kWh energii. Wykorzystanie gazu kopalnego w warunkach zmienności rynków energii czyni eksploatację oczyszczalni planowo nierentowną. System BioTC rozwiązuje ten problem, przenosząc osad ściekowy z kategorii toksycznego pasywu do płynnego aktywa odnawialnego.</p>
+
+          <h2>2. Podstawy technologiczne i naukowa weryfikacja procesu BioTC</h2>
+
+          <h3>2.1. Chemizm i fizyka procesu HTC</h3>
+          <p>Technologia BioTC opiera się na przetwarzaniu odwodnionego osadu w reaktorach przy temperaturze <strong>180–220°C</strong> i autogenicznym ciśnieniu <strong>15–25 bar</strong>. W tych warunkach hydrotermalnych woda zachowuje się jak niepolarny rozpuszczalnik i katalizator. Proces przebiega bez wstępnego wrzenia. Zachodzi szybka depolimeryzacja, dekarboksylacja i dehydratacja organicznej matrycy mułu. Ściany komórkowe bakterii są całkowicie niszczone, uwalniając związaną wodę.</p>
+          <blockquote>Kluczowy efekt energetyczny: ponieważ woda pozostaje w fazie ciekłej przez cały cykl karbonizacji, zużycie energii na odwodnienie spada 4–5-krotnie w porównaniu z odparowaniem termicznym. Dalsze prasowanie mechaniczne pozwala uzyskać paliwo stałe bez zużycia gazu ziemnego.</blockquote>
+
+          <h3>2.2. Naukowe bezpieczeństwo ekologiczne: PFAS, mikroplastik i metale ciężkie</h3>
+          <p>W partnerstwie z uniwersytetem <strong>AGH Kraków</strong> oraz siecią <strong>WikiChar</strong> przeprowadzono serię badań, które potwierdziły pełną detoksykację materiału:</p>
+          <ul>
+            <li><strong>Zniszczenie mikroplastiku:</strong> Parametry HTC zapewniają destrukcję łańcuchów polimerowych mikroplastiku, redukując rozmiar fragmentów z niebezpiecznych &lt;5 mm do całkowicie bezpiecznych &lt;0,01 mm.</li>
+            <li><strong>Immobilizacja metali ciężkich:</strong> Podczas karbonizacji kationy metali ciężkich są nieodwracalnie uszczelniane wewnątrz stabilnej porowatej matrycy węglowej, przechodząc w formę niebiodostępną.</li>
+            <li><strong>Inaktywacja patogenów:</strong> Bariera temperaturowa powyżej 180°C gwarantuje 100% zniszczenie wszystkich patogennych mikroorganizmów, bakterii, helmintów i markerów wirusowych.</li>
+          </ul>
+
+          <h2>3. Elastyczne scenariusze infrastrukturalne i wymiarowanie ekonomiki</h2>
+
+          <h3>3.1. Obliczenie bilansu materiałowego dla miasta bazowego</h3>
+          <p>Jeden równoważny mieszkaniec (RLM) wytwarza średnio <strong>65 g</strong> suchej masy (s.m.) na dobę. Dla miejskiej oczyszczalni o skali 100 000 RLM dobowa generacja wynosi:</p>
+          <p class="formula">100 000 × 65 g = 6,5 tony suchej masy (s.m.) / dobę</p>
+          <p>Przy standardowym mechanicznym odwadnianiu na wirówkach do wilgotności 80% (zawartość suchej masy 20%), realna dobowa masa keku podawanego do instalacji BioTC:</p>
+          <p class="formula">M<sub>in</sub> = 6,5 tony s.m. ÷ 0,20 = <strong>32,5 tony odwodnionego osadu na dobę</strong></p>
+          <p>Przy uwzględnieniu regulaminowego roku przemysłowego (8 000 godzin pracy = 333 doby), łączny roczny wolumen przetwarzania dla Scenariusza A wynosi <strong>~10 800 ton/rok</strong>.</p>
+
+          <h3>3.2. Analiza porównawcza scenariuszy wdrożenia</h3>
+
+          <div class="doc-table-wrap">
+            <table class="doc-table">
+              <thead>
+                <tr>
+                  <th>Parametr</th>
+                  <th>Scenariusz A: Lokalna modernizacja wodociągów miasta (Lubin)</th>
+                  <th>Scenariusz B: Regionalny hub ekologiczny (Hub &amp; Spoke)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Wolumen surowca / rok</strong></td>
+                  <td>32,5 tony/dobę · ~10 800 ton/rok</td>
+                  <td>120–150 ton/dobę · ~50 000 ton/rok</td>
+                </tr>
+                <tr>
+                  <td><strong>Grupa docelowa</strong></td>
+                  <td>Wodociągi miejskie (MPWiK). Własne osady komunalne.</td>
+                  <td>Bazowe duże miasto (Hub) + 4–5 gmin satelitarnych w radiusie 50 km</td>
+                </tr>
+                <tr>
+                  <td><strong>Pełny CapEx</strong></td>
+                  <td>€4,5 mln – €5,2 mln</td>
+                  <td>€5,5 mln – €6,5 mln</td>
+                </tr>
+                <tr>
+                  <td><strong>Bezzwrotne granty UE</strong></td>
+                  <td>75% (LIFE / Fundusz Spójności)</td>
+                  <td>Do 90% (jako klaster międzygminny)</td>
+                </tr>
+                <tr>
+                  <td><strong>Realne obciążenie budżetu</strong></td>
+                  <td>~€1,1 mln</td>
+                  <td>€550 000 – €650 000</td>
+                </tr>
+                <tr>
+                  <td><strong>Okres zwrotu</strong></td>
+                  <td>4 lata</td>
+                  <td>3 – 3,5 roku</td>
+                </tr>
+                <tr>
+                  <td><strong>Logika Win-Win</strong></td>
+                  <td>Pełna eliminacja kosztów gazu i opłat dla zewnętrznych spalarni. Wewnętrzna energetyczna autonomia.</td>
+                  <td>Stabilny dochód od sąsiednich miast poprzez Gate Fees na podstawie długoterminowych kontraktów.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>4. Ekonomika wielokanałowego przychodu (Multi-Stream Revenue)</h2>
+
+          <h3>4.1. Gminne Gate Fees</h3>
+          <p>W scenariuszu hubu regionalnego okoliczne małe gminy płacą hubowi ustaloną opłatę za utylizację każdej tony swojego mułu. Te przepływy są zabezpieczone przed wahaniami rynkowymi długoterminowymi kontraktami na 10–15 lat, ponieważ dla gmin ta tar­yfa jest istotnie niższa niż potencjalne kary UE za nielegalne składowanie.</p>
+
+          <h3>4.2. Komercyjny produkt End-of-Waste (Hydrochar)</h3>
+          <p>Na wyjściu z instalacji BioTC powstaje suche hydrowęgiel — <strong>Hydrochar</strong>. Wilgotność poniżej 10%, wartość opałowa <strong>20–24 MJ/kg</strong>, co jest równoważne dobrej jakości węglowi kamiennemu. Produkt otrzymuje certyfikację CE i jest sprzedawany przedsiębiorstwom przemysłowym (cementownie, sorbenty techniczne) po cenach rynkowych.</p>
+
+          <h3>4.3. Stymulacja produkcji biogazu</h3>
+          <p>Faza ciekła po procesie HTC (likwor) zawiera wysoką koncentrację łatwo przyswajalnej organiki. Zawrócenie likworu do istniejących fermentorów działa jak silny biostymulator, który <strong>przyspiesza generację biogazu 3-krotnie</strong>. Nadmiarowy biogaz jest kierowany do kogeneracji w celu produkcji energii elektrycznej i ciepła. Obiekt osiąga <strong>100% neutralność energetyczną</strong> (OpEx = 0 dla gazu).</p>
+
+          <h2>5. Model biznesowy monetyzacji i skalowania BTC Consulting</h2>
+          <p>BTC Consulting działa na rynku jako wysokotechnologiczny deweloper inżyniersko-konsultingowy. Wewnętrzny model biznesowy jest zabezpieczony przed zamrożeniem kapitału obrotowego w łańcuchach produkcyjnych i opiera się na sprzedaży własności intelektualnej i licencji:</p>
+          <ul>
+            <li><strong>Płatne opracowanie przedprojektowych TEO:</strong> Szczegółowa zlokalizowana analiza inżyniersko-środowiskowa obiektu (do 200 stron) jest sprzedawana gminom w cenie €20 000 – €40 000 za jeden projekt (Upfront Revenue).</li>
+            <li><strong>Nadzór autorski i generalna integracja:</strong> Firma koordynuje współpracę między partnerami akademickimi (AGH Kraków) i generalnym wykonawcą (INTROL S.A.) i otrzymuje stały wysokomarżowy procent od całkowitego CapEx.</li>
+          </ul>
+
+          <h2>6. Minimalizacja ryzyka i architektura zaufania (De-Risking)</h2>
+          <p>Aby zapewnić gwarancje finansowe i prawne dla burmistrzów miast i inwestorów, w architekturę BioTC zintegrowano trzy poziomy ochronne:</p>
+          <ul>
+            <li><strong>Przemysłowe gwarancje rezultatu:</strong> Budowa i przekazanie „pod klucz" odbywa się w konsorcjum z holdingiem <strong>INTROL S.A.</strong>, którego akcje są notowane na giełdzie GPW. To całkowicie eliminuje ryzyko nieosiągnięcia deklarowanych mocy.</li>
+            <li><strong>Wejściowa brama technologiczna (Quality Gateway):</strong> Algorytmy cyfrowego symulatora pozwalają z wyprzedzeniem zamodelować zachowanie reaktora przy domieszaniu obcych toksycznych ścieków. Parametry systemu są automatycznie korygowane, gwarantując stabilność procesu.</li>
+            <li><strong>Czystość prawna obrotu (REACH Compliance):</strong> Cały pakiet technologiczny jest opracowywany zgodnie z regulacjami REACH. Hydrowęgiel jest legalnie wyprowadzane ze statusu „odpadu" do statusu „produktu", co usuwa ograniczenia transgranicznego przemieszczania i komercyjnej sprzedaży na rynkach UE.</li>
+          </ul>
+
+        </div>
+
+        <div class="doc-actions">
+          <button class="btn btn-outline" onclick="window.print()">Pobierz PDF</button>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="grid-2">
+          <div>
+            <span class="rubric">Kontakt</span>
+            <h2>Wyślij dane obiektu. W 5 dni roboczych wiesz, czy projekt ma sens.</h2>
+            <p>Jeden formularz zastępuje wstępną konsultację. Nasi inżynierowie analizują dane i odpowiadają konkretami — bez sprzedażowego pitchu.</p>
+
+            <div class="contact-deliverables">
+              <strong>W ciągu 5 dni roboczych otrzymujesz:</strong>
+              <ul>
+                <li>Wstępną kwalifikację obiektu do HTC lub Hub &amp; Spoke</li>
+                <li>Szacowany poziom dofinansowania (FENX.01.03 / NFOŚiGW)</li>
+                <li>Orientacyjny CAPEX i OPEX dla Twojego profilu</li>
+                <li>Rekomendację następnego kroku (TEO lub bezpośrednia koncepcja)</li>
+              </ul>
+              <p class="note">To nic nie kosztuje. Dane obiektu można znaleźć w KPOŚK lub u operatora.</p>
+            </div>
+
+            <div class="contact-info-list">
+              <div class="info-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>+48 608 003 458</span>
+              </div>
+              <div class="info-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span>contact@biotc.pl</span>
+              </div>
+              <div class="info-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>ul. Daszyńskiego 34/3, 44-100 Gliwice, Polska</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-card">
+            <form id="rfq-form" action="#" method="POST" novalidate>
+              <div style="position:absolute; left:-9999px;" aria-hidden="true">
+                <label for="honeypot">Leave blank</label>
+                <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label for="user-name">Imię i nazwisko / stanowisko *</label>
+                <input type="text" id="user-name" name="name" required minlength="2" autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="user-phone">Telefon kontaktowy *</label>
+                <input type="tel" id="user-phone" name="phone" required autocomplete="tel" inputmode="tel">
+              </div>
+              <div class="form-group">
+                <label for="user-company">Miasto / nazwa przedsiębiorstwa</label>
+                <input type="text" id="user-company" name="company" autocomplete="organization">
+              </div>
+              <div class="form-group">
+                <label for="user-type">Typ obiektu</label>
+                <select id="user-type" name="object_type">
+                  <option value="" disabled selected></option>
+                  <option value="waterutil">Regionalne przedsiębiorstwo wodociągowe (od 50 tys.)</option>
+                  <option value="community">Gmina (od 10 tys.)</option>
+                  <option value="agro">Przedsiębiorstwo rolno-spożywcze</option>
+                  <option value="other">Inne</option>
+                </select>
+              </div>
+              <button type="submit" id="form-submit-btn" class="btn btn-primary" style="width:100%;">Wyślij dane obiektu →</button>
+              <p style="margin-top:1rem; font-size:0.85rem; font-weight:600;">Odpowiedź w ciągu 5 dni roboczych. Bez zobowiązań i bez sprzedażowego pitchu.</p>
+            </form>
+            <div id="form-status" class="hidden" tabindex="-1" role="status" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="partials/footer.js"></script>
+
+  <script src="../app.min.js?v=5"></script>
+
+</body>
+</html>

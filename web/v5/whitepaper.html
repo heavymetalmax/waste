@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whitepaper — Biała Księga BioTC | BTC Consulting</title>
+  <meta name="description" content="Whitepaper techniczny: projektowanie systemów BioTC. Transformacja osadów ściekowych w hydrochar i energetyczna niezależność oczyszczalni. Opracowanie BTC Consulting + AGH Kraków.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/v5/design-system.css">
+
+  <style>
+    .doc-wrap { max-width: 860px; margin: 0 auto; }
+
+    .doc-meta {
+      padding: 1.5rem 2rem;
+      border-left: 3px solid var(--c-accent);
+      background: var(--c-surface-w);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--c-gray);
+    }
+    .doc-meta strong { color: var(--c-black); }
+
+    .doc-section {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--c-border);
+    }
+    .doc-section:last-child { border-bottom: none; }
+
+    .doc-h2 {
+      font-family: var(--f-display);
+      font-weight: 800;
+      font-size: clamp(1.25rem, 2vw, 1.625rem);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--c-black);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    .doc-h3 {
+      font-family: var(--f-display);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--c-accent);
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--c-accent);
+    }
+
+    .doc-body { font-size: 0.9375rem; line-height: 1.8; }
+    .doc-body p { margin-bottom: 1rem; }
+    .doc-body p:last-child { margin-bottom: 0; }
+    .doc-body ul { padding-left: 1.25rem; margin: 0.75rem 0 1rem; }
+    .doc-body li { font-size: 0.9375rem; line-height: 1.75; margin-bottom: 0.5rem; }
+
+    .doc-quote {
+      border-left: 3px solid var(--c-accent);
+      padding: 1rem 1.5rem;
+      background: var(--c-surface-w);
+      margin: 1.25rem 0;
+      font-style: italic;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+    }
+
+    .doc-formula {
+      display: block;
+      font-family: var(--f-display);
+      font-weight: 700;
+      font-size: 0.9375rem;
+      text-align: center;
+      margin: 1rem 0;
+      padding: 0.75rem 1rem;
+      background: var(--c-surface-w);
+    }
+
+    .doc-table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+
+    .doc-actions {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: flex-end;
+    }
+    @media print {
+      .site-header, .site-footer, .footer-cta,
+      .doc-actions, .doc-back { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<script src="/v5/partials/header.js"></script>
+
+<!-- ============================================================
+     A. HERO
+     ============================================================ -->
+<section class="hero" aria-label="Whitepaper BioTC">
+  <div class="hero__content">
+    <p class="t-label">Whitepaper · Biała Księga</p>
+
+    <h1 class="t-display reveal">
+      Projektowanie<br>
+      systemów<br>
+      <span class="t-accent">BioTC</span>
+    </h1>
+
+    <p class="t-lead reveal" style="max-width: 860px;color:var(--c-gray-d)">
+      Transformacja osadów ściekowych w&nbsp;hydrochar
+      i&nbsp;energetyczna niezależność miejskich oczyszczalni ścieków.
+      Opracowanie BTC Consulting + AGH Kraków.
+    </p>
+
+    <div class="flex gap-sm reveal" style="flex-wrap:wrap">
+      <a class="btn btn-primary" href="#doc">
+        Czytaj whitepaper →
+      </a>
+      <a class="btn btn-outline" href="#contact">
+        Zamów pełny PDF
+      </a>
+    </div>
+  </div>
+
+  <div class="hero__image">
+    <img src="/v5/assets/img/formula%20book%20find.jpeg" alt="Whitepaper BioTC — badania naukowe"
+         style="width:100%;height:100%;object-fit:cover;filter:grayscale(1)">
+  </div>
+</section>
+
+<!-- ============================================================
+     B. STAT STRIP
+     ============================================================ -->
+<section class="stat-strip" aria-label="Parametry dokumentu">
+  <div class="stat-strip__inner">
+    <div class="stat-item reveal">
+      <span class="stat-num">v4.0</span>
+      <span class="t-label-muted">Wersja zweryfikowana matematycznie</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num is-accent">24</span>
+      <span class="t-label-muted">Stron opracowania naukowego</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num">AGH</span>
+      <span class="t-label-muted">Partner naukowy — Kraków</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-num">2026</span>
+      <span class="t-label-muted">Data opracowania</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     C. DOCUMENT BODY
+     ============================================================ -->
+<section class="section" id="doc" aria-label="Treść whitepapera">
+  <div class="container doc-wrap">
+
+    <div class="doc-meta reveal">
+      <span><strong>Temat:</strong> Projektowanie systemów BioTC. Transformacja osadów ściekowych w wysokokaloryczny hydrowęgiel i energetyczna niezależność miejskich oczyszczalni ścieków</span>
+      <span><strong>Opracowanie:</strong> BTC Consulting Sp. z o.o. | Gliwice, Polska</span>
+      <span><strong>Partnerzy naukowi:</strong> Katedra Techniki Cieplnej i Ochrony Środowiska AGH Kraków | Sieć WikiChar</span>
+      <span><strong>Wersja:</strong> 4.0 (zweryfikowana matematycznie) · Maj 2026</span>
+    </div>
+
+    <!-- Executive Summary -->
+    <div class="doc-section doc-body reveal">
+      <h2 class="doc-h2">Streszczenie projektu</h2>
+      <p>W 2026 roku sektor komunalny i przemysłowy gospodarki osadami ściekowymi w Unii Europejskiej stanął w obliczu bezprecedensowego kryzysu systemowego. Wejście w życie zaktualizowanych wymogów Dyrektywy UE o oczyszczaniu ścieków komunalnych (<em>UWWTD recast</em>) de facto zablokowało tradycyjne metody utylizacji osadów.</p>
+      <p>Firma <strong>BTC Consulting</strong> proponuje rynkowi architekturę technologiczną <strong>BioTC</strong>, opartą na modernizacji procesu hydrotermalnej karbonizacji (HTC). Rozwiązanie odseparowuje wodę w fazie ciekłej pod wysokim ciśnieniem i temperaturą, bez przejścia fazowego — co obniża zużycie energii 4–5-krotnie vs. suszenie konwekcyjne.</p>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="doc-section doc-body reveal">
+      <h2 class="doc-h2">1. Kolaps regulacyjny i infrastrukturalny ból gmin</h2>
+
+      <h3 class="doc-h3">1.1. Skutki dyrektywy UWWTD 2026</h3>
+      <p>Wdrożenie nowych standardów środowiskowych UE całkowicie zburzyło dotychczasową logistykę oczyszczalni ścieków. Główne czynniki nacisku:</p>
+      <ul>
+        <li><strong>Zakaz wywozu do sektora agro:</strong> Kontrola PFAS, mikroplastiku i metali ciężkich uniemożliwiła bezpośrednie wprowadzanie mułu do gleby.</li>
+        <li><strong>Kryzys przepustowości spalarni:</strong> Roczna potrzeba utylizacji w Polsce przekracza 5,5 mln ton mokrego keku vs. realna moc 1,4 mln ton.</li>
+        <li><strong>Sankcje karne i Gate Fees:</strong> Wodociągi płacą astronomiczne komercyjne taryfy monopolistycznym operatorom.</li>
+      </ul>
+
+      <h3 class="doc-h3">1.2. Błąd termodynamiczny suszenia konwekcyjnego</h3>
+      <p>Tradycyjne systemy opierają się na odparowaniu wody — 1 tony wody ze stanu ciekłego w parę wymaga 800–1&nbsp;100&nbsp;kWh energii. System BioTC rozwiązuje ten problem, przenosząc osad ściekowy z kategorii toksycznego pasywu do płynnego aktywa odnawialnego.</p>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="doc-section doc-body reveal">
+      <h2 class="doc-h2">2. Podstawy technologiczne procesu BioTC</h2>
+
+      <h3 class="doc-h3">2.1. Chemizm i fizyka HTC</h3>
+      <p>Technologia BioTC opiera się na przetwarzaniu odwodnionego osadu w reaktorach przy temperaturze <strong>180–220&nbsp;°C</strong> i autogenicznym ciśnieniu <strong>15–25 bar</strong>. Woda zachowuje się jak niepolarny rozpuszczalnik i katalizator. Zachodzi szybka depolimeryzacja, dekarboksylacja i dehydratacja organicznej matrycy mułu.</p>
+      <div class="doc-quote">
+        Kluczowy efekt: ponieważ woda pozostaje w fazie ciekłej przez cały cykl karbonizacji, zużycie energii na odwodnienie spada 4–5-krotnie w porównaniu z odparowaniem termicznym.
+      </div>
+
+      <h3 class="doc-h3">2.2. Bezpieczeństwo ekologiczne</h3>
+      <p>Badania z AGH Kraków i siecią WikiChar potwierdziły pełną detoksykację:</p>
+      <ul>
+        <li><strong>Zniszczenie mikroplastiku:</strong> Redukcja fragmentów z &lt;5 mm do &lt;0,01 mm.</li>
+        <li><strong>Immobilizacja metali ciężkich:</strong> Kationy nieodwracalnie uszczelniane w stabilnej matrycy węglowej.</li>
+        <li><strong>Inaktywacja patogenów:</strong> Bariera 180&nbsp;°C gwarantuje 100% zniszczenie mikroorganizmów.</li>
+      </ul>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="doc-section doc-body reveal">
+      <h2 class="doc-h2">3. Scenariusze infrastrukturalne i ekonomika</h2>
+
+      <h3 class="doc-h3">3.1. Bilans materiałowy (100 000 RLM)</h3>
+      <p>Jeden RLM wytwarza średnio <strong>65 g</strong> suchej masy na dobę:</p>
+      <span class="doc-formula">100 000 × 65 g = 6,5 tony s.m. / dobę</span>
+      <p>Przy mechanicznym odwadnianiu do wilgotności 80%:</p>
+      <span class="doc-formula">M<sub>in</sub> = 6,5 t ÷ 0,20 = <strong>32,5 tony osadu / dobę</strong></span>
+      <p>Roczny wolumen przetwarzania: <strong>~10 800 ton/rok</strong>.</p>
+
+      <h3 class="doc-h3">3.2. Porównanie scenariuszy wdrożenia</h3>
+      <div class="doc-table-wrap">
+        <table class="econ-table">
+          <thead>
+            <tr>
+              <th style="width:28%">Parametr</th>
+              <th>Scenariusz A: Lokalna modernizacja</th>
+              <th>Scenariusz B: Hub &amp; Spoke</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Wolumen / rok</td>
+              <td>~10&nbsp;800 ton/rok</td>
+              <td>~50&nbsp;000 ton/rok</td>
+            </tr>
+            <tr>
+              <td>CapEx</td>
+              <td>EUR&nbsp;5M</td>
+              <td>EUR&nbsp;15–20M</td>
+            </tr>
+            <tr>
+              <td>Grant UE</td>
+              <td>do 85%</td>
+              <td>do 90%</td>
+            </tr>
+            <tr>
+              <td>Wkład własny</td>
+              <td>EUR&nbsp;750K</td>
+              <td>EUR&nbsp;750K / gminę</td>
+            </tr>
+            <tr>
+              <td>Zwrot inwestycji</td>
+              <td>6,9 roku</td>
+              <td>3–3,5 roku</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="doc-actions">
+      <button class="btn btn-outline-light" onclick="window.print()">Drukuj / PDF →</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     D. STATEMENT
+     ============================================================ -->
+<section class="section section--black" aria-label="Następny krok">
+  <div class="container" style="max-width:900px">
+    <p class="t-label mb-2">Następny krok</p>
+    <p class="t-display reveal" style="color:var(--c-white)">
+      Chcesz pełny<br>
+      <span class="t-accent">whitepaper?</span>
+    </p>
+    <p class="t-lead reveal" style="max-width:52ch;margin-top:1.75rem;color:var(--c-gray)">
+      Pełna wersja whitepapera (24 strony) dostępna na życzenie.
+      Zawiera kompletne obliczenia, bilanse energetyczne
+      i&nbsp;analizę 3 scenariuszy wdrożenia. Napisz — wyślemy PDF.
+    </p>
+    <a class="btn btn-primary reveal" href="#contact"
+       style="margin-top:2.5rem">
+      Zamów pełny whitepaper →
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<script src="/v5/translations/pl.js"></script>
+<script src="/v5/i18n.js"></script>
+<script src="/v5/partials/footer.js?v=3"></script>
+<script src="/v5/reveal.js"></script>
+
+</body>
+</html>

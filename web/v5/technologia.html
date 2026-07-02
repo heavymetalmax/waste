@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technologia HTC — Hydrothermal Carbonization | BTC Consulting</title>
+  <meta name="description" content="Jak działa HTC? Proces 200°C / 2,0 MPa / 8–12h zamienia osad ściekowy w hydrochar — paliwo alternatywne i nawóz. Legalny w Polsce od 14.01.2025. Pierwsze wdrożenie: MPWiK Lubin 2025.">
+  <link rel="canonical" href="https://btcconsulting.pl/v5/technologia.html">
+
+  <meta property="og:type"        content="article">
+  <meta property="og:title"       content="Technologia HTC — Jak działa Hydrothermal Carbonization | BTC Consulting">
+  <meta property="og:description" content="Proces ciśnieniowo-termiczny 200°C/2,0 MPa/8–12h przekształca osad ściekowy w hydrochar. Redukcja objętości –75%. Legalny w Polsce od 14.01.2025.">
+  <meta property="og:locale"      content="pl_PL">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/v5/design-system.css">
+
+  <style>
+    .process-strip .stat-strip__inner {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 700px) {
+      .process-strip .stat-strip__inner { grid-template-columns: 1fr; }
+      .process-strip .stat-item { border-right: none; border-bottom: 1px solid var(--c-border-d); }
+      .process-strip .stat-item:last-child { border-bottom: none; }
+    }
+
+    .condition-list { margin-top: 0.5rem; }
+    .condition-item {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      padding-block: 0.875rem;
+      border-bottom: 1px solid var(--c-border);
+    }
+    .condition-item:first-child { border-top: 1px solid var(--c-border); }
+    .condition-val {
+      font-family: var(--f-display);
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      font-weight: 800;
+      color: var(--c-accent);
+      letter-spacing: -0.01em;
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 8ch;
+    }
+    .condition-lbl {
+      font-family: var(--f-display);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--c-gray);
+    }
+
+    .product-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      padding-block: 1.5rem;
+      border-bottom: 1px solid var(--c-border);
+    }
+    .product-item:first-child { border-top: 1px solid var(--c-border); }
+    .product-num {
+      font-family: var(--f-display);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--c-accent);
+      flex-shrink: 0;
+      width: 2rem;
+      margin-top: 0.25em;
+    }
+    .product-name {
+      font-family: var(--f-body);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--c-black);
+      margin-bottom: 0.4rem;
+    }
+
+    .lubin-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border: 1px solid var(--c-border);
+      margin-top: 2rem;
+    }
+    .lubin-stat {
+      padding: 1.25rem 1.5rem;
+      border-right: 1px solid var(--c-border);
+      border-bottom: 1px solid var(--c-border);
+    }
+    .lubin-stat:nth-child(even)  { border-right: none; }
+    .lubin-stat:nth-child(n+3)   { border-bottom: none; }
+    .lubin-stat-num {
+      font-family: var(--f-display);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--c-black);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .lubin-stat-num.is-accent { color: var(--c-accent); }
+    .lubin-stat-lbl {
+      font-family: var(--f-display);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--c-gray);
+    }
+    @media (max-width: 500px) {
+      .lubin-stats { grid-template-columns: 1fr; }
+      .lubin-stat { border-right: none; border-bottom: 1px solid var(--c-border); }
+      .lubin-stat:last-child { border-bottom: none; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Technologia HTC (Hydrothermal Carbonization) dla oczyszczalni ścieków",
+    "description": "Hydrothermal Carbonization — proces ciśnieniowo-termiczny 200°C / 2,0 MPa / 8–12h przekształcający osad ściekowy w hydrochar. Redukcja objętości –75%. Legalny w Polsce od 14.01.2025.",
+    "keywords": "HTC, Hydrothermal Carbonization, osady ściekowe, hydrochar, oczyszczalnia ścieków, UWWTD",
+    "author": { "@type": "Organization", "name": "BTC Consulting" },
+    "publisher": { "@type": "Organization", "name": "BTC Consulting", "areaServed": "PL" }
+  }
+  </script>
+</head>
+<body>
+
+<!-- HEADER -->
+<script src="/v5/partials/header.js"></script>
+
+<!-- ============================================================
+     A. HERO
+     ============================================================ -->
+<section class="hero" aria-label="Hero — Technologia HTC">
+  <div class="hero__content">
+    <p class="t-label">Technologia</p>
+
+    <h1 class="t-display reveal">
+      Jak&nbsp;działa<br>
+      <span class="t-accent">HTC?</span>
+    </h1>
+
+    <p class="t-lead reveal" style="max-width:38ch;color:var(--c-gray-d)">
+      Hydrothermal Carbonization — proces ciśnieniowo-termiczny
+      który zamienia muł w zasób.
+    </p>
+
+    <div class="flex gap-sm reveal" style="flex-wrap:wrap">
+      <a class="btn btn-primary" href="#contact">
+        Poproś o TEO →
+      </a>
+    </div>
+  </div>
+
+  <div class="hero__image">
+    <img src="/v5/assets/img/lab%20reactor%20scheme.jpeg"
+         alt="Schemat reaktora HTC — diagram laboratoryjny"
+         style="width:100%;height:100%;object-fit:cover;filter:grayscale(1)"
+         loading="eager" fetchpriority="high">
+  </div>
+</section>
+
+<!-- ============================================================
+     B. PROCESS STRIP — 3 columns
+     ============================================================ -->
+<section class="stat-strip process-strip" aria-label="Parametry procesu HTC">
+  <div class="stat-strip__inner">
+    <div class="stat-item">
+      <span class="stat-num" style="display:flex;align-items:baseline;gap:0.3rem;flex-wrap:wrap">
+        <span class="is-accent">200°C</span><span class="stat-unit" style="font-size:0.875rem;color:var(--c-gray)">/&nbsp;2,0&nbsp;MPa</span>
+      </span>
+      <span class="t-label-muted">Warunki procesu</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num is-accent">8–12 h</span>
+      <span class="t-label-muted">Czas reakcji</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num is-accent">−75%</span>
+      <span class="t-label-muted">Redukcja objętości osadu</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     C. SPLIT — Surowiec → Produkty
+     ============================================================ -->
+<section class="section" aria-label="Wejście i produkty procesu HTC">
+  <div class="container">
+    <div class="split" style="gap:clamp(2rem,5vw,5rem);align-items:start">
+
+      <div style="display:flex;flex-direction:column;gap:32px">
+        <div>
+          <p class="t-label mb-2">Surowiec</p>
+          <h2 class="t-heading reveal" style="font-size:clamp(1.75rem,3vw,2.625rem)">
+            Osad ściekowy<br>jako wejście
+          </h2>
+        </div>
+        <p class="t-body reveal" style="max-width:38ch">
+          Świeży osad komunalny po odwodnieniu mechanicznym —
+          wilgotność do 80%. Brak wymagań co do wstępnej suszarni.
+          Akceptowalny osad komunalny i przemysłowy.
+        </p>
+
+        <div class="condition-list">
+          <div class="condition-item">
+            <span class="condition-val">200°C</span>
+            <span class="condition-lbl">Temperatura reaktora</span>
+          </div>
+          <div class="condition-item">
+            <span class="condition-val">2,0&nbsp;MPa</span>
+            <span class="condition-lbl">Ciśnienie robocze</span>
+          </div>
+          <div class="condition-item">
+            <span class="condition-val">8–12&nbsp;h</span>
+            <span class="condition-lbl">Czas przebywania</span>
+          </div>
+          <div class="condition-item">
+            <span class="condition-val">−75%</span>
+            <span class="condition-lbl">Redukcja objętości</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:32px">
+        <p class="t-label">Produkty</p>
+
+        <img src="/v5/assets/img/Lab%20equipent.jpeg" alt="Sprzęt laboratoryjny HTC"
+             style="min-height:240px;aspect-ratio:4/3;object-fit:cover;width:100%;filter:grayscale(1)">
+
+        <div>
+          <div class="product-item">
+            <span class="product-num">01</span>
+            <div>
+              <p class="product-name">Hydrochar</p>
+              <p class="t-body">
+                Stały materiał węglowy (wartość opałowa 14–18&nbsp;MJ/kg).
+                Stosowany jako paliwo alternatywne w cementowniach
+                lub nawóz węglowy — certyfikowany od 14.01.2025.
+              </p>
+            </div>
+          </div>
+          <div class="product-item">
+            <span class="product-num">02</span>
+            <div>
+              <p class="product-name">Woda procesowa</p>
+              <p class="t-body">
+                Ciekła faza po separacji. Zawraca do oczyszczalni
+                jako ładunek biologiczny — zero ścieków technologicznych
+                poza instalację.
+              </p>
+            </div>
+          </div>
+          <div class="product-item" style="border-bottom:none">
+            <span class="product-num">03</span>
+            <div>
+              <p class="product-name">Para wodna</p>
+              <p class="t-body">
+                Odzysk ciepła z chłodzenia reaktora. Zasila ogrzewanie
+                hali lub wstępne suszenie osadu. Obniża OPEX o 12–18%.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     D. STATEMENT — Hydrochar
+     ============================================================ -->
+<section class="section section--accent" aria-label="Legalność hydrocharu w Polsce">
+  <div class="container" style="max-width:900px">
+    <p class="t-label mb-2">Legalny w Polsce od 14.01.2025</p>
+    <p class="t-display reveal" style="color:var(--c-white)">
+      Hydrochar:<br>
+      paliwo, nawóz<br>
+      i&nbsp;<span class="t-accent">rozwiązanie</span>
+    </p>
+    <p class="t-lead" style="max-width:54ch;margin-top:1.5rem;color:var(--c-gray)">
+      Od 14&nbsp;stycznia 2025 hydrochar z osadów komunalnych jest
+      legalnym produktem w polskim prawie (nowelizacja Rozporządzenia
+      o nawozach). Instalacje HTC mogą być uruchamiane bez dodatkowych
+      pozwoleń środowiskowych dla hydrocharu. BTC Consulting posiada
+      kompletną ścieżkę certyfikacji produktu.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     E. ACCORDION FAQ
+     ============================================================ -->
+<section class="section" id="faq" aria-label="Pytania techniczne FAQ">
+  <div class="container">
+    <div class="split" style="gap:clamp(2rem,5vw,5rem);align-items:start">
+
+      <div>
+        <p class="t-label mb-2">Pytania techniczne</p>
+        <h2 class="t-heading reveal">
+          Parametry<br>
+          dla inżyniera
+        </h2>
+        <p class="t-body reveal" style="max-width:34ch;margin-top:1.5rem">
+          Dane procesowe i eksploatacyjne do oceny technicznej
+          instalacji HTC dla oczyszczalni komunalnej.
+        </p>
+      </div>
+
+      <div>
+        <div class="acc-item acc-item--light">
+          <button class="acc-btn" aria-expanded="false">
+            Jakie są dokładne parametry procesu HTC?
+            <span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-body" hidden>
+            Temperatura: 200°C ± 5°C. Ciśnienie: 2,0&nbsp;MPa (nasycona para wodna).
+            Czas przebywania: 8–12 godzin. Wilgotność wsadu: do 80%.
+            Redukcja objętości osadu: −75%. Wilgotność hydrocharu po prasowaniu: 30–35%
+            (vs. 76% osad wejściowy). Patogeny: wyeliminowane wg klasy A (EN 14346).
+          </div>
+        </div>
+
+        <div class="acc-item acc-item--light">
+          <button class="acc-btn" aria-expanded="false">
+            Co to jest hydrochar i jak go można wykorzystać?
+            <span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-body" hidden>
+            Hydrochar to uwęglony materiał stały o wartości opałowej 14–18&nbsp;MJ/kg
+            (porównywalny z węglem brunatnym). Możliwe zastosowania:
+            (1)&nbsp;paliwo alternatywne w cementowniach i elektrociepłowniach,
+            (2)&nbsp;nawóz węglowy po certyfikacji (dozwolony w Polsce od 14.01.2025),
+            (3)&nbsp;materiał rekultywacyjny do rekultywacji składowisk.
+          </div>
+        </div>
+
+        <div class="acc-item acc-item--light">
+          <button class="acc-btn" aria-expanded="false">
+            Czy proces HTC eliminuje patogeny i PFAS?
+            <span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-body" hidden>
+            Tak. Temperatura 200°C przez 8–12 godzin niszczy wszystkie patogeny
+            klasy A (norma EN 14346). Badania AGH Kraków potwierdzają redukcję
+            PFAS w hydrocharze &gt;95% — substancje te kumulują się w fazie wodnej
+            (woda procesowa wraca do oczyszczalni i jest oczyszczana standardowymi
+            metodami biologicznymi).
+          </div>
+        </div>
+
+        <div class="acc-item acc-item--light">
+          <button class="acc-btn" aria-expanded="false">
+            Jaka jest sprawność energetyczna instalacji HTC?
+            <span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-body" hidden>
+            Proces jest autotermiczny powyżej ok. 15% s.m. wsadu.
+            Odzysk ciepła z chłodzenia reaktora pokrywa 60–70% zapotrzebowania
+            na ciepło procesu. Energia elektryczna netto: 35–55&nbsp;kWh/tonę wsadu.
+            Konfiguracja TH+HTC z fermentacją (AD) jest energetycznie samowystarczalna.
+          </div>
+        </div>
+
+        <div class="acc-item acc-item--light">
+          <button class="acc-btn" aria-expanded="false">
+            Jakie są wymagania co do jakości osadu wejściowego?
+            <span class="acc-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="acc-body" hidden>
+            Brak wymagań wstępnego suszenia — wystarczy odwodnienie mechaniczne
+            (wirówka / prasa) do 20–25% s.m. Minimalna ilość: 1&nbsp;000&nbsp;t/rok
+            suchej masy. Akceptowalny osad komunalny i przemysłowy (z wyjątkiem
+            odpadów niebezpiecznych wg rozporządzenia 2019/1021).
+            Weryfikacja składu wykonywana w ramach TEO.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     F. SPLIT — MPWiK Lubin case preview
+     ============================================================ -->
+<section class="section" style="border-top:1px solid var(--c-border)"
+         aria-label="Pierwsze wdrożenie — MPWiK Lubin 2025">
+  <div class="container">
+    <div class="split" style="gap:clamp(2rem,5vw,5rem);align-items:center">
+
+      <div style="display:flex;flex-direction:column;gap:32px">
+        <div>
+          <p class="t-label mb-2">Pierwsze wdrożenie · Lubin 2025</p>
+          <h2 class="t-heading reveal">
+            MPWiK&nbsp;Lubin:<br>
+            <span class="t-accent">800&nbsp;t/rok</span>
+          </h2>
+        </div>
+        <p class="t-body reveal" style="max-width:46ch">
+          Pierwsza komercyjna instalacja HTC w Polsce uruchomiona
+          w 2025 roku. MPWiK Lubin przetwarza 800&nbsp;ton osadów
+          ściekowych rocznie — redukując objętość o 75%
+          i całkowicie eliminując uciążliwość zapachową na terenie
+          oczyszczalni.
+        </p>
+
+        <div class="lubin-stats reveal">
+          <div class="lubin-stat">
+            <p class="lubin-stat-num is-accent">−75%</p>
+            <p class="lubin-stat-lbl">Redukcja objętości</p>
+          </div>
+          <div class="lubin-stat">
+            <p class="lubin-stat-num">800 t</p>
+            <p class="lubin-stat-lbl">Osad / rok</p>
+          </div>
+          <div class="lubin-stat">
+            <p class="lubin-stat-num is-accent">0</p>
+            <p class="lubin-stat-lbl">Patogenów w produkcie</p>
+          </div>
+          <div class="lubin-stat">
+            <p class="lubin-stat-num">2025</p>
+            <p class="lubin-stat-lbl">Rok uruchomienia</p>
+          </div>
+        </div>
+
+        <a class="btn btn-outline-light self-start reveal" href="/v5/case-lubin.html">
+          Pełne studium przypadku →
+        </a>
+      </div>
+
+      <img src="/v5/assets/img/reactor%20inspection.jpeg" alt="Inspekcja reaktora HTC"
+           style="min-height:440px;aspect-ratio:4/3;object-fit:cover;width:100%;filter:grayscale(1)">
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<script src="/v5/translations/pl.js"></script>
+<script src="/v5/i18n.js"></script>
+<script src="/v5/partials/footer.js?v=3"></script>
+<script src="/v5/reveal.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BTC Consulting — Архітектура сайту</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0f1117; color: #e2e8f0; }
+
+  /* NAV */
+  .doc-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: #1a1d2e; border-bottom: 1px solid #2d3250;
+    display: flex; gap: 0; overflow-x: auto;
+  }
+  .doc-nav button {
+    background: none; border: none; color: #94a3b8;
+    padding: 14px 20px; font-size: 13px; cursor: pointer;
+    white-space: nowrap; border-bottom: 2px solid transparent;
+    transition: all .2s;
+  }
+  .doc-nav button.active, .doc-nav button:hover {
+    color: #38bdf8; border-bottom-color: #38bdf8;
+  }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* ===== SITEMAP TAB ===== */
+  .sitemap-wrap { padding: 40px; max-width: 1200px; margin: 0 auto; }
+  h1 { font-size: 24px; font-weight: 700; margin-bottom: 6px; color: #f1f5f9; }
+  .subtitle { color: #64748b; font-size: 14px; margin-bottom: 40px; }
+
+  .sm-tree { display: flex; flex-direction: column; gap: 16px; }
+  .sm-level0 {
+    background: #1e2235; border: 1px solid #2d3250; border-radius: 12px;
+    overflow: hidden;
+  }
+  .sm-level0-header {
+    display: flex; align-items: center; gap: 12px;
+    padding: 16px 20px; background: #252a3d;
+  }
+  .sm-icon { font-size: 20px; }
+  .sm-label { font-size: 15px; font-weight: 600; color: #f1f5f9; }
+  .sm-url { font-size: 12px; color: #475569; margin-left: auto; font-family: monospace; }
+  .sm-badge {
+    font-size: 10px; padding: 2px 8px; border-radius: 99px;
+    font-weight: 600; letter-spacing: .5px;
+  }
+  .badge-seo { background: #14532d; color: #4ade80; }
+  .badge-lead { background: #1e3a5f; color: #38bdf8; }
+  .badge-trust { background: #44200a; color: #fb923c; }
+  .badge-private { background: #3b1f5e; color: #c084fc; }
+
+  .sm-children { padding: 12px 20px 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .sm-child {
+    background: #0f1117; border: 1px solid #2d3250;
+    border-radius: 8px; padding: 8px 14px;
+    font-size: 13px; color: #94a3b8;
+  }
+  .sm-child strong { color: #cbd5e1; display: block; font-size: 13px; }
+  .sm-child span { font-size: 11px; color: #475569; }
+
+  .audience-map { margin-top: 40px; }
+  .audience-map h2 { font-size: 18px; margin-bottom: 20px; color: #f1f5f9; }
+  .journey-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .journey-card {
+    background: #1e2235; border: 1px solid #2d3250; border-radius: 12px;
+    padding: 20px;
+  }
+  .journey-who { font-size: 13px; font-weight: 700; color: #38bdf8; margin-bottom: 12px; }
+  .journey-step {
+    display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px;
+  }
+  .step-num {
+    min-width: 22px; height: 22px; border-radius: 50%;
+    background: #2d3250; font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    color: #94a3b8; flex-shrink: 0; margin-top: 1px;
+  }
+  .step-text { font-size: 13px; color: #94a3b8; line-height: 1.5; }
+  .step-cta { font-size: 12px; font-weight: 600; color: #4ade80; margin-top: 4px; }
+
+  /* ===== WIREFRAME TAB ===== */
+  .wf-wrap { padding: 40px; max-width: 900px; margin: 0 auto; }
+  .wf-selector { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 30px; }
+  .wf-btn {
+    background: #1e2235; border: 1px solid #2d3250;
+    color: #94a3b8; border-radius: 8px; padding: 8px 16px;
+    font-size: 13px; cursor: pointer; transition: all .2s;
+  }
+  .wf-btn.active, .wf-btn:hover {
+    background: #2d3250; color: #f1f5f9; border-color: #38bdf8;
+  }
+  .wf-pages { }
+  .wf-page { display: none; }
+  .wf-page.active { display: block; }
+
+  .wf-title { font-size: 18px; font-weight: 700; color: #f1f5f9; margin-bottom: 6px; }
+  .wf-desc { font-size: 13px; color: #64748b; margin-bottom: 24px; }
+
+  .block {
+    border: 1.5px dashed #2d3250; border-radius: 10px;
+    margin-bottom: 10px; overflow: hidden;
+  }
+  .block-header {
+    background: #1e2235; padding: 10px 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .block-name { font-size: 13px; font-weight: 600; color: #cbd5e1; }
+  .block-tag {
+    font-size: 10px; padding: 2px 8px; border-radius: 99px;
+    font-weight: 600; letter-spacing: .4px; margin-left: auto;
+  }
+  .tag-hero { background: #0c4a6e; color: #38bdf8; }
+  .tag-trust { background: #44200a; color: #fb923c; }
+  .tag-cta { background: #14532d; color: #4ade80; }
+  .tag-seo { background: #1a2e05; color: #a3e635; }
+  .tag-content { background: #2d1f5e; color: #c084fc; }
+  .tag-lead { background: #1e3a5f; color: #7dd3fc; }
+  .tag-nav { background: #1f2937; color: #9ca3af; }
+
+  .block-body { padding: 12px 16px; }
+  .block-item { font-size: 13px; color: #64748b; margin-bottom: 5px; padding-left: 12px; position: relative; }
+  .block-item::before { content: '·'; position: absolute; left: 0; color: #475569; }
+  .block-item strong { color: #94a3b8; }
+  .block-item em { color: #38bdf8; font-style: normal; font-size: 11px; }
+
+  /* ===== SEO TAB ===== */
+  .seo-wrap { padding: 40px; max-width: 900px; margin: 0 auto; }
+  .seo-section { margin-bottom: 36px; }
+  .seo-section h2 { font-size: 16px; font-weight: 700; color: #f1f5f9; margin-bottom: 16px; border-bottom: 1px solid #2d3250; padding-bottom: 8px; }
+  .kw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+  .kw-card {
+    background: #1e2235; border: 1px solid #2d3250; border-radius: 8px;
+    padding: 12px 16px;
+  }
+  .kw-term { font-size: 13px; font-weight: 600; color: #e2e8f0; font-family: monospace; }
+  .kw-intent { font-size: 11px; color: #475569; margin-top: 4px; }
+  .kw-vol { font-size: 11px; color: #64748b; }
+  .kw-priority { float: right; font-size: 10px; padding: 2px 6px; border-radius: 4px; }
+  .pri-high { background: #14532d; color: #4ade80; }
+  .pri-med { background: #1e3a5f; color: #7dd3fc; }
+  .pri-low { background: #1f2937; color: #6b7280; }
+
+  .url-list { display: flex; flex-direction: column; gap: 6px; }
+  .url-row { background: #1e2235; border: 1px solid #2d3250; border-radius: 6px; padding: 10px 14px; font-family: monospace; font-size: 13px; color: #94a3b8; }
+  .url-row span { color: #38bdf8; }
+  .url-note { font-family: sans-serif; font-size: 11px; color: #475569; display: block; margin-top: 3px; }
+
+  .content-plan { display: flex; flex-direction: column; gap: 8px; }
+  .cp-row {
+    background: #1e2235; border: 1px solid #2d3250; border-radius: 8px;
+    padding: 12px 16px; display: flex; gap: 16px; align-items: flex-start;
+  }
+  .cp-type { font-size: 10px; padding: 3px 8px; border-radius: 4px; font-weight: 600; white-space: nowrap; }
+  .cp-pillar { background: #1e3a5f; color: #7dd3fc; }
+  .cp-cluster { background: #1a2e05; color: #a3e635; }
+  .cp-news { background: #44200a; color: #fb923c; }
+  .cp-title { font-size: 13px; color: #e2e8f0; }
+  .cp-kw { font-size: 11px; color: #475569; margin-top: 3px; }
+
+  /* ===== STRATEGY TAB ===== */
+  .strat-wrap { padding: 40px; max-width: 900px; margin: 0 auto; }
+  .principle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .principle-card {
+    background: #1e2235; border: 1px solid #2d3250; border-radius: 12px; padding: 20px;
+  }
+  .principle-num { font-size: 32px; font-weight: 800; color: #2d3250; line-height: 1; margin-bottom: 8px; }
+  .principle-title { font-size: 14px; font-weight: 700; color: #f1f5f9; margin-bottom: 8px; }
+  .principle-text { font-size: 13px; color: #64748b; line-height: 1.6; }
+  .principle-example { font-size: 12px; color: #38bdf8; margin-top: 8px; border-left: 2px solid #38bdf8; padding-left: 8px; }
+
+  .conversion-funnel { background: #1e2235; border: 1px solid #2d3250; border-radius: 12px; padding: 24px; margin-bottom: 32px; }
+  .funnel-title { font-size: 16px; font-weight: 700; color: #f1f5f9; margin-bottom: 20px; }
+  .funnel-stage {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 16px; position: relative;
+  }
+  .funnel-stage::after {
+    content: '↓'; position: absolute; left: 19px; bottom: -14px;
+    color: #2d3250; font-size: 16px;
+  }
+  .funnel-stage:last-child::after { display: none; }
+  .funnel-dot {
+    width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .f1 { background: #1e3a5f; }
+  .f2 { background: #1a2e05; }
+  .f3 { background: #44200a; }
+  .f4 { background: #14532d; }
+  .funnel-label { font-size: 14px; font-weight: 600; color: #e2e8f0; }
+  .funnel-sub { font-size: 12px; color: #475569; }
+
+  .tech-stack { background: #1e2235; border: 1px solid #2d3250; border-radius: 12px; padding: 24px; }
+  .ts-title { font-size: 16px; font-weight: 700; color: #f1f5f9; margin-bottom: 16px; }
+  .ts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+  .ts-item { background: #0f1117; border: 1px solid #2d3250; border-radius: 8px; padding: 12px; }
+  .ts-cat { font-size: 10px; color: #475569; font-weight: 600; letter-spacing: .8px; text-transform: uppercase; }
+  .ts-rec { font-size: 14px; font-weight: 700; color: #38bdf8; margin-top: 4px; }
+  .ts-why { font-size: 11px; color: #64748b; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<nav class="doc-nav">
+  <button class="active" onclick="showTab('sitemap', this)">🗺️ Site Map</button>
+  <button onclick="showTab('wireframe', this)">📐 Wireframes</button>
+  <button onclick="showTab('seo', this)">🔍 SEO Стратегія</button>
+  <button onclick="showTab('strategy', this)">⚡ Бізнес-стратегія</button>
+</nav>
+
+<!-- =================== SITEMAP =================== -->
+<div id="sitemap" class="tab-content active">
+<div class="sitemap-wrap">
+  <h1>BTC Consulting — Архітектура сайту</h1>
+  <p class="subtitle">Платформа управління осадом · btcconsulting.pl · Версія 1.0 · Червень 2026</p>
+
+  <div class="sm-tree">
+
+    <!-- HOME -->
+    <div class="sm-level0">
+      <div class="sm-level0-header">
+        <span class="sm-icon">🏠</span>
+        <span class="sm-label">Strona główna</span>
+        <span class="sm-badge badge-lead">LEAD ENGINE</span>
+        <span class="sm-url">/</span>
+      </div>
+      <div class="sm-children">
+        <div class="sm-child"><strong>Hero — Urgency Hook</strong><span>Dедлайн UWWTD + CTA</span></div>
+        <div class="sm-child"><strong>Problem Block</strong><span>Koszty składowania 2027+</span></div>
+        <div class="sm-child"><strong>Solution Overview</strong><span>BTC як платформа</span></div>
+        <div class="sm-child"><strong>Technology Proof</strong><span>AGH + 10 lat + HTC-S/D</span></div>
+        <div class="sm-child"><strong>Services (3 cards)</strong><span>TEO / HTC / Dotacje</span></div>
+        <div class="sm-child"><strong>Regulatory Timeline</strong><span>Візуалізація 2027-2045</span></div>
+        <div class="sm-child"><strong>Trust Strip</strong><span>AGH, INTROL, NSC</span></div>
+        <div class="sm-child"><strong>CTA Block</strong><span>Bezpłatna analiza TEO</span></div>
+      </div>
+    </div>
+
+    <!-- TECHNOLOGY -->
+    <div class="sm-level0">
+      <div class="sm-level0-header">
+        <span class="sm-icon">⚙️</span>
+        <span class="sm-label">Technologia</span>
+        <span class="sm-badge badge-trust">TRUST BUILDER</span>
+        <span class="sm-url">/technologia</span>
+      </div>
+      <div class="sm-children">
+        <div class="sm-child"><strong>Co to jest HTC?</strong><span>/technologia/htc</span></div>
+        <div class="sm-child"><strong>HTC-S (Small)</strong><span>/technologia/htc-s</span></div>
+        <div class="sm-child"><strong>HTC-D (Distributed)</strong><span>/technologia/htc-d</span></div>
+        <div class="sm-child"><strong>TH+HTC (Hybrid)</strong><span>/technologia/th-htc</span></div>
+        <div class="sm-child"><strong>Współpraca z AGH</strong><span>/technologia/agh</span></div>
+        <div class="sm-child"><strong>Walidacja naukowa</strong><span>/technologia/badania</span></div>
+        <div class="sm-child"><strong>Mikroplastiki</strong><span>/technologia/mikroplastiki</span></div>
+        <div class="sm-child"><strong>Porównanie z alternatywami</strong><span>/technologia/vs</span></div>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="sm-level0">
+      <div class="sm-level0-header">
+        <span class="sm-icon">🛠️</span>
+        <span class="sm-label">Usługi</span>
+        <span class="sm-badge badge-lead">CONVERSION</span>
+        <span class="sm-url">/uslugi</span>
+      </div>
+      <div class="sm-children">
+        <div class="sm-child"><strong>Analiza TEO</strong><span>/uslugi/teo</span></div>
+        <div class="sm-child"><strong>Projekt HTC</strong><span>/uslugi/projekt-htc</span></div>
+        <div class="sm-child"><strong>Pozyskanie dotacji</strong><span>/uslugi/dotacje</span></div>
+        <div class="sm-child"><strong>Hub & Spoke Logistyka</strong><span>/uslugi/hub-spoke</span></div>
+        <div class="sm-child"><strong>Audyt osadu</strong><span>/uslugi/audyt</span></div>
+        <div class="sm-child"><strong>Wsparcie prawne/env.</strong><span>/uslugi/compliance</span></div>
+      </div>
+    </div>
+
+    <!-- MARKET & REGULATIONS -->
+    <div class="sm-level0">
+      <div class="sm-level0-header">
+        <span class="sm-icon">📊</span>
+        <span class="sm-label">Rynek i Regulacje</span>
+        <span class="sm-badge badge-seo">SEO PILLAR</span>
+        <span class="sm-url">/regulacje</span>
+      </div>
+      <div class="sm-children">
+        <div class="sm-child"><strong>UWWTD 2024 — przewodnik</strong><span>/regulacje/uwwtd</span></div>
+        <div class="sm-child"><strong>Terminy i kary</strong><span>/regulacje/terminy</span></div>
+        <div class="sm-child"><strong>Dofinansowania EU/PL</strong><span>/regulacje/dotacje</span></div>
+        <div class="sm-child"><strong>NFOŚiGW — jak aplikować</strong><span>/regulacje/nfos</span></div>
+        <div class="sm-child"><strong>Rynek osadów w Polsce</strong><span>/regulacje/rynek</span></div>
+        <div class="sm-child"><strong>Status hydrocharu (PL)</strong><span>/regulacje/hydrochar</span></div>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="sm-level0">
+      <div class="sm-level0-header">
+        <span class="sm-icon">📁</span>
+        <span class="sm-label">Projekty i Referencje</span>
+        <span class="sm-badge badge-trust">SOCIAL PROOF</span>
+        <span class="sm-url">/projekty</span>
+      </div>
+      <div class="sm-children">
+        <div class="sm-child"><strong>Case studies</strong><span>/projekty/case-studies</span></div>
+        <div class="sm-child"><strong>Instalacja referencyjna</strong><span>/projekty/referencyjna</span></div>
+        <div class="sm-child"><strong>Badania AGH</strong><span>/projekty/agh-badania</span></div>
+        <div class="sm-child"><strong>Partnerzy (LOI)</strong><span>/projekty/partnerzy</span></div>
+      </div>
+    </div>
+
+    <!-- BLOG -->
+    <div class="sm-level0">
+      <div class="sm-level0-header">
+        <span class="sm-icon">📝</span>
+        <span class="sm-label">Wiedza / Blog</span>
+        <span class="sm-badge badge-seo">SEO ENGINE</span>
+        <span class="sm-url">/wiedza</span>
+      </div>
+      <div class="sm-children">
+        <div class="sm-child"><strong>Artykuły regulacyjne</strong><span>Pillar content UWWTD</span></div>
+        <div class="sm-child"><strong>Przewodniki TEO</strong><span>Jak przeprowadzić TEO?</span></div>
+        <div class="sm-child"><strong>HTC deep-dives</strong><span>Techniczne artykuły</span></div>
+        <div class="sm-child"><strong>Aktualności dotacji</strong><span>NFOŚiGW, LIFE, Horizon</span></div>
+        <div class="sm-child"><strong>Osad — fakty i mity</strong><span>Edukacja rynku</span></div>
+        <div class="sm-child"><strong>Kalkulatory online</strong><span>Kalkulacja gate fee, ROI</span></div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="sm-level0">
+      <div class="sm-level0-header">
+        <span class="sm-icon">🏢</span>
+        <span class="sm-label">O nas</span>
+        <span class="sm-badge badge-trust">CREDIBILITY</span>
+        <span class="sm-url">/o-nas</span>
+      </div>
+      <div class="sm-children">
+        <div class="sm-child"><strong>Zespół</strong><span>/o-nas/zespol</span></div>
+        <div class="sm-child"><strong>Historia BTC</strong><span>/o-nas/historia</span></div>
+        <div class="sm-child"><strong>Współpraca AGH</strong><span>/o-nas/agh</span></div>
+        <div class="sm-child"><strong>Certyfikaty</strong><span>/o-nas/certyfikaty</span></div>
+        <div class="sm-child"><strong>Media / Prasa</strong><span>/o-nas/media</span></div>
+      </div>
+    </div>
+
+    <!-- INVESTORS -->
+    <div class="sm-level0">
+      <div class="sm-level0-header">
+        <span class="sm-icon">💼</span>
+        <span class="sm-label">Dla Inwestorów</span>
+        <span class="sm-badge badge-private">PRIVATE SECTION</span>
+        <span class="sm-url">/investor</span>
+      </div>
+      <div class="sm-children">
+        <div class="sm-child"><strong>Executive Summary</strong><span>Публічна версія</span></div>
+        <div class="sm-child"><strong>Investment Deck</strong><span>PDF download + трекер</span></div>
+        <div class="sm-child"><strong>Market Opportunity</strong><span>EUR 6.9B TAM</span></div>
+        <div class="sm-child"><strong>Business Model</strong><span>3 revenue streams</span></div>
+        <div class="sm-child"><strong>Data Room</strong><span>🔒 Password protected</span></div>
+        <div class="sm-child"><strong>Contact Investor Relations</strong><span>Прямий контакт</span></div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="sm-level0">
+      <div class="sm-level0-header">
+        <span class="sm-icon">📞</span>
+        <span class="sm-label">Kontakt</span>
+        <span class="sm-badge badge-lead">CONVERSION</span>
+        <span class="sm-url">/kontakt</span>
+      </div>
+      <div class="sm-children">
+        <div class="sm-child"><strong>Formularz segmentowy</strong><span>Gmina / Inwestor / Partner</span></div>
+        <div class="sm-child"><strong>Bezpłatna konsultacja</strong><span>Calendly embed</span></div>
+        <div class="sm-child"><strong>Biuro Gliwice</strong><span>Mapa + dane</span></div>
+        <div class="sm-child"><strong>Newslettera (regulacje)</strong><span>Lead nurture</span></div>
+      </div>
+    </div>
+
+  </div><!-- sm-tree -->
+
+  <!-- AUDIENCE JOURNEYS -->
+  <div class="audience-map">
+    <h2>Шляхи аудиторій (User Journeys)</h2>
+    <div class="journey-grid">
+
+      <div class="journey-card">
+        <div class="journey-who">🏛️ Gminа / Kierownik WWTP</div>
+        <div class="journey-step"><div class="step-num">1</div><div class="step-text">Google: "osady ściekowe przepisy 2027" → Landing на /regulacje/uwwtd</div></div>
+        <div class="journey-step"><div class="step-num">2</div><div class="step-text">Читає Regulatory Timeline → розуміє дедлайни</div></div>
+        <div class="journey-step"><div class="step-num">3</div><div class="step-text">Переходить на /uslugi/teo → бачить процес</div></div>
+        <div class="journey-step"><div class="step-num">4</div><div class="step-text">Завантажує PDF-guide "Jak przygotować się do UWWTD"</div></div>
+        <div class="journey-step"><div class="step-num">5</div><div class="step-text"><span class="step-cta">→ Formularz: Bezpłatna analiza TEO</span></div></div>
+      </div>
+
+      <div class="journey-card">
+        <div class="journey-who">💼 Інвестор (Seed/VC)</div>
+        <div class="journey-step"><div class="step-num">1</div><div class="step-text">LinkedIn / Referral → Landing на /investor</div></div>
+        <div class="journey-step"><div class="step-num">2</div><div class="step-text">Executive Summary → Market Opportunity</div></div>
+        <div class="journey-step"><div class="step-num">3</div><div class="step-text">/technologia/agh → Credibility check</div></div>
+        <div class="journey-step"><div class="step-num">4</div><div class="step-text">Data Room request → email верифікація</div></div>
+        <div class="journey-step"><div class="step-num">5</div><div class="step-text"><span class="step-cta">→ Direct contact з засновником</span></div></div>
+      </div>
+
+      <div class="journey-card">
+        <div class="journey-who">🔧 Технічний партнер</div>
+        <div class="journey-step"><div class="step-num">1</div><div class="step-text">Знайомство через AGH / конференцію → Homepage</div></div>
+        <div class="journey-step"><div class="step-num">2</div><div class="step-text">/technologia → Технічні spec-и HTC-S/D/TH</div></div>
+        <div class="journey-step"><div class="step-num">3</div><div class="step-text">/projekty → Reference installations</div></div>
+        <div class="journey-step"><div class="step-num">4</div><div class="step-text"><span class="step-cta">→ Partnership inquiry form</span></div></div>
+      </div>
+
+      <div class="journey-card">
+        <div class="journey-who">🇪🇺 Grant Officer / NFOŚiGW</div>
+        <div class="journey-step"><div class="step-num">1</div><div class="step-text">Пошук валідованих проектів HTC в Польщі</div></div>
+        <div class="journey-step"><div class="step-num">2</div><div class="step-text">/technologia/badania → NSC grants, AGH papers</div></div>
+        <div class="journey-step"><div class="step-num">3</div><div class="step-text">/projekty/agh-badania → наукові публікації</div></div>
+        <div class="journey-step"><div class="step-num">4</div><div class="step-text"><span class="step-cta">→ Спільна заявка на грант</span></div></div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- =================== WIREFRAMES =================== -->
+<div id="wireframe" class="tab-content">
+<div class="wf-wrap">
+  <h1>Wireframes — Ключові сторінки</h1>
+  <p class="subtitle">Блокова структура · Desktop-first · Mobile-responsive</p>
+
+  <div class="wf-selector">
+    <button class="wf-btn active" onclick="showPage('home', this)">🏠 Homepage</button>
+    <button class="wf-btn" onclick="showPage('tech', this)">⚙️ Технологія</button>
+    <button class="wf-btn" onclick="showPage('service', this)">🛠️ Послуга (TEO)</button>
+    <button class="wf-btn" onclick="showPage('regulatory', this)">📊 Регуляції</button>
+    <button class="wf-btn" onclick="showPage('investor', this)">💼 Інвестори</button>
+    <button class="wf-btn" onclick="showPage('blog', this)">📝 Blog / SEO</button>
+  </div>
+
+  <div class="wf-pages">
+
+    <!-- HOME PAGE -->
+    <div class="wf-page active" id="page-home">
+      <div class="wf-title">Strona główna — /</div>
+      <div class="wf-desc">Головна мета: захопити увагу клієнта WWTP через urgency, підтвердити авторитет через AGH, вести до TEO-консультації.</div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">NAVBAR</span><span class="block-tag tag-nav">NAV</span></div>
+        <div class="block-body">
+          <div class="block-item">Logo BTC + tagline: <strong>"Platforma zarządzania osadem"</strong></div>
+          <div class="block-item">Menu: Technologia / Usługi / Regulacje / Projekty / O nas / Blog</div>
+          <div class="block-item">CTA Button (sticky): <strong>"Bezpłatna konsultacja"</strong> <em>→ /kontakt</em></div>
+          <div class="block-item">Language toggle: PL | EN (дискретно)</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">HERO — Urgency + Value Prop</span><span class="block-tag tag-hero">HERO</span></div>
+        <div class="block-body">
+          <div class="block-item">H1: <strong>"Twoja oczyszczalnia ma czas do 2027. Masz plan na osad?"</strong></div>
+          <div class="block-item">Підзаголовок: "BTC Consulting to jedyna polska platforma HTC. Kontrolujemy przepływ osadu, zamieniamy go w zasób."</div>
+          <div class="block-item">CTA Primary: <strong>Zamów bezpłatną analizę TEO</strong></div>
+          <div class="block-item">CTA Secondary: Pobierz przewodnik UWWTD (PDF Lead Magnet)</div>
+          <div class="block-item">Фонова візуалізація: анімована схема WWTP → HTC-реактор → hydrochar</div>
+          <div class="block-item">Trust badge: <strong>AGH Kraków · 10 lat badań · Technologia własna</strong></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">PROBLEM BLOCK — Regulatory Pressure</span><span class="block-tag tag-seo">CONTEXT</span></div>
+        <div class="block-body">
+          <div class="block-item">H2: "Składowanie osadu kończy się. Co dalej?"</div>
+          <div class="block-item">3 картки: 🚫 Zakaz składowania 2030 / 💸 Kary UWWTD od 2027 / 📈 Koszty rosną 40% rocznie</div>
+          <div class="block-item">Статистика: <strong>580–700K ton osadu/rok w Polsce</strong> bez gotowego rozwiązania</div>
+          <div class="block-item">Link: "Sprawdź co dokładnie zmienia UWWTD →" <em>→ /regulacje/uwwtd</em></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">SOLUTION BLOCK — BTC як платформа</span><span class="block-tag tag-content">POSITIONING</span></div>
+        <div class="block-body">
+          <div class="block-item">H2: "BTC to nie firma konsultingowa. To platforma zarządzania osadem."</div>
+          <div class="block-item">Діаграма: Gmina → [BTC Platform] → TEO / HTC Installation / Grant Support / Hydrochar Offtake</div>
+          <div class="block-item">Key differentiator: <strong>"Kontrolujemy cały strumień osadu — od decyzji do produktu końcowego"</strong></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">SERVICES — 3 Cards</span><span class="block-tag tag-lead">CONVERSION</span></div>
+        <div class="block-body">
+          <div class="block-item"><strong>TEO Analiza</strong> — Pełna analiza techniczno-ekonomiczna twojej WWTP. Czas: 4-6 tygodni. Cena: od X PLN. <em>→ /uslugi/teo</em></div>
+          <div class="block-item"><strong>Projekt HTC</strong> — Projektowanie, integracja, uruchomienie instalacji HTC-S/D lub TH+HTC. <em>→ /uslugi/projekt-htc</em></div>
+          <div class="block-item"><strong>Pozyskanie dotacji</strong> — NFOŚiGW, LIFE, Horizon. 80% skuteczności. Piszemy wniosek za Ciebie. <em>→ /uslugi/dotacje</em></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">REGULATORY TIMELINE — Візуалізація</span><span class="block-tag tag-seo">URGENCY</span></div>
+        <div class="block-body">
+          <div class="block-item">Горизонтальна timeline: <strong>2025 → 2027 → 2030 → 2035 → 2045</strong></div>
+          <div class="block-item">Кожна точка: event + що відбувається з гміною + що робить BTC</div>
+          <div class="block-item">Highlighted: "Jesteśmy tu: 2026" — стрілка на поточну позицію</div>
+          <div class="block-item">CTA: "Ile masz czasu? Sprawdź swój termin →" <em>→ Calendly</em></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">TRUST STRIP — Credibility Bar</span><span class="block-tag tag-trust">TRUST</span></div>
+        <div class="block-body">
+          <div class="block-item">Логотипи: <strong>AGH Kraków · INTROL · NSC (granty) · NFOŚiGW</strong></div>
+          <div class="block-item">Метрики: <strong>10 lat R&D · 2 granty NSC 2025 · Własna technologia · Oficjalny status HTC od 2025</strong></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">LEAD MAGNET — PDF Capture</span><span class="block-tag tag-lead">LEAD</span></div>
+        <div class="block-body">
+          <div class="block-item">Offer: <strong>"Pobierz bezpłatny przewodnik: Jak przygotować WWTP na UWWTD 2027 (28 stron)"</strong></div>
+          <div class="block-item">Форма: Imię + Email + Nazwa WWTP + Submit</div>
+          <div class="block-item">Automation: email → nurture sequence → TEO offer через 7 днів</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">FINAL CTA BLOCK</span><span class="block-tag tag-cta">CTA</span></div>
+        <div class="block-body">
+          <div class="block-item">H2: <strong>"Gotowy omówić osad z ekspertem?"</strong></div>
+          <div class="block-item">CTA Button: "Umów bezpłatną konsultację 30 min" → Calendly embed</div>
+          <div class="block-item">Sub-copy: "Bez zobowiązań. Tylko konkretne odpowiedzi dla Twojej oczyszczalni."</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">FOOTER</span><span class="block-tag tag-nav">NAV</span></div>
+        <div class="block-body">
+          <div class="block-item">Колонки: Usługi / Technologia / Regulacje / O nas / Blog / Kontakt</div>
+          <div class="block-item">Newsletter signup: "Nowości regulacyjne co miesiąc"</div>
+          <div class="block-item">Schema markup: LocalBusiness + Organization</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TECHNOLOGY PAGE -->
+    <div class="wf-page" id="page-tech">
+      <div class="wf-title">Technologia — /technologia</div>
+      <div class="wf-desc">Мета: встановити технічний авторитет. Аудиторія: WWTP-інженери, інвестори, grant officers. Має конвертувати скептиків.</div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">HERO — Authority Statement</span><span class="block-tag tag-hero">HERO</span></div>
+        <div class="block-body">
+          <div class="block-item">H1: <strong>"Technologia HTC. Opracowana w Polsce. Sprawdzona przez AGH."</strong></div>
+          <div class="block-item">Badge row: 🔬 10 lat B+R · 📜 2 granty NSC 2025 · 🏛️ AGH Kraków · ⚗️ Własne produkty</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">HTC — Як це працює</span><span class="block-tag tag-content">EDUCATION</span></div>
+        <div class="block-body">
+          <div class="block-item">Animated diagram: Osad → Reaktor HTC (180-250°C, 10-20 bar) → Hydrochar + Woda procesowa</div>
+          <div class="block-item">Key claims: -60% objętości / sterylizacja / usunięcie mikroplastiku (в процесі дослідження)</div>
+          <div class="block-item">Порівняльна таблиця: HTC vs Suszarnie vs Spalanie vs Kompostowanie</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">PRODUCT CARDS — HTC-S / HTC-D / TH+HTC</span><span class="block-tag tag-trust">PRODUCTS</span></div>
+        <div class="block-body">
+          <div class="block-item"><strong>HTC-S</strong>: Small scale, WWTP &lt;50K PE, modular, швидкий монтаж. CTA: Specyfikacja techniczna →</div>
+          <div class="block-item"><strong>HTC-D</strong>: Distributed, Hub&Spoke model, 3-5 WWTP per hub. CTA: Model ekonomiczny →</div>
+          <div class="block-item"><strong>TH+HTC</strong>: Thermal Hydrolysis + HTC, flagship для великих WWTP. CTA: Case study →</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">AGH Partnership Section</span><span class="block-tag tag-trust">TRUST</span></div>
+        <div class="block-body">
+          <div class="block-item">Фото/логотип AGH + Prof. Wilk quote (якщо дозволено)</div>
+          <div class="block-item">Timeline: 2014-2026 — ключові спільні досягнення</div>
+          <div class="block-item">2 гранти NSC 2025: назви, цілі, поточний статус</div>
+          <div class="block-item">Link: Wspólna prezentacja BTC+AGH 2026 (PDF download)</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">Microplastics — Thought Leadership</span><span class="block-tag tag-seo">SEO HOOK</span></div>
+        <div class="block-body">
+          <div class="block-item">H2: "HTC a mikroplastiki w osadach — co wiemy?"</div>
+          <div class="block-item">Honest framing: "Badamy. AGH ma 2 granty. Wyniki do 2027."</div>
+          <div class="block-item">Чому це важливо для інвесторів та регуляторів</div>
+          <div class="block-item">CTA: "Zapisz się na aktualizacje badań" → newsletter</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEO SERVICE PAGE -->
+    <div class="wf-page" id="page-service">
+      <div class="wf-title">Usługa: Analiza TEO — /uslugi/teo</div>
+      <div class="wf-desc">Найважливіша конверсійна сторінка. Клієнт: керівник WWTP. Має відповісти на: "Що я отримую? Скільки коштує? Як починаємо?"</div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">HERO — Service Value</span><span class="block-tag tag-hero">HERO</span></div>
+        <div class="block-body">
+          <div class="block-item">H1: <strong>"Analiza TEO — poznaj możliwości swojej oczyszczalni"</strong></div>
+          <div class="block-item">Sub: "Pełna ocena techniczno-ekonomiczna. Konkretne liczby. Gotowa rekomendacja."</div>
+          <div class="block-item">CTA: "Zamów TEO" → form</div>
+          <div class="block-item">Badge: "Realizacja: 4-6 tygodni · Certyfikowani eksperci · Doświadczenie: 10+ lat"</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">WHAT'S INCLUDED — Deliverables</span><span class="block-tag tag-content">VALUE</span></div>
+        <div class="block-body">
+          <div class="block-item">✅ Audyt aktualnej sytuacji (wolumeny, koszty, compliance)</div>
+          <div class="block-item">✅ Analiza 3 scenariuszy zagospodarowania osadu</div>
+          <div class="block-item">✅ Rekomendacja technologiczna (HTC-S / HTC-D / TH+HTC)</div>
+          <div class="block-item">✅ Ścieżka dofinansowania (NFOŚiGW / LIFE / RPO)</div>
+          <div class="block-item">✅ ROI model: payback period, LTV, NPV</div>
+          <div class="block-item">✅ Prezentacja dla rady gminy / zarządu</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">PROCESS — 5 Steps</span><span class="block-tag tag-content">PROCESS</span></div>
+        <div class="block-body">
+          <div class="block-item">1. Bezpłatna rozmowa wstępna (30 min) → Scopowanie</div>
+          <div class="block-item">2. Podpisanie umowy + data kick-off</div>
+          <div class="block-item">3. Wizyta na oczyszczalni + zbieranie danych</div>
+          <div class="block-item">4. Analiza i modelowanie (3 tygodnie)</div>
+          <div class="block-item">5. Prezentacja wyników + raport TEO</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">FORM — Lead Capture</span><span class="block-tag tag-cta">CONVERSION</span></div>
+        <div class="block-body">
+          <div class="block-item">Поля: Imię · Stanowisko · Nazwa WWTP · Email · Tel · Wolumen osadu (t/rok) · Pytania</div>
+          <div class="block-item">Submit: "Wyślij zapytanie o TEO"</div>
+          <div class="block-item">Після відправки: PDF-guide автоматично + email з датою дзвінка</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REGULATORY PAGE -->
+    <div class="wf-page" id="page-regulatory">
+      <div class="wf-title">Rynek i Regulacje — /regulacje</div>
+      <div class="wf-desc">SEO Pillar Page. Мета: стати першим результатом Google для пошуків WWTP-операторів. Дає трафік → конвертує в leads.</div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">HERO + Table of Contents</span><span class="block-tag tag-seo">SEO PILLAR</span></div>
+        <div class="block-body">
+          <div class="block-item">H1: <strong>"UWWTD 2024 w Polsce — kompletny przewodnik dla oczyszczalni"</strong></div>
+          <div class="block-item">Jumplinks: Co to jest UWWTD · Terminy · Kary · Jak się przygotować · Dotacje</div>
+          <div class="block-item">Last updated: автоматична дата → freshness signal для Google</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">INTERACTIVE TIMELINE</span><span class="block-tag tag-seo">KEY CONTENT</span></div>
+        <div class="block-body">
+          <div class="block-item">2025 — Oficjalny status HTC (stabilizacja osadu) ✅</div>
+          <div class="block-item">2027 — Pierwsze raporty UWWTD / kary dla dużych WWTP ⚠️</div>
+          <div class="block-item">2030 — Zakaz składowania osadu nieprzetworzonego 🚫</div>
+          <div class="block-item">2033 — Wymogi energetyczne dla oczyszczalni &gt;10K PE</div>
+          <div class="block-item">2045 — Pełna neutralność klimatyczna sektora</div>
+          <div class="block-item">Фільтр: "Moja oczyszczalnia: ___ PE" → персоналізовані дедлайни</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">GRANT NAVIGATOR</span><span class="block-tag tag-lead">LEAD TOOL</span></div>
+        <div class="block-body">
+          <div class="block-item">Калькулятор: Wolumen osadu → Technologia → Kwalifikowalne koszty → Możliwa dotacja</div>
+          <div class="block-item">Результат: "Twoja oczyszczalnia może pozyskać do X PLN z NFOŚiGW"</div>
+          <div class="block-item">CTA: "Sprawdź z naszym ekspertem →" → форма TEO</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">FAQ — Long-tail SEO</span><span class="block-tag tag-seo">SEO</span></div>
+        <div class="block-body">
+          <div class="block-item">Schema FAQ markup для Google featured snippets</div>
+          <div class="block-item">20+ питань: "Co to jest UWWTD?", "Ile wynosi kara za brak zgodności?", "Czy HTC jest dozwolone w Polsce?"</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INVESTOR PAGE -->
+    <div class="wf-page" id="page-investor">
+      <div class="wf-title">Dla Inwestorów — /investor</div>
+      <div class="wf-desc">Аудиторія: Seed/VC. Мета: підтвердити, що BTC це сильна інвестиційна можливість у регуляторно-рушійному ринку. Конвертує в зустріч.</div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">HERO — Investment Frame</span><span class="block-tag tag-hero">HERO</span></div>
+        <div class="block-body">
+          <div class="block-item">H1: <strong>"EUR 580M+ rynek. Regulacja tworzy popyt. BTC ma technologię."</strong></div>
+          <div class="block-item">Metrics row: EUR 6.9B TAM · PLN 30B dostępnych dotacji · 580K ton osadu/rok w Polsce</div>
+          <div class="block-item">CTA: "Pobierz Investment Deck (PDF)" — email gate</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">THE OPPORTUNITY — Problem→Market→Solution</span><span class="block-tag tag-content">NARRATIVE</span></div>
+        <div class="block-body">
+          <div class="block-item">Problem: 580K ton osadu bez gotowego rozwiązania + UWWTD deadline</div>
+          <div class="block-item">Market: EUR 6.9B TAM, CAGR 16.4%, regulatory tailwind</div>
+          <div class="block-item">Solution: BTC = platforma kontroli strumienia osadu + własna technologia HTC</div>
+          <div class="block-item">Moat: AGH 10 lat, własne IP, regulatory compliance (HTC officialised 2025)</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">BUSINESS MODEL — 3 Streams</span><span class="block-tag tag-content">MODEL</span></div>
+        <div class="block-body">
+          <div class="block-item">Stream 1: TEO консалтинг (immediate revenue)</div>
+          <div class="block-item">Stream 2: Royalty від HTC-установок (recurring, LTV EUR 1.03–1.8M / 10 р.)</div>
+          <div class="block-item">Stream 3: Gate Fees за прийом осаду на Hub (asset-heavy, high margin)</div>
+          <div class="block-item">Round: EUR 2.0-2.2M Seed | Break-even 2030 | Exit 2032-2035</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">DATA ROOM — 🔒 Gated</span><span class="block-tag tag-trust">PRIVATE</span></div>
+        <div class="block-body">
+          <div class="block-item">Email + NDA request → manual review → access grant</div>
+          <div class="block-item">Вміст: Фінансова модель · Whitepaper · LOI · Team bios · Cap table</div>
+          <div class="block-item">Трекер: хто відкрив, скільки часу провів, які сторінки — для пріоритизації follow-up</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">CONTACT INVESTOR RELATIONS</span><span class="block-tag tag-cta">CTA</span></div>
+        <div class="block-body">
+          <div class="block-item">Calendly: "Umów 30-minutowe spotkanie z założycielem"</div>
+          <div class="block-item">Direct email: ir@btcconsulting.pl</div>
+          <div class="block-item">LinkedIn: профіль засновника</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOG PAGE -->
+    <div class="wf-page" id="page-blog">
+      <div class="wf-title">Wiedza / Blog — /wiedza</div>
+      <div class="wf-desc">SEO Engine сайту. Кожна стаття = окрема landing page для довгохвостих ключових слів. Конвертує органічний трафік у leads.</div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">Blog Hub — Category Filter</span><span class="block-tag tag-seo">SEO HUB</span></div>
+        <div class="block-body">
+          <div class="block-item">Категорії: Regulacje · Technologia · Dotacje · Case Studies · Rynek osadu</div>
+          <div class="block-item">Featured: "Najnowsze" + "Najpopularniejsze" + "Dla Twojej WWTP"</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">PILLAR ARTICLES — Evergreen</span><span class="block-tag tag-seo">SEO CORE</span></div>
+        <div class="block-body">
+          <div class="block-item">"UWWTD 2024 — co każda oczyszczalnia musi wiedzieć" (5000+ słów, pillar page)</div>
+          <div class="block-item">"HTC vs Suszarnie vs Spalanie — porównanie 2025"</div>
+          <div class="block-item">"Jak pozyskać dofinansowanie z NFOŚiGW na zagospodarowanie osadu"</div>
+          <div class="block-item">"Kalkulator kosztów składowania osadu 2025-2030"</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-header"><span class="block-name">TOOLS — Interactive Calculators</span><span class="block-tag tag-lead">LEAD TOOLS</span></div>
+        <div class="block-body">
+          <div class="block-item">Kalkulator Gate Fee — введи обсяг → отримай орієнтовну вартість</div>
+          <div class="block-item">ROI Calculator HTC — capex vs opex vs oszczędności</div>
+          <div class="block-item">Deadline Checker — введи PE → отримай персоналізований UWWTD calendar</div>
+          <div class="block-item">Результат кожного: CTA "Chcesz dokładniejszą analizę? → TEO"</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- wf-pages -->
+</div>
+</div>
+
+<!-- =================== SEO =================== -->
+<div id="seo" class="tab-content">
+<div class="seo-wrap">
+  <h1>SEO Стратегія — Польський ринок</h1>
+  <p class="subtitle">Основна мова: PL · Вторинна: EN · Ціль: топ-3 Google PL для WWTP-операторів</p>
+
+  <div class="seo-section">
+    <h2>Пріоритетні ключові слова</h2>
+    <div class="kw-grid">
+      <div class="kw-card">
+        <span class="kw-priority pri-high">HIGH</span>
+        <div class="kw-term">zagospodarowanie osadów ściekowych</div>
+        <div class="kw-intent">Informational → Commercial</div>
+        <div class="kw-vol">Cтатична аудиторія, висока цінність</div>
+      </div>
+      <div class="kw-card">
+        <span class="kw-priority pri-high">HIGH</span>
+        <div class="kw-term">osady ściekowe przepisy 2027</div>
+        <div class="kw-intent">Regulatory urgency search</div>
+        <div class="kw-vol">Сезонний ріст 2025-2027</div>
+      </div>
+      <div class="kw-card">
+        <span class="kw-priority pri-high">HIGH</span>
+        <div class="kw-term">UWWTD Polska oczyszczalnia</div>
+        <div class="kw-intent">Compliance search</div>
+        <div class="kw-vol">Нова тема, низька конкуренція</div>
+      </div>
+      <div class="kw-card">
+        <span class="kw-priority pri-high">HIGH</span>
+        <div class="kw-term">HTC osad ściekowy technologia</div>
+        <div class="kw-intent">Technology evaluation</div>
+        <div class="kw-vol">BTC може домінувати ніші</div>
+      </div>
+      <div class="kw-card">
+        <span class="kw-priority pri-med">MED</span>
+        <div class="kw-term">analiza TEO oczyszczalnia ścieków</div>
+        <div class="kw-intent">Commercial Intent — пряма конверсія</div>
+        <div class="kw-vol">Невисокий обсяг, висока якість ліда</div>
+      </div>
+      <div class="kw-card">
+        <span class="kw-priority pri-med">MED</span>
+        <div class="kw-term">dofinansowanie NFOŚiGW oczyszczalnia</div>
+        <div class="kw-intent">Grant search — муніципалітети</div>
+        <div class="kw-vol">Регулярний сезонний пошук</div>
+      </div>
+      <div class="kw-card">
+        <span class="kw-priority pri-med">MED</span>
+        <div class="kw-term">osad ściekowy jako paliwo alternatywne</div>
+        <div class="kw-intent">Exploratory — hydrochar use case</div>
+        <div class="kw-vol">Новий термін, зростає</div>
+      </div>
+      <div class="kw-card">
+        <span class="kw-priority pri-med">MED</span>
+        <div class="kw-term">koszty składowania osadu 2025</div>
+        <div class="kw-intent">Problem awareness — urgency trigger</div>
+        <div class="kw-vol">Комерційний сигнал</div>
+      </div>
+      <div class="kw-card">
+        <span class="kw-priority pri-low">LOW</span>
+        <div class="kw-term">hydrotermalny węgiel z osadu</div>
+        <div class="kw-intent">Technical — engineers, researchers</div>
+        <div class="kw-vol">Низький обсяг, нульова конкуренція</div>
+      </div>
+      <div class="kw-card">
+        <span class="kw-priority pri-low">LOW</span>
+        <div class="kw-term">mikroplastiki w osadzie ściekowym</div>
+        <div class="kw-intent">Thought leadership — AGH connection</div>
+        <div class="kw-vol">Зростаючий інтерес</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="seo-section">
+    <h2>URL-структура</h2>
+    <div class="url-list">
+      <div class="url-row"><span>/</span> — Strona główna <span class="url-note">Schema: Organization + LocalBusiness</span></div>
+      <div class="url-row"><span>/technologia/htc</span> — Co to jest HTC? <span class="url-note">Target: "HTC osad ściekowy"</span></div>
+      <div class="url-row"><span>/uslugi/teo</span> — Analiza TEO <span class="url-note">Target: "analiza TEO oczyszczalnia" · Schema: Service</span></div>
+      <div class="url-row"><span>/regulacje/uwwtd</span> — Przewodnik UWWTD <span class="url-note">Target: "UWWTD Polska", "osady ściekowe przepisy 2027" · PILLAR PAGE</span></div>
+      <div class="url-row"><span>/regulacje/dotacje</span> — Dofinansowania <span class="url-note">Target: "dofinansowanie NFOŚiGW oczyszczalnia"</span></div>
+      <div class="url-row"><span>/wiedza/uwwtd-przewodnik</span> — Pillar Article <span class="url-note">5000+ słów · H2 structure · FAQ Schema</span></div>
+      <div class="url-row"><span>/wiedza/kalkulator-gate-fee</span> — Kalkulator <span class="url-note">Interactive tool · Lead capture · linkowalний</span></div>
+      <div class="url-row"><span>/technologia/agh</span> — Współpraca AGH <span class="url-note">Backlinks від AGH.edu.pl = Domain Authority</span></div>
+    </div>
+  </div>
+
+  <div class="seo-section">
+    <h2>Контент-план (Перші 6 місяців)</h2>
+    <div class="content-plan">
+      <div class="cp-row">
+        <span class="cp-type cp-pillar">PILLAR</span>
+        <div>
+          <div class="cp-title">"UWWTD 2024 w Polsce — kompletny przewodnik" (5000+ słów)</div>
+          <div class="cp-kw">KW: zagospodarowanie osadów ściekowych, UWWTD Polska, osady ściekowe przepisy · Місяць 1</div>
+        </div>
+      </div>
+      <div class="cp-row">
+        <span class="cp-type cp-pillar">PILLAR</span>
+        <div>
+          <div class="cp-title">"HTC vs Suszarnie vs Spalanie — porównanie technologii 2025"</div>
+          <div class="cp-kw">KW: HTC osad ściekowy technologia, zagospodarowanie osadu porównanie · Місяць 1</div>
+        </div>
+      </div>
+      <div class="cp-row">
+        <span class="cp-type cp-cluster">CLUSTER</span>
+        <div>
+          <div class="cp-title">"Kalkulator kosztów składowania osadu 2025–2030" (interactive tool)</div>
+          <div class="cp-kw">KW: koszty składowania osadu, kary UWWTD · Місяць 2 · Lead magnet</div>
+        </div>
+      </div>
+      <div class="cp-row">
+        <span class="cp-type cp-cluster">CLUSTER</span>
+        <div>
+          <div class="cp-title">"Jak pozyskać dofinansowanie z NFOŚiGW na HTC" (przewodnik)</div>
+          <div class="cp-kw">KW: dofinansowanie NFOŚiGW oczyszczalnia, dotacje osad · Місяць 2</div>
+        </div>
+      </div>
+      <div class="cp-row">
+        <span class="cp-type cp-cluster">CLUSTER</span>
+        <div>
+          <div class="cp-title">"Mikroplastiki w osadzie — co to oznacza dla Twojej WWTP?"</div>
+          <div class="cp-kw">KW: mikroplastiki osad ściekowy, badania AGH · Місяць 3 · Thought leadership</div>
+        </div>
+      </div>
+      <div class="cp-row">
+        <span class="cp-type cp-news">NEWS</span>
+        <div>
+          <div class="cp-title">Щомісячний Regulatory Digest (newsletter → blog)</div>
+          <div class="cp-kw">Freshness signal + email retention + authority · Місяць 1 → ongoing</div>
+        </div>
+      </div>
+      <div class="cp-row">
+        <span class="cp-type cp-cluster">CLUSTER</span>
+        <div>
+          <div class="cp-title">"Hub & Spoke model — jak 5 gmin może dzielić jedną instalację HTC"</div>
+          <div class="cp-kw">KW: model hub spoke osad, instalacja HTC kilka gmin · Місяць 4</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="seo-section">
+    <h2>Технічний SEO Чеклист</h2>
+    <div class="kw-grid">
+      <div class="kw-card"><div class="kw-term">Core Web Vitals</div><div class="kw-intent">LCP &lt;2.5s · CLS &lt;0.1 · FID &lt;100ms</div></div>
+      <div class="kw-card"><div class="kw-term">Schema Markup</div><div class="kw-intent">Organization + LocalBusiness + FAQ + Service + BreadcrumbList</div></div>
+      <div class="kw-card"><div class="kw-term">Hreflang</div><div class="kw-intent">pl-PL primary + en-EN secondary · избігати duplicate content</div></div>
+      <div class="kw-card"><div class="kw-term">Internal Linking</div><div class="kw-intent">Hub-and-spoke від /regulacje до всіх service pages</div></div>
+      <div class="kw-card"><div class="kw-term">Backlinks</div><div class="kw-intent">AGH.edu.pl · NFOŚiGW.gov.pl · Branżові портали PL</div></div>
+      <div class="kw-card"><div class="kw-term">Google Business</div><div class="kw-intent">BTC Gliwice · Kategорія: Environmental Consulting</div></div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- =================== STRATEGY =================== -->
+<div id="strategy" class="tab-content">
+<div class="strat-wrap">
+  <h1>Бізнес-стратегія сайту</h1>
+  <p class="subtitle">Сайт як бізнес-інструмент, а не брошура</p>
+
+  <div class="principle-grid">
+    <div class="principle-card">
+      <div class="principle-num">01</div>
+      <div class="principle-title">Urgency-First Design</div>
+      <div class="principle-text">Кожна сторінка починається з регуляторного тиску. UWWTD 2027 — це не фон, це головний trigger дії. Без urgency клієнт не дзвонить.</div>
+      <div class="principle-example">Hero: "Masz czas do 2027. Co z osadem?"</div>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">02</div>
+      <div class="principle-title">AGH as Trust Anchor</div>
+      <div class="principle-text">AGH — єдиний беззаперечний авторитет у польській аудиторії. Логотип, ім'я проф. Wilk, NSC гранти — з'являються на кожній ключовій сторінці.</div>
+      <div class="principle-example">Не "наші дослідження" — "Badania AGH potwierdzają"</div>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">03</div>
+      <div class="principle-title">Сегментовані шляхи</div>
+      <div class="principle-text">Gmina ≠ Investor ≠ Partner. З першої секунди сайт pitchує різне: gmina бачить compliance, інвестор бачить ринок і exit, партнер бачить технічні specs.</div>
+      <div class="principle-example">Homepage: 3 кнопки "Jestem..."</div>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">04</div>
+      <div class="principle-title">Lead Magnet Engine</div>
+      <div class="principle-text">Безкоштовний PDF "Przewodnik UWWTD" + калькулятори = email-база WWTP-операторів. Потім — email nurture до TEO-запиту. Сайт генерує leads навіть без реклами.</div>
+      <div class="principle-example">Мета: 50+ нових контактів/місяць органічно</div>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">05</div>
+      <div class="principle-title">Content → Authority → Trust</div>
+      <div class="principle-text">Регуляторний контент (UWWTD, NFOŚiGW, терміни) — BTC стає єдиним авторитетним джерелом по темі в PL. Google винагороджує E-E-A-T. Клієнти довіряють.</div>
+      <div class="principle-example">Мета: топ-3 Google за "UWWTD Polska" за 6 місяців</div>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">06</div>
+      <div class="principle-title">Data Room для інвесторів</div>
+      <div class="principle-text">Закрита секція /investor з email-gate + NDA flow + трекером відкриттів документів. Показує інвестору: "ця компанія серйозна і організована".</div>
+      <div class="principle-example">Tool: Notion + Docsend або PandaDoc</div>
+    </div>
+  </div>
+
+  <div class="conversion-funnel">
+    <div class="funnel-title">Воронка конверсії — від пошуку до підписання LOI</div>
+    <div class="funnel-stage">
+      <div class="funnel-dot f1">🔍</div>
+      <div>
+        <div class="funnel-label">AWARENESS — Google знаходить статтю про UWWTD</div>
+        <div class="funnel-sub">/regulacje/uwwtd · /wiedza/uwwtd-przewodnik · Regulatory search</div>
+      </div>
+    </div>
+    <div class="funnel-stage">
+      <div class="funnel-dot f2">📥</div>
+      <div>
+        <div class="funnel-label">INTEREST — Завантажує PDF Przewodnik UWWTD</div>
+        <div class="funnel-sub">Email capture → Nurture sequence старт (3 emails за 14 днів)</div>
+      </div>
+    </div>
+    <div class="funnel-stage">
+      <div class="funnel-dot f3">🧮</div>
+      <div>
+        <div class="funnel-label">CONSIDERATION — Використовує Kalkulator Gate Fee</div>
+        <div class="funnel-sub">Бачить реальні цифри по своїй WWTP → "треба поговорити"</div>
+      </div>
+    </div>
+    <div class="funnel-stage">
+      <div class="funnel-dot f4">📞</div>
+      <div>
+        <div class="funnel-label">ACTION — Заповнює форму TEO або бронює Calendly</div>
+        <div class="funnel-sub">Форма → автоматичне підтвердження → Sales call → TEO proposal</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tech-stack">
+    <div class="ts-title">Рекомендований Tech Stack</div>
+    <div class="ts-grid">
+      <div class="ts-item">
+        <div class="ts-cat">CMS</div>
+        <div class="ts-rec">WordPress + ACF</div>
+        <div class="ts-why">SEO-ready, легко оновлювати регуляторний контент</div>
+      </div>
+      <div class="ts-item">
+        <div class="ts-cat">HOSTING</div>
+        <div class="ts-rec">Cloudflare + AWS/Hetzner</div>
+        <div class="ts-why">Швидкість Core Web Vitals</div>
+      </div>
+      <div class="ts-item">
+        <div class="ts-cat">CRM</div>
+        <div class="ts-rec">HubSpot Free / Pipedrive</div>
+        <div class="ts-why">Email nurture + lead tracking</div>
+      </div>
+      <div class="ts-item">
+        <div class="ts-cat">CALENDAR</div>
+        <div class="ts-rec">Calendly</div>
+        <div class="ts-why">Embed на кожному CTA</div>
+      </div>
+      <div class="ts-item">
+        <div class="ts-cat">DATA ROOM</div>
+        <div class="ts-rec">Docsend або Notion + Passcode</div>
+        <div class="ts-why">Трекер відкриттів + NDA flow</div>
+      </div>
+      <div class="ts-item">
+        <div class="ts-cat">ANALYTICS</div>
+        <div class="ts-rec">GA4 + Hotjar</div>
+        <div class="ts-why">Heatmaps + conversion tracking</div>
+      </div>
+      <div class="ts-item">
+        <div class="ts-cat">SEO</div>
+        <div class="ts-rec">Yoast SEO Premium</div>
+        <div class="ts-why">Schema + Multilingual + Redirects</div>
+      </div>
+      <div class="ts-item">
+        <div class="ts-cat">EMAIL</div>
+        <div class="ts-rec">Brevo (Sendinblue)</div>
+        <div class="ts-why">EU-compliant, GDPR, дешево для старту</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.doc-nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+function showPage(id, btn) {
+  document.querySelectorAll('.wf-page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.wf-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
