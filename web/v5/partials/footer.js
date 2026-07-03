@@ -98,7 +98,9 @@ document.write(`
 
   <!-- Nav kolumny -->
   <div class="footer-grid" style="padding-top:40px">
-    <div class="footer-mark" aria-hidden="true">BTC<span>.</span></div>
+    <div class="footer-mark" aria-hidden="true">
+      <img src="/v5/assets/svg/logo.svg" alt="" width="110" height="110" style="display:block">
+    </div>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
       <div class="footer-col">

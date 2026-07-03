@@ -3,7 +3,7 @@ document.write(`
 <header class="site-header" id="site-header">
   <div class="header-inner">
     <a class="header-logo" href="/v5/index.html" aria-label="BTC Consulting">
-      BTC<span>.</span>
+      <img src="/v5/assets/svg/logo.svg" alt="BTC Consulting" width="38" height="38" style="display:block">
     </a>
 
     <nav aria-label="Główna nawigacja">
