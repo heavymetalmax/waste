@@ -1,0 +1,131 @@
+---
+layout: false
+permalink: /index.html
+---
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Osady ściekowe, HTC, dotacje UE | BTC Consulting</title>
+  <meta name="description" content="Artykuły eksperckie o zagospodarowaniu osadów ściekowych, technologii HTC, dotacjach UE i dyrektywie UWWTD. Blog BTC Consulting.">
+  <link rel="canonical" href="{{ site.url }}/v5/blog/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/v5/design-system.css">
+  <link href="/v5/blog/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <style>
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 3px;
+    }
+    @media (max-width: 768px) { .blog-grid { grid-template-columns: 1fr; } }
+
+    .blog-card {
+      background: var(--c-surface-w);
+      padding: 2.5rem 2rem;
+      display: flex; flex-direction: column; gap: 1rem;
+      text-decoration: none; color: inherit;
+      transition: background 0.15s;
+    }
+    .blog-card:hover { background: var(--c-white); }
+    .blog-card__date {
+      font-family: var(--f-display); font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em; color: var(--c-gray);
+    }
+    .blog-card__title {
+      font-family: var(--f-display); font-weight: 800;
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
+      text-transform: uppercase; letter-spacing: -0.01em;
+      color: var(--c-black); line-height: 1.3;
+    }
+    .blog-card__desc {
+      font-size: 0.875rem; line-height: 1.7; color: var(--c-gray-d);
+    }
+    .blog-card__tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: auto; }
+    .blog-tag {
+      font-family: var(--f-display); font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 0.25rem 0.5rem; background: transparent;
+      border: 1px solid var(--c-border); color: var(--c-gray);
+      text-decoration: none;
+    }
+    .blog-tag:hover { background: var(--c-accent); color: var(--c-white); border-color: var(--c-accent); }
+
+    .tag-cloud { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1.5rem; }
+
+    #search { max-width: 600px; margin: 0 auto 3rem; }
+    .pagefind-ui__search-input { font-family: var(--f-body) !important; }
+  </style>
+</head>
+<body>
+
+<script src="/v5/partials/header.js"></script>
+
+<section class="hero" aria-label="Blog BTC Consulting">
+  <div class="hero__content">
+    <p class="t-label">Blog</p>
+    <h1 class="t-display reveal">
+      Wiedza<br>
+      <span class="t-accent">ekspercka</span>
+    </h1>
+    <p class="t-lead reveal" style="max-width:42ch;color:var(--c-gray-d)">
+      Artykuły o zagospodarowaniu osadów ściekowych, technologii HTC,
+      dotacjach UE i&nbsp;nowych przepisach UWWTD.
+    </p>
+  </div>
+</section>
+
+<section class="section" aria-label="Wyszukiwanie i tagi">
+  <div class="container">
+    <div id="search"></div>
+
+    <div style="text-align:center">
+      <p class="t-label" style="margin-bottom:0.75rem">Tematy</p>
+      <div class="tag-cloud" style="justify-content:center">
+        {% for tag in collections.tagList %}
+        <a class="blog-tag" href="{{ site.blogPath }}/tag/{{ tag | slugify }}/">{{ tag }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="Artykuły">
+  <div class="container">
+    <div class="blog-grid">
+      {% for post in collections.posts %}
+      <a class="blog-card reveal" href="{{ site.blogPath }}{{ post.url }}">
+        <span class="blog-card__date">{{ post.date | readableDate }}</span>
+        <span class="blog-card__title">{{ post.data.title }}</span>
+        <span class="blog-card__desc">{{ post.data.description }}</span>
+        <span class="blog-card__tags">
+          {% for tag in post.data.tags | withoutPost %}
+          <span class="blog-tag">{{ tag }}</span>
+          {% endfor %}
+        </span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script src="/v5/translations/pl.js"></script>
+<script src="/v5/i18n.js"></script>
+<script src="/v5/partials/footer.js?v=3"></script>
+<script src="/v5/reveal.js"></script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    new PagefindUI({ element: '#search', showSubResults: true, showImages: false });
+  });
+</script>
+<script src="/v5/blog/pagefind/pagefind-ui.js" type="text/javascript"></script>
+
+</body>
+</html>

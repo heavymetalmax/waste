@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} | BTC Consulting</title>
+  <meta name="description" content="{{ description }}">
+  <link rel="canonical" href="{{ site.url }}/v5/blog/{{ page.fileSlug }}/">
+  {% if keywords %}<meta name="keywords" content="{{ keywords }}">{% endif %}
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "{{ title }}",
+    "description": "{{ description }}",
+    "datePublished": "{{ date | isoDate }}",
+    {% if updated %}"dateModified": "{{ updated | isoDate }}",{% endif %}
+    "author": { "@type": "Organization", "name": "BTC Consulting" },
+    "publisher": { "@type": "Organization", "name": "BTC Consulting", "url": "{{ site.url }}" },
+    "mainEntityOfPage": "{{ site.url }}/v5/blog/{{ page.fileSlug }}/"
+  }
+  </script>
+
+  {% if faq %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {% for item in faq %}
+      {
+        "@type": "Question",
+        "name": "{{ item.q }}",
+        "acceptedAnswer": { "@type": "Answer", "text": "{{ item.a }}" }
+      }{% if not loop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+  {% endif %}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/v5/design-system.css">
+  <link href="/v5/blog/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <style>
+    .doc-wrap { max-width: 860px; margin: 0 auto; }
+    .doc-meta {
+      padding: 1.5rem 2rem;
+      border-left: 3px solid var(--c-accent);
+      background: var(--c-surface-w);
+      display: flex; flex-direction: column; gap: 0.5rem;
+      font-size: 0.875rem; line-height: 1.7; color: var(--c-gray);
+    }
+    .doc-meta strong { color: var(--c-black); }
+    .doc-section { padding: 3rem 0; border-bottom: 1px solid var(--c-border); }
+    .doc-section:last-child { border-bottom: none; }
+    .doc-body { font-size: 0.9375rem; line-height: 1.8; }
+    .doc-body h2 {
+      font-family: var(--f-display); font-weight: 800;
+      font-size: clamp(1.25rem, 2vw, 1.625rem);
+      text-transform: uppercase; letter-spacing: -0.01em;
+      color: var(--c-black); margin: 3rem 0 1.5rem; line-height: 1.2;
+      padding-top: 2rem; border-top: 1px solid var(--c-border);
+    }
+    .doc-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    .doc-body h3 {
+      font-family: var(--f-display); font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em; color: var(--c-accent);
+      margin: 2rem 0 0.75rem; padding-left: 1rem; border-left: 3px solid var(--c-accent);
+    }
+    .doc-body p { margin-bottom: 1rem; }
+    .doc-body ul, .doc-body ol { padding-left: 1.25rem; margin: 0.75rem 0 1rem; }
+    .doc-body li { font-size: 0.9375rem; line-height: 1.75; margin-bottom: 0.5rem; }
+    .doc-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.875rem; }
+    .doc-body th {
+      font-family: var(--f-display); font-weight: 700; text-transform: uppercase;
+      font-size: 11px; letter-spacing: 0.06em; padding: 0.75rem 1rem;
+      background: var(--c-black); color: var(--c-white); text-align: left;
+    }
+    .doc-body td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--c-border); }
+    .doc-body blockquote {
+      border-left: 3px solid var(--c-accent); padding: 1rem 1.5rem;
+      background: var(--c-surface-w); margin: 1.25rem 0;
+      font-style: italic; font-size: 0.9375rem; line-height: 1.7;
+    }
+    .doc-body hr { border: none; border-top: 1px solid var(--c-border); margin: 2.5rem 0; }
+    .doc-body strong { color: var(--c-black); }
+
+    .blog-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .blog-tag {
+      font-family: var(--f-display); font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 0.3rem 0.6rem; background: var(--c-surface-w);
+      border: 1px solid var(--c-border); color: var(--c-gray);
+      text-decoration: none;
+    }
+    .blog-tag:hover { background: var(--c-accent); color: var(--c-white); border-color: var(--c-accent); }
+
+    .blog-cta {
+      margin: 2.5rem 0; padding: 2rem;
+      background: var(--c-surface-w); border-left: 3px solid var(--c-accent);
+    }
+    .blog-cta p { margin-bottom: 1rem; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<script src="/v5/partials/header.js"></script>
+
+<section class="hero" aria-label="{{ title }}">
+  <div class="hero__content">
+    <p class="t-label">Blog · {{ tags | withoutPost | join(", ") }}</p>
+    <h1 class="t-display reveal">{{ heroTitle | default(title) | safe }}</h1>
+    <p class="t-lead reveal" style="max-width:52ch;color:var(--c-gray-d)">{{ description }}</p>
+  </div>
+  {% if heroImage %}
+  <div class="hero__image">
+    <img src="{{ heroImage }}" alt="{{ title }}" style="width:100%;height:100%;object-fit:cover;filter:grayscale(1)">
+  </div>
+  {% endif %}
+</section>
+
+<section class="stat-strip" aria-label="Informacje o artykule">
+  <div class="stat-strip__inner">
+    <div class="stat-item reveal">
+      <span class="stat-num" style="font-size:1.2rem">{{ date | readableDate }}</span>
+      <span class="t-label-muted">Data publikacji</span>
+    </div>
+    {% if readTime %}
+    <div class="stat-item reveal">
+      <span class="stat-num is-accent">{{ readTime }}</span>
+      <span class="t-label-muted">Minut czytania</span>
+    </div>
+    {% endif %}
+    {% if author %}
+    <div class="stat-item reveal">
+      <span class="stat-num" style="font-size:1.2rem">{{ author }}</span>
+      <span class="t-label-muted">Autor</span>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="section" id="article" aria-label="Treść artykułu" data-pagefind-body>
+  <div class="container doc-wrap">
+
+    <div class="doc-meta reveal">
+      {% if tags | withoutPost | length %}
+      <div class="blog-tags">
+        {% for tag in tags %}{% if tag != "post" %}
+        <a class="blog-tag" href="{{ site.blogPath }}/tag/{{ tag | slugify }}/">{{ tag }}</a>
+        {% endif %}{% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="doc-section doc-body">
+      {{ content | safe }}
+    </div>
+
+  </div>
+</section>
+
+<section class="section section--black" aria-label="Następny krok">
+  <div class="container" style="max-width:900px">
+    <p class="t-label mb-2">Następny krok</p>
+    <p class="t-display reveal" style="color:var(--c-white)">
+      Oblicz ROI<br>
+      <span class="t-accent">dla Twojej oczyszczalni</span>
+    </p>
+    <p class="t-lead reveal" style="max-width:52ch;margin-top:1.75rem;color:var(--c-gray)">
+      Kalkulator ROI BioTC w 60 sekund powie Ci ile zaoszczędzisz.
+      Bezpłatnie, bez rejestracji.
+    </p>
+    <div class="flex gap-sm reveal" style="flex-wrap:wrap;margin-top:2.5rem">
+      <a class="btn btn-primary" href="/v5/kalkulator-roi.html">Oblicz ROI →</a>
+      <a class="btn btn-outline" href="#contact">Bezpłatna ocena →</a>
+    </div>
+  </div>
+</section>
+
+<script src="/v5/translations/pl.js"></script>
+<script src="/v5/i18n.js"></script>
+<script src="/v5/partials/footer.js?v=3"></script>
+<script src="/v5/reveal.js"></script>
+
+</body>
+</html>

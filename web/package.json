@@ -1,0 +1,20 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "This repository is organized exclusively for the **pl_v2** project - a Polish language website for biogas and waste management solutions.",
+  "main": "app.min.js",
+  "scripts": {
+    "blog:build": "npx @11ty/eleventy && npx pagefind --site v5/blog",
+    "blog:watch": "npx @11ty/eleventy --serve --port 8081",
+    "blog:search": "npx pagefind --site v5/blog"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "luxon": "^3.7.2",
+    "pagefind": "^1.5.2"
+  }
+}

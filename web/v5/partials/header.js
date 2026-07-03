@@ -12,6 +12,7 @@ document.write(`
         <li><a class="nav-link" href="/v5/dotacje.html">Dotacje UE</a></li>
         <li><a class="nav-link" href="/v5/kalkulator-roi.html">Kalkulator ROI</a></li>
         <li><a class="nav-link" href="/v5/misja.html">O nas</a></li>
+        <li><a class="nav-link" href="/v5/blog/">Blog</a></li>
       </ul>
     </nav>
 
@@ -37,6 +38,7 @@ document.write(`
       <li><a class="nav-link" href="/v5/kalkulator-roi.html">Kalkulator ROI</a></li>
       <li><a class="nav-link" href="/v5/case-lubin.html">Case study: Lubin</a></li>
       <li><a class="nav-link" href="/v5/misja.html">O BTC Consulting</a></li>
+      <li><a class="nav-link" href="/v5/blog/">Blog</a></li>
     </ul>
     <a class="btn btn-primary" href="#contact" style="margin:1.5rem var(--gutter)">
       Bezpłatna ocena →
