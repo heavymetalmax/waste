@@ -60,22 +60,29 @@
   /* --- Accordion --- */
   function initAccordions() {
     document.querySelectorAll('.acc-btn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var item = btn.closest('.acc-item');
-        var body = item.querySelector('.acc-body');
-        var open = item.classList.contains('open');
+      var item = btn.closest('.acc-item');
+      var body = item.querySelector('.acc-body');
 
-        /* Close all siblings */
-        var parent = btn.closest('.acc') || btn.closest('.acc-item').parentElement;
+      if (body && !body.id) body.id = 'acc-body-' + Math.random().toString(36).slice(2, 8);
+      btn.setAttribute('aria-expanded', String(item.classList.contains('open')));
+      if (body) btn.setAttribute('aria-controls', body.id);
+
+      btn.addEventListener('click', function () {
+        var wasOpen = item.classList.contains('open');
+
+        var parent = btn.closest('.acc') || item.parentElement;
         parent.querySelectorAll('.acc-item').forEach(function (s) {
           s.classList.remove('open');
           var b = s.querySelector('.acc-body');
           if (b) b.hidden = true;
+          var sb = s.querySelector('.acc-btn');
+          if (sb) sb.setAttribute('aria-expanded', 'false');
         });
 
-        if (!open) {
+        if (!wasOpen) {
           item.classList.add('open');
           body.hidden = false;
+          btn.setAttribute('aria-expanded', 'true');
         }
       });
     });

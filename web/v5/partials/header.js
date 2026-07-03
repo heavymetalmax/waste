@@ -1,4 +1,5 @@
 document.write(`
+<a class="skip-link sr-only" href="#main">Przejdź do treści</a>
 <header class="site-header" id="site-header">
   <div class="header-inner">
     <a class="header-logo" href="/v5/index.html" aria-label="BTC Consulting">
