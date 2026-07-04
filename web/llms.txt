@@ -1,0 +1,62 @@
+# BTC Consulting — llms.txt
+
+> Jedyna polska firma z własną technologią HTC (Hydrothermal Carbonization) dla oczyszczalni ścieków.
+
+## Company
+
+BTC Consulting sp. z o.o. is a Polish cleantech company specializing in Hydrothermal Carbonization (HTC) technology for municipal wastewater treatment plants (WWTP). Based in Wrocław, Poland, the company holds exclusive rights to HTC technology developed over 10+ years of research with AGH University of Science and Technology in Kraków.
+
+## Core Technology: HTC (Hydrothermal Carbonization)
+
+HTC converts sewage sludge into hydrochar (hydrowęgiel) through a pressure-thermal process:
+- **Parameters:** 200°C / 2.0 MPa / 8–12 hours
+- **Volume reduction:** 75% (4× less mass)
+- **Output:** Hydrochar — a stable, safe, carbon-rich material usable as fertilizer, alternative fuel (SRF/RDF), or construction aggregate
+- **Legal status in Poland:** Legal since 14 January 2025 as a fertilizer product
+- **First commercial installation:** MPWiK Lubin, 2025 (800 t/year capacity)
+
+## Key Value Proposition
+
+- Cost reduction: PLN 550/t → PLN 200–225/t (−60% disposal costs)
+- ROI: 6.9 years with 85% EU grant co-financing
+- EU grants cover 75–90% of CapEx (FEnIKS, KPO, NFOŚiGW, LIFE programs)
+- Grant window: 2026–2028
+
+## Hub & Spoke Model
+
+For municipalities below 20,000 PE (population equivalent), BTC Consulting offers a regional Hub & Spoke model:
+- One central HTC installation serves 3–12 surrounding municipalities within 50 km
+- Cost savings: 36–41% compared to individual installations
+- Shared EU grant applications for the entire group
+
+## Services
+
+1. **TEO (Techno-Economic Assessment):** 4–6 weeks, 200+ page documentation ready for NFOŚiGW submission
+2. **HTC Installation Design & Delivery:** Turnkey HTC systems in three configurations (HTC-S, HTC-D, TH+HTC)
+3. **Grant Application Support:** Documentation for FEnIKS, KPO, NFOŚiGW, LIFE programs
+4. **ROI Calculator:** Free online tool at btcconsulting.pl/v5/kalkulator-roi.html
+
+## Market Context
+
+- UWWTD 2024 (Urban Waste Water Treatment Directive) requires 3,873 Polish WWTPs to modernize by 2035
+- Poland must comply with new EU sludge management regulations
+- Current sludge disposal costs are rising (PLN 550/t average)
+
+## Pages
+
+- Homepage: https://btcconsulting.pl/v5/index.html
+- Technology (HTC): https://btcconsulting.pl/v5/technologia.html
+- Hub & Spoke Model: https://btcconsulting.pl/v5/hub-spoke.html
+- ROI Calculator: https://btcconsulting.pl/v5/kalkulator-roi.html
+- TEO Assessment: https://btcconsulting.pl/v5/teo.html
+- EU Grants: https://btcconsulting.pl/v5/dotacje.html
+- Case Study (Lubin): https://btcconsulting.pl/v5/case-lubin.html
+- Mission: https://btcconsulting.pl/v5/misja.html
+- Whitepaper: https://btcconsulting.pl/v5/whitepaper.html
+- Blog: https://btcconsulting.pl/v5/blog/
+
+## Contact
+
+- Email: info@btcconsulting.pl
+- Location: Wrocław, Poland
+- LinkedIn: https://www.linkedin.com/company/btc-consulting-pl

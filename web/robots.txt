@@ -22,3 +22,7 @@ User-agent: CCBot
 Allow: /
 
 Sitemap: https://btcconsulting.pl/sitemap.xml
+
+# AI/LLM context
+# https://llmstxt.org
+LLMs.txt: https://btcconsulting.pl/llms.txt

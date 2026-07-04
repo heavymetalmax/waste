@@ -18,17 +18,54 @@
     "description": "Jedyna polska firma z własną technologią HTC (Hydrothermal Carbonization) dla oczyszczalni ścieków. 10+ lat badań z AGH Kraków.",
     "foundingDate": "2015",
     "areaServed": "PL",
+    "numberOfEmployees": {"@type": "QuantitativeValue", "minValue": 5, "maxValue": 15},
+    "knowsAbout": ["Hydrothermal Carbonization", "Sewage Sludge Treatment", "UWWTD Compliance", "Hydrochar Production"],
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Wrocław",
+      "addressRegion": "dolnośląskie",
       "addressCountry": "PL"
     },
     "contactPoint": {
       "@type": "ContactPoint",
       "email": "info@btcconsulting.pl",
-      "contactType": "sales"
+      "contactType": "sales",
+      "availableLanguage": ["pl", "en", "uk"]
     },
     "sameAs": ["https://www.linkedin.com/company/btc-consulting-pl"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "BTC Consulting",
+    "url": "https://btcconsulting.pl",
+    "inLanguage": "pl",
+    "description": "Technologia HTC dla polskich oczyszczalni ścieków — osady ściekowe w hydrowęgiel.",
+    "publisher": {"@type": "Organization", "name": "BTC Consulting"}
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Instalacja HTC pod klucz",
+    "description": "Projektowanie i budowa instalacji karbonizacji hydrotermalnej (HTC) do przetwarzania osadów ściekowych w hydrowęgiel. Ocena TEO, dokumentacja grantowa, wdrożenie.",
+    "provider": {"@type": "Organization", "name": "BTC Consulting"},
+    "areaServed": {"@type": "Country", "name": "PL"},
+    "serviceType": "Hydrothermal Carbonization Installation",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Usługi BTC Consulting",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Analiza TEO (techniczno-ekonomiczna)", "description": "200+ stron dokumentacji w 4–6 tygodni, gotowe do NFOŚiGW"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Instalacja HTC pod klucz", "description": "Trzy konfiguracje: HTC-S, HTC-D, TH+HTC"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Wsparcie grantowe", "description": "Dokumentacja do FEnIKS, KPO, NFOŚiGW, LIFE"}}
+      ]
+    }
   }
   </script>
 
@@ -125,9 +162,9 @@
 
     <h1 class="t-display reveal">
       Rozwiąż problem<br>
-      osadu <span class="t-accent">na&nbsp;zawsze.</span><br>
-      Bez&nbsp;szoku<br>
-      dla&nbsp;budżetu
+      osadu ściekowego<br>
+      <span class="t-accent">na&nbsp;zawsze.</span><br>
+      Technologia&nbsp;HTC
     </h1>
 
     <p class="t-lead reveal" style="max-width:42ch">
@@ -165,22 +202,53 @@
       <span class="stat-num is-accent"
             data-count="3873" data-suffix="">3 873</span>
       <span class="t-label-muted">polskich WWTP do modernizacji</span>
+      <cite class="t-small" style="font-style:normal;color:var(--c-gray-d);font-size:10px;margin-top:4px">Źródło: KPOŚK / GUS 2024</cite>
     </div>
     <div class="stat-item reveal">
       <span class="stat-num"
             data-count="85" data-suffix="%">85%</span>
       <span class="t-label-muted">CapEx pokrywa dofinansowanie UE</span>
+      <cite class="t-small" style="font-style:normal;color:var(--c-gray-d);font-size:10px;margin-top:4px">Źródło: Program FEnIKS 2021–2027</cite>
     </div>
     <div class="stat-item reveal">
       <span class="stat-num"
             data-count="60" data-suffix="%">60%</span>
       <span class="t-label-muted">oszczędność kosztów utylizacji</span>
+      <cite class="t-small" style="font-style:normal;color:var(--c-gray-d);font-size:10px;margin-top:4px">Źródło: Case study MPWiK Lubin 2025</cite>
     </div>
     <div class="stat-item reveal">
       <span class="stat-num"
             data-count="6.9" data-suffix=" lat" data-decimals="1">6,9 lat</span>
       <span class="t-label-muted">zwrot inwestycji (scenariusz 85% grantu)</span>
+      <cite class="t-small" style="font-style:normal;color:var(--c-gray-d);font-size:10px;margin-top:4px">Źródło: Model ROI BTC Consulting</cite>
     </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     B1. UWWTD — compliance
+     ============================================================ -->
+<section class="section section--blue" aria-label="Dyrektywa UWWTD 2024">
+  <div class="container" style="max-width:900px">
+    <p class="t-label mb-2" style="color:var(--c-gray)">Dyrektywa UWWTD 2024</p>
+    <h2 class="t-heading reveal" style="color:var(--c-white)">
+      Nowa dyrektywa UE zmienia zasady gry<br>
+      dla <span class="t-accent">3&nbsp;873</span> polskich oczyszczalni
+    </h2>
+    <p class="t-body reveal" style="color:var(--c-gray);max-width:60ch;margin-top:1.5rem">
+      UWWTD 2024 (Urban Waste Water Treatment Directive) wprowadza obowiązek
+      zagospodarowania osadów ściekowych do 2035 roku. Polska musi dostosować
+      tysiące obiektów — a okno grantowe na modernizację zamyka się w 2028.
+    </p>
+    <ul class="feature-list reveal" style="margin-top:1.5rem;color:var(--c-gray-l)">
+      <li>Termin wdrożenia: <strong style="color:var(--c-white)">2035</strong> — ale dokumentacja musi być gotowa do <strong style="color:var(--c-white)">2027</strong></li>
+      <li>Dotyczy aglomeracji <strong style="color:var(--c-white)">≥ 1 000 RLM</strong> (Population Equivalent)</li>
+      <li>Wymóg odzysku fosforu i energii z osadów ściekowych</li>
+      <li>HTC spełnia wszystkie wymogi dyrektywy — odzysk, redukcja, bezpieczeństwo</li>
+    </ul>
+    <a class="btn btn-primary reveal" href="/v5/dotacje.html" style="margin-top:2rem">
+      Sprawdź możliwości dofinansowania →
+    </a>
   </div>
 </section>
 
@@ -334,9 +402,14 @@
           <li>3 konfiguracje HTC (S/D/TH+HTC)</li>
           <li>Komercyjna instalacja: MPWiK Lubin, 2025</li>
         </ul>
-        <a class="btn btn-outline-light self-start" href="/v5/technologia.html">
-          Pełna dokumentacja →
-        </a>
+        <div class="flex gap-sm" style="flex-wrap:wrap">
+          <a class="btn btn-outline-light self-start" href="/v5/technologia.html">
+            Pełna dokumentacja →
+          </a>
+          <a class="btn btn-text self-start" href="/v5/whitepaper.html">
+            Whitepaper (PDF) →
+          </a>
+        </div>
       </div>
 
     </div>
