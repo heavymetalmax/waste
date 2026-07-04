@@ -42,30 +42,17 @@ document.write(`
         <input type="hidden" name="_next" value="https://btcconsulting.pl/v5/dziekujemy.html">
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="cf-name">Imię i nazwisko *</label>
-            <input class="form-input" type="text" id="cf-name" name="imie_nazwisko"
-                   placeholder="Jan Kowalski" required autocomplete="name">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="cf-role">Stanowisko</label>
-            <input class="form-input" type="text" id="cf-role" name="stanowisko"
-                   placeholder="Naczelnik OCS">
-          </div>
-        </div>
-
         <div class="form-group">
-          <label class="form-label" for="cf-org">Gmina / Przedsiębiorstwo *</label>
-          <input class="form-input" type="text" id="cf-org" name="organizacja"
-                 placeholder="MPWiK Przykładowo" required>
+          <label class="form-label" for="cf-name">Imię i nazwisko *</label>
+          <input class="form-input" type="text" id="cf-name" name="imie_nazwisko"
+                 placeholder="Jan Kowalski" required autocomplete="name">
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label" for="cf-email">E-mail *</label>
+            <label class="form-label" for="cf-email">E-mail</label>
             <input class="form-input" type="email" id="cf-email" name="email"
-                   placeholder="j.kowalski@mpwik.pl" required autocomplete="email">
+                   placeholder="j.kowalski@mpwik.pl" autocomplete="email">
           </div>
           <div class="form-group">
             <label class="form-label" for="cf-phone">Telefon</label>
@@ -73,17 +60,12 @@ document.write(`
                    placeholder="+48 …" autocomplete="tel">
           </div>
         </div>
-
-        <div class="form-group">
-          <label class="form-label" for="cf-volume">Ilość osadów [t/rok]</label>
-          <input class="form-input" type="number" id="cf-volume" name="ilosc_osadow_t_rok"
-                 placeholder="Np. 800" min="50" step="1">
-        </div>
+        <p class="form-hint" id="cf-contact-hint" style="display:none;color:var(--c-red, #c00);font-size:0.8rem;margin:-8px 0 0">Podaj e-mail lub numer telefonu</p>
 
         <div class="form-group">
           <label class="form-label" for="cf-msg">Wiadomość</label>
           <textarea class="form-textarea" id="cf-msg" name="wiadomosc"
-                    placeholder="Opisz swój obiekt i oczekiwania…" rows="4"></textarea>
+                    placeholder="Opisz swój obiekt i oczekiwania…" rows="3"></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary self-start" style="margin-top:0.5rem">
@@ -99,7 +81,7 @@ document.write(`
   <!-- Nav kolumny -->
   <div class="footer-grid" style="padding-top:40px">
     <div class="footer-mark" aria-hidden="true">
-      <img src="/v5/assets/svg/logo.svg" alt="" width="110" height="110" style="display:block">
+      <img src="/v5/assets/svg/logo-white-on-black.svg" alt="" width="180" height="66" style="display:block">
     </div>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
@@ -128,16 +110,10 @@ document.write(`
           <li><a href="/v5/case-lubin.html">Case study: Lubin</a></li>
           <li><a href="/v5/whitepaper.html">Whitepaper HTC</a></li>
           <li><a href="/v5/misja.html">O BTC Consulting</a></li>
+          <li><a href="/v5/blog/">Blog</a></li>
         </ul>
       </div>
 
-      <div class="footer-col">
-        <h4>Kontakt</h4>
-        <ul>
-          <li><a href="mailto:info@btcconsulting.pl">info@btcconsulting.pl</a></li>
-          <li><a href="https://www.linkedin.com/company/btc-consulting-pl" rel="noopener">LinkedIn</a></li>
-        </ul>
-      </div>
     </div>
   </div>
 
@@ -148,3 +124,23 @@ document.write(`
 
 </footer>
 `);
+
+(function () {
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+  var email = document.getElementById('cf-email');
+  var phone = document.getElementById('cf-phone');
+  var hint  = document.getElementById('cf-contact-hint');
+
+  function clearHint() { if (hint) hint.style.display = 'none'; }
+  email.addEventListener('input', clearHint);
+  phone.addEventListener('input', clearHint);
+
+  form.addEventListener('submit', function (e) {
+    if (!email.value.trim() && !phone.value.trim()) {
+      e.preventDefault();
+      if (hint) hint.style.display = 'block';
+      email.focus();
+    }
+  });
+})();
