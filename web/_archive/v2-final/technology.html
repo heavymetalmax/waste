@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technologia HTC · TH-AD-HTC | BioTC | BTC Consulting</title>
+  <meta name="description" content="Hydrotermalne uwęglanie (HTC) — 200°C, 20 bar, 2 godziny. Trzy konfiguracje dla każdego obiektu: od kompaktowego HTC Standalone do pełnej pętli TH-AD-HTC z +60% wydajności biogazu.">
+
+  <link rel="stylesheet" href="./design-system.css">
+
+  <link rel="alternate" hreflang="uk-UA" href="https://biotc.com.ua/technology" />
+  <link rel="alternate" hreflang="x-default" href="https://biotc.com.ua/technology" />
+
+  <style>
+    /* ── Hero: blue background ─────────────────────────────── */
+    #hero { background-color: var(--color-blue); }
+    #hero h1, #hero .hero-desc { color: var(--color-white); }
+    #hero .btn-outline { border-color: var(--color-white); color: var(--color-white); }
+    #hero .btn-outline:hover { background-color: var(--color-white); color: var(--color-blue); }
+    #hero .btn-primary { background-color: var(--color-white); color: var(--color-blue); border-color: var(--color-white); }
+    #hero .btn-primary:hover { background-color: var(--color-black); color: var(--color-white); border-color: var(--color-black); }
+    #hero .col-card { height: auto; }
+
+    /* ── Tech hero stat panel ───────────────────────────── */
+    .tech-stat-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm);
+    }
+    .tech-stat { display: flex; flex-direction: column; gap: 0.2rem; }
+    .tech-stat-val { font-size: 2.2rem; font-weight: 900; color: var(--color-blue); line-height: 1; }
+    .tech-stat-val small { font-size: 1rem; font-weight: 700; }
+    .tech-stat-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--color-gray-dark); }
+    .tech-stat-note { margin-top: var(--space-sm); font-size: 0.85rem; font-style: italic; font-weight: 500; color: var(--color-gray-dark); }
+
+    /* ── Process flow diagram (config cards): short technical labels as
+       bordered nodes, matching the .badge-tag chip language ──────────── */
+    .flow-diagram { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; margin: var(--space-sm) 0; }
+    .flow-node {
+      display: inline-block;
+      padding: 0.4rem 0.7rem;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      border: 2px solid var(--color-black);
+      background: var(--color-white);
+      color: var(--color-black);
+    }
+    .flow-node--step { background: var(--color-gray-light); color: var(--color-gray-dark); border-color: var(--color-gray-dark); }
+    .flow-node--accent { background: var(--color-blue); color: var(--color-white); border-color: var(--color-blue); }
+    .flow-arrow { font-weight: 800; color: var(--color-black); font-size: 0.85rem; }
+
+    .process-step-spec { margin-top: auto; padding-top: var(--space-sm); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; }
+
+    .scenario-benefits { padding-left: 1.2rem; font-weight: 600; }
+    .scenario-targets { margin-top: auto; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; padding-top: var(--space-sm); border-top: 2px solid var(--color-black); }
+
+    /* ── Hydrochar specs ──────────────────────────────────── */
+    .hydrochar-spec-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+    .hydrochar-spec-list li { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--color-gray-light); font-weight: 600; }
+    .hydrochar-spec-list li:last-child { border-bottom: none; padding-bottom: 0; }
+    .spec-key { color: var(--color-gray-dark); }
+    .spec-val { font-weight: 800; }
+    .spec-val--accent { color: var(--color-blue); }
+    .spec-val--amber { color: var(--color-blue); }
+
+    /* ── Model cards ──────────────────────────────────────── */
+    .model-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm); }
+    .model-capacity { font-weight: 800; font-size: 0.85rem; text-transform: uppercase; }
+    .model-spec-list { list-style: none; padding: 0; margin: var(--space-sm) 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .model-spec-list li { display: flex; flex-direction: column; font-size: 0.9rem; }
+    .model-spec-list li span { font-weight: 600; color: var(--color-gray-dark); font-size: 0.8rem; text-transform: uppercase; }
+    .model-spec-list li strong { font-weight: 800; }
+    .model-energy-badge { margin-top: auto; padding-top: var(--space-sm); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: var(--color-blue); }
+
+    /* ── Hydrochar: nested 2x2 "Zastosowania" grid squeezes too early in the
+       half-width column (769–1024px) — collapse the whole block to 1 col earlier ── */
+    @media (max-width: 1024px) {
+      #hydrochar .grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <script src="partials/header.js"></script>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="container">
+        <div class="grid-2" style="align-items: center;">
+          <div>
+            <span class="rubric">Hydrotermalna karbonizacja · TH · AD · HTC</span>
+            <h1>Od niebezpiecznego osadu do hydrowęgla w zaledwie 2 godziny.</h1>
+            <p class="hero-desc">Hydrotermalne uwęglanie to sprawdzona technologia. Odtwarzamy naturalny proces zwęglania w zamkniętym reaktorze — bez emisji, bez zapachu i bez uwalniania PFAS. Jeden proces, wiele konfiguracji — dopasowanych do każdego obiektu.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-md);">
+              <a href="#configurations" class="btn btn-primary">Konfiguracje dla Twojego obiektu</a>
+              <a href="#contact" class="btn btn-outline">Audyt obiektu →</a>
+            </div>
+          </div>
+
+          <div class="col-card">
+            <div class="tech-stat-grid">
+              <div class="tech-stat">
+                <span class="tech-stat-val">200°C</span>
+                <span class="tech-stat-label">Temperatura reakcji</span>
+              </div>
+              <div class="tech-stat">
+                <span class="tech-stat-val">2.0 MPa</span>
+                <span class="tech-stat-label">Ciśnienie w reaktorze</span>
+              </div>
+              <div class="tech-stat">
+                <span class="tech-stat-val">2 h</span>
+                <span class="tech-stat-label">Pełny cykl transformacji</span>
+              </div>
+              <div class="tech-stat">
+                <span class="tech-stat-val">−80%</span>
+                <span class="tech-stat-label">Redukcja objętości osadu</span>
+              </div>
+              <div class="tech-stat">
+                <span class="tech-stat-val">20–25<small> MJ/kg</small></span>
+                <span class="tech-stat-label">Wartość opałowa hydrowęgla</span>
+              </div>
+              <div class="tech-stat">
+                <span class="tech-stat-val">100%</span>
+                <span class="tech-stat-label">Zniszczenie PFAS i patogenów</span>
+              </div>
+            </div>
+            <p class="tech-stat-note">Parametry zweryfikowane przez AGH Kraków i WikiChar Hydrochar Network</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT IS HTC -->
+    <section id="what-is-htc" class="section-black" style="position: relative; overflow: hidden;">
+      <div class="process-bg-anim"></div>
+      <div class="scanner-line"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <span class="rubric">Zasada działania</span>
+        <h2>Proces trwający w naturze miliony lat skracamy do 2 godzin.</h2>
+        <p>Węgiel kamienny powstał z materii organicznej pod ciśnieniem i temperaturą przez epoki geologiczne. Hydrotermalne uwęglanie (HTC) odtwarza ten fizyczny proces w zamkniętym urządzeniu — bez spalania, bez chemikaliów, bez zewnętrznych emisji.</p>
+
+        <div class="grid-3" style="margin-top: var(--space-lg);">
+          <div class="col-card process-card">
+            <span class="number">01</span>
+            <h3>Podanie surowca</h3>
+            <p>Odwodniony osad (~80% wilgotności) ładowany jest do hermetycznego reaktora. Zapach, patogeny i PFAS — wszystko pozostaje wewnątrz zamkniętego obiegu.</p>
+            <div class="process-step-spec">Wilgotność materiału wsadowego: 70–85%</div>
+          </div>
+          <div class="col-card process-card">
+            <span class="number">02</span>
+            <h3>Reakcja pod ciśnieniem</h3>
+            <p>200°C i 20 bar. Cząsteczki materii organicznej rozpadają się i ulegają reformowaniu. Reakcja trwa 2 godziny — w pełni autonomiczna, bez zewnętrznych chemikaliów.</p>
+            <div class="process-step-spec">200°C · 20 bar · 2 godziny · zero emisji</div>
+          </div>
+          <div class="col-card process-card">
+            <span class="number">03</span>
+            <h3>Produkt i woda</h3>
+            <p>Hydrowęgiel wychodzi w postaci granulatu — sterylny, bez zapachu. Woda procesowa wraca do obiegu lub jest oczyszczana do zrzutu. Żadnych hałd, żadnych wysypisk.</p>
+            <div class="process-step-spec">20–25 MJ/kg · 100% sterylność · −80% objętości</div>
+          </div>
+        </div>
+
+        <div class="col-card" style="margin-top: var(--space-lg); background-color: var(--color-gray-light); position: relative; z-index: 2;">
+          <h3>Dlaczego zamknięty obieg jest kluczowy</h3>
+          <p>Tradycyjne technologie (suszenie, kompostowanie, spalanie) mają otwarte punkty emisji: zapach, dym, przecieki przez grunt. Reaktor HTC to całkowicie zamknięte środowisko pod nadciśnieniem. Jakikolwiek wyciek jest fizycznie niemożliwy: ciśnienie wewnątrz jest wyższe niż na zewnątrz. To nie marketing — to termodynamika.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONFIGURATIONS -->
+    <section id="configurations">
+      <div class="container">
+        <span class="rubric">Konfiguracje</span>
+        <h2>Jedna technologia — trzy konfiguracje. Zależy od Twojej infrastruktury.</h2>
+        <p>HTC to rdzeń. Wokół niego budowana jest konfiguracja dostosowana do konkretnego obiektu: czy są komory fermentacyjne, jaki jest wolumen osadu, czy można włączyć sąsiednie gminy. Trzy scenariusze — od minimalnego wejścia do maksymalnej niezależności energetycznej.</p>
+
+        <div class="grid-3" style="margin-top: var(--space-lg);">
+
+          <div class="col-card">
+            <span class="rubric">Konfiguracja A</span>
+            <h3>HTC Standalone</h3>
+            <p><em>Dla obiektów bez komór fermentacyjnych: małe oczyszczalnie, zakłady przemysłowe, kompleksy rolnicze</em></p>
+
+            <div class="flow-diagram">
+              <span class="flow-node">Osad</span><span class="flow-arrow">→</span>
+              <span class="flow-node flow-node--accent">HTC</span><span class="flow-arrow">→</span>
+              <span class="flow-node">Hydrowęgiel</span>
+            </div>
+
+            <ul class="scenario-benefits">
+              <li>Najszybszy start — minimum wymagań wstępnych</li>
+              <li>Nie wymaga przebudowy istniejącego układu</li>
+              <li>Gotowość w 14 dni (dostawa modułowa)</li>
+              <li>Może obsługiwać kilka sąsiednich obiektów</li>
+            </ul>
+
+            <div class="scenario-targets">Modele: HTC-S 5 · HTC-S 15 · HTC-D 30</div>
+          </div>
+
+          <div class="col-card">
+            <span class="rubric" style="background-color: var(--color-blue);">Konfiguracja B</span>
+            <h3>TH-booster do istniejącej komory fermentacyjnej (AD)</h3>
+            <p><em>Dla obiektów z działającą fermentacją beztlenową — znacząco zwiększa wydajność biogazu bez budowy nowej komory fermentacyjnej</em></p>
+
+            <div class="flow-diagram">
+              <span class="flow-node">Osad</span><span class="flow-arrow">→</span>
+              <span class="flow-node flow-node--step">TH</span><span class="flow-arrow">→</span>
+              <span class="flow-node flow-node--step">AD</span><span class="flow-arrow">→</span>
+              <span class="flow-node flow-node--accent">HTC</span><span class="flow-arrow">→</span>
+              <span class="flow-node">Hydrowęgiel</span>
+            </div>
+            <p style="font-weight:700; font-size:0.9rem;">Ciecz HTC recyrkuluje z powrotem do komory fermentacyjnej → dodatkowa stymulacja</p>
+
+            <ul class="scenario-benefits">
+              <li>+60% wydajności biogazu bez nowej komory fermentacyjnej</li>
+              <li>TH rozbija ściany komórkowe — bakterie uzyskują łatwo przyswajalną materię organiczną</li>
+              <li>Ciecz HTC wraca do komory fermentacyjnej — zamknięty cykl stymulacji</li>
+              <li>Zwrot z inwestycji dzięki nadwyżce biogazu</li>
+            </ul>
+
+            <div class="scenario-targets">Oczyszczalnie od 80 000 RLM · Działające AD · Projektowanie indywidualne</div>
+          </div>
+
+          <div class="col-card">
+            <span class="rubric" style="background-color: var(--color-blue);">Konfiguracja C</span>
+            <h3>Pełna pętla TH-AD-HTC</h3>
+            <p><em>Dla dużych oczyszczalni lub regionalnych hubów — greenfield lub pełna przebudowa z myślą o niezależności energetycznej</em></p>
+
+            <div class="flow-diagram">
+              <span class="flow-node">Osad</span><span class="flow-arrow">→</span>
+              <span class="flow-node flow-node--step">TH</span><span class="flow-arrow">→</span>
+              <span class="flow-node flow-node--step">New AD</span><span class="flow-arrow">→</span>
+              <span class="flow-node flow-node--accent">HTC</span><span class="flow-arrow">→</span>
+              <span class="flow-node">Hydrowęgiel</span>
+            </div>
+            <p style="font-weight:700; font-size:0.9rem;">Biogaz → kogeneracja CHP → własna energia elektryczna + ciepło dla reaktorów</p>
+
+            <ul class="scenario-benefits">
+              <li>Bilans energetycznie dodatni: system produkuje więcej, niż zużywa</li>
+              <li>Kogeneracja CHP: własna energia elektryczna i ciepło dla reaktorów</li>
+              <li>Maksymalna niezależność od zewnętrznych dostawców</li>
+              <li>Najlepszy ROI przy skali: zwrot w 4–6 lat</li>
+            </ul>
+
+            <div class="scenario-targets">Oczyszczalnie od 200 000 RLM · Regionalny Hub &amp; Spoke · Projektowanie indywidualne</div>
+          </div>
+
+        </div>
+
+        <h3 style="margin-top: var(--space-lg);">Porównanie parametrów obok siebie</h3>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Parametr</th>
+                <th>Konf. A — HTC Standalone</th>
+                <th class="btc-col">Konf. B — TH + AD + HTC</th>
+                <th class="btc-col">Konf. C — Pełna pętla</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Minimalny rozmiar obiektu</td><td>od 5 t/dobę osadu</td><td class="btc-col">od 80 000 RLM</td><td class="btc-col">od 200 000 RLM</td></tr>
+              <tr><td>Wymagana działająca komora fermentacyjna</td><td>Nie</td><td class="btc-col">Tak (istniejąca)</td><td class="btc-col">Budowana nowa</td></tr>
+              <tr><td>Przyrost wydajności biogazu</td><td>—</td><td class="btc-col">+60%</td><td class="btc-col">+60% + generacja CHP</td></tr>
+              <tr><td>Profil energetyczny</td><td>Neutralny</td><td class="btc-col">Dodatni</td><td class="btc-col">Energetycznie dodatni</td></tr>
+              <tr><td>Czas realizacji</td><td>3–6 miesięcy</td><td class="btc-col">12–18 miesięcy</td><td class="btc-col">18–30 miesięcy</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HYDROCHAR -->
+    <section id="hydrochar" class="section-gray">
+      <div class="container">
+        <span class="rubric">Produkt</span>
+        <h2>Hydrowęgiel to nie odpad. To produkt z unijnym statusem End-of-Waste — towar dopuszczony do obrotu.</h2>
+        <p>HTC przekształca osad z prawnie niebezpiecznego odpadu w certyfikowany produkt. Po przejściu przez proces hydrowęgiel (Hydrochar) klasyfikowany jest według EU End-of-Waste criteria — można go sprzedawać, stosować w przemyśle i zaliczać do raportowania węglowego.</p>
+
+        <div class="grid-2" style="margin-top: var(--space-lg); align-items: start;">
+
+          <div class="col-card">
+            <h3>Specyfikacja techniczna</h3>
+            <ul class="hydrochar-spec-list">
+              <li><span class="spec-key">Wartość opałowa</span><span class="spec-val spec-val--accent">20–25 MJ/kg</span></li>
+              <li><span class="spec-key">Redukcja objętości względem surowca</span><span class="spec-val">−75 — −80%</span></li>
+              <li><span class="spec-key">Wilgotność produktu końcowego</span><span class="spec-val">&lt;15%</span></li>
+              <li><span class="spec-key">Patogeny (Salmonella, E. coli)</span><span class="spec-val spec-val--amber">100% zniszczenie</span></li>
+              <li><span class="spec-key">PFAS i mikroplastik</span><span class="spec-val spec-val--amber">100% destrukcja</span></li>
+              <li><span class="spec-key">Metale ciężkie</span><span class="spec-val">Unieruchomione w matrycy</span></li>
+              <li><span class="spec-key">Forma produktu</span><span class="spec-val">Granulat lub proszek</span></li>
+              <li><span class="spec-key">Status prawny UE</span><span class="spec-val spec-val--accent">End-of-Waste (towar)</span></li>
+            </ul>
+            <p class="tech-stat-note">Dla porównania: węgiel brunatny — 8–15 MJ/kg · Zrębki drewna — 15–17 MJ/kg · Antracyt — 30–33 MJ/kg</p>
+          </div>
+
+          <div>
+            <h3 style="margin-bottom: var(--space-sm);">Zastosowania</h3>
+            <div class="grid-2">
+              <div class="col-card">
+                <h4>Paliwo stałe dla kotłowni</h4>
+                <p>Bezpośredni zamiennik węgla lub biomasy. Nadaje się do kotłów przemysłowych i kogeneracji. Wartość opałowa w zakresie węgla brunatnego — ale z zerowym śladem CO₂.</p>
+              </div>
+              <div class="col-card">
+                <h4>Dodatek do cementu i betonu</h4>
+                <p>Częściowe zastąpienie klinkieru. Cementownie są zainteresowane hydrowęglem o gwarantowanym składzie. Rynek zapewniony przez dyrektywę UE o dekarbonizacji przemysłu.</p>
+              </div>
+              <div class="col-card">
+                <h4>Polepszacz glebowy (biowęgiel)</h4>
+                <p>Rekultywacja zdegradowanych gleb: poprawa retencji wody i żyzności. Kwalifikuje się jako usuwanie węgla zgodnie z metodologiami VCS/Gold Standard.</p>
+              </div>
+              <div class="col-card">
+                <h4>Produkcja węgla aktywowanego</h4>
+                <p>Po aktywacji parą — adsorbent do oczyszczania wody i powietrza. Rynek premium. Wymaga dodatkowego kroku, ale zwiększa wartość 5–8-krotnie.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTRAST -->
+    <section id="contrast" class="section-blue">
+      <div class="container">
+        <span class="rubric">Porównanie</span>
+        <h2>BioTC nie konkuruje z rynkiem. BioTC rozwiązuje problem, którego rynek nie rozwiązał.</h2>
+        <p>Tradycyjne technologie rozwiązują problem połowicznie. Albo zmniejszają objętość, albo produkują gaz, albo niszczą patogeny — ale nie wszystko naraz. Pętla BioTC TH-AD-HTC to jedyna konfiguracja, która zamyka wszystkie strumienie w jeden energetycznie dodatni cykl.</p>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Wskaźnik</th>
+                <th>Składowisko / lagunowanie</th>
+                <th>Spalanie</th>
+                <th>Konkurenci THP</th>
+                <th class="btc-col">BioTC — TH-AD-HTC</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Redukcja objętości osadu</td>
+                <td>0%</td>
+                <td>~70% (popiół — odpad)</td>
+                <td>do 50%</td>
+                <td class="btc-col">do 80%</td>
+              </tr>
+              <tr>
+                <td>Zniszczenie PFAS</td>
+                <td>Brak</td>
+                <td>Częściowe</td>
+                <td>Częściowe</td>
+                <td class="btc-col">100% destrukcja</td>
+              </tr>
+              <tr>
+                <td>Zniszczenie patogenów</td>
+                <td>Brak</td>
+                <td>100%</td>
+                <td>100%</td>
+                <td class="btc-col">100%</td>
+              </tr>
+              <tr>
+                <td>Użyteczny produkt wyjściowy</td>
+                <td>Brak</td>
+                <td>Toksyczne popioły (odpad)</td>
+                <td>Digestat (ograniczony rynek)</td>
+                <td class="btc-col">Hydrowęgiel — End-of-Waste</td>
+              </tr>
+              <tr>
+                <td>Wzrost wydajności biogazu</td>
+                <td>—</td>
+                <td>—</td>
+                <td>+30%</td>
+                <td class="btc-col">+60% (recyrkulacja cieczy)</td>
+              </tr>
+              <tr>
+                <td>Profil energetyczny</td>
+                <td>Stałe koszty</td>
+                <td>Zużywa energię</td>
+                <td>Samowystarczalne</td>
+                <td class="btc-col">Energetycznie dodatni</td>
+              </tr>
+              <tr>
+                <td>Zgodność z UWWTD UE</td>
+                <td>Kary</td>
+                <td>Warunkowo</td>
+                <td>Tak</td>
+                <td class="btc-col">Pełna zgodność</td>
+              </tr>
+              <tr>
+                <td>Zwrot z inwestycji</td>
+                <td>Nigdy</td>
+                <td>Rzadko &lt;10 lat</td>
+                <td>8–12 lat</td>
+                <td class="btc-col">4–6 lat</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-card" style="margin-top: var(--space-lg); background-color: var(--color-gray-light);">
+          <h3>Dlaczego ciecz HTC w komorze fermentacyjnej to kluczowy wyróżnik</h3>
+          <p>Konkurenci realizują termiczną hydrolizę (TH) jako samodzielny etap przed komorą fermentacyjną (AD). Nie mają reaktora HTC w łańcuchu. BioTC dodaje HTC po AD, a ciecz — frakcja ciekła po HTC — wraca do komory fermentacyjnej, stymulując dodatkową fermentację. To właśnie daje +60% zamiast +30% konkurentów. To jest opatentowane.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MODELS -->
+    <section id="models">
+      <div class="container">
+        <span class="rubric">Linia urządzeń</span>
+        <h2>Cztery modele. Od kompaktowego kontenera do regionalnego hubu.</h2>
+        <p>Wszystkie standardowe modele dostarczane są jako gotowe instalacje modułowe. Podłączenie w 14–21 dni bez prac budowlanych. Konfiguracja indywidualna TH+HTC projektowana jest na zamówienie.</p>
+
+        <div class="grid-4" style="margin-top: var(--space-lg);">
+
+          <div class="col-card">
+            <div class="model-card-header">
+              <span class="rubric" style="margin-bottom:0;">HTC-S 5</span>
+              <span class="model-capacity">5 t/day</span>
+            </div>
+            <h3>Dla małych obiektów</h3>
+            <p><em>Oczyszczalnie, zakłady przemysłowe, kompleksy rolnicze do ~30 000 RLM</em></p>
+            <ul class="model-spec-list">
+              <li><span>Wydajność dobowa</span><strong>do 5 t osadu (~80% wilg.)</strong></li>
+              <li><span>Roczna przepustowość</span><strong>do 1 800 t/rok</strong></li>
+              <li><span>Produkcja Hydrochar</span><strong>350–400 t/rok</strong></li>
+              <li><span>Powierzchnia zabudowy</span><strong>~120 m²</strong></li>
+              <li><span>Gotowość do pracy</span><strong>14 dni</strong></li>
+            </ul>
+            <div class="model-energy-badge">Autogeniczne wydzielanie ciepła</div>
+          </div>
+
+          <div class="col-card" style="background-color: var(--color-gray-light);">
+            <div class="model-card-header">
+              <span class="rubric" style="margin-bottom:0;">HTC-S 15</span>
+              <span class="model-capacity">15 t/day</span>
+            </div>
+            <h3>Dla średnich miast</h3>
+            <p><em>Oczyszczalnie od 80 000 do 150 000 RLM — najpopularniejszy rozmiar</em></p>
+            <ul class="model-spec-list">
+              <li><span>Wydajność dobowa</span><strong>do 15 t osadu</strong></li>
+              <li><span>Roczna przepustowość</span><strong>do 5 500 t/rok</strong></li>
+              <li><span>Produkcja hydrowęgla</span><strong>1 100–1 200 t/rok</strong></li>
+              <li><span>System sterowania</span><strong>Automatyzacja SCADA</strong></li>
+              <li><span>Rekuperacja ciepła</span><strong>Pełna (para → podgrzewanie)</strong></li>
+            </ul>
+            <div class="model-energy-badge">Dodatni bilans cieplny</div>
+          </div>
+
+          <div class="col-card">
+            <div class="model-card-header">
+              <span class="rubric" style="margin-bottom:0;">HTC-D 30</span>
+              <span class="model-capacity">30 t/day</span>
+            </div>
+            <h3>Regionalny hub</h3>
+            <p><em>Duże oczyszczalnie komunalne lub Hub &amp; Spoke od 200 000 RLM</em></p>
+            <ul class="model-spec-list">
+              <li><span>Wydajność dobowa</span><strong>do 30 t osadu</strong></li>
+              <li><span>Roczna przepustowość</span><strong>do 11 000 t/rok</strong></li>
+              <li><span>Produkcja hydrowęgla</span><strong>2 200–2 400 t/rok</strong></li>
+              <li><span>Redundancja linii</span><strong>100% gorąca rezerwa</strong></li>
+              <li><span>Autonomiczność</span><strong>Pełna (bez zewn. gazu)</strong></li>
+            </ul>
+            <div class="model-energy-badge">Pełna niezależność energetyczna</div>
+          </div>
+
+          <div class="col-card" style="background-color: var(--color-gray-light);">
+            <div class="model-card-header">
+              <span class="rubric" style="margin-bottom:0; background-color: var(--color-blue);">TH + HTC</span>
+              <span class="model-capacity">30+ t/day</span>
+            </div>
+            <h3>Pętla indywidualna</h3>
+            <p><em>Zintegrowana TH-AD-HTC dla oczyszczalni od 200 000 RLM lub regionalnych hubów</em></p>
+            <ul class="model-spec-list">
+              <li><span>Wydajność</span><strong>Od 30 t/dobę i więcej</strong></li>
+              <li><span>Przyrost biogazu</span><strong>+60% (recykl cieczy)</strong></li>
+              <li><span>Kogeneracja (CHP)</span><strong>Własna energia elektryczna + ciepło</strong></li>
+              <li><span>Recyrkulacja cieczy</span><strong>Z powrotem do komory fermentacyjnej</strong></li>
+              <li><span>Projektowanie</span><strong>Indywidualne</strong></li>
+            </ul>
+            <div class="model-energy-badge">Cykl energetycznie dodatni · CHP</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <script src="partials/contact.js"></script>
+
+  </main>
+
+  <script src="partials/footer.js"></script>
+
+  <script src="../app.min.js?v=5"></script>
+
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analiza TEO — Ocena techniczno-ekonomiczna oczyszczalni | BTC Consulting</title>
+  <meta name="description" content="Bezpłatna wstępna ocena i pełna analiza TEO dla Twojej oczyszczalni. Konkretne liczby: ROI, oszczędności, ścieżka grantowa NFOŚiGW/LIFE do 90% CapEx. Realizacja 4–6 tygodni.">
+
+  <link rel="stylesheet" href="./design-system.css">
+
+  <link rel="alternate" hreflang="pl-PL" href="https://btcconsulting.pl/uslugi/teo" />
+
+  <style>
+    .tech-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm); }
+    .tech-stat { padding: var(--space-sm) 0; border-bottom: 2px solid var(--color-black); }
+    .tech-stat-val { display: block; font-size: 2rem; font-weight: 900; color: var(--color-blue); line-height: 1; }
+    .tech-stat-label { display: block; font-size: 0.8rem; font-weight: 600; margin-top: 0.3rem; }
+    .tech-stat-note { font-size: 0.8rem; font-style: italic; margin-top: var(--space-sm); }
+
+    .process-step-targets { font-size: 0.85rem; font-weight: 700; color: var(--color-white); text-transform: uppercase; margin-top: 0.5rem; opacity: 0.75; }
+
+    .faq-item { padding: 0 0 1.25rem; border: none; border-bottom: 2px solid var(--color-black); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item summary {
+      cursor: pointer; font-weight: 800; font-size: 1.1rem;
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+      list-style: none;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; font-size: 2.2rem; font-weight: 700; color: var(--color-black); flex-shrink: 0; }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item p { margin-top: 1rem; font-weight: 500; }
+
+    #teo-contact-form .form-group { margin-bottom: 1rem; }
+    #teo-contact-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 640px) { #teo-contact-form .form-row { grid-template-columns: 1fr; } }
+    #teo-contact-form label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; }
+    #teo-contact-form textarea { width: 100%; resize: vertical; }
+  </style>
+</head>
+<body>
+
+  <script src="partials/header.js"></script>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="container">
+        <div class="grid-2" style="align-items: center;">
+          <div>
+            <span class="rubric">Analiza TEO</span>
+            <h1>Analiza TEO — poznaj konkretne liczby dla swojej oczyszczalni.</h1>
+            <p class="hero-desc">Techniczne i ekonomiczne studium wykonalności dostosowane do Twojego obiektu. Nie szablon — rzeczywista analiza składu osadu, bilansu energii i ścieżki grantowej. Podstawa do pozyskania dofinansowania UE do 90% CapEx.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-md);">
+              <a href="#contact" class="btn btn-primary">Zamów bezpłatną wstępną ocenę</a>
+              <a href="#scope" class="btn btn-outline">Co zawiera TEO →</a>
+            </div>
+            <p style="margin-top: var(--space-sm); font-size: 0.85rem; font-weight: 600;">Wstępna ocena inżynieryska — bezpłatnie i bez zobowiązań. Pełna analiza TEO: 4–6 tygodni.</p>
+          </div>
+
+          <div class="col-card">
+            <div class="tech-stat-grid">
+              <div class="tech-stat">
+                <span class="tech-stat-val">4–6</span>
+                <span class="tech-stat-label">tygodni realizacji</span>
+              </div>
+              <div class="tech-stat">
+                <span class="tech-stat-val">do 90%</span>
+                <span class="tech-stat-label">dofinansowanie CapEx z TEO</span>
+              </div>
+              <div class="tech-stat">
+                <span class="tech-stat-val">200+</span>
+                <span class="tech-stat-label">stron dokumentacji technicznej</span>
+              </div>
+              <div class="tech-stat">
+                <span class="tech-stat-val">11 lat</span>
+                <span class="tech-stat-label">badań na polskich oczyszczalniach</span>
+              </div>
+              <div class="tech-stat">
+                <span class="tech-stat-val">6</span>
+                <span class="tech-stat-label">WWTP przebadanych (Lubin, Gliwice, Kraków...)</span>
+              </div>
+              <div class="tech-stat">
+                <span class="tech-stat-val">55–73%</span>
+                <span class="tech-stat-label">oszczędności na utylizacji osadu</span>
+              </div>
+            </div>
+            <p class="tech-stat-note">Parametry oparte na zrealizowanych projektach BTC Consulting i badaniach AGH Kraków</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DLACZEGO TEO JEST NIEZBĘDNE -->
+    <section id="why-teo">
+      <div class="container">
+        <span class="rubric">Dlaczego TEO</span>
+        <h2>Bez analizy TEO nie ma grantu. Bez grantu projekt jest 3–4× droższy.</h2>
+        <p style="max-width:900px; font-size:1.1rem;">NFOŚiGW, LIFE, Horyzont Europa — każdy fundusz wymaga techniczno-ekonomicznego studium wykonalności jako podstawy wniosku. To nie formalność. To dokument, który decyduje, ile realnie zapłaci Twoja gmina.</p>
+
+        <div class="grid-3" style="margin-top: var(--space-lg);">
+          <div class="col-card">
+            <h3>Podstawa wniosku grantowego</h3>
+            <p>Każdy wniosek do NFOŚiGW, LIFE lub Horyzontu wymaga szczegółowego studium techniczno-ekonomicznego. Bez TEO wniosek jest niekompletny — bez względu na jakość projektu.</p>
+          </div>
+          <div class="col-card">
+            <h3>Personalny projekt, nie szablon</h3>
+            <p>Osad z oczyszczalni w Gliwicach różni się chemicznie od osadu z Lublina. Nasze TEO opiera się na rzeczywistym składzie Twojego osadu — nie na uśrednionych danych z literatury. Stąd precyzja wyliczeń ROI.</p>
+          </div>
+          <div class="col-card">
+            <h3>Rada gminy dostaje gotowe argumenty</h3>
+            <p>TEO to nie tylko dokument dla NFOŚiGW. To gotowa prezentacja dla rady gminy lub zarządu: konkretny payback period, NPV, porównanie scenariuszy i rekomendacja optymalna dla Twojego budżetu.</p>
+          </div>
+        </div>
+
+        <div class="col-card" style="margin-top: var(--space-lg); background-color: var(--color-gray-light);">
+          <h3>TEO jako inwestycja, nie koszt</h3>
+          <p>Przy projekcie o wartości 5 mln EUR, dofinansowanie 85% = 4,25 mln EUR grantu. Koszt TEO wynosi ułamek tej kwoty — i jest warunkiem niezbędnym do złożenia wniosku. Projekt bez TEO oznacza finansowanie 100% z własnego budżetu gminy.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZAKRES -->
+    <section id="scope">
+      <div class="container">
+        <span class="rubric">Zakres prac</span>
+        <h2>Co dostajesz w ramach analizy TEO</h2>
+
+        <div class="grid-3" style="margin-top: var(--space-lg);">
+          <div class="col-card">
+            <h3>Audyt obecnej sytuacji</h3>
+            <ul style="font-weight:600; padding-left: 1.2rem;">
+              <li>Wolumeny i skład chemiczny osadu (ds., LOI, metale, PFAS)</li>
+              <li>Aktualne koszty utylizacji (PLN/tonę)</li>
+              <li>Stan compliance z UWWTD i harmonogram wymaganych działań</li>
+              <li>Analiza istniejącej infrastruktury (obecność komór AD, odwadniania)</li>
+            </ul>
+          </div>
+          <div class="col-card">
+            <h3>Rekomendacja technologiczna</h3>
+            <ul style="font-weight:600; padding-left: 1.2rem;">
+              <li>Bilans masy i energii dla Twojego konkretnego obiektu</li>
+              <li>Dobór konfiguracji: HTC Standalone / TH-booster / pełna pętla TH-AD-HTC</li>
+              <li>Analiza wariantu Hub &amp; Spoke (jeśli sąsiednie gminy mogą uczestniczyć)</li>
+              <li>Porównanie 3 scenariuszy ze wskaźnikami CAPEX/OPEX</li>
+            </ul>
+          </div>
+          <div class="col-card">
+            <h3>Model ekonomiczny i ścieżka grantowa</h3>
+            <ul style="font-weight:600; padding-left: 1.2rem;">
+              <li>Pełny model ROI: payback period, NPV, IRR</li>
+              <li>Porównanie kosztów: HTC vs obecna utylizacja w 10-letnim horyzoncie</li>
+              <li>Mapa dostępnych dotacji: NFOŚiGW, LIFE, Horyzont Europa, RPO</li>
+              <li>Gotowa dokumentacja techniczna do złożenia wniosku grantowego</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCES -->
+    <section id="process">
+      <div class="container">
+        <span class="rubric">Jak pracujemy</span>
+        <h2>Od pierwszego kontaktu do gotowej dokumentacji</h2>
+
+        <div class="grid-3">
+          <div class="col-card process-card">
+            <span class="number">01</span>
+            <h3>Wstępna rozmowa — bezpłatnie</h3>
+            <p>30 minut przez telefon lub video. Opisujesz obiekt: typ oczyszczalni, RLM, aktualny sposób zagospodarowania osadu. Na podstawie tych danych już podajemy orientacyjne liczby — bez zobowiązań.</p>
+            <p class="process-step-targets">⏱ 30 min · Bezpłatnie · Przez telefon lub Teams</p>
+          </div>
+          <div class="col-card process-card">
+            <span class="number">02</span>
+            <h3>Umowa i kick-off</h3>
+            <p>Podpisanie umowy na realizację TEO. Ustalamy zakres, harmonogram i listę danych potrzebnych od Twojej oczyszczalni (raporty laboratoryjne, plany technologiczne, dane eksploatacyjne).</p>
+            <p class="process-step-targets">⏱ Tydzień 1 · Zdalnie lub w Gliwicach</p>
+          </div>
+          <div class="col-card process-card">
+            <span class="number">03</span>
+            <h3>Wizyta na obiekcie i pobór danych</h3>
+            <p>Nasz inżynier przyjeżdża na oczyszczalnię. Ocena infrastruktury, pobór próbek osadu do analizy laboratoryjnej (AGH Kraków), dokumentacja fotograficzna i geotechniczna jeśli potrzebna.</p>
+            <p class="process-step-targets">⏱ Tydzień 1–2 · Wizyta na miejscu</p>
+          </div>
+          <div class="col-card process-card">
+            <span class="number">04</span>
+            <h3>Analiza i modelowanie</h3>
+            <p>Opracowujemy bilanse masy i energii, modelujemy 3 scenariusze technologiczne, obliczamy ROI i identyfikujemy optymalne ścieżki grantowe. Całość weryfikowana przez zespół AGH.</p>
+            <p class="process-step-targets">⏱ Tygodnie 2–5 · Praca zdalna</p>
+          </div>
+          <div class="col-card process-card">
+            <span class="number">05</span>
+            <h3>Prezentacja wyników i raport TEO</h3>
+            <p>Prezentacja dla Twojego zespołu i rady gminy / zarządu. Oddajemy komplet dokumentacji (200+ stron): raport techniczny, model finansowy, mapę grantową i gotowe formularze do NFOŚiGW.</p>
+            <p class="process-step-targets">⏱ Tydzień 6 · U Ciebie lub online</p>
+          </div>
+        </div>
+
+        <p style="margin-top: var(--space-lg); text-align:center;"><a href="#contact" class="btn btn-primary">Zacznij od bezpłatnej rozmowy</a></p>
+      </div>
+    </section>
+
+    <!-- EKONOMIKA -->
+    <section id="economics">
+      <div class="container">
+        <span class="rubric">Ekonomika</span>
+        <h2>Ile realnie oszczędza Twoja gmina dzięki HTC.</h2>
+        <p style="max-width:900px; font-size:1.1rem;">TEO oblicza to precyzyjnie dla Twojego obiektu. Poniżej — rzeczywiste zakresy z naszych projektów na polskich oczyszczalniach.</p>
+
+        <div class="table-wrapper" style="margin-top: var(--space-lg);">
+          <table>
+            <thead>
+              <tr>
+                <th>Wielkość obiektu</th>
+                <th>Obecne koszty utylizacji</th>
+                <th class="btc-col">Koszty z HTC (gate fee)</th>
+                <th class="btc-col">Oszczędność / rok</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Małe (ok. 10 000 RLM)</td>
+                <td>~200 000 PLN/rok</td>
+                <td class="btc-col">~55 000–80 000 PLN/rok</td>
+                <td class="btc-col"><strong>~120 000–145 000 PLN</strong></td>
+              </tr>
+              <tr>
+                <td>Średnie (ok. 30 000 RLM)</td>
+                <td>~542 000 PLN/rok</td>
+                <td class="btc-col">~150 000–210 000 PLN/rok</td>
+                <td class="btc-col"><strong>~330 000–390 000 PLN</strong></td>
+              </tr>
+              <tr>
+                <td>Duże (ok. 100 000 RLM)</td>
+                <td>~1 505 000 PLN/rok</td>
+                <td class="btc-col">~415 000–580 000 PLN/rok</td>
+                <td class="btc-col"><strong>~925 000–1 090 000 PLN</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size: 0.85rem; margin-top: var(--space-xs);">Dane orientacyjne dla wilgotności osadu 80%. Dokładne wartości obliczane indywidualnie w TEO. Obecne koszty: średnia PLN 550/t (suszenie + spalarnie).</p>
+
+        <div class="grid-2" style="margin-top: var(--space-lg);">
+          <div class="col-card">
+            <span class="rubric">Zwrot z inwestycji</span>
+            <h3>3–4 lata (stacja własna)</h3>
+            <p><em>Przy 85% dofinansowaniu CapEx z NFOŚiGW lub LIFE</em></p>
+            <ul style="font-weight:600; padding-left: 1.2rem;">
+              <li>Własna instalacja HTC — pełna niezależność</li>
+              <li>Zwrot z inwestycji licząc od własnego wkładu (15% CapEx)</li>
+              <li>Po spłacie — czyste oszczędności operacyjne przez 15–20 lat</li>
+            </ul>
+          </div>
+          <div class="col-card">
+            <span class="rubric" style="background-color: var(--color-blue);">Hub &amp; Spoke</span>
+            <h3>3–3,5 roku (klaster regionalny)</h3>
+            <p><em>Model Hub &amp; Spoke: 3–5 gmin dzieli jedną instalację</em></p>
+            <ul style="font-weight:600; padding-left: 1.2rem;">
+              <li>Minimalny wkład własny dzięki podziałowi między uczestnikami</li>
+              <li>Wyższe dofinansowanie — do 90% CapEx dla projektów klastrowych</li>
+              <li>Jedna certyfikacja środowiskowa zamiast kilkudziesięciu</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST -->
+    <section id="trust">
+      <div class="container">
+        <span class="rubric">Potwierdzone</span>
+        <h2>TEO, które trafiło do realnej umowy komercyjnej.</h2>
+
+        <div class="grid-3" style="margin-top: var(--space-lg);">
+          <div class="col-card">
+            <h3>MPWiK LUBIN</h3>
+            <p><strong>Case komercyjny — październik 2025</strong></p>
+            <p>Przedsiębiorstwo komunalne MPWiK Lubin (100 000 RLM) oficjalnie wykupiło prawa autorskie do koncepcji TH-AD-HTC opracowanej przez BTC Consulting. Pierwsza komercyjna umowa — nie projekt pilotażowy, lecz pełnoprawny kontrakt samorządowy.</p>
+            <p><a href="case-lubin.html" style="font-weight:800; color: var(--color-blue); text-transform:uppercase;">Czytaj studium przypadku →</a></p>
+          </div>
+          <div class="col-card">
+            <h3>AGH KRAKÓW</h3>
+            <p><strong>Baza naukowa — 11 lat badań, 6 oczyszczalni</strong></p>
+            <p>Nasze TEO opierają się na analizach laboratoryjnych przeprowadzonych wspólnie z AGH Kraków na osadach z Orzesze, Żor, Lublina, Bytomia, Gliwic i Krakowa-Płaszowa. Dr hab. inż. Małgorzata Wilk — TOP 2% naukowców świata (Stanford).</p>
+          </div>
+          <div class="col-card">
+            <h3>WIKICHAR</h3>
+            <p><strong>Weryfikacja regulacyjna — fizyka potwierdzona globalnie</strong></p>
+            <p>Parametry procesowe HTC (200°C, 20 bar, redukcja PFAS, wartość opałowa hydrocharu) zweryfikowane przez WikiChar Hydrochar Network — międzynarodową bazę danych procesów HTC. Nie marketing — termodynamika.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <span class="rubric" style="background-color: var(--color-blue);">Najczęstsze pytania</span>
+        <h2 style="color: var(--color-blue); border-color: var(--color-blue);">Odpowiedzi zanim zapytasz.</h2>
+
+        <div style="display:flex; flex-direction:column; gap:1rem; margin-top: var(--space-md);">
+
+          <details class="faq-item col-card">
+            <summary>Czy moja oczyszczalnia jest wystarczająco duża na HTC?</summary>
+            <p>Model Hub &amp; Spoke otwiera HTC dla obiektów od ok. 10 000 RLM. Dla mniejszych — łączymy kilka gmin w klaster. Wstępna ocena telefoniczna powie Ci w 30 minut, który wariant pasuje.</p>
+          </details>
+
+          <details class="faq-item col-card">
+            <summary>Ile kosztuje pełna analiza TEO?</summary>
+            <p>Wstępna ocena inżynierska — bezpłatnie. Pełna analiza TEO (200+ stron dokumentacji) — wyceniana indywidualnie po pierwszej rozmowie, zależnie od skali i złożoności projektu. Koszt TEO kwalifikuje się do dofinansowania jako koszt przygotowania projektu w wielu funduszach.</p>
+          </details>
+
+          <details class="faq-item col-card">
+            <summary>Jak długo trwa realizacja projektu po TEO?</summary>
+            <p>Złożenie wniosku grantowego: 3–6 miesięcy po TEO. Decyzja NFOŚiGW: 6–12 miesięcy. Budowa instalacji HTC: 8–14 miesięcy. Łącznie od TEO do uruchomienia: 18–30 miesięcy. Dlatego ważne, żeby zacząć teraz — terminy UWWTD są nieprzesuwalne.</p>
+          </details>
+
+          <details class="faq-item col-card">
+            <summary>Czy BTC pomaga też przy samym wniosku grantowym?</summary>
+            <p>Tak. TEO dostarcza całą dokumentację techniczną wymaganą przez NFOŚiGW, LIFE i Horyzont Europę. Na życzenie towarzyszymy przez cały proces aplikacyjny aż do podpisania umowy o dofinansowanie.</p>
+          </details>
+
+          <details class="faq-item col-card">
+            <summary>Co jeśli okaże się, że HTC nie jest optymalne dla mojego obiektu?</summary>
+            <p>TEO zawsze analizuje 3 scenariusze i wskazuje optymalny. Jeśli dla Twojego wolumenu inne rozwiązanie będzie lepsze ekonomicznie — powiemy to wprost. Nasz cel to długoterminowa relacja, nie jednorazowa sprzedaż.</p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <script src="partials/contact.js"></script>
+
+  </main>
+
+  <script src="partials/footer.js"></script>
+
+  <script src="../app.min.js?v=5"></script>
+
+</body>
+</html>

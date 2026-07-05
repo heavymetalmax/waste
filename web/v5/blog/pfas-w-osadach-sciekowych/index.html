@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PFAS w osadach ściekowych — jak oczyszczalnia nieświadomie zatruwa glebę | BTC Consulting</title>
+  <meta name="description" content="PFAS koncentrują się w osadzie 10–1000× vs ścieki. UWWTD wymusza monitoring od 2027. HTC usuwa &gt;96% PFCAs. Porównanie metod i plan działania dla oczyszczalni.">
+  <link rel="canonical" href="https://btcconsulting.pl/v5/blog/pfas-w-osadach-sciekowych/">
+  <meta name="keywords" content="PFAS osady ściekowe, wieczne chemikalia oczyszczalnia, PFAS monitoring UWWTD, HTC usuwanie PFAS, osad ściekowy PFAS Polska">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "PFAS w osadach ściekowych — jak oczyszczalnia nieświadomie zatruwa glebę",
+    "description": "PFAS koncentrują się w osadzie 10–1000× vs ścieki. UWWTD wymusza monitoring od 2027. HTC usuwa &gt;96% PFCAs. Porównanie metod i plan działania dla oczyszczalni.",
+    "datePublished": "2026-07-03T00:00:00.000Z",
+    "dateModified": "2026-07-03T00:00:00.000Z",
+    "author": { "@type": "Person", "name": "Dr hab. inż. Małgorzata Wilk", "affiliation": { "@type": "Organization", "name": "BTC Consulting" } },
+    "publisher": { "@type": "Organization", "name": "BTC Consulting", "url": "https://btcconsulting.pl" },
+    "mainEntityOfPage": "https://btcconsulting.pl/v5/blog/pfas-w-osadach-sciekowych/"
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      
+      {
+        "@type": "Question",
+        "name": "Czy HTC całkowicie usuwa PFAS z osadu ściekowego?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Dla PFCAs (kwasów perfluorokarboksylowych) — tak, skuteczność &gt;96%. Dla PFSAs (kwasów perfluorosulfonowych, np. PFOS) standardowy HTC jest mniej skuteczny — może wymagać modyfikacji alkalicznej (HALT). Wynik zależy od składu PFAS w osadzie, który określa analiza TEO." }
+      },
+      
+      {
+        "@type": "Question",
+        "name": "Kiedy monitoring PFAS w osadach stanie się obowiązkowy w Polsce?",
+        "acceptedAnswer": { "@type": "Answer", "text": "UWWTD 2024/3019 nakłada obowiązek monitoringu PFAS od razu na oczyszczalnie &gt;100 000 RLM, z rozszerzeniem na mniejsze. Polska musi transponować dyrektywę do 31.07.2027 — od tego momentu wyniki monitoringu staną się wiążącymi faktami prawnymi." }
+      },
+      
+      {
+        "@type": "Question",
+        "name": "Ile kosztuje instalacja HTC i czy są dotacje na usuwanie PFAS?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Orientacyjnie PLN 18–30 mln dla oczyszczalni 15 000–25 000 RLM. FENX.01.03 pokrywa do 70% CapEx (termin: 31.12.2029). Przy łączonym dofinansowaniu NFOŚiGW wkład gminy spada do 15–30%." }
+      },
+      
+      {
+        "@type": "Question",
+        "name": "Czy spalanie nie jest lepszym sposobem na PFAS niż HTC?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Spalanie przy &gt;850°C niszczy &gt;90% PFAS, ale w Polsce jest potencjał tylko na 23% osadu (11 spalarni), a cena to 500–800 PLN/t. HTC kosztuje 180–250 PLN/t i jest dostępne od zaraz." }
+      },
+      
+      {
+        "@type": "Question",
+        "name": "Nasza gmina wywozi osad na pola — jaki jest realny risk?",
+        "acceptedAnswer": { "@type": "Answer", "text": "PFAS z osadu przenikają do gleby, wód gruntowych i roślin. Po wprowadzeniu obowiązkowego monitoringu UWWTD (2027+), przekroczenia PFAS staną się podstawą do blokady stosowania rolniczego przez WIOŚ — bez czasu na przygotowanie alternatywy." }
+      }
+      
+    ]
+  }
+  </script>
+  
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/v5/design-system.css">
+  <link href="/v5/blog/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <style>
+    .doc-wrap { max-width: 860px; margin: 0 auto; }
+    .doc-meta {
+      padding: 1.5rem 2rem;
+      border-left: 3px solid var(--c-accent);
+      background: var(--c-surface-w);
+      display: flex; flex-direction: column; gap: 0.5rem;
+      font-size: 0.875rem; line-height: 1.7; color: var(--c-gray);
+    }
+    .doc-meta strong { color: var(--c-black); }
+    .doc-section { padding: 3rem 0; border-bottom: 1px solid var(--c-border); }
+    .doc-section:last-child { border-bottom: none; }
+    .doc-body { font-size: 0.9375rem; line-height: 1.8; }
+    .doc-body h2 {
+      font-family: var(--f-display); font-weight: 800;
+      font-size: clamp(1.25rem, 2vw, 1.625rem);
+      text-transform: uppercase; letter-spacing: -0.01em;
+      color: var(--c-black); margin: 3rem 0 1.5rem; line-height: 1.2;
+      padding-top: 2rem; border-top: 1px solid var(--c-border);
+    }
+    .doc-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    .doc-body h3 {
+      font-family: var(--f-display); font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em; color: var(--c-accent);
+      margin: 2rem 0 0.75rem; padding-left: 1rem; border-left: 3px solid var(--c-accent);
+    }
+    .doc-body p { margin-bottom: 1rem; }
+    .doc-body ul, .doc-body ol { padding-left: 1.25rem; margin: 0.75rem 0 1rem; }
+    .doc-body li { font-size: 0.9375rem; line-height: 1.75; margin-bottom: 0.5rem; }
+    .doc-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.875rem; }
+    .doc-body th {
+      font-family: var(--f-display); font-weight: 700; text-transform: uppercase;
+      font-size: 11px; letter-spacing: 0.06em; padding: 0.75rem 1rem;
+      background: var(--c-black); color: var(--c-white); text-align: left;
+    }
+    .doc-body td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--c-border); }
+    .doc-body blockquote {
+      border-left: 3px solid var(--c-accent); padding: 1rem 1.5rem;
+      background: var(--c-surface-w); margin: 1.25rem 0;
+      font-style: italic; font-size: 0.9375rem; line-height: 1.7;
+    }
+    .doc-body hr { border: none; border-top: 1px solid var(--c-border); margin: 2.5rem 0; }
+    .doc-body strong { color: var(--c-black); }
+
+    .blog-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .blog-tag {
+      font-family: var(--f-display); font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 0.3rem 0.6rem; background: var(--c-surface-w);
+      border: 1px solid var(--c-border); color: var(--c-gray);
+      text-decoration: none;
+    }
+    .blog-tag:hover { background: var(--c-accent); color: var(--c-white); border-color: var(--c-accent); }
+
+    .blog-cta {
+      margin: 2.5rem 0; padding: 2rem;
+      background: var(--c-surface-w); border-left: 3px solid var(--c-accent);
+    }
+    .blog-cta p { margin-bottom: 1rem; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<script src="/v5/partials/header.js"></script>
+
+<section class="hero" aria-label="PFAS w osadach ściekowych — jak oczyszczalnia nieświadomie zatruwa glebę">
+  <div class="hero__content">
+    <p class="t-label">Blog · PFAS, osady ściekowe, UWWTD, HTC</p>
+    <h1 class="t-display reveal">PFAS w osadach<br><span class='t-accent'>niewidzialne</span><br>zagrożenie</h1>
+    <p class="t-lead reveal" style="max-width:52ch;color:var(--c-gray-d)">PFAS koncentrują się w osadzie 10–1000× vs ścieki. UWWTD wymusza monitoring od 2027. HTC usuwa &gt;96% PFCAs. Porównanie metod i plan działania dla oczyszczalni.</p>
+  </div>
+  
+  <div class="hero__image">
+    <img src="/v5/assets/img/laboratory.jpeg" alt="PFAS w osadach ściekowych — jak oczyszczalnia nieświadomie zatruwa glebę" style="width:100%;height:100%;object-fit:cover;filter:grayscale(1)">
+  </div>
+  
+</section>
+
+<section class="stat-strip" aria-label="Informacje o artykule">
+  <div class="stat-strip__inner">
+    <div class="stat-item reveal">
+      <span class="stat-num" style="font-size:1.2rem">3 lipiec 2026</span>
+      <span class="t-label-muted">Data publikacji</span>
+    </div>
+    
+    <div class="stat-item reveal">
+      <span class="stat-num is-accent">12</span>
+      <span class="t-label-muted">Minut czytania</span>
+    </div>
+    
+    
+    <div class="stat-item reveal">
+      <span class="stat-num" style="font-size:1.2rem">Dr hab. inż. Małgorzata Wilk</span>
+      <span class="t-label-muted">Autor</span>
+    </div>
+    
+  </div>
+</section>
+
+<section class="section" id="article" aria-label="Treść artykułu" data-pagefind-body>
+  <div class="container doc-wrap">
+
+    <div class="doc-meta reveal">
+      
+      <div class="blog-tags">
+        
+        <a class="blog-tag" href="/v5/blog/tag/pfas/">PFAS</a>
+        
+        <a class="blog-tag" href="/v5/blog/tag/osady-sciekowe/">osady ściekowe</a>
+        
+        <a class="blog-tag" href="/v5/blog/tag/uwwtd/">UWWTD</a>
+        
+        <a class="blog-tag" href="/v5/blog/tag/htc/">HTC</a>
+        
+      </div>
+      
+    </div>
+
+    <div class="doc-section doc-body">
+      <p>Miejska oczyszczalnia ścieków robi dokładnie to, do czego została zbudowana: wyłapuje zanieczyszczenia ze ścieków. PFAS — per- i polifluoroalkilowe substancje, klasa ponad 10 000 związków syntetycznych — też osiadają na stacji. Woda po oczyszczeniu jest czystsza.</p>
+<p>Ale PFAS nigdzie nie znikają. <strong>Koncentrują się w osadzie</strong> — produkcie ubocznym, który potem trafia na pola.</p>
+<p>Oczyszczalnia nie niszczy PFAS. Zbiera je i przenosi z obiegu wodnego do glebowego.</p>
+<p>To nie jest zaniedbanie techniczne ani czyjaś wina. Tak działa każda technologia oczyszczania, która nie jest zaprojektowana do termicznego lub chemicznego niszczenia trwałych związków organicznych. Problem w tym, że przez dekady ten fakt był ignorowany — bo PFAS w glebie nie widać, nie pachną i nie od razu pojawiają się w analizach.</p>
+<p>Teraz to się zmienia.</p>
+<hr>
+<h2>Dlaczego PFAS koncentrują się właśnie w osadzie</h2>
+<p>PFAS to klasa związków syntetycznych z wyjątkowo trwałym wiązaniem węgiel–fluor (C–F). To najsilniejsze wiązanie w chemii organicznej — silniejsze niż C–H, C–O, C–N. W środowisku naturalnym enzymy i mikroorganizmy nie mają narzędzi do jego rozerwania. Stąd nazwa: <strong>„wieczne chemikalia&quot;</strong>.</p>
+<p>Do ścieków PFAS trafiają z wielu źródeł: chemia gospodarcza, naczynia teflonowe, środki gaśnicze, ścieki przemysłowe, odcieki ze składowisk. Stężenia w ściekach to z reguły nanogramy na litr — pozornie niewiele.</p>
+<p>Ale w procesie oczyszczania biologicznego zachodzi sorpcja: PFAS przyczepiają się do cząstek organicznych i kłaczków osadu czynnego. Kiedy ten osad osiada i staje się osadem ściekowym, <strong>stężenie PFAS jest w nim 10–1000 razy wyższe niż w wodzie wejściowej</strong>. Jedna tona osadu może zawierać tyle PFAS, ile przeszło przez oczyszczalnię w ciągu kilku miesięcy.</p>
+<p>To nie anomalia konkretnej stacji. To mechanizm fizykochemiczny, identyczny dla wszystkich biologicznych systemów oczyszczania.</p>
+<hr>
+<h2>Co dzieje się z PFAS przy różnych metodach utylizacji</h2>
+<h3>Stosowanie rolnicze</h3>
+<p>Wciąż najczęstsza metoda w Polsce — orientacyjnie 30–40% osadu (dane GUS). Pozornie tania: PLN 150–200 za tonę. Ale PFAS trafiają do gleby, stamtąd do wód gruntowych i roślin. Marchew czy pszenica wyhodowana na takim polu akumuluje PFAS. Łańcuch: oczyszczalnia → pole → żywność.</p>
+<p>Niderlandy zakazały stosowania rolniczego osadu w 1995 r. Niemcy rozpoczęły stopniowe wycofywanie przez znowelizowaną Klärschlammverordnung (2017) — pełny zakaz dla dużych oczyszczalni do 2029 r. Polska na razie reguluje przez wartości progowe, ale te się zaostrzają.</p>
+<h3>Składowanie</h3>
+<p>PFAS nie ulegają rozkładowi. Pozostają w ciele składowiska i powoli przenikają do odcieków. Składowisko staje się długoterminowym źródłem PFAS w wodach gruntowych. Dyrektywa UE ogranicza składowanie odpadów organicznych, w tym osadów, do 2030 r.</p>
+<h3>Spalanie</h3>
+<p>Przy temperaturach powyżej 850°C wiązania C–F ulegają rozerwaniu. Spalanie faktycznie niszczy PFAS — ale tylko przy stabilnym utrzymaniu temperatury i systemie oczyszczania spalin. Niepełne spalanie może generować nowe związki fluoroorganiczne, niektóre bardziej toksyczne niż wyjściowe PFAS.</p>
+<h3>HTC</h3>
+<p><a href="/v5/technologia.html">Karbonizacja hydrotermalna</a> przy 180–220°C i ciśnieniu 20–30 bar w środowisku wodnym znacząco obniża zawartość PFAS w osadzie. Warunki hydrotermalne hydrolizują wiązania fluoroorganiczne przez mechanizm jonowy. Skuteczność zależy od typu związku: dla PFCAs (kwasów perfluorokarboksylowych) usunięcie sięga <strong>&gt;96%</strong> (Science of the Total Environment, 2024); dla PFSAs (np. PFOS) standardowy HTC jest mniej skuteczny i może wymagać alkalicznej modyfikacji procesu (HALT).</p>
+<hr>
+<h2>Ciśnienie regulacyjne — od czego nie uciekniemy</h2>
+<p><a href="/v5/blog/uwwtd-osady-sciekowe/">Dyrektywa UWWTD 2024/3019</a> (obowiązuje od 01.01.2025) wprowadza obowiązkowy monitoring PFAS w osadzie dla wszystkich oczyszczalni powyżej 100 000 RLM, z rozszerzeniem na mniejsze. Transpozycja w Polsce: termin 31.07.2027.</p>
+<p>To oznacza dwie rzeczy:</p>
+<ol>
+<li><strong>Ci, którzy wcześniej mogli nie znać poziomu PFAS w swoim osadzie — teraz muszą mierzyć.</strong></li>
+<li><strong>Wyniki pomiarów stają się podstawą do ograniczeń na konkretne ścieżki utylizacji.</strong></li>
+</ol>
+<p>Równolegle w UE trwa ograniczanie PFAS przez REACH. W 2023 r. pięć krajów złożyło do ECHA propozycję uniwersalnego ograniczenia PFAS — najszerszego w historii regulacji chemicznych. Decyzja oczekiwana w 2025–2026 r. Jeśli wejdzie w życie, normy na PFAS w osadzie staną się drastycznie ostrzejsze.</p>
+<p>Oczyszczalnie wywożące osad na pola ryzykują sytuację, w której <strong>ten wariant zostanie zamknięty administracyjnie — bez gotowej alternatywy</strong>.</p>
+<div class="blog-cta">
+  <strong>Jaki jest poziom PFAS w Twoim osadzie?</strong><br>
+  Analiza TEO obejmuje pełne badanie składu chemicznego osadu, w tym PFAS. <a href="/v5/dotacje.html">Dofinansowanie pokrywa do 90% kosztów</a>.<br>
+  <a href="/v5/teo.html" class="btn btn-primary">Dowiedz się o TEO →</a>
+</div>
+<hr>
+<h2>Dlaczego nie da się po prostu „spalić wszystkiego&quot;</h2>
+<p>Pierwsza myśl: przejdźmy na spalanie. Niszczy PFAS. Problem rozwiązany.</p>
+<p>Ale matematyka nie pozwala.</p>
+<p>W Polsce działa <strong>11 instalacji termicznej utylizacji osadów</strong>. Łączna przepustowość: orientacyjnie 160 300 Mg/rok — czyli <strong>23% krajowej produkcji</strong>. Żeby spalać cały osad, trzeba zbudować jeszcze ~36 podobnych instalacji. Każda kosztuje PLN 300–600 mln i wymaga 8–10 lat uzgodnień i budowy.</p>
+<p>Cena rynkowa spalania: <strong>500–800 PLN/tonę</strong> (vs. HTC: 180–250 PLN/t).</p>
+<p>Spalanie to ważna część rozwiązania. Ale nie skalowalna i nie jedyna.</p>
+<hr>
+<h2>Jak HTC niszczy to, co samo się nie rozkłada</h2>
+<p><a href="/v5/technologia.html">Karbonizacja hydrotermalna (HTC)</a> — proces w temperaturze 180–220°C i ciśnieniu 20–30 bar w środowisku wodnym, trwający 2 godziny. To, co w naturze zachodzi miliony lat przy powstawaniu węgla, w reaktorze odtwarza się w ciągu jednej zmiany roboczej.</p>
+<p>Dla PFAS kluczowy jest konkretny mechanizm: w warunkach hydrotermalnych woda działa jako środowisko reaktywne, cząsteczki PFAS ulegają hydrolizie przez mechanizm jonowy. Wiązanie C–F, odporne na degradację biologiczną i większość chemiczną, ulega rozerwaniu przez reakcję substytucji w kwaśnym środowisku wodnym przy podwyższonej temperaturze. <strong>Fluor przechodzi do fazy wodnej jako jon fluorku</strong> — nietoksyczny, rozpuszczalny, ten sam co w paście do zębów.</p>
+<p>Wynik zależy od składu PFAS w osadzie:</p>
+<ul>
+<li><strong>PFCAs:</strong> skuteczność usunięcia &gt;96% (Soler-Cabezas et al., Science of the Total Environment, 2024)</li>
+<li><strong>PFSAs (w tym PFOS):</strong> standardowy HTC jest mniej skuteczny; dla oczyszczalni z dominacją PFSAs wskazana modyfikacja alkaliczna (HALT, 5M NaOH) — &gt;90% destrukcji nawet ciężkich PFSAs (Water Research Foundation, 2023)</li>
+</ul>
+<p>Metoda HTC ma polski status prawny od 14.01.2025 (Rozporządzenie MŚ 2015, oficjalnie uznana metoda stabilizacji).</p>
+<hr>
+<h2>Porównanie metod pod kątem PFAS</h2>
+<table>
+<thead>
+<tr>
+<th>Metoda</th>
+<th>Co dzieje się z PFAS</th>
+<th>Orientacyjny koszt (PLN/t)</th>
+<th>Dostępność</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stosowanie rolnicze</td>
+<td>Przeniesienie do gleby i łańcucha pokarmowego</td>
+<td>150–200</td>
+<td>Ograniczenia narastają</td>
+</tr>
+<tr>
+<td>Składowanie</td>
+<td>Pozostają, powoli przenikają do odcieków</td>
+<td>250–350</td>
+<td>Zamykane do 2030</td>
+</tr>
+<tr>
+<td>Spalanie</td>
+<td>Niszczone &gt;90% przy T &gt;850°C</td>
+<td>500–800</td>
+<td>Ograniczona (23% potencjału)</td>
+</tr>
+<tr>
+<td><strong>HTC</strong></td>
+<td><strong>PFCAs: &gt;96%; PFSAs: wymaga oceny składu</strong></td>
+<td><strong>180–250</strong></td>
+<td><strong>Dostępne od zaraz</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Jeśli Twoja oczyszczalnia ma przekroczenia PFAS w osadzie, <strong>pierwsze dwa warianty są już teraz ryzykowne prawnie</strong>, a w najbliższych latach staną się niemożliwe. Spalanie ograniczone potencjałem. HTC — jedyna opcja, która jednocześnie zamyka kwestię PFAS i daje produkt wyjściowy.</p>
+<p>Dla oczyszczalni poniżej 15 000 RLM ekonomika zmienia się przez <a href="/v5/hub-spoke.html">Hub &amp; Spoke</a>.</p>
+<div class="blog-cta">
+  <strong>Porównaj koszty dla Twojej oczyszczalni</strong><br>
+  Kalkulator ROI uwzględnia obecny koszt utylizacji, dotacje i wariant HTC.<br>
+  <a href="/v5/kalkulator-roi.html" class="btn btn-primary">Oblicz ROI →</a>
+</div>
+<hr>
+<h2>Dlaczego teraz, a nie po 2027</h2>
+<p>Logika „poczekajmy na transpozycję&quot; brzmi rozsądnie. Ale:</p>
+<p><strong>Po pierwsze: przygotowanie do <a href="/v5/dotacje.html">dotacji</a> wymaga czasu.</strong> FENX.01.03 (EUR 1,05 mld, do 70% CapEx) wymaga analizy <a href="/v5/teo.html">TEO</a> jako warunku formalnego wniosku. TEO trwa 6 tygodni. Potem projektowanie, uzgodnienia, przetarg — 18–24 miesiące. Termin FENX: 31.12.2029. Jeśli zacząć w 2027 — czasu już nie ma.</p>
+<p><strong>Po drugie: rynek wykonawców.</strong> Oczyszczalnie, które już zaczęły (a jest ich w Polsce kilka), zajmują sloty u wykonawców i biur projektowych. Po 2027 r. konkurencja o wykonawców wzrośnie, a ceny odpowiednio.</p>
+<p><strong>Po trzecie: przekroczenia PFAS w monitoringu</strong> stają się podstawą dla WIOŚ do ograniczenia ścieżek utylizacji — niezależnie od statusu transpozycji. To może nastąpić wcześniej niż oficjalna norma.</p>
+<hr>
+<h2>Od czego zacząć</h2>
+<p>Pierwszy krok — nie wybór technologii. To <strong><a href="/v5/teo.html">analiza TEO</a></strong> dla Twojej oczyszczalni.</p>
+<p>TEO odpowiada na pytania: jakie stężenia PFAS w Twoim osadzie, jaka optymalna konfiguracja HTC dla Twojego wolumenu, jaka ekonomika projektu, jaka ścieżka <a href="/v5/dotacje.html">dotacyjna</a>. Bez tego dokumentu rozmowa o technologii pozostaje abstrakcyjna. Z nim masz konkretne liczby — dla rady, dla wniosku grantowego, dla przetargu.</p>
+<p>Czas realizacji: 6 tygodni. Koszt: PLN 150–210 tys.</p>
+<p><strong>Pierwsza rozmowa — bezpłatna.</strong> Określa, czy oczyszczalnia kwalifikuje się pod względem parametrów i jaka konfiguracja ma sens.</p>
+<hr>
+<h2>Najczęściej zadawane pytania</h2>
+<p><strong>Czy HTC całkowicie usuwa PFAS z osadu ściekowego?</strong></p>
+<p>Dla PFCAs — tak, &gt;96%. Dla PFSAs (np. PFOS) standardowy HTC jest mniej skuteczny i może wymagać modyfikacji alkalicznej (HALT). Wynik zależy od składu PFAS, który określa analiza TEO.</p>
+<p><strong>Kiedy monitoring PFAS w osadach stanie się obowiązkowy w Polsce?</strong></p>
+<p>UWWTD nakłada obowiązek od razu na oczyszczalnie &gt;100 000 RLM. Polska musi transponować do 31.07.2027 — od tego momentu wyniki stają się wiążącymi faktami prawnymi.</p>
+<p><strong>Ile kosztuje instalacja HTC i czy są dotacje?</strong></p>
+<p>PLN 18–30 mln dla 15 000–25 000 RLM. FENX.01.03 pokrywa do 70% CapEx (termin: 31.12.2029). Przy łączonym dofinansowaniu wkład gminy: 15–30%.</p>
+<p><strong>Czy spalanie nie jest lepsze na PFAS?</strong></p>
+<p>Niszczy &gt;90% PFAS przy &gt;850°C, ale potencjał tylko 23% osadu krajowego, cena 500–800 PLN/t. <a href="/v5/technologia.html">HTC</a>: 180–250 PLN/t i dostępne od zaraz.</p>
+<p><strong>Nasza gmina wywozi osad na pola — co nam grozi?</strong></p>
+<p>Po wprowadzeniu monitoringu UWWTD (2027+) przekroczenia PFAS = blokada stosowania rolniczego przez WIOŚ. Bez czasu na przygotowanie alternatywy. <a href="/v5/case-lubin.html">Sprawdź referencje →</a></p>
+<hr>
+<h2>Źródła</h2>
+<ul>
+<li>Soler-Cabezas J.L. et al., &quot;Hydrothermal carbonization of sewage sludge: PFAS fate and distribution&quot;, <em>Science of the Total Environment</em>, 2024</li>
+<li>Water Research Foundation, &quot;HALT process for PFAS destruction in biosolids&quot;, 2023</li>
+<li><a href="https://eur-lex.europa.eu/eli/dir/2024/3019/oj">Dyrektywa UE 2024/3019 (UWWTD)</a> — EUR-Lex</li>
+<li><a href="https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20150000257">Rozporządzenie MŚ z dn. 6.02.2015 ws. komunalnych osadów ściekowych</a> — ISAP</li>
+<li><a href="https://echa.europa.eu/registry-of-restriction-intentions/-/registry-of-restriction-intentions/q?p_p_id=disrestrictionintentions_WAR">ECHA — propozycja ograniczenia PFAS (REACH)</a> — ECHA</li>
+<li><a href="https://stat.gov.pl/obszary-tematyczne/srodowisko-energia/srodowisko/ochrona-srodowiska-2023,1,24.html">GUS — Ochrona Środowiska 2023</a> — dane za 2022 r.</li>
+<li>Dane własne BTC Consulting / AGH Kraków (dane niepublikowane, dostępne na życzenie)</li>
+</ul>
+<p><em>Materiał przygotowany przez Dr hab. inż. Małgorzatę Wilk (AGH Kraków / BTC Consulting) na podstawie zweryfikowanych danych badawczych. Konkretne parametry PFAS zależą od charakterystyk osadu i określane są w ramach analizy TEO. Nie stanowi porady prawnej.</em></p>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="section section--black" aria-label="Następny krok">
+  <div class="container" style="max-width:900px">
+    <p class="t-label mb-2">Następny krok</p>
+    <p class="t-display reveal" style="color:var(--c-white)">
+      Oblicz ROI<br>
+      <span class="t-accent">dla Twojej oczyszczalni</span>
+    </p>
+    <p class="t-lead reveal" style="max-width:52ch;margin-top:1.75rem;color:var(--c-gray)">
+      Kalkulator ROI BioTC w 60 sekund powie Ci ile zaoszczędzisz.
+      Bezpłatnie, bez rejestracji.
+    </p>
+    <div class="flex gap-sm reveal" style="flex-wrap:wrap;margin-top:2.5rem">
+      <a class="btn btn-primary" href="/v5/kalkulator-roi.html">Oblicz ROI →</a>
+      <a class="btn btn-outline" href="#contact">Bezpłatna ocena →</a>
+    </div>
+  </div>
+</section>
+
+<script src="/v5/translations/pl.js"></script>
+<script src="/v5/i18n.js"></script>
+<script src="/v5/partials/footer.js?v=3"></script>
+<script src="/v5/reveal.js"></script>
+
+</body>
+</html>

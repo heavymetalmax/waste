@@ -17,7 +17,7 @@ faq:
   - q: "Czy mała gmina (poniżej 15 000 RLM) może skorzystać z dofinansowania?"
     a: "Tak — przez model Hub & Spoke, łącząc się z sąsiednimi gminami w klaster spełniający progi FENX.01.03. Alternatywnie przez NFOŚiGW (program dla gmin poza aglomeracjami)."
   - q: "Czy HTC jest prawnie zatwierdzoną metodą w Polsce?"
-    a: "Tak. Od 14 stycznia 2025 r. karbonizacja hydrotermalna jest oficjalnie uznana jako metoda nr 1 stabilizacji osadów ściekowych zgodnie z Rozporządzeniem Ministra Środowiska."
+    a: "Tak. Od 14 stycznia 2025 r. karbonizacja hydrotermalna jest oficjalnie uznana jako metoda stabilizacji osadów ściekowych zgodnie z Rozporządzeniem Ministra Środowiska."
   - q: "Ile kosztuje analiza TEO?"
     a: "Wstępna ocena inżynierska jest bezpłatna. Pełne TEO wyceniane jest indywidualnie po wstępnej rozmowie. Koszt TEO może być kwalifikowany jako koszt przygotowania projektu w wielu programach dotacyjnych."
   - q: "Jak długo trwa cały projekt od TEO do uruchomienia instalacji?"
@@ -108,7 +108,7 @@ Data 2045 może wydawać się odległa. Nie jest. Projekt modernizacji oczyszcza
 
 **Suszenie + cementownie:** Koszty suszenia: **1 200–1 300 kWh/t s.m.** — energochłonne i drogie. Cementownie akceptują osad z coraz większymi obostrzeniami jakościowymi ze względu na zawartość chloru i PFAS.
 
-**[HTC (karbonizacja hydrotermalna)](/v5/technologia.html):** Jedyna metoda, która jednocześnie: skutecznie usuwa PFCAs (>96%) i eliminuje patogeny, redukuje masę 4–5×, zmienia status prawny produktu z odpadu na surowiec, spełnia polskie wymogi prawne jako **metoda nr 1** (Rozporządzenie Ministra Środowiska 2015), i jest dostosowana do wymogów UWWTD w zakresie odzysku energii.
+**[HTC (karbonizacja hydrotermalna)](/v5/technologia.html):** Jedyna metoda, która jednocześnie: skutecznie usuwa PFCAs (>96%) i eliminuje patogeny, redukuje masę 4–5×, zmienia status prawny produktu z odpadu na surowiec, spełnia polskie wymogi prawne jako **oficjalnie uznana metoda stabilizacji** (Rozporządzenie MŚ 2015), i jest dostosowana do wymogów UWWTD w zakresie odzysku energii.
 
 ---
 
@@ -349,7 +349,7 @@ Dyrektywa UWWTD 2024/3019 to nie biurokratyczna aktualizacja — to fundamentaln
 Tak — przez model Hub & Spoke, łącząc się z sąsiednimi gminami w klaster spełniający progi FENX.01.03. Alternatywnie przez NFOŚiGW (program dla gmin poza aglomeracjami).
 
 **Czy HTC jest prawnie zatwierdzoną metodą w Polsce?**
-Tak. Od 14 stycznia 2025 r. karbonizacja hydrotermalna jest oficjalnie uznana jako metoda nr 1 stabilizacji osadów ściekowych zgodnie z Rozporządzeniem Ministra Środowiska.
+Tak. Od 14 stycznia 2025 r. karbonizacja hydrotermalna jest oficjalnie uznana jako metoda stabilizacji osadów ściekowych zgodnie z Rozporządzeniem Ministra Środowiska.
 
 **Ile kosztuje analiza TEO?**
 Wstępna ocena inżynierska jest bezpłatna. Pełne TEO wyceniane jest indywidualnie po wstępnej rozmowie. Koszt TEO może być kwalifikowany jako koszt przygotowania projektu w wielu programach dotacyjnych.

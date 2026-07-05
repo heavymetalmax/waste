@@ -1,0 +1,353 @@
+{
+  "summary": {
+    "health_score": 61,
+    "business_type": "B2B Industrial — HTC Technology for Wastewater Treatment",
+    "top_findings": [
+      "robots.txt missing — crawlers have no directives, sitemap undiscoverable",
+      "XML sitemap missing — 10 pages + blog have no crawl map",
+      "Header/footer via document.write() — navigation invisible to non-JS crawlers",
+      "Open Graph tags missing on 9/10 pages — blank LinkedIn/WhatsApp previews",
+      "llms.txt missing — AI search engines have no content guidance"
+    ],
+    "quick_wins": [
+      "Create robots.txt + sitemap.xml (45 min)",
+      "Add OG meta tags to all pages (1 hr)",
+      "Add <link rel=preload> for hero image (5 min)",
+      "Add defer to non-critical scripts (15 min)",
+      "Fix broken logo URL in Organization schema (5 min)"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 54,
+      "what_works": [
+        "Viewport meta tag correct",
+        "Images have width/height attributes preventing CLS",
+        "Hero image uses fetchpriority=high and loading=eager",
+        "lang=pl set correctly",
+        "No SPA shell — content is in raw HTML"
+      ],
+      "findings": [
+        {
+          "title": "robots.txt missing",
+          "severity": "Critical",
+          "description": "404 at domain root. No crawl directives, no sitemap reference.",
+          "recommendation": "Create /robots.txt with User-agent: *, Disallow: /v5/dziekujemy.html, Sitemap reference"
+        },
+        {
+          "title": "XML sitemap missing",
+          "severity": "Critical",
+          "description": "Neither /sitemap.xml nor /v5/sitemap.xml exists. 10 HTML pages + blog subtree undiscoverable.",
+          "recommendation": "Generate sitemap.xml covering all canonical URLs and submit to GSC"
+        },
+        {
+          "title": "document.write() for header/footer partials",
+          "severity": "High",
+          "description": "All navigation links invisible to raw HTML crawlers and AI bots. Pages linked only via mobile nav (teo.html, case-lubin.html, misja.html, blog/) unreachable without JS.",
+          "recommendation": "Replace with build-time 11ty includes or server-side includes"
+        },
+        {
+          "title": "Open Graph tags missing on 9/10 pages",
+          "severity": "High",
+          "description": "Homepage and 8 inner pages lack og:title, og:description, og:image. LinkedIn and WhatsApp show blank previews.",
+          "recommendation": "Add OG meta tags to all pages"
+        },
+        {
+          "title": "Canonical URLs expose /v5/ subdirectory",
+          "severity": "High",
+          "description": "All canonicals use btcconsulting.pl/v5/index.html — version prefix signals staging.",
+          "recommendation": "Serve from root before first production indexing"
+        },
+        {
+          "title": "Security headers entirely absent",
+          "severity": "High",
+          "description": "Missing HSTS, X-Content-Type-Options, X-Frame-Options, CSP, Referrer-Policy.",
+          "recommendation": "Configure on production host (Cloudflare Pages headers file or _headers)"
+        },
+        {
+          "title": "dziekujemy.html indexable",
+          "severity": "Medium",
+          "description": "Thank-you page has no noindex — will appear in search results.",
+          "recommendation": "Add <meta name='robots' content='noindex, follow'>"
+        },
+        {
+          "title": "favicon.ico missing",
+          "severity": "Medium",
+          "description": "404 on every page load — minor crawl budget waste.",
+          "recommendation": "Create and deploy favicon"
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 74,
+      "what_works": [
+        "Strong title tag (67 chars) with primary keyword",
+        "Meta description (152 chars) with urgency signal and key terms",
+        "HTC keyword well-distributed (12+ occurrences)",
+        "Dual-reader UX pattern (wójt vs engineer) is effective",
+        "FAQ content aligned with JSON-LD schema",
+        "High information density per sentence"
+      ],
+      "findings": [
+        {
+          "title": "H1 missing primary keywords",
+          "severity": "High",
+          "description": "H1 is 'Rozwiąż problem osadu na zawsze. Bez szoku dla budżetu' — neither 'HTC' nor 'osady ściekowe' appears.",
+          "recommendation": "Revise to include primary keyword naturally, e.g. 'Rozwiąż problem osadów ściekowych na zawsze'"
+        },
+        {
+          "title": "No named author or team member on page",
+          "severity": "Medium",
+          "description": "No byline, photo, or credential anchor — E-E-A-T trust gap for B2B industrial.",
+          "recommendation": "Add named expert with credential line near Market Position section"
+        },
+        {
+          "title": "UWWTD keyword underweighted",
+          "severity": "Medium",
+          "description": "Appears only in hero micro-label and meta description — should anchor at least one H2 or FAQ.",
+          "recommendation": "Add UWWTD compliance section with dedicated H2"
+        },
+        {
+          "title": "Statistics lack source attribution",
+          "severity": "Medium",
+          "description": "3,873 WWTP figure, 6.9-year ROI, 60% cost reduction have no source citation.",
+          "recommendation": "Add parenthetical sources (e.g. 'wg GUS 2023' or 'model BTC')"
+        },
+        {
+          "title": "Case evidence thin",
+          "severity": "Low",
+          "description": "Only 1 live installation + 1 planned + 1 placeholder card.",
+          "recommendation": "Mark planned project clearly as Q4 2026; remove or rethink placeholder card"
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 62,
+      "what_works": [
+        "Title tag within optimal range with brand + keyword",
+        "Meta description strong with HTC, osady ściekowe, urgency",
+        "Good H2 distribution across sections",
+        "5 deep pages linked from homepage with descriptive anchor text"
+      ],
+      "findings": [
+        {
+          "title": "H1-keyword mismatch for target queries",
+          "severity": "High",
+          "description": "Primary keywords absent from the page's most weighted on-page signal.",
+          "recommendation": "Include 'HTC' or 'osady ściekowe' in H1"
+        },
+        {
+          "title": "Missing internal links to E-E-A-T pages",
+          "severity": "Medium",
+          "description": "/misja.html and /whitepaper.html not linked from homepage.",
+          "recommendation": "Link whitepaper from Market Position section, misja from footer or about"
+        },
+        {
+          "title": "FAQ items not semantic headings",
+          "severity": "Low",
+          "description": "FAQ questions use <p class='faq-q'> instead of <h3> or <dt>.",
+          "recommendation": "Use H3 tags for FAQ questions to reinforce schema signal"
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 55,
+      "what_works": [
+        "Organization JSON-LD with legalName, foundingDate, areaServed",
+        "FAQPage JSON-LD with 5 well-formed Q&A pairs",
+        "sameAs with LinkedIn"
+      ],
+      "findings": [
+        {
+          "title": "Logo URL broken — references non-existent PNG",
+          "severity": "Critical",
+          "description": "Schema references /v5/assets/img/logo.png but only /v5/assets/svg/logo.svg exists.",
+          "recommendation": "Change to 'https://btcconsulting.pl/v5/assets/svg/logo.svg'"
+        },
+        {
+          "title": "PostalAddress incomplete",
+          "severity": "High",
+          "description": "Missing streetAddress and postalCode — limits Knowledge Panel and LocalBusiness eligibility.",
+          "recommendation": "Add full address details"
+        },
+        {
+          "title": "Missing WebSite + SearchAction schema",
+          "severity": "High",
+          "description": "No sitelinks search box eligibility.",
+          "recommendation": "Add WebSite schema with SearchAction pointing to blog search"
+        },
+        {
+          "title": "Missing Service schema",
+          "severity": "High",
+          "description": "Core HTC offering has no structured representation for AI Overviews.",
+          "recommendation": "Add Service JSON-LD for HTC technology implementation"
+        },
+        {
+          "title": "Missing telephone in ContactPoint",
+          "severity": "Medium",
+          "description": "Email-only ContactPoint suppresses phone in Knowledge Panel.",
+          "recommendation": "Add telephone field with +48 608 003 458"
+        }
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "score": 65,
+      "what_works": [
+        "Images have explicit width/height — low CLS risk",
+        "Hero image uses fetchpriority=high",
+        "No ads, iframes, or dynamically injected banners",
+        "Minimal interactive elements — low INP risk"
+      ],
+      "findings": [
+        {
+          "title": "5 render-blocking scripts without defer/async",
+          "severity": "High",
+          "description": "header.js, pl.js, i18n.js, footer.js, reveal.js all render-blocking.",
+          "recommendation": "Add defer to pl.js, i18n.js, reveal.js (header/footer need architectural fix)"
+        },
+        {
+          "title": "Google Fonts CSS render-blocking",
+          "severity": "Medium",
+          "description": "External stylesheet blocks CSSOM despite preconnect hints.",
+          "recommendation": "Self-host Barlow via @font-face to eliminate external dependency"
+        },
+        {
+          "title": "Hero image not preloaded",
+          "severity": "Medium",
+          "description": "No <link rel=preload as=image> in <head> despite fetchpriority=high.",
+          "recommendation": "Add preload hint in <head> for LCP improvement of 200-400ms"
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "score": 38,
+      "what_works": [
+        "FAQPage schema with 5 self-contained Q&A — strongest citability asset",
+        "Organization schema with entity anchoring signals",
+        "Stat strip with discrete, attributable numbers",
+        "Named commercial reference (MPWiK Lubin)"
+      ],
+      "findings": [
+        {
+          "title": "No robots.txt allowing AI crawlers",
+          "severity": "Critical",
+          "description": "GPTBot, ClaudeBot, PerplexityBot have no explicit allow directive.",
+          "recommendation": "Create robots.txt explicitly allowing AI crawlers"
+        },
+        {
+          "title": "No llms.txt",
+          "severity": "Critical",
+          "description": "No machine-readable brand identity or citation guidance for AI systems.",
+          "recommendation": "Create llms.txt with brand, key claims, preferred citation format, page links"
+        },
+        {
+          "title": "Body passages too short for citation",
+          "severity": "High",
+          "description": "Passages are 30-60 words — below 134-167 word optimal range.",
+          "recommendation": "Expand each section with sourced statistics and direct-answer openings"
+        },
+        {
+          "title": "No YouTube channel",
+          "severity": "Medium",
+          "description": "0.737 correlation between YouTube and AI citation frequency.",
+          "recommendation": "Create channel with 3-min HTC explainer video"
+        },
+        {
+          "title": "sameAs limited to LinkedIn only",
+          "severity": "Low",
+          "description": "No Wikidata, YouTube, or official registry links.",
+          "recommendation": "Expand sameAs array as new platform presences are created"
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 72,
+      "what_works": [
+        "All images have width/height attributes",
+        "Hero image: loading=eager + fetchpriority=high",
+        "Below-fold images: loading=lazy",
+        "Alt text present on all images in Polish"
+      ],
+      "findings": [
+        {
+          "title": "No WebP/AVIF format",
+          "severity": "Low",
+          "description": "All images are JPEG — modern formats would reduce payload 25-50%.",
+          "recommendation": "Convert to WebP with <picture> fallback for JPEG"
+        },
+        {
+          "title": "No responsive srcset",
+          "severity": "Low",
+          "description": "Single resolution served to all viewports.",
+          "recommendation": "Add srcset with multiple resolutions for mobile optimization"
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Week 1",
+        "items": [
+          "Create robots.txt with sitemap ref + AI crawler allows (15 min)",
+          "Generate XML sitemap for all pages + blog (30 min)",
+          "Fix Organization schema logo URL PNG→SVG (5 min)",
+          "Add noindex to dziekujemy.html (5 min)",
+          "Add OG meta tags to all 9 pages (1 hr)",
+          "Add <link rel=preload> for hero image (5 min)",
+          "Add defer to pl.js, i18n.js, reveal.js (15 min)"
+        ]
+      },
+      {
+        "name": "Phase 2: High-Impact Improvements",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Create llms.txt (1 hr)",
+          "Replace document.write() with 11ty build-time includes (2-4 hrs)",
+          "Add HTC/osady ściekowe to H1 (15 min)",
+          "Add UWWTD compliance section with H2 (1 hr)",
+          "Add Service + WebSite JSON-LD schemas (1 hr)",
+          "Complete Organization schema (streetAddress, telephone) (15 min)",
+          "Add source attribution to statistics (30 min)",
+          "Link whitepaper from Market Position section (5 min)"
+        ]
+      },
+      {
+        "name": "Phase 3: Content & Authority",
+        "timeframe": "Month 2",
+        "items": [
+          "Create informational HTC explainer page for awareness queries (1 day)",
+          "Add named team/expert with photos to homepage (2 hrs)",
+          "Add process diagram/schematic SVG to HTC section (1 day)",
+          "Expand body sections to 134-167 words each (1 day)",
+          "Configure security headers on production host (30 min)",
+          "Plan clean URL structure — remove /v5/ prefix (architecture decision)",
+          "Implement IndexNow in deploy pipeline (30 min)"
+        ]
+      },
+      {
+        "name": "Phase 4: Monitoring & Iteration",
+        "timeframe": "Ongoing",
+        "items": [
+          "Create YouTube channel with HTC explainer video (1-2 weeks)",
+          "Self-host Barlow font (1 hr)",
+          "Add BreadcrumbList to blog/inner pages (30 min)",
+          "Convert images to WebP with <picture> fallback (2 hrs)",
+          "Set up SEO drift baseline for ongoing monitoring (1 hr)"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}

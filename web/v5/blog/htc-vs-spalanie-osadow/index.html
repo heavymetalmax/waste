@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTC vs spalanie osadów ściekowych — porównanie technologii dla polskich oczyszczalni | BTC Consulting</title>
+  <meta name="description" content="HTC vs spalanie osadów ściekowych: koszt 180–250 vs 500–800 PLN/t, PFAS &gt;96% usunięcia, bilans energetyczny. Porównanie 5 kryteriów dla polskich oczyszczalni.">
+  <link rel="canonical" href="https://btcconsulting.pl/v5/blog/htc-vs-spalanie-osadow/">
+  <meta name="keywords" content="HTC vs spalanie osad ściekowy, karbonizacja hydrotermalna vs spalanie, porównanie metod utylizacji osadu, HTC współspalanie porównanie, spalanie osadów ściekowych koszt">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "HTC vs spalanie osadów ściekowych — porównanie technologii dla polskich oczyszczalni",
+    "description": "HTC vs spalanie osadów ściekowych: koszt 180–250 vs 500–800 PLN/t, PFAS &gt;96% usunięcia, bilans energetyczny. Porównanie 5 kryteriów dla polskich oczyszczalni.",
+    "datePublished": "2026-07-04T00:00:00.000Z",
+    "dateModified": "2026-07-04T00:00:00.000Z",
+    "author": { "@type": "Person", "name": "Dr inż. Eugeniusz Krop", "affiliation": { "@type": "Organization", "name": "BTC Consulting" } },
+    "publisher": { "@type": "Organization", "name": "BTC Consulting", "url": "https://btcconsulting.pl" },
+    "mainEntityOfPage": "https://btcconsulting.pl/v5/blog/htc-vs-spalanie-osadow/"
+  }
+  </script>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      
+      {
+        "@type": "Question",
+        "name": "Czy HTC jest tańsze od spalania osadów ściekowych?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Tak — gate fee HTC wynosi 180–250 PLN/t vs 500–800 PLN/t za spalanie. Przy oczyszczalni 30 000 RLM to oszczędność 330–390 tys. PLN rocznie." }
+      },
+      
+      {
+        "@type": "Question",
+        "name": "Czy HTC i spalanie można łączyć w jednej oczyszczalni?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Tak — hydrochar z HTC ma wartość opałową 20–25 MJ/kg i może być współspalany. To opcja dla oczyszczalni z dostępem do spalarni, ale produkujących więcej osadu niż spalarna przyjmie." }
+      },
+      
+      {
+        "@type": "Question",
+        "name": "Ile trwa budowa instalacji HTC vs spalarni osadów?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Instalacja HTC: 8–14 miesięcy (modułowa). Spalarnia osadów: 6–10 lat (projektowanie, uzgodnienia, budowa). Koszt spalarni: PLN 300–600 mln vs HTC: PLN 18–30 mln." }
+      },
+      
+      {
+        "@type": "Question",
+        "name": "Która metoda lepiej radzi sobie z PFAS w osadzie?",
+        "acceptedAnswer": { "@type": "Answer", "text": "HTC usuwa &gt;96% PFCAs w warunkach standardowych (200°C, 25 bar). Spalanie niszczy &gt;90% PFAS przy &gt;850°C. Obie są skuteczne, ale HTC jest 3–4× tańsze i dostępne od zaraz." }
+      },
+      
+      {
+        "@type": "Question",
+        "name": "Czy współspalanie osadu w cementowni jest nadal opłacalne?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Cementownie zaostrzają wymagania jakościowe (PFAS, chlor). Koszt suszenia: 1 200–1 300 kWh/t. Przy rosnących wymogach UWWTD współspalanie staje się coraz mniej przewidywalne jako jedyna strategia." }
+      }
+      
+    ]
+  }
+  </script>
+  
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/v5/design-system.css">
+  <link href="/v5/blog/pagefind/pagefind-ui.css" rel="stylesheet">
+
+  <style>
+    .doc-wrap { max-width: 860px; margin: 0 auto; }
+    .doc-meta {
+      padding: 1.5rem 2rem;
+      border-left: 3px solid var(--c-accent);
+      background: var(--c-surface-w);
+      display: flex; flex-direction: column; gap: 0.5rem;
+      font-size: 0.875rem; line-height: 1.7; color: var(--c-gray);
+    }
+    .doc-meta strong { color: var(--c-black); }
+    .doc-section { padding: 3rem 0; border-bottom: 1px solid var(--c-border); }
+    .doc-section:last-child { border-bottom: none; }
+    .doc-body { font-size: 0.9375rem; line-height: 1.8; }
+    .doc-body h2 {
+      font-family: var(--f-display); font-weight: 800;
+      font-size: clamp(1.25rem, 2vw, 1.625rem);
+      text-transform: uppercase; letter-spacing: -0.01em;
+      color: var(--c-black); margin: 3rem 0 1.5rem; line-height: 1.2;
+      padding-top: 2rem; border-top: 1px solid var(--c-border);
+    }
+    .doc-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    .doc-body h3 {
+      font-family: var(--f-display); font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em; color: var(--c-accent);
+      margin: 2rem 0 0.75rem; padding-left: 1rem; border-left: 3px solid var(--c-accent);
+    }
+    .doc-body p { margin-bottom: 1rem; }
+    .doc-body ul, .doc-body ol { padding-left: 1.25rem; margin: 0.75rem 0 1rem; }
+    .doc-body li { font-size: 0.9375rem; line-height: 1.75; margin-bottom: 0.5rem; }
+    .doc-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.875rem; }
+    .doc-body th {
+      font-family: var(--f-display); font-weight: 700; text-transform: uppercase;
+      font-size: 11px; letter-spacing: 0.06em; padding: 0.75rem 1rem;
+      background: var(--c-black); color: var(--c-white); text-align: left;
+    }
+    .doc-body td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--c-border); }
+    .doc-body blockquote {
+      border-left: 3px solid var(--c-accent); padding: 1rem 1.5rem;
+      background: var(--c-surface-w); margin: 1.25rem 0;
+      font-style: italic; font-size: 0.9375rem; line-height: 1.7;
+    }
+    .doc-body hr { border: none; border-top: 1px solid var(--c-border); margin: 2.5rem 0; }
+    .doc-body strong { color: var(--c-black); }
+
+    .blog-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem; }
+    .blog-tag {
+      font-family: var(--f-display); font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 0.3rem 0.6rem; background: var(--c-surface-w);
+      border: 1px solid var(--c-border); color: var(--c-gray);
+      text-decoration: none;
+    }
+    .blog-tag:hover { background: var(--c-accent); color: var(--c-white); border-color: var(--c-accent); }
+
+    .blog-cta {
+      margin: 2.5rem 0; padding: 2rem;
+      background: var(--c-surface-w); border-left: 3px solid var(--c-accent);
+    }
+    .blog-cta p { margin-bottom: 1rem; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<script src="/v5/partials/header.js"></script>
+
+<section class="hero" aria-label="HTC vs spalanie osadów ściekowych — porównanie technologii dla polskich oczyszczalni">
+  <div class="hero__content">
+    <p class="t-label">Blog · HTC, osady ściekowe, UWWTD, energetyka, case study</p>
+    <h1 class="t-display reveal">HTC vs spalanie<br><span class='t-accent'>porównanie</span><br>technologii</h1>
+    <p class="t-lead reveal" style="max-width:52ch;color:var(--c-gray-d)">HTC vs spalanie osadów ściekowych: koszt 180–250 vs 500–800 PLN/t, PFAS &gt;96% usunięcia, bilans energetyczny. Porównanie 5 kryteriów dla polskich oczyszczalni.</p>
+  </div>
+  
+  <div class="hero__image">
+    <img src="/v5/assets/img/formula%20book%20find.jpeg" alt="HTC vs spalanie osadów ściekowych — porównanie technologii dla polskich oczyszczalni" style="width:100%;height:100%;object-fit:cover;filter:grayscale(1)">
+  </div>
+  
+</section>
+
+<section class="stat-strip" aria-label="Informacje o artykule">
+  <div class="stat-strip__inner">
+    <div class="stat-item reveal">
+      <span class="stat-num" style="font-size:1.2rem">4 lipiec 2026</span>
+      <span class="t-label-muted">Data publikacji</span>
+    </div>
+    
+    <div class="stat-item reveal">
+      <span class="stat-num is-accent">12</span>
+      <span class="t-label-muted">Minut czytania</span>
+    </div>
+    
+    
+    <div class="stat-item reveal">
+      <span class="stat-num" style="font-size:1.2rem">Dr inż. Eugeniusz Krop</span>
+      <span class="t-label-muted">Autor</span>
+    </div>
+    
+  </div>
+</section>
+
+<section class="section" id="article" aria-label="Treść artykułu" data-pagefind-body>
+  <div class="container doc-wrap">
+
+    <div class="doc-meta reveal">
+      
+      <div class="blog-tags">
+        
+        <a class="blog-tag" href="/v5/blog/tag/htc/">HTC</a>
+        
+        <a class="blog-tag" href="/v5/blog/tag/osady-sciekowe/">osady ściekowe</a>
+        
+        <a class="blog-tag" href="/v5/blog/tag/uwwtd/">UWWTD</a>
+        
+        <a class="blog-tag" href="/v5/blog/tag/energetyka/">energetyka</a>
+        
+        <a class="blog-tag" href="/v5/blog/tag/case-study/">case study</a>
+        
+      </div>
+      
+    </div>
+
+    <div class="doc-section doc-body">
+      <p>Polska produkuje ~580 000–700 000 ton osadów ściekowych rocznie. Krajowe moce termicznego przetwarzania pokrywają 23% tej ilości. Ponad trzy czwarte osadu nie ma dziś bezpiecznego, długoterminowego ujścia — a <a href="/v5/blog/uwwtd-osady-sciekowe/">dyrektywa UWWTD 2024/3019</a> systematycznie zamyka dotychczasowe drogi wyjścia.</p>
+<p>Pytanie nie brzmi już „czy modernizować&quot;, lecz „jaką technologię wybrać&quot;. Ten artykuł porównuje trzy metody termicznej utylizacji osadów — spalanie, współspalanie i <a href="/v5/technologia.html">karbonizację hydrotermalną (HTC)</a> — pod kątem kosztów, skuteczności wobec PFAS, bilansu energetycznego, dostępności w Polsce i statusu prawnego.</p>
+<hr>
+<h2>Trzy metody termicznej utylizacji osadów — czym się różnią</h2>
+<h3>Spalanie (monospalanie)</h3>
+<p>Dedykowana spalarnia osadów pracuje w temperaturze powyżej 850°C. Materia organiczna ulega pełnemu spaleniu, a popiół stanowi 10–15% masy wejściowej. W Polsce działa <strong>11 takich instalacji</strong> o łącznej przepustowości 160 300 Mg/rok (dane GUS 2022). Spalarnia wymaga pozwolenia zintegrowanego, systemu oczyszczania spalin i stałego nadzoru emisji.</p>
+<h3>Współspalanie</h3>
+<p>Osad ściekowy — po uprzednim wysuszeniu — jest dodawany jako paliwo zastępcze do pieca cementowni lub kotła elektrociepłowni. Udział osadu w mieszance paliwowej wynosi z reguły 5–15%. Cementownie zaostrzają wymagania jakościowe: zawartość chloru, metali ciężkich i PFAS decyduje o tym, czy osad zostanie zaakceptowany.</p>
+<h3>HTC (karbonizacja hydrotermalna)</h3>
+<p>Proces fizykochemiczny przebiegający w temperaturze 180–220°C przy ciśnieniu 20–30 bar w środowisku wodnym. Czas reakcji: ~2 godziny. Nie wymaga wstępnego suszenia. Produkt końcowy — hydrochar — ma wartość opałową 20–25 MJ/kg (zbliżoną do węgla brunatnego) i jest pozbawiony patogenów. <a href="/v5/technologia.html">HTC</a> jest oficjalnie uznaną metodą stabilizacji osadów ściekowych w Polsce (Rozporządzenie MŚ 2015, od 14.01.2025).</p>
+<hr>
+<h2>Porównanie HTC, spalania i współspalania — tabela decyzyjna</h2>
+<table>
+<thead>
+<tr>
+<th>Kryterium</th>
+<th>HTC</th>
+<th>Spalanie</th>
+<th>Współspalanie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Koszt (PLN/t)</strong></td>
+<td><strong>180–250</strong></td>
+<td>500–800</td>
+<td>300–500</td>
+</tr>
+<tr>
+<td><strong>Usuwanie PFAS</strong></td>
+<td><strong>PFCAs &gt;96%</strong>; PFSAs wymaga modyfikacji HALT</td>
+<td>&gt;90% przy &gt;850°C</td>
+<td>Zależy od temperatury pieca</td>
+</tr>
+<tr>
+<td><strong>Bilans energetyczny</strong></td>
+<td><strong>Produkuje energię</strong> (hydrochar 20–25 MJ/kg + biogaz z AD)</td>
+<td>Zużywa energię (paliwo wspomagające)</td>
+<td>Neutralny / lekko dodatni</td>
+</tr>
+<tr>
+<td><strong>Dostępność w Polsce</strong></td>
+<td><strong>Od zaraz</strong> (instalacje modularne, 8–14 mies. budowy)</td>
+<td>11 spalarni, 23% potencjału, kolejka</td>
+<td>Zależy od umowy z cementownią</td>
+</tr>
+<tr>
+<td><strong>Status prawny</strong></td>
+<td>Oficjalnie uznana metoda stabilizacji (Rozp. MŚ 2015)</td>
+<td>Wymaga pozwolenia zintegrowanego</td>
+<td>Wymaga umowy z operatorem pieca</td>
+</tr>
+<tr>
+<td><strong>Czas budowy</strong></td>
+<td><strong>8–14 miesięcy</strong></td>
+<td>6–10 lat</td>
+<td>Nie dotyczy (istniejąca infra)</td>
+</tr>
+<tr>
+<td><strong>CapEx</strong></td>
+<td><strong>PLN 18–30 mln</strong> (15–25K RLM)</td>
+<td>PLN 300–600 mln</td>
+<td>Koszt suszarni: PLN 15–40 mln</td>
+</tr>
+<tr>
+<td><strong>Redukcja masy</strong></td>
+<td>4–5× (75–80%)</td>
+<td>85–90% (popiół)</td>
+<td>Zależy od konfiguracji</td>
+</tr>
+<tr>
+<td><strong>Produkt końcowy</strong></td>
+<td>Hydrochar (surowiec/paliwo)</td>
+<td>Popiół (odpad)</td>
+<td>Brak (współspalenie)</td>
+</tr>
+</tbody>
+</table>
+<div class="blog-cta">
+<p>Ile zaoszczędzi Twoja oczyszczalnia przy przejściu na HTC? Kalkulator porówna Twój obecny koszt z wariantem HTC + dotacja.</p>
+<a class="btn btn-primary" href="/v5/kalkulator-roi.html">Oblicz ROI w 60 sekund →</a>
+</div>
+<hr>
+<h2>Koszt utylizacji — ile naprawdę płaci gmina</h2>
+<p>Średni rynkowy koszt zagospodarowania osadu ściekowego w Polsce (2024): <strong>PLN 550/tonę</strong>. Ta cena obejmuje transport, przetwarzanie i zagospodarowanie końcowe. Tendencja: wzrostowa — bo moce spalarni nie rosną, a ograniczenia dla stosowania rolniczego się zaostrzają.</p>
+<h3>Przykład: oczyszczalnia 30 000 RLM (~985 t osadu/rok)</h3>
+<table>
+<thead>
+<tr>
+<th>Metoda</th>
+<th>Koszt roczny</th>
+<th>Koszt 10-letni (5% wzrost/rok)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Obecny status quo (550 PLN/t)</td>
+<td>PLN 542 000</td>
+<td><strong>PLN 7,0 mln</strong></td>
+</tr>
+<tr>
+<td>Spalanie (650 PLN/t)</td>
+<td>PLN 640 000</td>
+<td>PLN 8,3 mln</td>
+</tr>
+<tr>
+<td><strong>HTC (gate fee ~212 PLN/t)</strong></td>
+<td><strong>PLN 209 000</strong></td>
+<td><strong>PLN 2,7 mln</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Różnica między spalaniem a HTC w perspektywie 10 lat: <strong>ponad PLN 5,5 mln</strong> — dla jednej oczyszczalni.</p>
+<p>Przy dofinansowaniu 85% CapEx (NFOŚiGW + FENX łącznie) wkład własny gminy na instalację HTC wynosi PLN 2,7–4,5 mln. <strong>Zwrot z inwestycji: 3–3,5 roku</strong> w modelu <a href="/v5/hub-spoke.html">Hub &amp; Spoke</a>, 6,9 roku standalone.</p>
+<p>Dla mniejszych gmin poniżej 15 000 RLM samodzielna instalacja HTC jest nieekonomiczna. Rozwiązanie: <a href="/v5/hub-spoke.html">model Hub &amp; Spoke</a> — konsorcjum 3–5 gmin współdzielących centralną instalację. Łączna aglomeracja klastra spełnia progi dotacyjne FENX.01.03 i rozkłada koszty na wszystkich uczestników.</p>
+<hr>
+<h2>PFAS, patogeny, mikroplastik — co każda metoda robi z zanieczyszczeniami</h2>
+<p><a href="/v5/blog/pfas-w-osadach-sciekowych/">PFAS (wieczne chemikalia)</a> koncentrują się w osadzie ściekowym 10–1000× w stosunku do wody wejściowej. <a href="/v5/blog/uwwtd-osady-sciekowe/">Dyrektywa UWWTD</a> nakłada obowiązek monitoringu PFAS od 2027 r. — wyniki stają się wiążącymi faktami prawnymi.</p>
+<table>
+<thead>
+<tr>
+<th>Zanieczyszczenie</th>
+<th>HTC</th>
+<th>Spalanie</th>
+<th>Współspalanie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PFCAs</td>
+<td>&gt;96% usunięcia</td>
+<td>&gt;90% przy &gt;850°C</td>
+<td>Zależy od temp. pieca</td>
+</tr>
+<tr>
+<td>PFSAs (np. PFOS)</td>
+<td>Wymaga modyfikacji HALT</td>
+<td>&gt;90% przy &gt;850°C</td>
+<td>Niepewne</td>
+</tr>
+<tr>
+<td>Patogeny</td>
+<td><strong>100% eliminacja</strong></td>
+<td>100% eliminacja</td>
+<td>100% eliminacja</td>
+</tr>
+<tr>
+<td>Mikroplastik</td>
+<td>Usunięty/zredukowany</td>
+<td>Zniszczony</td>
+<td>Zniszczony</td>
+</tr>
+</tbody>
+</table>
+<p>Spalanie jest skuteczne wobec PFAS, ale przy niepełnym spaleniu (np. awaryjne obniżenie temperatury) może generować nowe związki fluoroorganiczne. HTC w warunkach standardowych (200°C, 25 bar) skutecznie hydrolizuje PFCAs; dla oczyszczalni z dominacją PFSAs wskazana jest modyfikacja alkaliczna procesu (HALT, 5M NaOH) — skuteczność &gt;90% (Water Research Foundation, 2023).</p>
+<hr>
+<h2>Bilans energetyczny — kto spełni UWWTD 2045</h2>
+<p>Dyrektywa UWWTD wymaga od oczyszczalni: 20% energii z OZE do 2030, 40% do 2035, <strong>100% neutralności energetycznej do 2045</strong>. To nie cele aspiracyjne — to wymogi prawne.</p>
+<p><strong>Spalanie</strong> jest procesem endotermicznym wobec oczyszczalni. Spalarnia zużywa paliwo wspomagające i energię elektryczną. Nawet jeśli odzyskuje ciepło ze spalin, bilans netto dla oczyszczalni jest ujemny — bo spalarnia to osobny obiekt z własnym bilansem.</p>
+<p><strong>HTC</strong> w konfiguracji TH-AD-HTC (hydroliza termiczna + fermentacja beztlenowa + karbonizacja) tworzy zamkniętą pętlę energetyczną:</p>
+<ul>
+<li>Fermentacja produkuje biogaz → napędza CHP (kogeneracja)</li>
+<li>Hydrochar (20–25 MJ/kg) → dodatkowe źródło energii cieplnej</li>
+<li>Wynik: oczyszczalnia pokrywa <strong>60–100% własnego zapotrzebowania energetycznego</strong></li>
+</ul>
+<p>To bezpośrednio realizuje cele UWWTD. Spalanie — nie.</p>
+<hr>
+<h2>Kiedy HTC nie jest najlepszym wyborem</h2>
+<p>Żadna technologia nie jest uniwersalna. HTC ma ograniczenia, które warto znać przed podjęciem decyzji:</p>
+<p><strong>Mała skala bez konsorcjum.</strong> Poniżej ~5 000 t osadu/rok instalacja standalone nie osiąga progu opłacalności. Rozwiązanie: <a href="/v5/hub-spoke.html">Hub &amp; Spoke</a> z sąsiednimi gminami.</p>
+<p><strong>Dominacja PFSAs w osadzie.</strong> Standardowy HTC (200°C) jest wysoce skuteczny wobec PFCAs, ale dla osadów z dominacją PFSAs (np. z terenów lotniskowych z historią użycia pian gaśniczych AFFF) wymagana jest modyfikacja HALT — co zwiększa koszt operacyjny.</p>
+<p><strong>Istniejący długoterminowy kontrakt ze spalarnią.</strong> Jeśli gmina ma podpisany kontrakt na 10–15 lat z gwarantowaną ceną i przepustowością, zerwanie go może być droższe niż jego realizacja. Warto jednak policzyć TCO obu wariantów — <a href="/v5/teo.html">analiza TEO</a> daje twardą odpowiedź.</p>
+<p><strong>Brak infrastruktury AD.</strong> Pełna konfiguracja TH-AD-HTC (zamknięta pętla energetyczna) wymaga komór fermentacji beztlenowej. Oczyszczalnia bez AD potrzebuje większego CapEx na pełny system — choć moduł HTC standalone jest możliwy jako pierwszy krok.</p>
+<hr>
+<h2>Dotacje i dofinansowanie — która technologia kwalifikuje się lepiej</h2>
+<p>Dostępne programy <a href="/v5/dotacje.html">dotacyjne</a> na gospodarkę osadową w Polsce (okno 2025–2029):</p>
+<p><strong>FENX.01.03</strong> (EUR 1,05 mld, do 70% CapEx): Obie technologie kwalifikują się, ale HTC zyskuje punkty w kryteriach: neutralność energetyczna, gospodarka o obiegu zamkniętym, odzysk surowców. Spalanie — mniej punktów w tych kategoriach.</p>
+<p><strong>NFOŚiGW</strong> (pożyczka preferencyjna + umorzenie 30–50%): Dostępne dla obu. Dla gmin poniżej progu FENX (15 000 RLM) — jedyne źródło finansowania.</p>
+<p><strong>KPO</strong> (Krajowy Plan Odbudowy): Priorytet: transformacja z odpadu w surowiec. HTC wpisuje się bezpośrednio (hydrochar = produkt). Spalanie — mniej oczywiste dopasowanie.</p>
+<p>Łącznie: pokrycie dotacyjne na projekt z komponentem HTC: <strong>75–90% CapEx</strong>. Przy łączeniu programów (FENX + NFOŚiGW + KPO) wkład własny gminy spada do 10–25%.</p>
+<div class="blog-cta">
+<p>Analiza TEO określi optymalną konfigurację i ścieżkę dotacyjną dla Twojej oczyszczalni. Koszt TEO może być kwalifikowany jako koszt przygotowania projektu.</p>
+<a class="btn btn-primary" href="/v5/teo.html">Dowiedz się o TEO →</a>
+</div>
+<hr>
+<h2>Referencje w Polsce — kto już wdrożył</h2>
+<p><strong><a href="/v5/case-lubin.html">MPWiK Lubin</a></strong> — pierwsza komercyjna instalacja HTC w Polsce. Kontrakt podpisany w październiku 2025 r. Przepustowość: 800 t osadu/rok. Pełna dokumentacja TEO, wniosek grantowy, projekt i budowa zrealizowane w ciągu 24 miesięcy.</p>
+<p><strong>Gmina Solina</strong> — projekt instalacji TerraNova®ultra we współpracy ze Schwander Polska. Lokalizacja: oczyszczalnia w Berezce. Planowana przepustowość: 3 000 t bioodpadów/rok → 400–500 t hydrocharu. Faza projektowa: od sierpnia 2022.</p>
+<p><strong>Referencje europejskie:</strong> TerraNova Energy (Niemcy — 5 instalacji komercyjnych), C-Green (Szwecja), Ingelia (Hiszpania — od 2010 r., najstarsza instalacja komercyjna HTC w Europie).</p>
+<p>Spalanie ma w Polsce 11 instalacji (od 2007 r.), ale żadna nowa nie powstaje — ze względu na koszt (PLN 300–600 mln) i czas (6–10 lat uzgodnień i budowy).</p>
+<hr>
+<h2>Od czego zacząć</h2>
+<p><strong>Krok 1: Wstępna ocena inżynierska (bezpłatnie, 30 min).</strong> Rozmowa z inżynierem BTC ustali: wolumen i skład osadu, istniejącą infrastrukturę, wstępne oszacowanie kosztów i oszczędności. Bez zobowiązań.</p>
+<p><strong>Krok 2: <a href="/v5/teo.html">Analiza TEO</a> (4–6 tygodni).</strong> 200+ stron dokumentacji: optymalna konfiguracja, precyzyjne ROI, NPV, payback period, identyfikacja i kwalifikacja źródeł <a href="/v5/dotacje.html">dofinansowania</a>. TEO jest wymaganym załącznikiem do wniosku grantowego.</p>
+<p><strong>Krok 3: Wniosek grantowy i realizacja.</strong> Na podstawie TEO: złożenie wniosku do FENX.01.03 lub NFOŚiGW w najbliższym naborze. Budowa: 8–14 miesięcy.</p>
+<div class="blog-cta">
+<p>Pierwszy krok jest bezpłatny. Wstępna ocena inżynierska Twojej oczyszczalni — w ciągu 5 dni roboczych.</p>
+<a class="btn btn-primary" href="#contact">Zamów bezpłatną ocenę →</a>
+</div>
+<hr>
+<h2>Najczęściej zadawane pytania</h2>
+<p><strong>Czy HTC jest tańsze od spalania osadów ściekowych?</strong></p>
+<p>Tak — gate fee HTC wynosi 180–250 PLN/t vs 500–800 PLN/t za spalanie. Przy oczyszczalni 30 000 RLM to oszczędność 330–390 tys. PLN rocznie. CapEx HTC (PLN 18–30 mln) jest ułamkiem kosztu spalarni (PLN 300–600 mln).</p>
+<p><strong>Czy HTC i spalanie można łączyć w jednej oczyszczalni?</strong></p>
+<p>Tak — hydrochar z HTC ma wartość opałową 20–25 MJ/kg i może być współspalany w istniejącej spalarni lub cementowni. To opcja dla oczyszczalni z dostępem do spalarni, ale produkujących więcej osadu niż spalarna przyjmie.</p>
+<p><strong>Ile trwa budowa instalacji HTC vs spalarni osadów?</strong></p>
+<p>Instalacja HTC: 8–14 miesięcy (konstrukcja modułowa). Spalarnia osadów: 6–10 lat (projektowanie, uzgodnienia środowiskowe, przetargi, budowa). Przy terminach UWWTD (plany energetyczne do 2033 r.) — tylko HTC mieści się w oknie czasowym.</p>
+<p><strong>Która metoda lepiej radzi sobie z PFAS w osadzie?</strong></p>
+<p>HTC usuwa &gt;96% PFCAs w warunkach standardowych (200°C, 25 bar). Spalanie niszczy &gt;90% PFAS przy &gt;850°C. Obie metody są skuteczne, ale HTC jest 3–4× tańsze i dostępne od zaraz — bez czekania na wolne moce spalarni.</p>
+<p><strong>Czy współspalanie osadu w cementowni jest nadal opłacalne?</strong></p>
+<p>Cementownie zaostrzają wymagania jakościowe (limity PFAS, chloru, metali ciężkich). Koszt suszenia wstępnego: 1 200–1 300 kWh/t. Przy rosnących wymogach UWWTD i niestabilności kontraktów, współspalanie staje się coraz mniej przewidywalne jako jedyna strategia zagospodarowania.</p>
+<hr>
+<h2>Źródła</h2>
+<ul>
+<li><a href="https://eur-lex.europa.eu/eli/dir/2024/3019/oj">Dyrektywa UE 2024/3019 (UWWTD)</a> — EUR-Lex</li>
+<li><a href="https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20150000257">Rozporządzenie MŚ z dn. 6.02.2015 ws. komunalnych osadów ściekowych</a> — ISAP</li>
+<li><a href="https://www.gov.pl/web/nfosigw/fenx-0103">Program FENX.01.03 — gospodarka wodno-ściekowa</a> — NFOŚiGW</li>
+<li><a href="https://stat.gov.pl/obszary-tematyczne/srodowisko-energia/srodowisko/ochrona-srodowiska-2024,1,25.html">GUS — Ochrona Środowiska 2024</a> — dane za 2022 r.</li>
+<li>Soler-Cabezas J.L. et al., &quot;Hydrothermal carbonization of sewage sludge: PFAS fate&quot;, <em>Science of the Total Environment</em>, 2024</li>
+<li>Water Research Foundation, &quot;HALT process for PFAS destruction in biosolids&quot;, 2023</li>
+<li><a href="https://www.schwander.pl/pl/nws/projekt-instalacji-karbonizacji-hydrotermalnej-dla-gminy-soliny">Schwander Polska — projekt HTC Gmina Solina</a></li>
+<li>Dane własne BTC Consulting / AGH Kraków (dane niepublikowane, dostępne na życzenie)</li>
+</ul>
+<p><em>Materiał przygotowany przez Dr inż. Eugeniusza Kropa (BTC Consulting) na podstawie zweryfikowanych danych inżynierskich i referencji projektowych. Konkretne parametry zależą od charakterystyk obiektu i określane są w ramach <a href="/v5/teo.html">analizy TEO</a>.</em></p>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="section section--black" aria-label="Następny krok">
+  <div class="container" style="max-width:900px">
+    <p class="t-label mb-2">Następny krok</p>
+    <p class="t-display reveal" style="color:var(--c-white)">
+      Oblicz ROI<br>
+      <span class="t-accent">dla Twojej oczyszczalni</span>
+    </p>
+    <p class="t-lead reveal" style="max-width:52ch;margin-top:1.75rem;color:var(--c-gray)">
+      Kalkulator ROI BioTC w 60 sekund powie Ci ile zaoszczędzisz.
+      Bezpłatnie, bez rejestracji.
+    </p>
+    <div class="flex gap-sm reveal" style="flex-wrap:wrap;margin-top:2.5rem">
+      <a class="btn btn-primary" href="/v5/kalkulator-roi.html">Oblicz ROI →</a>
+      <a class="btn btn-outline" href="#contact">Bezpłatna ocena →</a>
+    </div>
+  </div>
+</section>
+
+<script src="/v5/translations/pl.js"></script>
+<script src="/v5/i18n.js"></script>
+<script src="/v5/partials/footer.js?v=3"></script>
+<script src="/v5/reveal.js"></script>
+
+</body>
+</html>

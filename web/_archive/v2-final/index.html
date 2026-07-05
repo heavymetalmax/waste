@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Odzysk zasobów z oczyszczalni ścieków | BioTC | BTC Consulting</title>
+  <meta name="description" content="BTC Consulting projektuje regionalne huby inżynieryjne, które przetwarzają toksyczne osady ściekowe na hydrowęgiel. Dotacje UE do 90% CapEx. Technologia TH-AD-HTC.">
+
+  <link rel="stylesheet" href="./design-system.css">
+
+  <link rel="alternate" hreflang="uk-UA" href="https://biotc.com.ua/" />
+  <link rel="alternate" hreflang="en" href="https://biotc.com.ua/eu/" />
+  <link rel="alternate" hreflang="pl-PL" href="https://biotc.com.ua/pl/" />
+  <link rel="alternate" hreflang="x-default" href="https://biotc.com.ua/" />
+
+  <style>
+    /* ── Header: slimmer container ───────────────────────────── */
+    header { padding: 0.6rem 0; }
+    .logo { font-size: 1.5rem; }
+
+    /* ── Hero: full viewport on desktop ─────────────────────── */
+    #hero {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 4px solid var(--color-black);
+    }
+    @media (min-width: 769px) {
+      #hero {
+        min-height: calc(100vh - 96px);
+        display: flex;
+        align-items: center;
+        padding: var(--space-sm) 0;
+      }
+      #hero .container { width: 100%; }
+      #hero h1 { font-size: 4.2rem; line-height: 1.05; margin-bottom: var(--space-xs); }
+      #hero .hero-desc { font-size: 1rem; line-height: 1.4; margin-bottom: var(--space-sm); }
+      #hero .paper-checklist { padding: var(--space-sm); }
+      #hero .paper-checklist .check-item { padding: 0.6rem 0; gap: 0.75rem; }
+    }
+
+    /* ── Hero: animated gradient-bar background, stripes of finite length (2–6 desktop heights) pulled until their trailing edge exits past the viewport ── */
+    #hero { background-color: var(--color-blue); }
+    .hero-bars-bg { position: absolute; inset: 0; z-index: 0; display: flex; }
+    .hero-bars-bg .stripe { flex: 1; height: 100%; overflow: hidden; position: relative; }
+    .hero-bars-bg .stripe-inner {
+      position: absolute; inset: 0;
+      animation-timing-function: linear;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+    .hero-bars-bg .stripe:nth-child(1) .stripe-inner { height: 200%; background: linear-gradient(180deg, #86c2e8 0%, #1c6aa8 11%, #3a9fe0 25%, #06121f 25%, #0a1d33 39%, #08182b 50%, #86c2e8 50%, #1c6aa8 61%, #3a9fe0 75%, #06121f 75%, #0a1d33 89%, #08182b 100%); animation-name: stripeAnim1; animation-duration: 9s; }
+    .hero-bars-bg .stripe:nth-child(2) .stripe-inner { height: 300%; background: linear-gradient(180deg, #f2f6f9 0%, #bcd9ee 12%, #dce8f0 25%, #3a9fe0 25%, #1c6aa8 38%, #3a9fe0 50%, #f2f6f9 50%, #bcd9ee 62%, #dce8f0 75%, #3a9fe0 75%, #1c6aa8 88%, #3a9fe0 100%); animation-name: stripeAnim2; animation-duration: 13.5s; }
+    .hero-bars-bg .stripe:nth-child(3) .stripe-inner { height: 400%; background: linear-gradient(180deg, #020810 0%, #0f3a5f 13%, #08182b 25%, #86c2e8 25%, #dce8f0 37%, #86c2e8 50%, #020810 50%, #0f3a5f 63%, #08182b 75%, #86c2e8 75%, #dce8f0 87%, #86c2e8 100%); animation-name: stripeAnim3; animation-duration: 18s; }
+    .hero-bars-bg .stripe:nth-child(4) .stripe-inner { height: 500%; background: linear-gradient(180deg, #86c2e8 0%, #3a9fe0 12%, #1c6aa8 25%, #020810 25%, #0a1d33 38.5%, #020810 50%, #86c2e8 50%, #3a9fe0 62%, #1c6aa8 75%, #020810 75%, #0a1d33 88.5%, #020810 100%); animation-name: stripeAnim4; animation-duration: 22.5s; }
+    .hero-bars-bg .stripe:nth-child(5) .stripe-inner { height: 600%; background: linear-gradient(180deg, #020810 0%, #08182b 12.5%, #0f3a5f 25%, #3a9fe0 25%, #bcd9ee 37.5%, #3a9fe0 50%, #020810 50%, #08182b 62.5%, #0f3a5f 75%, #3a9fe0 75%, #bcd9ee 87.5%, #3a9fe0 100%); animation-name: stripeAnim5; animation-duration: 27s; }
+
+    /* each stripe travels in one consistent direction only, ending at translateY(±100%) — exactly its own full height, so the entire strip has scrolled past the edge and out of the viewport, no fade/visibility trick needed */
+    @keyframes stripeAnim1 {
+      0% { transform: translateY(0%); }
+      100% { transform: translateY(-100%); }
+    }
+    @keyframes stripeAnim2 {
+      0% { transform: translateY(0%); }
+      100% { transform: translateY(100%); }
+    }
+    @keyframes stripeAnim3 {
+      0% { transform: translateY(0%); }
+      100% { transform: translateY(-100%); }
+    }
+    @keyframes stripeAnim4 {
+      0% { transform: translateY(0%); }
+      100% { transform: translateY(100%); }
+    }
+    @keyframes stripeAnim5 {
+      0% { transform: translateY(0%); }
+      100% { transform: translateY(-100%); }
+    }
+
+    #hero > .container { position: relative; z-index: 1; }
+    #hero h1, #hero .hero-desc { color: var(--color-white); text-shadow: 0 2px 16px rgba(0,0,0,0.5); }
+    #hero .btn-outline { border-color: var(--color-white); color: var(--color-white); }
+    #hero .btn-outline:hover { background-color: var(--color-white); color: var(--color-blue); }
+
+    /* ── Wójt Bridge ─────────────────────────────────────────── */
+    .woit-bridge-section { padding: var(--space-md) 0; border-bottom: 4px solid var(--color-black); }
+    .woit-bridge-card {
+      display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+    }
+    .woit-bridge-card .badge-tag {
+      flex-shrink: 0; white-space: nowrap;
+      background: var(--color-black); color: var(--color-white);
+      padding: 0.5rem 1rem; font-weight: 800; font-size: 0.8rem;
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .woit-bridge-text { flex: 1; margin: 0; font-size: 1rem; }
+    .woit-bridge-card a { flex-shrink: 0; white-space: nowrap; font-weight: 800; color: var(--color-blue); text-transform: uppercase; }
+    @media (max-width: 640px) {
+      .woit-bridge-card { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ── FAQ ─────────────────────────────────────────── */
+    .faq-item { padding: 0 0 1.25rem; border: none; border-bottom: 2px solid var(--color-black); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item summary {
+      cursor: pointer; font-weight: 800; font-size: 1.1rem;
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+      list-style: none;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+'; font-size: 2.2rem; font-weight: 700; color: var(--color-black); flex-shrink: 0;
+    }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item p { margin-top: 1rem; font-weight: 500; }
+    .faq-item p a { color: var(--color-blue); text-decoration: underline; }
+
+    #contact .contact-info-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+    #contact .info-item { display: flex; align-items: center; gap: 0.75rem; font-weight: 700; }
+    #contact .info-item svg { flex-shrink: 0; width: 20px; height: 20px; }
+
+    .grant-num {
+      font-size: 3.5rem; font-weight: 900; color: var(--color-blue); line-height: 1; margin-bottom: var(--space-sm);
+    }
+  </style>
+</head>
+<body>
+
+  <script src="partials/header.js"></script>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-bars-bg" aria-hidden="true">
+        <div class="stripe"><div class="stripe-inner"></div></div>
+        <div class="stripe"><div class="stripe-inner"></div></div>
+        <div class="stripe"><div class="stripe-inner"></div></div>
+        <div class="stripe"><div class="stripe-inner"></div></div>
+        <div class="stripe"><div class="stripe-inner"></div></div>
+      </div>
+      <div class="container">
+        <div class="grid-2" style="align-items: center;">
+          <div>
+            <span class="rubric">Inwestycje infrastrukturalne</span>
+            <h1>Rozwiąż problem osadu na zawsze. Bez szokowego obciążenia dla budżetu gminy.</h1>
+            <p class="hero-desc">Polska technologia HTC dla oczyszczalni ścieków „pod klucz”. Przekształcamy odpady w energię i zmniejszamy ich objętość 4-krotnie. Pozyskujemy do 70-85% europejskiego dofinansowania grantowego na budowę.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-md);">
+              <a href="#contact" class="btn btn-primary">Zacznij bezpłatnie</a>
+              <a href="#process" class="btn btn-outline">Jak pracujemy</a>
+            </div>
+          </div>
+
+          <div class="paper-checklist-wrapper">
+            <div class="paper-checklist">
+              <div class="paper-header">
+                <span class="paper-title">CHECKLIST // START PROJEKTU</span>
+              </div>
+
+              <div class="check-item">
+                <div class="check-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="square"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div class="check-content">
+                  <span class="check-val">Do 85% grantu na CapEx</span>
+                  <span class="check-desc">Optymalizacja TEO pod wymogi FENX.01.03</span>
+                </div>
+              </div>
+
+              <div class="check-item">
+                <div class="check-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="square"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div class="check-content">
+                  <span class="check-val">Rozwiązanie dla miast 15-50 tys.</span>
+                  <span class="check-desc">W przeciwieństwie do dostawców, pracujemy z małymi gminami</span>
+                </div>
+              </div>
+
+              <div class="check-item">
+                <div class="check-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="square"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div class="check-content">
+                  <span class="check-val">Technologia TH-AD-HTC</span>
+                  <span class="check-desc">Specjalnie opracowana dla polskich osadów ściekowych</span>
+                </div>
+              </div>
+
+              <div class="check-item">
+                <div class="check-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="square"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div class="check-content">
+                  <span class="check-val">Redukcja objętości 5-krotna</span>
+                  <span class="check-desc">Radykalne zmniejszenie kosztów logistyki i utylizacji</span>
+                </div>
+              </div>
+
+              <div class="check-item">
+                <div class="check-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="square"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div class="check-content">
+                  <span class="check-val">Neutralizacja mikroplastiku</span>
+                  <span class="check-desc">Cząstki &lt; 0.01 mm (pełna zgodność z nową dyrektywą UE)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WÓJT BRIDGE -->
+    <section id="woit-bridge" class="woit-bridge-section">
+      <div class="container">
+        <div class="woit-bridge-card">
+          <span class="badge-tag">Dla Wójta / Burmistrza</span>
+          <p class="woit-bridge-text"><strong>Gmina Lubin rozwiązała problem osadu za 15% własnych środków.</strong> UE zapłaciło resztę (FENX.01.03). Decyzja rady: 2 głosowania.</p>
+          <a href="case-lubin.html">Czytaj, jak to zrobili →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section id="problem">
+      <div class="container">
+        <span class="rubric">Problem</span>
+        <h2>Dlaczego tradycyjna utylizacja osadu już nie działa?</h2>
+
+        <div class="grid-3">
+          <div class="col-card">
+            <h3>Suszenie osadu pożera budżet</h3>
+            <p>94% oczyszczalni w Polsce nie posiada komór fermentacyjnych. Susząc osad przy użyciu zakupionej energii — gazu lub prądu — zużywają 1200–1300 Wh na każdy kilogram. Miasta do 100 000 mieszkańców pokrywają te koszty bezpośrednio z budżetu.</p>
+          </div>
+          <div class="col-card">
+            <h3>Nie ma gdzie wieźć</h3>
+            <p>W Polsce działa tylko 11 spalarni osadów ściekowych. Kolejki, uzależnienie od jednego odbiorcy, ryzyko przestoju — to nie jest hipotetyczny scenariusz. To codzienność dziesiątek gmin.</p>
+          </div>
+          <div class="col-card">
+            <h3>Dyrektywa UE zamyka stare rozwiązania</h3>
+            <p>PFAS, mikroplastik i metale ciężkie w tradycyjnym osadzie czynią jego stosowanie w rolnictwie nielegalnym. Nowa UWWTD przyjęta w grudniu 2024. Pierwsze terminy dla dużych oczyszczalni przypadają na 2033 rok. Kto się nie przygotuje, zapłaci kary.</p>
+          </div>
+        </div>
+
+        <p style="margin-top: var(--space-md);"><a href="technology.html" class="btn btn-outline">Jak to rozwiązuje technologia →</a></p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <span class="rubric" style="background-color: var(--color-blue);">Pytania i odpowiedzi</span>
+        <h2 style="color: var(--color-blue); border-color: var(--color-blue);">Co powstrzymuje gminy przed wdrożeniem HTC?</h2>
+
+        <div style="display:flex; flex-direction:column; gap:1rem; margin-top: var(--space-md);">
+
+          <details class="faq-item col-card">
+            <summary>Mamy tylko 8 000 RLM — czy to za mało dla HTC?</summary>
+            <p>Nie. W modelu <strong>Hub &amp; Spoke</strong> 3–5 sąsiadujących gmin łączy siły i wspólnie korzysta z jednego huba. Każda dostarcza odwodniony osad, a koszty instalacji i eksploatacji są dzielone proporcjonalnie. Czynsz za przyjęcie osadu (PLN 200–225/t) jest niższy niż obecny koszt utylizacji u większości małych gmin. BTC identyfikuje sąsiadów i organizuje konsorcjum — nie musisz robić tego samodzielnie.</p>
+          </details>
+
+          <details class="faq-item col-card">
+            <summary>Projekt kosztuje miliony — nie mamy na to budżetu.</summary>
+            <p>FENX.01.03 pokrywa do <strong>70% CapEx</strong> (łącznie z NFOŚiGW — do 90%). Gmina płaci 15–30% wkładu własnego. Dla projektu wartego EUR 5M oznacza to wkład EUR 750K–1,5M — często mniej niż roczne koszty utylizacji. NFOŚiGW oferuje dodatkowo pożyczkę na 100% z umorzeniem 30–50%. Okno aplikacyjne zamyka się 31.12.2029 — teraz jest czas na złożenie wniosku.</p>
+          </details>
+
+          <details class="faq-item col-card">
+            <summary>Mamy czas do 2030 — po co decydować teraz?</summary>
+            <p>Projekt infrastrukturalny trwa <strong>minimum 3–4 lata</strong> od pierwszego kontaktu do rozruchu: ocena obiektu → studium wykonalności → wniosek grantowy → przetarg → budowa → odbiór. Szczyt okna aplikacyjnego FENX.01.03 przypada na lata <strong>2025–2027</strong>. Kto złoży wniosek teraz, ma realną szansę na finansowanie. Kto poczeka do 2028, zostaje z pełnymi kosztami.</p>
+          </details>
+
+          <details class="faq-item col-card">
+            <summary>Mamy już komorę fermentacyjną (AD) — po co nam HTC?</summary>
+            <p>HTC i AD to <strong>technologie komplementarne</strong>. Wariant <strong>TH-Booster</strong> integruje się z istniejącą komorą i zwiększa produkcję biogazu o 25–30% bez wymiany reaktora. Przetworzona ciecz po HTC wraca do fermentacji i dostarcza dodatkowy substrat organiczny. Instalacja TH-Booster kosztuje PLN 5–9M — wielokrotnie mniej niż budowa nowej AD.</p>
+          </details>
+
+          <details class="faq-item col-card">
+            <summary>Czy HTC jest legalną metodą przetwarzania osadu w Polsce?</summary>
+            <p>Tak. <strong>Rozporządzenie Ministra Środowiska z 2015 r.</strong> (zmienione w 2021) klasyfikuje HTC jako Metodę 1 stabilizacji osadów — najwyższa kategoria. Hydrowęgiel po procesie posiada status <strong>End-of-Waste</strong> i może być bezpłatnie przekazywany gminom lub sprzedawany firmom budowlanym jako paliwo alternatywne. Pełna dokumentacja prawna dostępna w <a href="whitepaper.html">Whitepaper →</a></p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" style="position: relative; overflow: hidden;">
+      <div class="process-bg-anim"></div>
+      <div class="scanner-line"></div>
+      <div class="container">
+        <span class="rubric">Jak pracujemy</span>
+        <h2>Od pierwszego kontaktu do zrealizowanego projektu</h2>
+
+        <div class="grid-3">
+          <div class="col-card process-card">
+            <span class="number">01</span>
+            <h3>Opisz obiekt</h3>
+            <p>Powiedz nam o swojej oczyszczalni: typ, wielkość w RLM, aktualny sposób zagospodarowania osadów. Przez formularz, chatbota AI lub telefon. Zajmuje 5 minut, bez zobowiązań.</p>
+          </div>
+          <div class="col-card process-card">
+            <span class="number">02</span>
+            <h3>Bezpłatna ocena inżynierska</h3>
+            <p>Nasi inżynierowie analizują dane i podczas 30-minutowej rozmowy podają konkretne liczby: jaki scenariusz pasuje, jaka oczekiwana oszczędność i jakie dofinansowanie UE jest dostępne dla Twojego obiektu.</p>
+          </div>
+          <div class="col-card process-card">
+            <span class="number">03</span>
+            <h3>Studium wykonalności i pakiet grantowy</h3>
+            <p>Opracowujemy pełne studium techniczno-ekonomiczne z bilansami masy i energii, planami zagospodarowania i kompletną dokumentacją do uzyskania grantu UE do 90% CapEx.</p>
+          </div>
+        </div>
+
+        <p style="margin-top: var(--space-lg); text-align:center;"><a href="#contact" class="btn btn-primary">Zacznij bezpłatnie</a></p>
+      </div>
+    </section>
+
+    <!-- SOLUTION -->
+    <section id="solution">
+      <div class="container">
+        <span class="rubric">Rozwiązanie</span>
+        <h2>Znajdujemy rozwiązanie, w którym każdy wygrywa — bez względu na skalę.</h2>
+        <p style="max-width:900px; font-size:1.1rem;">Optymalność zależy od wolumenu odpadów. Duże przedsiębiorstwo wodociągowe lub przemysłowe otrzymuje własną stację specjalistyczną z pełną autonomią bez uzależnienia od zewnętrznych operatorów. Małe gminy i przedsiębiorstwa łączą siły w regionalnym klastrze Hub &amp; Spoke, gdzie kilku uczestników dzieli jedną infrastrukturę i razem osiąga komercyjnie atrakcyjną skalę.</p>
+
+        <div class="grid-2" style="margin-top: var(--space-lg);">
+          <div class="col-card">
+            <span class="rubric" style="background-color: var(--color-blue);">Scenariusz A</span>
+            <h3>Stacja specjalistyczna</h3>
+            <p><em>Dla dużych przedsiębiorstw wodociągowych i przemysłowych ze stabilnie wysokimi wolumenami osadu</em></p>
+            <p>Indywidualny kompleks BioTC integruje się bezpośrednio ze schematem technologicznym oczyszczalni i zapewnia pełną utylizację odpadów w miejscu ich powstawania.</p>
+            <ul style="font-weight:600; padding-left: 1.2rem;">
+              <li>Pełna utylizacja odpadów w miejscu powstawania</li>
+              <li>Zerowe uzależnienie od zewnętrznych operatorów</li>
+              <li>Eliminacja kosztów transportu osadu</li>
+              <li>Gwarantowane spełnienie ekologicznych KPI</li>
+            </ul>
+            <p style="margin-top:1rem; font-size:0.85rem; text-transform:uppercase; font-weight:800;">Duże wodociągi · Przemysł spożywczy · Chemiczny · Celulozowo-papierniczy</p>
+          </div>
+
+          <div class="col-card">
+            <span class="rubric">Scenariusz B</span>
+            <h3>Regionalny klaster Hub &amp; Spoke</h3>
+            <p><em>Dla małych miast, gmin i przedsiębiorstw, gdzie budowa osobnej instalacji HTC jest ekonomicznie nieoptymalna</em></p>
+            <p>Kilku sąsiadujących uczestników łączy siły. Centralny Hub (stacja przetwarzania z reaktorem BioTC) obsługuje oczyszczalnie-satelity, które odwadniają osad lokalnie i dostarczają go do centrum przetwarzania.</p>
+            <ul style="font-weight:600; padding-left: 1.2rem;">
+              <li>Podział obciążenia finansowego między uczestnikami</li>
+              <li>Komercyjnie atrakcyjne wolumeny hydrowęgla i biogazu</li>
+              <li>Jedna certyfikacja środowiskowa zamiast kilkudziesięciu</li>
+              <li>Dostęp do dotacji UE do 90% CAPEX</li>
+            </ul>
+            <p style="margin-top:1rem; font-size:0.85rem; text-transform:uppercase; font-weight:800;">Małe gminy · Małe wodociągi · Agroprzedsiębiorstwa · Lokalny biznes</p>
+          </div>
+        </div>
+
+        <div class="table-wrapper" style="margin-top: var(--space-lg);">
+          <table>
+            <thead>
+              <tr>
+                <th>Parametr</th>
+                <th>Specjalistyczna</th>
+                <th class="btc-col">Klaster Hub &amp; Spoke</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Minimalny roczny strumień osadów</td><td>Od ~50 000 m³/rok</td><td class="btc-col">Od ~10 000 m³/rok</td></tr>
+              <tr><td>Zależność od zewnętrznych operatorów</td><td>Zerowe</td><td class="btc-col">Minimalne</td></tr>
+              <tr><td>Dostęp do dotacji UE</td><td>Do 75%</td><td class="btc-col">Do 90%</td></tr>
+              <tr><td>Zwrot z inwestycji</td><td>3–4 lata</td><td class="btc-col">3–3,5 roku</td></tr>
+              <tr><td>Skalowalność</td><td>Stała</td><td class="btc-col">Modułowa</td></tr>
+              <tr><td>Certyfikacja środowiskowa</td><td>Własna</td><td class="btc-col">Jedna na klaster</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-card" style="margin-top: var(--space-lg); background-color: var(--color-gray-light);">
+          <h3>Nie wiesz, który scenariusz pasuje?</h3>
+          <p>Bezpłatna ocena inżynieryjna określi optymalną architekturę dla Twojego wolumenu osadu i budżetu — bez zobowiązań.</p>
+          <p><a href="#contact" style="font-weight:800; color: var(--color-blue); text-transform:uppercase;">Uzyskaj ocenę →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALCULATOR CTA -->
+    <section id="calculator">
+      <div class="container">
+        <span class="rubric">Kalkulator</span>
+        <h2>Prześlij raport swojej oczyszczalni. Uzyskaj wstępne wyliczenia w 60 sekund.</h2>
+        <p style="max-width:900px; font-size:1.1rem;">AI odczyta parametry z Twojego dokumentu laboratoryjnego i obliczy potencjał obiektu: wydajność hydrowęgla, bilans energetyczny, klasę hubu.</p>
+
+        <div class="grid-2" style="margin-top: var(--space-lg);">
+          <div class="col-card">
+            <h3>Od razu, bez rejestracji</h3>
+            <ul style="font-weight:600; padding-left: 1.2rem;">
+              <li>Wydajność hydrowęgla (t/dobę)</li>
+              <li>Redukcja objętości odpadów (%)</li>
+              <li>Klasa obiektu: mały / średni / hub</li>
+            </ul>
+          </div>
+          <div class="col-card">
+            <h3>Po kontakcie</h3>
+            <ul style="font-weight:600; padding-left: 1.2rem;">
+              <li>Pełny bilans energetyczny i biogaz</li>
+              <li>Orientacyjny zwrot z inwestycji (lata)</li>
+              <li>Zgodność z kryteriami dotacji UE</li>
+              <li>Zalecana konfiguracja hubu</li>
+            </ul>
+          </div>
+        </div>
+
+        <p style="margin-top: var(--space-lg); text-align:center;">
+          <a href="kalkulator-roi.html" class="btn btn-outline">Przejdź do kalkulatora →</a><br>
+          <span style="display:inline-block; margin-top:1rem; font-size:0.85rem; font-weight:600;">PDF, Excel lub skan raportu laboratoryjnego — AI odczyta wszystko</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- TRUST -->
+    <section id="trust">
+      <div class="container">
+        <span class="rubric">Dowody</span>
+        <h2>Czy ktoś już wdrożył tę technologię w Polsce?</h2>
+
+        <div class="grid-3">
+          <div class="col-card">
+            <h3>MPWiK LUBIN</h3>
+            <p><strong>Pierwsza umowa komercyjna (X.2025)</strong></p>
+            <p>Przedsiębiorstwo komunalne MPWiK Lubin oficjalnie wykupiło prawa autorskie do koncepcji TH-AD-HTC od BTC Consulting w celu modernizacji oczyszczalni ścieków — pełnoprawna umowa komercyjna z samorządem.</p>
+          </div>
+          <div class="col-card">
+            <h3>AGH KRAKÓW</h3>
+            <p><strong>Weryfikacja akademicka</strong></p>
+            <p>Badania prowadzone są wspólnie z Katedrą Energetyki Cieplnej AGH Kraków. Dr hab. inż. Małgorzata Wilk wchodzi do TOP 2% naukowców świata według Stanford University. Fizyka procesu potwierdzona przez bazę WikiChar.</p>
+          </div>
+          <div class="col-card">
+            <h3>INTROL GROUP</h3>
+            <p><strong>Publiczny generalny wykonawca</strong></p>
+            <p>Wszystkie prace montażowe i rozruch wykonuje INTROL Group S.A. — holding notowany na Giełdzie Papierów Wartościowych w Warszawie. Publiczna odpowiedzialność korporacyjna.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team">
+      <div class="container">
+        <span class="rubric">Zespół</span>
+        <h2>Ludzie, którzy ponoszą osobistą odpowiedzialność za każdy projekt.</h2>
+
+        <div class="grid-4">
+          <div class="col-card">
+            <img src="../img/team/krop-e.jpg" alt="Dr inż. Eugeniusz Krop">
+            <div>
+              <h3>Dr inż. Eugeniusz Krop</h3>
+              <p style="font-weight:800; text-transform:uppercase; font-size:0.85rem; color: var(--color-blue);">Dyrektor techniczny</p>
+              <p>28 dużych wdrożeń przemysłowych. Wśród klientów — ORLEN.</p>
+            </div>
+          </div>
+          <div class="col-card">
+            <img src="../img/team/wilk-m.jpg" alt="Dr hab. inż. Małgorzata Wilk">
+            <div>
+              <h3>Dr hab. inż. M. Wilk</h3>
+              <p style="font-weight:800; text-transform:uppercase; font-size:0.85rem; color: var(--color-blue);">Badania i weryfikacja naukowa</p>
+              <p>Kierownik katedry AGH Kraków. TOP 2% naukowców świata (Stanford, 2024).</p>
+            </div>
+          </div>
+          <div class="col-card">
+            <img src="../img/team/krop-a.jpg" alt="Andrzej Krop">
+            <div>
+              <h3>Andrzej Krop</h3>
+              <p style="font-weight:800; text-transform:uppercase; font-size:0.85rem; color: var(--color-blue);">Zarządzanie projektami</p>
+              <p>Były CEO europejskiego oddziału japońskiej korporacji. Gwarant terminów i budżetu.</p>
+            </div>
+          </div>
+          <div class="col-card">
+            <img src="../img/team/koval-m.jpg" alt="Max Koval">
+            <div>
+              <h3>Max Koval</h3>
+              <p style="font-weight:800; text-transform:uppercase; font-size:0.85rem; color: var(--color-blue);">Marketing międzynarodowy</p>
+              <p>Strategia B2B i pozycjonowanie BioTC w circular economy na rynkach UE.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRANTS -->
+    <section id="grants">
+      <div class="container">
+        <span class="rubric">Finansowanie</span>
+        <h2>Skąd wziąć finansowanie na projekt HTC?</h2>
+        <p style="max-width:900px; font-size:1.1rem;">Obawa przed dużymi nakładami kapitałowymi to główny powód, dla którego gminy odkładają decyzje. Eliminujemy ten strach konkretnymi instrumentami.</p>
+
+        <div class="grid-3" style="margin-top: var(--space-lg);">
+          <div class="col-card grant-card grant-main">
+            <div class="grant-num" style="color: var(--color-white);">1</div>
+            <h3>Program EU LIFE</h3>
+            <p>Celowy program grantowy UE dla ekologicznych projektów infrastrukturalnych. Pokrywa do 90% CAPEX na obiekty pilotażowe. Znamy kryteria wyboru i projektujemy huby tak, aby je spełniały.</p>
+          </div>
+          <div class="col-card grant-card">
+            <div class="grant-num">2</div>
+            <h3>Lobbing akademicki przez AGH</h3>
+            <p>Partnerstwo z uczelnią stanowi oficjalny kanał składania wniosków o granty badawcze i infrastrukturalne UE, niedostępne bezpośrednio dla podmiotów komercyjnych.</p>
+          </div>
+          <div class="col-card grant-card">
+            <div class="grant-num">3</div>
+            <h3>Dokumentacja grantowa pod klucz</h3>
+            <p>Opracowanie kompletnego pakietu dokumentacji grantowej wchodzi w koszt projektu inżynieryjnego. Nie musisz szukać prawników i konsultantów osobno.</p>
+          </div>
+        </div>
+
+        <p style="margin-top: var(--space-lg);"><a href="#contact" class="btn btn-outline">Sprawdź zgodność swojego obiektu z kryteriami →</a></p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <script src="partials/contact.js"></script>
+
+  </main>
+
+  <script src="partials/footer.js"></script>
+
+  <script src="../app.min.js?v=5"></script>
+
+</body>
+</html>

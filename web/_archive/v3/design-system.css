@@ -1,0 +1,807 @@
+/* ==========================================================================
+   BTC Consulting — v3 Design System
+   Editorial Industrial (STRUKTUR-based). Mobile-first. Cream base.
+   DO NOT copy v2 patterns here — see §4 "Deprecated from v2" in V3_AGENT_BRIEF.md
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+/* =========================================================================
+   1. DESIGN TOKENS
+   ========================================================================= */
+
+:root {
+  /* ── Colors ─────────────────────────────────────────────────────────── */
+  --color-cream:   #f0ede8;  /* primary page background */
+  --color-black:   #111111;  /* text, borders, section-black */
+  --color-white:   #ffffff;  /* text on dark; card bg inside dark sections */
+  --color-blue:    #0033a0;  /* CTA buttons, section-blue background */
+  --color-accent:  #00AAFF;  /* KPI numbers, tag chip border on dark, hover — sparingly */
+  --color-muted:   #6b6560;  /* secondary text, labels, metadata on cream */
+  --color-border:  #1a1a1a;  /* card outlines, thin accent lines (1px solid) */
+
+  /* ── Typography ─────────────────────────────────────────────────────── */
+  --font-display: 'Bebas Neue', 'Anton', Impact, sans-serif;
+  --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+
+  /* ── Spacing (rem base) ──────────────────────────────────────────────── */
+  --space-xs:      0.5rem;
+  --space-sm:      1rem;
+  --space-md:      2rem;
+  --space-lg:      4rem;
+  --space-section: clamp(5rem, 10vw, 8rem);
+
+  /* ── Effects ──────────────────────────────────────────────────────────── */
+  --overlay-hero:  linear-gradient(rgba(10,10,10,0.7), rgba(0,51,160,0.4));
+  --border-thin:   1px solid var(--color-border);
+  --border-accent: 2px solid var(--color-border);
+  --transition:    0.2s ease;
+  --reveal-dist:   20px;
+}
+
+/* =========================================================================
+   2. BASE & RESET
+   ========================================================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.7;
+  background: var(--color-cream);
+  color: var(--color-black);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+img, picture {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================================================
+   3. ACCESSIBILITY
+   ========================================================================= */
+
+:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 3px;
+}
+
+.section-black :focus-visible,
+.section-blue  :focus-visible {
+  outline-color: var(--color-white);
+}
+
+/* =========================================================================
+   4. TYPOGRAPHY SCALE
+   ========================================================================= */
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h4 {
+  font-family: var(--font-primary);
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: 700;
+}
+
+p {
+  max-width: 68ch;
+}
+
+/* =========================================================================
+   5. LAYOUT UTILITIES
+   ========================================================================= */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .container { padding-inline: var(--space-lg); }
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 600px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Editorial asymmetric splits */
+.split-40-60 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .split-40-60 { grid-template-columns: 40fr 60fr; }
+}
+
+.split-60-40 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .split-60-40 { grid-template-columns: 60fr 40fr; }
+}
+
+/* =========================================================================
+   6. SECTION BACKGROUND CLASSES
+   ========================================================================= */
+
+.section-cream {
+  background: var(--color-cream);
+  color: var(--color-black);
+}
+
+.section-white {
+  background: var(--color-white);
+  color: var(--color-black);
+}
+
+.section-black {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.section-blue {
+  background: var(--color-blue);
+  color: var(--color-white);
+}
+
+/* Base section padding (mobile-first) */
+section {
+  padding-block: var(--space-section);
+}
+
+/* =========================================================================
+   7. BLOCK BASE STRUCTURE
+   ========================================================================= */
+
+/* Every page = ordered <section class="block-{name} section-{color}"> blocks */
+/* Each block is self-contained; wrapped in <!-- BLOCK: name --> comments    */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(var(--reveal-dist));
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* =========================================================================
+   8. TAG CHIPS (inline above H1)
+   ========================================================================= */
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  padding: 2px 8px;
+}
+
+.section-black .tag,
+.section-blue .tag {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* =========================================================================
+   9. BUTTONS
+   ========================================================================= */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.85em 2em;
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-primary {
+  background: var(--color-blue);
+  color: var(--color-white);
+  border-color: var(--color-blue);
+}
+
+.btn-primary:hover {
+  background: #002080;
+  border-color: #002080;
+}
+
+/* For use on dark/photo hero backgrounds */
+.btn-outline-white {
+  background: transparent;
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+.btn-outline-white:hover {
+  background: var(--color-white);
+  color: var(--color-black);
+}
+
+/* For use on light (cream/white) backgrounds */
+.btn-outline {
+  background: transparent;
+  color: var(--color-black);
+  border-color: var(--color-black);
+}
+
+.btn-outline:hover {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* =========================================================================
+   10. HERO BLOCK
+   ========================================================================= */
+
+/* Pattern A: background-image div (for placeholder-friendly hero) */
+.hero-photo {
+  position: relative;
+  min-height: 100svh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-hero);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: var(--color-white);
+  padding-block: var(--space-section);
+}
+
+.hero-desc {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.6;
+  max-width: 52ch;
+  margin-top: 1.25rem;
+  opacity: 0.9;
+}
+
+/* Pattern B: real photo hero */
+.block-hero--photo {
+  position: relative;
+  overflow: hidden;
+  min-height: 100svh;
+  background: var(--color-black);
+}
+
+/* Real photo — hidden until src is set */
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Placeholder grid pattern until photo is sourced */
+.hero-ph {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.03) 0,
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px,
+      transparent 80px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.03) 0,
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px,
+      transparent 80px
+    ),
+    var(--color-black);
+}
+
+.block-hero--photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-hero);
+  z-index: 1;
+}
+
+.hero-overlay-content {
+  position: relative;
+  z-index: 2;
+  color: var(--color-white);
+  display: flex;
+  align-items: flex-end;
+  min-height: 100svh;
+  padding-block: var(--space-section);
+}
+
+.h1-accent {
+  color: var(--color-accent);
+}
+
+/* =========================================================================
+   11. STATS / KPI BLOCK
+   ========================================================================= */
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.stat-number.accent {
+  color: var(--color-accent);
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+}
+
+/* =========================================================================
+   12. CARDS
+   ========================================================================= */
+
+.card {
+  border: var(--border-thin);
+  padding: var(--space-md);
+  background: transparent;
+}
+
+.section-black .card,
+.section-blue .card {
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* =========================================================================
+   13. FAQ ACCORDION
+   ========================================================================= */
+
+.faq-list {
+  border-top: var(--border-thin);
+}
+
+.faq-item {
+  border-bottom: var(--border-thin);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: left;
+  color: inherit;
+  min-height: 48px;
+}
+
+.faq-icon {
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  padding-bottom: 1.25rem;
+  line-height: 1.7;
+}
+
+.faq-answer[hidden] {
+  display: none;
+}
+
+/* =========================================================================
+   14. CONTACT / FORM BLOCK
+   ========================================================================= */
+
+.block-contact .form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .block-contact .form-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: var(--font-mono);
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+  padding: 0.75rem 1rem;
+  border: var(--border-thin);
+  background: transparent;
+  color: inherit;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 1.5;
+  width: 100%;
+  min-height: 48px;
+  transition: border-color var(--transition);
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-wide {
+  grid-column: 1 / -1;
+}
+
+.form-micro {
+  font-size: 0.8rem;
+  opacity: 0.65;
+  margin-top: 0.5rem;
+}
+
+/* =========================================================================
+   15. DOC LAYOUT (case-lubin, whitepaper, misja)
+   ========================================================================= */
+
+.doc-header {
+  border-bottom: var(--border-accent);
+  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.doc-meta-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.doc-meta-table td {
+  padding: 0.5rem 0;
+  border-bottom: var(--border-thin);
+  vertical-align: top;
+}
+
+.doc-meta-table td:first-child {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  width: 35%;
+  padding-right: 1rem;
+}
+
+.doc-body {
+  max-width: 720px;
+}
+
+.doc-blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: var(--space-md);
+  margin-block: var(--space-md);
+}
+
+.doc-blockquote p {
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.6;
+  max-width: 58ch;
+}
+
+.doc-blockquote cite {
+  display: block;
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  font-style: normal;
+}
+
+/* =========================================================================
+   16. IMAGE PLACEHOLDER (build-time only — replace with real images)
+   ========================================================================= */
+
+.img-placeholder {
+  position: relative;
+  min-height: 300px;
+  background: repeating-linear-gradient(
+    45deg,
+    #1a1a1a 0, #1a1a1a 10px,
+    #222 10px, #222 20px
+  );
+}
+
+.img-placeholder::after {
+  content: "[ " attr(data-slot) " ]";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-family: monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+/* =========================================================================
+   17. RUBRIC / SECTION LABEL (above H2)
+   ========================================================================= */
+
+.rubric {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 1rem;
+  color: var(--color-muted);
+}
+
+.section-black .rubric,
+.section-blue .rubric {
+  color: var(--color-accent);
+}
+
+/* =========================================================================
+   18. TABLE UTILITY (responsive)
+   ========================================================================= */
+
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  border-bottom: var(--border-thin);
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}
+
+/* =========================================================================
+   19. VERTICAL ROTATED MARGIN TEXT (technologia page, desktop only)
+   ========================================================================= */
+
+.rotated-label {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .rotated-label {
+    display: block;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    white-space: nowrap;
+  }
+}
+
+/* =========================================================================
+   20. TEAM CARDS
+   ========================================================================= */
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .team-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.team-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: var(--border-thin);
+  margin-bottom: 0.75rem;
+}
+
+.team-card h4 {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.team-card p {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  max-width: none;
+}
+
+/* =========================================================================
+   21. PRINT
+   ========================================================================= */
+
+@media print {
+  nav, .block-contact, footer { display: none !important; }
+  body { background: white; color: black; }
+  a::after { content: " (" attr(href) ")"; font-size: 0.8em; }
+}

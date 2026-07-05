@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System Guide — PL_V2</title>
+  <link rel="stylesheet" href="./design-system.css">
+  <style>
+    body {
+      background: var(--color-gray-light);
+    }
+
+    .guide-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-lg);
+    }
+
+    .guide-header {
+      background: var(--color-white);
+      padding: var(--space-lg);
+      border: 4px solid var(--color-black);
+      margin-bottom: var(--space-lg);
+    }
+
+    .guide-header h1 { margin: 0 0 var(--space-sm) 0; }
+    .guide-header p { margin: 0; }
+
+    .guide-section {
+      background: var(--color-white);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
+      border: 4px solid var(--color-black);
+      border-left: 8px solid var(--color-blue);
+    }
+
+    .guide-section h2 {
+      margin-top: 0;
+      border: none;
+      padding: 0;
+      font-size: 1.75rem;
+      text-transform: none;
+      font-family: var(--font-primary);
+      font-weight: 800;
+    }
+
+    .component-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+
+    .component {
+      padding: var(--space-md);
+      background: var(--color-gray-light);
+      border: 2px solid var(--color-black);
+    }
+
+    .component-label {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--color-gray-dark);
+      margin-bottom: var(--space-xs);
+      display: block;
+    }
+
+    .color-swatch {
+      display: inline-block;
+      width: 100px;
+      height: 60px;
+      margin-right: var(--space-md);
+      margin-bottom: var(--space-xs);
+      border: 2px solid var(--color-black);
+      vertical-align: middle;
+    }
+
+    .color-info { font-size: 0.85rem; font-weight: 500; }
+
+    code {
+      background: var(--color-gray-light);
+      padding: 0.25rem 0.5rem;
+      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      border: 1px solid var(--color-black);
+    }
+
+    .code-block {
+      background: var(--color-black);
+      color: var(--color-white);
+      border-left: 4px solid var(--color-blue);
+      padding: var(--space-md);
+      overflow-x: auto;
+      margin: var(--space-md) 0;
+    }
+
+    .code-block code { background: transparent; padding: 0; border: none; color: var(--color-white); }
+
+    @media (max-width: 768px) {
+      .component-row { grid-template-columns: 1fr; }
+    }
+
+    /* ── Page-local extension classes demoed below (defined per-page,
+       see technology.html — not part of the global design-system.css) ── */
+    .tech-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm); }
+    .tech-stat { display: flex; flex-direction: column; gap: 0.2rem; }
+    .tech-stat-val { font-size: 2.2rem; font-weight: 900; color: var(--color-blue); line-height: 1; }
+    .tech-stat-label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--color-gray-dark); }
+    .hydrochar-spec-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+    .hydrochar-spec-list li { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--color-gray-light); font-weight: 600; }
+    .hydrochar-spec-list li:last-child { border-bottom: none; padding-bottom: 0; }
+    .spec-key { color: var(--color-gray-dark); }
+    .spec-val { font-weight: 800; }
+    .spec-val--accent { color: var(--color-blue); }
+    .spec-val--amber { color: var(--color-amber); }
+  </style>
+</head>
+<body>
+
+  <div class="guide-wrapper">
+
+    <div class="guide-header">
+      <h1>PL_V2 Design System</h1>
+      <p>Канонічна дизайн-бібліотека для всіх сторінок pl_v2 — брутал-індастріал, самодостатня, незалежна від Ua/. <a href="./DESIGN_SYSTEM.md" style="color: var(--color-blue); font-weight: 700;">Повна документація →</a></p>
+    </div>
+
+    <!-- Colors -->
+    <div class="guide-section">
+      <h2>Color Palette</h2>
+
+      <div class="component-row">
+        <div class="component">
+          <span class="component-label">Blue — бренд / CTA</span>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div class="color-swatch" style="background: var(--color-blue);"></div>
+            <div class="color-info"><code>#0033a0</code><br>Headings, buttons, primary accent</div>
+          </div>
+        </div>
+        <div class="component">
+          <span class="component-label">Amber — сигнальний акцент</span>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div class="color-swatch" style="background: var(--color-amber);"></div>
+            <div class="color-info"><code>#E85D2C</code><br>ТІЛЬКИ для ключових цифр-результатів (економія, ROI%, % гранту). Не для декору.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="component-row">
+        <div class="component">
+          <span class="component-label">Gray Light</span>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div class="color-swatch" style="background: var(--color-gray-light); border: 2px solid var(--color-black);"></div>
+            <div class="color-info"><code>#f3f4f6</code><br>Backgrounds, borders</div>
+          </div>
+        </div>
+        <div class="component">
+          <span class="component-label">Gray Dark</span>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div class="color-swatch" style="background: var(--color-gray-dark);"></div>
+            <div class="color-info"><code>#374151</code><br>Secondary text, labels</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Typography -->
+    <div class="guide-section">
+      <h2>Typography — 3 ролі</h2>
+      <p style="max-width: 700px;">
+        <strong>Display</strong> (Big Shoulders Display) — H1/H2, великі цифри-результати.
+        <strong>Body</strong> (Inter) — основний текст.
+        <strong>Mono</strong> (JetBrains Mono) — rubric, badge, лейбли, технічні дані ("показники приладу").
+      </p>
+
+      <div class="component-row" style="margin-top: var(--space-md);">
+        <div class="component">
+          <span class="component-label">&lt;h1&gt; — var(--font-display)</span>
+          <h1 style="margin: 0; font-size: 2.5rem;">Hero Heading</h1>
+          <code>clamp(2.5rem, 5vw, 4.5rem), weight 800</code>
+        </div>
+        <div class="component">
+          <span class="component-label">&lt;h2&gt; — var(--font-display)</span>
+          <h2 style="margin: 0; font-size: 1.75rem; border: none; padding: 0;">Section Heading</h2>
+          <code>clamp(2.5rem, 5vw, 4rem), weight 800, uppercase</code>
+        </div>
+      </div>
+
+      <div class="component-row">
+        <div class="component">
+          <span class="component-label">&lt;h3&gt; — var(--font-primary)</span>
+          <h3 style="margin: 0;">Subsection</h3>
+          <code>1.5rem, weight 800</code>
+        </div>
+        <div class="component">
+          <span class="component-label">&lt;p&gt; — var(--font-primary)</span>
+          <p style="margin: 0;">Body paragraph text. Inter 500 weight, 1rem size, 1.5 line-height.</p>
+          <code>1rem, weight 500, 1.5 line-height</code>
+        </div>
+      </div>
+
+      <div class="component-row">
+        <div class="component">
+          <span class="component-label">.rubric — var(--font-mono)</span>
+          <span class="rubric">Sekcja</span>
+          <code>0.85rem, weight 700, uppercase, mono</code>
+        </div>
+        <div class="component">
+          <span class="component-label">.number — var(--font-display)</span>
+          <span class="number" style="font-size: 3rem;">94%</span>
+          <code>display face, weight 800</code>
+        </div>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="guide-section">
+      <h2>Buttons</h2>
+
+      <div class="component-row">
+        <div class="component">
+          <span class="component-label">Primary</span>
+          <a href="#" class="btn btn-primary">Click Me</a>
+          <div class="code-block"><code>.btn .btn-primary</code></div>
+        </div>
+        <div class="component">
+          <span class="component-label">Outline</span>
+          <button class="btn btn-outline">Click Me</button>
+          <div class="code-block"><code>.btn .btn-outline</code></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="guide-section">
+      <h2>Cards</h2>
+
+      <div class="component-row">
+        <div class="col-card">
+          <h3 style="margin-top: 0;">Col Card</h3>
+          <p>4px чорний бордер, без округлень і тіней.</p>
+          <span class="component-label">.col-card</span>
+        </div>
+        <div class="col-card" style="background: var(--color-black); color: var(--color-white); border-color: var(--color-gray-dark);">
+          <h3 style="margin-top: 0; color: var(--color-white);">Process Card</h3>
+          <p>Темний варіант для секцій #process / .section-black.</p>
+          <span class="component-label">.process-card .col-card</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section modifiers -->
+    <div class="guide-section">
+      <h2>Section Color Modifiers</h2>
+      <p>Портативні класи для фарбування секцій на будь-якій сторінці (замість прив'язки до ID домашньої).</p>
+      <div class="component-row">
+        <div class="section-blue" style="padding: var(--space-md);"><span class="rubric">.section-blue</span></div>
+        <div class="section-black" style="padding: var(--space-md);"><span class="rubric">.section-black</span></div>
+      </div>
+      <div class="component-row">
+        <div class="section-gray" style="padding: var(--space-md); border: 2px solid var(--color-black);"><span class="rubric">.section-gray</span></div>
+        <div class="section-gray-dark" style="padding: var(--space-md);"><span class="rubric">.section-gray-dark</span></div>
+      </div>
+    </div>
+
+    <!-- Paper checklist — signature component -->
+    <div class="guide-section">
+      <h2>Paper Checklist — сигнатурний елемент</h2>
+      <p>Унікальний елемент бренду (hero на index.html): аркуш-кліпборд із анімованим виставленням галочок. Не копіювати без потреби — це місце для одного "акценту сміливості" на сторінку.</p>
+
+      <div class="component" style="max-width: 420px;">
+        <div class="paper-checklist" style="margin-top: 0; animation: none; opacity: 1; transform: none;">
+          <div class="paper-header"><span class="paper-title">CHECKLIST // DEMO</span></div>
+          <div class="check-item" style="opacity: 1; transform: none;">
+            <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="square"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+            <div class="check-content">
+              <span class="check-val">Приклад пункту</span>
+              <span class="check-desc">Опис пункту чек-листа</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spacing -->
+    <div class="guide-section">
+      <h2>Spacing Scale (8px base)</h2>
+
+      <table>
+        <thead>
+          <tr><th>Variable</th><th>Size</th><th>Usage</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>--space-xs</code></td><td>0.5rem (8px)</td><td>Small gaps, tight spacing</td></tr>
+          <tr><td><code>--space-sm</code></td><td>1rem (16px)</td><td>Default gaps, padding</td></tr>
+          <tr><td><code>--space-md</code></td><td>2.5rem (40px)</td><td>Section spacing</td></tr>
+          <tr><td><code>--space-lg</code></td><td>5rem (80px)</td><td>Large section gaps</td></tr>
+          <tr><td><code>--space-xl</code></td><td>7rem (112px)</td><td>Hero spacing</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Layout -->
+    <div class="guide-section">
+      <h2>Layouts</h2>
+
+      <h3 style="margin-top: 0;">Container & Grid</h3>
+      <div class="component">
+        <span class="component-label">.container</span>
+        <p>Max-width 1300px, centered.</p>
+        <code>.container { max-width: 1300px; margin: 0 auto; padding: 0 var(--space-md); }</code>
+      </div>
+
+      <div class="component" style="margin-top: var(--space-md);">
+        <span class="component-label">.grid-2</span>
+        <div class="grid-2">
+          <div style="background: var(--color-gray-light); border: 2px solid var(--color-black); padding: var(--space-md); text-align: center;">Column 1</div>
+          <div style="background: var(--color-gray-light); border: 2px solid var(--color-black); padding: var(--space-md); text-align: center;">Column 2</div>
+        </div>
+        <code style="display: block; margin-top: var(--space-sm);">.grid-2 { grid-template-columns: repeat(2, 1fr); gap: var(--space-lg); }</code>
+      </div>
+    </div>
+
+    <!-- Forms -->
+    <div class="guide-section">
+      <h2>Forms</h2>
+
+      <div class="component" style="max-width: 400px;">
+        <span class="component-label">Input Field</span>
+        <div class="form-group">
+          <label for="example-input">Name</label>
+          <input type="text" id="example-input" placeholder="Enter your name">
+        </div>
+      </div>
+    </div>
+
+    <!-- Tech Components -->
+    <div class="guide-section">
+      <h2>Tech Page Components</h2>
+
+      <h3 style="margin-top: 0;">Tech Stat Grid</h3>
+      <div class="tech-stat-grid">
+        <div class="tech-stat">
+          <span class="tech-stat-val">200°C</span>
+          <span class="tech-stat-label">Reaction Temperature</span>
+        </div>
+        <div class="tech-stat">
+          <span class="tech-stat-val">2 h</span>
+          <span class="tech-stat-label">Transformation Cycle</span>
+        </div>
+      </div>
+
+      <h3>Hydrochar Spec List</h3>
+      <div class="col-card" style="max-width: 500px;">
+        <ul class="hydrochar-spec-list">
+          <li><span class="spec-key">Heating value</span><span class="spec-val spec-val--accent">20–25 MJ/kg</span></li>
+          <li><span class="spec-key">Volume reduction</span><span class="spec-val">−75 — −80%</span></li>
+          <li><span class="spec-key">PFAS destruction</span><span class="spec-val spec-val--amber">100%</span></li>
+        </ul>
+      </div>
+      <p style="margin-top: var(--space-sm); font-size: 0.85rem;"><code>spec-val--accent</code> = синій (стандартна цифра). <code>spec-val--amber</code> = бурштин (ключовий результат — тут: повна деструкція PFAS).</p>
+    </div>
+
+    <!-- Accessibility -->
+    <div class="guide-section">
+      <h2>Accessibility</h2>
+      <ul style="padding-left: 1.2rem; font-weight: 500;">
+        <li><code>:focus-visible</code> — видима 3px синя обводка на всіх інтерактивних елементах (біла на синьому/чорному фоні).</li>
+        <li><code>@media (prefers-reduced-motion: reduce)</code> — глушить усі анімації сайту (blueprint draw, paper-checklist slide-up, scanner sweep тощо).</li>
+      </ul>
+    </div>
+
+    <!-- Footer -->
+    <div style="background: var(--color-white); padding: var(--space-lg); border-top: 4px solid var(--color-blue); margin-top: var(--space-lg);">
+      <p style="margin: 0; color: var(--color-gray-dark);">
+        <strong>Повна документація:</strong> див. <code>DESIGN_SYSTEM.md</code>.
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>

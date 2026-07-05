@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Mission | BTC Consulting</title>
+
+  <link rel="stylesheet" href="./design-system.css">
+
+  <style>
+    .doc-wrap { max-width: 860px; margin: 0 auto; }
+    .doc-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.9rem; font-weight: 800; text-transform: uppercase;
+      color: var(--color-black); text-decoration: none; margin-bottom: var(--space-md);
+    }
+    .doc-card h2 {
+      font-size: 0.9rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--color-blue); border: none; margin-block: var(--space-md) 0.75rem;
+    }
+    .doc-card h2:first-child { margin-block-start: 0; }
+    .doc-card h3 {
+      font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--color-gray-dark); margin-block: 1.5rem 0.5rem;
+    }
+    .doc-card p { font-size: 1rem; line-height: 1.7; margin-block-end: 0; }
+    .doc-card blockquote {
+      border-left: 4px solid var(--color-blue); margin: 1.5rem 0 0; padding: 1rem 1.5rem;
+      background: var(--color-gray-light);
+    }
+    .doc-card blockquote p { font-weight: 700; }
+    .doc-actions { margin-block-start: var(--space-md); display: flex; justify-content: flex-end; }
+    @media print { header, footer, .doc-back, .doc-actions { display: none !important; } }
+
+    #contact .contact-info-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+    #contact .info-item { display: flex; align-items: center; gap: 0.75rem; font-weight: 700; }
+    #contact .info-item svg { flex-shrink: 0; width: 20px; height: 20px; }
+  </style>
+</head>
+<body>
+
+  <script src="partials/header.js"></script>
+
+  <main>
+    <section>
+      <div class="container doc-wrap">
+
+        <a href="javascript:history.back()" class="doc-back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          Powrót
+        </a>
+
+        <span class="rubric">Misja</span>
+        <h1>Our Mission</h1>
+
+        <div class="col-card doc-card" style="margin-top: var(--space-md);">
+
+          <h2>What Matters to Us and How We Think</h2>
+
+          <h3>Nature and us as a single organism</h3>
+          <p>Nature, all these plants, animals and we humans, is a single living organism. It needs a caring, thoughtful and very attentive attitude so that it simply does not get sick and continues to thrive normally. We believe that keeping our Earth clean from all this waste and pollution is not just an obvious urgent necessity today. It is our very first, fundamental duty to future generations, and we must leave them a normal planet.</p>
+
+          <h3>Being a real custodian of your land</h3>
+          <p>Love for your country is closely and indivisibly linked with keeping it in proper physical condition. We must treat it with care, the way good and prudent owners treat their own home, their water well and their backyard. If we live here, we must keep everything clean.</p>
+
+          <h3>Pragmatic science for real life</h3>
+          <p>We are confident that science can and should do a lot more to help us with these tasks and basically make our lives better. But we take only practical things from science. We turn complex hydrothermal carbonization HTC research and engineering metrics into real, operational BioTC regional hubs. Science must serve people and solve specific infrastructure problems of cities.</p>
+
+          <h3>Teaching people to look ahead</h3>
+          <p>It is important for us not just to create good technology products and design services for water utilities. Our greater task is to teach people how to manage resources properly and why this is critically important in the long run. We are changing the very culture of attitude towards what used to be considered just toxic waste but is now becoming an asset.</p>
+
+          <h3>Sustainability as a healthy business</h3>
+          <p>We are realists and we know very well that no good idea ever works if it is not profitable. Sustainable development does not live on paper or on free slogans, it is built on a solid economic foundation. We offer a pragmatic engineering model that is beneficial to everyone in every possible sense.</p>
+          <p>Cities get rid of the financial pain of sludge disposal, comply with strict EU directives and secure up to 90% of non-repayable European grants for CapEx. Industry receives high quality renewable hydrochar and biogas. And our investors get a stable, transparent and very healthy business with a clear payback. If an environmental idea does not bring profit, it is charity. We make an efficient business instead.</p>
+
+          <h2>Our Mission</h2>
+          <blockquote>
+            <p>To turn environmental threats into renewable assets for cities, making the planet clean and making investments in the circular economy indisputably profitable.</p>
+          </blockquote>
+
+        </div>
+
+        <div class="doc-actions">
+          <button class="btn btn-outline" onclick="window.print()">Download PDF</button>
+        </div>
+
+      </div>
+    </section>
+
+    <script src="partials/contact.js"></script>
+  </main>
+
+  <script src="partials/footer.js"></script>
+
+  <script src="../app.min.js?v=5"></script>
+
+</body>
+</html>

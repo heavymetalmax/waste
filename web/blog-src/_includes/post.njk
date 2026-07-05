@@ -15,8 +15,8 @@
     "headline": "{{ title }}",
     "description": "{{ description }}",
     "datePublished": "{{ date | isoDate }}",
-    {% if updated %}"dateModified": "{{ updated | isoDate }}",{% endif %}
-    "author": { "@type": "Organization", "name": "BTC Consulting" },
+    "dateModified": "{{ updated | isoDate if updated else date | isoDate }}",
+    {% if author and author != "BTC Consulting" %}"author": { "@type": "Person", "name": "{{ author }}", "affiliation": { "@type": "Organization", "name": "BTC Consulting" } },{% else %}"author": { "@type": "Organization", "name": "BTC Consulting" },{% endif %}
     "publisher": { "@type": "Organization", "name": "BTC Consulting", "url": "{{ site.url }}" },
     "mainEntityOfPage": "{{ site.url }}/v5/blog/{{ page.fileSlug }}/"
   }

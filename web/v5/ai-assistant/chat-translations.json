@@ -1,0 +1,38 @@
+{
+  "pl": {
+    "chat.attach.title": "Dołącz plik (PDF, XLSX, DOCX)",
+    "chat.desc": "Opisz swoją oczyszczalnię lub zakład: ile osadu, jak jest utylizowany, jaki budżet. Możesz przesłać raport PDF, arkusz XLSX lub specyfikację techniczną.",
+    "chat.h2": "Opisz obiekt słowami lub prześlij dokumentację",
+    "chat.label": "Asystent AI",
+    "chat.mobile.cta": "Otwórz czat",
+    "chat.mobile.status": "Konsultant online",
+    "chat.page.back": "Wróć",
+    "chat.placeholder": "Np.: Oczyszczalnia 150 000 RLM, osad wywozimy na składowisko za 350 PLN/t...",
+    "chat.send": "Wyślij",
+    "chat.welcome": "Dzien dobry! Jestem konsultantem technicznym BTC Consulting. Prosze opowiedziec o swoim obiekcie: typ oczyszczalni, przyblizna wielkosc w RLM, jak aktualnie rozwiazujecie kwestie osadow. Mozna tez przeslac dokumentacje w formacie PDF lub XLSX."
+  },
+  "ua": {
+    "chat.attach.title": "Прикріпити файл (PDF, XLSX, DOCX)",
+    "chat.desc": "Розкажіть про вашу очисну станцію або підприємство: скільки мулу, як утилізується, який бюджет. Можна завантажити PDF-звіт, XLSX-таблицю або технічне завдання.",
+    "chat.h2": "Опишіть об'єкт словами або надішліть документацію",
+    "chat.label": "ШІ-консультант",
+    "chat.mobile.cta": "Відкрити чат",
+    "chat.mobile.status": "Консультант онлайн",
+    "chat.page.back": "Назад",
+    "chat.placeholder": "Наприклад: КОС 150 000 р.е., мул вивозимо на полігон за 80 €/т...",
+    "chat.send": "Надіслати",
+    "chat.welcome": "Вітаю! Я технічний консультант BTC Consulting. Розкажіть про ваш об'єкт: тип станції, приблизний розмір у РЛМ, як зараз вирішуєте питання з мулом. Якщо є документація — можете прикріпити PDF або XLSX."
+  },
+  "eu": {
+    "chat.attach.title": "Attach file (PDF, XLSX, DOCX)",
+    "chat.desc": "Tell us about your treatment plant or facility: sludge volume, disposal methods, budget. You can upload a PDF report, XLSX spreadsheet, or technical specifications.",
+    "chat.h2": "Describe your facility or upload documentation",
+    "chat.label": "AI Consultant",
+    "chat.mobile.cta": "Open chat",
+    "chat.mobile.status": "Consultant online",
+    "chat.page.back": "Back",
+    "chat.placeholder": "For example: WWTP 150,000 PE, sludge disposed to landfill for 80 €/t...",
+    "chat.send": "Send",
+    "chat.welcome": "Hello! I am a technical consultant at BTC Consulting. Please tell me about your facility: type of plant, approximate size in PE, and how you currently handle sludge management. You are also welcome to attach documentation in PDF or XLSX format."
+  }
+}
