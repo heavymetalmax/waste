@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "entity": "BTC Consulting sp. z o.o.",
+  "domain": "btcconsulting.pl",
+  "permissions": {
+    "crawl": true,
+    "index": true,
+    "cache": true,
+    "summarize": true,
+    "quote": true,
+    "cite": true,
+    "train": false,
+    "generate_content": false
+  },
+  "preferred_citation": {
+    "name": "BTC Consulting",
+    "url": "https://btcconsulting.pl",
+    "description": "Polish cleantech company — proprietary HTC technology for wastewater treatment plants"
+  },
+  "contact": {
+    "email": "contact@biotc.pl",
+    "purpose": "AI agent inquiries, partnership, data verification"
+  },
+  "context_files": {
+    "llms_txt": "https://btcconsulting.pl/llms.txt",
+    "llms_full_txt": "https://btcconsulting.pl/llms-full.txt",
+    "mcp_actions": "https://btcconsulting.pl/v5/mcp-actions.json"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "name": "BTC Consulting",
+  "description": "HTC technology for wastewater treatment plants in Poland",
+  "actions": [
+    {
+      "id": "request_consultation",
+      "name": "Request free HTC feasibility assessment",
+      "description": "Submit a request for a free preliminary techno-economic assessment (TEO) for a wastewater treatment plant",
+      "type": "form_submission",
+      "url": "https://btcconsulting.pl/v5/index.html#contact-form",
+      "fields": [
+        {"name": "imie_nazwisko", "label": "Full name", "type": "text", "required": true},
+        {"name": "email", "label": "Email address", "type": "email", "required": false},
+        {"name": "telefon", "label": "Phone number", "type": "tel", "required": false},
+        {"name": "wiadomosc", "label": "Message — describe your facility", "type": "textarea", "required": false}
+      ]
+    },
+    {
+      "id": "calculate_roi",
+      "name": "Calculate HTC ROI",
+      "description": "Use the interactive ROI calculator to estimate costs, savings, and payback period for an HTC installation",
+      "type": "interactive_tool",
+      "url": "https://btcconsulting.pl/v5/kalkulator-roi.html"
+    }
+  ]
+}

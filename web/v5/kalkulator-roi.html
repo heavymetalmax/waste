@@ -1,11 +1,23 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" class="no-js">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/v5/assets/svg/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kalkulator ROI BioTC — bezpłatne narzędzie | BTC Consulting</title>
   <meta name="description" content="Bezpłatny kalkulator ROI BioTC: oblicz w 60 sekund CAPEX, roczne oszczędności, termin zwrotu i wartość gruntu dla Twojej oczyszczalni lub zakładu.">
   <link rel="canonical" href="https://btcconsulting.pl/v5/kalkulator-roi.html">
+  <link rel="mcp-actions" href="/v5/mcp-actions.json">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://btcconsulting.pl/v5/index.html"},
+      {"@type": "ListItem", "position": 2, "name": "Kalkulator ROI", "item": "https://btcconsulting.pl/v5/kalkulator-roi.html"}
+    ]
+  }
+  </script>
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Kalkulator ROI BioTC — bezpłatne narzędzie | BTC Consulting">
@@ -31,11 +43,9 @@
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/v5/assets/fonts/fonts.css">
 
-  <link rel="stylesheet" href="/v5/design-system.css">
+  <link rel="stylesheet" href="/v5/design-system.css?v=2">
 
   <style>
     /* ── Wizard Screens ─────────────────────────────────────── */
@@ -383,7 +393,7 @@
 <body>
 
 <!-- HEADER -->
-<script src="/v5/partials/header.js"></script>
+<script src="/v5/partials/header.js?v=2"></script>
 
 <!-- ============================================================
      A. HERO
@@ -734,6 +744,8 @@
           <div class="rpt-section" style="margin-top:1.5rem">
             <div class="rpt-row"><span id="final-sav-label">Bieżące wydatki</span><span class="rpt-num rpt-accent" id="final-f1s">—</span></div>
             <div class="rpt-row" id="final-row2"><span id="final-sav-label2">Dodatkowe koszty</span><span class="rpt-num rpt-accent" id="final-f2s">—</span></div>
+            <div class="rpt-row" id="final-row3" style="display:none"><span id="final-f3-label">Uniknięty koszt energii (biogaz)</span><span class="rpt-num rpt-accent" id="final-f3s">—</span></div>
+            <div class="rpt-row" id="final-row-land" style="display:none"><span>Wartość uwolnionego gruntu</span><span class="rpt-num rpt-accent" id="final-land">—</span></div>
             <div class="rpt-row rpt-row--sum"><span>Razem oszczędności/rok</span><span class="rpt-num rpt-accent" id="final-cf">—</span></div>
           </div>
 
@@ -745,6 +757,11 @@
         <div style="padding:1.5rem;background:var(--c-surface-w);border-left:3px solid var(--c-accent);margin-bottom:2rem">
           <p class="t-label" style="margin-bottom:0.5rem">Wniosek</p>
           <p class="t-body" style="margin:0" id="final-conclusion">—</p>
+        </div>
+
+        <div style="background:var(--c-surface-w);border:1px solid var(--c-border);padding:1.25rem 1.5rem;margin-bottom:2rem">
+          <p class="t-label" style="margin-bottom:0.5rem;color:var(--c-accent)">Model konserwatywny</p>
+          <p class="t-body" style="margin:0;font-size:0.9rem;color:var(--c-gray-d)">Kalkulator uwzględnia wyłącznie <strong>unikniete koszty</strong>. Potencjalny dochód ze sprzedaży hydrowęgla (paliwo alternatywne, nawóz) nie jest wliczony — realny zwrot może być krótszy. Pełny model z przychodami ze sprzedaży produktów HTC przygotujemy indywidualnie w ramach bezpłatnej konsultacji.</p>
         </div>
 
         <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem">
@@ -1061,11 +1078,22 @@ var SC={
     document.getElementById('final-grant').textContent=fmtGain(capexTotal-res.capex);
     document.getElementById('final-city').textContent=fmtCost(res.capex);
     document.getElementById('final-f1s').textContent=fmtGain(res.f1s);
-    document.getElementById('final-f2s').textContent=fmtGain(res.f2s);
+    var f2Row=document.getElementById('final-row2');
+    if(f2Row) f2Row.style.display=res.f2s>0?'':'none';
+    document.getElementById('final-f2s').textContent=res.f2s>0?fmtGain(res.f2s):'—';
+    var f3Row=document.getElementById('final-row3');
+    if(f3Row) f3Row.style.display=res.f3s>0?'':'none';
+    if(res.f3s>0&&document.getElementById('final-f3s')){document.getElementById('final-f3s').textContent=fmtGain(res.f3s);}
+    var landRow=document.getElementById('final-row-land');
+    if(landRow) landRow.style.display=res.landVal>0?'':'none';
+    if(res.landVal>0&&document.getElementById('final-land')){document.getElementById('final-land').textContent=fmtGain(res.landVal);}
     document.getElementById('final-cf').textContent=fmtGain(res.save);
     var save4yr=(res.save||0)*4;
     document.getElementById('final-4yr').textContent=save4yr>0?'+'+fmtGain(save4yr):'—';
-    document.getElementById('final-conclusion').textContent='Zwrot inwestycji nastąpi w '+roiText+' latach. W ciągu 4 lat zaoszczędzisz '+fmtGain(save4yr)+'.';
+    var conclusion;
+    if(!isFinite(roi)||roi<=0) conclusion='Inwestycja zwraca się natychmiast. W ciągu 4 lat zaoszczędzisz '+fmtGain(save4yr)+'.';
+    else conclusion='Zwrot inwestycji nastąpi w '+roiText+' lat. W ciągu 4 lat zaoszczędzisz '+fmtGain(save4yr)+'.';
+    document.getElementById('final-conclusion').textContent=conclusion;
     showScreen('wizard-results');
   }
 
@@ -1079,8 +1107,16 @@ var SC={
     });
   });
 
+  function clampInput(el){
+    var val=parseFloat(el.value),mn=parseFloat(el.min),mx=parseFloat(el.max);
+    if(isNaN(val)||val<0) val=mn||0;
+    if(!isNaN(mn)&&val<mn) val=mn;
+    if(!isNaN(mx)&&val>mx) val=mx;
+    el.value=val;
+  }
   document.getElementById('wizard-vol-ty').addEventListener('input',function(){syncWizardVolume('wizard-vol-ty',parseFloat(this.value));updateWizardLiveResults();});
   document.getElementById('wizard-vol-pe').addEventListener('input',function(){syncWizardVolume('wizard-vol-pe',parseFloat(this.value));updateWizardLiveResults();});
+  ['wizard-vol-ty','wizard-vol-pe','wizard-f1','wizard-f2','wizard-land','wizard-grant'].forEach(function(id){var el=document.getElementById(id);if(el)el.addEventListener('blur',function(){clampInput(el);updateWizardLiveResults();});});
   ['wizard-f1','wizard-f2','wizard-land','wizard-grant'].forEach(function(id){var el=document.getElementById(id);if(el)el.addEventListener('input',updateWizardLiveResults);});
 
   document.querySelectorAll('.wizard-type-card').forEach(function(btn){
@@ -1159,6 +1195,10 @@ var SC={
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
           </button>
         </div>
+        <label style="display:flex;align-items:center;gap:0.4rem;padding:0.25rem 0.75rem 0.5rem;font-size:0.75rem;color:var(--c-gray);cursor:pointer">
+          <input type="checkbox" id="chat-consent" style="margin:0">
+          Wyrażam zgodę na zapis rozmowy w celu poprawy jakości usług (<a href="/v5/polityka-prywatnosci.html" target="_blank" style="color:var(--c-accent)">polityka prywatności</a>)
+        </label>
       </div>
 
     </div>
@@ -1226,12 +1266,15 @@ var SC={
 
   function saveConversation() {
     if (DEMO_MODE) return;
+    var consentEl = document.getElementById('chat-consent');
+    if (!consentEl || !consentEl.checked) return;
     var endpoint = AGENT_ENDPOINT.replace('/chat', '/conv');
     fetch(endpoint, {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({
         ts: Date.now(),
+        consent: true,
         lang: document.documentElement.lang || 'pl',
         url: window.location.pathname,
         messages: history.slice()
@@ -1346,7 +1389,7 @@ var SC={
 <!-- FOOTER -->
 <script src="/v5/translations/pl.js" defer></script>
 <script src="/v5/i18n.js" defer></script>
-<script src="/v5/partials/footer.js?v=3"></script>
+<script src="/v5/partials/footer.js?v=5"></script>
 <script src="/v5/reveal.js" defer></script>
 
 </body>

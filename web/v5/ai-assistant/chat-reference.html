@@ -146,6 +146,10 @@
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
     </button>
   </div>
+  <label style="display:flex;align-items:center;gap:0.4rem;padding:0.25rem 1rem 0.5rem;font-size:0.75rem;color:var(--color-gray);cursor:pointer">
+    <input type="checkbox" id="chat-consent" style="margin:0">
+    Wyrażam zgodę na zapis rozmowy w celu poprawy jakości usług (<a href="/v5/polityka-prywatnosci.html" target="_blank" style="color:var(--color-blue)">polityka prywatności</a>)
+  </label>
 
 </div><!-- /.chat-fullscreen -->
 
@@ -213,12 +217,15 @@
       var dec = new TextDecoder();
       var buf = ''; var full = '';
 
-      // Save conversation after each bot response
+      // Save conversation after each bot response (only with user consent)
       function saveConversation() {
         if (typeof AGENT_ENDPOINT === 'undefined' || AGENT_ENDPOINT.indexOf('CHANGE_ME') !== -1) return;
+        var consentEl = document.getElementById('chat-consent');
+        if (!consentEl || !consentEl.checked) return;
         var endpoint = AGENT_ENDPOINT.replace('/chat', '/conv');
         var payload = {
           ts: Date.now(),
+          consent: true,
           session_id: typeof session_id !== 'undefined' ? session_id : 'unknown',
           lang: document.documentElement.lang || 'unknown',
           url: window.location.pathname,
