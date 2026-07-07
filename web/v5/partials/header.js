@@ -11,7 +11,9 @@ document.write(`
         <li><a class="nav-link" href="/v5/technologia.html">Technologia HTC</a></li>
         <li><a class="nav-link" href="/v5/hub-spoke.html">Hub &amp; Spoke</a></li>
         <li><a class="nav-link" href="/v5/dotacje.html">Dotacje UE</a></li>
+        <li><a class="nav-link" href="/v5/teo.html">TEO</a></li>
         <li><a class="nav-link" href="/v5/kalkulator-roi.html">Kalkulator ROI</a></li>
+        <li><a class="nav-link" href="/v5/blog/">Blog</a></li>
       </ul>
     </nav>
 

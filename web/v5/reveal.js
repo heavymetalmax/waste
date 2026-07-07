@@ -1,6 +1,7 @@
 /* reveal.js — scroll reveal + animated counters */
 (function () {
   'use strict';
+  document.documentElement.classList.remove('no-js');
 
   /* --- Scroll Reveal --- */
   function initReveal() {

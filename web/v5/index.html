@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" class="no-js">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/v5/assets/svg/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BTC Consulting — Technologia HTC dla polskich oczyszczalni ścieków</title>
   <meta name="description" content="Jedyna polska technologia HTC przekształca osady ściekowe w hydrowęgiel. Spełnij wymogi UWWTD 2024 zanim skończy się okno grantowe 2026–2028.">
   <link rel="canonical" href="https://btcconsulting.pl/v5/index.html">
+  <link rel="mcp-actions" href="/v5/mcp-actions.json">
 
   <script type="application/ld+json">
   {
@@ -22,17 +24,25 @@
     "knowsAbout": ["Hydrothermal Carbonization", "Sewage Sludge Treatment", "UWWTD Compliance", "Hydrochar Production"],
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Wrocław",
-      "addressRegion": "dolnośląskie",
+      "addressLocality": "Gliwice",
+      "addressRegion": "śląskie",
       "addressCountry": "PL"
     },
     "contactPoint": {
       "@type": "ContactPoint",
-      "email": "info@btcconsulting.pl",
+      "email": "contact@biotc.pl",
+      "telephone": "+48608003458",
       "contactType": "sales",
       "availableLanguage": ["pl", "en", "uk"]
     },
-    "sameAs": ["https://www.linkedin.com/company/btc-consulting-pl"]
+    "sameAs": ["https://www.linkedin.com/company/btc-consulting-pl"],
+    "alternateName": ["BioTC", "BTC Consulting Polska"],
+    "member": {
+      "@type": "Organization",
+      "name": "AGH University of Krakow",
+      "url": "https://www.agh.edu.pl",
+      "description": "Research partner — 10+ years of joint HTC research"
+    }
   }
   </script>
 
@@ -118,11 +128,9 @@
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/v5/assets/fonts/fonts.css">
 
-  <link rel="stylesheet" href="/v5/design-system.css">
+  <link rel="stylesheet" href="/v5/design-system.css?v=2">
   <link rel="preload" as="image" href="/v5/assets/img/waterplant.jpeg">
 
   <meta property="og:title" content="BTC Consulting — Technologia HTC dla polskich oczyszczalni ścieków">
@@ -150,7 +158,7 @@
 <body>
 
 <!-- HEADER -->
-<script src="/v5/partials/header.js"></script>
+<script src="/v5/partials/header.js?v=2"></script>
 
 <!-- ============================================================
      A. HERO — split 1fr / 1fr
@@ -574,11 +582,13 @@
   .team-preview {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3px;
+    gap: 2rem;
     align-items: stretch;
+    max-width: 960px;
+    margin: 0 auto;
   }
   @media (max-width: 600px) {
-    .team-preview { grid-template-columns: 1fr; }
+    .team-preview { grid-template-columns: 1fr; max-width: 320px; }
   }
   .team-preview .tp-card {
     display: flex;
@@ -659,15 +669,17 @@
              width="480" height="640" loading="lazy">
         <div class="tp-info">
           <p class="tp-name">Andrzej Krop</p>
-          <p class="tp-role">Zarządzanie projektami</p>
+          <p class="tp-role">CEO</p>
           <p class="tp-desc">Były CEO europejskiego oddziału japońskiej korporacji. Gwarant terminów i&nbsp;budżetu.</p>
         </div>
       </article>
     </div>
 
-    <a class="btn btn-outline-light self-start reveal" href="/v5/misja.html" style="margin-top:2rem">
-      Poznaj cały zespół i misję →
-    </a>
+    <div style="max-width:960px;margin:2rem auto 0;display:flex;justify-content:flex-end">
+      <a class="btn btn-outline-light reveal" href="/v5/misja.html" style="width:calc((100% - 4rem) / 3);text-align:center">
+        Poznaj cały zespół i misję →
+      </a>
+    </div>
   </div>
 </section>
 
@@ -700,7 +712,7 @@
 <!-- FOOTER -->
 <script src="/v5/translations/pl.js" defer></script>
 <script src="/v5/i18n.js" defer></script>
-<script src="/v5/partials/footer.js?v=3"></script>
+<script src="/v5/partials/footer.js?v=5"></script>
 <script src="/v5/reveal.js" defer></script>
 
 </body>

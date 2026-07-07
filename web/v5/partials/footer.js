@@ -31,11 +31,13 @@ document.write(`
 
       <form
         id="contact-form"
-        action="https://formsubmit.co/maxym.koval@gmail.com"
+        action="https://formsubmit.co/contact@biotc.pl"
         method="POST"
         class="flex-col gap-sm"
         style="display:flex;flex-direction:column;gap:16px"
         novalidate
+        data-mcp-action="request_consultation"
+        data-mcp-description="Request a free preliminary HTC feasibility assessment for a wastewater treatment plant"
       >
         <input type="hidden" name="_subject" value="BTC Consulting — zapytanie ze strony">
         <input type="hidden" name="_captcha" value="false">
@@ -72,6 +74,13 @@ document.write(`
           Wyślij zapytanie →
         </button>
       </form>
+      <noscript>
+        <div style="padding:1.5rem;border:2px solid var(--c-accent);margin-top:1rem">
+          <p style="margin:0 0 0.5rem;font-weight:600">Kontakt bez JavaScript:</p>
+          <p style="margin:0">Email: <a href="mailto:contact@biotc.pl">contact@biotc.pl</a></p>
+          <p style="margin:0">Tel: <a href="tel:+48608003458">+48 608 003 458</a></p>
+        </div>
+      </noscript>
     </div>
   </div>
 </section>
@@ -118,8 +127,8 @@ document.write(`
   </div>
 
   <div class="footer-bottom">
-    <p class="t-small">&copy; 2025 BTC Consulting sp. z o.o. — Technologia HTC dla polskich oczyszczalni ścieków</p>
-    <p class="t-small" style="color:var(--c-gray-dd)">Wrocław, Polska</p>
+    <p class="t-small">&copy; 2026 BTC Consulting sp. z o.o. — Technologia HTC dla polskich oczyszczalni ścieków</p>
+    <p class="t-small" style="color:var(--c-gray-dd)">Gliwice, Polska · <a href="/v5/polityka-prywatnosci.html" style="color:var(--c-gray-dd);text-decoration:underline">Polityka prywatności</a></p>
   </div>
 
 </footer>

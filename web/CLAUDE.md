@@ -84,6 +84,15 @@ npm run blog:watch    # dev server on :8081
 - FAQ frontmatter auto-generates JSON-LD FAQPage schema
 - Use `/blog-review` skill for writing and reviewing articles
 
+## Pre-launch checklist
+
+Before deploying to btcconsulting.pl production:
+
+1. **Remove `/v5/` prefix** from all canonical URLs, internal links (`partials/header.js`, `partials/footer.js`), `sitemap.xml`, `og:url` tags, and `_next` redirect in the contact form. Depends on hosting config: either serve `v5/` contents from domain root, or update `deploy.yml` accordingly.
+2. **Bump partial cache busters** (`header.js?v=`, `footer.js?v=`) after the link changes.
+3. **Verify formsubmit.co** — confirm `contact@biotc.pl` is activated/verified as a recipient.
+4. **Run link checker** on production URL after deploy.
+
 ## Skill routing
 
 When the user's request matches an available skill, invoke it via the Skill tool. When in doubt, invoke the skill.

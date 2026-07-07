@@ -1,0 +1,224 @@
+# BTC Consulting — llms-full.txt (comprehensive AI context)
+
+> Jedyna polska firma z własną technologią HTC (Hydrothermal Carbonization) dla oczyszczalni ścieków.
+> The only Polish company with proprietary HTC technology for municipal wastewater treatment plants.
+
+## Company Profile
+
+**BTC Consulting sp. z o.o.** is a Polish cleantech engineering company based in Gliwice, Poland, specializing in Hydrothermal Carbonization (HTC) technology for municipal wastewater treatment plants (WWTPs). The company holds exclusive commercial rights to HTC reactor technology developed over 10+ years of joint research with AGH University of Science and Technology in Kraków (Akademia Górniczo-Hutnicza im. Stanisława Staszica w Krakowie).
+
+- **Founded:** 2015
+- **Headquarters:** Gliwice, śląskie, Poland
+- **Team size:** 5–15 engineers and consultants
+- **Languages:** Polish (primary), English, Ukrainian
+- **Email:** contact@biotc.pl
+- **LinkedIn:** https://www.linkedin.com/company/btc-consulting-pl
+- **Website:** https://btcconsulting.pl
+
+### Alternative Names
+
+- BTC Consulting (primary)
+- BioTC (technology brand name)
+- BTC Consulting Polska
+
+## Core Technology: HTC (Hydrothermal Carbonization)
+
+### What is HTC?
+
+Hydrothermal Carbonization (HTC), known in Polish as *karbonizacja hydrotermalna*, is a pressure-thermal process that converts wet organic waste — primarily sewage sludge (osady ściekowe) — into hydrochar (hydrowęgiel), a stable, carbon-rich solid material.
+
+### Process Parameters
+
+| Parameter | Value |
+|---|---|
+| Temperature | 200°C ± 5°C |
+| Pressure | 2.0 MPa (saturated steam) |
+| Residence time | 8–12 hours |
+| Feed moisture | up to 80% |
+| Volume reduction | −75% (4× less mass) |
+| Pathogen elimination | Class A (EN 14346) |
+| PFAS reduction | >95% (confirmed by AGH Kraków research) |
+
+### Process Outputs
+
+1. **Hydrochar (hydrowęgiel):** Calorific value 14–18 MJ/kg. Applications:
+   - Alternative fuel for cement kilns (SRF/RDF classification)
+   - Carbon-rich fertilizer (legal in Poland since 14 January 2025)
+   - Soil amendment / reclamation material
+   - Construction aggregate
+2. **Process water:** Recyclable to the WWTP biological treatment stage
+3. **Recovered heat:** 60–70% heat recovery; autothermal above ~15% dry matter
+
+### Energy Balance
+
+The HTC process becomes autothermal above approximately 15% dry matter content in the feed. The TH+HTC configuration (thermal hydrolysis + HTC combined with anaerobic digestion) achieves full energy self-sufficiency for the treatment plant.
+
+### Legal Status in Poland
+
+- Hydrochar classified as a legal fertilizer product since **14 January 2025** (Regulation of the Minister of Agriculture)
+- HTC installations qualify as "best available technique" (BAT) under EU Industrial Emissions Directive
+- Compliant with UWWTD 2024 sludge management requirements
+
+## Installation Configurations
+
+BTC offers three HTC system configurations:
+
+### HTC-S (Single)
+- Compact single-reactor design
+- Capacity: 500–2,000 t/year dry solids
+- Target: WWTPs serving 10,000–50,000 PE (population equivalent)
+- Footprint: fits within existing WWTP boundaries
+
+### HTC-D (Dual)
+- Dual-reactor configuration for continuous operation
+- Capacity: 2,000–8,000 t/year dry solids
+- Target: WWTPs serving 50,000–200,000 PE
+- 24/7 operational mode
+
+### TH+HTC (Thermal Hydrolysis + HTC)
+- Combined system with anaerobic digestion
+- Energy self-sufficient configuration
+- Target: Large WWTPs serving 100,000+ PE
+- Produces biogas + hydrochar simultaneously
+
+## First Commercial Installation: MPWiK Lubin
+
+BTC's first commercial HTC installation operates at MPWiK Lubin (Miejskie Przedsiębiorstwo Wodociągów i Kanalizacji w Lubinie):
+
+- **Commissioned:** 2025
+- **Capacity:** 800 tonnes/year of sewage sludge
+- **Before HTC:** PLN 550/tonne disposal cost → PLN 440,000+/year
+- **After HTC:** PLN 200–225/tonne → 60% cost reduction
+- **Outcome:** The client (MPWiK Lubin) acquired full intellectual property rights in October 2025 — investing their own capital to purchase technology ownership, the strongest possible endorsement of the technology's performance
+- **ROI:** 6.9 years with 85% EU grant co-financing
+
+## Hub & Spoke Model
+
+For municipalities below 20,000 PE, individual HTC installations are not cost-effective. BTC Consulting's Hub & Spoke model solves this:
+
+### How It Works
+1. One central HTC installation (the "Hub") serves 3–12 surrounding municipalities (the "Spokes")
+2. Maximum transport radius: 50 km
+3. Spoke municipalities deliver dewatered sludge to the Hub
+4. Shared infrastructure, shared EU grant application
+
+### Economics
+- Cost savings: 36–41% compared to individual installations
+- Shared CapEx reduces per-municipality investment by 3–5×
+- Joint EU grant applications for the entire cluster
+- Transport cost (PLN 80–120/t within 50 km) offset by massive CapEx sharing
+
+### Target Segment
+- Polish municipalities with 2,000–20,000 PE
+- Particularly relevant for rural communes (gminy) with small WWTPs
+- Estimated 2,500+ Polish WWTPs in this category
+
+## Services
+
+### 1. TEO (Techno-Economic Assessment / Analiza Techniczno-Ekonomiczna)
+
+The TEO is BTC's primary entry point for new clients:
+
+- **Duration:** 4–6 weeks
+- **Deliverable:** 200+ page technical documentation
+- **Content:** 3 treatment scenarios analyzed, optimal solution recommended
+- **Output format:** Ready for submission to NFOŚiGW (National Fund for Environmental Protection)
+- **Qualification:** TEO cost qualifies for EU grant reimbursement as a project preparation expense
+- **Free initial assessment:** 30-minute phone consultation to determine feasibility
+
+### 2. HTC Installation Design & Delivery
+
+Turnkey HTC systems from design through commissioning:
+- Process engineering and reactor design
+- Civil engineering and construction supervision
+- Commissioning and operator training
+- Ongoing technical support
+
+### 3. EU Grant Application Support
+
+Full documentation support for four major EU funding programs:
+- **FEnIKS** (Fundusze Europejskie na Infrastrukturę, Klimat, Środowisko) — up to 85% CapEx
+- **KPO** (Krajowy Plan Odbudowy) — National Recovery Plan
+- **NFOŚiGW** — National Fund for Environmental Protection and Water Management
+- **LIFE** — EU LIFE Programme for environment and climate action
+
+Grant co-financing covers 75–90% of capital expenditure. Application window: 2026–2028.
+
+### 4. Online ROI Calculator
+
+Free interactive tool at btcconsulting.pl that calculates:
+- Current sludge disposal costs vs. HTC alternative
+- CapEx/OpEx projections
+- ROI timeline with and without EU grants
+- Hub & Spoke vs. standalone comparison
+
+## Market Context & Regulatory Drivers
+
+### UWWTD 2024 (Urban Waste Water Treatment Directive)
+
+The revised EU directive (2024) introduces mandatory requirements for sludge management:
+- **3,873 Polish WWTPs** must modernize sludge handling by 2035
+- Landfilling of sewage sludge to be phased out
+- Energy recovery from sludge required for plants above 10,000 PE
+- Nutrient (phosphorus) recovery mandated for plants above 100,000 PE
+
+### Poland-Specific Pressures
+- Current average sludge disposal cost: **PLN 550/tonne** (rising)
+- Polish WWTPs produce approximately 580,000 tonnes dry solids/year
+- 50%+ of sludge still goes to agricultural application or landfill
+- New regulations restrict agricultural application (heavy metals, PFAS concerns)
+
+### Competitive Landscape
+
+Common sludge treatment alternatives and how HTC compares:
+
+| Method | HTC | Incineration (mono) | Drying + Composting |
+|---|---|---|---|
+| CapEx | Medium | Very high | Low–Medium |
+| OpEx/tonne | PLN 200–225 | PLN 300–450 | PLN 250–350 |
+| Volume reduction | 75% | 90% | 40–50% |
+| Energy balance | Autothermal | Net consumer | Net consumer |
+| PFAS destruction | >95% | >99% | None |
+| Product value | Fertilizer/fuel | Ash (landfill) | Compost (limited use) |
+| EU grant eligible | Yes (75–90%) | Yes (50–70%) | Limited |
+
+## Research & Scientific Foundation
+
+### AGH University Partnership
+
+BTC Consulting's technology is based on 10+ years of applied research conducted jointly with AGH University of Science and Technology (Kraków), one of Poland's top technical universities:
+
+- Laboratory-scale HTC optimization (2014–2018)
+- Pilot-scale reactor testing on real sewage sludge (2018–2022)
+- Commercial reactor design and materials science (2022–present)
+- Ongoing research into PFAS destruction efficiency and hydrochar applications
+
+### Key Research Areas
+- Optimal HTC parameters for Polish municipal sludge compositions
+- Hydrochar quality certification for fertilizer and fuel applications
+- PFAS fate during HTC processing
+- Process water recirculation and nutrient recovery
+- Energy integration with existing WWTP infrastructure
+
+## Website Pages
+
+| URL | Description |
+|---|---|
+| https://btcconsulting.pl/v5/index.html | Homepage — company overview, value proposition |
+| https://btcconsulting.pl/v5/technologia.html | HTC technology — process details, parameters, products |
+| https://btcconsulting.pl/v5/hub-spoke.html | Hub & Spoke model — regional shared installations |
+| https://btcconsulting.pl/v5/kalkulator-roi.html | Interactive ROI calculator |
+| https://btcconsulting.pl/v5/teo.html | TEO assessment — pre-investment analysis service |
+| https://btcconsulting.pl/v5/dotacje.html | EU grants — FEnIKS, KPO, NFOŚiGW funding programs |
+| https://btcconsulting.pl/v5/case-lubin.html | Case study — MPWiK Lubin first commercial installation |
+| https://btcconsulting.pl/v5/misja.html | About BTC Consulting — mission and team |
+| https://btcconsulting.pl/v5/whitepaper.html | Technical whitepaper — BioTC system design |
+| https://btcconsulting.pl/v5/blog/ | Blog — articles on HTC, UWWTD, sludge management |
+
+## Contact
+
+- **Email:** contact@biotc.pl
+- **Phone:** +48 608 003 458
+- **Location:** Gliwice, Poland
+- **LinkedIn:** https://www.linkedin.com/company/btc-consulting-pl
+- **Contact person:** Andrzej Krop, CEO

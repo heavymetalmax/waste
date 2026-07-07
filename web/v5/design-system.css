@@ -207,7 +207,7 @@ h1, h2, h3, h4 { font-family: var(--f-display); text-transform: uppercase; margi
   background: var(--c-black);
   color: var(--c-white);
 }
-.section--black .t-accent { color: var(--c-accent-l); }
+.section--black .t-accent { color: var(--c-accent); }
 
 /* Split — 1fr 1fr */
 .split {
@@ -327,6 +327,7 @@ h1, h2, h3, h4 { font-family: var(--f-display); text-transform: uppercase; margi
   padding-inline: var(--gutter);
   max-width: var(--container);
   margin-inline: auto;
+  position: relative;
 }
 
 .header-logo {
@@ -423,10 +424,16 @@ h1, h2, h3, h4 { font-family: var(--f-display); text-transform: uppercase; margi
 
 @media (max-width: 900px) {
   .header-nav { display: none; }
-  .header-cta { padding: 8px 14px; font-size: 11px; }
   .header-actions-sep { display: none; }
-  .header-logo img { width: 100px; height: auto; }
-  .mobile-toggle { display: flex; }
+  .header-actions { gap: 8px; }
+  .header-cta { display: none; }
+  .header-logo img { height: 38px; width: auto; }
+  .mobile-toggle {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 /* ------------------------------------------------------------- */
@@ -472,7 +479,7 @@ h1, h2, h3, h4 { font-family: var(--f-display); text-transform: uppercase; margi
     grid-template-rows: auto auto;
   }
   .hero__image {
-    aspect-ratio: 16/9;
+    aspect-ratio: 4/3;
     order: -1;
   }
   .hero__content {
@@ -961,7 +968,7 @@ input[type="number"] { -moz-appearance: textfield; }
 /* 18. CONTACT POPOVER                                            */
 /* ------------------------------------------------------------- */
 .header-actions {
-  display: flex; align-items: center; gap: 0;
+  display: flex; align-items: center; gap: 8px;
   flex-shrink: 0; white-space: nowrap;
 }
 .header-actions-sep {
@@ -1090,6 +1097,9 @@ input[type="number"] { -moz-appearance: textfield; }
 /* ------------------------------------------------------------- */
 /* 19. PRINT                                                      */
 /* ------------------------------------------------------------- */
+/* no-js fallback — reveal elements visible to crawlers */
+.no-js .reveal { opacity: 1 !important; transform: none !important; }
+
 @media print {
   .site-header, .mobile-toggle, .mobile-nav { display: none; }
   body { background: #fff; color: #000; }
