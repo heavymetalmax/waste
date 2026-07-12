@@ -2,15 +2,16 @@
 window.BTC_STRINGS = {
   nav: {
     technology: 'Technologia HTC',
-    hubSpoke:   'Hub & Spoke',
+    hubSpoke:   'Hub',
     grants:     'Dotacje UE',
     calculator: 'Kalkulator ROI',
     about:      'O nas',
     cta:        'Bezpłatna ocena →',
   },
   footer: {
-    copyright: '© 2025 BTC Consulting sp. z o.o.',
+    copyright: '© 2026 BTC Consulting sp. z o.o.',
     tagline:   'Technologia HTC dla polskich oczyszczalni ścieków',
+    address:   'ul. Daszyńskiego 34/3, 44-100 Gliwice',
   },
   form: {
     name:        'Imię i nazwisko',

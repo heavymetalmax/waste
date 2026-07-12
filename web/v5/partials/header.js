@@ -9,7 +9,7 @@ document.write(`
     <nav aria-label="Główna nawigacja">
       <ul class="header-nav" role="list">
         <li><a class="nav-link" href="/v5/technologia.html">Technologia HTC</a></li>
-        <li><a class="nav-link" href="/v5/hub-spoke.html">Hub &amp; Spoke</a></li>
+        <li><a class="nav-link" href="/v5/hub-spoke.html">Hub</a></li>
         <li><a class="nav-link" href="/v5/dotacje.html">Dotacje UE</a></li>
         <li><a class="nav-link" href="/v5/teo.html">TEO</a></li>
         <li><a class="nav-link" href="/v5/kalkulator-roi.html">Kalkulator ROI</a></li>
@@ -39,7 +39,7 @@ document.write(`
     <ul role="list">
       <li><a class="nav-link" href="/v5/index.html">Strona główna</a></li>
       <li><a class="nav-link" href="/v5/technologia.html">Technologia HTC</a></li>
-      <li><a class="nav-link" href="/v5/hub-spoke.html">Model Hub &amp; Spoke</a></li>
+      <li><a class="nav-link" href="/v5/hub-spoke.html">Model Hub</a></li>
       <li><a class="nav-link" href="/v5/teo.html">TEO – ocena wstępna</a></li>
       <li><a class="nav-link" href="/v5/dotacje.html">Dotacje UE</a></li>
       <li><a class="nav-link" href="/v5/kalkulator-roi.html">Kalkulator ROI</a></li>

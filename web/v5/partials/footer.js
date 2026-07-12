@@ -3,7 +3,7 @@ document.write(`
 <div class="footer-cta" id="contact">
   <div>
     <p class="t-label-muted mb-2">Bezpłatna analiza wstępna</p>
-    <h2 class="t-heading" style="color:var(--c-white)">Sprawdź czy Twoja<br>oczyszczalnia kwalifikuje się</h2>
+    <h2 class="t-heading" style="color:var(--c-white)">Sprawdź, czy Twoja<br>oczyszczalnia kwalifikuje się</h2>
   </div>
   <a class="btn btn-dark" href="#contact-form" style="flex-shrink:0">
     Poproś o TEO →
@@ -19,7 +19,7 @@ document.write(`
           Zacznij od<br>bezpłatnej oceny
         </h2>
         <p class="t-lead mb-4" style="color:var(--c-gray-d)">
-          Powiedz nam o swojej oczyszczalni — wrócimy z wstępną analizą
+          Powiedz nam o swojej oczyszczalni — wrócimy ze wstępną analizą
           techniczną i finansową w ciągu 48 godzin.
         </p>
         <ul class="feature-list feature-list--light">
@@ -98,7 +98,7 @@ document.write(`
         <h4>Rozwiązania</h4>
         <ul>
           <li><a href="/v5/technologia.html">Technologia HTC</a></li>
-          <li><a href="/v5/hub-spoke.html">Model Hub &amp; Spoke</a></li>
+          <li><a href="/v5/hub-spoke.html">Model Hub</a></li>
           <li><a href="/v5/kalkulator-roi.html">Kalkulator ROI</a></li>
         </ul>
       </div>
