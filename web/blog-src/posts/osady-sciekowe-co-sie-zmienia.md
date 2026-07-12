@@ -1,7 +1,7 @@
 ---
 title: "Osady ściekowe 2025–2045 — dlaczego nie można już czekać"
 heroTitle: "Osady ściekowe<br><span class='t-accent'>2025–2045</span><br>dlaczego nie można już czekać"
-description: "Dyrektywa UWWTD zmienia zasady gry dla polskich oczyszczalni. Metody które działały 30 lat przestają działać jednocześnie. Analiza prawna, ekonomiczna i operacyjna."
+description: "Dyrektywa UWWTD zmienia zasady gry dla polskich oczyszczalni. Metody, które działały 30 lat, przestają działać jednocześnie. Analiza prawna, ekonomiczna i operacyjna."
 keywords: "osady ściekowe co się zmienia, UWWTD Polska analiza, zagospodarowanie osadów ściekowych 2025, utylizacja osadu ściekowego"
 date: 2026-07-03
 readTime: "20"
@@ -41,7 +41,7 @@ Kiedy w branży mówi się o UWWTD, zwykle cytuje się tabelę z datami. 2027, 2
 
 Dyrektywa 1991/271/EEC — ta, którą UWWTD zastępuje — była dyrektywą jakości wody. Definiowała, ile azotu, fosforu i BZT może opuścić oczyszczalnię. Regulowała wyjście ze ściekiem. Osad był problemem wtórnym: zagospodaruj zgodnie z przepisami krajowymi, cokolwiek te przepisy mówią.
 
-**UWWTD 2024/3019 jest dyrektywą czegoś innego: jest dyrektywą systemu.**
+**UWWTD 2024/3019 to coś fundamentalnie innego: to dyrektywa systemowa.**
 
 Reguluje teraz nie tylko jakość ścieków oczyszczonych, ale: bilans energetyczny oczyszczalni, status chemiczny osadu, obecność mikrozanieczyszczeń, monitoring PFAS i mikroplastiku, i — pośrednio — całą logikę decyzji inwestycyjnych samorządów przez następne 20 lat.
 
@@ -193,9 +193,9 @@ Budowa: 6–10 lat, koszt PLN 300–600 mln, coraz trudniejsze wymogi emisyjne. 
 
 ### HTC — zamknięta pętla
 
-[HTC](/v5/technologia.html) nie jest kolejną metodą usuwania osadu. Jest metodą przekształcenia osadu z odpadu w produkt. Hydrochar ma wartość opałową 20–25 MJ/kg, jest pozbawiony patogenów i ma obniżone stężenie PFAS.
+[HTC](/v5/technologia.html) nie jest kolejną metodą usuwania osadu. Jest metodą przekształcenia osadu z odpadu w produkt. Hydrochar ma wartość opałową 11–15 MJ/kg, jest pozbawiony patogenów i ma obniżone stężenie PFAS.
 
-**HTC nie przesuwa problemu — go rozwiązuje.** Jest jedyną metodą, która jednocześnie: produkuje energię, niszczy PFAS i patogeny, spełnia polskie wymogi prawne jako oficjalnie uznana metoda stabilizacji osadów (Rozporządzenie MŚ 2015, od 14.01.2025).
+**HTC nie przesuwa problemu — go rozwiązuje.** Jest jedyną metodą, która jednocześnie: produkuje energię, niszczy PFAS i patogeny, spełnia polskie wymogi prawne jako oficjalnie uznana metoda stabilizacji osadów (Rozporządzenie MŚ 2015).
 
 ### Czekanie — "może za 3 lata będzie taniej"
 
@@ -203,7 +203,7 @@ Trzy argumenty przeciwko:
 
 1. **HTC jest technologią dojrzałą, nie wschodzącą.** Instalacje przemysłowe w Europie od 2012 r. Nie ma "przełomowej" wersji na horyzoncie.
 2. **Okno dotacyjne zamknie się wcześniej niż technologia stanieje.** [FENX.01.03](/v5/dotacje.html) kończy się 31.12.2029. Każda kolejna perspektywa UE była mniej hojna dla wod-kan.
-3. **Każdy rok czekania = rok płacenia za stary system.** 542 000 PLN/rok wyrzuconych. Technologia za 3 lata musiałaby być radykalnie tańsza, żeby zrekompensować stracone oszczędności i utracone dofinansowanie.
+3. **Każdy rok czekania = rok płacenia za stary system.** 542 000 PLN/rok — wyrzucone. Technologia za 3 lata musiałaby być radykalnie tańsza, żeby zrekompensować stracone oszczędności i utracone dofinansowanie.
 
 ---
 
@@ -211,7 +211,7 @@ Trzy argumenty przeciwko:
 
 ### Duzi operatorzy komunalni
 
-Veolia Polska (123 samorządy) i Remondis testują technologie w modelach PPP. Wygodne dla gminy, ale wiąże się z oddaniem kontroli i ryzykiem kosztów kontraktowych na 10–20 lat.
+Veolia Polska (123 samorządów) i Remondis testują technologie w modelach PPP. Wygodne dla gminy, ale wiąże się z oddaniem kontroli i ryzykiem kosztów kontraktowych na 10–20 lat.
 
 ### Firmy EPC
 
@@ -221,7 +221,7 @@ Firmy takie jak HMK czy Instal Kraków szukają technologii "pod klucz" przy mod
 
 Gminy, które przeszły przez modernizację skutecznie, zaczynały od analizy, nie od sprzętu. [Analiza TEO](/v5/teo.html) — rzeczywiste obliczenia dla konkretnego obiektu — była podstawą decyzji inwestycyjnej i wniosku grantowego.
 
-Przykład: [MPWiK Lubin](/v5/case-lubin.html) — od TEO przez projekt do komercyjnego kontraktu HTC w październiku 2025 r. Pierwsza instalacja takiej skali w Polsce.
+Przykład: [MPWiK Lubin](/v5/case-lubin.html) — od TEO przez projekt do komercyjnego kontraktu HTC w październiku 2025 r. Pierwszy zatwierdzony projekt komercyjny takiej skali w Polsce.
 
 ---
 

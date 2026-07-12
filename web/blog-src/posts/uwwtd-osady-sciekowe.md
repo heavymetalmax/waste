@@ -17,7 +17,7 @@ faq:
   - q: "Czy mała gmina (poniżej 15 000 RLM) może skorzystać z dofinansowania?"
     a: "Tak — przez model Hub & Spoke, łącząc się z sąsiednimi gminami w klaster spełniający progi FENX.01.03. Alternatywnie przez NFOŚiGW (program dla gmin poza aglomeracjami)."
   - q: "Czy HTC jest prawnie zatwierdzoną metodą w Polsce?"
-    a: "Tak. Od 14 stycznia 2025 r. karbonizacja hydrotermalna jest oficjalnie uznana jako metoda stabilizacji osadów ściekowych zgodnie z Rozporządzeniem Ministra Środowiska."
+    a: "Tak. Karbonizacja hydrotermalna jest oficjalnie uznana jako metoda stabilizacji osadów ściekowych zgodnie z Rozporządzeniem Ministra Środowiska (2015)."
   - q: "Ile kosztuje analiza TEO?"
     a: "Wstępna ocena inżynierska jest bezpłatna. Pełne TEO wyceniane jest indywidualnie po wstępnej rozmowie. Koszt TEO może być kwalifikowany jako koszt przygotowania projektu w wielu programach dotacyjnych."
   - q: "Jak długo trwa cały projekt od TEO do uruchomienia instalacji?"
@@ -127,7 +127,7 @@ Dla gminy: im wcześniej projekt jest złożony i zatwierdzony, tym mniejsze ryz
 
 ## PFAS i mikroplastik — nowe wymogi monitoringu
 
-UWWTD 2024/3019 jako pierwsza dyrektywa UE explicitly nakłada na oczyszczalnie obowiązek **monitorowania PFAS (per- i polifluoroalkilowych) oraz mikroplastiku** w ściekach i osadach.
+UWWTD 2024/3019 jako pierwsza dyrektywa UE wprost nakłada na oczyszczalnie obowiązek **monitorowania PFAS (per- i polifluoroalkilowych) oraz mikroplastiku** w ściekach i osadach.
 
 ### Czym jest PFAS i dlaczego to problem dla osadów
 
@@ -157,11 +157,11 @@ Polskie prawo (Rozporządzenie Ministra Środowiska z 2015 r., aktualizowane prz
 | Chemiczna (wapno) | Wapno ≥0,25 kg/kg s.m. | — |
 | Humifikacja | ≥90 dni lub wilgotność <30% | — |
 
-**HTC jest prawnie dopuszczoną i parametrycznie najlepszą metodą** spośród pięciu. Od 14 stycznia 2025 r. karbonizacja hydrotermalna jest oficjalnie uznana za metodę stabilizacji osadów ściekowych w Polsce.
+**HTC jest prawnie dopuszczoną i parametrycznie najlepszą metodą** spośród pięciu — oficjalnie uznaną metodą stabilizacji osadów ściekowych w Polsce (Rozporządzenie MŚ 2015).
 
 ---
 
-## Dostępne dofinansowania — okno 2025–2027
+## Dostępne dofinansowania — okno 2025–2029
 
 ### FENX.01.03 — Program Fundusze Europejskie na Infrastrukturę, Klimat, Środowisko
 
@@ -180,7 +180,7 @@ Praktycznie: przy projekcie o wartości EUR 5 mln, dofinansowanie do 70% = EUR 3
 | Parametr | Dane |
 |---|---|
 | Pula środków | PLN 100 mln |
-| Forma | Pożyczka preferencjonalna 100% + umorzenie 30–50% (do 5 mln PLN) |
+| Forma | Pożyczka preferencyjna 100% + umorzenie 30–50% (do 5 mln PLN) |
 | Oprocentowanie | WIBOR 3M |
 | Okres spłaty | 15 lat |
 
@@ -188,7 +188,7 @@ Idealne dla mniejszych gmin poniżej progu FENX.01.03.
 
 ### Łącznie dostępne środki
 
-FEnIKS + KPO + NFOŚiGW + Fundusz Spójności łącznie na gospodarkę wod-kan w Polsce: **PLN 30 miliardów ≈ EUR 7,6 miliarda**.
+FENX (FEnIKS) + KPO + NFOŚiGW + Fundusz Spójności łącznie na gospodarkę wod-kan w Polsce: **PLN 30 miliardów ≈ EUR 7,6 miliarda**.
 
 Pokrycie dotacyjne na pojedynczy projekt modernizacji oczyszczalni z komponentem HTC: **75–90% CapEx** przy łączeniu programów. Szczegóły na stronie [Dotacje UE](/v5/dotacje.html).
 
@@ -225,7 +225,7 @@ Karbonizacja hydrotermalna (Hydrothermal Carbonization — HTC) to proces fizyko
 | PFAS | poziom wejściowy | **PFCAs: >96% usunięcia; PFSAs: zależnie od warunków** |
 | Mikroplastik | obecny | **usunięty lub znacząco zredukowany** |
 | Odór | intensywny | **wyeliminowany** |
-| Wartość opałowa | niska (wilgotny) | **20–25 MJ/kg** (zbliżona do węgla brunatnego) |
+| Wartość opałowa | niska (wilgotny) | **11–15 MJ/kg** (zbliżona do węgla brunatnego) |
 | Status prawny | odpad | **produkt/surowiec** |
 
 ### Jak HTC realizuje wymagania UWWTD dotyczące energii
@@ -262,7 +262,7 @@ Zalety modelu klastrowego:
 - Redukcja kosztów na tonę osadu o 15–25% w stosunku do instalacji samodzielnej
 - Możliwość stopniowego włączania kolejnych gmin do klastra
 
-Szacunkowy zwrot z inwestycji przy modelu Hub & Spoke: **3–3,5 roku** (przy wkładzie własnym 10–25% CapEx). Referencja komercyjna: [MPWiK Lubin](/v5/case-lubin.html) — pierwsza instalacja HTC w Polsce (kontrakt 2025).
+Szacunkowy zwrot z inwestycji przy modelu Hub & Spoke: **3–3,5 roku** (przy wkładzie własnym 10–25% CapEx). Referencja komercyjna: [MPWiK Lubin](/v5/case-lubin.html) — pierwszy zatwierdzony projekt komercyjny HTC w Polsce (kontrakt 2025).
 
 ---
 
@@ -349,7 +349,7 @@ Dyrektywa UWWTD 2024/3019 to nie biurokratyczna aktualizacja — to fundamentaln
 Tak — przez model Hub & Spoke, łącząc się z sąsiednimi gminami w klaster spełniający progi FENX.01.03. Alternatywnie przez NFOŚiGW (program dla gmin poza aglomeracjami).
 
 **Czy HTC jest prawnie zatwierdzoną metodą w Polsce?**
-Tak. Od 14 stycznia 2025 r. karbonizacja hydrotermalna jest oficjalnie uznana jako metoda stabilizacji osadów ściekowych zgodnie z Rozporządzeniem Ministra Środowiska.
+Tak. Karbonizacja hydrotermalna jest oficjalnie uznana jako metoda stabilizacji osadów ściekowych zgodnie z Rozporządzeniem Ministra Środowiska (2015).
 
 **Ile kosztuje analiza TEO?**
 Wstępna ocena inżynierska jest bezpłatna. Pełne TEO wyceniane jest indywidualnie po wstępnej rozmowie. Koszt TEO może być kwalifikowany jako koszt przygotowania projektu w wielu programach dotacyjnych.

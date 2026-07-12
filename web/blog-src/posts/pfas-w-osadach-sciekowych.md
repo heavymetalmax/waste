@@ -25,7 +25,7 @@ faq:
     a: "PFAS z osadu przenikają do gleby, wód gruntowych i roślin. Po wprowadzeniu obowiązkowego monitoringu UWWTD (2027+), przekroczenia PFAS staną się podstawą do blokady stosowania rolniczego przez WIOŚ — bez czasu na przygotowanie alternatywy."
 ---
 
-Miejska oczyszczalnia ścieków robi dokładnie to, do czego została zbudowana: wyłapuje zanieczyszczenia ze ścieków. PFAS — per- i polifluoroalkilowe substancje, klasa ponad 10 000 związków syntetycznych — też osiadają na stacji. Woda po oczyszczeniu jest czystsza.
+Miejska oczyszczalnia ścieków robi dokładnie to, do czego została zbudowana: wyłapuje zanieczyszczenia ze ścieków. PFAS — per- i polifluoroalkilowe substancje, klasa ponad 10 000 związków syntetycznych — też zostają w oczyszczalni. Woda po oczyszczeniu jest czystsza.
 
 Ale PFAS nigdzie nie znikają. **Koncentrują się w osadzie** — produkcie ubocznym, który potem trafia na pola.
 
@@ -80,7 +80,7 @@ To oznacza dwie rzeczy:
 1. **Ci, którzy wcześniej mogli nie znać poziomu PFAS w swoim osadzie — teraz muszą mierzyć.**
 2. **Wyniki pomiarów stają się podstawą do ograniczeń na konkretne ścieżki utylizacji.**
 
-Równolegle w UE trwa ograniczanie PFAS przez REACH. W 2023 r. pięć krajów złożyło do ECHA propozycję uniwersalnego ograniczenia PFAS — najszerszego w historii regulacji chemicznych. Decyzja oczekiwana w 2025–2026 r. Jeśli wejdzie w życie, normy na PFAS w osadzie staną się drastycznie ostrzejsze.
+Równolegle w UE trwa ograniczanie PFAS przez REACH. W 2023 r. pięć krajów złożyło do ECHA propozycję uniwersalnego ograniczenia PFAS — najszerszego w historii regulacji chemicznych. Decyzja oczekiwana w 2026–2027 r. Jeśli wejdzie w życie, normy na PFAS w osadzie staną się drastycznie ostrzejsze.
 
 Oczyszczalnie wywożące osad na pola ryzykują sytuację, w której **ten wariant zostanie zamknięty administracyjnie — bez gotowej alternatywy**.
 
@@ -98,9 +98,9 @@ Pierwsza myśl: przejdźmy na spalanie. Niszczy PFAS. Problem rozwiązany.
 
 Ale matematyka nie pozwala.
 
-W Polsce działa **11 instalacji termicznej utylizacji osadów**. Łączna przepustowość: orientacyjnie 160 300 Mg/rok — czyli **23% krajowej produkcji**. Żeby spalać cały osad, trzeba zbudować jeszcze ~36 podobnych instalacji. Każda kosztuje PLN 300–600 mln i wymaga 8–10 lat uzgodnień i budowy.
+W Polsce działa **11 instalacji termicznej utylizacji osadów**. Łączna przepustowość: 160 300 Mg/rok — czyli **23% krajowej produkcji**. Żeby spalać cały osad, trzeba zbudować jeszcze ~36 podobnych instalacji. Każda kosztuje PLN 300–600 mln i wymaga 8–10 lat uzgodnień i budowy.
 
-Cena rynkowa spalania: **500–800 PLN/tonę** (vs. HTC: 180–250 PLN/t).
+Cena rynkowa spalania: **400–800 PLN/tonę** (vs. HTC: 180–250 PLN/t).
 
 Spalanie to ważna część rozwiązania. Ale nie skalowalna i nie jedyna.
 
@@ -108,7 +108,7 @@ Spalanie to ważna część rozwiązania. Ale nie skalowalna i nie jedyna.
 
 ## Jak HTC niszczy to, co samo się nie rozkłada
 
-[Karbonizacja hydrotermalna (HTC)](/v5/technologia.html) — proces w temperaturze 180–220°C i ciśnieniu 20–30 bar w środowisku wodnym, trwający 2 godziny. To, co w naturze zachodzi miliony lat przy powstawaniu węgla, w reaktorze odtwarza się w ciągu jednej zmiany roboczej.
+[Karbonizacja hydrotermalna (HTC)](/v5/technologia.html) — proces w temperaturze 180–220°C i ciśnieniu 20–30 bar w środowisku wodnym, trwający 2 godziny. To, co w naturze zachodzi przez miliony lat przy powstawaniu węgla, w reaktorze odtwarza się w ciągu jednej zmiany roboczej.
 
 Dla PFAS kluczowy jest konkretny mechanizm: w warunkach hydrotermalnych woda działa jako środowisko reaktywne, cząsteczki PFAS ulegają hydrolizie przez mechanizm jonowy. Wiązanie C–F, odporne na degradację biologiczną i większość chemiczną, ulega rozerwaniu przez reakcję substytucji w kwaśnym środowisku wodnym przy podwyższonej temperaturze. **Fluor przechodzi do fazy wodnej jako jon fluorku** — nietoksyczny, rozpuszczalny, ten sam co w paście do zębów.
 
@@ -116,7 +116,7 @@ Wynik zależy od składu PFAS w osadzie:
 - **PFCAs:** skuteczność usunięcia >96% (Soler-Cabezas et al., Science of the Total Environment, 2024)
 - **PFSAs (w tym PFOS):** standardowy HTC jest mniej skuteczny; dla oczyszczalni z dominacją PFSAs wskazana modyfikacja alkaliczna (HALT, 5M NaOH) — >90% destrukcji nawet ciężkich PFSAs (Water Research Foundation, 2023)
 
-Metoda HTC ma polski status prawny od 14.01.2025 (Rozporządzenie MŚ 2015, oficjalnie uznana metoda stabilizacji).
+Metoda HTC jest oficjalnie uznaną metodą stabilizacji osadów ściekowych w Polsce (Rozporządzenie MŚ 2015).
 
 ---
 

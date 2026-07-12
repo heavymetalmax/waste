@@ -17,7 +17,7 @@ faq:
   - q: "Czy HTC jest tańsze od spalania osadów ściekowych?"
     a: "Tak — gate fee HTC wynosi 180–250 PLN/t vs 500–800 PLN/t za spalanie. Przy oczyszczalni 30 000 RLM to oszczędność 330–390 tys. PLN rocznie."
   - q: "Czy HTC i spalanie można łączyć w jednej oczyszczalni?"
-    a: "Tak — hydrochar z HTC ma wartość opałową 20–25 MJ/kg i może być współspalany. To opcja dla oczyszczalni z dostępem do spalarni, ale produkujących więcej osadu niż spalarna przyjmie."
+    a: "Tak — hydrochar z HTC ma wartość opałową 11–15 MJ/kg i może być współspalany. To opcja dla oczyszczalni z dostępem do spalarni, ale produkujących więcej osadu niż spalarna przyjmie."
   - q: "Ile trwa budowa instalacji HTC vs spalarni osadów?"
     a: "Instalacja HTC: 8–14 miesięcy (modułowa). Spalarnia osadów: 6–10 lat (projektowanie, uzgodnienia, budowa). Koszt spalarni: PLN 300–600 mln vs HTC: PLN 18–30 mln."
   - q: "Która metoda lepiej radzi sobie z PFAS w osadzie?"
@@ -44,7 +44,7 @@ Osad ściekowy — po uprzednim wysuszeniu — jest dodawany jako paliwo zastęp
 
 ### HTC (karbonizacja hydrotermalna)
 
-Proces fizykochemiczny przebiegający w temperaturze 180–220°C przy ciśnieniu 20–30 bar w środowisku wodnym. Czas reakcji: ~2 godziny. Nie wymaga wstępnego suszenia. Produkt końcowy — hydrochar — ma wartość opałową 20–25 MJ/kg (zbliżoną do węgla brunatnego) i jest pozbawiony patogenów. [HTC](/v5/technologia.html) jest oficjalnie uznaną metodą stabilizacji osadów ściekowych w Polsce (Rozporządzenie MŚ 2015, od 14.01.2025).
+Proces fizykochemiczny przebiegający w temperaturze 180–220°C przy ciśnieniu 20–30 bar w środowisku wodnym. Czas reakcji: ~2 godziny. Nie wymaga wstępnego suszenia. Produkt końcowy — hydrochar — ma wartość opałową 11–15 MJ/kg (zbliżoną do węgla brunatnego) i jest pozbawiony patogenów. [HTC](/v5/technologia.html) jest oficjalnie uznaną metodą stabilizacji osadów ściekowych w Polsce (Rozporządzenie MŚ 2015).
 
 ---
 
@@ -54,7 +54,7 @@ Proces fizykochemiczny przebiegający w temperaturze 180–220°C przy ciśnieni
 |---|---|---|---|
 | **Koszt (PLN/t)** | **180–250** | 500–800 | 300–500 |
 | **Usuwanie PFAS** | **PFCAs >96%**; PFSAs wymaga modyfikacji HALT | >90% przy >850°C | Zależy od temperatury pieca |
-| **Bilans energetyczny** | **Produkuje energię** (hydrochar 20–25 MJ/kg + biogaz z AD) | Zużywa energię (paliwo wspomagające) | Neutralny / lekko dodatni |
+| **Bilans energetyczny** | **Produkuje energię** (hydrochar 11–15 MJ/kg + biogaz z AD) | Zużywa energię (paliwo wspomagające) | Neutralny / lekko dodatni |
 | **Dostępność w Polsce** | **Od zaraz** (instalacje modularne, 8–14 mies. budowy) | 11 spalarni, 23% potencjału, kolejka | Zależy od umowy z cementownią |
 | **Status prawny** | Oficjalnie uznana metoda stabilizacji (Rozp. MŚ 2015) | Wymaga pozwolenia zintegrowanego | Wymaga umowy z operatorem pieca |
 | **Czas budowy** | **8–14 miesięcy** | 6–10 lat | Nie dotyczy (istniejąca infra) |
@@ -112,7 +112,7 @@ Dyrektywa UWWTD wymaga od oczyszczalni: 20% energii z OZE do 2030, 40% do 2035, 
 
 **HTC** w konfiguracji TH-AD-HTC (hydroliza termiczna + fermentacja beztlenowa + karbonizacja) tworzy zamkniętą pętlę energetyczną:
 - Fermentacja produkuje biogaz → napędza CHP (kogeneracja)
-- Hydrochar (20–25 MJ/kg) → dodatkowe źródło energii cieplnej
+- Hydrochar (11–15 MJ/kg) → dodatkowe źródło energii cieplnej
 - Wynik: oczyszczalnia pokrywa **60–100% własnego zapotrzebowania energetycznego**
 
 To bezpośrednio realizuje cele UWWTD. Spalanie — nie.
@@ -154,7 +154,7 @@ Dostępne programy [dotacyjne](/v5/dotacje.html) na gospodarkę osadową w Polsc
 
 ## Referencje w Polsce — kto już wdrożył
 
-**[MPWiK Lubin](/v5/case-lubin.html)** — pierwsza komercyjna instalacja HTC w Polsce. Kontrakt podpisany w październiku 2025 r. Przepustowość: 800 t osadu/rok. Pełna dokumentacja TEO, wniosek grantowy, projekt i budowa zrealizowane w ciągu 24 miesięcy.
+**[MPWiK Lubin](/v5/case-lubin.html)** — pierwszy zatwierdzony projekt komercyjny HTC w Polsce. Kontrakt (wykup koncepcji i praw) podpisany w październiku 2025 r. Docelowa przepustowość: 800 t osadu/rok. Dokumentacja TEO i koncepcja techniczna zrealizowane; przetarg budowlany planowany na 2026–2027, uruchomienie instalacji w 2027 r.
 
 **Gmina Solina** — projekt instalacji TerraNova®ultra we współpracy ze Schwander Polska. Lokalizacja: oczyszczalnia w Berezce. Planowana przepustowość: 3 000 t bioodpadów/rok → 400–500 t hydrocharu. Faza projektowa: od sierpnia 2022.
 
@@ -187,7 +187,7 @@ Tak — gate fee HTC wynosi 180–250 PLN/t vs 500–800 PLN/t za spalanie. Przy
 
 **Czy HTC i spalanie można łączyć w jednej oczyszczalni?**
 
-Tak — hydrochar z HTC ma wartość opałową 20–25 MJ/kg i może być współspalany w istniejącej spalarni lub cementowni. To opcja dla oczyszczalni z dostępem do spalarni, ale produkujących więcej osadu niż spalarna przyjmie.
+Tak — hydrochar z HTC ma wartość opałową 11–15 MJ/kg i może być współspalany w istniejącej spalarni lub cementowni. To opcja dla oczyszczalni z dostępem do spalarni, ale produkujących więcej osadu niż spalarna przyjmie.
 
 **Ile trwa budowa instalacji HTC vs spalarni osadów?**
 
