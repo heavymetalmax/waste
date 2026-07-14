@@ -67,7 +67,7 @@ Przy temperaturach powyżej 850°C wiązania C–F ulegają rozerwaniu. Spalanie
 
 ### HTC
 
-[Karbonizacja hydrotermalna](/v5/technologia.html) przy 180–220°C i ciśnieniu 20–30 bar w środowisku wodnym znacząco obniża zawartość PFAS w osadzie. Warunki hydrotermalne hydrolizują wiązania fluoroorganiczne przez mechanizm jonowy. Skuteczność zależy od typu związku: dla PFCAs (kwasów perfluorokarboksylowych) usunięcie sięga **>96%** (Science of the Total Environment, 2024); dla PFSAs (np. PFOS) standardowy HTC jest mniej skuteczny i może wymagać alkalicznej modyfikacji procesu (HALT).
+[Hydrotermiczne uwęglanie](/v5/technologia.html) przy 180–220°C i ciśnieniu 20–30 bar w środowisku wodnym znacząco obniża zawartość PFAS w osadzie. Warunki hydrotermalne hydrolizują wiązania fluoroorganiczne przez mechanizm jonowy. Skuteczność zależy od typu związku: dla PFCAs (kwasów perfluorokarboksylowych) usunięcie sięga **>96%** (Science of the Total Environment, 2024); dla PFSAs (np. PFOS) standardowy HTC jest mniej skuteczny i może wymagać alkalicznej modyfikacji procesu (HALT).
 
 ---
 
@@ -108,7 +108,7 @@ Spalanie to ważna część rozwiązania. Ale nie skalowalna i nie jedyna.
 
 ## Jak HTC niszczy to, co samo się nie rozkłada
 
-[Karbonizacja hydrotermalna (HTC)](/v5/technologia.html) — proces w temperaturze 180–220°C i ciśnieniu 20–30 bar w środowisku wodnym, trwający 2 godziny. To, co w naturze zachodzi przez miliony lat przy powstawaniu węgla, w reaktorze odtwarza się w ciągu jednej zmiany roboczej.
+[Hydrotermiczne uwęglanie (HTC)](/v5/technologia.html) — proces w temperaturze 180–220°C i ciśnieniu 20–30 bar w środowisku wodnym, trwający 2 godziny. To, co w naturze zachodzi przez miliony lat przy powstawaniu węgla, w reaktorze odtwarza się w ciągu jednej zmiany roboczej.
 
 Dla PFAS kluczowy jest konkretny mechanizm: w warunkach hydrotermalnych woda działa jako środowisko reaktywne, cząsteczki PFAS ulegają hydrolizie przez mechanizm jonowy. Wiązanie C–F, odporne na degradację biologiczną i większość chemiczną, ulega rozerwaniu przez reakcję substytucji w kwaśnym środowisku wodnym przy podwyższonej temperaturze. **Fluor przechodzi do fazy wodnej jako jon fluorku** — nietoksyczny, rozpuszczalny, ten sam co w paście do zębów.
 

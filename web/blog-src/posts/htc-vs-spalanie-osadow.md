@@ -2,7 +2,7 @@
 title: "HTC vs spalanie osadów ściekowych — porównanie technologii dla polskich oczyszczalni"
 heroTitle: "HTC vs spalanie<br><span class='t-accent'>porównanie</span><br>technologii"
 description: "HTC vs spalanie osadów ściekowych: koszt 180–250 vs 500–800 PLN/t, PFAS >96% usunięcia, bilans energetyczny. Porównanie 5 kryteriów dla polskich oczyszczalni."
-keywords: "HTC vs spalanie osad ściekowy, karbonizacja hydrotermalna vs spalanie, porównanie metod utylizacji osadu, HTC współspalanie porównanie, spalanie osadów ściekowych koszt"
+keywords: "HTC vs spalanie osad ściekowy, hydrotermiczne uwęglanie vs spalanie, porównanie metod utylizacji osadu, HTC współspalanie porównanie, spalanie osadów ściekowych koszt"
 date: 2026-07-04
 readTime: "12"
 author: "Dr inż. Eugeniusz Krop"
@@ -28,7 +28,7 @@ faq:
 
 Polska produkuje ~580 000–700 000 ton osadów ściekowych rocznie. Krajowe moce termicznego przetwarzania pokrywają 23% tej ilości. Ponad trzy czwarte osadu nie ma dziś bezpiecznego, długoterminowego ujścia — a [dyrektywa UWWTD 2024/3019](/v5/blog/uwwtd-osady-sciekowe/) systematycznie zamyka dotychczasowe drogi wyjścia.
 
-Pytanie nie brzmi już „czy modernizować", lecz „jaką technologię wybrać". Ten artykuł porównuje trzy metody termicznej utylizacji osadów — spalanie, współspalanie i [karbonizację hydrotermalną (HTC)](/v5/technologia.html) — pod kątem kosztów, skuteczności wobec PFAS, bilansu energetycznego, dostępności w Polsce i statusu prawnego.
+Pytanie nie brzmi już „czy modernizować", lecz „jaką technologię wybrać". Ten artykuł porównuje trzy metody termicznej utylizacji osadów — spalanie, współspalanie i [hydrotermiczne uwęglanie (HTC)](/v5/technologia.html) — pod kątem kosztów, skuteczności wobec PFAS, bilansu energetycznego, dostępności w Polsce i statusu prawnego.
 
 ---
 
@@ -42,7 +42,7 @@ Dedykowana spalarnia osadów pracuje w temperaturze powyżej 850°C. Materia org
 
 Osad ściekowy — po uprzednim wysuszeniu — jest dodawany jako paliwo zastępcze do pieca cementowni lub kotła elektrociepłowni. Udział osadu w mieszance paliwowej wynosi z reguły 5–15%. Cementownie zaostrzają wymagania jakościowe: zawartość chloru, metali ciężkich i PFAS decyduje o tym, czy osad zostanie zaakceptowany.
 
-### HTC (karbonizacja hydrotermalna)
+### HTC (hydrotermiczne uwęglanie)
 
 Proces fizykochemiczny przebiegający w temperaturze 180–220°C przy ciśnieniu 20–30 bar w środowisku wodnym. Czas reakcji: ~2 godziny. Nie wymaga wstępnego suszenia. Produkt końcowy — hydrochar — ma wartość opałową 11–15 MJ/kg (zbliżoną do węgla brunatnego) i jest pozbawiony patogenów. [HTC](/v5/technologia.html) jest oficjalnie uznaną metodą stabilizacji osadów ściekowych w Polsce (Rozporządzenie MŚ 2015).
 
@@ -110,7 +110,7 @@ Dyrektywa UWWTD wymaga od oczyszczalni: 20% energii z OZE do 2030, 40% do 2035, 
 
 **Spalanie** jest procesem endotermicznym wobec oczyszczalni. Spalarnia zużywa paliwo wspomagające i energię elektryczną. Nawet jeśli odzyskuje ciepło ze spalin, bilans netto dla oczyszczalni jest ujemny — bo spalarnia to osobny obiekt z własnym bilansem.
 
-**HTC** w konfiguracji TH-AD-HTC (hydroliza termiczna + fermentacja beztlenowa + karbonizacja) tworzy zamkniętą pętlę energetyczną:
+**HTC** w konfiguracji TH-AD-HTC (hydroliza termiczna + fermentacja beztlenowa + uwęglanie) tworzy zamkniętą pętlę energetyczną:
 - Fermentacja produkuje biogaz → napędza CHP (kogeneracja)
 - Hydrochar (11–15 MJ/kg) → dodatkowe źródło energii cieplnej
 - Wynik: oczyszczalnia pokrywa **60–100% własnego zapotrzebowania energetycznego**
