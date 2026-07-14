@@ -477,6 +477,9 @@ h1, h2, h3, h4 { font-family: var(--f-display); text-transform: uppercase; margi
   .hero {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
+    height: auto;
+    max-height: none;
+    min-height: 100svh;
   }
   .hero__image {
     aspect-ratio: 4/3;
