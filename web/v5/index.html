@@ -577,11 +577,14 @@
 <style>
   .team-preview {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
     align-items: stretch;
-    max-width: 960px;
+    max-width: 1120px;
     margin: 0 auto;
+  }
+  @media (max-width: 900px) {
+    .team-preview { grid-template-columns: repeat(2, 1fr); max-width: 680px; }
   }
   @media (max-width: 600px) {
     .team-preview { grid-template-columns: 1fr; max-width: 320px; }
@@ -669,10 +672,20 @@
           <p class="tp-desc">Były CEO europejskiego oddziału japońskiej korporacji. Gwarant terminów i&nbsp;budżetu.</p>
         </div>
       </article>
+
+      <article class="tp-card reveal">
+        <img src="/v5/assets/img/K.%20Surmacewicz.jpeg" alt="Karol Surmacewicz"
+             width="480" height="640" loading="lazy">
+        <div class="tp-info">
+          <p class="tp-name">Karol Surmacewicz</p>
+          <p class="tp-role">Dyrektor operacyjny (COO)</p>
+          <p class="tp-desc">Operacje, sprzedaż i&nbsp;rozwój biznesu. Skalowanie działalności i&nbsp;optymalizacja procesów w&nbsp;transformacji energetycznej.</p>
+        </div>
+      </article>
     </div>
 
-    <div style="max-width:960px;margin:2rem auto 0;display:flex;justify-content:flex-end">
-      <a class="btn btn-outline-light reveal" href="/v5/misja.html" style="width:calc((100% - 4rem) / 3);text-align:center">
+    <div style="max-width:1120px;margin:2rem auto 0;display:flex;justify-content:flex-end">
+      <a class="btn btn-outline-light reveal" href="/v5/misja.html" style="width:calc((100% - 4.5rem) / 4);text-align:center">
         Poznaj cały zespół i misję →
       </a>
     </div>
