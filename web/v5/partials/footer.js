@@ -20,12 +20,12 @@ document.write(`
         </h2>
         <p class="t-lead mb-4" style="color:var(--c-gray-d)">
           Powiedz nam o swojej oczyszczalni — wrócimy ze wstępną analizą
-          techniczną i finansową w ciągu 48 godzin.
+          techniczną i finansową w ciągu 2 dni roboczych.
         </p>
         <ul class="feature-list feature-list--light">
           <li>Wstępna analiza techniczna (TEO) — bez kosztów</li>
           <li>Szacunek kosztów i dofinansowania UE</li>
-          <li>Odpowiedź w 48 godzin</li>
+          <li>Odpowiedź w 2 dni robocze</li>
         </ul>
       </div>
 
