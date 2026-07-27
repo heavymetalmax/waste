@@ -90,7 +90,7 @@ document.write(`
   <!-- Nav kolumny -->
   <div class="footer-grid" style="padding-top:40px">
     <div class="footer-mark" aria-hidden="true">
-      <img src="/v5/assets/svg/logo-white-on-black.svg" alt="" width="180" height="66" style="display:block">
+      <img src="/v5/assets/svg/logo-white-on-black.svg" alt="" width="180" height="50" style="display:block">
     </div>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">

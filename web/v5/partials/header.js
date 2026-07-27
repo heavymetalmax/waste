@@ -2,8 +2,8 @@ document.write(`
 <a class="skip-link sr-only" href="#main">Przejdź do treści</a>
 <header class="site-header" id="site-header">
   <div class="header-inner">
-    <a class="header-logo" href="/v5/index.html" aria-label="BTC Consulting">
-      <img src="/v5/assets/svg/logo-blue.svg" alt="BTC Consulting" width="130" height="40" style="display:block">
+    <a class="header-logo" href="/v5/index.html" aria-label="BIOTC">
+      <img src="/v5/assets/svg/logo-blue.svg" alt="BIOTC" width="130" height="30" style="display:block">
     </a>
 
     <nav aria-label="Główna nawigacja">
