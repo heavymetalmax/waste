@@ -338,6 +338,7 @@ h1, h2, h3, h4 { font-family: var(--f-display); text-transform: uppercase; margi
   line-height: 1;
 }
 .header-logo span { color: var(--c-accent); }
+.header-logo img { height: 38px; width: auto; }
 
 .header-nav {
   display: flex;
@@ -427,7 +428,6 @@ h1, h2, h3, h4 { font-family: var(--f-display); text-transform: uppercase; margi
   .header-actions-sep { display: none; }
   .header-actions { gap: 8px; }
   .header-cta { display: none; }
-  .header-logo img { height: 38px; width: auto; }
   .mobile-toggle {
     display: flex;
     position: absolute;
