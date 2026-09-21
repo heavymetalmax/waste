@@ -44,7 +44,7 @@ document.write(`
       <li><a class="nav-link" href="/v5/dotacje.html">Dotacje UE</a></li>
       <li><a class="nav-link" href="/v5/kalkulator-roi.html">Kalkulator ROI</a></li>
       <li><a class="nav-link" href="/v5/case-lubin.html">Case study: Lubin</a></li>
-      <li><a class="nav-link" href="/v5/misja.html">O BTC Consulting</a></li>
+      <li><a class="nav-link" href="/v5/misja.html">O BioTC</a></li>
       <li><a class="nav-link" href="/v5/blog/">Blog</a></li>
     </ul>
     <a class="btn btn-primary" href="#contact" style="margin:1.5rem var(--gutter)">
@@ -173,7 +173,7 @@ document.write(`
       e.preventDefault();
       var vcard = [
         'BEGIN:VCARD','VERSION:3.0',
-        'FN:Andrzej Krop','ORG:BTC Consulting',
+        'FN:Andrzej Krop','ORG:BioTC',
         'TITLE:Project Manager',
         'TEL;TYPE=WORK,VOICE:+48608003458',
         'EMAIL;TYPE=PREF,INTERNET:contact@biotc.pl',
@@ -202,7 +202,7 @@ document.write(`
       cbBtn.disabled = true; cbBtn.textContent = '...';
       var data = new FormData();
       data.append('phone', cbPhone.value.trim());
-      data.append('_subject', 'Oddzwoń — BTC Consulting');
+      data.append('_subject', 'Oddzwoń — BioTC');
       data.append('_captcha', 'false');
       fetch('https://formsubmit.co/ajax/contact@biotc.pl', {
         method: 'POST', headers: { 'Accept': 'application/json' }, body: data,

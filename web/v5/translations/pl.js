@@ -9,7 +9,7 @@ window.BTC_STRINGS = {
     cta:        'Bezpłatna ocena →',
   },
   footer: {
-    copyright: '© 2026 BTC Consulting sp. z o.o.',
+    copyright: '© 2026 BioTC sp. z o.o.',
     tagline:   'Technologia HTC dla polskich oczyszczalni ścieków',
     address:   'ul. Daszyńskiego 34/3, 44-100 Gliwice',
   },

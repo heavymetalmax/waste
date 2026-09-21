@@ -39,7 +39,7 @@ document.write(`
         data-mcp-action="request_consultation"
         data-mcp-description="Request a free preliminary HTC feasibility assessment for a wastewater treatment plant"
       >
-        <input type="hidden" name="_subject" value="BTC Consulting — zapytanie ze strony">
+        <input type="hidden" name="_subject" value="BioTC — zapytanie ze strony">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="https://btcconsulting.pl/v5/dziekujemy.html">
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
@@ -118,7 +118,7 @@ document.write(`
         <ul>
           <li><a href="/v5/case-lubin.html">Case study: Lubin</a></li>
           <li><a href="/v5/whitepaper.html">Whitepaper HTC</a></li>
-          <li><a href="/v5/misja.html">O BTC Consulting</a></li>
+          <li><a href="/v5/misja.html">O BioTC</a></li>
           <li><a href="/v5/blog/">Blog</a></li>
         </ul>
       </div>
@@ -127,7 +127,7 @@ document.write(`
   </div>
 
   <div class="footer-bottom">
-    <p class="t-small">&copy; 2026 BTC Consulting sp. z o.o. — Technologia HTC dla polskich oczyszczalni ścieków</p>
+    <p class="t-small">&copy; 2026 BioTC sp. z o.o. — Technologia HTC dla polskich oczyszczalni ścieków</p>
     <p class="t-small" style="color:var(--c-gray-dd)">Gliwice, Polska · <a href="/v5/polityka-prywatnosci.html" style="color:var(--c-gray-dd);text-decoration:underline">Polityka prywatności</a></p>
   </div>
 
