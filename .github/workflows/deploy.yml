@@ -41,3 +41,4 @@ jobs:
             **/biotc/**
             **/worker/**
             **/*.skill
+            **/web/**
