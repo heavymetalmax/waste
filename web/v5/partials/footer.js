@@ -24,7 +24,6 @@ document.write(`
         </p>
         <ul class="feature-list feature-list--light">
           <li>Wstępna analiza techniczna (TEO) — bez kosztów</li>
-          <li>Szacunek kosztów i dofinansowania UE</li>
           <li>Odpowiedź w 2 dni robocze</li>
         </ul>
       </div>
