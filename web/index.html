@@ -1,124 +1,181 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" class="no-js">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/v5/assets/svg/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BTC Consulting – Technologia HTC dla oczyszczalni ścieków</title>
-  <meta name="description" content="BTC Consulting projektuje instalacje HTC dla oczyszczalni ścieków. Dofinansowanie do 90% z FENX i NFOŚiGW.">
-  <link rel="stylesheet" href="Ua/industrial-modern.css">
+  <title>BioTC — Technologia HTC dla polskich oczyszczalni ścieków</title>
+  <meta name="description" content="Polska technologia HTC dla oczyszczalni ścieków. Dofinansowanie do 90% z FENX i NFOŚiGW. Pierwszy zatwierdzony projekt komercyjny: MPWiK Lubin 2025.">
+  <link rel="canonical" href="https://biotc.pl/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BioTC — Technologia HTC dla oczyszczalni ścieków">
+  <meta property="og:description" content="Polska technologia HTC dla oczyszczalni ścieków. Dofinansowanie do 90%. Pierwszy zatwierdzony projekt komercyjny w Polsce.">
+  <meta property="og:url" content="https://biotc.pl/">
+  <meta property="og:locale" content="pl_PL">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BioTC — Technologia HTC">
+
+  <link rel="stylesheet" href="/v5/assets/fonts/fonts.css">
+  <link rel="stylesheet" href="/v5/design-system.css?v=4">
+
   <style>
-    html, body { height: 100%; margin: 0; overflow: hidden; }
-    body { display: flex; flex-direction: column; }
-    header { flex-shrink: 0; }
-    main { flex: 1; min-height: 0; overflow: hidden; }
-    #hero { height: 100%; display: flex; align-items: center; }
-    #hero h1 { font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.1; }
-    #hero .hero-desc { font-size: clamp(0.85rem, 1.3vw, 1rem); line-height: 1.4; }
-    #hero .paper-checklist { padding: clamp(1rem, 2vw, 2rem); }
-    #hero .contact-row { padding: 0.6rem 0; }
-    @media (max-width: 768px) {
-      html, body { height: auto; overflow: auto; }
-      main { overflow: visible; }
-      #hero { height: auto; padding: var(--space-md) 0; }
+    html, body { margin: 0; padding: 0; }
+    body { background: var(--c-bg); color: var(--c-black); font-family: var(--f-body); line-height: 1.6; }
+
+    .hero-root {
+      background: linear-gradient(135deg, var(--c-bg) 0%, var(--c-bg-alt) 100%);
+      padding: clamp(3rem, 8vw, 6rem) 1rem;
+      text-align: center;
     }
-    .contact-card {
+    .hero-root .container { max-width: 960px; margin: 0 auto; }
+    .hero-root h1 {
+      font-family: var(--f-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin: 0 0 1.5rem 0;
+    }
+    .hero-root p {
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
+      line-height: 1.6;
+      color: var(--c-gray-d);
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    .cta-group {
       display: flex;
-      flex-direction: column;
-      gap: 0;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
     }
-    .contact-row {
-      padding: 1rem 0;
-      border-bottom: 2px solid var(--color-gray-dark);
-    }
-    .contact-row:last-child { border-bottom: none; }
-    .contact-row-label {
-      font-size: 0.8rem;
-      font-weight: 800;
+    .btn {
+      padding: 0.875rem 2rem;
+      font-family: var(--f-display);
+      font-weight: 700;
+      font-size: 0.95rem;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--color-blue);
-      margin-bottom: 0.4rem;
+      letter-spacing: 0.05em;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s ease;
+      border-radius: 4px;
     }
-    .contact-row-value {
-      font-size: 1.15rem;
-      font-weight: 600;
-      line-height: 1.4;
+    .btn-primary {
+      background: var(--c-accent);
+      color: white;
     }
-    .contact-row-value a { color: var(--color-black); }
-    .contact-row-value a:hover { color: var(--color-blue); }
+    .btn-primary:hover {
+      background: var(--c-accent-d);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      border: 2px solid var(--c-accent);
+      color: var(--c-accent);
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background: var(--c-accent);
+      color: white;
+    }
+    .section-alt {
+      background: var(--c-surface);
+      padding: clamp(3rem, 8vw, 5rem) 1rem;
+    }
+    .section-alt .container { max-width: 960px; margin: 0 auto; }
+    .section-alt h2 {
+      font-family: var(--f-display);
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 800;
+      margin: 0 0 2rem 0;
+    }
+    .section-alt p {
+      font-size: 1.05rem;
+      color: var(--c-gray-d);
+      line-height: 1.8;
+      max-width: 800px;
+    }
+    footer {
+      background: var(--c-bg-dark, #1a1a18);
+      color: var(--c-gray-l);
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer a { color: var(--c-accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .cta-group { flex-direction: column; }
+      .btn { width: 100%; text-align: center; }
+    }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="container">
-      <a href="index.html" class="logo" aria-label="Strona główna BTC Consulting">BTC <span>Consulting</span></a>
+<header style="background: var(--c-bg); border-bottom: 1px solid var(--c-border); padding: 1.5rem 1rem; position: sticky; top: 0; z-index: 100;">
+  <div class="container" style="max-width: 960px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+    <a href="/" style="font-family: var(--f-display); font-size: 1.25rem; font-weight: 900; text-decoration: none; color: var(--c-black);">
+      BioTC
+    </a>
+    <nav style="display: flex; gap: 2rem;">
+      <a href="/v5/" style="color: var(--c-gray-d); text-decoration: none; font-weight: 600;">Pełna strona</a>
+      <a href="/v5/technologia.html" style="color: var(--c-gray-d); text-decoration: none; font-weight: 600;">Technologia</a>
+      <a href="/v5/misja.html" style="color: var(--c-gray-d); text-decoration: none; font-weight: 600;">O nas</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero-root">
+  <div class="container">
+    <h1>Rozwiąż problem osadu<br><span style="color: var(--c-accent);">na zawsze</span></h1>
+    <p>Polska technologia HTC przekształca osad ściekowy w hydrowęgiel — paliwo alternatywne i nawóz. Redukcja objętości –75%. Dofinansowanie do 90% z FENX i NFOŚiGW.</p>
+    <div class="cta-group">
+      <a href="/v5/" class="btn btn-primary">Poznaj technologię</a>
+      <a href="/v5/misja.html" class="btn btn-outline">O BioTC</a>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main>
-    <section id="hero" style="position: relative; overflow: hidden;">
-      <div class="trust-blueprint">
-        <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
-          <path class="bp-line-thin" d="M 50 50 L 750 50 L 750 750 L 50 750 Z" />
-          <path class="bp-line-thin" d="M 50 150 L 750 150 M 50 650 L 750 650" />
-          <path class="bp-line-thin" d="M 150 50 L 150 750 M 650 50 L 650 750" />
-          <path class="bp-line" d="M 300 200 C 300 120 500 120 500 200 L 500 600 C 500 680 300 680 300 600 Z" />
-          <path class="bp-line" d="M 280 200 L 520 200 M 280 600 L 520 600" />
-          <path class="bp-line" d="M 400 80 L 400 700" />
-          <path class="bp-line" d="M 320 280 L 480 280 M 320 400 L 480 400 M 320 520 L 480 520" />
-          <rect class="bp-line" x="360" y="50" width="80" height="50" />
-          <circle class="bp-line-thin" cx="400" cy="75" r="15" />
-          <path class="bp-line" d="M 150 250 L 300 250" />
-          <circle class="bp-line" cx="225" cy="250" r="15" />
-          <path class="bp-line" d="M 500 550 L 650 550" />
-          <circle class="bp-line" cx="575" cy="550" r="15" />
-          <path class="bp-line-thin" d="M 500 300 L 600 250 L 700 250" />
-          <circle class="bp-line" cx="500" cy="300" r="5" />
-          <path class="bp-line-thin" d="M 300 500 L 200 450 L 100 450" />
-          <circle class="bp-line" cx="300" cy="500" r="5" />
-          <rect class="bp-line" x="180" y="350" width="40" height="100" />
-          <path class="bp-line-thin" d="M 200 350 L 200 250" />
-        </svg>
-      </div>
-      <div class="container">
-        <div class="grid-2" style="align-items: center;">
-          <div>
-            <span class="rubric">Strona w budowie</span>
-            <h1>Rozwiąż problem osadu na zawsze. Bez szokowego obciążenia dla budżetu gminy.</h1>
-            <p class="hero-desc">Polska technologia HTC dla oczyszczalni ścieków „pod klucz”. Przekształcamy odpady w energię i zmniejszamy ich objętość 4-krotnie. Pozyskujemy do 70-85% europejskiego dofinansowania grantowego na budowę.</p>
-            <p class="hero-desc" style="font-size: 0.95rem; font-weight: 600; color: var(--color-gray-dark);">Przepraszamy za niedogodności — strona jest w przebudowie.</p>
-          </div>
+<section class="section-alt">
+  <div class="container">
+    <h2>Dla oczyszczalni ścieków</h2>
+    <p>HTC nie jest kolejną metodą usuwania osadu. To metoda <strong>przekształcenia osadu z odpadu w produkt</strong> — hydrowęgiel ma wartość opałową 11–15 MJ/kg, jest pozbawiony patogenów i ma obniżone stężenie PFAS.</p>
+    <p style="margin-top: 1.5rem;">
+      <strong>Pierwsza instalacja w Polsce:</strong> MPWiK Lubin (kontrakt 2025) — pierwszy zatwierdzony projekt komercyjny HTC. Dokumentacja, TEO, wnioski grantowe — wszystko od BioTC.
+    </p>
+  </div>
+</section>
 
-          <div class="paper-checklist-wrapper">
-            <div class="paper-checklist">
-              <div class="paper-header">
-                <span class="paper-title">KONTAKT</span>
-              </div>
-              <div class="contact-card">
-                <div class="contact-row">
-                  <div class="contact-row-label">Telefon</div>
-                  <div class="contact-row-value"><a href="tel:+48608003458">+48 608 003 458</a></div>
-                </div>
-                <div class="contact-row">
-                  <div class="contact-row-label">E-mail</div>
-                  <div class="contact-row-value"><a href="mailto:contact@biotc.pl">contact@biotc.pl</a></div>
-                </div>
-                <div class="contact-row">
-                  <div class="contact-row-label">Biuro</div>
-                  <div class="contact-row-value">ul. Daszyńskiego 34/3<br>44-100 Gliwice, Polska</div>
-                </div>
-                <div class="contact-row">
-                  <div class="contact-row-label">Spółka</div>
-                  <div class="contact-row-value">BTC Consulting Sp. z o.o.</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+<section style="padding: clamp(3rem, 8vw, 5rem) 1rem; background: var(--c-bg);">
+  <div class="container" style="max-width: 960px; margin: 0 auto;">
+    <h2 style="font-family: var(--f-display); font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 800; text-align: center; margin-bottom: 3rem;">Potrzebujesz porady?</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+      <div style="padding: 1.5rem; border: 1px solid var(--c-border); border-radius: 4px;">
+        <div style="font-family: var(--f-display); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--c-accent); margin-bottom: 0.5rem;">Telefon</div>
+        <a href="tel:+48608003458" style="font-size: 1.15rem; font-weight: 600; color: var(--c-black); text-decoration: none;">+48 608 003 458</a>
       </div>
-    </section>
-  </main>
+      <div style="padding: 1.5rem; border: 1px solid var(--c-border); border-radius: 4px;">
+        <div style="font-family: var(--f-display); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--c-accent); margin-bottom: 0.5rem;">E-mail</div>
+        <a href="mailto:contact@biotc.pl" style="font-size: 1.15rem; font-weight: 600; color: var(--c-black); text-decoration: none;">contact@biotc.pl</a>
+      </div>
+      <div style="padding: 1.5rem; border: 1px solid var(--c-border); border-radius: 4px;">
+        <div style="font-family: var(--f-display); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--c-accent); margin-bottom: 0.5rem;">Biuro</div>
+        <div style="font-size: 1rem; font-weight: 600; color: var(--c-black);">ul. Prowansji 8<br>05-500 Józefosław</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="max-width: 960px; margin: 0 auto;">
+    © 2026 BioTC sp. z o.o. — Technologia HTC dla polskich oczyszczalni ścieków<br>
+    <a href="/v5/polityka-prywatnosci.html">Polityka prywatności</a>
+  </div>
+</footer>
 
 </body>
 </html>
