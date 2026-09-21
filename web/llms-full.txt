@@ -13,7 +13,7 @@
 - **Languages:** Polish (primary), English, Ukrainian
 - **Email:** contact@biotc.pl
 - **LinkedIn:** https://www.linkedin.com/company/btc-consulting-pl
-- **Website:** https://btcconsulting.pl
+- **Website:** https://biotc.pl
 
 ### Alternative Names
 
@@ -146,7 +146,7 @@ Grant co-financing covers 75–90% of capital expenditure. Application window: 2
 
 ### 4. Online ROI Calculator
 
-Free interactive tool at btcconsulting.pl that calculates:
+Free interactive tool at biotc.pl that calculates:
 - Current sludge disposal costs vs. HTC alternative
 - CapEx/OpEx projections
 - ROI timeline with and without EU grants
@@ -204,16 +204,16 @@ BTC Consulting's technology is based on 10+ years of applied research conducted 
 
 | URL | Description |
 |---|---|
-| https://btcconsulting.pl/v5/index.html | Homepage — company overview, value proposition |
-| https://btcconsulting.pl/v5/technologia.html | HTC technology — process details, parameters, products |
-| https://btcconsulting.pl/v5/hub-spoke.html | Hub & Spoke model — regional shared installations |
-| https://btcconsulting.pl/v5/kalkulator-roi.html | Interactive ROI calculator |
-| https://btcconsulting.pl/v5/teo.html | TEO assessment — pre-investment analysis service |
-| https://btcconsulting.pl/v5/dotacje.html | EU grants — FEnIKS, KPO, NFOŚiGW funding programs |
-| https://btcconsulting.pl/v5/case-lubin.html | Case study — MPWiK Lubin first commercial installation |
-| https://btcconsulting.pl/v5/misja.html | About BTC Consulting — mission and team |
-| https://btcconsulting.pl/v5/whitepaper.html | Technical whitepaper — BioTC system design |
-| https://btcconsulting.pl/v5/blog/ | Blog — articles on HTC, UWWTD, sludge management |
+| https://biotc.pl/v5/index.html | Homepage — company overview, value proposition |
+| https://biotc.pl/v5/technologia.html | HTC technology — process details, parameters, products |
+| https://biotc.pl/v5/hub-spoke.html | Hub & Spoke model — regional shared installations |
+| https://biotc.pl/v5/kalkulator-roi.html | Interactive ROI calculator |
+| https://biotc.pl/v5/teo.html | TEO assessment — pre-investment analysis service |
+| https://biotc.pl/v5/dotacje.html | EU grants — FEnIKS, KPO, NFOŚiGW funding programs |
+| https://biotc.pl/v5/case-lubin.html | Case study — MPWiK Lubin first commercial installation |
+| https://biotc.pl/v5/misja.html | About BTC Consulting — mission and team |
+| https://biotc.pl/v5/whitepaper.html | Technical whitepaper — BioTC system design |
+| https://biotc.pl/v5/blog/ | Blog — articles on HTC, UWWTD, sludge management |
 
 ## Contact
 

@@ -86,7 +86,7 @@ npm run blog:watch    # dev server on :8081
 
 ## Pre-launch checklist
 
-Before deploying to btcconsulting.pl production:
+Before deploying to biotc.pl production:
 
 1. **Remove `/v5/` prefix** from all canonical URLs, internal links (`partials/header.js`, `partials/footer.js`), `sitemap.xml`, `og:url` tags, and `_next` redirect in the contact form. Depends on hosting config: either serve `v5/` contents from domain root, or update `deploy.yml` accordingly.
 2. **Bump partial cache busters** (`header.js?v=`, `footer.js?v=`) after the link changes.

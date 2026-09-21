@@ -6,8 +6,8 @@
  */
 
 const ALLOWED_ORIGINS = [
-  'https://btcconsulting.pl',
-  'https://www.btcconsulting.pl',
+  'https://biotc.pl',
+  'https://www.biotc.pl',
   'http://localhost:8000',
   'http://localhost:8001',
 ];
@@ -46,14 +46,14 @@ const TOOLS = [
   },
 ];
 
-const FETCH_ALLOWLIST = ['www.wikichar.net', 'wikichar.net', 'btcconsulting.pl', 'www.btcconsulting.pl'];
+const FETCH_ALLOWLIST = ['www.wikichar.net', 'wikichar.net', 'biotc.pl', 'www.biotc.pl'];
 
 async function executeTool(name, input) {
   if (name === 'web_fetch') {
     try {
       const hostname = new URL(input.url).hostname;
       if (!FETCH_ALLOWLIST.includes(hostname))
-        return `Blocked: fetching ${hostname} is not allowed. Only WikiChar and btcconsulting.pl domains are permitted.`;
+        return `Blocked: fetching ${hostname} is not allowed. Only WikiChar and biotc.pl domains are permitted.`;
       const res = await fetch(input.url, {
         headers: { 'User-Agent': 'BTC-Consulting-Bot/1.0', 'Accept': 'text/html,text/plain' },
         redirect: 'follow',

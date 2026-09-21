@@ -177,7 +177,7 @@ document.write(`
         'TITLE:Project Manager',
         'TEL;TYPE=WORK,VOICE:+48608003458',
         'EMAIL;TYPE=PREF,INTERNET:contact@biotc.pl',
-        'URL:https://btcconsulting.pl',
+        'URL:https://biotc.pl',
         'END:VCARD'
       ].join('\\r\\n');
       var blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });

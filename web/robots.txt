@@ -1,4 +1,4 @@
-# BTC Consulting — btcconsulting.pl
+# BTC Consulting — biotc.pl
 User-agent: *
 Disallow: /v5/dziekujemy.html
 Disallow: /_archive/
@@ -30,8 +30,8 @@ Disallow: /
 User-agent: meta-externalagent
 Disallow: /
 
-Sitemap: https://btcconsulting.pl/sitemap.xml
+Sitemap: https://biotc.pl/sitemap.xml
 
 # AI/LLM context
 # https://llmstxt.org
-LLMs.txt: https://btcconsulting.pl/llms.txt
+LLMs.txt: https://biotc.pl/llms.txt

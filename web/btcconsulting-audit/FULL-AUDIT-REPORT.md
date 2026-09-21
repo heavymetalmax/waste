@@ -1,6 +1,6 @@
 # SEO Audit — BTC Consulting Homepage
 
-**URL:** `https://btcconsulting.pl/v5/index.html`
+**URL:** `https://biotc.pl/v5/index.html`
 **Date:** 2026-07-03
 **Language:** Polish (pl)
 **Business Type:** B2B Industrial — HTC Technology for Wastewater Treatment
@@ -56,7 +56,7 @@
 
 | Finding | Severity | Detail |
 |---|---|---|
-| Canonical URLs expose `/v5/` path | **High** | `btcconsulting.pl/v5/index.html` — version prefix signals staging to Google |
+| Canonical URLs expose `/v5/` path | **High** | `biotc.pl/v5/index.html` — version prefix signals staging to Google |
 | Open Graph tags missing | **High** | 9/10 pages lack og:title, og:description, og:image — blank LinkedIn previews |
 | `dziekujemy.html` indexable | **Medium** | Thank-you page has no `noindex` — will appear in search results |
 | Twitter Card meta absent | **Medium** | No `twitter:card` tags site-wide |
@@ -145,7 +145,7 @@
 ### Immediate Fix
 
 ```json
-"logo": "https://btcconsulting.pl/v5/assets/svg/logo.svg"
+"logo": "https://biotc.pl/v5/assets/svg/logo.svg"
 ```
 
 ---

@@ -41,7 +41,7 @@ document.write(`
       >
         <input type="hidden" name="_subject" value="BioTC — zapytanie ze strony">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://btcconsulting.pl/v5/dziekujemy.html">
+        <input type="hidden" name="_next" value="https://biotc.pl/v5/dziekujemy.html">
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
         <div class="form-group">

@@ -16,10 +16,10 @@
 
 ## P0 — блокує конверсію (виправити до будь-якого трафіку)
 
-1. **Форма веде в 404 після відправки.** [footer.js:42](v5/partials/footer.js) → `_next: https://btcconsulting.pl/dziekujemy.html` — файлу `dziekujemy.html` не існує. Кожен лід завершує шлях помилкою, і конверсію неможливо трекати як goal.
+1. **Форма веде в 404 після відправки.** [footer.js:42](v5/partials/footer.js) → `_next: https://biotc.pl/dziekujemy.html` — файлу `dziekujemy.html` не існує. Кожен лід завершує шлях помилкою, і конверсію неможливо трекати як goal.
 2. **Dev-заглушка AI-чату на калькуляторі.** [kalkulator-roi.html:1303](v5/kalkulator-roi.html) — кнопка «Zapytaj AI» показує користувачу: *«Aby aktywować, wdróż Cloudflare Worker i zamień AGENT_ENDPOINT w kodzie»*. Це третій CTA на головному конверсійному інструменті. Прибрати або сховати до запуску воркера.
 3. **NIP-заглушка в футері**: `NIP: PL 000-000-00-00` ([footer.js:144](v5/partials/footer.js)) — для B2G-аудиторії (wójt, скарбник гміни) це миттєвий сигнал недовіри.
-4. **Розсинхрон контактів**: футер — `info@btcconsulting.pl`, чат — `contact@biotc.pl` і `+48 608 003 458`, форма — gmail. Телефону немає ніде, крім мертвого чату. План вимагає єдиний контактний канал на всіх сторінках.
+4. **Розсинхрон контактів**: футер — `info@biotc.pl`, чат — `contact@biotc.pl` і `+48 608 003 458`, форма — gmail. Телефону немає ніде, крім мертвого чату. План вимагає єдиний контактний канал на всіх сторінках.
 5. **Дані кейсу Lubin суперечать плану**: сайт скрізь каже **800 т/рік**, CONVERSION_PLAN — **3 800 т/рік і PLN 2,09M/рік**; teo.html називає конфігурацію TH-AD-HTC, V3-бриф — HTC-S. Це головний соціальний доказ — цифру треба верифікувати проти `08-case-study/CORRECTIONS_RESEARCH_REPORT.md` і уніфікувати.
 
 ## P1 — блокує цілі «пошук» і «AI-видача»
@@ -27,7 +27,7 @@
 6. **Сторінка /uwwtd не існує** — це пілларна SEO-стаття під головний keyword «zagospodarowanie osadów ściekowych», і контент для неї **вже готовий** (`website-kit/02-market-hook/uwwtd-pillar-pl.md`, план: «публікувати майже без змін»). Найдешевший великий виграш всього аудиту.
 7. **SEO-розмітка є лише на technologia.html**: canonical + OG — тільки там; JSON-LD — тільки technologia і kalkulator. На головній немає взагалі нічого. **FAQPage-схеми немає на жодній сторінці**, хоча FAQ-блоки є на 4 сторінках — а саме FAQPage план називає ключем до цитування в Perplexity/ChatGPT.
 8. **Немає sitemap.xml, robots.txt, llms.txt** — llms.txt прямо прописаний у V3-брифі як інструмент AI-видимості.
-9. **URL-стратегія протікає**: canonical `https://btcconsulting.pl/v5/technologia.html` і всі посилання жорстко `/v5/...`. План вимагає чисті slug'и (`/technologia`, `/dotacje`). Треба рішення про деплой (root або rewrite) до індексації.
+9. **URL-стратегія протікає**: canonical `https://biotc.pl/v5/technologia.html` і всі посилання жорстко `/v5/...`. План вимагає чисті slug'и (`/technologia`, `/dotacje`). Треба рішення про деплой (root або rewrite) до індексації.
 10. **Аналітики немає** (GA4/Hotjar — Sprint 4 плану). Жоден KPI з плану (CTR на CTA >3%, форма >2%, кальк→форма >15%) зараз не вимірюється.
 
 ## P2 — розриви з конверсійним планом по сторінках

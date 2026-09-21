@@ -34,7 +34,7 @@ For municipalities below 20,000 PE (population equivalent), BTC Consulting offer
 1. **TEO (Techno-Economic Assessment):** 4–6 weeks, 200+ page documentation ready for NFOŚiGW submission
 2. **HTC Installation Design & Delivery:** Turnkey HTC systems in three configurations (HTC-S, HTC-D, TH+HTC)
 3. **Grant Application Support:** Documentation for FEnIKS, KPO, NFOŚiGW, LIFE programs
-4. **ROI Calculator:** Free online tool at btcconsulting.pl/v5/kalkulator-roi.html
+4. **ROI Calculator:** Free online tool at biotc.pl/v5/kalkulator-roi.html
 
 ## Market Context
 
@@ -44,17 +44,17 @@ For municipalities below 20,000 PE (population equivalent), BTC Consulting offer
 
 ## Pages
 
-- Homepage: https://btcconsulting.pl/v5/index.html
-- Technology (HTC): https://btcconsulting.pl/v5/technologia.html
-- Hub & Spoke Model: https://btcconsulting.pl/v5/hub-spoke.html
-- ROI Calculator: https://btcconsulting.pl/v5/kalkulator-roi.html
-- TEO Assessment: https://btcconsulting.pl/v5/teo.html
-- EU Grants: https://btcconsulting.pl/v5/dotacje.html
-- Case Study (Lubin): https://btcconsulting.pl/v5/case-lubin.html
-- Mission: https://btcconsulting.pl/v5/misja.html
-- Whitepaper: https://btcconsulting.pl/v5/whitepaper.html
-- Blog: https://btcconsulting.pl/v5/blog/
-- HTC Technology (English): https://btcconsulting.pl/v5/en/htc-technology-poland.html
+- Homepage: https://biotc.pl/v5/index.html
+- Technology (HTC): https://biotc.pl/v5/technologia.html
+- Hub & Spoke Model: https://biotc.pl/v5/hub-spoke.html
+- ROI Calculator: https://biotc.pl/v5/kalkulator-roi.html
+- TEO Assessment: https://biotc.pl/v5/teo.html
+- EU Grants: https://biotc.pl/v5/dotacje.html
+- Case Study (Lubin): https://biotc.pl/v5/case-lubin.html
+- Mission: https://biotc.pl/v5/misja.html
+- Whitepaper: https://biotc.pl/v5/whitepaper.html
+- Blog: https://biotc.pl/v5/blog/
+- HTC Technology (English): https://biotc.pl/v5/en/htc-technology-poland.html
 
 ## Contact
 

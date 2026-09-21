@@ -56,7 +56,7 @@
         {
           "title": "Canonical URLs expose /v5/ subdirectory",
           "severity": "High",
-          "description": "All canonicals use btcconsulting.pl/v5/index.html — version prefix signals staging.",
+          "description": "All canonicals use biotc.pl/v5/index.html — version prefix signals staging.",
           "recommendation": "Serve from root before first production indexing"
         },
         {
@@ -166,7 +166,7 @@
           "title": "Logo URL broken — references non-existent PNG",
           "severity": "Critical",
           "description": "Schema references /v5/assets/img/logo.png but only /v5/assets/svg/logo.svg exists.",
-          "recommendation": "Change to 'https://btcconsulting.pl/v5/assets/svg/logo.svg'"
+          "recommendation": "Change to 'https://biotc.pl/v5/assets/svg/logo.svg'"
         },
         {
           "title": "PostalAddress incomplete",
